@@ -6,7 +6,7 @@ class LoginIllustration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.sizeOf(context).height * 0.42;
+    final height = MediaQuery.sizeOf(context).height * 0.32;
     return SizedBox(
       height: height,
       width: double.infinity,

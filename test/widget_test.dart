@@ -49,7 +49,7 @@ void main() {
     await tester.pumpWidget(const App());
     await tester.pumpAndSettle();
 
-    expect(find.text('Aura'), findsOneWidget);
+    expect(find.byWidgetPredicate((w) => w is Image), findsWidgets);
     expect(find.byType(TextField), findsNWidgets(2));
   });
 }

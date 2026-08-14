@@ -5,11 +5,6 @@ class AuthStrings {
 
   final AppLanguage language;
 
-  String get tagline => switch (language) {
-    AppLanguage.portuguese => 'Aprenda. Pratique. Evolua.',
-    AppLanguage.english => 'Learn. Practice. Evolve.',
-  };
-
   String get nameHint => switch (language) {
     AppLanguage.portuguese => 'Seu nome',
     AppLanguage.english => 'Your name',
