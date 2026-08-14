@@ -10,7 +10,7 @@ A gamified study app for Brazilian students preparing for the ENEM, university e
 
 ## Overview
 
-Aura takes the Duolingo idea — short, structured, habit-forming lessons — and applies it to school subjects instead of languages. Content for each subject is organized as a browsable tree (region/area → theme → activity) rather than a flat quiz list, so it can grow deep (Brazil's geography and history get particular depth) without turning into an unnavigable pile of questions.
+Aura turns school subjects into short, structured, habit-forming lessons. Content for each subject is organized as a browsable tree (region/area → theme → activity) rather than a flat quiz list, so it can grow deep (Brazil's geography and history get particular depth) without turning into an unnavigable pile of questions.
 
 The project is early-stage: the content catalog, navigation, auth and profile are built; the exercises themselves (the actual questions/activities a user answers) are not implemented yet.
 
