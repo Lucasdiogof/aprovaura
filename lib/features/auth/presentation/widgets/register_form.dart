@@ -5,30 +5,42 @@ import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/app_text_field.dart';
 import 'package:aura/shared/widgets/password_visibility_toggle.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({
+class RegisterForm extends StatelessWidget {
+  const RegisterForm({
     required this.strings,
+    required this.nameController,
+    required this.nameError,
+    required this.usernameController,
     required this.emailController,
     required this.emailError,
     required this.passwordController,
     required this.passwordError,
+    required this.confirmPasswordController,
+    required this.confirmPasswordError,
     required this.obscurePassword,
-    required this.onToggleObscure,
+    required this.onToggleObscurePassword,
+    required this.obscureConfirmPassword,
+    required this.onToggleObscureConfirmPassword,
     required this.onSubmit,
-    required this.onForgotPassword,
     super.key,
     this.isLoading = false,
   });
 
   final AuthStrings strings;
+  final TextEditingController nameController;
+  final String? nameError;
+  final TextEditingController usernameController;
   final TextEditingController emailController;
   final String? emailError;
   final TextEditingController passwordController;
   final String? passwordError;
+  final TextEditingController confirmPasswordController;
+  final String? confirmPasswordError;
   final bool obscurePassword;
-  final VoidCallback onToggleObscure;
+  final VoidCallback onToggleObscurePassword;
+  final bool obscureConfirmPassword;
+  final VoidCallback onToggleObscureConfirmPassword;
   final VoidCallback onSubmit;
-  final VoidCallback onForgotPassword;
   final bool isLoading;
 
   @override
@@ -36,6 +48,19 @@ class LoginForm extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        AppTextField(
+          controller: nameController,
+          prefixIcon: Icons.person_outline,
+          hintText: strings.nameHint,
+          errorText: nameError,
+        ),
+        const SizedBox(height: 16),
+        AppTextField(
+          controller: usernameController,
+          prefixIcon: Icons.alternate_email,
+          hintText: strings.usernameHint,
+        ),
+        const SizedBox(height: 16),
         AppTextField(
           controller: emailController,
           prefixIcon: Icons.email_outlined,
@@ -52,25 +77,26 @@ class LoginForm extends StatelessWidget {
           suffixIcon: PasswordVisibilityToggle(
             obscured: obscurePassword,
             color: context.colors.textSecondary,
-            onPressed: onToggleObscure,
+            onPressed: onToggleObscurePassword,
           ),
           errorText: passwordError,
         ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: TextButton(
-            onPressed: onForgotPassword,
-            style: TextButton.styleFrom(
-              minimumSize: Size.zero,
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            ),
-            child: Text(strings.forgotPasswordLabel),
+        const SizedBox(height: 16),
+        AppTextField(
+          controller: confirmPasswordController,
+          prefixIcon: Icons.lock_outline,
+          hintText: strings.confirmPasswordHint,
+          obscureText: obscureConfirmPassword,
+          suffixIcon: PasswordVisibilityToggle(
+            obscured: obscureConfirmPassword,
+            color: context.colors.textSecondary,
+            onPressed: onToggleObscureConfirmPassword,
           ),
+          errorText: confirmPasswordError,
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 20),
         AppButton(
-          label: strings.signInButton,
+          label: strings.registerSubmitButton,
           onPressed: onSubmit,
           isLoading: isLoading,
         ),

@@ -10,6 +10,21 @@ class AuthStrings {
     AppLanguage.english => 'Learn. Practice. Evolve.',
   };
 
+  String get nameHint => switch (language) {
+    AppLanguage.portuguese => 'Seu nome',
+    AppLanguage.english => 'Your name',
+  };
+
+  String get nameRequired => switch (language) {
+    AppLanguage.portuguese => 'Informe seu nome.',
+    AppLanguage.english => 'Enter your name.',
+  };
+
+  String get usernameHint => switch (language) {
+    AppLanguage.portuguese => 'Nome de usuário (opcional)',
+    AppLanguage.english => 'Username (optional)',
+  };
+
   String get emailHint => switch (language) {
     AppLanguage.portuguese => 'seuemail@exemplo.com',
     AppLanguage.english => 'youremail@example.com',
@@ -53,5 +68,52 @@ class AuthStrings {
   String get createAccountAction => switch (language) {
     AppLanguage.portuguese => 'Criar conta',
     AppLanguage.english => 'Create account',
+  };
+
+  String get accountNotFoundTitle => switch (language) {
+    AppLanguage.portuguese => 'Não encontramos essa conta',
+    AppLanguage.english => "We couldn't find that account",
+  };
+
+  String get accountNotFoundDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Confira o e-mail e a senha, ou crie uma conta caso ainda não tenha uma.',
+    AppLanguage.english =>
+      "Check your email and password, or create an account if you don't have one yet.",
+  };
+
+  String get registerHeading => switch (language) {
+    AppLanguage.portuguese => 'Criar sua conta',
+    AppLanguage.english => 'Create your account',
+  };
+
+  String get confirmPasswordHint => switch (language) {
+    AppLanguage.portuguese => 'Confirmar senha',
+    AppLanguage.english => 'Confirm password',
+  };
+
+  String get confirmPasswordRequired => switch (language) {
+    AppLanguage.portuguese => 'Confirme sua senha.',
+    AppLanguage.english => 'Confirm your password.',
+  };
+
+  String get passwordsDoNotMatch => switch (language) {
+    AppLanguage.portuguese => 'As senhas não coincidem.',
+    AppLanguage.english => 'Passwords do not match.',
+  };
+
+  String get registerSubmitButton => switch (language) {
+    AppLanguage.portuguese => 'Criar conta',
+    AppLanguage.english => 'Create account',
+  };
+
+  String get alreadyHaveAccountQuestion => switch (language) {
+    AppLanguage.portuguese => 'Já tem uma conta?',
+    AppLanguage.english => 'Already have an account?',
+  };
+
+  String get signInAction => switch (language) {
+    AppLanguage.portuguese => 'Entrar',
+    AppLanguage.english => 'Sign in',
   };
 }
