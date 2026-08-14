@@ -23,21 +23,29 @@ class ProfilePage extends StatelessWidget {
   }
 
   void _openMyAccount(BuildContext context, ProfileState state) {
+    final cubit = context.read<ProfileCubit>();
     Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (_) => MyAccountPage(
-          initialName: state.profile?.name ?? '',
-          initialUsername: state.profile?.username,
-          email: state.authUser.email,
+        builder: (_) => BlocProvider.value(
+          value: cubit,
+          child: MyAccountPage(
+            initialName: state.profile?.name ?? '',
+            initialUsername: state.profile?.username,
+            email: state.authUser.email,
+          ),
         ),
       ),
     );
   }
 
   void _openGoal(BuildContext context) {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute<void>(builder: (_) => const GoalSettingsPage()));
+    final cubit = context.read<ProfileCubit>();
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) =>
+            BlocProvider.value(value: cubit, child: const GoalSettingsPage()),
+      ),
+    );
   }
 
   void _openInterestedSubjects(BuildContext context, ProfileState state) {
