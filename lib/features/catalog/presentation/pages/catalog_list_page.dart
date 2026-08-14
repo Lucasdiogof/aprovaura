@@ -7,6 +7,7 @@ import 'package:aura/features/catalog/domain/repositories/catalog_repository.dar
 import 'package:aura/features/catalog/l10n/catalog_strings.dart';
 import 'package:aura/features/catalog/presentation/cubit/catalog_cubit.dart';
 import 'package:aura/features/catalog/presentation/cubit/catalog_state.dart';
+import 'package:aura/features/catalog/presentation/mapped_activities.dart';
 import 'package:aura/features/catalog/presentation/widgets/catalog_node_tile.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 import 'package:aura/shared/widgets/app_button.dart';
@@ -60,17 +61,20 @@ class CatalogListPage extends StatelessWidget {
                     separatorBuilder: (_, _) => const SizedBox(height: 12),
                     itemBuilder: (context, index) {
                       final node = nodes[index];
+                      final activityBuilder = mappedActivities[node.id];
                       return CatalogNodeTile(
                         node: node,
                         accentColor: subject.accentColor,
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute<void>(
-                            builder: (_) => CatalogListPage(
-                              subject: subject,
-                              title: node.title,
-                              subtitle: node.description,
-                              parentId: node.id,
-                            ),
+                            builder:
+                                activityBuilder ??
+                                (_) => CatalogListPage(
+                                  subject: subject,
+                                  title: node.title,
+                                  subtitle: node.description,
+                                  parentId: node.id,
+                                ),
                           ),
                         ),
                       );
