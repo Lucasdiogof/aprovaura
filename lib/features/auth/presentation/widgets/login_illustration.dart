@@ -21,7 +21,7 @@ class LoginIllustration extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: height * 0.05,
+              height: height * 0.02,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
