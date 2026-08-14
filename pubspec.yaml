@@ -44,6 +44,8 @@ dependencies:
   go_router: ^15.1.2 # Declarative routing
   supabase_flutter: ^2.9.0 # Supabase client (auth)
   shared_preferences: ^2.3.3 # Persists theme and language preferences
+  flutter_map: ^8.3.1
+  latlong2: ^0.10.1
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +84,7 @@ flutter:
     - lib/assets/login_illustration.png
     - lib/assets/logo.png
     - lib/assets/login_logo.png
+    - lib/assets/maps/brazil_states.geojson
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
