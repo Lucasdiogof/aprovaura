@@ -13,4 +13,6 @@ abstract class AuthRepository {
   });
 
   Future<void> signOut();
+
+  AppUser? get currentUser;
 }

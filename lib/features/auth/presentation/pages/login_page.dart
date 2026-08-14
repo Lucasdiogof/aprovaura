@@ -79,8 +79,8 @@ class _LoginPageState extends State<LoginPage> {
       child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           switch (state) {
-            case AuthSuccess(:final user):
-              context.go('/home', extra: user);
+            case AuthSuccess():
+              context.go('/home');
             case AuthError(:final message, :final isInvalidCredentials):
               if (isInvalidCredentials) {
                 AppInfoBottomSheet.showError(

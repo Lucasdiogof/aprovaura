@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aura/core/di/injection_container.dart';
-import 'package:aura/features/auth/domain/entities/app_user.dart';
+import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/auth/presentation/pages/login_page.dart';
 import 'package:aura/features/auth/presentation/pages/register_page.dart';
@@ -11,6 +11,11 @@ import 'package:aura/features/splash/presentation/pages/splash_page.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
+  redirect: (context, state) {
+    final hasSession = sl<AuthRepository>().currentUser != null;
+    if (hasSession && state.matchedLocation == '/') return '/home';
+    return null;
+  },
   routes: [
     GoRoute(path: '/', builder: (context, state) => const SplashPage()),
     GoRoute(
@@ -29,14 +34,13 @@ final GoRouter appRouter = GoRouter(
     ),
     GoRoute(
       path: '/onboarding',
-      builder: (context, state) =>
-          OnboardingPage(user: state.extra! as AppUser),
+      builder: (context, state) => const OnboardingPage(),
     ),
     GoRoute(
       path: '/home',
       builder: (context, state) => BlocProvider(
         create: (_) => sl<AuthCubit>(),
-        child: HomeShellPage(user: state.extra! as AppUser),
+        child: HomeShellPage(user: sl<AuthRepository>().currentUser!),
       ),
     ),
   ],

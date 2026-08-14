@@ -5,7 +5,6 @@ import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
-import 'package:aura/features/auth/domain/entities/app_user.dart';
 import 'package:aura/features/onboarding/l10n/onboarding_strings.dart';
 import 'package:aura/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:aura/features/onboarding/presentation/cubit/onboarding_state.dart';
@@ -18,30 +17,26 @@ import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 
 class OnboardingPage extends StatelessWidget {
-  const OnboardingPage({required this.user, super.key});
-
-  final AppUser user;
+  const OnboardingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => OnboardingCubit(sl<ProfileRepository>()),
-      child: _OnboardingView(user: user),
+      child: const _OnboardingView(),
     );
   }
 }
 
 class _OnboardingView extends StatelessWidget {
-  const _OnboardingView({required this.user});
-
-  final AppUser user;
+  const _OnboardingView();
 
   Future<void> _finish(BuildContext context) async {
     final result = await context.read<OnboardingCubit>().submit();
     if (!context.mounted) return;
     switch (result) {
       case Success():
-        context.go('/home', extra: user);
+        context.go('/home');
       case Error(:final failure):
         await AppInfoBottomSheet.showError(
           context,

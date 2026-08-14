@@ -25,6 +25,9 @@ class _FakeAuthRepository implements AuthRepository {
 
   @override
   Future<void> signOut() => throw UnimplementedError();
+
+  @override
+  AppUser? get currentUser => null;
 }
 
 void main() {
@@ -36,8 +39,11 @@ void main() {
     if (!sl.isRegistered<LocaleCubit>()) {
       sl.registerLazySingleton<LocaleCubit>(LocaleCubit.new);
     }
+    if (!sl.isRegistered<AuthRepository>()) {
+      sl.registerLazySingleton<AuthRepository>(_FakeAuthRepository.new);
+    }
     if (!sl.isRegistered<AuthCubit>()) {
-      sl.registerFactory<AuthCubit>(() => AuthCubit(_FakeAuthRepository()));
+      sl.registerFactory<AuthCubit>(() => AuthCubit(sl()));
     }
 
     await tester.pumpWidget(const App());

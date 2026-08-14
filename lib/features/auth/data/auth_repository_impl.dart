@@ -58,6 +58,12 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<void> signOut() => _client.auth.signOut();
 
+  @override
+  AppUser? get currentUser {
+    final user = _client.auth.currentUser;
+    return user == null ? null : _toAppUser(user);
+  }
+
   AppUser _toAppUser(User user) =>
       AppUser(id: user.id, email: user.email ?? '');
 

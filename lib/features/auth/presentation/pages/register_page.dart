@@ -109,7 +109,7 @@ class _RegisterPageState extends State<RegisterPage> {
       username: username.isEmpty ? null : username,
     );
     if (!context.mounted) return;
-    context.go('/onboarding', extra: user);
+    context.go('/onboarding');
   }
 
   void _goToLogin() => context.pop();
