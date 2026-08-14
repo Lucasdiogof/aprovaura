@@ -31,7 +31,7 @@ class _FakeAuthRepository implements AuthRepository {
 }
 
 void main() {
-  testWidgets('splash navigates to the login screen', (tester) async {
+  testWidgets('app opens directly on the login screen', (tester) async {
     SharedPreferences.setMockInitialValues({});
     if (!sl.isRegistered<ThemeCubit>()) {
       sl.registerLazySingleton<ThemeCubit>(ThemeCubit.new);
@@ -47,11 +47,9 @@ void main() {
     }
 
     await tester.pumpWidget(const App());
-    expect(find.text('Aura'), findsOneWidget);
-
-    await tester.pump(const Duration(milliseconds: 900));
     await tester.pumpAndSettle();
 
+    expect(find.text('Aura'), findsOneWidget);
     expect(find.byType(TextField), findsNWidgets(2));
   });
 }

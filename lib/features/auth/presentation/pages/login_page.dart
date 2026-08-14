@@ -116,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              AppLogo(tagline: t.tagline),
+                              AppLogo(tagline: t.tagline, showIcon: true),
                               const SizedBox(height: 32),
                               LoginForm(
                                 strings: t,

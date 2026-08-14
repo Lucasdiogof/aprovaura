@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:aura/core/theme/app_colors.dart';
 
 class AppLogo extends StatelessWidget {
-  const AppLogo({super.key, this.color, this.fontSize = 40, this.tagline});
+  const AppLogo({
+    super.key,
+    this.color,
+    this.fontSize = 40,
+    this.tagline,
+    this.showIcon = false,
+  });
 
   final Color? color;
   final double fontSize;
   final String? tagline;
+  final bool showIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +21,14 @@ class AppLogo extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        if (showIcon) ...[
+          Image.asset(
+            'lib/assets/logo.png',
+            width: fontSize * 2,
+            height: fontSize * 2,
+          ),
+          const SizedBox(height: 12),
+        ],
         Text(
           'Aura',
           style: TextStyle(

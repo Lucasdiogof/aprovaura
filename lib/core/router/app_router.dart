@@ -7,17 +7,15 @@ import 'package:aura/features/auth/presentation/pages/login_page.dart';
 import 'package:aura/features/auth/presentation/pages/register_page.dart';
 import 'package:aura/features/home/presentation/pages/home_shell_page.dart';
 import 'package:aura/features/onboarding/presentation/pages/onboarding_page.dart';
-import 'package:aura/features/splash/presentation/pages/splash_page.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/login',
   redirect: (context, state) {
     final hasSession = sl<AuthRepository>().currentUser != null;
-    if (hasSession && state.matchedLocation == '/') return '/home';
+    if (hasSession && state.matchedLocation == '/login') return '/home';
     return null;
   },
   routes: [
-    GoRoute(path: '/', builder: (context, state) => const SplashPage()),
     GoRoute(
       path: '/login',
       builder: (context, state) => BlocProvider(
