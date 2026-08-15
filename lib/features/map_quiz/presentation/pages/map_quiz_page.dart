@@ -4,7 +4,9 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/features/map_quiz/domain/entities/flag_emoji.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_interaction_type.dart';
+import 'package:aura/features/map_quiz/domain/entities/map_prompt_mode.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_region.dart';
 import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.dart';
 import 'package:aura/features/map_quiz/l10n/map_quiz_strings.dart';
@@ -18,27 +20,38 @@ class MapQuizPage extends StatelessWidget {
     required this.mapId,
     required this.interactionType,
     required this.title,
+    this.promptMode = MapPromptMode.name,
     super.key,
   });
 
   final String mapId;
   final MapInteractionType interactionType;
   final String title;
+  final MapPromptMode promptMode;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => MapQuizCubit(sl<MapQuizRepository>(), mapId: mapId),
-      child: _MapQuizView(interactionType: interactionType, title: title),
+      child: _MapQuizView(
+        interactionType: interactionType,
+        title: title,
+        promptMode: promptMode,
+      ),
     );
   }
 }
 
 class _MapQuizView extends StatefulWidget {
-  const _MapQuizView({required this.interactionType, required this.title});
+  const _MapQuizView({
+    required this.interactionType,
+    required this.title,
+    required this.promptMode,
+  });
 
   final MapInteractionType interactionType;
   final String title;
+  final MapPromptMode promptMode;
 
   @override
   State<_MapQuizView> createState() => _MapQuizViewState();
@@ -108,6 +121,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
                   _PlayingView(
                     strings: t,
                     interactionType: widget.interactionType,
+                    promptMode: widget.promptMode,
                     regions: regions,
                     solvedIds: regions
                         .map((region) => region.id)
@@ -134,6 +148,7 @@ class _PlayingView extends StatelessWidget {
   const _PlayingView({
     required this.strings,
     required this.interactionType,
+    required this.promptMode,
     required this.regions,
     required this.solvedIds,
     required this.currentTargetId,
@@ -147,6 +162,7 @@ class _PlayingView extends StatelessWidget {
 
   final MapQuizStrings strings;
   final MapInteractionType interactionType;
+  final MapPromptMode promptMode;
   final List<MapRegion> regions;
   final Set<String> solvedIds;
   final String currentTargetId;
@@ -240,15 +256,35 @@ class _PlayingView extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(24, 16, 24, 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                strings.findPrompt(currentTarget.name),
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  color: context.colors.textPrimary,
+              if (promptMode == MapPromptMode.flag)
+                Row(
+                  children: [
+                    Text(
+                      flagEmojiForCountryId(currentTarget.id) ?? '🏳️',
+                      style: const TextStyle(fontSize: 32),
+                    ),
+                    const SizedBox(width: 12),
+                    Text(
+                      strings.flagPrompt,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: context.colors.textPrimary,
+                      ),
+                    ),
+                  ],
+                )
+              else
+                Text(
+                  strings.findPrompt(currentTarget.name),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: context.colors.textPrimary,
+                  ),
                 ),
-              ),
               Text(
                 strings.progressLabel(correctCount, totalCount),
                 style: TextStyle(color: context.colors.textSecondary),

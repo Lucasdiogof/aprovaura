@@ -1,16 +1,19 @@
 import 'package:flutter/widgets.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_interaction_type.dart';
+import 'package:aura/features/map_quiz/domain/entities/map_prompt_mode.dart';
 import 'package:aura/features/map_quiz/presentation/pages/map_quiz_page.dart';
 
 Widget Function(BuildContext) _mapQuiz({
   required String mapId,
   required MapInteractionType interactionType,
   required String title,
+  MapPromptMode promptMode = MapPromptMode.name,
 }) =>
     (_) => MapQuizPage(
       mapId: mapId,
       interactionType: interactionType,
       title: title,
+      promptMode: promptMode,
     );
 
 final Map<String, WidgetBuilder> mappedActivities = {
@@ -153,5 +156,47 @@ final Map<String, WidgetBuilder> mappedActivities = {
     mapId: 'world_rivers',
     interactionType: MapInteractionType.line,
     title: 'Grandes rios do mundo',
+  ),
+  '47c2eaf3-d4e4-476c-90b7-1cf6d8ddad27': _mapQuiz(
+    mapId: 'europe_countries',
+    interactionType: MapInteractionType.polygon,
+    title: 'Bandeiras da Europa',
+    promptMode: MapPromptMode.flag,
+  ),
+  '8cca30ab-8897-4078-88cb-c135900e9008': _mapQuiz(
+    mapId: 'south_america_countries',
+    interactionType: MapInteractionType.polygon,
+    title: 'Bandeiras da América do Sul',
+    promptMode: MapPromptMode.flag,
+  ),
+  '5b6a06bb-fa04-4671-960f-19ce67fe4808': _mapQuiz(
+    mapId: 'africa_countries',
+    interactionType: MapInteractionType.polygon,
+    title: 'Bandeiras da África',
+    promptMode: MapPromptMode.flag,
+  ),
+  '57aabc63-5acd-4c54-8212-0f1f49ab44a2': _mapQuiz(
+    mapId: 'asia_countries',
+    interactionType: MapInteractionType.polygon,
+    title: 'Bandeiras da Ásia',
+    promptMode: MapPromptMode.flag,
+  ),
+  'b57f2795-d8f3-43dc-a7aa-e082fc887568': _mapQuiz(
+    mapId: 'world_countries',
+    interactionType: MapInteractionType.polygon,
+    title: 'Bandeiras do mundo',
+    promptMode: MapPromptMode.flag,
+  ),
+  '3f1bce0e-b7e7-4483-8384-5fe7814d8d46': _mapQuiz(
+    mapId: 'north_america_countries',
+    interactionType: MapInteractionType.polygon,
+    title: 'Bandeiras da América do Norte',
+    promptMode: MapPromptMode.flag,
+  ),
+  '695fcbfa-09f7-4720-9bb0-5405cf446dc2': _mapQuiz(
+    mapId: 'oceania_countries',
+    interactionType: MapInteractionType.polygon,
+    title: 'Bandeiras da Oceania',
+    promptMode: MapPromptMode.flag,
   ),
 };

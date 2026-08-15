@@ -10,6 +10,11 @@ class MapQuizStrings {
     AppLanguage.english => 'Find: $regionName',
   };
 
+  String get flagPrompt => switch (language) {
+    AppLanguage.portuguese => 'De qual país é essa bandeira?',
+    AppLanguage.english => 'Which country does this flag belong to?',
+  };
+
   String progressLabel(int correct, int total) => switch (language) {
     AppLanguage.portuguese => '$correct de $total',
     AppLanguage.english => '$correct of $total',

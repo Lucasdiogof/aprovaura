@@ -1,0 +1,1 @@
+enum MapPromptMode { name, flag }
