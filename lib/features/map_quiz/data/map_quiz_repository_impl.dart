@@ -12,6 +12,13 @@ class MapQuizRepositoryImpl implements MapQuizRepository {
     'brazil_states': 'lib/assets/maps/brazil_states.geojson',
     'europe_countries': 'lib/assets/maps/europe_countries.geojson',
     'europe_rivers': 'lib/assets/maps/europe_rivers.geojson',
+    'south_america_countries':
+        'lib/assets/maps/south_america_countries.geojson',
+    'south_america_rivers': 'lib/assets/maps/south_america_rivers.geojson',
+    'africa_countries': 'lib/assets/maps/africa_countries.geojson',
+    'africa_rivers': 'lib/assets/maps/africa_rivers.geojson',
+    'asia_countries': 'lib/assets/maps/asia_countries.geojson',
+    'asia_rivers': 'lib/assets/maps/asia_rivers.geojson',
   };
 
   @override
