@@ -99,4 +99,59 @@ final Map<String, WidgetBuilder> mappedActivities = {
     interactionType: MapInteractionType.point,
     title: 'Grandes cidades da Ásia',
   ),
+  '8614d4f5-57de-4adb-b791-b2675d231146': _mapQuiz(
+    mapId: 'north_america_countries',
+    interactionType: MapInteractionType.polygon,
+    title: 'Países da América do Norte',
+  ),
+  '4d01bc22-f595-4fc6-a438-47dd5149eec5': _mapQuiz(
+    mapId: 'north_america_rivers',
+    interactionType: MapInteractionType.line,
+    title: 'Rios da América do Norte',
+  ),
+  '37225bb6-1d51-478c-b34f-9a0519ce152a': _mapQuiz(
+    mapId: 'north_america_capitals',
+    interactionType: MapInteractionType.point,
+    title: 'Capitais da América do Norte',
+  ),
+  '8cb43a48-5bb3-499f-ba84-88766dbee7c6': _mapQuiz(
+    mapId: 'north_america_cities',
+    interactionType: MapInteractionType.point,
+    title: 'Grandes cidades da América do Norte',
+  ),
+  '54557ac9-e1c0-4528-8f85-90770585ce70': _mapQuiz(
+    mapId: 'oceania_countries',
+    interactionType: MapInteractionType.polygon,
+    title: 'Países da Oceania',
+  ),
+  '3f3122b9-8bf1-4d7c-aa38-1a018a71e83d': _mapQuiz(
+    mapId: 'oceania_capitals',
+    interactionType: MapInteractionType.point,
+    title: 'Capitais da Oceania',
+  ),
+  '2d920dbb-3653-4c07-83c2-645e456f068b': _mapQuiz(
+    mapId: 'oceania_cities',
+    interactionType: MapInteractionType.point,
+    title: 'Grandes cidades da Oceania',
+  ),
+  '7702b50d-364a-4236-a042-7d2799328521': _mapQuiz(
+    mapId: 'world_countries',
+    interactionType: MapInteractionType.polygon,
+    title: 'Países do mundo',
+  ),
+  '19ee546c-270d-4111-9e73-10ff9398e303': _mapQuiz(
+    mapId: 'world_capitals',
+    interactionType: MapInteractionType.point,
+    title: 'Capitais do mundo',
+  ),
+  '67418a3d-3a87-4885-921d-317c75c99383': _mapQuiz(
+    mapId: 'world_cities',
+    interactionType: MapInteractionType.point,
+    title: 'Grandes cidades do mundo',
+  ),
+  'a5731187-0c27-4a85-85fc-a82650ac35ac': _mapQuiz(
+    mapId: 'world_rivers',
+    interactionType: MapInteractionType.line,
+    title: 'Grandes rios do mundo',
+  ),
 };

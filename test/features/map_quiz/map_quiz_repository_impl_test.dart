@@ -175,5 +175,89 @@ void main() {
       expectValidGeometry(regions, minPoints: 1);
       expect(regions.map((r) => r.name), contains('Tóquio'));
     });
+
+    test(
+      'loads 23 North American countries with valid polygon geometry',
+      () async {
+        final regions = await loadOk('north_america_countries');
+        expect(regions, hasLength(23));
+        expectValidGeometry(regions, minPoints: 4);
+        final mexico = regions.singleWhere((region) => region.id == 'MEX');
+        expect(mexico.name, 'México');
+      },
+    );
+
+    test('loads 6 North American rivers with valid line geometry', () async {
+      final regions = await loadOk('north_america_rivers');
+      expect(regions, hasLength(6));
+      expectValidGeometry(regions, minPoints: 2);
+      expect(regions.map((r) => r.name), contains('Mississippi'));
+    });
+
+    test(
+      'loads 23 North American capitals with valid point geometry',
+      () async {
+        final regions = await loadOk('north_america_capitals');
+        expect(regions, hasLength(23));
+        expectValidGeometry(regions, minPoints: 1);
+      },
+    );
+
+    test(
+      'loads 15 major North American cities with valid point geometry',
+      () async {
+        final regions = await loadOk('north_america_cities');
+        expect(regions, hasLength(15));
+        expectValidGeometry(regions, minPoints: 1);
+      },
+    );
+
+    test('loads 14 Oceania countries with valid polygon geometry', () async {
+      final regions = await loadOk('oceania_countries');
+      expect(regions, hasLength(14));
+      expectValidGeometry(regions, minPoints: 4);
+      final australia = regions.singleWhere((region) => region.id == 'AUS');
+      expect(australia.name, 'Austrália');
+    });
+
+    test('loads 13 Oceania capitals with valid point geometry', () async {
+      final regions = await loadOk('oceania_capitals');
+      expect(regions, hasLength(13));
+      expectValidGeometry(regions, minPoints: 1);
+    });
+
+    test('loads 10 major Oceania cities with valid point geometry', () async {
+      final regions = await loadOk('oceania_cities');
+      expect(regions, hasLength(10));
+      expectValidGeometry(regions, minPoints: 1);
+    });
+
+    test('loads 194 world countries with valid polygon geometry', () async {
+      final regions = await loadOk('world_countries');
+      expect(regions, hasLength(194));
+      expectValidGeometry(regions, minPoints: 4);
+      final brazil = regions.singleWhere((region) => region.id == 'BRA');
+      expect(brazil.name, 'Brasil');
+    });
+
+    test('loads 191 world capitals with valid point geometry', () async {
+      final regions = await loadOk('world_capitals');
+      expect(regions, hasLength(191));
+      expectValidGeometry(regions, minPoints: 1);
+    });
+
+    test('loads 30 major world cities with valid point geometry', () async {
+      final regions = await loadOk('world_cities');
+      expect(regions, hasLength(30));
+      expectValidGeometry(regions, minPoints: 1);
+      expect(regions.map((r) => r.name), contains('Tóquio'));
+    });
+
+    test('loads 12 great world rivers with valid line geometry', () async {
+      final regions = await loadOk('world_rivers');
+      expect(regions, hasLength(12));
+      expectValidGeometry(regions, minPoints: 2);
+      expect(regions.map((r) => r.name), contains('Nilo'));
+    });
   });
 }
