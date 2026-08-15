@@ -9,6 +9,7 @@ import 'package:aura/features/catalog/presentation/cubit/catalog_cubit.dart';
 import 'package:aura/features/catalog/presentation/cubit/catalog_state.dart';
 import 'package:aura/features/catalog/presentation/mapped_activities.dart';
 import 'package:aura/features/catalog/presentation/widgets/catalog_node_tile.dart';
+import 'package:aura/features/questions/presentation/widgets/multiple_choice_view.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
@@ -54,7 +55,12 @@ class CatalogListPage extends StatelessWidget {
                   ),
                   CatalogError(:final message) => _ErrorView(message: message),
                   CatalogLoaded(nodes: final nodes) when nodes.isEmpty =>
-                    const _ComingSoonView(),
+                    parentId == null
+                        ? const _ComingSoonView()
+                        : MultipleChoiceView(
+                            catalogNodeId: parentId!,
+                            onEmpty: (_) => const _ComingSoonView(),
+                          ),
                   CatalogLoaded(:final nodes) => ListView.separated(
                     padding: const EdgeInsets.all(24),
                     itemCount: nodes.length,
