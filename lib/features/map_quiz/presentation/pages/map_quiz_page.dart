@@ -166,12 +166,14 @@ class _PlayingView extends StatelessWidget {
     }
     if (solvedIds.contains(regionId)) {
       return colors.success.withValues(
-        alpha: interactionType == MapInteractionType.line ? 0.9 : 0.35,
+        alpha: interactionType == MapInteractionType.polygon ? 0.35 : 0.9,
       );
     }
-    return interactionType == MapInteractionType.line
-        ? colors.textSecondary
-        : colors.secondary;
+    return switch (interactionType) {
+      MapInteractionType.polygon => colors.secondary,
+      MapInteractionType.line => colors.textSecondary,
+      MapInteractionType.point => colors.primary,
+    };
   }
 
   Widget _buildInteractionLayer(BuildContext context) =>
@@ -202,6 +204,22 @@ class _PlayingView extends StatelessWidget {
                   color: _regionColor(context, region.id),
                   strokeWidth: 3.5,
                 ),
+          ],
+        ),
+        MapInteractionType.point => CircleLayer<String>(
+          hitNotifier: hitNotifier,
+          circles: [
+            for (final region in regions)
+              for (final part in region.parts)
+                for (final point in part)
+                  CircleMarker<String>(
+                    point: point,
+                    radius: 12,
+                    hitValue: region.id,
+                    color: _regionColor(context, region.id),
+                    borderColor: context.colors.background,
+                    borderStrokeWidth: 2,
+                  ),
           ],
         ),
       };

@@ -59,4 +59,44 @@ final Map<String, WidgetBuilder> mappedActivities = {
     interactionType: MapInteractionType.line,
     title: 'Rios da Ásia',
   ),
+  '0f32f1d7-45c0-40ea-b0d8-7b6059c7bfff': _mapQuiz(
+    mapId: 'europe_capitals',
+    interactionType: MapInteractionType.point,
+    title: 'Capitais da Europa',
+  ),
+  '7a9fe166-a904-4a6a-b418-db163e1d20a1': _mapQuiz(
+    mapId: 'south_america_capitals',
+    interactionType: MapInteractionType.point,
+    title: 'Capitais da América do Sul',
+  ),
+  '9c16fc74-a23e-4822-9c43-bf88f29e6a0c': _mapQuiz(
+    mapId: 'africa_capitals',
+    interactionType: MapInteractionType.point,
+    title: 'Capitais da África',
+  ),
+  '57e578a4-38f4-4770-ae1f-890ef3e3f6f9': _mapQuiz(
+    mapId: 'asia_capitals',
+    interactionType: MapInteractionType.point,
+    title: 'Capitais da Ásia',
+  ),
+  'c3a94a41-c598-4f80-a222-38064c3a9770': _mapQuiz(
+    mapId: 'europe_cities',
+    interactionType: MapInteractionType.point,
+    title: 'Grandes cidades da Europa',
+  ),
+  'd8bcc5de-a0b8-49a7-a017-8f4fba6b4f92': _mapQuiz(
+    mapId: 'south_america_cities',
+    interactionType: MapInteractionType.point,
+    title: 'Grandes cidades da América do Sul',
+  ),
+  '6be2cc01-a1de-4e42-a10d-d0833c6ff83b': _mapQuiz(
+    mapId: 'africa_cities',
+    interactionType: MapInteractionType.point,
+    title: 'Grandes cidades da África',
+  ),
+  '2bfe0425-c32a-4e2f-b783-140c79cdd33c': _mapQuiz(
+    mapId: 'asia_cities',
+    interactionType: MapInteractionType.point,
+    title: 'Grandes cidades da Ásia',
+  ),
 };

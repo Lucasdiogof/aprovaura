@@ -1,1 +1,1 @@
-enum MapInteractionType { polygon, line }
+enum MapInteractionType { polygon, line, point }

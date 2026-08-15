@@ -109,5 +109,71 @@ void main() {
       final ganges = regions.singleWhere((region) => region.id == 'ganges');
       expect(ganges.name, 'Ganges');
     });
+
+    test('loads 45 European capitals with valid point geometry', () async {
+      final regions = await loadOk('europe_capitals');
+      expect(regions, hasLength(45));
+      expectValidGeometry(regions, minPoints: 1);
+      final france = regions.singleWhere((region) => region.id == 'FRA');
+      expect(france.name, 'Paris');
+    });
+
+    test(
+      'loads 12 South American capitals with valid point geometry',
+      () async {
+        final regions = await loadOk('south_america_capitals');
+        expect(regions, hasLength(12));
+        expectValidGeometry(regions, minPoints: 1);
+        final brazil = regions.singleWhere((region) => region.id == 'BRA');
+        expect(brazil.name, 'Brasília');
+      },
+    );
+
+    test('loads 51 African capitals with valid point geometry', () async {
+      final regions = await loadOk('africa_capitals');
+      expect(regions, hasLength(51));
+      expectValidGeometry(regions, minPoints: 1);
+      final egypt = regions.singleWhere((region) => region.id == 'EGY');
+      expect(egypt.name, 'Cairo');
+    });
+
+    test('loads 47 Asian capitals with valid point geometry', () async {
+      final regions = await loadOk('asia_capitals');
+      expect(regions, hasLength(47));
+      expectValidGeometry(regions, minPoints: 1);
+      final japan = regions.singleWhere((region) => region.id == 'JPN');
+      expect(japan.name, 'Tóquio');
+    });
+
+    test('loads 15 major European cities with valid point geometry', () async {
+      final regions = await loadOk('europe_cities');
+      expect(regions, hasLength(15));
+      expectValidGeometry(regions, minPoints: 1);
+      expect(regions.map((r) => r.name), contains('Paris'));
+    });
+
+    test(
+      'loads 12 major South American cities with valid point geometry',
+      () async {
+        final regions = await loadOk('south_america_cities');
+        expect(regions, hasLength(12));
+        expectValidGeometry(regions, minPoints: 1);
+        expect(regions.map((r) => r.name), contains('São Paulo'));
+      },
+    );
+
+    test('loads 15 major African cities with valid point geometry', () async {
+      final regions = await loadOk('africa_cities');
+      expect(regions, hasLength(15));
+      expectValidGeometry(regions, minPoints: 1);
+      expect(regions.map((r) => r.name), contains('Cairo'));
+    });
+
+    test('loads 15 major Asian cities with valid point geometry', () async {
+      final regions = await loadOk('asia_cities');
+      expect(regions, hasLength(15));
+      expectValidGeometry(regions, minPoints: 1);
+      expect(regions.map((r) => r.name), contains('Tóquio'));
+    });
   });
 }
