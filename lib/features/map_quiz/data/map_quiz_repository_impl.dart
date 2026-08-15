@@ -10,6 +10,8 @@ import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.d
 class MapQuizRepositoryImpl implements MapQuizRepository {
   static const _assetPaths = {
     'brazil_states': 'lib/assets/maps/brazil_states.geojson',
+    'europe_countries': 'lib/assets/maps/europe_countries.geojson',
+    'europe_rivers': 'lib/assets/maps/europe_rivers.geojson',
   };
 
   @override
@@ -42,7 +44,13 @@ class MapQuizRepositoryImpl implements MapQuizRepository {
               ),
             )
             .toList(growable: false),
-      _ => [_ringToLatLngs(coordinates.first as List<dynamic>)],
+      'Polygon' => [_ringToLatLngs(coordinates.first as List<dynamic>)],
+      'MultiLineString' =>
+        coordinates
+            .map((line) => _ringToLatLngs(line as List<dynamic>))
+            .toList(growable: false),
+      'LineString' => [_ringToLatLngs(coordinates)],
+      final type => throw UnsupportedError('Unsupported geometry type: $type'),
     };
     return MapRegion(
       id: properties['sigla'] as String,

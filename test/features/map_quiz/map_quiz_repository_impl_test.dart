@@ -41,5 +41,39 @@ void main() {
       final result = await repository.loadRegions('does_not_exist');
       expect(result, isA<Error<Object>>());
     });
+
+    test('loads 45 European countries with valid polygon geometry', () async {
+      final result = await repository.loadRegions('europe_countries');
+      final regions = switch (result) {
+        Success(:final data) => data,
+        Error(:final failure) => fail('expected Success, got $failure'),
+      };
+
+      expect(regions, hasLength(45));
+      final france = regions.singleWhere((region) => region.id == 'FRA');
+      expect(france.name, 'França');
+      for (final region in regions) {
+        for (final part in region.parts) {
+          expect(part.length, greaterThanOrEqualTo(4));
+        }
+      }
+    });
+
+    test('loads 15 European rivers with valid line geometry', () async {
+      final result = await repository.loadRegions('europe_rivers');
+      final regions = switch (result) {
+        Success(:final data) => data,
+        Error(:final failure) => fail('expected Success, got $failure'),
+      };
+
+      expect(regions, hasLength(15));
+      final danube = regions.singleWhere((region) => region.id == 'danubio');
+      expect(danube.name, 'Danúbio');
+      for (final region in regions) {
+        for (final part in region.parts) {
+          expect(part.length, greaterThanOrEqualTo(2));
+        }
+      }
+    });
   });
 }

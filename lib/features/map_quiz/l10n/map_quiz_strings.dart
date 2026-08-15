@@ -5,11 +5,6 @@ class MapQuizStrings {
 
   final AppLanguage language;
 
-  String get pageTitle => switch (language) {
-    AppLanguage.portuguese => 'Estados do Brasil',
-    AppLanguage.english => 'Brazilian states',
-  };
-
   String findPrompt(String regionName) => switch (language) {
     AppLanguage.portuguese => 'Encontre: $regionName',
     AppLanguage.english => 'Find: $regionName',
@@ -26,8 +21,8 @@ class MapQuizStrings {
   };
 
   String finishedScore(int correct, int total) => switch (language) {
-    AppLanguage.portuguese => 'Você acertou $correct de $total estados.',
-    AppLanguage.english => 'You got $correct out of $total states right.',
+    AppLanguage.portuguese => 'Você acertou $correct de $total.',
+    AppLanguage.english => 'You got $correct out of $total right.',
   };
 
   String get retryButton => switch (language) {

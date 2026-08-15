@@ -4,6 +4,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/features/map_quiz/domain/entities/map_interaction_type.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_region.dart';
 import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.dart';
 import 'package:aura/features/map_quiz/l10n/map_quiz_strings.dart';
@@ -13,20 +14,31 @@ import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
 class MapQuizPage extends StatelessWidget {
-  const MapQuizPage({super.key});
+  const MapQuizPage({
+    required this.mapId,
+    required this.interactionType,
+    required this.title,
+    super.key,
+  });
+
+  final String mapId;
+  final MapInteractionType interactionType;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) =>
-          MapQuizCubit(sl<MapQuizRepository>(), mapId: 'brazil_states'),
-      child: const _MapQuizView(),
+      create: (_) => MapQuizCubit(sl<MapQuizRepository>(), mapId: mapId),
+      child: _MapQuizView(interactionType: interactionType, title: title),
     );
   }
 }
 
 class _MapQuizView extends StatefulWidget {
-  const _MapQuizView();
+  const _MapQuizView({required this.interactionType, required this.title});
+
+  final MapInteractionType interactionType;
+  final String title;
 
   @override
   State<_MapQuizView> createState() => _MapQuizViewState();
@@ -57,7 +69,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
       backgroundColor: context.colors.background,
       body: Column(
         children: [
-          ModernAppBar(title: t.pageTitle, showBackButton: true),
+          ModernAppBar(title: widget.title, showBackButton: true),
           Expanded(
             child: BlocConsumer<MapQuizCubit, MapQuizState>(
               listener: (context, state) {
@@ -95,6 +107,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
                 ) =>
                   _PlayingView(
                     strings: t,
+                    interactionType: widget.interactionType,
                     regions: regions,
                     solvedIds: regions
                         .map((region) => region.id)
@@ -120,6 +133,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
 class _PlayingView extends StatelessWidget {
   const _PlayingView({
     required this.strings,
+    required this.interactionType,
     required this.regions,
     required this.solvedIds,
     required this.currentTargetId,
@@ -132,6 +146,7 @@ class _PlayingView extends StatelessWidget {
   });
 
   final MapQuizStrings strings;
+  final MapInteractionType interactionType;
   final List<MapRegion> regions;
   final Set<String> solvedIds;
   final String currentTargetId;
@@ -142,18 +157,54 @@ class _PlayingView extends StatelessWidget {
   final MapController mapController;
   final VoidCallback onTap;
 
-  Color _fillColor(BuildContext context, String regionId) {
+  Color _regionColor(BuildContext context, String regionId) {
     final colors = context.colors;
     if (lastTap?.regionId == regionId) {
       return lastTap!.wasCorrect
-          ? colors.success.withValues(alpha: 0.55)
-          : colors.error.withValues(alpha: 0.55);
+          ? colors.success.withValues(alpha: 0.7)
+          : colors.error.withValues(alpha: 0.7);
     }
     if (solvedIds.contains(regionId)) {
-      return colors.success.withValues(alpha: 0.35);
+      return colors.success.withValues(
+        alpha: interactionType == MapInteractionType.line ? 0.9 : 0.35,
+      );
     }
-    return colors.secondary;
+    return interactionType == MapInteractionType.line
+        ? colors.textSecondary
+        : colors.secondary;
   }
+
+  Widget _buildInteractionLayer(BuildContext context) =>
+      switch (interactionType) {
+        MapInteractionType.polygon => PolygonLayer<String>(
+          hitNotifier: hitNotifier,
+          polygons: [
+            for (final region in regions)
+              for (final part in region.parts)
+                Polygon<String>(
+                  points: part,
+                  hitValue: region.id,
+                  color: _regionColor(context, region.id),
+                  borderColor: context.colors.border,
+                  borderStrokeWidth: 1.2,
+                ),
+          ],
+        ),
+        MapInteractionType.line => PolylineLayer<String>(
+          hitNotifier: hitNotifier,
+          minimumHitbox: 20,
+          polylines: [
+            for (final region in regions)
+              for (final part in region.parts)
+                Polyline<String>(
+                  points: part,
+                  hitValue: region.id,
+                  color: _regionColor(context, region.id),
+                  strokeWidth: 3.5,
+                ),
+          ],
+        ),
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -202,20 +253,7 @@ class _PlayingView extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: onTap,
-                child: PolygonLayer<String>(
-                  hitNotifier: hitNotifier,
-                  polygons: [
-                    for (final region in regions)
-                      for (final part in region.parts)
-                        Polygon<String>(
-                          points: part,
-                          hitValue: region.id,
-                          color: _fillColor(context, region.id),
-                          borderColor: context.colors.border,
-                          borderStrokeWidth: 1.2,
-                        ),
-                  ],
-                ),
+                child: _buildInteractionLayer(context),
               ),
             ],
           ),
