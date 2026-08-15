@@ -257,26 +257,69 @@ class _PlayingView extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: FlutterMap(
-            mapController: mapController,
-            options: MapOptions(
-              initialCameraFit: CameraFit.bounds(
-                bounds: bounds,
-                padding: const EdgeInsets.all(24),
-              ),
-              interactionOptions: const InteractionOptions(
-                flags: InteractiveFlag.pinchZoom | InteractiveFlag.drag,
-              ),
-            ),
+          child: Stack(
             children: [
-              GestureDetector(
-                onTap: onTap,
-                child: _buildInteractionLayer(context),
+              FlutterMap(
+                mapController: mapController,
+                options: MapOptions(
+                  initialCameraFit: CameraFit.bounds(
+                    bounds: bounds,
+                    padding: const EdgeInsets.all(24),
+                  ),
+                  interactionOptions: const InteractionOptions(
+                    flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
+                  ),
+                ),
+                children: [
+                  GestureDetector(
+                    onTap: onTap,
+                    child: _buildInteractionLayer(context),
+                  ),
+                ],
+              ),
+              Positioned(
+                right: 12,
+                bottom: 12,
+                child: _ZoomControls(mapController: mapController),
               ),
             ],
           ),
         ),
       ],
+    );
+  }
+}
+
+class _ZoomControls extends StatelessWidget {
+  const _ZoomControls({required this.mapController});
+
+  final MapController mapController;
+
+  void _zoomBy(double delta) {
+    final camera = mapController.camera;
+    mapController.move(camera.center, camera.zoom + delta);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: context.colors.surface,
+      borderRadius: BorderRadius.circular(12),
+      elevation: 2,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          IconButton(
+            icon: Icon(Icons.add, color: context.colors.textPrimary),
+            onPressed: () => _zoomBy(1),
+          ),
+          Divider(height: 1, color: context.colors.border),
+          IconButton(
+            icon: Icon(Icons.remove, color: context.colors.textPrimary),
+            onPressed: () => _zoomBy(-1),
+          ),
+        ],
+      ),
     );
   }
 }
