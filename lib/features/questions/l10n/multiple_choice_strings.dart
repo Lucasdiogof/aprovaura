@@ -6,8 +6,18 @@ class MultipleChoiceStrings {
   final AppLanguage language;
 
   String questionProgress(int current, int total) => switch (language) {
-    AppLanguage.portuguese => 'Pergunta $current de $total',
+    AppLanguage.portuguese => 'Questão $current de $total',
     AppLanguage.english => 'Question $current of $total',
+  };
+
+  String get correctFeedbackTitle => switch (language) {
+    AppLanguage.portuguese => 'Muito bem!',
+    AppLanguage.english => 'Well done!',
+  };
+
+  String get incorrectFeedbackTitle => switch (language) {
+    AppLanguage.portuguese => 'Não foi dessa vez',
+    AppLanguage.english => 'Not quite',
   };
 
   String get nextButton => switch (language) {

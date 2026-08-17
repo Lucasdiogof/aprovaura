@@ -7,6 +7,9 @@ import 'package:aura/features/questions/domain/repositories/question_repository.
 import 'package:aura/features/questions/l10n/multiple_choice_strings.dart';
 import 'package:aura/features/questions/presentation/cubit/multiple_choice_cubit.dart';
 import 'package:aura/features/questions/presentation/cubit/multiple_choice_state.dart';
+import 'package:aura/features/questions/presentation/widgets/quiz_answer_option.dart';
+import 'package:aura/features/questions/presentation/widgets/quiz_feedback.dart';
+import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 
 class MultipleChoiceView extends StatelessWidget {
@@ -61,99 +64,91 @@ class MultipleChoiceView extends StatelessWidget {
 class _QuestionView extends StatelessWidget {
   const _QuestionView({required this.strings, required this.state});
 
+  static const _letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+
   final MultipleChoiceStrings strings;
   final MultipleChoicePlaying state;
 
-  Color? _optionColor(BuildContext context, int index) {
-    if (!state.hasAnswered) return null;
-    final colors = context.colors;
+  QuizOptionStatus _statusFor(int index) {
+    if (!state.hasAnswered) return QuizOptionStatus.neutral;
     if (index == state.currentQuestion.correctIndex) {
-      return colors.success.withValues(alpha: 0.15);
+      return QuizOptionStatus.correct;
     }
-    if (index == state.selectedIndex) {
-      return colors.error.withValues(alpha: 0.15);
-    }
-    return null;
-  }
-
-  Color _optionBorderColor(BuildContext context, int index) {
-    if (!state.hasAnswered) return context.colors.border;
-    final colors = context.colors;
-    if (index == state.currentQuestion.correctIndex) return colors.success;
-    if (index == state.selectedIndex) return colors.error;
-    return colors.border;
+    if (index == state.selectedIndex) return QuizOptionStatus.incorrect;
+    return QuizOptionStatus.neutral;
   }
 
   @override
   Widget build(BuildContext context) {
     final question = state.currentQuestion;
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            strings.questionProgress(
-              state.currentIndex + 1,
-              state.questions.length,
-            ),
-            style: TextStyle(color: context.colors.textSecondary, fontSize: 13),
+    final wasCorrect = state.selectedIndex == question.correctIndex;
+
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(24, 20, 24, 0),
+          child: QuizProgress(
+            currentIndex: state.currentIndex,
+            totalCount: state.questions.length,
           ),
-          const SizedBox(height: 8),
-          Text(
-            question.prompt,
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
-              color: context.colors.textPrimary,
-            ),
-          ),
-          const SizedBox(height: 20),
-          for (var i = 0; i < question.options.length; i++) ...[
-            Material(
-              color: _optionColor(context, i) ?? context.colors.surface,
-              borderRadius: BorderRadius.circular(12),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(12),
-                onTap: state.hasAnswered
-                    ? null
-                    : () => context.read<MultipleChoiceCubit>().selectOption(i),
-                child: Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: _optionBorderColor(context, i)),
-                  ),
-                  child: Text(
-                    question.options[i],
-                    style: TextStyle(color: context.colors.textPrimary),
+        ),
+        Expanded(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(24, 28, 24, 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  question.prompt,
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                    height: 1.25,
+                    color: context.colors.textPrimary,
                   ),
                 ),
+                const SizedBox(height: 28),
+                for (var i = 0; i < question.options.length; i++) ...[
+                  QuizAnswerOption(
+                    letter: _letters[i],
+                    text: question.options[i],
+                    status: _statusFor(i),
+                    onTap: state.hasAnswered
+                        ? null
+                        : () =>
+                              context.read<MultipleChoiceCubit>().selectOption(i),
+                  ),
+                  if (i != question.options.length - 1)
+                    const SizedBox(height: 12),
+                ],
+                if (state.hasAnswered) ...[
+                  const SizedBox(height: 20),
+                  QuizFeedback(
+                    isCorrect: wasCorrect,
+                    title: wasCorrect
+                        ? strings.correctFeedbackTitle
+                        : strings.incorrectFeedbackTitle,
+                    explanation: question.explanation,
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ),
+        if (state.hasAnswered)
+          SafeArea(
+            top: false,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(24, 0, 24, 20),
+              child: AppButton(
+                label: state.isLastQuestion
+                    ? strings.seeResultButton
+                    : strings.nextButton,
+                onPressed: () => context.read<MultipleChoiceCubit>().next(),
               ),
             ),
-            const SizedBox(height: 12),
-          ],
-          if (state.hasAnswered && question.explanation != null) ...[
-            const SizedBox(height: 8),
-            Text(
-              question.explanation!,
-              style: TextStyle(
-                color: context.colors.textSecondary,
-                fontSize: 13,
-              ),
-            ),
-          ],
-          if (state.hasAnswered) ...[
-            const SizedBox(height: 24),
-            AppButton(
-              label: state.isLastQuestion
-                  ? strings.seeResultButton
-                  : strings.nextButton,
-              onPressed: () => context.read<MultipleChoiceCubit>().next(),
-            ),
-          ],
-        ],
-      ),
+          ),
+      ],
     );
   }
 }
