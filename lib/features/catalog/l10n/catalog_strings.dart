@@ -21,4 +21,16 @@ class CatalogStrings {
     AppLanguage.portuguese => 'Tentar novamente',
     AppLanguage.english => 'Try again',
   };
+
+  String get difficultyAll => switch (language) {
+    AppLanguage.portuguese => 'Todos',
+    AppLanguage.english => 'All',
+  };
+
+  String get difficultyEmptyDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Nenhum tópico neste nível de dificuldade ainda. Tente outro nível.',
+    AppLanguage.english =>
+      'No topics at this difficulty level yet. Try another level.',
+  };
 }

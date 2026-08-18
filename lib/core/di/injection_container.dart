@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/features/atualidades/data/atualidades_repository_impl.dart';
+import 'package:aura/features/atualidades/data/dossier_question_repository_impl.dart';
 import 'package:aura/features/atualidades/domain/repositories/atualidades_repository.dart';
 import 'package:aura/features/auth/data/auth_repository_impl.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
@@ -29,5 +30,9 @@ void registerSupabaseDependencies() {
   );
   sl.registerLazySingleton<QuestionRepository>(
     () => QuestionRepositoryImpl(sl()),
+  );
+  sl.registerLazySingleton<QuestionRepository>(
+    () => DossierQuestionRepositoryImpl(sl()),
+    instanceName: 'dossierQuestions',
   );
 }

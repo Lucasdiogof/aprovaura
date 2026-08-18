@@ -1,20 +1,28 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
 import 'package:aura/features/questions/presentation/cubit/multiple_choice_state.dart';
 
 class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
-  MultipleChoiceCubit(this._repository, {required this.catalogNodeId})
-    : super(const MultipleChoiceLoading()) {
+  MultipleChoiceCubit(
+    this._repository, {
+    required this.catalogNodeId,
+    this.difficulty,
+  }) : super(const MultipleChoiceLoading()) {
     load();
   }
 
   final QuestionRepository _repository;
   final String catalogNodeId;
+  final QuestionDifficulty? difficulty;
 
   Future<void> load() async {
     emit(const MultipleChoiceLoading());
-    final result = await _repository.getQuestions(catalogNodeId);
+    final result = await _repository.getQuestions(
+      catalogNodeId,
+      difficulty: difficulty,
+    );
     switch (result) {
       case Success(:final data):
         if (data.isEmpty) {

@@ -9,6 +9,8 @@ import 'package:aura/features/catalog/presentation/cubit/catalog_cubit.dart';
 import 'package:aura/features/catalog/presentation/cubit/catalog_state.dart';
 import 'package:aura/features/catalog/presentation/mapped_activities.dart';
 import 'package:aura/features/catalog/presentation/widgets/catalog_node_tile.dart';
+import 'package:aura/features/catalog/presentation/widgets/difficulty_selector.dart';
+import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/questions/presentation/widgets/multiple_choice_view.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 import 'package:aura/shared/widgets/app_button.dart';
@@ -20,6 +22,7 @@ class CatalogListPage extends StatelessWidget {
     required this.title,
     this.parentId,
     this.subtitle,
+    this.difficulty,
     super.key,
   });
 
@@ -27,6 +30,7 @@ class CatalogListPage extends StatelessWidget {
   final String title;
   final String? subtitle;
   final String? parentId;
+  final QuestionDifficulty? difficulty;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +39,7 @@ class CatalogListPage extends StatelessWidget {
         sl<CatalogRepository>(),
         subject: subject.name,
         parentId: parentId,
+        difficulty: difficulty,
       ),
       child: Scaffold(
         backgroundColor: context.colors.background,
@@ -45,6 +50,18 @@ class CatalogListPage extends StatelessWidget {
               subtitle: subtitle,
               showBackButton: true,
             ),
+            if (parentId == null)
+              BlocBuilder<CatalogCubit, CatalogState>(
+                builder: (context, _) => Padding(
+                  padding: const EdgeInsets.only(top: 4, bottom: 8),
+                  child: DifficultySelector(
+                    selected: context.read<CatalogCubit>().difficulty,
+                    accentColor: subject.accentColor,
+                    onChanged: (value) =>
+                        context.read<CatalogCubit>().setDifficulty(value),
+                  ),
+                ),
+              ),
             Expanded(
               child: BlocBuilder<CatalogCubit, CatalogState>(
                 builder: (context, state) => switch (state) {
@@ -56,9 +73,12 @@ class CatalogListPage extends StatelessWidget {
                   CatalogError(:final message) => _ErrorView(message: message),
                   CatalogLoaded(nodes: final nodes) when nodes.isEmpty =>
                     parentId == null
-                        ? const _ComingSoonView()
+                        ? (context.read<CatalogCubit>().difficulty == null
+                              ? const _ComingSoonView()
+                              : const _DifficultyEmptyView())
                         : MultipleChoiceView(
                             catalogNodeId: parentId!,
+                            difficulty: context.read<CatalogCubit>().difficulty,
                             onEmpty: (_) => const _ComingSoonView(),
                           ),
                   CatalogLoaded(:final nodes) => ListView.separated(
@@ -80,6 +100,9 @@ class CatalogListPage extends StatelessWidget {
                                   title: node.title,
                                   subtitle: node.description,
                                   parentId: node.id,
+                                  difficulty: context
+                                      .read<CatalogCubit>()
+                                      .difficulty,
                                 ),
                           ),
                         ),
@@ -125,6 +148,36 @@ class _ComingSoonView extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               t.comingSoonDescription,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: context.colors.textSecondary),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _DifficultyEmptyView extends StatelessWidget {
+  const _DifficultyEmptyView();
+
+  @override
+  Widget build(BuildContext context) {
+    final t = CatalogStrings(context.watch<LocaleCubit>().state);
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.filter_alt_off_outlined,
+              size: 40,
+              color: context.colors.textSecondary,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              t.difficultyEmptyDescription,
               textAlign: TextAlign.center,
               style: TextStyle(color: context.colors.textSecondary),
             ),

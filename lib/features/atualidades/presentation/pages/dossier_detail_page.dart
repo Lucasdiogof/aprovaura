@@ -4,6 +4,7 @@ import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/atualidades/domain/entities/dossier.dart';
 import 'package:aura/features/atualidades/l10n/atualidades_strings.dart';
+import 'package:aura/features/atualidades/presentation/pages/dossier_practice_page.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
@@ -77,7 +78,14 @@ class DossierDetailPage extends StatelessWidget {
                     ),
                   const SizedBox(height: 20),
                 ],
-                AppButton(label: t.practiceButtonLabel, onPressed: null),
+                AppButton(
+                  label: t.practiceButtonLabel,
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => DossierPracticePage(dossier: dossier),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
