@@ -13,6 +13,7 @@ import 'package:aura/features/questions/presentation/widgets/quiz_answer_option.
 import 'package:aura/features/questions/presentation/widgets/quiz_feedback.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
+import 'package:aura/features/streak/presentation/cubit/streak_state.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 
 class MultipleChoiceView extends StatelessWidget {
@@ -178,6 +179,9 @@ class _FinishedView extends StatelessWidget {
     required this.totalCount,
   });
 
+  // Cosmetic only -- there is no XP system tracking or persisting this yet.
+  static const _xpEarned = 10;
+
   final MultipleChoiceStrings strings;
   final int correctCount;
   final int totalCount;
@@ -186,64 +190,211 @@ class _FinishedView extends StatelessWidget {
   Widget build(BuildContext context) {
     final fraction = totalCount == 0 ? 0.0 : correctCount / totalCount;
     final percent = (fraction * 100).round();
-    final grade = fraction * 10;
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(32),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              Icons.emoji_events_outlined,
-              size: 48,
-              color: context.colors.primary,
+    final streakState = context.watch<StreakCubit>().state;
+    final currentStreak = switch (streakState) {
+      StreakLoaded(:final streak) => streak.currentStreak,
+      _ => 0,
+    };
+
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SizedBox(height: 8),
+          _TrophyBadge(color: context.colors.primary),
+          const SizedBox(height: 24),
+          Text(
+            strings.finishedTitle,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.w800,
+              fontSize: 24,
+              color: context.colors.textPrimary,
             ),
-            const SizedBox(height: 16),
-            Text(
-              strings.finishedTitle,
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 20,
-                color: context.colors.textPrimary,
-              ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            strings.finishedSubtitle,
+            textAlign: TextAlign.center,
+            style: TextStyle(color: context.colors.textSecondary),
+          ),
+          const SizedBox(height: 28),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: context.colors.surface,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: context.colors.border),
             ),
-            const SizedBox(height: 16),
-            Text(
-              '$percent%',
-              style: TextStyle(
-                fontWeight: FontWeight.w800,
-                fontSize: 40,
-                color: context.colors.primary,
-              ),
+            child: Column(
+              children: [
+                IntrinsicHeight(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: _StatCell(
+                          icon: Icons.track_changes_rounded,
+                          iconColor: context.colors.primary,
+                          value: '$correctCount/$totalCount',
+                          label: strings.finishedCorrectLabel,
+                        ),
+                      ),
+                      VerticalDivider(color: context.colors.border, width: 24),
+                      Expanded(
+                        child: _StatCell(
+                          icon: Icons.bar_chart_rounded,
+                          iconColor: context.colors.primary,
+                          value: '$percent%',
+                          label: strings.finishedScoreLabel,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: Divider(height: 1, color: context.colors.border),
+                ),
+                IntrinsicHeight(
+                  child: Row(
+                    children: [
+                      const Expanded(
+                        child: _StatCell(
+                          icon: Icons.star_rounded,
+                          iconColor: Color(0xFFE0A32E),
+                          value: '+$_xpEarned',
+                          label: 'XP',
+                        ),
+                      ),
+                      VerticalDivider(color: context.colors.border, width: 24),
+                      Expanded(
+                        child: _StatCell(
+                          icon: Icons.local_fire_department_rounded,
+                          iconColor: const Color(0xFFE8763D),
+                          value: '$currentStreak',
+                          label: strings.finishedStreakLabel,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 4),
-            Text(
-              strings.finishedGrade(grade),
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 14,
-                color: context.colors.textSecondary,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              strings.finishedScore(correctCount, totalCount),
-              textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 28),
+          AppButton(
+            label: strings.continueButton,
+            onPressed: () => Navigator.of(context).maybePop(),
+          ),
+          const SizedBox(height: 12),
+          TextButton(
+            onPressed: () => context.read<MultipleChoiceCubit>().load(),
+            child: Text(strings.finishedRetryButton),
+          ),
+          Divider(height: 24, color: context.colors.border),
+          TextButton(
+            onPressed: () => Navigator.of(context).maybePop(),
+            child: Text(
+              strings.backToTrailButton,
               style: TextStyle(color: context.colors.textSecondary),
             ),
-            const SizedBox(height: 24),
-            AppButton(
-              label: strings.retryButton,
-              onPressed: () => context.read<MultipleChoiceCubit>().load(),
-            ),
-            const SizedBox(height: 12),
-            TextButton(
-              onPressed: () => Navigator.of(context).maybePop(),
-              child: Text(strings.backButton),
-            ),
-          ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TrophyBadge extends StatelessWidget {
+  const _TrophyBadge({required this.color});
+
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 120,
+      height: 120,
+      child: Center(
+        child: Container(
+          width: 88,
+          height: 88,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: color,
+            boxShadow: [
+              BoxShadow(
+                color: color.withValues(alpha: 0.45),
+                blurRadius: 32,
+                spreadRadius: 6,
+              ),
+            ],
+          ),
+          child: Icon(
+            Icons.emoji_events_rounded,
+            color: context.colors.onPrimary,
+            size: 44,
+          ),
         ),
       ),
+    );
+  }
+}
+
+class _StatCell extends StatelessWidget {
+  const _StatCell({
+    required this.icon,
+    required this.iconColor,
+    required this.value,
+    required this.label,
+  });
+
+  final IconData icon;
+  final Color iconColor;
+  final String value;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          width: 36,
+          height: 36,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: iconColor.withValues(alpha: 0.14),
+            shape: BoxShape.circle,
+          ),
+          child: Icon(icon, color: iconColor, size: 18),
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                value,
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 17,
+                  color: context.colors.textPrimary,
+                ),
+              ),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 11,
+                  color: context.colors.textSecondary,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

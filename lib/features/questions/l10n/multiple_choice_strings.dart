@@ -31,19 +31,43 @@ class MultipleChoiceStrings {
   };
 
   String get finishedTitle => switch (language) {
-    AppLanguage.portuguese => 'Você concluiu!',
-    AppLanguage.english => 'You finished!',
+    AppLanguage.portuguese => 'Mandou bem!',
+    AppLanguage.english => 'Nice work!',
   };
 
-  String finishedScore(int correct, int total) => switch (language) {
-    AppLanguage.portuguese => 'Você acertou $correct de $total.',
-    AppLanguage.english => 'You got $correct out of $total right.',
+  String get finishedSubtitle => switch (language) {
+    AppLanguage.portuguese => 'Você concluiu a atividade com sucesso.',
+    AppLanguage.english => 'You completed the activity successfully.',
   };
 
-  String finishedGrade(double grade) => switch (language) {
-    AppLanguage.portuguese =>
-      'Nota ${grade.toStringAsFixed(1).replaceAll('.', ',')}',
-    AppLanguage.english => 'Grade ${grade.toStringAsFixed(1)}',
+  String get finishedCorrectLabel => switch (language) {
+    AppLanguage.portuguese => 'corretas',
+    AppLanguage.english => 'correct',
+  };
+
+  String get finishedScoreLabel => switch (language) {
+    AppLanguage.portuguese => 'de aproveitamento',
+    AppLanguage.english => 'score',
+  };
+
+  String get finishedStreakLabel => switch (language) {
+    AppLanguage.portuguese => 'Ofensiva',
+    AppLanguage.english => 'Streak',
+  };
+
+  String get continueButton => switch (language) {
+    AppLanguage.portuguese => 'Continuar',
+    AppLanguage.english => 'Continue',
+  };
+
+  String get finishedRetryButton => switch (language) {
+    AppLanguage.portuguese => 'Refazer atividade',
+    AppLanguage.english => 'Redo activity',
+  };
+
+  String get backToTrailButton => switch (language) {
+    AppLanguage.portuguese => 'Voltar para trilha',
+    AppLanguage.english => 'Back to path',
   };
 
   String get retryButton => switch (language) {
