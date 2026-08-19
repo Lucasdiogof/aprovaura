@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
+import 'package:aura/features/questions/domain/entities/question.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
 import 'package:aura/features/questions/presentation/cubit/multiple_choice_state.dart';
@@ -37,7 +38,7 @@ class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
         } else {
           emit(
             MultipleChoicePlaying(
-              questions: data,
+              questions: data.map(_withShuffledOptions).toList(),
               currentIndex: 0,
               correctCount: 0,
             ),
@@ -46,6 +47,22 @@ class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
       case Error(:final failure):
         emit(MultipleChoiceError(failure.message));
     }
+  }
+
+  // Most of the question bank has correct_index hardcoded to the same
+  // position in the database, so the on-screen order is re-randomized here
+  // on every load instead of trusting the stored order.
+  Question _withShuffledOptions(Question question) {
+    final order = List<int>.generate(question.options.length, (i) => i)
+      ..shuffle();
+    return Question(
+      id: question.id,
+      prompt: question.prompt,
+      options: [for (final i in order) question.options[i]],
+      correctIndex: order.indexOf(question.correctIndex),
+      explanation: question.explanation,
+      difficulty: question.difficulty,
+    );
   }
 
   void selectOption(int index) {
