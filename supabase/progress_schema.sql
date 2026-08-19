@@ -56,7 +56,13 @@ $$;
 -- counts how many of those the caller has answered as "completed". A node
 -- with zero descendant questions simply doesn't appear in the result --
 -- the client treats a missing id as 0/0 (0%), never 100%.
-create or replace function catalog_node_progress(p_node_ids uuid[])
+-- p_difficulty narrows both total and completed to that level, so the bars
+-- match whatever level the topic list is currently filtered to (null/omitted
+-- means "Todos" -- every difficulty counts, same as before).
+create or replace function catalog_node_progress(
+  p_node_ids uuid[],
+  p_difficulty text default null
+)
 returns table (node_id uuid, total integer, completed integer)
 language sql
 stable
@@ -77,5 +83,6 @@ as $$
   join questions q on q.catalog_node_id = d.id
   left join user_question_progress up
     on up.question_id = q.id and up.user_id = auth.uid()
+  where p_difficulty is null or q.difficulty = p_difficulty
   group by d.branch_root;
 $$;

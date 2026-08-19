@@ -3,6 +3,7 @@ import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/progress/domain/entities/topic_progress.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
+import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 
 class ProgressRepositoryImpl implements ProgressRepository {
   ProgressRepositoryImpl(this._client);
@@ -11,13 +12,17 @@ class ProgressRepositoryImpl implements ProgressRepository {
 
   @override
   Future<Result<Map<String, TopicProgress>>> getBatchProgress(
-    List<String> catalogNodeIds,
-  ) async {
+    List<String> catalogNodeIds, {
+    QuestionDifficulty? difficulty,
+  }) async {
     if (catalogNodeIds.isEmpty) return const Success({});
     try {
       final rows = await _client.rpc<List<dynamic>>(
         'catalog_node_progress',
-        params: {'p_node_ids': catalogNodeIds},
+        params: {
+          'p_node_ids': catalogNodeIds,
+          'p_difficulty': difficulty?.dbValue,
+        },
       );
       final progress = <String, TopicProgress>{
         for (final row in rows.cast<Map<String, dynamic>>())

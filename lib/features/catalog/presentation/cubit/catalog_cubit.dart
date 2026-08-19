@@ -45,11 +45,14 @@ class CatalogCubit extends Cubit<CatalogState> {
       parentId: parentId,
       difficulty: difficulty,
     );
+    if (isClosed) return;
     switch (result) {
       case Success(:final data):
         final progressResult = await _progressRepository.getBatchProgress(
           data.map((node) => node.id).toList(growable: false),
+          difficulty: difficulty,
         );
+        if (isClosed) return;
         final progress = switch (progressResult) {
           Success(data: final progressMap) => progressMap,
           Error() => const <String, TopicProgress>{},
