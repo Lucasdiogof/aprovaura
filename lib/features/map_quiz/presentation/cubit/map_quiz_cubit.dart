@@ -15,6 +15,7 @@ class MapQuizCubit extends Cubit<MapQuizState> {
   Future<void> load() async {
     emit(const MapQuizLoading());
     final result = await _repository.loadRegions(mapId);
+    if (isClosed) return;
     switch (result) {
       case Success(:final data):
         final ids = data.map((region) => region.id).toList()..shuffle();

@@ -31,6 +31,7 @@ class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
       catalogNodeId,
       difficulty: difficulty,
     );
+    if (isClosed) return;
     switch (result) {
       case Success(:final data):
         if (data.isEmpty) {
