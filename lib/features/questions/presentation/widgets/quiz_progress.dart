@@ -13,32 +13,13 @@ class QuizProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final current = currentIndex + 1;
-    final progress = totalCount == 0 ? 0.0 : current / totalCount;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Questão $current de $totalCount',
-          style: TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.w700,
-            color: colors.textPrimary,
-          ),
-        ),
-        const SizedBox(height: 8),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(99),
-          child: LinearProgressIndicator(
-            value: progress,
-            minHeight: 8,
-            backgroundColor: colors.secondary,
-            valueColor: AlwaysStoppedAnimation(colors.primary),
-          ),
-        ),
-      ],
+    return Text(
+      'Questão ${currentIndex + 1} de $totalCount',
+      style: TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.w700,
+        color: context.colors.textPrimary,
+      ),
     );
   }
 }
