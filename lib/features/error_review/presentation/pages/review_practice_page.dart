@@ -32,6 +32,7 @@ class ReviewPracticePage extends StatelessWidget {
                 instanceName: 'reviewQuestions',
               ),
               awardsRewards: false,
+              isCorrectionMode: true,
               onEmpty: (_) => const _AllResolvedView(),
             ),
           ),

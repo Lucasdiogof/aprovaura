@@ -26,6 +26,7 @@ class MultipleChoiceView extends StatelessWidget {
     this.difficulty,
     this.trackProgress = true,
     this.awardsRewards = true,
+    this.isCorrectionMode = false,
   });
 
   final String catalogNodeId;
@@ -37,6 +38,9 @@ class MultipleChoiceView extends StatelessWidget {
   // (currently: reviewing already-answered wrong questions), so finishing
   // the same activity repeatedly there can't be farmed for rewards.
   final bool awardsRewards;
+  // True for error-review sessions: the result screen reads as a
+  // correction instead of a fresh attempt, and only offers a way back.
+  final bool isCorrectionMode;
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +93,7 @@ class MultipleChoiceView extends StatelessWidget {
                       correctCount: correctCount,
                       totalCount: totalCount,
                       showXp: awardsRewards,
+                      isCorrectionMode: isCorrectionMode,
                     ),
                   MultipleChoicePlaying() => _QuestionView(
                     strings: t,
@@ -228,6 +233,7 @@ class _FinishedView extends StatelessWidget {
     required this.correctCount,
     required this.totalCount,
     required this.showXp,
+    required this.isCorrectionMode,
   });
 
   // Matches the flat award in award_activity_xp() -- keep them in sync.
@@ -237,6 +243,7 @@ class _FinishedView extends StatelessWidget {
   final int correctCount;
   final int totalCount;
   final bool showXp;
+  final bool isCorrectionMode;
 
   @override
   Widget build(BuildContext context) {
@@ -252,7 +259,9 @@ class _FinishedView extends StatelessWidget {
           _TrophyBadge(color: context.colors.primary),
           const SizedBox(height: 24),
           Text(
-            strings.finishedTitle,
+            isCorrectionMode
+                ? strings.correctionTitle
+                : strings.finishedTitle(fraction),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontWeight: FontWeight.w800,
@@ -262,7 +271,9 @@ class _FinishedView extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            strings.finishedSubtitle,
+            isCorrectionMode
+                ? strings.correctionSubtitle(totalCount)
+                : strings.finishedSubtitle(fraction),
             textAlign: TextAlign.center,
             style: TextStyle(color: context.colors.textSecondary),
           ),
@@ -310,23 +321,30 @@ class _FinishedView extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 28),
-          AppButton(
-            label: strings.continueButton,
-            onPressed: () => Navigator.of(context).maybePop(),
-          ),
-          const SizedBox(height: 12),
-          TextButton(
-            onPressed: () => context.read<MultipleChoiceCubit>().load(),
-            child: Text(strings.finishedRetryButton),
-          ),
-          Divider(height: 24, color: context.colors.border),
-          TextButton(
-            onPressed: () => Navigator.of(context).maybePop(),
-            child: Text(
-              strings.backToTrailButton,
-              style: TextStyle(color: context.colors.textSecondary),
+          if (isCorrectionMode)
+            AppButton(
+              label: strings.backButton,
+              onPressed: () => Navigator.of(context).maybePop(),
+            )
+          else ...[
+            AppButton(
+              label: strings.continueButton,
+              onPressed: () => Navigator.of(context).maybePop(),
             ),
-          ),
+            const SizedBox(height: 12),
+            TextButton(
+              onPressed: () => context.read<MultipleChoiceCubit>().load(),
+              child: Text(strings.finishedRetryButton),
+            ),
+            Divider(height: 24, color: context.colors.border),
+            TextButton(
+              onPressed: () => Navigator.of(context).maybePop(),
+              child: Text(
+                strings.backToTrailButton,
+                style: TextStyle(color: context.colors.textSecondary),
+              ),
+            ),
+          ],
         ],
       ),
     );

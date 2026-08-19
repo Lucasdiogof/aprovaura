@@ -30,14 +30,47 @@ class MultipleChoiceStrings {
     AppLanguage.english => 'See result',
   };
 
-  String get finishedTitle => switch (language) {
-    AppLanguage.portuguese => 'Mandou bem!',
-    AppLanguage.english => 'Nice work!',
+  String finishedTitle(double fraction) => switch (language) {
+    AppLanguage.portuguese => switch (fraction) {
+      >= 0.8 => 'Mandou bem!',
+      >= 0.5 => 'Dá para melhorar!',
+      _ => 'Vamos tentar de novo?',
+    },
+    AppLanguage.english => switch (fraction) {
+      >= 0.8 => 'Nice work!',
+      >= 0.5 => 'Room to improve!',
+      _ => "Let's try again?",
+    },
   };
 
-  String get finishedSubtitle => switch (language) {
-    AppLanguage.portuguese => 'Você concluiu a atividade com sucesso.',
-    AppLanguage.english => 'You completed the activity successfully.',
+  String finishedSubtitle(double fraction) => switch (language) {
+    AppLanguage.portuguese => switch (fraction) {
+      >= 0.8 => 'Você concluiu a atividade com sucesso.',
+      >= 0.5 => 'Você está no caminho certo, continue praticando.',
+      _ =>
+        'Essa atividade pegou pesado. Que tal revisar o conteúdo e tentar de novo?',
+    },
+    AppLanguage.english => switch (fraction) {
+      >= 0.8 => 'You completed the activity successfully.',
+      >= 0.5 => "You're on the right track, keep practicing.",
+      _ => 'That one was tough. Try reviewing the content and try again.',
+    },
+  };
+
+  String get correctionTitle => switch (language) {
+    AppLanguage.portuguese => 'Revisão concluída!',
+    AppLanguage.english => 'Review complete!',
+  };
+
+  String correctionSubtitle(int totalCount) => switch (language) {
+    AppLanguage.portuguese =>
+      totalCount == 1
+          ? 'Você revisou 1 questão que tinha errado antes.'
+          : 'Você revisou $totalCount questões que tinha errado antes.',
+    AppLanguage.english =>
+      totalCount == 1
+          ? 'You reviewed 1 question you had gotten wrong before.'
+          : 'You reviewed $totalCount questions you had gotten wrong before.',
   };
 
   String get finishedCorrectLabel => switch (language) {

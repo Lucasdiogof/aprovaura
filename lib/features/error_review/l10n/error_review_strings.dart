@@ -18,13 +18,15 @@ class ErrorReviewStrings {
   };
 
   String get emptyTitle => switch (language) {
-    AppLanguage.portuguese => 'Tudo certo por aqui!',
-    AppLanguage.english => 'All clear!',
+    AppLanguage.portuguese => 'Nenhum erro para revisar',
+    AppLanguage.english => 'No mistakes to review',
   };
 
   String get emptyDescription => switch (language) {
-    AppLanguage.portuguese => 'Você não tem questões pendentes para revisar.',
-    AppLanguage.english => 'You have no pending questions to review.',
+    AppLanguage.portuguese =>
+      'Quando você errar uma questão em alguma atividade, ela aparece aqui para você praticar de novo.',
+    AppLanguage.english =>
+      'When you get a question wrong in an activity, it shows up here so you can practice it again.',
   };
 
   String get retryButton => switch (language) {
