@@ -38,7 +38,9 @@ class QuizFeedback extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: Icon(
-              isCorrect ? Icons.celebration_rounded : Icons.info_outline_rounded,
+              isCorrect
+                  ? Icons.celebration_rounded
+                  : Icons.info_outline_rounded,
               color: color,
               size: 22,
             ),

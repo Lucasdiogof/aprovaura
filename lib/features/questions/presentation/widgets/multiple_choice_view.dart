@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
@@ -13,7 +14,7 @@ import 'package:aura/features/questions/presentation/widgets/quiz_answer_option.
 import 'package:aura/features/questions/presentation/widgets/quiz_feedback.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
-import 'package:aura/features/streak/presentation/cubit/streak_state.dart';
+import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 
 class MultipleChoiceView extends StatelessWidget {
@@ -24,6 +25,7 @@ class MultipleChoiceView extends StatelessWidget {
     this.repository,
     this.difficulty,
     this.trackProgress = true,
+    this.awardsRewards = true,
   });
 
   final String catalogNodeId;
@@ -31,6 +33,10 @@ class MultipleChoiceView extends StatelessWidget {
   final QuestionRepository? repository;
   final QuestionDifficulty? difficulty;
   final bool trackProgress;
+  // False for sessions that shouldn't grant XP or count toward the streak
+  // (currently: reviewing already-answered wrong questions), so finishing
+  // the same activity repeatedly there can't be farmed for rewards.
+  final bool awardsRewards;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +44,7 @@ class MultipleChoiceView extends StatelessWidget {
       create: (_) => MultipleChoiceCubit(
         repository ?? sl<QuestionRepository>(),
         sl<ProgressRepository>(),
+        sl<FavoritesRepository>(),
         catalogNodeId: catalogNodeId,
         difficulty: difficulty,
         trackProgress: trackProgress,
@@ -48,29 +55,48 @@ class MultipleChoiceView extends StatelessWidget {
           final t = MultipleChoiceStrings(language);
           return BlocConsumer<MultipleChoiceCubit, MultipleChoiceState>(
             listener: (context, state) {
-              if (state is MultipleChoiceFinished) {
+              if (state is MultipleChoiceFinished && awardsRewards) {
                 context.read<StreakCubit>().registerActivityCompletion();
+                context.read<XpCubit>().awardActivityCompletion();
               }
             },
-            builder: (context, state) => switch (state) {
-              MultipleChoiceLoading() => Center(
-                child: CircularProgressIndicator(color: context.colors.primary),
-              ),
-              MultipleChoiceEmpty() => onEmpty(context),
-              MultipleChoiceError(:final message) => _ErrorView(
-                strings: t,
-                message: message,
-              ),
-              MultipleChoiceFinished(:final correctCount, :final totalCount) =>
-                _FinishedView(
-                  strings: t,
-                  correctCount: correctCount,
-                  totalCount: totalCount,
-                ),
-              MultipleChoicePlaying() => _QuestionView(
-                strings: t,
-                state: state,
-              ),
+            builder: (context, state) {
+              final canPop =
+                  state is! MultipleChoicePlaying || state.isFirstQuestion;
+              return PopScope(
+                canPop: canPop,
+                onPopInvokedWithResult: (didPop, result) {
+                  if (didPop) return;
+                  context.read<MultipleChoiceCubit>().previous();
+                },
+                child: switch (state) {
+                  MultipleChoiceLoading() => Center(
+                    child: CircularProgressIndicator(
+                      color: context.colors.primary,
+                    ),
+                  ),
+                  MultipleChoiceEmpty() => onEmpty(context),
+                  MultipleChoiceError(:final message) => _ErrorView(
+                    strings: t,
+                    message: message,
+                  ),
+                  MultipleChoiceFinished(
+                    :final correctCount,
+                    :final totalCount,
+                  ) =>
+                    _FinishedView(
+                      strings: t,
+                      correctCount: correctCount,
+                      totalCount: totalCount,
+                      showXp: awardsRewards,
+                    ),
+                  MultipleChoicePlaying() => _QuestionView(
+                    strings: t,
+                    state: state,
+                    showFavoriteButton: trackProgress,
+                  ),
+                },
+              );
             },
           );
         },
@@ -80,12 +106,17 @@ class MultipleChoiceView extends StatelessWidget {
 }
 
 class _QuestionView extends StatelessWidget {
-  const _QuestionView({required this.strings, required this.state});
+  const _QuestionView({
+    required this.strings,
+    required this.state,
+    required this.showFavoriteButton,
+  });
 
   static const _letters = ['A', 'B', 'C', 'D', 'E', 'F'];
 
   final MultipleChoiceStrings strings;
   final MultipleChoicePlaying state;
+  final bool showFavoriteButton;
 
   QuizOptionStatus _statusFor(int index) {
     if (!state.hasAnswered) return QuizOptionStatus.neutral;
@@ -105,9 +136,28 @@ class _QuestionView extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(24, 20, 24, 0),
-          child: QuizProgress(
-            currentIndex: state.currentIndex,
-            totalCount: state.questions.length,
+          child: Row(
+            children: [
+              Expanded(
+                child: QuizProgress(
+                  currentIndex: state.currentIndex,
+                  totalCount: state.questions.length,
+                ),
+              ),
+              if (showFavoriteButton)
+                IconButton(
+                  onPressed: () =>
+                      context.read<MultipleChoiceCubit>().toggleFavorite(),
+                  icon: Icon(
+                    state.isCurrentFavorited
+                        ? Icons.bookmark_rounded
+                        : Icons.bookmark_border_rounded,
+                    color: state.isCurrentFavorited
+                        ? context.colors.primary
+                        : context.colors.textSecondary,
+                  ),
+                ),
+            ],
           ),
         ),
         Expanded(
@@ -177,24 +227,21 @@ class _FinishedView extends StatelessWidget {
     required this.strings,
     required this.correctCount,
     required this.totalCount,
+    required this.showXp,
   });
 
-  // Cosmetic only -- there is no XP system tracking or persisting this yet.
+  // Matches the flat award in award_activity_xp() -- keep them in sync.
   static const _xpEarned = 10;
 
   final MultipleChoiceStrings strings;
   final int correctCount;
   final int totalCount;
+  final bool showXp;
 
   @override
   Widget build(BuildContext context) {
     final fraction = totalCount == 0 ? 0.0 : correctCount / totalCount;
     final percent = (fraction * 100).round();
-    final streakState = context.watch<StreakCubit>().state;
-    final currentStreak = switch (streakState) {
-      StreakLoaded(:final streak) => streak.currentStreak,
-      _ => 0,
-    };
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
@@ -221,65 +268,45 @@ class _FinishedView extends StatelessWidget {
           ),
           const SizedBox(height: 28),
           Container(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 12),
             decoration: BoxDecoration(
               color: context.colors.surface,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(color: context.colors.border),
             ),
-            child: Column(
-              children: [
-                IntrinsicHeight(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: _StatCell(
-                          icon: Icons.track_changes_rounded,
-                          iconColor: context.colors.primary,
-                          value: '$correctCount/$totalCount',
-                          label: strings.finishedCorrectLabel,
-                        ),
-                      ),
-                      VerticalDivider(color: context.colors.border, width: 24),
-                      Expanded(
-                        child: _StatCell(
-                          icon: Icons.bar_chart_rounded,
-                          iconColor: context.colors.primary,
-                          value: '$percent%',
-                          label: strings.finishedScoreLabel,
-                        ),
-                      ),
-                    ],
+            child: IntrinsicHeight(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: _StatCell(
+                      icon: Icons.track_changes_rounded,
+                      iconColor: context.colors.primary,
+                      value: '$correctCount/$totalCount',
+                      label: strings.finishedCorrectLabel,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: Divider(height: 1, color: context.colors.border),
-                ),
-                IntrinsicHeight(
-                  child: Row(
-                    children: [
-                      const Expanded(
-                        child: _StatCell(
-                          icon: Icons.star_rounded,
-                          iconColor: Color(0xFFE0A32E),
-                          value: '+$_xpEarned',
-                          label: 'XP',
-                        ),
-                      ),
-                      VerticalDivider(color: context.colors.border, width: 24),
-                      Expanded(
-                        child: _StatCell(
-                          icon: Icons.local_fire_department_rounded,
-                          iconColor: const Color(0xFFE8763D),
-                          value: '$currentStreak',
-                          label: strings.finishedStreakLabel,
-                        ),
-                      ),
-                    ],
+                  VerticalDivider(color: context.colors.border, width: 1),
+                  Expanded(
+                    child: _StatCell(
+                      icon: Icons.bar_chart_rounded,
+                      iconColor: context.colors.primary,
+                      value: '$percent%',
+                      label: strings.finishedScoreLabel,
+                    ),
                   ),
-                ),
-              ],
+                  if (showXp) ...[
+                    VerticalDivider(color: context.colors.border, width: 1),
+                    const Expanded(
+                      child: _StatCell(
+                        icon: Icons.star_rounded,
+                        iconColor: Color(0xFFE0A32E),
+                        value: '+$_xpEarned',
+                        label: 'XP',
+                      ),
+                    ),
+                  ],
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 28),
@@ -357,42 +384,33 @@ class _StatCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          width: 36,
-          height: 36,
+          width: 44,
+          height: 44,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: iconColor.withValues(alpha: 0.14),
             shape: BoxShape.circle,
           ),
-          child: Icon(icon, color: iconColor, size: 18),
+          child: Icon(icon, color: iconColor, size: 22),
         ),
-        const SizedBox(width: 10),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                value,
-                style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 17,
-                  color: context.colors.textPrimary,
-                ),
-              ),
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 11,
-                  color: context.colors.textSecondary,
-                ),
-              ),
-            ],
+        const SizedBox(height: 10),
+        Text(
+          value,
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 22,
+            color: context.colors.textPrimary,
           ),
+        ),
+        const SizedBox(height: 2),
+        Text(
+          label,
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 12, color: context.colors.textSecondary),
         ),
       ],
     );

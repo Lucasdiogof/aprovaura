@@ -30,30 +30,37 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     required this.questions,
     required this.currentIndex,
     required this.correctCount,
-    this.selectedIndex,
+    this.answers = const {},
+    this.favoriteQuestionIds = const {},
   });
 
   final List<Question> questions;
   final int currentIndex;
   final int correctCount;
-  final int? selectedIndex;
+  // Question index -> selected option index, so navigating back to an
+  // earlier question still shows what was picked there.
+  final Map<int, int> answers;
+  final Set<String> favoriteQuestionIds;
 
   Question get currentQuestion => questions[currentIndex];
+  int? get selectedIndex => answers[currentIndex];
   bool get hasAnswered => selectedIndex != null;
+  bool get isFirstQuestion => currentIndex == 0;
   bool get isLastQuestion => currentIndex == questions.length - 1;
+  bool get isCurrentFavorited =>
+      favoriteQuestionIds.contains(currentQuestion.id);
 
   MultipleChoicePlaying copyWith({
     int? currentIndex,
     int? correctCount,
-    int? selectedIndex,
-    bool clearSelection = false,
+    Map<int, int>? answers,
+    Set<String>? favoriteQuestionIds,
   }) => MultipleChoicePlaying(
     questions: questions,
     currentIndex: currentIndex ?? this.currentIndex,
     correctCount: correctCount ?? this.correctCount,
-    selectedIndex: clearSelection
-        ? null
-        : (selectedIndex ?? this.selectedIndex),
+    answers: answers ?? this.answers,
+    favoriteQuestionIds: favoriteQuestionIds ?? this.favoriteQuestionIds,
   );
 
   @override
@@ -61,7 +68,8 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     questions,
     currentIndex,
     correctCount,
-    selectedIndex,
+    answers,
+    favoriteQuestionIds,
   ];
 }
 

@@ -57,7 +57,11 @@ class QuizAnswerOption extends StatelessWidget {
           ),
           child: Row(
             children: [
-              _LetterBadge(letter: letter, color: accent, filled: status == QuizOptionStatus.neutral),
+              _LetterBadge(
+                letter: letter,
+                color: accent,
+                filled: status == QuizOptionStatus.neutral,
+              ),
               const SizedBox(width: 14),
               Expanded(
                 child: Text(
@@ -105,7 +109,11 @@ class _LetterBadge extends StatelessWidget {
       ),
       child: Text(
         letter,
-        style: TextStyle(color: color, fontWeight: FontWeight.w700, fontSize: 15),
+        style: TextStyle(
+          color: color,
+          fontWeight: FontWeight.w700,
+          fontSize: 15,
+        ),
       ),
     );
   }

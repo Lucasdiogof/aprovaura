@@ -50,11 +50,6 @@ class MultipleChoiceStrings {
     AppLanguage.english => 'score',
   };
 
-  String get finishedStreakLabel => switch (language) {
-    AppLanguage.portuguese => 'Ofensiva',
-    AppLanguage.english => 'Streak',
-  };
-
   String get continueButton => switch (language) {
     AppLanguage.portuguese => 'Continuar',
     AppLanguage.english => 'Continue',
