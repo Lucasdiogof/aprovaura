@@ -153,4 +153,14 @@ class ProfileStrings {
     AppLanguage.portuguese => 'Matérias de interesse',
     AppLanguage.english => 'Subjects of interest',
   };
+
+  String levelLabel(int level) => switch (language) {
+    AppLanguage.portuguese => 'Nível $level',
+    AppLanguage.english => 'Level $level',
+  };
+
+  String xpToNextLevel(int current, int total) => switch (language) {
+    AppLanguage.portuguese => '$current / $total XP para o próximo nível',
+    AppLanguage.english => '$current / $total XP to next level',
+  };
 }

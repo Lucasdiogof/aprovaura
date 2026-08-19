@@ -16,6 +16,8 @@ import 'package:aura/features/questions/data/question_repository_impl.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
 import 'package:aura/features/streak/data/streak_repository_impl.dart';
 import 'package:aura/features/streak/domain/repositories/streak_repository.dart';
+import 'package:aura/features/xp/data/xp_repository_impl.dart';
+import 'package:aura/features/xp/domain/repositories/xp_repository.dart';
 
 final GetIt sl = GetIt.instance;
 
@@ -43,4 +45,5 @@ void registerSupabaseDependencies() {
   sl.registerLazySingleton<ProgressRepository>(
     () => ProgressRepositoryImpl(sl()),
   );
+  sl.registerLazySingleton<XpRepository>(() => XpRepositoryImpl(sl()));
 }

@@ -12,6 +12,9 @@ import 'package:aura/features/profile/presentation/pages/interested_subjects_set
 import 'package:aura/features/profile/presentation/pages/my_account_page.dart';
 import 'package:aura/features/profile/presentation/pages/settings_page.dart';
 import 'package:aura/features/profile/presentation/widgets/profile_row.dart';
+import 'package:aura/features/profile/presentation/widgets/xp_level_card.dart';
+import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
+import 'package:aura/features/xp/presentation/cubit/xp_state.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -72,6 +75,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final language = context.watch<LocaleCubit>().state;
     final t = ProfileStrings(language);
+    final xpState = context.watch<XpCubit>().state;
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
         final profile = state.profile;
@@ -139,6 +143,10 @@ class ProfilePage extends StatelessWidget {
                         ],
                       ),
                     ),
+                    if (xpState is XpLoaded) ...[
+                      const SizedBox(height: 12),
+                      XpLevelCard(strings: t, xp: xpState.xp),
+                    ],
                     const SizedBox(height: 20),
                     ProfileRow(
                       icon: Icons.flag_outlined,

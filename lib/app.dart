@@ -8,6 +8,7 @@ import 'package:aura/core/router/app_router.dart';
 import 'package:aura/core/theme/app_theme.dart';
 import 'package:aura/core/theme/theme_cubit.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
+import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -19,6 +20,7 @@ class App extends StatelessWidget {
         BlocProvider.value(value: sl<ThemeCubit>()),
         BlocProvider.value(value: sl<LocaleCubit>()),
         BlocProvider.value(value: sl<StreakCubit>()),
+        BlocProvider.value(value: sl<XpCubit>()),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeMode) {
