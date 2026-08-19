@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/error_review/presentation/pages/error_review_list_page.dart';
+import 'package:aura/features/favorites/presentation/pages/favorites_list_page.dart';
 import 'package:aura/features/practice/domain/entities/practice_option.dart';
 import 'package:aura/features/practice/l10n/practice_strings.dart';
 import 'package:aura/features/practice/presentation/widgets/practice_option_card.dart';
@@ -16,11 +17,14 @@ class PracticePage extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute<void>(builder: (_) => const ErrorReviewListPage()),
         );
+      case PracticeOption.favorites:
+        Navigator.of(context).push(
+          MaterialPageRoute<void>(builder: (_) => const FavoritesListPage()),
+        );
       // No functional destination yet for the others — callbacks are wired
       // per option so navigation can be added later without touching this
       // page's layout.
       case PracticeOption.quickPractice:
-      case PracticeOption.favorites:
       case PracticeOption.chooseSubject:
         break;
     }

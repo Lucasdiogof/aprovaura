@@ -10,10 +10,13 @@ import 'package:aura/features/catalog/data/catalog_repository_impl.dart';
 import 'package:aura/features/catalog/domain/repositories/catalog_repository.dart';
 import 'package:aura/features/error_review/data/error_review_repository_impl.dart';
 import 'package:aura/features/error_review/domain/repositories/error_review_repository.dart';
+import 'package:aura/features/favorites/data/favorites_repository_impl.dart';
+import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
 import 'package:aura/features/profile/data/profile_repository_impl.dart';
 import 'package:aura/features/profile/domain/repositories/profile_repository.dart';
 import 'package:aura/features/progress/data/progress_repository_impl.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
+import 'package:aura/features/questions/data/favorite_question_repository_impl.dart';
 import 'package:aura/features/questions/data/question_repository_impl.dart';
 import 'package:aura/features/questions/data/review_question_repository_impl.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
@@ -56,4 +59,11 @@ void registerSupabaseDependencies() {
     () => ErrorReviewRepositoryImpl(sl()),
   );
   sl.registerLazySingleton<XpRepository>(() => XpRepositoryImpl(sl()));
+  sl.registerLazySingleton<FavoritesRepository>(
+    () => FavoritesRepositoryImpl(sl()),
+  );
+  sl.registerLazySingleton<QuestionRepository>(
+    () => FavoriteQuestionRepositoryImpl(sl()),
+    instanceName: 'favoriteQuestions',
+  );
 }
