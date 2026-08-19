@@ -8,6 +8,9 @@ import 'package:aura/features/home/l10n/home_strings.dart';
 import 'package:aura/features/catalog/presentation/pages/catalog_list_page.dart';
 import 'package:aura/features/home/presentation/widgets/streak_card.dart';
 import 'package:aura/features/profile/presentation/cubit/profile_cubit.dart';
+import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
+import 'package:aura/features/streak/presentation/cubit/streak_state.dart';
+import 'package:aura/features/streak/presentation/widgets/streak_lost_bottom_sheet.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 import 'package:aura/features/subjects/presentation/widgets/subject_card.dart';
 
@@ -49,66 +52,87 @@ class HomePage extends StatelessWidget {
       profileState.profile?.name ?? '',
       profileState.authUser.email,
     );
-    return Scaffold(
-      backgroundColor: context.colors.background,
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverPadding(
-              padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
-              sliver: SliverToBoxAdapter(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      t.greeting(displayName),
-                      style: Theme.of(context).textTheme.headlineSmall
-                          ?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: context.colors.textPrimary,
-                          ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      t.homeSubtitle,
-                      style: TextStyle(color: context.colors.textSecondary),
-                    ),
-                    const SizedBox(height: 20),
-                    StreakCard(strings: t, streakDays: 0),
-                    const SizedBox(height: 24),
-                    Text(
-                      t.chooseSubjectHeading,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: context.colors.textPrimary,
+    final streakState = context.watch<StreakCubit>().state;
+    final streakDays = switch (streakState) {
+      StreakLoaded(:final streak) => streak.currentStreak,
+      _ => 0,
+    };
+    return BlocListener<StreakCubit, StreakState>(
+      listenWhen: (previous, current) =>
+          current is StreakLoaded && current.streak.hasUnseenBreak,
+      listener: (context, state) {
+        final streak = (state as StreakLoaded).streak;
+        context.read<StreakCubit>().dismissBreakNotice();
+        StreakLostBottomSheet.show(
+          context,
+          lostDays: streak.lastBrokenStreak ?? 0,
+        );
+      },
+      child: Scaffold(
+        backgroundColor: context.colors.background,
+        body: SafeArea(
+          child: CustomScrollView(
+            slivers: [
+              SliverPadding(
+                padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
+                sliver: SliverToBoxAdapter(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        t.greeting(displayName),
+                        style: Theme.of(context).textTheme.headlineSmall
+                            ?.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: context.colors.textPrimary,
+                            ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        t.homeSubtitle,
+                        style: TextStyle(color: context.colors.textSecondary),
+                      ),
+                      const SizedBox(height: 20),
+                      StreakCard(strings: t, streakDays: streakDays),
+                      const SizedBox(height: 24),
+                      Text(
+                        t.chooseSubjectHeading,
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: context.colors.textPrimary,
+                            ),
+                      ),
+                      const SizedBox(height: 12),
+                    ],
+                  ),
+                ),
+              ),
+              SliverPadding(
+                padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                sliver: SliverGrid(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 12,
+                    crossAxisSpacing: 12,
+                    childAspectRatio: 0.95,
+                  ),
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) => SubjectCard(
+                      subject: Subject.values[index],
+                      language: language,
+                      onTap: () => _openSubject(
+                        context,
+                        Subject.values[index],
+                        language,
                       ),
                     ),
-                    const SizedBox(height: 12),
-                  ],
-                ),
-              ),
-            ),
-            SliverPadding(
-              padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-              sliver: SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 12,
-                  crossAxisSpacing: 12,
-                  childAspectRatio: 0.95,
-                ),
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) => SubjectCard(
-                    subject: Subject.values[index],
-                    language: language,
-                    onTap: () =>
-                        _openSubject(context, Subject.values[index], language),
+                    childCount: Subject.values.length,
                   ),
-                  childCount: Subject.values.length,
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

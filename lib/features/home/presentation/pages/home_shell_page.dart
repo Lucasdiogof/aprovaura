@@ -12,6 +12,7 @@ import 'package:aura/features/practice/presentation/pages/practice_page.dart';
 import 'package:aura/features/profile/domain/repositories/profile_repository.dart';
 import 'package:aura/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:aura/features/profile/presentation/pages/profile_page.dart';
+import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 
 class HomeShellPage extends StatefulWidget {
   const HomeShellPage({required this.user, super.key});
@@ -25,6 +26,12 @@ class HomeShellPage extends StatefulWidget {
 class _HomeShellPageState extends State<HomeShellPage> {
   final _shellCubit = HomeShellCubit();
   late final _profileCubit = ProfileCubit(sl<ProfileRepository>(), widget.user);
+
+  @override
+  void initState() {
+    super.initState();
+    sl<StreakCubit>().load();
+  }
 
   @override
   void dispose() {

@@ -7,6 +7,8 @@ import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/theme_cubit.dart';
 import 'package:aura/features/map_quiz/data/map_quiz_repository_impl.dart';
 import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.dart';
+import 'package:aura/features/streak/domain/repositories/streak_repository.dart';
+import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +24,9 @@ void main() async {
   sl.registerLazySingleton<LocaleCubit>(LocaleCubit.new);
   sl.registerLazySingleton<MapQuizRepository>(MapQuizRepositoryImpl.new);
   registerSupabaseDependencies();
+  sl.registerLazySingleton<StreakCubit>(
+    () => StreakCubit(sl<StreakRepository>()),
+  );
 
   runApp(const App());
 }

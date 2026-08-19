@@ -12,6 +12,8 @@ import 'package:aura/features/profile/data/profile_repository_impl.dart';
 import 'package:aura/features/profile/domain/repositories/profile_repository.dart';
 import 'package:aura/features/questions/data/question_repository_impl.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
+import 'package:aura/features/streak/data/streak_repository_impl.dart';
+import 'package:aura/features/streak/domain/repositories/streak_repository.dart';
 
 final GetIt sl = GetIt.instance;
 
@@ -35,4 +37,5 @@ void registerSupabaseDependencies() {
     () => DossierQuestionRepositoryImpl(sl()),
     instanceName: 'dossierQuestions',
   );
+  sl.registerLazySingleton<StreakRepository>(() => StreakRepositoryImpl(sl()));
 }

@@ -7,6 +7,7 @@ import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/router/app_router.dart';
 import 'package:aura/core/theme/app_theme.dart';
 import 'package:aura/core/theme/theme_cubit.dart';
+import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -17,6 +18,7 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider.value(value: sl<ThemeCubit>()),
         BlocProvider.value(value: sl<LocaleCubit>()),
+        BlocProvider.value(value: sl<StreakCubit>()),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeMode) {

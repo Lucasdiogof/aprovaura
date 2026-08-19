@@ -12,6 +12,7 @@ import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.d
 import 'package:aura/features/map_quiz/l10n/map_quiz_strings.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_cubit.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_state.dart';
+import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
@@ -92,6 +93,9 @@ class _MapQuizViewState extends State<_MapQuizView> {
                       context.read<MapQuizCubit>().clearFeedback();
                     }
                   });
+                }
+                if (state is MapQuizFinished) {
+                  context.read<StreakCubit>().registerActivityCompletion();
                 }
               },
               builder: (context, state) => switch (state) {

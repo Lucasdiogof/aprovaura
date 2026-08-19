@@ -11,6 +11,7 @@ import 'package:aura/features/questions/presentation/cubit/multiple_choice_state
 import 'package:aura/features/questions/presentation/widgets/quiz_answer_option.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_feedback.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart';
+import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 
 class MultipleChoiceView extends StatelessWidget {
@@ -39,7 +40,12 @@ class MultipleChoiceView extends StatelessWidget {
         builder: (context) {
           final language = context.watch<LocaleCubit>().state;
           final t = MultipleChoiceStrings(language);
-          return BlocBuilder<MultipleChoiceCubit, MultipleChoiceState>(
+          return BlocConsumer<MultipleChoiceCubit, MultipleChoiceState>(
+            listener: (context, state) {
+              if (state is MultipleChoiceFinished) {
+                context.read<StreakCubit>().registerActivityCompletion();
+              }
+            },
             builder: (context, state) => switch (state) {
               MultipleChoiceLoading() => Center(
                 child: CircularProgressIndicator(color: context.colors.primary),
@@ -121,8 +127,9 @@ class _QuestionView extends StatelessWidget {
                     status: _statusFor(i),
                     onTap: state.hasAnswered
                         ? null
-                        : () =>
-                              context.read<MultipleChoiceCubit>().selectOption(i),
+                        : () => context
+                              .read<MultipleChoiceCubit>()
+                              .selectOption(i),
                   ),
                   if (i != question.options.length - 1)
                     const SizedBox(height: 12),
