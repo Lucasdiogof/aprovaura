@@ -21,11 +21,9 @@ class PracticePage extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute<void>(builder: (_) => const FavoritesListPage()),
         );
-      // No functional destination yet for the others — callbacks are wired
-      // per option so navigation can be added later without touching this
-      // page's layout.
+      // No functional destination yet — callback is wired so navigation
+      // can be added later without touching this page's layout.
       case PracticeOption.quickPractice:
-      case PracticeOption.chooseSubject:
         break;
     }
   }
