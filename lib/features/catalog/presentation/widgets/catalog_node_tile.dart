@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/catalog/domain/entities/catalog_node.dart';
+import 'package:aura/features/progress/domain/entities/topic_progress.dart';
 
 class CatalogNodeTile extends StatelessWidget {
   const CatalogNodeTile({
@@ -8,11 +9,13 @@ class CatalogNodeTile extends StatelessWidget {
     required this.accentColor,
     required this.onTap,
     super.key,
+    this.progress,
   });
 
   final CatalogNode node;
   final Color accentColor;
   final VoidCallback onTap;
+  final TopicProgress? progress;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +68,33 @@ class CatalogNodeTile extends StatelessWidget {
                           fontSize: 12,
                           color: context.colors.textSecondary,
                         ),
+                      ),
+                    ],
+                    if (progress != null && progress!.total > 0) ...[
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: LinearProgressIndicator(
+                                value: progress!.fraction,
+                                minHeight: 5,
+                                backgroundColor: context.colors.border,
+                                valueColor: AlwaysStoppedAnimation(accentColor),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            '${(progress!.fraction * 100).round()}%',
+                            style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.w600,
+                              color: context.colors.textSecondary,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ],

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
 import 'package:aura/features/questions/l10n/multiple_choice_strings.dart';
@@ -21,20 +22,24 @@ class MultipleChoiceView extends StatelessWidget {
     super.key,
     this.repository,
     this.difficulty,
+    this.trackProgress = true,
   });
 
   final String catalogNodeId;
   final WidgetBuilder onEmpty;
   final QuestionRepository? repository;
   final QuestionDifficulty? difficulty;
+  final bool trackProgress;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => MultipleChoiceCubit(
         repository ?? sl<QuestionRepository>(),
+        sl<ProgressRepository>(),
         catalogNodeId: catalogNodeId,
         difficulty: difficulty,
+        trackProgress: trackProgress,
       ),
       child: Builder(
         builder: (context) {

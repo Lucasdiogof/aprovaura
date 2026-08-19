@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:aura/features/catalog/domain/entities/catalog_node.dart';
+import 'package:aura/features/progress/domain/entities/topic_progress.dart';
 
 sealed class CatalogState extends Equatable {
   const CatalogState();
@@ -13,12 +14,13 @@ class CatalogLoading extends CatalogState {
 }
 
 class CatalogLoaded extends CatalogState {
-  const CatalogLoaded(this.nodes);
+  const CatalogLoaded(this.nodes, this.progressByNodeId);
 
   final List<CatalogNode> nodes;
+  final Map<String, TopicProgress> progressByNodeId;
 
   @override
-  List<Object?> get props => [nodes];
+  List<Object?> get props => [nodes, progressByNodeId];
 }
 
 class CatalogError extends CatalogState {

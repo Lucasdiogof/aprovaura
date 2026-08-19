@@ -1,21 +1,28 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
 import 'package:aura/features/questions/presentation/cubit/multiple_choice_state.dart';
 
 class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
   MultipleChoiceCubit(
-    this._repository, {
+    this._repository,
+    this._progressRepository, {
     required this.catalogNodeId,
     this.difficulty,
+    this.trackProgress = true,
   }) : super(const MultipleChoiceLoading()) {
     load();
   }
 
   final QuestionRepository _repository;
+  final ProgressRepository _progressRepository;
   final String catalogNodeId;
   final QuestionDifficulty? difficulty;
+  // False for content (like Atualidades dossiers) that isn't part of the
+  // catalog_nodes/questions tree that progress is tracked against.
+  final bool trackProgress;
 
   Future<void> load() async {
     emit(const MultipleChoiceLoading());
@@ -52,6 +59,12 @@ class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
         correctCount: isCorrect ? current.correctCount + 1 : null,
       ),
     );
+    if (trackProgress) {
+      _progressRepository.registerQuestionAnswered(
+        questionId: current.currentQuestion.id,
+        isCorrect: isCorrect,
+      );
+    }
   }
 
   void next() {

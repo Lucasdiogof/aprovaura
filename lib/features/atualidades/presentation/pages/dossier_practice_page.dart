@@ -27,6 +27,7 @@ class DossierPracticePage extends StatelessWidget {
               repository: sl<QuestionRepository>(
                 instanceName: 'dossierQuestions',
               ),
+              trackProgress: false,
               onEmpty: (_) => const _ComingSoonView(),
             ),
           ),

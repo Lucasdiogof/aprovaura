@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/core/router/app_route_observer.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/catalog/domain/repositories/catalog_repository.dart';
 import 'package:aura/features/catalog/l10n/catalog_strings.dart';
@@ -10,13 +11,14 @@ import 'package:aura/features/catalog/presentation/cubit/catalog_state.dart';
 import 'package:aura/features/catalog/presentation/mapped_activities.dart';
 import 'package:aura/features/catalog/presentation/widgets/catalog_node_tile.dart';
 import 'package:aura/features/catalog/presentation/widgets/difficulty_selector.dart';
+import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/questions/presentation/widgets/multiple_choice_view.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
-class CatalogListPage extends StatelessWidget {
+class CatalogListPage extends StatefulWidget {
   const CatalogListPage({
     required this.subject,
     required this.title,
@@ -33,30 +35,58 @@ class CatalogListPage extends StatelessWidget {
   final QuestionDifficulty? difficulty;
 
   @override
+  State<CatalogListPage> createState() => _CatalogListPageState();
+}
+
+class _CatalogListPageState extends State<CatalogListPage> with RouteAware {
+  late final _cubit = CatalogCubit(
+    sl<CatalogRepository>(),
+    sl<ProgressRepository>(),
+    subject: widget.subject.name,
+    parentId: widget.parentId,
+    difficulty: widget.difficulty,
+  );
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route is PageRoute<void>) appRouteObserver.subscribe(this, route);
+  }
+
+  @override
+  void dispose() {
+    appRouteObserver.unsubscribe(this);
+    _cubit.close();
+    super.dispose();
+  }
+
+  // Called when a route pushed on top of this one (a finished activity, a
+  // sub-topic list) is popped back to this one — refreshes the progress
+  // bars without a CatalogLoading flash.
+  @override
+  void didPopNext() => _cubit.refresh();
+
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => CatalogCubit(
-        sl<CatalogRepository>(),
-        subject: subject.name,
-        parentId: parentId,
-        difficulty: difficulty,
-      ),
+    return BlocProvider.value(
+      value: _cubit,
       child: Scaffold(
         backgroundColor: context.colors.background,
         body: Column(
           children: [
             ModernAppBar(
-              title: title,
-              subtitle: subtitle,
+              title: widget.title,
+              subtitle: widget.subtitle,
               showBackButton: true,
             ),
-            if (parentId == null)
+            if (widget.parentId == null)
               BlocBuilder<CatalogCubit, CatalogState>(
                 builder: (context, _) => Padding(
                   padding: const EdgeInsets.only(top: 4, bottom: 8),
                   child: DifficultySelector(
                     selected: context.read<CatalogCubit>().difficulty,
-                    accentColor: subject.accentColor,
+                    accentColor: widget.subject.accentColor,
                     onChanged: (value) =>
                         context.read<CatalogCubit>().setDifficulty(value),
                   ),
@@ -72,43 +102,45 @@ class CatalogListPage extends StatelessWidget {
                   ),
                   CatalogError(:final message) => _ErrorView(message: message),
                   CatalogLoaded(nodes: final nodes) when nodes.isEmpty =>
-                    parentId == null
+                    widget.parentId == null
                         ? (context.read<CatalogCubit>().difficulty == null
                               ? const _ComingSoonView()
                               : const _DifficultyEmptyView())
                         : MultipleChoiceView(
-                            catalogNodeId: parentId!,
+                            catalogNodeId: widget.parentId!,
                             difficulty: context.read<CatalogCubit>().difficulty,
                             onEmpty: (_) => const _ComingSoonView(),
                           ),
-                  CatalogLoaded(:final nodes) => ListView.separated(
-                    padding: const EdgeInsets.all(24),
-                    itemCount: nodes.length,
-                    separatorBuilder: (_, _) => const SizedBox(height: 12),
-                    itemBuilder: (context, index) {
-                      final node = nodes[index];
-                      final activityBuilder = mappedActivities[node.id];
-                      return CatalogNodeTile(
-                        node: node,
-                        accentColor: subject.accentColor,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute<void>(
-                            builder:
-                                activityBuilder ??
-                                (_) => CatalogListPage(
-                                  subject: subject,
-                                  title: node.title,
-                                  subtitle: node.description,
-                                  parentId: node.id,
-                                  difficulty: context
-                                      .read<CatalogCubit>()
-                                      .difficulty,
-                                ),
+                  CatalogLoaded(:final nodes, :final progressByNodeId) =>
+                    ListView.separated(
+                      padding: const EdgeInsets.all(24),
+                      itemCount: nodes.length,
+                      separatorBuilder: (_, _) => const SizedBox(height: 12),
+                      itemBuilder: (context, index) {
+                        final node = nodes[index];
+                        final activityBuilder = mappedActivities[node.id];
+                        return CatalogNodeTile(
+                          node: node,
+                          accentColor: widget.subject.accentColor,
+                          progress: progressByNodeId[node.id],
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute<void>(
+                              builder:
+                                  activityBuilder ??
+                                  (_) => CatalogListPage(
+                                    subject: widget.subject,
+                                    title: node.title,
+                                    subtitle: node.description,
+                                    parentId: node.id,
+                                    difficulty: context
+                                        .read<CatalogCubit>()
+                                        .difficulty,
+                                  ),
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  ),
+                        );
+                      },
+                    ),
                 },
               ),
             ),
