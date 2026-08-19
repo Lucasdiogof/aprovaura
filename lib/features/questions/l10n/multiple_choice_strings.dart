@@ -40,6 +40,12 @@ class MultipleChoiceStrings {
     AppLanguage.english => 'You got $correct out of $total right.',
   };
 
+  String finishedGrade(double grade) => switch (language) {
+    AppLanguage.portuguese =>
+      'Nota ${grade.toStringAsFixed(1).replaceAll('.', ',')}',
+    AppLanguage.english => 'Grade ${grade.toStringAsFixed(1)}',
+  };
+
   String get retryButton => switch (language) {
     AppLanguage.portuguese => 'Tentar novamente',
     AppLanguage.english => 'Try again',

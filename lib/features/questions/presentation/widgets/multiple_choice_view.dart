@@ -184,6 +184,9 @@ class _FinishedView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final fraction = totalCount == 0 ? 0.0 : correctCount / totalCount;
+    final percent = (fraction * 100).round();
+    final grade = fraction * 10;
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32),
@@ -202,6 +205,24 @@ class _FinishedView extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 fontSize: 20,
                 color: context.colors.textPrimary,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              '$percent%',
+              style: TextStyle(
+                fontWeight: FontWeight.w800,
+                fontSize: 40,
+                color: context.colors.primary,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              strings.finishedGrade(grade),
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 14,
+                color: context.colors.textSecondary,
               ),
             ),
             const SizedBox(height: 8),

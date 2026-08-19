@@ -16,31 +16,17 @@ class QuizProgress extends StatelessWidget {
     final colors = context.colors;
     final current = currentIndex + 1;
     final progress = totalCount == 0 ? 0.0 : current / totalCount;
-    final percent = (progress * 100).round();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Questão $current de $totalCount',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-                color: colors.textSecondary,
-              ),
-            ),
-            Text(
-              '$percent%',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                color: colors.primary,
-              ),
-            ),
-          ],
+        Text(
+          'Questão $current de $totalCount',
+          style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w700,
+            color: colors.textPrimary,
+          ),
         ),
         const SizedBox(height: 8),
         ClipRRect(
