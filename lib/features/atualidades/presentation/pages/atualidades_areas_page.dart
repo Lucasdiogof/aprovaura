@@ -25,7 +25,11 @@ class AtualidadesAreasPage extends StatelessWidget {
       backgroundColor: context.colors.background,
       body: Column(
         children: [
-          ModernAppBar(title: t.pageTitle, subtitle: t.areasPageSubtitle),
+          ModernAppBar(
+            title: t.pageTitle,
+            subtitle: t.areasPageSubtitle,
+            showBackButton: true,
+          ),
           Expanded(
             child: ListView.separated(
               padding: const EdgeInsets.all(24),
