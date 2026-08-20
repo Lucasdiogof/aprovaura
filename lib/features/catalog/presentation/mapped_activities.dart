@@ -203,7 +203,7 @@ final Map<String, WidgetBuilder> mappedActivities = {
   ),
   'b7d3c950-9f2b-4206-9bb7-74263dacc6e7': _mapQuiz(
     mapId: 'world_straits',
-    interactionType: MapInteractionType.line,
+    interactionType: MapInteractionType.point,
     title: 'Estreitos do mundo',
     backgroundMapId: 'world_countries',
   ),
