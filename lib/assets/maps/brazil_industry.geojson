@@ -1,0 +1,14 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","properties":{"sigla":"zonafranca","nome":"Zona Franca de Manaus"},"geometry":{"type":"Point","coordinates":[-60.0,-3.1]}},
+{"type":"Feature","properties":{"sigla":"poloaluminio","nome":"Polo de Alumínio (Barcarena)"},"geometry":{"type":"Point","coordinates":[-48.6,-1.5]}},
+{"type":"Feature","properties":{"sigla":"carajas","nome":"Serra dos Carajás (ferro e manganês)"},"geometry":{"type":"Point","coordinates":[-50.1,-6.1]}},
+{"type":"Feature","properties":{"sigla":"portoitaqui","nome":"Porto de Itaqui"},"geometry":{"type":"Point","coordinates":[-44.4,-2.6]}},
+{"type":"Feature","properties":{"sigla":"recife","nome":"Recife / Porto Digital"},"geometry":{"type":"Point","coordinates":[-34.9,-8.0]}},
+{"type":"Feature","properties":{"sigla":"camacari","nome":"Salvador / Polo de Camaçari"},"geometry":{"type":"Point","coordinates":[-38.3,-12.7]}},
+{"type":"Feature","properties":{"sigla":"quadrilatero","nome":"Quadrilátero Ferrífero"},"geometry":{"type":"Point","coordinates":[-43.9,-20.1]}},
+{"type":"Feature","properties":{"sigla":"portovitoria","nome":"Porto de Vitória"},"geometry":{"type":"Point","coordinates":[-40.3,-20.3]}},
+{"type":"Feature","properties":{"sigla":"abcpaulista","nome":"São Paulo / ABC Paulista"},"geometry":{"type":"Point","coordinates":[-46.5,-23.6]}},
+{"type":"Feature","properties":{"sigla":"portosantos","nome":"Porto de Santos"},"geometry":{"type":"Point","coordinates":[-46.3,-23.95]}},
+{"type":"Feature","properties":{"sigla":"portoparanagua","nome":"Porto de Paranaguá"},"geometry":{"type":"Point","coordinates":[-48.5,-25.5]}},
+{"type":"Feature","properties":{"sigla":"urucum","nome":"Maciço do Urucum"},"geometry":{"type":"Point","coordinates":[-57.6,-19.2]}}
+]}

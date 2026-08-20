@@ -1,0 +1,19 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","properties":{"sigla":"serramar","nome":"Serra do Mar"},"geometry":{"type":"Point","coordinates":[-46.0,-23.8]}},
+{"type":"Feature","properties":{"sigla":"mantiqueira","nome":"Serra da Mantiqueira"},"geometry":{"type":"Point","coordinates":[-45.5,-22.3]}},
+{"type":"Feature","properties":{"sigla":"serrageral","nome":"Serra Geral"},"geometry":{"type":"Point","coordinates":[-50.0,-27.5]}},
+{"type":"Feature","properties":{"sigla":"espinhaco","nome":"Serra do Espinhaço"},"geometry":{"type":"Point","coordinates":[-43.5,-18.0]}},
+{"type":"Feature","properties":{"sigla":"canastra","nome":"Serra da Canastra"},"geometry":{"type":"Point","coordinates":[-46.6,-20.2]}},
+{"type":"Feature","properties":{"sigla":"carajas","nome":"Serra dos Carajás"},"geometry":{"type":"Point","coordinates":[-50.1,-6.1]}},
+{"type":"Feature","properties":{"sigla":"pacaraima","nome":"Serra Pacaraima"},"geometry":{"type":"Point","coordinates":[-62.5,3.5]}},
+{"type":"Feature","properties":{"sigla":"picodaneblina","nome":"Pico da Neblina"},"geometry":{"type":"Point","coordinates":[-65.9,0.8]}},
+{"type":"Feature","properties":{"sigla":"borborema","nome":"Planalto da Borborema"},"geometry":{"type":"Point","coordinates":[-36.5,-7.5]}},
+{"type":"Feature","properties":{"sigla":"bodoquena","nome":"Serra da Bodoquena"},"geometry":{"type":"Point","coordinates":[-56.7,-20.8]}},
+{"type":"Feature","properties":{"sigla":"diamantina","nome":"Chapada Diamantina"},"geometry":{"type":"Point","coordinates":[-41.5,-12.5]}},
+{"type":"Feature","properties":{"sigla":"parecis","nome":"Chapada dos Parecis"},"geometry":{"type":"Point","coordinates":[-58.5,-13.0]}},
+{"type":"Feature","properties":{"sigla":"mangabeiras","nome":"Chapada das Mangabeiras"},"geometry":{"type":"Point","coordinates":[-45.8,-9.5]}},
+{"type":"Feature","properties":{"sigla":"planicieamazonica","nome":"Planície Amazônica"},"geometry":{"type":"Point","coordinates":[-62.0,-3.5]}},
+{"type":"Feature","properties":{"sigla":"pantanal","nome":"Planície do Pantanal"},"geometry":{"type":"Point","coordinates":[-57.0,-17.5]}},
+{"type":"Feature","properties":{"sigla":"planiciecosteira","nome":"Planície Costeira"},"geometry":{"type":"Point","coordinates":[-40.3,-20.3]}},
+{"type":"Feature","properties":{"sigla":"lagoadospatos","nome":"Lagoa dos Patos"},"geometry":{"type":"Point","coordinates":[-51.3,-31.0]}}
+]}

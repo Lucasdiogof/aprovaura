@@ -56,4 +56,22 @@ class ProgressRepositoryImpl implements ProgressRepository {
       return Error(UnexpectedFailure());
     }
   }
+
+  @override
+  Future<Result<void>> registerRegionFound({
+    required String catalogNodeId,
+    required String regionId,
+  }) async {
+    try {
+      await _client.rpc<void>(
+        'register_region_found',
+        params: {'p_catalog_node_id': catalogNodeId, 'p_region_id': regionId},
+      );
+      return const Success(null);
+    } on PostgrestException {
+      return Error(ServerFailure());
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
 }

@@ -3,15 +3,23 @@ import 'package:aura/core/error/result.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_region.dart';
 import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_state.dart';
+import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 
 class MapQuizCubit extends Cubit<MapQuizState> {
-  MapQuizCubit(this._repository, {required this.mapId, this.backgroundMapId})
-    : super(const MapQuizLoading()) {
+  MapQuizCubit(
+    this._repository,
+    this._progressRepository, {
+    required this.mapId,
+    required this.catalogNodeId,
+    this.backgroundMapId,
+  }) : super(const MapQuizLoading()) {
     load();
   }
 
   final MapQuizRepository _repository;
+  final ProgressRepository _progressRepository;
   final String mapId;
+  final String catalogNodeId;
   // A non-interactive reference layer (e.g. world countries) rendered
   // behind quizzes whose own shapes (short strait lines, points) don't
   // convey a recognizable map on their own the way filled country
@@ -65,6 +73,11 @@ class MapQuizCubit extends Cubit<MapQuizState> {
       );
       return;
     }
+
+    _progressRepository.registerRegionFound(
+      catalogNodeId: catalogNodeId,
+      regionId: tappedId,
+    );
 
     final remaining = List<String>.from(current.remainingIds)..remove(tappedId);
     if (remaining.isEmpty) {

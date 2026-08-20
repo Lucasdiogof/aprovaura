@@ -1,0 +1,11 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","properties":{"sigla":"california_w","nome":"Corrente da Califórnia"},"geometry":{"type":"LineString","coordinates":[[-125.0,45.0],[-122.0,38.0],[-118.0,30.0],[-113.0,23.0]]}},
+{"type":"Feature","properties":{"sigla":"golfo_w","nome":"Corrente do Golfo"},"geometry":{"type":"LineString","coordinates":[[-80.0,25.0],[-75.0,32.0],[-70.0,38.0],[-60.0,45.0],[-40.0,50.0],[-20.0,55.0],[-5.0,58.0]]}},
+{"type":"Feature","properties":{"sigla":"kuroshio_w","nome":"Corrente de Kuroshio"},"geometry":{"type":"LineString","coordinates":[[125.0,20.0],[130.0,28.0],[138.0,35.0],[145.0,40.0],[155.0,45.0]]}},
+{"type":"Feature","properties":{"sigla":"oyashio_w","nome":"Corrente de Oyashio"},"geometry":{"type":"LineString","coordinates":[[160.0,55.0],[155.0,48.0],[148.0,43.0],[143.0,40.0]]}},
+{"type":"Feature","properties":{"sigla":"guianas_w","nome":"Corrente das Guianas"},"geometry":{"type":"LineString","coordinates":[[-52.0,4.0],[-58.0,7.0],[-63.0,9.0],[-68.0,11.0]]}},
+{"type":"Feature","properties":{"sigla":"brasil_w","nome":"Corrente do Brasil"},"geometry":{"type":"LineString","coordinates":[[-34.0,-8.0],[-40.0,-18.0],[-46.0,-25.0],[-52.0,-33.0]]}},
+{"type":"Feature","properties":{"sigla":"humboldt_w","nome":"Corrente de Humboldt"},"geometry":{"type":"LineString","coordinates":[[-72.0,-5.0],[-73.0,-15.0],[-72.0,-25.0],[-71.0,-35.0]]}},
+{"type":"Feature","properties":{"sigla":"malvinas_w","nome":"Corrente das Malvinas"},"geometry":{"type":"LineString","coordinates":[[-58.0,-45.0],[-56.0,-40.0],[-53.0,-35.0]]}},
+{"type":"Feature","properties":{"sigla":"agulhas_w","nome":"Corrente das Agulhas"},"geometry":{"type":"LineString","coordinates":[[35.0,-30.0],[33.0,-33.0],[28.0,-36.0],[20.0,-38.0]]}}
+]}

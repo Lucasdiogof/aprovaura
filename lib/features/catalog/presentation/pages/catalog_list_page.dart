@@ -125,17 +125,18 @@ class _CatalogListPageState extends State<CatalogListPage> with RouteAware {
                           progress: progressByNodeId[node.id],
                           onTap: () => Navigator.of(context).push(
                             MaterialPageRoute<void>(
-                              builder:
-                                  activityBuilder ??
-                                  (_) => CatalogListPage(
-                                    subject: widget.subject,
-                                    title: node.title,
-                                    subtitle: node.description,
-                                    parentId: node.id,
-                                    difficulty: context
-                                        .read<CatalogCubit>()
-                                        .difficulty,
-                                  ),
+                              builder: activityBuilder != null
+                                  ? (context) =>
+                                        activityBuilder(context, node.id)
+                                  : (_) => CatalogListPage(
+                                      subject: widget.subject,
+                                      title: node.title,
+                                      subtitle: node.description,
+                                      parentId: node.id,
+                                      difficulty: context
+                                          .read<CatalogCubit>()
+                                          .difficulty,
+                                    ),
                             ),
                           ),
                         );

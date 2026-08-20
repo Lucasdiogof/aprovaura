@@ -12,4 +12,9 @@ abstract class ProgressRepository {
     required String questionId,
     required bool isCorrect,
   });
+
+  Future<Result<void>> registerRegionFound({
+    required String catalogNodeId,
+    required String regionId,
+  });
 }

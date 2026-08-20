@@ -10,14 +10,24 @@ class MapQuizStrings {
     AppLanguage.english => 'Find: $regionName',
   };
 
+  String get locateLabel => switch (language) {
+    AppLanguage.portuguese => 'Localize no mapa',
+    AppLanguage.english => 'Locate on the map',
+  };
+
+  String get identifyFlagLabel => switch (language) {
+    AppLanguage.portuguese => 'Identifique a bandeira',
+    AppLanguage.english => 'Identify the flag',
+  };
+
   String get flagPrompt => switch (language) {
     AppLanguage.portuguese => 'De qual país é essa bandeira?',
     AppLanguage.english => 'Which country does this flag belong to?',
   };
 
   String progressLabel(int correct, int total) => switch (language) {
-    AppLanguage.portuguese => '$correct de $total',
-    AppLanguage.english => '$correct of $total',
+    AppLanguage.portuguese => '$correct / $total',
+    AppLanguage.english => '$correct / $total',
   };
 
   String get finishedTitle => switch (language) {

@@ -3,22 +3,26 @@ import 'package:aura/features/map_quiz/domain/entities/map_interaction_type.dart
 import 'package:aura/features/map_quiz/domain/entities/map_prompt_mode.dart';
 import 'package:aura/features/map_quiz/presentation/pages/map_quiz_page.dart';
 
-Widget Function(BuildContext) _mapQuiz({
+Widget Function(BuildContext, String) _mapQuiz({
   required String mapId,
   required MapInteractionType interactionType,
   required String title,
   MapPromptMode promptMode = MapPromptMode.name,
   String? backgroundMapId,
 }) =>
-    (_) => MapQuizPage(
+    (_, catalogNodeId) => MapQuizPage(
       mapId: mapId,
+      catalogNodeId: catalogNodeId,
       interactionType: interactionType,
       title: title,
       promptMode: promptMode,
       backgroundMapId: backgroundMapId,
     );
 
-final Map<String, WidgetBuilder> mappedActivities = {
+// The dict key doubles as the catalogNodeId passed into each builder --
+// see catalog_list_page.dart's call site -- so it's never duplicated as a
+// second literal inside the entries below.
+final Map<String, Widget Function(BuildContext, String)> mappedActivities = {
   '294b30a4-5efc-49fc-ac23-302a3ff4d180': _mapQuiz(
     mapId: 'brazil_states',
     interactionType: MapInteractionType.polygon,
@@ -206,5 +210,35 @@ final Map<String, WidgetBuilder> mappedActivities = {
     interactionType: MapInteractionType.point,
     title: 'Estreitos do mundo',
     backgroundMapId: 'world_countries',
+  ),
+  '8bf588de-aad5-4871-b0f5-fdf1bc4083c0': _mapQuiz(
+    mapId: 'world_relief',
+    interactionType: MapInteractionType.point,
+    title: 'Relevo do mundo',
+    backgroundMapId: 'world_countries',
+  ),
+  '1fa3c3e7-b2b1-4530-a356-4240e157644f': _mapQuiz(
+    mapId: 'world_soils',
+    interactionType: MapInteractionType.point,
+    title: 'Solos do mundo',
+    backgroundMapId: 'world_countries',
+  ),
+  '36f310e8-f7c0-4dd2-9151-cec01f4bee5c': _mapQuiz(
+    mapId: 'world_currents',
+    interactionType: MapInteractionType.line,
+    title: 'Correntes marítimas',
+    backgroundMapId: 'world_countries',
+  ),
+  '3e6171a4-2d01-4fe7-8aed-f86614908ea9': _mapQuiz(
+    mapId: 'brazil_relief',
+    interactionType: MapInteractionType.point,
+    title: 'Relevo do Brasil',
+    backgroundMapId: 'brazil_states',
+  ),
+  '91b59525-7426-4918-835d-0a12afe2c688': _mapQuiz(
+    mapId: 'brazil_industry',
+    interactionType: MapInteractionType.point,
+    title: 'Indústria do Brasil',
+    backgroundMapId: 'brazil_states',
   ),
 };

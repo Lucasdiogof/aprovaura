@@ -1,0 +1,17 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","properties":{"sigla":"andes","nome":"Andes"},"geometry":{"type":"Point","coordinates":[-71.5,-16.0]}},
+{"type":"Feature","properties":{"sigla":"rochosas","nome":"Montanhas Rochosas"},"geometry":{"type":"Point","coordinates":[-110.0,45.0]}},
+{"type":"Feature","properties":{"sigla":"alpes","nome":"Alpes"},"geometry":{"type":"Point","coordinates":[10.5,46.5]}},
+{"type":"Feature","properties":{"sigla":"pirineus","nome":"Pirineus"},"geometry":{"type":"Point","coordinates":[0.5,42.7]}},
+{"type":"Feature","properties":{"sigla":"apeninos","nome":"Apeninos"},"geometry":{"type":"Point","coordinates":[13.5,43.0]}},
+{"type":"Feature","properties":{"sigla":"carpatos","nome":"Cárpatos"},"geometry":{"type":"Point","coordinates":[24.0,47.5]}},
+{"type":"Feature","properties":{"sigla":"caucaso","nome":"Cáucaso"},"geometry":{"type":"Point","coordinates":[44.5,42.5]}},
+{"type":"Feature","properties":{"sigla":"himalaia","nome":"Himalaia"},"geometry":{"type":"Point","coordinates":[84.0,28.5]}},
+{"type":"Feature","properties":{"sigla":"atlas","nome":"Atlas"},"geometry":{"type":"Point","coordinates":[-5.0,32.0]}},
+{"type":"Feature","properties":{"sigla":"apalaches","nome":"Apalaches"},"geometry":{"type":"Point","coordinates":[-80.0,38.0]}},
+{"type":"Feature","properties":{"sigla":"escandinavos","nome":"Montanhas Escandinavas"},"geometry":{"type":"Point","coordinates":[8.5,61.0]}},
+{"type":"Feature","properties":{"sigla":"urais","nome":"Montes Urais"},"geometry":{"type":"Point","coordinates":[59.5,60.0]}},
+{"type":"Feature","properties":{"sigla":"drakensberg","nome":"Drakensberg"},"geometry":{"type":"Point","coordinates":[29.0,-29.5]}},
+{"type":"Feature","properties":{"sigla":"serraatlantico","nome":"Serra do Atlântico"},"geometry":{"type":"Point","coordinates":[-42.5,-22.0]}},
+{"type":"Feature","properties":{"sigla":"guianas","nome":"Planalto das Guianas"},"geometry":{"type":"Point","coordinates":[-60.0,4.5]}}
+]}

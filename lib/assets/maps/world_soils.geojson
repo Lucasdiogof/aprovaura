@@ -1,0 +1,14 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","properties":{"sigla":"loess_eua","nome":"Loess - Estados Unidos"},"geometry":{"type":"Point","coordinates":[-96.0,41.5]}},
+{"type":"Feature","properties":{"sigla":"loess_europa","nome":"Loess - Europa Central"},"geometry":{"type":"Point","coordinates":[17.0,50.0]}},
+{"type":"Feature","properties":{"sigla":"loess_china","nome":"Loess - China"},"geometry":{"type":"Point","coordinates":[108.0,36.0]}},
+{"type":"Feature","properties":{"sigla":"chernozion","nome":"Chernozion (Terra Negra) - Ucrânia"},"geometry":{"type":"Point","coordinates":[37.0,49.0]}},
+{"type":"Feature","properties":{"sigla":"nitossolo","nome":"Nitossolo (Terra Roxa) - Sul do Brasil"},"geometry":{"type":"Point","coordinates":[-51.5,-24.0]}},
+{"type":"Feature","properties":{"sigla":"massape","nome":"Massapê - Zona da Mata"},"geometry":{"type":"Point","coordinates":[-35.5,-8.0]}},
+{"type":"Feature","properties":{"sigla":"latossolo_africa","nome":"Latossolo Tropical - África"},"geometry":{"type":"Point","coordinates":[15.0,8.0]}},
+{"type":"Feature","properties":{"sigla":"latossolo_asia","nome":"Latossolo Tropical - Ásia"},"geometry":{"type":"Point","coordinates":[95.0,18.0]}},
+{"type":"Feature","properties":{"sigla":"podzol","nome":"Podzol - Sibéria"},"geometry":{"type":"Point","coordinates":[70.0,62.0]}},
+{"type":"Feature","properties":{"sigla":"litossolo_saara","nome":"Litossolo - Saara"},"geometry":{"type":"Point","coordinates":[10.0,20.0]}},
+{"type":"Feature","properties":{"sigla":"litossolo_austral","nome":"Litossolo - África Austral"},"geometry":{"type":"Point","coordinates":[25.0,-26.0]}},
+{"type":"Feature","properties":{"sigla":"litossolo_andes","nome":"Litossolo - Andes"},"geometry":{"type":"Point","coordinates":[-70.0,-18.0]}}
+]}

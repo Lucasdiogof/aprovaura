@@ -12,6 +12,7 @@ import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.d
 import 'package:aura/features/map_quiz/l10n/map_quiz_strings.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_cubit.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_state.dart';
+import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/shared/widgets/app_button.dart';
@@ -20,6 +21,7 @@ import 'package:aura/shared/widgets/modern_app_bar.dart';
 class MapQuizPage extends StatelessWidget {
   const MapQuizPage({
     required this.mapId,
+    required this.catalogNodeId,
     required this.interactionType,
     required this.title,
     this.promptMode = MapPromptMode.name,
@@ -28,6 +30,7 @@ class MapQuizPage extends StatelessWidget {
   });
 
   final String mapId;
+  final String catalogNodeId;
   final MapInteractionType interactionType;
   final String title;
   final MapPromptMode promptMode;
@@ -41,7 +44,9 @@ class MapQuizPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => MapQuizCubit(
         sl<MapQuizRepository>(),
+        sl<ProgressRepository>(),
         mapId: mapId,
+        catalogNodeId: catalogNodeId,
         backgroundMapId: backgroundMapId,
       ),
       child: _MapQuizView(
@@ -290,43 +295,123 @@ class _PlayingView extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(24, 16, 24, 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              if (promptMode == MapPromptMode.flag)
+          padding: const EdgeInsets.fromLTRB(24, 16, 24, 12),
+          child: Container(
+            padding: const EdgeInsets.all(18),
+            decoration: BoxDecoration(
+              color: context.colors.surface,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: context.colors.border),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      flagEmojiForCountryId(currentTarget.id) ?? '🏳️',
-                      style: const TextStyle(fontSize: 32),
+                    Container(
+                      width: 52,
+                      height: 52,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: context.colors.primary.withValues(alpha: 0.14),
+                        shape: BoxShape.circle,
+                      ),
+                      child: promptMode == MapPromptMode.flag
+                          ? Text(
+                              flagEmojiForCountryId(currentTarget.id) ?? '🏳️',
+                              style: const TextStyle(fontSize: 26),
+                            )
+                          : Icon(
+                              Icons.gps_fixed_rounded,
+                              color: context.colors.primary,
+                              size: 26,
+                            ),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            promptMode == MapPromptMode.flag
+                                ? strings.identifyFlagLabel
+                                : strings.locateLabel,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w800,
+                              letterSpacing: 0.6,
+                              color: context.colors.primary,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 350),
+                            transitionBuilder: (child, animation) =>
+                                FadeTransition(
+                                  opacity: animation,
+                                  child: SlideTransition(
+                                    position:
+                                        Tween<Offset>(
+                                          begin: const Offset(0, 0.2),
+                                          end: Offset.zero,
+                                        ).animate(
+                                          CurvedAnimation(
+                                            parent: animation,
+                                            curve: Curves.easeOut,
+                                          ),
+                                        ),
+                                    child: child,
+                                  ),
+                                ),
+                            child: Text(
+                              promptMode == MapPromptMode.flag
+                                  ? strings.flagPrompt
+                                  : currentTarget.name,
+                              key: ValueKey(currentTarget.id),
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800,
+                                color: context.colors.textPrimary,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(width: 12),
-                    Text(
-                      strings.flagPrompt,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: context.colors.textPrimary,
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 14,
+                        vertical: 8,
+                      ),
+                      decoration: BoxDecoration(
+                        color: context.colors.primary.withValues(alpha: 0.14),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        strings.progressLabel(correctCount, totalCount),
+                        style: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          color: context.colors.primary,
+                        ),
                       ),
                     ),
                   ],
-                )
-              else
-                Text(
-                  strings.findPrompt(currentTarget.name),
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    color: context.colors.textPrimary,
+                ),
+                const SizedBox(height: 16),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(99),
+                  child: LinearProgressIndicator(
+                    value: totalCount == 0 ? 0.0 : correctCount / totalCount,
+                    minHeight: 8,
+                    backgroundColor: context.colors.secondary,
+                    valueColor: AlwaysStoppedAnimation(context.colors.primary),
                   ),
                 ),
-              Text(
-                strings.progressLabel(correctCount, totalCount),
-                style: TextStyle(color: context.colors.textSecondary),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         Expanded(
