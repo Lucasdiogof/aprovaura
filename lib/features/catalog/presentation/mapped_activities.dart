@@ -8,12 +8,14 @@ Widget Function(BuildContext) _mapQuiz({
   required MapInteractionType interactionType,
   required String title,
   MapPromptMode promptMode = MapPromptMode.name,
+  String? backgroundMapId,
 }) =>
     (_) => MapQuizPage(
       mapId: mapId,
       interactionType: interactionType,
       title: title,
       promptMode: promptMode,
+      backgroundMapId: backgroundMapId,
     );
 
 final Map<String, WidgetBuilder> mappedActivities = {
@@ -198,5 +200,11 @@ final Map<String, WidgetBuilder> mappedActivities = {
     interactionType: MapInteractionType.polygon,
     title: 'Bandeiras da Oceania',
     promptMode: MapPromptMode.flag,
+  ),
+  'b7d3c950-9f2b-4206-9bb7-74263dacc6e7': _mapQuiz(
+    mapId: 'world_straits',
+    interactionType: MapInteractionType.line,
+    title: 'Estreitos do mundo',
+    backgroundMapId: 'world_countries',
   ),
 };
