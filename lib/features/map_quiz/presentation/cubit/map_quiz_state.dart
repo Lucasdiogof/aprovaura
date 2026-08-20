@@ -40,6 +40,8 @@ class MapQuizPlaying extends MapQuizState {
     required this.totalCount,
     this.backgroundRegions = const [],
     this.lastTap,
+    this.wrongAttempts = 0,
+    this.revealed = false,
   });
 
   final List<MapRegion> regions;
@@ -49,6 +51,13 @@ class MapQuizPlaying extends MapQuizState {
   final int correctCount;
   final int totalCount;
   final TapFeedback? lastTap;
+  // How many wrong taps the user has made on the current target. Resets to
+  // 0 whenever the target changes (correct answer or reveal-and-skip).
+  final int wrongAttempts;
+  // True once wrongAttempts hits the miss limit: the current target's
+  // region is shown highlighted as the answer instead of accepting more
+  // taps, until the page advances past it.
+  final bool revealed;
 
   MapQuizPlaying copyWith({
     List<String>? remainingIds,
@@ -56,6 +65,8 @@ class MapQuizPlaying extends MapQuizState {
     int? correctCount,
     TapFeedback? lastTap,
     bool clearLastTap = false,
+    int? wrongAttempts,
+    bool? revealed,
   }) => MapQuizPlaying(
     regions: regions,
     backgroundRegions: backgroundRegions,
@@ -64,6 +75,8 @@ class MapQuizPlaying extends MapQuizState {
     correctCount: correctCount ?? this.correctCount,
     totalCount: totalCount,
     lastTap: clearLastTap ? null : (lastTap ?? this.lastTap),
+    wrongAttempts: wrongAttempts ?? this.wrongAttempts,
+    revealed: revealed ?? this.revealed,
   );
 
   @override
@@ -75,6 +88,8 @@ class MapQuizPlaying extends MapQuizState {
     correctCount,
     totalCount,
     lastTap,
+    wrongAttempts,
+    revealed,
   ];
 }
 

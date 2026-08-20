@@ -5,6 +5,10 @@ import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.d
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_state.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 
+// After this many wrong taps on the same target, the correct region is
+// revealed instead of accepting more attempts.
+const _maxWrongAttempts = 3;
+
 class MapQuizCubit extends Cubit<MapQuizState> {
   MapQuizCubit(
     this._repository,
@@ -62,13 +66,16 @@ class MapQuizCubit extends Cubit<MapQuizState> {
 
   void onRegionTapped(String tappedId) {
     final current = state;
-    if (current is! MapQuizPlaying) return;
+    if (current is! MapQuizPlaying || current.revealed) return;
 
     final wasCorrect = tappedId == current.currentTargetId;
     if (!wasCorrect) {
+      final wrongAttempts = current.wrongAttempts + 1;
       emit(
         current.copyWith(
           lastTap: TapFeedback(regionId: tappedId, wasCorrect: false),
+          wrongAttempts: wrongAttempts,
+          revealed: wrongAttempts >= _maxWrongAttempts,
         ),
       );
       return;
@@ -79,11 +86,32 @@ class MapQuizCubit extends Cubit<MapQuizState> {
       regionId: tappedId,
     );
 
-    final remaining = List<String>.from(current.remainingIds)..remove(tappedId);
+    _advance(current, wasCorrect: true);
+  }
+
+  void clearFeedback() {
+    final current = state;
+    if (current is MapQuizPlaying && current.lastTap != null) {
+      emit(current.copyWith(clearLastTap: true));
+    }
+  }
+
+  // Called by the page once it's shown the revealed answer long enough --
+  // moves on to the next target without counting the miss as correct.
+  void advancePastReveal() {
+    final current = state;
+    if (current is! MapQuizPlaying || !current.revealed) return;
+    _advance(current, wasCorrect: false);
+  }
+
+  void _advance(MapQuizPlaying current, {required bool wasCorrect}) {
+    final targetId = current.currentTargetId;
+    final remaining = List<String>.from(current.remainingIds)..remove(targetId);
+    final correctCount = current.correctCount + (wasCorrect ? 1 : 0);
     if (remaining.isEmpty) {
       emit(
         MapQuizFinished(
-          correctCount: current.correctCount + 1,
+          correctCount: correctCount,
           totalCount: current.totalCount,
         ),
       );
@@ -93,16 +121,14 @@ class MapQuizCubit extends Cubit<MapQuizState> {
       current.copyWith(
         remainingIds: remaining,
         currentTargetId: remaining.first,
-        correctCount: current.correctCount + 1,
-        lastTap: TapFeedback(regionId: tappedId, wasCorrect: true),
+        correctCount: correctCount,
+        lastTap: wasCorrect
+            ? TapFeedback(regionId: targetId, wasCorrect: true)
+            : null,
+        clearLastTap: !wasCorrect,
+        wrongAttempts: 0,
+        revealed: false,
       ),
     );
-  }
-
-  void clearFeedback() {
-    final current = state;
-    if (current is MapQuizPlaying && current.lastTap != null) {
-      emit(current.copyWith(clearLastTap: true));
-    }
   }
 }

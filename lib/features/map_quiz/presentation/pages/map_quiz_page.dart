@@ -102,7 +102,13 @@ class _MapQuizViewState extends State<_MapQuizView> {
           Expanded(
             child: BlocConsumer<MapQuizCubit, MapQuizState>(
               listener: (context, state) {
-                if (state is MapQuizPlaying && state.lastTap != null) {
+                if (state is MapQuizPlaying && state.revealed) {
+                  Future.delayed(const Duration(milliseconds: 1800), () {
+                    if (context.mounted) {
+                      context.read<MapQuizCubit>().advancePastReveal();
+                    }
+                  });
+                } else if (state is MapQuizPlaying && state.lastTap != null) {
                   Future.delayed(const Duration(milliseconds: 700), () {
                     if (context.mounted) {
                       context.read<MapQuizCubit>().clearFeedback();
@@ -138,6 +144,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
                   :final correctCount,
                   :final totalCount,
                   :final lastTap,
+                  :final revealed,
                 ) =>
                   _PlayingView(
                     strings: t,
@@ -153,6 +160,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
                     correctCount: correctCount,
                     totalCount: totalCount,
                     lastTap: lastTap,
+                    revealed: revealed,
                     hitNotifier: _hitNotifier,
                     mapController: _mapController,
                     onTap: _handleTap,
@@ -178,6 +186,7 @@ class _PlayingView extends StatelessWidget {
     required this.correctCount,
     required this.totalCount,
     required this.lastTap,
+    required this.revealed,
     required this.hitNotifier,
     required this.mapController,
     required this.onTap,
@@ -193,12 +202,18 @@ class _PlayingView extends StatelessWidget {
   final int correctCount;
   final int totalCount;
   final TapFeedback? lastTap;
+  // True once the miss limit is hit for the current target -- the target's
+  // own region is highlighted as the answer instead of accepting taps.
+  final bool revealed;
   final LayerHitNotifier<String> hitNotifier;
   final MapController mapController;
   final VoidCallback onTap;
 
   Color _regionColor(BuildContext context, String regionId) {
     final colors = context.colors;
+    if (revealed && regionId == currentTargetId) {
+      return colors.success.withValues(alpha: 0.85);
+    }
     if (lastTap?.regionId == regionId) {
       return lastTap!.wasCorrect
           ? colors.success.withValues(alpha: 0.7)
@@ -335,14 +350,18 @@ class _PlayingView extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            promptMode == MapPromptMode.flag
+                            revealed
+                                ? strings.revealedLabel
+                                : promptMode == MapPromptMode.flag
                                 ? strings.identifyFlagLabel
                                 : strings.locateLabel,
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w800,
                               letterSpacing: 0.6,
-                              color: context.colors.primary,
+                              color: revealed
+                                  ? context.colors.success
+                                  : context.colors.primary,
                             ),
                           ),
                           const SizedBox(height: 4),

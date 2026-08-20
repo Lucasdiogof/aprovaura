@@ -25,6 +25,11 @@ class MapQuizStrings {
     AppLanguage.english => 'Which country does this flag belong to?',
   };
 
+  String get revealedLabel => switch (language) {
+    AppLanguage.portuguese => 'Era essa aqui',
+    AppLanguage.english => 'It was this one',
+  };
+
   String progressLabel(int correct, int total) => switch (language) {
     AppLanguage.portuguese => '$correct / $total',
     AppLanguage.english => '$correct / $total',
