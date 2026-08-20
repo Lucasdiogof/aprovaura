@@ -38,10 +38,12 @@ class MapQuizPlaying extends MapQuizState {
     required this.currentTargetId,
     required this.correctCount,
     required this.totalCount,
+    this.backgroundRegions = const [],
     this.lastTap,
   });
 
   final List<MapRegion> regions;
+  final List<MapRegion> backgroundRegions;
   final List<String> remainingIds;
   final String currentTargetId;
   final int correctCount;
@@ -56,6 +58,7 @@ class MapQuizPlaying extends MapQuizState {
     bool clearLastTap = false,
   }) => MapQuizPlaying(
     regions: regions,
+    backgroundRegions: backgroundRegions,
     remainingIds: remainingIds ?? this.remainingIds,
     currentTargetId: currentTargetId ?? this.currentTargetId,
     correctCount: correctCount ?? this.correctCount,
@@ -66,6 +69,7 @@ class MapQuizPlaying extends MapQuizState {
   @override
   List<Object?> get props => [
     regions,
+    backgroundRegions,
     remainingIds,
     currentTargetId,
     correctCount,

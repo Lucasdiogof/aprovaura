@@ -13,6 +13,7 @@ import 'package:aura/features/map_quiz/l10n/map_quiz_strings.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_cubit.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_state.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
+import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
@@ -22,6 +23,7 @@ class MapQuizPage extends StatelessWidget {
     required this.interactionType,
     required this.title,
     this.promptMode = MapPromptMode.name,
+    this.backgroundMapId,
     super.key,
   });
 
@@ -29,11 +31,19 @@ class MapQuizPage extends StatelessWidget {
   final MapInteractionType interactionType;
   final String title;
   final MapPromptMode promptMode;
+  // A non-interactive reference layer (e.g. world countries) shown behind
+  // quizzes whose own shapes don't read as a map on their own -- short
+  // strait lines or scattered points, unlike filled country polygons.
+  final String? backgroundMapId;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => MapQuizCubit(sl<MapQuizRepository>(), mapId: mapId),
+      create: (_) => MapQuizCubit(
+        sl<MapQuizRepository>(),
+        mapId: mapId,
+        backgroundMapId: backgroundMapId,
+      ),
       child: _MapQuizView(
         interactionType: interactionType,
         title: title,
@@ -96,6 +106,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
                 }
                 if (state is MapQuizFinished) {
                   context.read<StreakCubit>().registerActivityCompletion();
+                  context.read<XpCubit>().awardActivityCompletion();
                 }
               },
               builder: (context, state) => switch (state) {
@@ -116,6 +127,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
                   ),
                 MapQuizPlaying(
                   :final regions,
+                  :final backgroundRegions,
                   :final remainingIds,
                   :final currentTargetId,
                   :final correctCount,
@@ -127,6 +139,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
                     interactionType: widget.interactionType,
                     promptMode: widget.promptMode,
                     regions: regions,
+                    backgroundRegions: backgroundRegions,
                     solvedIds: regions
                         .map((region) => region.id)
                         .toSet()
@@ -154,6 +167,7 @@ class _PlayingView extends StatelessWidget {
     required this.interactionType,
     required this.promptMode,
     required this.regions,
+    required this.backgroundRegions,
     required this.solvedIds,
     required this.currentTargetId,
     required this.correctCount,
@@ -168,6 +182,7 @@ class _PlayingView extends StatelessWidget {
   final MapInteractionType interactionType;
   final MapPromptMode promptMode;
   final List<MapRegion> regions;
+  final List<MapRegion> backgroundRegions;
   final Set<String> solvedIds;
   final String currentTargetId;
   final int correctCount;
@@ -194,6 +209,24 @@ class _PlayingView extends StatelessWidget {
       MapInteractionType.line => colors.textSecondary,
       MapInteractionType.point => colors.primary,
     };
+  }
+
+  Widget? _buildBackgroundLayer(BuildContext context) {
+    if (backgroundRegions.isEmpty) return null;
+    return IgnorePointer(
+      child: PolygonLayer<String>(
+        polygons: [
+          for (final region in backgroundRegions)
+            for (final part in region.parts)
+              Polygon<String>(
+                points: part,
+                color: context.colors.secondary.withValues(alpha: 0.5),
+                borderColor: context.colors.border,
+                borderStrokeWidth: 0.8,
+              ),
+        ],
+      ),
+    );
   }
 
   Widget _buildInteractionLayer(BuildContext context) =>
@@ -311,6 +344,7 @@ class _PlayingView extends StatelessWidget {
                   ),
                 ),
                 children: [
+                  ?_buildBackgroundLayer(context),
                   GestureDetector(
                     onTap: onTap,
                     child: _buildInteractionLayer(context),
