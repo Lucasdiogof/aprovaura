@@ -253,11 +253,61 @@ void main() {
       expect(regions.map((r) => r.name), contains('Tóquio'));
     });
 
-    test('loads 12 great world rivers with valid line geometry', () async {
+    test('loads 15 great world rivers with valid line geometry', () async {
       final regions = await loadOk('world_rivers');
-      expect(regions, hasLength(12));
+      expect(regions, hasLength(15));
       expectValidGeometry(regions, minPoints: 2);
-      expect(regions.map((r) => r.name), contains('Nilo'));
+      expect(
+        regions.map((r) => r.name),
+        containsAll(['Nilo', 'Sena', 'Níger', 'Indo']),
+      );
+    });
+
+    test('loads 15 world relief points with valid point geometry', () async {
+      final regions = await loadOk('world_relief');
+      expect(regions, hasLength(15));
+      expectValidGeometry(regions, minPoints: 1);
+      expect(regions.map((r) => r.name), contains('Himalaia'));
+    });
+
+    test('loads 12 world soil points with valid point geometry', () async {
+      final regions = await loadOk('world_soils');
+      expect(regions, hasLength(12));
+      expectValidGeometry(regions, minPoints: 1);
+    });
+
+    test('loads 9 world ocean currents with valid line geometry', () async {
+      final regions = await loadOk('world_currents');
+      expect(regions, hasLength(9));
+      expectValidGeometry(regions, minPoints: 2);
+      expect(regions.map((r) => r.name), contains('Corrente do Brasil'));
+    });
+
+    test('loads 17 Brazil relief points with valid point geometry', () async {
+      final regions = await loadOk('brazil_relief');
+      expect(regions, hasLength(17));
+      expectValidGeometry(regions, minPoints: 1);
+      expect(regions.map((r) => r.name), contains('Serra do Mar'));
+    });
+
+    test('loads 12 Brazil industry points with valid point geometry', () async {
+      final regions = await loadOk('brazil_industry');
+      expect(regions, hasLength(12));
+      expectValidGeometry(regions, minPoints: 1);
+    });
+
+    test('loads the lightweight world_countries_bg background with the same '
+        'country count as the full-resolution file', () async {
+      final full = await loadOk('world_countries');
+      final bg = await loadOk('world_countries_bg');
+      expect(bg, hasLength(full.length));
+    });
+
+    test('loads the lightweight brazil_states_bg background with the same '
+        'state count as the full-resolution file', () async {
+      final full = await loadOk('brazil_states');
+      final bg = await loadOk('brazil_states_bg');
+      expect(bg, hasLength(full.length));
     });
   });
 }
