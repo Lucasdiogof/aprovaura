@@ -13,6 +13,7 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.border,
     required this.error,
     required this.success,
+    required this.warning,
   });
 
   final Color background;
@@ -26,6 +27,7 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color border;
   final Color error;
   final Color success;
+  final Color warning;
 
   static const light = AppColors(
     background: Color(0xFFF7F8FA),
@@ -39,6 +41,7 @@ class AppColors extends ThemeExtension<AppColors> {
     border: Color(0xFFE1E4EA),
     error: Color(0xFFD64545),
     success: Color(0xFF2E9E6B),
+    warning: Color(0xFFE0A22D),
   );
 
   static const dark = AppColors(
@@ -53,6 +56,7 @@ class AppColors extends ThemeExtension<AppColors> {
     border: Color(0xFF262B33),
     error: Color(0xFFFF6B6B),
     success: Color(0xFF4CC38A),
+    warning: Color(0xFFF2C063),
   );
 
   @override
@@ -68,6 +72,7 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? border,
     Color? error,
     Color? success,
+    Color? warning,
   }) {
     return AppColors(
       background: background ?? this.background,
@@ -81,6 +86,7 @@ class AppColors extends ThemeExtension<AppColors> {
       border: border ?? this.border,
       error: error ?? this.error,
       success: success ?? this.success,
+      warning: warning ?? this.warning,
     );
   }
 
@@ -99,6 +105,7 @@ class AppColors extends ThemeExtension<AppColors> {
       border: Color.lerp(border, other.border, t)!,
       error: Color.lerp(error, other.error, t)!,
       success: Color.lerp(success, other.success, t)!,
+      warning: Color.lerp(warning, other.warning, t)!,
     );
   }
 }

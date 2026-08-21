@@ -212,7 +212,7 @@ class _PlayingView extends StatelessWidget {
   Color _regionColor(BuildContext context, String regionId) {
     final colors = context.colors;
     if (revealed && regionId == currentTargetId) {
-      return colors.success.withValues(alpha: 0.85);
+      return colors.warning.withValues(alpha: 0.85);
     }
     if (lastTap?.regionId == regionId) {
       return lastTap!.wasCorrect
@@ -360,7 +360,7 @@ class _PlayingView extends StatelessWidget {
                               fontWeight: FontWeight.w800,
                               letterSpacing: 0.6,
                               color: revealed
-                                  ? context.colors.success
+                                  ? context.colors.warning
                                   : context.colors.primary,
                             ),
                           ),
