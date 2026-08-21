@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","properties":{"sigla":"amazonia","nome":"Amazônia"},"geometry":{"type":"Polygon","coordinates":[[[-73,-9],[-72,-7],[-70,-4],[-69,1],[-67,3],[-64,4],[-60,4.5],[-51,2],[-48,-1],[-44,-3],[-43,-6],[-46,-10],[-50,-13],[-55,-13],[-58,-13],[-60,-11],[-66,-10],[-70,-9],[-73,-9]]]}},
+{"type":"Feature","properties":{"sigla":"cerrado","nome":"Cerrado"},"geometry":{"type":"Polygon","coordinates":[[[-58,-13],[-55,-13],[-50,-13],[-46,-10],[-44,-8],[-42,-10],[-42,-14],[-44,-18],[-46,-20],[-48,-22],[-52,-22],[-55,-20],[-58,-16],[-58,-13]]]}},
+{"type":"Feature","properties":{"sigla":"mata_atlantica","nome":"Mata Atlântica"},"geometry":{"type":"Polygon","coordinates":[[[-35,-6],[-34,-8],[-35,-10],[-37,-13],[-39,-15],[-40,-19],[-41,-21],[-44,-23],[-48,-25],[-50,-27],[-53,-29],[-54,-30],[-52,-29],[-49,-26],[-46,-24],[-43,-22],[-41,-19],[-40,-16],[-38,-13],[-36,-10],[-35,-7],[-35,-6]]]}},
+{"type":"Feature","properties":{"sigla":"caatinga","nome":"Caatinga"},"geometry":{"type":"Polygon","coordinates":[[[-42,-3],[-38,-5],[-35,-7],[-36,-10],[-38,-13],[-40,-15],[-44,-15],[-45,-12],[-45,-8],[-43,-5],[-42,-3]]]}},
+{"type":"Feature","properties":{"sigla":"pampa","nome":"Pampa"},"geometry":{"type":"Polygon","coordinates":[[[-57,-30],[-53,-29],[-52,-31],[-54,-33],[-57,-32],[-57,-30]]]}},
+{"type":"Feature","properties":{"sigla":"pantanal","nome":"Pantanal"},"geometry":{"type":"Polygon","coordinates":[[[-58,-16],[-55,-16],[-55,-19],[-58,-19],[-58,-16]]]}}
+]}

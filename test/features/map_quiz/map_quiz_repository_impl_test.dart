@@ -310,6 +310,20 @@ void main() {
       expect(bg, hasLength(full.length));
     });
 
+    test('loads 6 Brazil biomes with valid polygon geometry', () async {
+      final regions = await loadOk('brazil_biomes');
+      expect(regions, hasLength(6));
+      expectValidGeometry(regions, minPoints: 4);
+      expect(regions.map((r) => r.name), contains('Amazônia'));
+    });
+
+    test('loads 9 world biomes with valid multi-polygon geometry', () async {
+      final regions = await loadOk('world_biomes');
+      expect(regions, hasLength(9));
+      expectValidGeometry(regions, minPoints: 3);
+      expect(regions.map((r) => r.name), contains('Taigas'));
+    });
+
     test(
       'returns the exact same cached list on a second call for the same '
       'mapId, instead of re-parsing the asset',
