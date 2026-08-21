@@ -60,7 +60,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   String? _nameError(bool submitted, AuthStrings t) {
     if (!submitted) return null;
-    return _nameController.text.trim().isEmpty ? t.nameRequired : null;
+    return isNameProvided(_nameController.text) ? null : t.nameRequired;
   }
 
   String? _emailError(bool submitted, AuthStrings t) {
@@ -82,7 +82,9 @@ class _RegisterPageState extends State<RegisterPage> {
     if (!submitted) return null;
     final value = _confirmPasswordController.text;
     if (value.isEmpty) return t.confirmPasswordRequired;
-    return value == _passwordController.text ? null : t.passwordsDoNotMatch;
+    return doPasswordsMatch(_passwordController.text, value)
+        ? null
+        : t.passwordsDoNotMatch;
   }
 
   void _submit() {
@@ -91,10 +93,10 @@ class _RegisterPageState extends State<RegisterPage> {
     final email = _emailController.text.trim();
     final password = _passwordController.text;
     final confirmPassword = _confirmPasswordController.text;
-    if (name.isEmpty ||
+    if (!isNameProvided(name) ||
         !isValidEmail(email) ||
         !isPasswordProvided(password) ||
-        confirmPassword != password) {
+        !doPasswordsMatch(password, confirmPassword)) {
       return;
     }
     context.read<AuthCubit>().signUp(email: email, password: password);

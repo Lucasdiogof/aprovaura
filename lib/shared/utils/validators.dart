@@ -9,3 +9,8 @@ bool isValidEmail(String value) {
 }
 
 bool isPasswordProvided(String value) => value.isNotEmpty;
+
+bool isNameProvided(String value) => value.trim().isNotEmpty;
+
+bool doPasswordsMatch(String password, String confirmPassword) =>
+    password == confirmPassword;
