@@ -309,5 +309,15 @@ void main() {
       final bg = await loadOk('brazil_states_bg');
       expect(bg, hasLength(full.length));
     });
+
+    test(
+      'returns the exact same cached list on a second call for the same '
+      'mapId, instead of re-parsing the asset',
+      () async {
+        final first = await loadOk('south_america_countries');
+        final second = await loadOk('south_america_countries');
+        expect(identical(first, second), isTrue);
+      },
+    );
   });
 }

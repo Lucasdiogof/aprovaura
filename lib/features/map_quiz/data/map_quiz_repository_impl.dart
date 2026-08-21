@@ -8,8 +8,17 @@ import 'package:aura/features/map_quiz/domain/entities/map_region.dart';
 import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.dart';
 
 class MapQuizRepositoryImpl implements MapQuizRepository {
+  // Map assets are static and bundled at build time, so parsing them once
+  // per mapId and reusing the result is always safe. Without this, every
+  // "Tentar novamente" tap, and every quiz sharing a background map (e.g.
+  // world_countries_bg across 7 different quizzes), re-read and
+  // re-JSON-decoded the same file from scratch.
+  final Map<String, List<MapRegion>> _cache = {};
+
   @override
   Future<Result<List<MapRegion>>> loadRegions(String mapId) async {
+    final cached = _cache[mapId];
+    if (cached != null) return Success(cached);
     try {
       final raw = await rootBundle.loadString('lib/assets/maps/$mapId.geojson');
       final json = jsonDecode(raw) as Map<String, dynamic>;
@@ -17,6 +26,7 @@ class MapQuizRepositoryImpl implements MapQuizRepository {
       final regions = features
           .map((feature) => _parseFeature(feature as Map<String, dynamic>))
           .toList(growable: false);
+      _cache[mapId] = regions;
       return Success(regions);
     } catch (_) {
       return Error(UnexpectedFailure());
