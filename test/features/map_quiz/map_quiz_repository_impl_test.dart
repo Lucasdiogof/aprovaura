@@ -303,6 +303,13 @@ void main() {
       expect(regions.map((r) => r.name), contains('Amazônia'));
     });
 
+    test('loads 12 Brazil ports with valid point geometry', () async {
+      final regions = await loadOk('brazil_ports');
+      expect(regions, hasLength(12));
+      expectValidGeometry(regions, minPoints: 1);
+      expect(regions.map((r) => r.name), contains('Porto de Santos'));
+    });
+
     test('loads the lightweight world_countries_bg background with the same '
         'country count as the full-resolution file', () async {
       final full = await loadOk('world_countries');

@@ -1,0 +1,14 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","properties":{"sigla":"santos","nome":"Porto de Santos"},"geometry":{"type":"Point","coordinates":[-46.33,-23.96]}},
+{"type":"Feature","properties":{"sigla":"paranagua","nome":"Porto de Paranaguá"},"geometry":{"type":"Point","coordinates":[-48.51,-25.50]}},
+{"type":"Feature","properties":{"sigla":"riogrande","nome":"Porto do Rio Grande"},"geometry":{"type":"Point","coordinates":[-52.10,-32.03]}},
+{"type":"Feature","properties":{"sigla":"itajai","nome":"Porto de Itajaí"},"geometry":{"type":"Point","coordinates":[-48.66,-26.91]}},
+{"type":"Feature","properties":{"sigla":"saofranciscodosul","nome":"Porto de São Francisco do Sul"},"geometry":{"type":"Point","coordinates":[-48.64,-26.24]}},
+{"type":"Feature","properties":{"sigla":"itaqui","nome":"Porto de Itaqui"},"geometry":{"type":"Point","coordinates":[-44.37,-2.58]}},
+{"type":"Feature","properties":{"sigla":"suape","nome":"Porto de Suape"},"geometry":{"type":"Point","coordinates":[-34.95,-8.38]}},
+{"type":"Feature","properties":{"sigla":"salvador","nome":"Porto de Salvador"},"geometry":{"type":"Point","coordinates":[-38.51,-12.97]}},
+{"type":"Feature","properties":{"sigla":"vitoria","nome":"Porto de Vitória"},"geometry":{"type":"Point","coordinates":[-40.29,-20.32]}},
+{"type":"Feature","properties":{"sigla":"riodejaneiro","nome":"Porto do Rio de Janeiro"},"geometry":{"type":"Point","coordinates":[-43.19,-22.89]}},
+{"type":"Feature","properties":{"sigla":"itaguai","nome":"Porto de Itaguaí (Sepetiba)"},"geometry":{"type":"Point","coordinates":[-43.82,-22.90]}},
+{"type":"Feature","properties":{"sigla":"manaus","nome":"Porto de Manaus"},"geometry":{"type":"Point","coordinates":[-60.02,-3.13]}}
+]}
