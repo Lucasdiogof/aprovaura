@@ -272,4 +272,10 @@ final Map<String, Widget Function(BuildContext, String)> mappedActivities = {
     title: 'Biomas do mundo',
     backgroundMapId: 'world_countries_bg',
   ),
+  'd9e7a22c-03de-4849-ad6d-3420107e4805': _mapQuiz(
+    mapId: 'south_america_biomes',
+    interactionType: MapInteractionType.polygon,
+    title: 'Biomas da América do Sul',
+    backgroundMapId: 'south_america_countries_bg',
+  ),
 };

@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","properties":{"sigla":"amazonia","nome":"Amazônia"},"geometry":{"type":"Polygon","coordinates":[[[-77,-9],[-75,-5],[-73,0],[-70,4],[-67,7],[-63,8],[-58,6],[-51,2],[-48,-1],[-44,-3],[-46,-10],[-50,-13],[-58,-13],[-65,-12],[-72,-11],[-77,-9]]]}},
+{"type":"Feature","properties":{"sigla":"atacama","nome":"Atacama"},"geometry":{"type":"Polygon","coordinates":[[[-71,-18],[-69,-18],[-68,-25],[-70,-26],[-71,-22],[-71,-18]]]}},
+{"type":"Feature","properties":{"sigla":"patagonia","nome":"Patagônia"},"geometry":{"type":"Polygon","coordinates":[[[-73,-39],[-68,-39],[-63,-42],[-65,-50],[-70,-52],[-74,-50],[-74,-44],[-73,-39]]]}},
+{"type":"Feature","properties":{"sigla":"pampa","nome":"Pampa"},"geometry":{"type":"Polygon","coordinates":[[[-63,-30],[-56,-29],[-53,-31],[-55,-33],[-58,-35],[-63,-36],[-65,-33],[-63,-30]]]}}
+]}

@@ -296,6 +296,13 @@ void main() {
       expectValidGeometry(regions, minPoints: 1);
     });
 
+    test('loads 4 South America biomes with valid polygon geometry', () async {
+      final regions = await loadOk('south_america_biomes');
+      expect(regions, hasLength(4));
+      expectValidGeometry(regions, minPoints: 4);
+      expect(regions.map((r) => r.name), contains('Amazônia'));
+    });
+
     test('loads the lightweight world_countries_bg background with the same '
         'country count as the full-resolution file', () async {
       final full = await loadOk('world_countries');
@@ -324,14 +331,11 @@ void main() {
       expect(regions.map((r) => r.name), contains('Taigas'));
     });
 
-    test(
-      'returns the exact same cached list on a second call for the same '
-      'mapId, instead of re-parsing the asset',
-      () async {
-        final first = await loadOk('south_america_countries');
-        final second = await loadOk('south_america_countries');
-        expect(identical(first, second), isTrue);
-      },
-    );
+    test('returns the exact same cached list on a second call for the same '
+        'mapId, instead of re-parsing the asset', () async {
+      final first = await loadOk('south_america_countries');
+      final second = await loadOk('south_america_countries');
+      expect(identical(first, second), isTrue);
+    });
   });
 }
