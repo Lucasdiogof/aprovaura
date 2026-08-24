@@ -57,6 +57,11 @@ class HomePage extends StatelessWidget {
       StreakLoaded(:final streak) => streak.currentStreak,
       _ => 0,
     };
+    // Falls back to every subject when the profile hasn't loaded yet, or
+    // the user finished onboarding without picking any -- an empty grid
+    // would be worse than showing everything in that case.
+    final interested = profileState.profile?.interestedSubjects ?? const [];
+    final subjects = interested.isEmpty ? Subject.values : interested;
     return BlocListener<StreakCubit, StreakState>(
       listenWhen: (previous, current) =>
           current is StreakLoaded && current.streak.hasUnseenBreak,
@@ -119,15 +124,12 @@ class HomePage extends StatelessWidget {
                   ),
                   delegate: SliverChildBuilderDelegate(
                     (context, index) => SubjectCard(
-                      subject: Subject.values[index],
+                      subject: subjects[index],
                       language: language,
-                      onTap: () => _openSubject(
-                        context,
-                        Subject.values[index],
-                        language,
-                      ),
+                      onTap: () =>
+                          _openSubject(context, subjects[index], language),
                     ),
-                    childCount: Subject.values.length,
+                    childCount: subjects.length,
                   ),
                 ),
               ),
