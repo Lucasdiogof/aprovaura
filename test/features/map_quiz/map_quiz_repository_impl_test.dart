@@ -310,6 +310,26 @@ void main() {
       expect(regions.map((r) => r.name), contains('Porto de Santos'));
     });
 
+    test(
+      'loads 6 North America relief points with valid point geometry',
+      () async {
+        final regions = await loadOk('north_america_relief');
+        expect(regions, hasLength(6));
+        expectValidGeometry(regions, minPoints: 1);
+        expect(regions.map((r) => r.name), contains('Montanhas Rochosas'));
+      },
+    );
+
+    test('loads 4 Oceania relief points with valid point geometry', () async {
+      final regions = await loadOk('oceania_relief');
+      expect(regions, hasLength(4));
+      expectValidGeometry(regions, minPoints: 1);
+      expect(
+        regions.map((r) => r.name),
+        contains('Grande Cordilheira Divisória'),
+      );
+    });
+
     test('loads the lightweight world_countries_bg background with the same '
         'country count as the full-resolution file', () async {
       final full = await loadOk('world_countries');

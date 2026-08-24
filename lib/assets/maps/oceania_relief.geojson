@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","properties":{"sigla":"grandecordilheira","nome":"Grande Cordilheira Divisória"},"geometry":{"type":"Point","coordinates":[147.0,-33.0]}},
+{"type":"Feature","properties":{"sigla":"alpesneozelandeses","nome":"Alpes Neozelandeses"},"geometry":{"type":"Point","coordinates":[170.5,-43.5]}},
+{"type":"Feature","properties":{"sigla":"jayawijaya","nome":"Cordilheira de Jayawijaya"},"geometry":{"type":"Point","coordinates":[137.2,-4.1]}},
+{"type":"Feature","properties":{"sigla":"terrasaltaspng","nome":"Terras Altas da Papua-Nova Guiné"},"geometry":{"type":"Point","coordinates":[145.0,-5.8]}}
+]}

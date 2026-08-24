@@ -284,4 +284,16 @@ final Map<String, Widget Function(BuildContext, String)> mappedActivities = {
     title: 'Portos do Brasil',
     backgroundMapId: 'brazil_states_bg',
   ),
+  '235355d0-5d0f-47c2-a32b-b50cfcb30d07': _mapQuiz(
+    mapId: 'north_america_relief',
+    interactionType: MapInteractionType.point,
+    title: 'Relevo da América do Norte',
+    backgroundMapId: 'north_america_countries_bg',
+  ),
+  '4f1631c5-7b29-418f-93aa-8eb82ab150ee': _mapQuiz(
+    mapId: 'oceania_relief',
+    interactionType: MapInteractionType.point,
+    title: 'Relevo da Oceania',
+    backgroundMapId: 'oceania_countries_bg',
+  ),
 };

@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","properties":{"sigla":"rochosas","nome":"Montanhas Rochosas"},"geometry":{"type":"Point","coordinates":[-110.0,45.0]}},
+{"type":"Feature","properties":{"sigla":"apalaches","nome":"Apalaches"},"geometry":{"type":"Point","coordinates":[-80.0,38.0]}},
+{"type":"Feature","properties":{"sigla":"serranevada","nome":"Serra Nevada"},"geometry":{"type":"Point","coordinates":[-119.5,37.5]}},
+{"type":"Feature","properties":{"sigla":"serramadreocidental","nome":"Serra Madre Ocidental"},"geometry":{"type":"Point","coordinates":[-107.0,25.0]}},
+{"type":"Feature","properties":{"sigla":"serramadreoriental","nome":"Serra Madre Oriental"},"geometry":{"type":"Point","coordinates":[-100.0,24.0]}},
+{"type":"Feature","properties":{"sigla":"alasca","nome":"Cordilheira do Alasca"},"geometry":{"type":"Point","coordinates":[-151.0,63.0]}}
+]}
