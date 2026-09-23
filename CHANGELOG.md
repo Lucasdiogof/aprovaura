@@ -17,8 +17,10 @@ All notable changes to this project are documented in this file.
 - Native launch screen now shows the monogram on the brand navy instead of
   the old logo on white.
 - Login screen opens directly instead of showing a timed splash screen first.
-- Login screen layout raised, with a shorter top illustration.
+- Login screen is now a single centred column: the top illustration is gone.
 
 ### Removed
 - Previous logo assets (`lib/assets/logo.png`, `lib/assets/login_logo.png`).
+- Login screen illustration (`lib/assets/login_illustration.png`) and its
+  widget.
 - Marketing tagline ("Learn. Practice. Evolve.") from the login screen.

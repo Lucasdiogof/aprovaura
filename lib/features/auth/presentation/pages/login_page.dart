@@ -10,7 +10,6 @@ import 'package:aura/features/auth/presentation/cubit/login_form_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/login_form_state.dart';
 import 'package:aura/features/auth/presentation/widgets/create_account_prompt.dart';
 import 'package:aura/features/auth/presentation/widgets/login_form.dart';
-import 'package:aura/features/auth/presentation/widgets/login_illustration.dart';
 import 'package:aura/shared/utils/validators.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 import 'package:aura/shared/widgets/app_logo.dart';
@@ -104,16 +103,17 @@ class _LoginPageState extends State<LoginPage> {
             builder: (context, formState) {
               return Scaffold(
                 backgroundColor: context.colors.background,
-                body: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const LoginIllustration(),
-                    Expanded(
-                      child: SafeArea(
-                        top: false,
-                        child: SingleChildScrollView(
-                          padding: const EdgeInsets.fromLTRB(24, 28, 24, 24),
+                body: SafeArea(
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      return SingleChildScrollView(
+                        padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(
+                            minHeight: constraints.maxHeight - 48,
+                          ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               const AppLogo(useWordmark: true),
@@ -142,9 +142,9 @@ class _LoginPageState extends State<LoginPage> {
                             ],
                           ),
                         ),
-                      ),
-                    ),
-                  ],
+                      );
+                    },
+                  ),
                 ),
               );
             },

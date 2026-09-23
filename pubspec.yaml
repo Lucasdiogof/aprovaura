@@ -87,7 +87,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/assets/login_illustration.png
     # Only the in-product marks are bundled; aura_app_icon.png and
     # aura_adaptive_foreground.png are build-time sources for the launcher
     # icon generator, not runtime assets.
