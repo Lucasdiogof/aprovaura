@@ -33,22 +33,30 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.colors;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         AppTextField(
           controller: emailController,
-          prefixIcon: Icons.email_outlined,
+          prefixIcon: Icons.mail_outline_rounded,
           hintText: strings.emailHint,
           keyboardType: TextInputType.emailAddress,
+          textInputAction: TextInputAction.next,
+          autofillHints: const [AutofillHints.email],
+          fillColor: colors.background,
           errorText: emailError,
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         AppTextField(
           controller: passwordController,
-          prefixIcon: Icons.lock_outline,
+          prefixIcon: Icons.lock_outline_rounded,
           hintText: strings.passwordHint,
           obscureText: obscurePassword,
+          textInputAction: TextInputAction.done,
+          autofillHints: const [AutofillHints.password],
+          fillColor: colors.background,
+          onSubmitted: (_) => onSubmit(),
           suffixIcon: PasswordVisibilityToggle(
             obscured: obscurePassword,
             color: context.colors.textSecondary,
@@ -56,19 +64,24 @@ class LoginForm extends StatelessWidget {
           ),
           errorText: passwordError,
         ),
+        const SizedBox(height: 4),
         Align(
           alignment: Alignment.centerRight,
           child: TextButton(
             onPressed: onForgotPassword,
             style: TextButton.styleFrom(
               minimumSize: Size.zero,
-              padding: const EdgeInsets.symmetric(vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              textStyle: const TextStyle(
+                fontSize: 13.5,
+                fontWeight: FontWeight.w600,
+              ),
             ),
             child: Text(strings.forgotPasswordLabel),
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 20),
         AppButton(
           label: strings.signInButton,
           onPressed: onSubmit,

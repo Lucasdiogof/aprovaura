@@ -1,99 +1,60 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:aura/core/theme/app_colors.dart';
 
+/// The brand marks, as shipped in `lib/assets/branding`.
+///
+/// [AppLogo.wordmark] is the horizontal logo (symbol + "aura") and scales
+/// with the space it is given, so the same widget reads well on a phone and
+/// on a wide web window without ever stretching the artwork.
+/// [AppLogo.mark] is the monogram on its own, for headers where the wordmark
+/// would compete with a page title.
 class AppLogo extends StatelessWidget {
-  const AppLogo({
-    super.key,
-    this.color,
-    this.fontSize = 40,
-    this.tagline,
-    this.showIcon = false,
-    this.useWordmark = false,
-  });
+  const AppLogo.wordmark({super.key, this.maxWidth = 260}) : size = null;
 
-  /// Horizontal logo, in its light-surface and dark-surface versions. Only
-  /// the wordmark's fill differs between them: on [AppColors.dark] the navy
-  /// lettering of the original would be all but invisible.
+  const AppLogo.mark({super.key, double this.size = 56}) : maxWidth = null;
+
+  /// Only the wordmark's fill differs between these two: on the dark theme
+  /// the navy lettering of the original would be all but invisible.
   static const _logo = 'lib/assets/branding/aura_logo.png';
   static const _logoOnDark = 'lib/assets/branding/aura_logo_on_dark.png';
+  static const _markAsset = 'lib/assets/branding/aura_mark.png';
 
-  /// The monogram on its own, for compact placements.
-  static const _mark = 'lib/assets/branding/aura_mark.png';
+  static const _minWordmarkWidth = 160.0;
 
-  static const _minLogoWidth = 160.0;
-  static const _maxLogoWidth = 260.0;
+  /// Upper bound for the wordmark's width; null for [AppLogo.mark].
+  final double? maxWidth;
 
-  final Color? color;
-  final double fontSize;
-  final String? tagline;
-  final bool showIcon;
-  final bool useWordmark;
+  /// Width of the monogram; null for [AppLogo.wordmark].
+  final double? size;
 
   @override
   Widget build(BuildContext context) {
-    final foreground = color ?? context.colors.textPrimary;
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        if (useWordmark)
-          _Wordmark(isDark: Theme.of(context).brightness == Brightness.dark)
-        else ...[
-          if (showIcon) ...[
-            Image.asset(_mark, width: fontSize * 2, fit: BoxFit.contain),
-            const SizedBox(height: 12),
-          ],
-          Text(
-            'Aura',
-            style: TextStyle(
-              fontSize: fontSize,
-              fontWeight: FontWeight.w800,
-              letterSpacing: 1.1,
-              color: foreground,
-            ),
-          ),
-        ],
-        if (tagline != null) ...[
-          const SizedBox(height: 8),
-          Text(
-            tagline!,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 14,
-              color: foreground.withValues(alpha: 0.85),
-            ),
-          ),
-        ],
-      ],
-    );
-  }
-}
+    final size = this.size;
+    if (size != null) {
+      return Image.asset(
+        _markAsset,
+        width: size,
+        fit: BoxFit.contain,
+        semanticLabel: 'Aura',
+      );
+    }
 
-/// Scales with the space it is given instead of with a fixed size, so the
-/// same widget reads well on a phone and on a wide web/tablet window without
-/// ever stretching the artwork.
-class _Wordmark extends StatelessWidget {
-  const _Wordmark({required this.isDark});
-
-  final bool isDark;
-
-  @override
-  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return LayoutBuilder(
       builder: (context, constraints) {
         final available = constraints.maxWidth.isFinite
             ? constraints.maxWidth
             : MediaQuery.sizeOf(context).width;
-        final width = math.min(
+        final upper = maxWidth!;
+        final width = math.min<double>(
           available,
-          (available * 0.62).clamp(
-            AppLogo._minLogoWidth,
-            AppLogo._maxLogoWidth,
-          ),
+          (available * 0.62)
+              .clamp(math.min(_minWordmarkWidth, upper), upper)
+              .toDouble(),
         );
         return Image.asset(
-          isDark ? AppLogo._logoOnDark : AppLogo._logo,
+          isDark ? _logoOnDark : _logo,
           width: width,
           fit: BoxFit.contain,
           semanticLabel: 'Aura',

@@ -12,6 +12,11 @@ abstract class AuthRepository {
     required String password,
   });
 
+  /// Asks Supabase to email a password-recovery link. Succeeds even when no
+  /// account uses that address: Supabase deliberately doesn't tell the caller
+  /// which emails are registered, and neither should the UI.
+  Future<Result<void>> sendPasswordReset({required String email});
+
   Future<void> signOut();
 
   AppUser? get currentUser;

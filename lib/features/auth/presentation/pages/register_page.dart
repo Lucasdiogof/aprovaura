@@ -5,19 +5,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
-import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
 import 'package:aura/features/auth/l10n/auth_strings.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_state.dart';
 import 'package:aura/features/auth/presentation/cubit/register_form_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/register_form_state.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_card.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_header.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_scaffold.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_switch_prompt.dart';
 import 'package:aura/features/auth/presentation/widgets/register_form.dart';
-import 'package:aura/features/auth/presentation/widgets/sign_in_prompt.dart';
 import 'package:aura/features/profile/domain/repositories/profile_repository.dart';
 import 'package:aura/shared/utils/validators.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
-import 'package:aura/shared/widgets/app_logo.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -137,63 +138,44 @@ class _RegisterPageState extends State<RegisterPage> {
           final isSubmitting = authState is AuthLoading;
           return BlocBuilder<RegisterFormCubit, RegisterFormState>(
             builder: (context, formState) {
-              return Scaffold(
-                backgroundColor: context.colors.background,
-                body: SafeArea(
-                  child: LayoutBuilder(
-                    builder: (context, constraints) {
-                      return SingleChildScrollView(
-                        padding: const EdgeInsets.symmetric(horizontal: 24),
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                            minHeight: constraints.maxHeight,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              AppLogo(
-                                useWordmark: true,
-                                tagline: t.registerHeading,
-                              ),
-                              const SizedBox(height: 40),
-                              RegisterForm(
-                                strings: t,
-                                nameController: _nameController,
-                                nameError: _nameError(formState.submitted, t),
-                                usernameController: _usernameController,
-                                emailController: _emailController,
-                                emailError: _emailError(formState.submitted, t),
-                                passwordController: _passwordController,
-                                passwordError: _passwordError(
-                                  formState.submitted,
-                                  t,
-                                ),
-                                confirmPasswordController:
-                                    _confirmPasswordController,
-                                confirmPasswordError: _confirmPasswordError(
-                                  formState.submitted,
-                                  t,
-                                ),
-                                obscurePassword: formState.obscurePassword,
-                                onToggleObscurePassword:
-                                    _formCubit.toggleObscurePassword,
-                                obscureConfirmPassword:
-                                    formState.obscureConfirmPassword,
-                                onToggleObscureConfirmPassword:
-                                    _formCubit.toggleObscureConfirmPassword,
-                                onSubmit: _submit,
-                                isLoading: isSubmitting,
-                              ),
-                              const SizedBox(height: 24),
-                              SignInPrompt(strings: t, onSignIn: _goToLogin),
-                              const SizedBox(height: 24),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
+              return AuthScaffold(
+                children: [
+                  AuthHeader.page(
+                    title: t.registerHeading,
+                    subtitle: t.registerSubtitle,
                   ),
-                ),
+                  const SizedBox(height: 28),
+                  AuthCard(
+                    child: RegisterForm(
+                      strings: t,
+                      nameController: _nameController,
+                      nameError: _nameError(formState.submitted, t),
+                      usernameController: _usernameController,
+                      emailController: _emailController,
+                      emailError: _emailError(formState.submitted, t),
+                      passwordController: _passwordController,
+                      passwordError: _passwordError(formState.submitted, t),
+                      confirmPasswordController: _confirmPasswordController,
+                      confirmPasswordError: _confirmPasswordError(
+                        formState.submitted,
+                        t,
+                      ),
+                      obscurePassword: formState.obscurePassword,
+                      onToggleObscurePassword: _formCubit.toggleObscurePassword,
+                      obscureConfirmPassword: formState.obscureConfirmPassword,
+                      onToggleObscureConfirmPassword:
+                          _formCubit.toggleObscureConfirmPassword,
+                      onSubmit: _submit,
+                      isLoading: isSubmitting,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  AuthSwitchPrompt(
+                    question: t.alreadyHaveAccountQuestion,
+                    action: t.signInAction,
+                    onTap: _goToLogin,
+                  ),
+                ],
               );
             },
           );

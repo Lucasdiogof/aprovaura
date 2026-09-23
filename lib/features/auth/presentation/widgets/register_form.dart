@@ -45,35 +45,47 @@ class RegisterForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.colors;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         AppTextField(
           controller: nameController,
-          prefixIcon: Icons.person_outline,
+          prefixIcon: Icons.person_outline_rounded,
           hintText: strings.nameHint,
+          textInputAction: TextInputAction.next,
+          autofillHints: const [AutofillHints.name],
+          fillColor: colors.background,
           errorText: nameError,
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         AppTextField(
           controller: usernameController,
-          prefixIcon: Icons.alternate_email,
+          prefixIcon: Icons.alternate_email_rounded,
           hintText: strings.usernameHint,
+          textInputAction: TextInputAction.next,
+          fillColor: colors.background,
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         AppTextField(
           controller: emailController,
-          prefixIcon: Icons.email_outlined,
+          prefixIcon: Icons.mail_outline_rounded,
           hintText: strings.emailHint,
           keyboardType: TextInputType.emailAddress,
+          textInputAction: TextInputAction.next,
+          autofillHints: const [AutofillHints.email],
+          fillColor: colors.background,
           errorText: emailError,
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         AppTextField(
           controller: passwordController,
-          prefixIcon: Icons.lock_outline,
+          prefixIcon: Icons.lock_outline_rounded,
           hintText: strings.passwordHint,
           obscureText: obscurePassword,
+          textInputAction: TextInputAction.next,
+          autofillHints: const [AutofillHints.newPassword],
+          fillColor: colors.background,
           suffixIcon: PasswordVisibilityToggle(
             obscured: obscurePassword,
             color: context.colors.textSecondary,
@@ -81,12 +93,15 @@ class RegisterForm extends StatelessWidget {
           ),
           errorText: passwordError,
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         AppTextField(
           controller: confirmPasswordController,
-          prefixIcon: Icons.lock_outline,
+          prefixIcon: Icons.lock_outline_rounded,
           hintText: strings.confirmPasswordHint,
           obscureText: obscureConfirmPassword,
+          textInputAction: TextInputAction.done,
+          fillColor: colors.background,
+          onSubmitted: (_) => onSubmit(),
           suffixIcon: PasswordVisibilityToggle(
             obscured: obscureConfirmPassword,
             color: context.colors.textSecondary,
@@ -94,7 +109,7 @@ class RegisterForm extends StatelessWidget {
           ),
           errorText: confirmPasswordError,
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 24),
         AppButton(
           label: strings.registerSubmitButton,
           onPressed: onSubmit,

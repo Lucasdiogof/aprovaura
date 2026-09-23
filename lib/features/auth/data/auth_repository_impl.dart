@@ -56,6 +56,21 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<Result<void>> sendPasswordReset({required String email}) async {
+    try {
+      // No redirectTo: the link points at the Site URL configured in the
+      // Supabase dashboard, so the recovery flow can be re-targeted there
+      // without shipping a new build.
+      await _client.auth.resetPasswordForEmail(email);
+      return const Success(null);
+    } on AuthException catch (e) {
+      return Error(AuthFailure(e.message));
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
   Future<void> signOut() => _client.auth.signOut();
 
   @override

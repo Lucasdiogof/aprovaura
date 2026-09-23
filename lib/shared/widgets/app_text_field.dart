@@ -11,6 +11,10 @@ class AppTextField extends StatelessWidget {
     this.suffixIcon,
     this.keyboardType,
     this.errorText,
+    this.fillColor,
+    this.textInputAction,
+    this.autofillHints,
+    this.onSubmitted,
   });
 
   final String hintText;
@@ -21,18 +25,32 @@ class AppTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final String? errorText;
 
+  /// Overrides the theme's fill. Fields inside a surface-coloured card use
+  /// the page background here, so they read as inset instead of dissolving
+  /// into the card.
+  final Color? fillColor;
+
+  final TextInputAction? textInputAction;
+  final List<String>? autofillHints;
+  final ValueChanged<String>? onSubmitted;
+
   @override
   Widget build(BuildContext context) {
+    final colors = context.colors;
     return TextField(
       controller: controller,
       obscureText: obscureText,
       keyboardType: keyboardType,
-      style: TextStyle(color: context.colors.textPrimary),
+      textInputAction: textInputAction,
+      autofillHints: autofillHints,
+      onSubmitted: onSubmitted,
+      style: TextStyle(color: colors.textPrimary),
       decoration: InputDecoration(
         hintText: hintText,
         errorText: errorText,
+        fillColor: fillColor,
         prefixIcon: prefixIcon != null
-            ? Icon(prefixIcon, color: context.colors.textSecondary)
+            ? Icon(prefixIcon, size: 20, color: colors.textSecondary)
             : null,
         suffixIcon: suffixIcon,
       ),

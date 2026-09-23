@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
-import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/auth/l10n/auth_strings.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_state.dart';
 import 'package:aura/features/auth/presentation/cubit/login_form_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/login_form_state.dart';
-import 'package:aura/features/auth/presentation/widgets/create_account_prompt.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_header.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_card.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_scaffold.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_switch_prompt.dart';
+import 'package:aura/features/auth/presentation/widgets/forgot_password_sheet.dart';
 import 'package:aura/features/auth/presentation/widgets/login_form.dart';
 import 'package:aura/shared/utils/validators.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
-import 'package:aura/shared/widgets/app_logo.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -66,7 +68,10 @@ class _LoginPageState extends State<LoginPage> {
     context.read<AuthCubit>().signIn(email: email, password: password);
   }
 
-  void _forgotPassword() {}
+  void _forgotPassword() => ForgotPasswordSheet.show(
+    context,
+    initialEmail: _emailController.text.trim(),
+  );
 
   void _createAccount() => context.push('/cadastro');
 
@@ -101,51 +106,31 @@ class _LoginPageState extends State<LoginPage> {
           final isSigningIn = authState is AuthLoading;
           return BlocBuilder<LoginFormCubit, LoginFormState>(
             builder: (context, formState) {
-              return Scaffold(
-                backgroundColor: context.colors.background,
-                body: SafeArea(
-                  child: LayoutBuilder(
-                    builder: (context, constraints) {
-                      return SingleChildScrollView(
-                        padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                            minHeight: constraints.maxHeight - 48,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              const AppLogo(useWordmark: true),
-                              const SizedBox(height: 32),
-                              LoginForm(
-                                strings: t,
-                                emailController: _emailController,
-                                emailError: _emailError(formState.submitted, t),
-                                passwordController: _passwordController,
-                                passwordError: _passwordError(
-                                  formState.submitted,
-                                  t,
-                                ),
-                                obscurePassword: formState.obscurePassword,
-                                onToggleObscure:
-                                    _formCubit.toggleObscurePassword,
-                                onSubmit: _submit,
-                                onForgotPassword: _forgotPassword,
-                                isLoading: isSigningIn,
-                              ),
-                              const SizedBox(height: 24),
-                              CreateAccountPrompt(
-                                strings: t,
-                                onCreateAccount: _createAccount,
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
+              return AuthScaffold(
+                children: [
+                  AuthHeader.brand(subtitle: t.signInSubtitle),
+                  const SizedBox(height: 28),
+                  AuthCard(
+                    child: LoginForm(
+                      strings: t,
+                      emailController: _emailController,
+                      emailError: _emailError(formState.submitted, t),
+                      passwordController: _passwordController,
+                      passwordError: _passwordError(formState.submitted, t),
+                      obscurePassword: formState.obscurePassword,
+                      onToggleObscure: _formCubit.toggleObscurePassword,
+                      onSubmit: _submit,
+                      onForgotPassword: _forgotPassword,
+                      isLoading: isSigningIn,
+                    ),
                   ),
-                ),
+                  const SizedBox(height: 16),
+                  AuthSwitchPrompt(
+                    question: t.createAccountQuestion,
+                    action: t.createAccountAction,
+                    onTap: _createAccount,
+                  ),
+                ],
               );
             },
           );

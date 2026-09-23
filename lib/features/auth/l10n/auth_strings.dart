@@ -111,4 +111,75 @@ class AuthStrings {
     AppLanguage.portuguese => 'Entrar',
     AppLanguage.english => 'Sign in',
   };
+
+  String get signInSubtitle => switch (language) {
+    AppLanguage.portuguese => 'Entre para continuar de onde você parou.',
+    AppLanguage.english => 'Sign in to pick up where you left off.',
+  };
+
+  String get registerSubtitle => switch (language) {
+    AppLanguage.portuguese => 'Leva menos de um minuto para começar a estudar.',
+    AppLanguage.english => 'It takes less than a minute to start studying.',
+  };
+
+  String get forgotPasswordTitle => switch (language) {
+    AppLanguage.portuguese => 'Recuperar senha',
+    AppLanguage.english => 'Reset your password',
+  };
+
+  String get forgotPasswordDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Informe o e-mail da sua conta e enviaremos um link para você criar '
+          'uma nova senha.',
+    AppLanguage.english =>
+      "Enter your account's email and we'll send you a link to create a new "
+          'password.',
+  };
+
+  String get forgotPasswordSubmit => switch (language) {
+    AppLanguage.portuguese => 'Enviar link',
+    AppLanguage.english => 'Send link',
+  };
+
+  String get forgotPasswordSentTitle => switch (language) {
+    AppLanguage.portuguese => 'Verifique seu e-mail',
+    AppLanguage.english => 'Check your email',
+  };
+
+  String get forgotPasswordSentDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Se essa conta existir, o link de recuperação chegou em:',
+    AppLanguage.english =>
+      'If that account exists, the recovery link is on its way to:',
+  };
+
+  String get forgotPasswordNotReceived => switch (language) {
+    AppLanguage.portuguese => 'Não recebeu?',
+    AppLanguage.english => "Didn't get it?",
+  };
+
+  String get forgotPasswordResend => switch (language) {
+    AppLanguage.portuguese => 'Enviar de novo',
+    AppLanguage.english => 'Send again',
+  };
+
+  String get forgotPasswordResending => switch (language) {
+    AppLanguage.portuguese => 'Enviando...',
+    AppLanguage.english => 'Sending...',
+  };
+
+  String get forgotPasswordResent => switch (language) {
+    AppLanguage.portuguese => 'Link enviado de novo.',
+    AppLanguage.english => 'Link sent again.',
+  };
+
+  String get forgotPasswordResendFailed => switch (language) {
+    AppLanguage.portuguese => 'Não conseguimos reenviar. Tente mais tarde.',
+    AppLanguage.english => "We couldn't resend it. Try again later.",
+  };
+
+  String get closeAction => switch (language) {
+    AppLanguage.portuguese => 'Fechar',
+    AppLanguage.english => 'Close',
+  };
 }
