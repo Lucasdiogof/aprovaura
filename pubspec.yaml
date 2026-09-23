@@ -61,15 +61,19 @@ dev_dependencies:
   bloc_test: ^10.0.0
   mocktail: ^1.0.4
 
+# Launcher icons are generated from the brand's app-icon master (full-bleed
+# navy, no corner radius -- each OS applies its own mask). Android's adaptive
+# foreground is the monogram alone, on transparency, inside the safe zone.
+# Web/PWA icons are not generated here: they are committed under web/icons.
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "lib/assets/logo.png"
+  image_path: "lib/assets/branding/aura_app_icon.png"
   min_sdk_android: 21
   remove_alpha_ios: true
-  background_color_ios: "#1E3A5F"
-  adaptive_icon_background: "#1E3A5F"
-  adaptive_icon_foreground: "lib/assets/logo.png"
+  background_color_ios: "#0B2C5C"
+  adaptive_icon_background: "#0B2C5C"
+  adaptive_icon_foreground: "lib/assets/branding/aura_adaptive_foreground.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -84,8 +88,12 @@ flutter:
 
   assets:
     - lib/assets/login_illustration.png
-    - lib/assets/logo.png
-    - lib/assets/login_logo.png
+    # Only the in-product marks are bundled; aura_app_icon.png and
+    # aura_adaptive_foreground.png are build-time sources for the launcher
+    # icon generator, not runtime assets.
+    - lib/assets/branding/aura_logo.png
+    - lib/assets/branding/aura_logo_on_dark.png
+    - lib/assets/branding/aura_mark.png
     - lib/assets/maps/
 
   # An image asset can refer to one or more resolution-specific "variants", see

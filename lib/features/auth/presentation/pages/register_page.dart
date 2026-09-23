@@ -151,7 +151,10 @@ class _RegisterPageState extends State<RegisterPage> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              AppLogo(tagline: t.registerHeading),
+                              AppLogo(
+                                useWordmark: true,
+                                tagline: t.registerHeading,
+                              ),
                               const SizedBox(height: 40),
                               RegisterForm(
                                 strings: t,
