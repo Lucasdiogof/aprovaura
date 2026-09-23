@@ -13,6 +13,8 @@ class AppInfoBottomSheet extends StatelessWidget {
     required this.variant,
     super.key,
     this.title,
+    this.primaryActionLabel,
+    this.onPrimaryAction,
     this.secondaryActionLabel,
     this.onSecondaryAction,
   });
@@ -20,6 +22,10 @@ class AppInfoBottomSheet extends StatelessWidget {
   final String? title;
   final String description;
   final AppInfoBottomSheetVariant variant;
+  // Defaults to "Entendi", which just closes the sheet. A sheet that asks
+  // something (rather than reporting it) overrides both.
+  final String? primaryActionLabel;
+  final VoidCallback? onPrimaryAction;
   final String? secondaryActionLabel;
   final VoidCallback? onSecondaryAction;
 
@@ -38,11 +44,32 @@ class AppInfoBottomSheet extends StatelessWidget {
     onSecondaryAction: onSecondaryAction,
   );
 
+  static Future<void> showInfo(
+    BuildContext context, {
+    required String description,
+    String? title,
+    String? primaryActionLabel,
+    VoidCallback? onPrimaryAction,
+    String? secondaryActionLabel,
+    VoidCallback? onSecondaryAction,
+  }) => _show(
+    context,
+    title: title,
+    description: description,
+    variant: AppInfoBottomSheetVariant.info,
+    primaryActionLabel: primaryActionLabel,
+    onPrimaryAction: onPrimaryAction,
+    secondaryActionLabel: secondaryActionLabel,
+    onSecondaryAction: onSecondaryAction,
+  );
+
   static Future<void> _show(
     BuildContext context, {
     required String? title,
     required String description,
     required AppInfoBottomSheetVariant variant,
+    String? primaryActionLabel,
+    VoidCallback? onPrimaryAction,
     String? secondaryActionLabel,
     VoidCallback? onSecondaryAction,
   }) {
@@ -56,6 +83,8 @@ class AppInfoBottomSheet extends StatelessWidget {
         title: title,
         description: description,
         variant: variant,
+        primaryActionLabel: primaryActionLabel,
+        onPrimaryAction: onPrimaryAction,
         secondaryActionLabel: secondaryActionLabel,
         onSecondaryAction: onSecondaryAction,
       ),
@@ -139,8 +168,11 @@ class AppInfoBottomSheet extends StatelessWidget {
               ),
               const SizedBox(height: 28),
               AppButton(
-                label: strings.understood,
-                onPressed: () => Navigator.of(context).pop(),
+                label: primaryActionLabel ?? strings.understood,
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  onPrimaryAction?.call();
+                },
               ),
               if (secondaryActionLabel != null)
                 TextButton(

@@ -1,40 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
-import 'package:aura/features/atualidades/presentation/pages/atualidades_areas_page.dart';
 import 'package:aura/features/home/l10n/home_strings.dart';
-import 'package:aura/features/catalog/presentation/pages/catalog_list_page.dart';
 import 'package:aura/features/home/presentation/widgets/streak_card.dart';
+import 'package:aura/features/practice/l10n/practice_strings.dart';
+import 'package:aura/features/practice/presentation/widgets/practice_options_list.dart';
 import 'package:aura/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_state.dart';
 import 'package:aura/features/streak/presentation/widgets/streak_lost_bottom_sheet.dart';
-import 'package:aura/features/subjects/domain/entities/subject.dart';
-import 'package:aura/features/subjects/presentation/widgets/subject_card.dart';
 
+/// Home is where a session starts without having to decide on a subject
+/// first: the streak, then the three shortcuts that pick the questions for
+/// you. Browsing the catalog by subject lives on the Practice tab.
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
-  void _openSubject(
-    BuildContext context,
-    Subject subject,
-    AppLanguage language,
-  ) {
-    if (subject == Subject.atualidades) {
-      Navigator.of(context).push(
-        MaterialPageRoute<void>(builder: (_) => const AtualidadesAreasPage()),
-      );
-      return;
-    }
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) =>
-            CatalogListPage(subject: subject, title: subject.label(language)),
-      ),
-    );
-  }
 
   String _displayName(String name, String email) {
     if (name.isNotEmpty) return name.split(' ').first;
@@ -47,6 +28,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final language = context.watch<LocaleCubit>().state;
     final t = HomeStrings(language);
+    final practiceStrings = PracticeStrings(language);
     final profileState = context.watch<ProfileCubit>().state;
     final displayName = _displayName(
       profileState.profile?.name ?? '',
@@ -57,12 +39,6 @@ class HomePage extends StatelessWidget {
       StreakLoaded(:final streak) => streak.currentStreak,
       _ => 0,
     };
-    // The grid is the whole catalog, on purpose. Filtering it by the
-    // subjects picked during onboarding hid most of the app behind a
-    // setting, and it could only be applied once the profile arrived, so
-    // the grid visibly collapsed from eight cards to however many were
-    // picked. Interested subjects stay a profile setting.
-    const subjects = Subject.values;
     return BlocListener<StreakCubit, StreakState>(
       listenWhen: (previous, current) =>
           current is StreakLoaded && current.streak.hasUnseenBreak,
@@ -77,64 +53,37 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: context.colors.background,
         body: SafeArea(
-          child: CustomScrollView(
-            slivers: [
-              SliverPadding(
-                padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
-                sliver: SliverToBoxAdapter(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        t.greeting(displayName),
-                        style: Theme.of(context).textTheme.headlineSmall
-                            ?.copyWith(
-                              fontWeight: FontWeight.w700,
-                              color: context.colors.textPrimary,
-                            ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        t.homeSubtitle,
-                        style: TextStyle(color: context.colors.textSecondary),
-                      ),
-                      const SizedBox(height: 20),
-                      StreakCard(strings: t, streakDays: streakDays),
-                      const SizedBox(height: 24),
-                      Text(
-                        t.chooseSubjectHeading,
-                        style: Theme.of(context).textTheme.titleMedium
-                            ?.copyWith(
-                              fontWeight: FontWeight.w700,
-                              color: context.colors.textPrimary,
-                            ),
-                      ),
-                      const SizedBox(height: 12),
-                    ],
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  t.greeting(displayName),
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: context.colors.textPrimary,
                   ),
                 ),
-              ),
-              SliverPadding(
-                padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-                sliver: SliverGrid(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 12,
-                    crossAxisSpacing: 12,
-                    childAspectRatio: 0.95,
-                  ),
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) => SubjectCard(
-                      subject: subjects[index],
-                      language: language,
-                      onTap: () =>
-                          _openSubject(context, subjects[index], language),
-                    ),
-                    childCount: subjects.length,
+                const SizedBox(height: 4),
+                Text(
+                  t.homeSubtitle,
+                  style: TextStyle(color: context.colors.textSecondary),
+                ),
+                const SizedBox(height: 20),
+                StreakCard(strings: t, streakDays: streakDays),
+                const SizedBox(height: 24),
+                Text(
+                  practiceStrings.pageSubtitle,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: context.colors.textPrimary,
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 12),
+                const PracticeOptionsList(),
+              ],
+            ),
           ),
         ),
       ),

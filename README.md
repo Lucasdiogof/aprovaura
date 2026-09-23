@@ -12,14 +12,14 @@ A gamified study app for Brazilian students preparing for the ENEM, university e
 
 Aura turns school subjects into short, structured, habit-forming lessons. Content for each subject is organized as a browsable tree (region/area → theme → activity) rather than a flat quiz list, so it can grow deep (Brazil's geography and history get particular depth) without turning into an unnavigable pile of questions.
 
-The content catalog, navigation, auth, profile and the practice engine are all built and populated: Matemática, Geografia, História, Português, Biologia, Física and Química have full question banks (~1,400 questions), each one tagged fácil/médio/difícil so a learner can filter a subject down to just the level they want. Geografia additionally has dozens of interactive map and flag quizzes, and Atualidades (current affairs) has its own living dossier model with practice quizzes. Progression is real as well: answered questions and found map regions are tracked per user, completing an activity awards XP and feeds a daily streak, wrong answers pile up into a review list, and any question can be favorited. The one entry point still without a destination is "quick practice" on the Practice tab.
+The content catalog, navigation, auth, profile and the practice engine are all built and populated: Matemática, Geografia, História, Português, Biologia, Física and Química have full question banks (~1,400 questions), each one tagged fácil/médio/difícil so a learner can filter a subject down to just the level they want. Geografia additionally has dozens of interactive map and flag quizzes, and Atualidades (current affairs) has its own living dossier model with practice quizzes. Progression is real as well: answered questions and found map regions are tracked per user, completing an activity awards XP and feeds a daily streak, wrong answers pile up into a review list, and any question can be favorited. Every practice entry point is wired: Home opens on the streak plus quick practice, review mistakes and favorites, and the Practice tab holds the subject catalog.
 
 ## Features
 
 **Home**
 - Personalized greeting and a streak card driven by the user's real daily activity
 - A bottom sheet announces a broken streak once, the first time the user opens the app after missing a day
-- Grid of all 8 subjects: Math, Geography, History, Portuguese, Biology, Physics, Chemistry, Current Affairs
+- The three shortcuts that pick the questions for you: quick practice, review mistakes and favorites
 
 **Subject catalog**
 - Recursive region/theme/activity browser per subject, backed by Supabase, with no fixed depth — some subjects go two levels deep, others (like Brazil's geography and história) go much further
@@ -49,10 +49,12 @@ The content catalog, navigation, auth, profile and the practice engine are all b
 - XP and streak writes only ever happen through `security definer` RPCs — the client can say "an activity was completed", never set the numbers itself
 
 **Practice** *(tab)*
-- Three entry points: quick practice, review mistakes, favorites
+- The grid of all 8 subjects: Math, Geography, History, Portuguese, Biology, Physics, Chemistry, Current Affairs — practising a specific subject starts here
+
+**Practice shortcuts** *(on Home)*
+- **Quick practice** deals a deck of 10 questions the user has never answered, in rounds: one question per subject per round, drawn at random within the subject. A bottom sheet offers another round at the end. They are ordinary questions, so a correct answer already counts toward the originating topic's progress and a wrong one already lands in "review mistakes" -- no extra bookkeeping
 - **Review mistakes** lists the leaf topics where the user still has wrong answers, with a wrong-answer count per topic, and replays just those questions; answering one correctly resolves it, since it is all derived from the same progress table
 - **Favorites** lists the topics holding favorited questions and practices only those
-- Quick practice is the one option whose UI exists but does not open a destination yet
 
 **Onboarding**
 - Runs once, right after sign-up: goal (ENEM / vestibular / concurso / school / self-study) → target exam year → subjects of interest
@@ -114,6 +116,6 @@ Each feature only has the layers it actually needs. Errors are modeled explicitl
 ## Getting started
 
 1. Copy `env.example.json` to `env.json` and fill in your Supabase project URL and publishable key.
-2. In your Supabase project's SQL Editor, run the files under `supabase/`: schema files first (`*_schema.sql`, plus `map_quiz_progress.sql`), then each subject's question seeds, then the `difficulty_classify_*.sql` files, then the Atualidades dossier files. `supabase/health_check.sql` and `supabase/audit_questions_duplicates.sql` are read-only scripts you can run anytime to audit the catalog and the question bank.
+2. In your Supabase project's SQL Editor, run the files under `supabase/`: schema files first (`*_schema.sql`, plus `map_quiz_progress.sql` and `quick_practice.sql`), then each subject's question seeds, then the `difficulty_classify_*.sql` files, then the Atualidades dossier files. `supabase/health_check.sql` and `supabase/audit_questions_duplicates.sql` are read-only scripts you can run anytime to audit the catalog and the question bank.
 3. `flutter pub get`
 4. `flutter run --dart-define-from-file=env.json`

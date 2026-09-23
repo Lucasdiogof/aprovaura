@@ -5,6 +5,8 @@ All notable changes to this project are documented in this file.
 ## [Unreleased]
 
 ### Added
+- Quick practice: a deck of never-answered questions, one per subject per
+  round, with a bottom sheet offering another round at the end.
 - Password recovery: "Esqueci minha senha" opens a bottom sheet that takes
   an email, sends a Supabase recovery link, and confirms it with the option
   to send again.
@@ -15,6 +17,9 @@ All notable changes to this project are documented in this file.
   on the dark theme.
 
 ### Changed
+- Home and the Practice tab swapped contents: Home now opens with the
+  streak and the three shortcuts (quick practice, review mistakes,
+  favorites), and the subject grid lives under Practice.
 - Home shows the full subject grid again. Filtering it by the subjects
   picked during onboarding hid most of the catalog behind a setting, and
   the grid visibly collapsed once the profile loaded.

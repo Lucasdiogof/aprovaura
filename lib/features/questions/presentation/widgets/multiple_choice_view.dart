@@ -27,6 +27,7 @@ class MultipleChoiceView extends StatelessWidget {
     this.trackProgress = true,
     this.awardsRewards = true,
     this.isCorrectionMode = false,
+    this.onSessionFinished,
   });
 
   final String catalogNodeId;
@@ -41,6 +42,11 @@ class MultipleChoiceView extends StatelessWidget {
   // True for error-review sessions: the result screen reads as a
   // correction instead of a fresh attempt, and only offers a way back.
   final bool isCorrectionMode;
+  // Called once the deck is done, on top of the result screen. Quick
+  // practice uses it to ask whether to deal another deck; passing the cubit
+  // lets the caller reload without reaching into this widget's internals.
+  final void Function(BuildContext context, MultipleChoiceCubit cubit)?
+  onSessionFinished;
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +65,15 @@ class MultipleChoiceView extends StatelessWidget {
           final t = MultipleChoiceStrings(language);
           return BlocConsumer<MultipleChoiceCubit, MultipleChoiceState>(
             listener: (context, state) {
-              if (state is MultipleChoiceFinished && awardsRewards) {
+              if (state is! MultipleChoiceFinished) return;
+              if (awardsRewards) {
                 context.read<StreakCubit>().registerActivityCompletion();
                 context.read<XpCubit>().awardActivityCompletion();
               }
+              onSessionFinished?.call(
+                context,
+                context.read<MultipleChoiceCubit>(),
+              );
             },
             builder: (context, state) {
               final canPop =
