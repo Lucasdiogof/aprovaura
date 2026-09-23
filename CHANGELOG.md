@@ -15,6 +15,9 @@ All notable changes to this project are documented in this file.
   on the dark theme.
 
 ### Changed
+- Home shows the full subject grid again. Filtering it by the subjects
+  picked during onboarding hid most of the catalog behind a setting, and
+  the grid visibly collapsed once the profile loaded.
 - Launcher icons regenerated from a full-bleed navy master; the Android
   adaptive icon now uses the monogram alone as its foreground.
 - Native launch screen now shows the monogram on the brand navy instead of

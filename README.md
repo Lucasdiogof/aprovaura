@@ -19,7 +19,7 @@ The content catalog, navigation, auth, profile and the practice engine are all b
 **Home**
 - Personalized greeting and a streak card driven by the user's real daily activity
 - A bottom sheet announces a broken streak once, the first time the user opens the app after missing a day
-- Grid of all 8 subjects: Math, Geography, History, Portuguese, Biology, Physics, Chemistry, Current Affairs — narrowed down to the subjects picked during onboarding
+- Grid of all 8 subjects: Math, Geography, History, Portuguese, Biology, Physics, Chemistry, Current Affairs
 
 **Subject catalog**
 - Recursive region/theme/activity browser per subject, backed by Supabase, with no fixed depth — some subjects go two levels deep, others (like Brazil's geography and história) go much further

@@ -19,7 +19,7 @@ O catálogo de conteúdo, a navegação, a autenticação, o perfil e o motor de
 **Início**
 - Saudação personalizada e um card de ofensiva alimentado pela atividade diária real do usuário
 - Um bottom sheet avisa que a ofensiva caiu uma única vez, na primeira vez que o usuário abre o app depois de perder um dia
-- Grade com as 8 matérias: Matemática, Geografia, História, Português, Biologia, Física, Química, Atualidades — filtrada pelas matérias de interesse marcadas no onboarding
+- Grade com as 8 matérias: Matemática, Geografia, História, Português, Biologia, Física, Química, Atualidades
 
 **Catálogo de matérias**
 - Navegador recursivo de região/tema/atividade por matéria, com dados no Supabase, sem profundidade fixa — algumas matérias têm só dois níveis, outras (como Geografia e História do Brasil) vão bem mais fundo

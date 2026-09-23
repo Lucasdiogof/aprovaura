@@ -57,11 +57,12 @@ class HomePage extends StatelessWidget {
       StreakLoaded(:final streak) => streak.currentStreak,
       _ => 0,
     };
-    // Falls back to every subject when the profile hasn't loaded yet, or
-    // the user finished onboarding without picking any -- an empty grid
-    // would be worse than showing everything in that case.
-    final interested = profileState.profile?.interestedSubjects ?? const [];
-    final subjects = interested.isEmpty ? Subject.values : interested;
+    // The grid is the whole catalog, on purpose. Filtering it by the
+    // subjects picked during onboarding hid most of the app behind a
+    // setting, and it could only be applied once the profile arrived, so
+    // the grid visibly collapsed from eight cards to however many were
+    // picked. Interested subjects stay a profile setting.
+    const subjects = Subject.values;
     return BlocListener<StreakCubit, StreakState>(
       listenWhen: (previous, current) =>
           current is StreakLoaded && current.streak.hasUnseenBreak,
