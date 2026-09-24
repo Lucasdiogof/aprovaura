@@ -81,6 +81,12 @@ nova.
 | `502 {status: "failed", reason}` | `rate_limited`, `provider_unavailable`, `invalid_output` |
 | `503 {reason: "not_configured"}` | falta a `GEMINI_API_KEY` |
 
+Uma correção que fica presa em `evaluating` (a function morre no meio, um
+deploy acontece durante a chamada) é enterrada pelo próprio banco na
+tentativa seguinte, passado `essay_evaluation_stale_after()` — sem isso o
+índice de "uma correção em voo por usuário" travaria a feature inteira
+para aquela pessoa.
+
 `prompt_version` atual: **`essay-enem-v1`**, gravado em cada avaliação junto
 com provider e modelo — quando o prompt ou o modelo mudarem, dá para saber
 de onde veio cada nota antiga.

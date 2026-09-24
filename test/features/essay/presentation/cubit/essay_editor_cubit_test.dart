@@ -230,6 +230,79 @@ void main() {
       },
     );
 
+    test('waits out a save already in flight instead of giving up', () async {
+      stubDraft(null);
+      // The autosave of "A" is still running when the person hits send or
+      // walks out of the screen.
+      final slow = Completer<Result<DateTime?>>();
+      when(
+        () => repository.saveDraft('t1', 'A'),
+      ).thenAnswer((_) => slow.future);
+
+      final cubit = EssayEditorCubit(repository, 't1');
+      await Future<void>.delayed(const Duration(milliseconds: 10));
+      cubit.textChanged('A');
+      await Future<void>.delayed(_afterDebounce);
+
+      final flush = cubit.saveNow();
+      slow.complete(Success(DateTime(2026)));
+
+      // The text was on its way to the server the whole time: saying "not
+      // saved" here would warn about losing something that was not lost.
+      expect(await flush, isTrue);
+      expect(cubit.hasUnsavedChanges, isFalse);
+      await cubit.close();
+    });
+
+    test('waits for the follow-up save of text typed mid-request', () async {
+      stubDraft(null);
+      final slow = Completer<Result<DateTime?>>();
+      when(
+        () => repository.saveDraft('t1', 'A'),
+      ).thenAnswer((_) => slow.future);
+
+      final cubit = EssayEditorCubit(repository, 't1');
+      await Future<void>.delayed(const Duration(milliseconds: 10));
+      cubit.textChanged('A');
+      await Future<void>.delayed(_afterDebounce);
+      // Newer text arrives while "A" is still in flight, so the cubit owes
+      // a second save after the first returns.
+      cubit.textChanged('AB');
+
+      final flush = cubit.saveNow();
+      slow.complete(Success(DateTime(2026)));
+
+      expect(await flush, isTrue);
+      verify(() => repository.saveDraft('t1', 'AB')).called(1);
+      expect(cubit.hasUnsavedChanges, isFalse);
+      await cubit.close();
+    });
+
+    test('an in-flight save that fails is reported as a failure', () async {
+      stubDraft(null);
+      final slow = Completer<Result<DateTime?>>();
+      when(
+        () => repository.saveDraft('t1', 'A'),
+      ).thenAnswer((_) => slow.future);
+
+      final cubit = EssayEditorCubit(repository, 't1');
+      await Future<void>.delayed(const Duration(milliseconds: 10));
+      cubit.textChanged('A');
+      await Future<void>.delayed(_afterDebounce);
+
+      final flush = cubit.saveNow();
+      slow.complete(Error(ServerFailure()));
+
+      // Waiting for the in-flight save must not turn a failure into a
+      // "saved": the retry loop would try again and also fail.
+      when(
+        () => repository.saveDraft('t1', 'A'),
+      ).thenAnswer((_) async => Error(ServerFailure()));
+      expect(await flush, isFalse);
+      expect(cubit.hasUnsavedChanges, isTrue);
+      await cubit.close();
+    });
+
     test('reports failure instead of pretending the text is safe', () async {
       stubDraft(null);
       when(

@@ -54,6 +54,12 @@ class EssayEditorCubit extends Cubit<EssayEditorState> {
 
   bool _inFlight = false;
 
+  /// Completes when the save that is running right now returns. [saveNow]
+  /// waits on it instead of walking away: a flush that reports "not saved"
+  /// only because another save was mid-flight would send the person a
+  /// warning about text that was about to land.
+  Future<void>? _inFlightSave;
+
   /// Identifies this attempt to submit. Generated once and kept: a retry
   /// after a timeout carries the same id, so the server recognises it as
   /// the same attempt instead of creating a second one.
@@ -104,7 +110,14 @@ class EssayEditorCubit extends Cubit<EssayEditorState> {
   /// current text -- including the case where there was nothing to save.
   Future<bool> saveNow() async {
     _debounceTimer?.cancel();
-    if (!hasUnsavedChanges && !_inFlight) return true;
+    // Wait out whatever is already running -- including the follow-up save
+    // that fires when text changed mid-request -- before judging whether
+    // the server has the current text.
+    while (_inFlightSave != null) {
+      await _inFlightSave;
+      if (isClosed) return false;
+    }
+    if (!hasUnsavedChanges) return true;
     await _save();
     return !hasUnsavedChanges;
   }
@@ -113,10 +126,14 @@ class EssayEditorCubit extends Cubit<EssayEditorState> {
     if (_inFlight) return;
     final body = _pendingBody;
     _inFlight = true;
+    final done = Completer<void>();
+    _inFlightSave = done.future;
     _setStatus(EssaySaveStatus.saving);
 
     final result = await _repository.saveDraft(themeId, body);
     _inFlight = false;
+    _inFlightSave = null;
+    done.complete();
     if (isClosed) return;
 
     switch (result) {

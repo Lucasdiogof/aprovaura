@@ -144,6 +144,10 @@ function startFailureReason(code: string | undefined): string {
       return 'already_evaluating';
     case 'P0006':
       return 'daily_limit_reached';
+    // Índice "uma correção em voo por usuário": outra redação está sendo
+    // corrigida agora. Não é um erro inesperado, é uma fila de um.
+    case '23505':
+      return 'already_evaluating';
     default:
       return 'unexpected';
   }

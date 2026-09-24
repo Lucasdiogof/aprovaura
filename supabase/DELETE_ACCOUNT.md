@@ -21,16 +21,35 @@ table already has a **direct** `on delete cascade` straight to `auth.users`:
 | `user_question_favorites` | `user_id → auth.users(id)` | ✅ `on delete cascade` |
 | `user_region_progress` | `user_id → auth.users(id)` | ✅ `on delete cascade` |
 | `question_reports` | `user_id → auth.users(id)` | ✅ `on delete cascade` |
+| `mock_exams` | `user_id → auth.users(id)` | ✅ `on delete cascade` |
+| `essay_drafts` | `user_id → auth.users(id)` | ✅ `on delete cascade` |
+| `essay_submissions` | `user_id → auth.users(id)` | ✅ `on delete cascade` |
+| `essay_evaluations` | `user_id → auth.users(id)` | ✅ `on delete cascade` |
+| `essay_evaluation_quota` | `user_id → auth.users(id)` | ✅ `on delete cascade` |
 
-No exceptions, no `restrict`/`no action`, nothing indirect. Unlike Match
+Every table above is a **direct** FK to `auth.users`: no `restrict`, no `no
+action`, nothing that needs a second hop to be reached. Unlike Match
 Queue, Aura has no teams or data shared between users — nothing here needs
 anonymizing instead of deleting. Deleting the `auth.users` row cascades
 through every one of these automatically; there is nothing left for a
 pre-cleanup RPC to do.
 
-`essay_*` / `mock_exam_*` tables (Redação, Montar Simulado) don't exist yet
-— nothing to audit there. **Whoever builds those must give their user-owned
-tables the same `on delete cascade`, or this audit goes stale.**
+`essay_themes` is reference content, like `catalog_nodes`: no `user_id`,
+nothing to delete. The four user-owned `essay_*` tables were audited on
+2026-09-24 (FASE 9 da Redação) and are in the table above. Two of them also
+cascade a second way, which is belt and braces rather than a requirement:
+`essay_evaluations.submission_id` and `essay_evaluation_quota.submission_id`
+both cascade from `essay_submissions`, so a deleted attempt never leaves a
+marking or a quota row behind either. (`mock_exam_subject_configs` and
+`mock_exam_items` reach `auth.users` the same indirect way, through
+`mock_exams`.)
+
+`check_essays.sql` has a standing check for orphans (`data: every
+submission belongs to a real user`), so a cascade that silently stopped
+working would show up there.
+
+**Whoever adds another user-owned table must give it the same `on delete
+cascade`, or this audit goes stale.**
 
 ## Storage audit
 

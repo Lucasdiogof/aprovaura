@@ -18,6 +18,10 @@
 --   failed     -> erro recuperável (Gemini fora do ar, cota do free tier,
 --                 JSON inválido). NÃO é estado final: dá pra tentar de
 --                 novo, e a tentativa não consome cota nova.
+-- Uma correção que ficar presa em 'evaluating' por mais que
+-- essay_evaluation_stale_after() é dada por perdida na próxima tentativa e
+-- vira 'failed' -- senão uma Edge Function morta no meio travaria o
+-- usuário para sempre (ver 4.1).
 -- O texto enviado é imutável desde o primeiro instante. "Refazer" cria uma
 -- submission NOVA; nada nunca sobrescreve uma tentativa anterior.
 --
@@ -266,6 +270,18 @@ returns integer language sql immutable as $$ select 50 $$;
 -- Texto curto demais não vale uma chamada ao provider. O corte é
 -- deliberadamente baixo: quem escreveu 40 palavras merece uma resposta do
 -- app ("texto insuficiente"), não uma nota inventada.
+-- Uma correção que ficou presa em 'evaluating' (a Edge Function morreu no
+-- meio, houve deploy durante a chamada, a rede caiu depois do claim)
+-- bloqueia o usuário INTEIRO, porque o índice de "uma em voo por usuário"
+-- não deixa reivindicar nenhuma outra. Passado este prazo, a correção é
+-- dada por perdida e o usuário pode tentar de novo.
+--
+-- Folgado de propósito: o timeout do provider é de 60s e o teto de
+-- execução da function é de poucos minutos, então nada legítimo chega
+-- perto disto.
+create or replace function essay_evaluation_stale_after()
+returns interval language sql immutable as $$ select interval '15 minutes' $$;
+
 create or replace function essay_min_word_count()
 returns integer language sql immutable as $$ select 50 $$;
 
@@ -467,11 +483,25 @@ begin
         using errcode = 'P0003', detail = v_words::text;
     end if;
 
-    insert into essay_submissions (
-      user_id, theme_id, body, word_count, client_request_id
-    )
-    values (v_user_id, p_theme_id, v_body, v_words, p_client_request_id)
-    returning essay_submissions.id into v_id;
+    -- Duas chamadas com o MESMO id chegando ao mesmo tempo (timeout do
+    -- app e retentativa enquanto a primeira ainda roda): as duas passam
+    -- pelo select acima sem achar nada, e o índice único é quem decide.
+    -- A perdedora reencontra a submission da vencedora em vez de devolver
+    -- erro para uma redação que foi enviada com sucesso.
+    begin
+      insert into essay_submissions (
+        user_id, theme_id, body, word_count, client_request_id
+      )
+      values (v_user_id, p_theme_id, v_body, v_words, p_client_request_id)
+      returning essay_submissions.id into v_id;
+    exception when unique_violation then
+      select s.id into v_id
+      from essay_submissions s
+      where s.user_id = v_user_id and s.client_request_id = p_client_request_id;
+      if v_id is null then
+        raise;
+      end if;
+    end;
 
     delete from essay_drafts
     where user_id = v_user_id and theme_id = p_theme_id;
@@ -603,6 +633,17 @@ begin
   if v_user_id is null then
     raise exception 'not authenticated';
   end if;
+
+  -- Antes de qualquer coisa, enterra correções presas: sem isto, uma
+  -- function que morreu no meio deixa o usuário sem conseguir corrigir
+  -- nada, nem nesta redação nem em nenhuma outra, para sempre. A cota já
+  -- debitada continua registrada na submission, então retentar hoje não
+  -- paga de novo.
+  update essay_submissions
+  set status = 'failed', failure_reason = 'timeout'
+  where user_id = v_user_id
+    and status = 'evaluating'
+    and evaluation_started_at < now() - essay_evaluation_stale_after();
 
   select s.status into v_status
   from essay_submissions s

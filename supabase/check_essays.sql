@@ -107,7 +107,8 @@ from unnest(array[
   'get_essay_submission', 'get_essay_quota', 'start_essay_evaluation',
   'complete_essay_evaluation', 'fail_essay_evaluation',
   'essay_daily_evaluation_limit', 'essay_award_amount',
-  'essay_min_word_count', 'essay_word_count'
+  'essay_min_word_count', 'essay_word_count',
+  'essay_evaluation_stale_after'
 ]) as fn
 
 union all
@@ -242,6 +243,24 @@ select 2, 'data: every submission belongs to a real user', case
     left join auth.users u on u.id = s.user_id
     where u.id is null)
   then 'ok' else 'a submission is orphaned' end
+
+union all
+select 2, 'data: no marking is stuck in flight', case
+  when not exists (
+    select 1 from essay_submissions
+    where status = 'evaluating'
+      and evaluation_started_at < now() - essay_evaluation_stale_after())
+  then 'ok'
+  -- start_essay_evaluation enterra estas na proxima tentativa do dono;
+  -- se aparecerem aqui, alguem esta preso esperando uma correcao morta.
+  else 'a marking has been evaluating for longer than the stale window' end
+
+union all
+select 2, 'data: nobody has two markings in flight', case
+  when not exists (
+    select 1 from essay_submissions where status = 'evaluating'
+    group by user_id having count(*) > 1)
+  then 'ok' else 'a user has more than one evaluation in flight' end
 
 union all
 select 2, 'data: no draft survived the submit that froze it', case
