@@ -42,11 +42,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
     try {
       final inserted = await _client
           .from('profiles')
-          .upsert({
-            'id': id,
-            'name': name,
-            if (username != null) 'username': username,
-          })
+          .upsert({'id': id, 'name': name, 'username': ?username})
           .select()
           .single();
       return Success(_toUserProfile(inserted));
@@ -67,10 +63,10 @@ class ProfileRepositoryImpl implements ProfileRepository {
   }) async {
     try {
       final patch = <String, dynamic>{
-        if (name != null) 'name': name,
-        if (username != null) 'username': username,
-        if (goal != null) 'goal': goal.name,
-        if (examYear != null) 'exam_year': examYear,
+        'name': ?name,
+        'username': ?username,
+        'goal': ?goal?.name,
+        'exam_year': ?examYear,
         if (interestedSubjects != null)
           'interested_subjects': interestedSubjects
               .map((s) => s.name)

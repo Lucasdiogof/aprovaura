@@ -71,6 +71,54 @@ class ProfileStrings {
     AppLanguage.english => 'Sign out',
   };
 
+  String get studiesSectionLabel => switch (language) {
+    AppLanguage.portuguese => 'Estudos',
+    AppLanguage.english => 'Studies',
+  };
+
+  String get accountSectionLabel => switch (language) {
+    AppLanguage.portuguese => 'Conta',
+    AppLanguage.english => 'Account',
+  };
+
+  /// What is behind the row, so the list answers itself without being
+  /// opened.
+  String get myAccountRowSubtitle => switch (language) {
+    AppLanguage.portuguese => 'Nome, usuário e e-mail',
+    AppLanguage.english => 'Name, username and email',
+  };
+
+  String get settingsRowSubtitle => switch (language) {
+    AppLanguage.portuguese => 'Tema, idioma e preferências',
+    AppLanguage.english => 'Theme, language and preferences',
+  };
+
+  String get deleteAccountRowSubtitle => switch (language) {
+    AppLanguage.portuguese => 'Remove permanentemente sua conta e seus dados',
+    AppLanguage.english => 'Permanently removes your account and your data',
+  };
+
+  String get signOutConfirmTitle => switch (language) {
+    AppLanguage.portuguese => 'Sair da sua conta?',
+    AppLanguage.english => 'Sign out of your account?',
+  };
+
+  /// Says what signing out is *not*, because it sits next to a row that
+  /// does exactly that and cannot be undone.
+  String get signOutConfirmDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Seu progresso continua salvo. Você vai precisar entrar de novo para '
+          'voltar a estudar.',
+    AppLanguage.english =>
+      'Your progress stays saved. You will need to sign in again to keep '
+          'studying.',
+  };
+
+  String get signOutConfirmButton => switch (language) {
+    AppLanguage.portuguese => 'Sair',
+    AppLanguage.english => 'Sign out',
+  };
+
   String get myAccountPageTitle => switch (language) {
     AppLanguage.portuguese => 'Minha conta',
     AppLanguage.english => 'My account',

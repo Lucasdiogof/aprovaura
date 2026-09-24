@@ -13,8 +13,10 @@ import 'package:aura/features/profile/presentation/pages/goal_settings_page.dart
 import 'package:aura/features/profile/presentation/pages/interested_subjects_settings_page.dart';
 import 'package:aura/features/profile/presentation/pages/my_account_page.dart';
 import 'package:aura/features/profile/presentation/pages/settings_page.dart';
-import 'package:aura/features/profile/presentation/widgets/profile_row.dart';
+import 'package:aura/features/profile/presentation/widgets/delete_account_tile.dart';
 import 'package:aura/features/profile/presentation/widgets/profile_stats_row.dart';
+import 'package:aura/features/profile/presentation/widgets/settings_group.dart';
+import 'package:aura/features/profile/presentation/widgets/settings_tile.dart';
 import 'package:aura/features/profile/presentation/widgets/xp_level_card.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/progress/presentation/cubit/profile_stats_cubit.dart';
@@ -23,7 +25,9 @@ import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_state.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_state.dart';
+import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
+import 'package:aura/shared/widgets/section_label.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -40,6 +44,20 @@ class ProfilePage extends StatelessWidget {
 class _ProfileBody extends StatelessWidget {
   const _ProfileBody();
 
+  /// Asks first. Signing out is recoverable, so this is a short check
+  /// rather than a warning -- but it sits one row above deleting the
+  /// account, and a mis-tap there should not end the session either.
+  Future<void> _confirmSignOut(BuildContext context, ProfileStrings t) async {
+    await AppInfoBottomSheet.showInfo(
+      context,
+      title: t.signOutConfirmTitle,
+      description: t.signOutConfirmDescription,
+      primaryActionLabel: t.signOutConfirmButton,
+      onPrimaryAction: () => _signOut(context),
+      secondaryActionLabel: t.cancelButtonLabel,
+    );
+  }
+
   Future<void> _signOut(BuildContext context) async {
     await context.read<AuthCubit>().signOut();
     if (context.mounted) context.go('/login');
@@ -47,18 +65,13 @@ class _ProfileBody extends StatelessWidget {
 
   void _openMyAccount(BuildContext context, ProfileState state) {
     final profileCubit = context.read<ProfileCubit>();
-    final authCubit = context.read<AuthCubit>();
     Navigator.of(context).push(
       MaterialPageRoute<void>(
-        // MyAccountPage's own delete-account flow needs AuthCubit, which
-        // (like ProfileCubit) lives above HomeShellPage -- a route pushed
-        // via Navigator isn't a descendant of that provider, so both are
-        // re-provided by .value here, same as ProfileCubit already was.
-        builder: (_) => MultiBlocProvider(
-          providers: [
-            BlocProvider.value(value: profileCubit),
-            BlocProvider.value(value: authCubit),
-          ],
+        // ProfileCubit lives above HomeShellPage, and a route pushed via
+        // Navigator is not a descendant of that provider -- so it is
+        // re-provided by .value here.
+        builder: (_) => BlocProvider.value(
+          value: profileCubit,
           child: MyAccountPage(
             initialName: state.profile?.name ?? '',
             initialUsername: state.profile?.username,
@@ -195,58 +208,67 @@ class _ProfileBody extends StatelessWidget {
                       ),
                     ],
                     const SizedBox(height: AppSpacing.xl),
-                    ProfileRow(
-                      icon: Icons.flag_outlined,
-                      label: t.goalRowLabel,
-                      value:
-                          profile?.goal?.label(language) ?? t.notInformedLabel,
-                      trailing: Icon(
-                        Icons.chevron_right,
-                        color: context.colors.textSecondary,
-                      ),
-                      onTap: () => _openGoal(context),
+                    SectionLabel(t.studiesSectionLabel),
+                    SettingsGroup(
+                      children: [
+                        SettingsTile(
+                          icon: Icons.flag_outlined,
+                          title: t.goalRowLabel,
+                          subtitle:
+                              profile?.goal?.label(language) ??
+                              t.notInformedLabel,
+                          onTap: () => _openGoal(context),
+                        ),
+                        SettingsTile(
+                          icon: Icons.menu_book_outlined,
+                          title: t.interestedSubjectsRowLabel,
+                          subtitle:
+                              (profile?.interestedSubjects.isNotEmpty ?? false)
+                              ? t.interestedSubjectsCount(
+                                  profile!.interestedSubjects.length,
+                                )
+                              : t.notInformedLabel,
+                          onTap: () => _openInterestedSubjects(context, state),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 8),
-                    ProfileRow(
-                      icon: Icons.menu_book_outlined,
-                      label: t.interestedSubjectsRowLabel,
-                      value: (profile?.interestedSubjects.isNotEmpty ?? false)
-                          ? t.interestedSubjectsCount(
-                              profile!.interestedSubjects.length,
-                            )
-                          : t.notInformedLabel,
-                      trailing: Icon(
-                        Icons.chevron_right,
-                        color: context.colors.textSecondary,
-                      ),
-                      onTap: () => _openInterestedSubjects(context, state),
+                    const SizedBox(height: AppSpacing.lg),
+                    SectionLabel(t.accountSectionLabel),
+                    SettingsGroup(
+                      children: [
+                        SettingsTile(
+                          icon: Icons.person_outline,
+                          title: t.myAccountRowLabel,
+                          subtitle: t.myAccountRowSubtitle,
+                          onTap: () => _openMyAccount(context, state),
+                        ),
+                        SettingsTile(
+                          icon: Icons.settings_outlined,
+                          title: t.settingsRowLabel,
+                          subtitle: t.settingsRowSubtitle,
+                          onTap: () => _openSettings(context),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 8),
-                    ProfileRow(
-                      icon: Icons.person_outline,
-                      label: t.myAccountRowLabel,
-                      trailing: Icon(
-                        Icons.chevron_right,
-                        color: context.colors.textSecondary,
-                      ),
-                      onTap: () => _openMyAccount(context, state),
+                    const SizedBox(height: AppSpacing.lg),
+                    SettingsGroup(
+                      children: [
+                        SettingsTile(
+                          icon: Icons.logout_rounded,
+                          title: t.signOutButtonLabel,
+                          // Acts here instead of opening a screen, and is
+                          // toned down to say so.
+                          showChevron: false,
+                          tone: SettingsTileTone.muted,
+                          onTap: () => _confirmSignOut(context, t),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 8),
-                    ProfileRow(
-                      icon: Icons.settings_outlined,
-                      label: t.settingsRowLabel,
-                      trailing: Icon(
-                        Icons.chevron_right,
-                        color: context.colors.textSecondary,
-                      ),
-                      onTap: () => _openSettings(context),
-                    ),
-                    const SizedBox(height: 8),
-                    ProfileRow(
-                      icon: Icons.logout,
-                      label: t.signOutButtonLabel,
-                      onTap: () => _signOut(context),
-                    ),
+                    const SizedBox(height: AppSpacing.lg),
+                    // In a group of its own: ending the account is not one
+                    // more setting, and it should never be the row next to
+                    // the one you meant to tap.
+                    const SettingsGroup(children: [DeleteAccountTile()]),
                   ],
                 ),
               ),
