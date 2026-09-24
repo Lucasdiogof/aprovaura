@@ -124,7 +124,7 @@ class AppInfoBottomSheet extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: context.colors.surface,
+        color: context.colors.surfaceElevated,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
       ),
       child: SafeArea(

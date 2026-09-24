@@ -120,7 +120,7 @@ class _LetterBadge extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: solid
-            ? color
+            ? context.colors.primaryFill
             : filled
             ? color.withValues(alpha: 0.12)
             : Colors.transparent,

@@ -53,10 +53,13 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: colors.primary,
+          backgroundColor: colors.primaryFill,
           foregroundColor: colors.onPrimary,
-          disabledBackgroundColor: colors.primary.withValues(alpha: 0.5),
+          disabledBackgroundColor: colors.primaryFill.withValues(alpha: 0.45),
           disabledForegroundColor: colors.onPrimary.withValues(alpha: 0.8),
+          // Flat: the brand violet carries the emphasis; a drop shadow on a
+          // dark surface just reads as a dirty outline.
+          elevation: 0,
           minimumSize: const Size.fromHeight(56),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
@@ -69,6 +72,19 @@ class AppTheme {
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(foregroundColor: colors.primary),
       ),
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: colors.surfaceElevated,
+        modalBackgroundColor: colors.surfaceElevated,
+      ),
+      dialogTheme: DialogThemeData(backgroundColor: colors.surfaceElevated),
+      popupMenuTheme: PopupMenuThemeData(color: colors.surfaceElevated),
+      snackBarTheme: SnackBarThemeData(
+        backgroundColor: colors.textPrimary,
+        contentTextStyle: base.textTheme.bodyMedium?.copyWith(
+          color: colors.background,
+        ),
+      ),
+      progressIndicatorTheme: ProgressIndicatorThemeData(color: colors.primary),
       appBarTheme: AppBarTheme(
         backgroundColor: colors.surface,
         foregroundColor: colors.textPrimary,

@@ -77,7 +77,7 @@ class _ForgotPasswordSheetState extends State<ForgotPasswordSheet> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: colors.surface,
+        color: colors.surfaceElevated,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
       ),
       child: SafeArea(

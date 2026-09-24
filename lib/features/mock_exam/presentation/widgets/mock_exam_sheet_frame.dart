@@ -29,7 +29,7 @@ class MockExamSheetFrame extends StatelessWidget {
         maxHeight: MediaQuery.sizeOf(context).height * 0.9,
       ),
       decoration: BoxDecoration(
-        color: context.colors.surface,
+        color: context.colors.surfaceElevated,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
       ),
       child: SafeArea(

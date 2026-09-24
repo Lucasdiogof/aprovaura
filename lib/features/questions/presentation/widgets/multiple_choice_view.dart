@@ -456,7 +456,7 @@ class _ResultBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     final isCelebratory = tier == null || tier!.isCelebratory;
     final colors = context.colors;
-    final color = isCelebratory ? colors.primary : colors.textSecondary;
+    final color = isCelebratory ? colors.primaryFill : colors.textSecondary;
 
     return SizedBox(
       width: 120,

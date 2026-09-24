@@ -57,20 +57,20 @@ class AuthScaffold extends StatelessWidget {
   }
 }
 
-/// Two very soft radial washes in the brand's own gradient colours, sampled
-/// from the logo: enough to give the page depth and keep it from reading as
-/// a flat template, far too faint to compete with the form.
+/// Two very soft radial washes in the two ends of the Aprovaura gradient
+/// (Aura cyan top-right, brand violet bottom-left): enough to give the page
+/// depth and keep it from reading as a flat template, far too faint to
+/// compete with the form -- and fainter still on the light theme.
 class AuthBackground extends StatelessWidget {
   const AuthBackground({required this.child, super.key});
-
-  static const _brandBlue = Color(0xFF005DFF);
-  static const _brandPurple = Color(0xFF804FFF);
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final cyan = context.colors.auraCyan;
+    final violet = context.colors.primaryFill;
     return DecoratedBox(
       decoration: BoxDecoration(color: context.colors.background),
       child: Stack(
@@ -84,8 +84,8 @@ class AuthBackground extends StatelessWidget {
                   center: const Alignment(0.85, -0.9),
                   radius: 1.1,
                   colors: [
-                    _brandBlue.withValues(alpha: isDark ? 0.20 : 0.12),
-                    _brandBlue.withValues(alpha: 0),
+                    cyan.withValues(alpha: isDark ? 0.12 : 0.10),
+                    cyan.withValues(alpha: 0),
                   ],
                 ),
               ),
@@ -98,8 +98,8 @@ class AuthBackground extends StatelessWidget {
                   center: const Alignment(-0.9, 0.95),
                   radius: 1.0,
                   colors: [
-                    _brandPurple.withValues(alpha: isDark ? 0.16 : 0.09),
-                    _brandPurple.withValues(alpha: 0),
+                    violet.withValues(alpha: isDark ? 0.20 : 0.08),
+                    violet.withValues(alpha: 0),
                   ],
                 ),
               ),
