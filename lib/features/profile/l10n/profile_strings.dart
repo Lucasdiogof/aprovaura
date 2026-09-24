@@ -101,6 +101,42 @@ class ProfileStrings {
     AppLanguage.english => 'Save',
   };
 
+  String get deleteAccountRowLabel => switch (language) {
+    AppLanguage.portuguese => 'Excluir minha conta',
+    AppLanguage.english => 'Delete my account',
+  };
+
+  String get deleteAccountConfirmTitle => switch (language) {
+    AppLanguage.portuguese => 'Excluir sua conta?',
+    AppLanguage.english => 'Delete your account?',
+  };
+
+  String get deleteAccountConfirmDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Todos os seus dados, progresso, favoritos e histórico serão '
+          'permanentemente removidos. Essa ação não pode ser desfeita.',
+    AppLanguage.english =>
+      'All your data, progress, favorites and history will be permanently '
+          'removed. This action cannot be undone.',
+  };
+
+  String get deleteAccountConfirmButton => switch (language) {
+    AppLanguage.portuguese => 'Excluir conta',
+    AppLanguage.english => 'Delete account',
+  };
+
+  String get cancelButtonLabel => switch (language) {
+    AppLanguage.portuguese => 'Cancelar',
+    AppLanguage.english => 'Cancel',
+  };
+
+  String get deleteAccountFailedMessage => switch (language) {
+    AppLanguage.portuguese =>
+      'Não deu para excluir sua conta agora. Tente novamente em instantes.',
+    AppLanguage.english =>
+      "Couldn't delete your account right now. Please try again shortly.",
+  };
+
   String get settingsPageTitle => switch (language) {
     AppLanguage.portuguese => 'Configurações',
     AppLanguage.english => 'Settings',

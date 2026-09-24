@@ -33,6 +33,11 @@ class AppInfoBottomSheet extends StatelessWidget {
     BuildContext context, {
     required String description,
     String? title,
+    // Defaults to "Entendi", which just closes the sheet -- pass both to
+    // turn this into a destructive confirmation instead (e.g. "Excluir
+    // conta?"), same as showInfo already allows.
+    String? primaryActionLabel,
+    VoidCallback? onPrimaryAction,
     String? secondaryActionLabel,
     VoidCallback? onSecondaryAction,
   }) => _show(
@@ -40,6 +45,8 @@ class AppInfoBottomSheet extends StatelessWidget {
     title: title,
     description: description,
     variant: AppInfoBottomSheetVariant.error,
+    primaryActionLabel: primaryActionLabel,
+    onPrimaryAction: onPrimaryAction,
     secondaryActionLabel: secondaryActionLabel,
     onSecondaryAction: onSecondaryAction,
   );

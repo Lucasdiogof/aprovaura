@@ -19,5 +19,13 @@ abstract class AuthRepository {
 
   Future<void> signOut();
 
+  /// Permanently deletes the signed-in user's account: the server-side
+  /// `delete-account` Edge Function removes them from Supabase Auth, which
+  /// cascades through every one of their rows (profile, XP, streak,
+  /// progress, favorites, reports -- see supabase/DELETE_ACCOUNT.md for the
+  /// full audit). Signs the local session out on success; on failure the
+  /// account and the current session are both untouched.
+  Future<Result<void>> deleteAccount();
+
   AppUser? get currentUser;
 }

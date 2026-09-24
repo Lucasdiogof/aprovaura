@@ -74,6 +74,25 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> signOut() => _client.auth.signOut();
 
   @override
+  Future<Result<void>> deleteAccount() async {
+    try {
+      // Only throws on a non-2xx response (see FunctionException below) --
+      // reaching the next line means the server already deleted the
+      // account. No user_id is ever sent: the Edge Function resolves it
+      // from this same call's JWT.
+      await _client.functions.invoke('delete-account');
+      await _client.auth.signOut();
+      return const Success(null);
+    } on FunctionException catch (e) {
+      final details = e.details;
+      final message = details is Map ? details['error'] as String? : null;
+      return Error(ServerFailure(message));
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
   AppUser? get currentUser {
     final user = _client.auth.currentUser;
     return user == null ? null : _toAppUser(user);

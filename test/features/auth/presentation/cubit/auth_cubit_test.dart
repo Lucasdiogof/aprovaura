@@ -149,5 +149,34 @@ void main() {
         verify(() => repository.signOut()).called(1);
       });
     });
+
+    group('deleteAccount', () {
+      test('delegates to repository.deleteAccount without touching '
+          'AuthState', () async {
+        when(
+          () => repository.deleteAccount(),
+        ).thenAnswer((_) async => const Success(null));
+        final cubit = AuthCubit(repository);
+
+        final result = await cubit.deleteAccount();
+
+        expect(result, isA<Success<void>>());
+        verify(() => repository.deleteAccount()).called(1);
+        expect(cubit.state, const AuthInitial());
+      });
+
+      test('returns the repository failure as-is on error', () async {
+        when(
+          () => repository.deleteAccount(),
+        ).thenAnswer((_) async => Error(ServerFailure('boom')));
+        final cubit = AuthCubit(repository);
+
+        final result = await cubit.deleteAccount();
+
+        expect(result, isA<Error<void>>());
+        expect((result as Error<void>).failure.message, 'boom');
+        expect(cubit.state, const AuthInitial());
+      });
+    });
   });
 }

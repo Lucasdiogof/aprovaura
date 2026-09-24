@@ -38,4 +38,11 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> signOut() => _repository.signOut();
+
+  // Deliberately doesn't touch AuthState (like signOut): this cubit is
+  // shared app-wide, and nothing outside the delete-account flow itself
+  // should react to a submitting/error state here. The caller reads the
+  // Result directly, the same way ProfileCubit.updateProfile() is used
+  // from MyAccountPage.
+  Future<Result<void>> deleteAccount() => _repository.deleteAccount();
 }

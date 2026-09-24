@@ -46,11 +46,19 @@ class _ProfileBody extends StatelessWidget {
   }
 
   void _openMyAccount(BuildContext context, ProfileState state) {
-    final cubit = context.read<ProfileCubit>();
+    final profileCubit = context.read<ProfileCubit>();
+    final authCubit = context.read<AuthCubit>();
     Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (_) => BlocProvider.value(
-          value: cubit,
+        // MyAccountPage's own delete-account flow needs AuthCubit, which
+        // (like ProfileCubit) lives above HomeShellPage -- a route pushed
+        // via Navigator isn't a descendant of that provider, so both are
+        // re-provided by .value here, same as ProfileCubit already was.
+        builder: (_) => MultiBlocProvider(
+          providers: [
+            BlocProvider.value(value: profileCubit),
+            BlocProvider.value(value: authCubit),
+          ],
           child: MyAccountPage(
             initialName: state.profile?.name ?? '',
             initialUsername: state.profile?.username,

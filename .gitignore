@@ -46,3 +46,10 @@ app.*.map.json
 
 # Environment configuration (Supabase keys) — copy env.example.json to env.json
 env.json
+
+# Node (only used for the Supabase CLI, via `npx supabase` — see
+# supabase/functions/README.md)
+node_modules/
+
+# Supabase CLI scratch state
+supabase/.temp/
