@@ -2,6 +2,7 @@ import 'package:aura/core/error/result.dart';
 import 'package:aura/features/mock_exam/domain/entities/active_mock_exam.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_availability.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_item.dart';
+import 'package:aura/features/mock_exam/domain/entities/mock_exam_result.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_score.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_subject_config.dart';
 
@@ -35,4 +36,9 @@ abstract class MockExamRepository {
   /// Grades on the server and applies the result. Safe to call again: a
   /// finished exam just returns the grade it already has.
   Future<Result<MockExamScore>> finishMockExam(String mockExamId);
+
+  /// The finished exam's result, read from the server by id. Success(null)
+  /// when there is no finished exam with that id for this user. Reading is
+  /// side-effect free: it never grades or awards anything.
+  Future<Result<MockExamResult?>> getResult(String mockExamId);
 }

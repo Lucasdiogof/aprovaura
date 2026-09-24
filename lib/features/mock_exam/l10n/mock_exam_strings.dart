@@ -310,34 +310,137 @@ class MockExamStrings {
     AppLanguage.english => 'Back',
   };
 
-  // --- Result (technical placeholder until FASE 6) --------------------------
+  // --- Result ---------------------------------------------------------------
 
-  String get resultTitle => switch (language) {
-    AppLanguage.portuguese => 'Simulado entregue',
-    AppLanguage.english => 'Mock exam handed in',
+  String get resultPageTitle => switch (language) {
+    AppLanguage.portuguese => 'Resultado do simulado',
+    AppLanguage.english => 'Mock exam result',
   };
 
-  String resultScore(int correct, int total) => switch (language) {
-    AppLanguage.portuguese => 'Você acertou $correct de $total questões.',
-    AppLanguage.english => 'You got $correct of $total questions right.',
+  /// "75,6%" / "75.6%", and "75%" when there is no decimal part. The value
+  /// itself always comes from the server; this only formats it.
+  String percent(double value) {
+    final fixed = value.toStringAsFixed(1);
+    final trimmed = fixed.endsWith('.0')
+        ? fixed.substring(0, fixed.length - 2)
+        : fixed;
+    return switch (language) {
+      AppLanguage.portuguese => '${trimmed.replaceAll('.', ',')}%',
+      AppLanguage.english => '$trimmed%',
+    };
+  }
+
+  String score(int correct, int total) => '$correct / $total';
+
+  String get correctSuffix => switch (language) {
+    AppLanguage.portuguese => 'corretas',
+    AppLanguage.english => 'correct',
   };
 
-  String resultBlank(int count) => switch (language) {
+  String accuracyLabel(double value) => switch (language) {
+    AppLanguage.portuguese => '${percent(value)} de aproveitamento',
+    AppLanguage.english => '${percent(value)} accuracy',
+  };
+
+  String get tierReviewTitle => switch (language) {
+    AppLanguage.portuguese => 'Vale revisar alguns pontos',
+    AppLanguage.english => 'Worth reviewing a few topics',
+  };
+
+  String get tierReviewDescription => switch (language) {
     AppLanguage.portuguese =>
-      count == 1 ? '1 ficou em branco.' : '$count ficaram em branco.',
+      'Seus erros já estão em Revisar erros — é um bom próximo passo.',
     AppLanguage.english =>
-      count == 1 ? '1 was left blank.' : '$count were left blank.',
+      'Your mistakes are already in Review mistakes — a good next step.',
   };
 
-  String get resultPlaceholderNote => switch (language) {
+  String get tierAdvancingTitle => switch (language) {
+    AppLanguage.portuguese => 'Você está avançando',
+    AppLanguage.english => "You're making progress",
+  };
+
+  String get tierAdvancingDescription => switch (language) {
     AppLanguage.portuguese =>
-      'O resultado detalhado por matéria chega na próxima etapa.',
-    AppLanguage.english => 'The per-subject breakdown comes in the next step.',
+      'Revisar os erros é o que mais faz essa nota subir.',
+    AppLanguage.english =>
+      'Reviewing your mistakes is what moves this score the most.',
+  };
+
+  String get tierGoodTitle => switch (language) {
+    AppLanguage.portuguese => 'Bom desempenho',
+    AppLanguage.english => 'Good performance',
+  };
+
+  String get tierGoodDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Poucos pontos separam você de um resultado excelente.',
+    AppLanguage.english => "You're a few points away from an excellent result.",
+  };
+
+  String get tierExcellentTitle => switch (language) {
+    AppLanguage.portuguese => 'Excelente resultado',
+    AppLanguage.english => 'Excellent result',
+  };
+
+  String get tierExcellentDescription => switch (language) {
+    AppLanguage.portuguese => 'Domínio consistente. Continue nesse ritmo.',
+    AppLanguage.english => 'Consistent mastery. Keep this pace.',
+  };
+
+  String get statCorrect => switch (language) {
+    AppLanguage.portuguese => 'Corretas',
+    AppLanguage.english => 'Correct',
+  };
+
+  String get statWrong => switch (language) {
+    AppLanguage.portuguese => 'Erradas',
+    AppLanguage.english => 'Wrong',
+  };
+
+  String get statBlank => switch (language) {
+    AppLanguage.portuguese => 'Em branco',
+    AppLanguage.english => 'Blank',
+  };
+
+  String get statXp => 'XP';
+
+  String resultMeta(int questions, int subjects) =>
+      '${questionCount(questions)} · ${subjectCount(subjects)} · '
+      '$examModeTitle';
+
+  String get bySubjectTitle => switch (language) {
+    AppLanguage.portuguese => 'Por matéria',
+    AppLanguage.english => 'By subject',
+  };
+
+  String get byDifficultyTitle => switch (language) {
+    AppLanguage.portuguese => 'Por dificuldade',
+    AppLanguage.english => 'By difficulty',
+  };
+
+  String get reviewErrorsButton => switch (language) {
+    AppLanguage.portuguese => 'Revisar erros',
+    AppLanguage.english => 'Review mistakes',
+  };
+
+  String get anotherExamButton => switch (language) {
+    AppLanguage.portuguese => 'Fazer outro simulado',
+    AppLanguage.english => 'Take another mock exam',
   };
 
   String get backHomeButton => switch (language) {
-    AppLanguage.portuguese => 'Voltar ao início',
+    AppLanguage.portuguese => 'Voltar para o início',
     AppLanguage.english => 'Back to home',
+  };
+
+  String get resultLoadError => switch (language) {
+    AppLanguage.portuguese => 'Não foi possível carregar o resultado.',
+    AppLanguage.english => "Couldn't load the result.",
+  };
+
+  String get resultNotFound => switch (language) {
+    AppLanguage.portuguese => 'Resultado não encontrado.',
+    AppLanguage.english => 'Result not found.',
   };
 
   // --- Errors ---------------------------------------------------------------

@@ -129,7 +129,7 @@ class _MockExamRunnerView extends StatelessWidget {
     final result = await cubit.finish();
     if (!context.mounted) return;
     switch (result) {
-      case MockExamFinished(:final score):
+      case MockExamFinished():
         // XP was already credited on the server inside finish_mock_exam();
         // this only refreshes the on-screen total. The streak counts a
         // handed-in exam like any other finished activity.
@@ -137,7 +137,7 @@ class _MockExamRunnerView extends StatelessWidget {
         unawaited(context.read<StreakCubit>().registerActivityCompletion());
         await Navigator.of(context).pushReplacement(
           MaterialPageRoute<void>(
-            builder: (_) => MockExamResultPage(score: score),
+            builder: (_) => MockExamResultPage(mockExamId: cubit.mockExamId),
           ),
         );
       case MockExamFinishFailed(:final failure):

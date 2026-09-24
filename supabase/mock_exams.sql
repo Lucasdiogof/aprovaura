@@ -174,6 +174,7 @@ begin
         'finish_mock_exam',
         'abandon_mock_exam',
         'get_mock_exam_result',
+        'get_mock_exam_summary',
         'set_mock_exam_position'
       )
   loop
@@ -702,33 +703,97 @@ begin
 end;
 $$;
 
--- 3.8 Resultado por matéria + dificuldade (a dificuldade real de cada
--- questão, inclusive as sorteadas via 'misto'). Só devolve linhas para um
--- simulado FINALIZADO do próprio usuário -- em andamento, volta vazio.
--- question_count inclui questões em branco (contam como não-acerto).
-create function get_mock_exam_result(p_mock_exam_id uuid)
+-- 3.8 Resultado de um simulado FINALIZADO, sempre lido do banco pelo id
+-- (nunca de estado local do app): abrir de novo, recarregar ou -- no
+-- futuro -- abrir pelo histórico dá exatamente a mesma coisa, e nenhuma
+-- leitura concede nada (XP só nasce dentro de finish_mock_exam()).
+--
+-- Tudo é contado sobre os itens que existem AGORA: se uma questão foi
+-- apagada depois, ela some do total, das corretas e da quebra por
+-- matéria/dificuldade ao mesmo tempo -- os números sempre fecham entre si
+-- (corretas + erradas + em branco = total). xp_awarded é o valor que foi
+-- de fato creditado na finalização (xp_awards), não um recálculo.
+-- Em andamento/descartado/de outro usuário: 0 linhas.
+
+-- 3.8a Cabeçalho do resultado (0 ou 1 linha).
+create function get_mock_exam_summary(p_mock_exam_id uuid)
 returns table (
-  subject text,
-  difficulty text,
+  mock_exam_id uuid,
+  finished_at timestamptz,
   question_count integer,
-  answered_count integer,
-  correct_count integer
+  correct_count integer,
+  wrong_count integer,
+  blank_count integer,
+  accuracy_percent numeric,
+  xp_awarded integer,
+  subject_count integer
 )
 language sql
 stable
 as $$
-  select i.subject,
-         i.difficulty,
+  select e.id,
+         e.finished_at,
+         count(i.item_position)::int,
+         (count(*) filter (where i.is_correct))::int,
+         (count(*) filter (where i.is_correct = false))::int,
+         (count(*) filter (where i.selected_option is null
+                            and i.item_position is not null))::int,
+         case when count(i.item_position) = 0 then 0
+              else round(
+                100.0 * count(*) filter (where i.is_correct)
+                  / count(i.item_position),
+                1)
+         end,
+         coalesce((
+           select x.amount from xp_awards x
+           where x.user_id = e.user_id and x.attempt_id = e.id
+         ), 0),
+         count(distinct i.subject)::int
+  from mock_exams e
+  left join mock_exam_items i on i.mock_exam_id = e.id
+  where e.id = p_mock_exam_id
+    and e.user_id = auth.uid()
+    and e.status = 'finished'
+  group by e.id, e.finished_at, e.user_id;
+$$;
+
+-- 3.8b Quebra do resultado em DUAS dimensões numa consulta só (grouping
+-- sets): dimension = 'subject' (key = a matéria) e dimension = 'difficulty'
+-- (key = a dificuldade REAL de cada questão -- facil/medio/dificil; nunca
+-- 'misto', que é só como a matéria foi configurada). Só aparecem matérias e
+-- dificuldades que de fato estão no simulado.
+create function get_mock_exam_result(p_mock_exam_id uuid)
+returns table (
+  dimension text,
+  key text,
+  question_count integer,
+  correct_count integer,
+  wrong_count integer,
+  blank_count integer,
+  accuracy_percent numeric
+)
+language sql
+stable
+as $$
+  select case when grouping(i.subject) = 0 then 'subject'
+              else 'difficulty' end,
+         coalesce(i.subject, i.difficulty),
          count(*)::int,
-         count(i.selected_option)::int,
-         (count(*) filter (where i.is_correct))::int
+         (count(*) filter (where i.is_correct))::int,
+         (count(*) filter (where i.is_correct = false))::int,
+         (count(*) filter (where i.selected_option is null))::int,
+         round(100.0 * count(*) filter (where i.is_correct) / count(*), 1)
   from mock_exam_items i
   join mock_exams e on e.id = i.mock_exam_id
   where i.mock_exam_id = p_mock_exam_id
     and e.user_id = auth.uid()
     and e.status = 'finished'
-  group by i.subject, i.difficulty
-  order by i.subject, i.difficulty;
+  group by grouping sets ((i.subject), (i.difficulty))
+  order by 1 desc,
+           case coalesce(i.subject, i.difficulty)
+             when 'facil' then 1 when 'medio' then 2 when 'dificil' then 3
+             else 4 end,
+           2;
 $$;
 
 -- ---------------------------------------------------------------------------

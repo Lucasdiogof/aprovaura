@@ -73,7 +73,7 @@ select 'column: mock_exams.current_item_position exists', case
   ) then 'ok' else 'MISSING -- run mock_exams.sql again' end
 
 union all
-select 'all 9 mock exam RPCs exist (one signature each)', case
+select 'all 10 mock exam RPCs exist (one signature each)', case
   when (
     select count(*) from pg_proc
     where pronamespace = 'public'::regnamespace
@@ -82,9 +82,9 @@ select 'all 9 mock exam RPCs exist (one signature each)', case
         'get_active_mock_exam', 'get_mock_exam_items',
         'answer_mock_exam_item', 'finish_mock_exam',
         'abandon_mock_exam', 'get_mock_exam_result',
-        'set_mock_exam_position'
+        'get_mock_exam_summary', 'set_mock_exam_position'
       )
-  ) = 9 then 'ok' else 'MISSING or DUPLICATED -- run mock_exams.sql' end
+  ) = 10 then 'ok' else 'MISSING or DUPLICATED -- run mock_exams.sql' end
 
 union all
 select 'write RPCs are security definer', case
@@ -167,6 +167,26 @@ select 'option_order is a full permutation of each question''s options', case
          from generate_series(0, cardinality(q.options) - 1) g
        )
   ) then 'ok' else 'MISMATCH (question options edited after the exam?)' end
+
+union all
+select 'result breakdown uses dimension/key (FASE 6 version)', case
+  when exists (
+    select 1 from pg_proc
+    where proname = 'get_mock_exam_result'
+      and prosrc ilike '%grouping sets%'
+  ) then 'ok' else 'OLD VERSION -- run mock_exams.sql again' end
+
+union all
+select 'finished exams: correct + wrong + blank = total', case
+  when not exists (
+    select 1 from mock_exams e
+    join mock_exam_items i on i.mock_exam_id = e.id
+    where e.status = 'finished'
+    group by e.id
+    having count(*) <> count(*) filter (where i.is_correct)
+                     + count(*) filter (where i.is_correct = false)
+                     + count(*) filter (where i.selected_option is null)
+  ) then 'ok' else 'VIOLATED' end
 
 union all
 select 'no mock exam has more than 180 questions', case

@@ -4,6 +4,7 @@ import 'package:aura/features/mock_exam/domain/entities/active_mock_exam.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_availability.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_difficulty.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_item.dart';
+import 'package:aura/features/mock_exam/domain/entities/mock_exam_result.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_score.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_subject_config.dart';
 import 'package:aura/features/mock_exam/domain/mock_exam_failure.dart';
@@ -125,6 +126,43 @@ class MockExamRepositoryImpl implements MockExamRepository {
           scoredCount: row['scored_count'] as int,
           answeredCount: row['answered_count'] as int,
           correctCount: row['correct_count'] as int,
+        );
+      });
+
+  @override
+  Future<Result<MockExamResult?>> getResult(String mockExamId) =>
+      _guard(() async {
+        final params = {'p_mock_exam_id': mockExamId};
+        final (summaryRows, lineRows) = await (
+          _client.rpc<List<dynamic>>('get_mock_exam_summary', params: params),
+          _client.rpc<List<dynamic>>('get_mock_exam_result', params: params),
+        ).wait;
+        if (summaryRows.isEmpty) return null;
+        final summary = summaryRows.first as Map<String, dynamic>;
+        final lines = lineRows.cast<Map<String, dynamic>>();
+        List<MockExamResultLine> linesFor(String dimension) => [
+          for (final row in lines)
+            if (row['dimension'] == dimension)
+              MockExamResultLine(
+                key: row['key'] as String,
+                questionCount: row['question_count'] as int,
+                correctCount: row['correct_count'] as int,
+                wrongCount: row['wrong_count'] as int,
+                blankCount: row['blank_count'] as int,
+                accuracyPercent: (row['accuracy_percent'] as num).toDouble(),
+              ),
+        ];
+        return MockExamResult(
+          mockExamId: mockExamId,
+          questionCount: summary['question_count'] as int,
+          correctCount: summary['correct_count'] as int,
+          wrongCount: summary['wrong_count'] as int,
+          blankCount: summary['blank_count'] as int,
+          accuracyPercent: (summary['accuracy_percent'] as num).toDouble(),
+          xpAwarded: summary['xp_awarded'] as int,
+          subjectCount: summary['subject_count'] as int,
+          bySubject: linesFor('subject'),
+          byDifficulty: linesFor('difficulty'),
         );
       });
 
