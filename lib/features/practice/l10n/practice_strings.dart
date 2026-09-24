@@ -57,4 +57,32 @@ class PracticeStrings {
     AppLanguage.portuguese => 'Encerrar por aqui',
     AppLanguage.english => 'Finish for now',
   };
+
+  // Overrides the option's static description once the real count is
+  // known -- e.g. "6 questões para revisar" instead of the generic blurb.
+  String pendingReviewCount(int count) => switch (language) {
+    AppLanguage.portuguese => switch (count) {
+      0 => 'Nenhuma pendência por aqui',
+      1 => '1 questão para revisar',
+      _ => '$count questões para revisar',
+    },
+    AppLanguage.english => switch (count) {
+      0 => 'Nothing pending here',
+      1 => '1 question to review',
+      _ => '$count questions to review',
+    },
+  };
+
+  String savedFavoritesCount(int count) => switch (language) {
+    AppLanguage.portuguese => switch (count) {
+      0 => 'Nenhuma questão salva ainda',
+      1 => '1 questão salva',
+      _ => '$count questões salvas',
+    },
+    AppLanguage.english => switch (count) {
+      0 => 'No saved questions yet',
+      1 => '1 saved question',
+      _ => '$count saved questions',
+    },
+  };
 }

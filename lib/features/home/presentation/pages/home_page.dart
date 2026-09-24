@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/core/theme/app_spacing.dart';
+import 'package:aura/features/home/domain/entities/daily_goal.dart';
 import 'package:aura/features/home/l10n/home_strings.dart';
+import 'package:aura/features/home/presentation/cubit/home_summary_cubit.dart';
+import 'package:aura/features/home/presentation/cubit/home_summary_state.dart';
+import 'package:aura/features/home/presentation/widgets/daily_goal_card.dart';
 import 'package:aura/features/home/presentation/widgets/streak_card.dart';
 import 'package:aura/features/practice/l10n/practice_strings.dart';
 import 'package:aura/features/practice/presentation/widgets/practice_options_list.dart';
@@ -39,6 +44,11 @@ class HomePage extends StatelessWidget {
       StreakLoaded(:final streak) => streak.currentStreak,
       _ => 0,
     };
+    final summaryState = context.watch<HomeSummaryCubit>().state;
+    final dailyGoal = switch (summaryState) {
+      HomeSummaryLoaded(:final dailyGoal) => dailyGoal,
+      _ => const DailyGoal(answered: 0),
+    };
     return BlocListener<StreakCubit, StreakState>(
       listenWhen: (previous, current) =>
           current is StreakLoaded && current.streak.hasUnseenBreak,
@@ -54,7 +64,12 @@ class HomePage extends StatelessWidget {
         backgroundColor: context.colors.background,
         body: SafeArea(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
+            padding: const EdgeInsets.fromLTRB(
+              AppSpacing.pageHorizontal,
+              AppSpacing.xxl,
+              AppSpacing.pageHorizontal,
+              AppSpacing.xxl,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -65,14 +80,16 @@ class HomePage extends StatelessWidget {
                     color: context.colors.textPrimary,
                   ),
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: AppSpacing.xs),
                 Text(
                   t.homeSubtitle,
                   style: TextStyle(color: context.colors.textSecondary),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: AppSpacing.xl),
+                DailyGoalCard(strings: t, goal: dailyGoal),
+                const SizedBox(height: AppSpacing.md),
                 StreakCard(strings: t, streakDays: streakDays),
-                const SizedBox(height: 24),
+                const SizedBox(height: AppSpacing.xxl),
                 Text(
                   practiceStrings.pageSubtitle,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
@@ -80,7 +97,7 @@ class HomePage extends StatelessWidget {
                     color: context.colors.textPrimary,
                   ),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: AppSpacing.md),
                 const PracticeOptionsList(),
               ],
             ),

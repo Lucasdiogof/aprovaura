@@ -15,11 +15,6 @@ class HomeStrings {
     AppLanguage.english => 'What shall we study today?',
   };
 
-  String get streakLabel => switch (language) {
-    AppLanguage.portuguese => 'Ofensiva',
-    AppLanguage.english => 'Streak',
-  };
-
   String streakDaysCount(int days) => switch (language) {
     AppLanguage.portuguese => '$days ${days == 1 ? 'dia' : 'dias'}',
     AppLanguage.english => '$days ${days == 1 ? 'day' : 'days'}',
@@ -34,6 +29,21 @@ class HomeStrings {
   String get chooseSubjectHeading => switch (language) {
     AppLanguage.portuguese => 'Escolha uma matéria',
     AppLanguage.english => 'Choose a subject',
+  };
+
+  String get dailyGoalTitle => switch (language) {
+    AppLanguage.portuguese => 'Meta de hoje',
+    AppLanguage.english => "Today's goal",
+  };
+
+  String dailyGoalProgress(int answered, int target) => switch (language) {
+    AppLanguage.portuguese => '$answered / $target questões',
+    AppLanguage.english => '$answered / $target questions',
+  };
+
+  String get dailyGoalCompleteBadge => switch (language) {
+    AppLanguage.portuguese => 'Meta batida!',
+    AppLanguage.english => 'Goal reached!',
   };
 
   String get navHome => switch (language) {

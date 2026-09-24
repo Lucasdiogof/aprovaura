@@ -12,6 +12,8 @@ import 'package:aura/features/error_review/data/error_review_repository_impl.dar
 import 'package:aura/features/error_review/domain/repositories/error_review_repository.dart';
 import 'package:aura/features/favorites/data/favorites_repository_impl.dart';
 import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
+import 'package:aura/features/home/data/daily_goal_repository_impl.dart';
+import 'package:aura/features/home/domain/repositories/daily_goal_repository.dart';
 import 'package:aura/features/profile/data/profile_repository_impl.dart';
 import 'package:aura/features/profile/domain/repositories/profile_repository.dart';
 import 'package:aura/features/progress/data/progress_repository_impl.dart';
@@ -70,5 +72,8 @@ void registerSupabaseDependencies() {
   sl.registerLazySingleton<QuestionRepository>(
     () => QuickPracticeQuestionRepositoryImpl(sl()),
     instanceName: 'quickPracticeQuestions',
+  );
+  sl.registerLazySingleton<DailyGoalRepository>(
+    () => DailyGoalRepositoryImpl(sl()),
   );
 }

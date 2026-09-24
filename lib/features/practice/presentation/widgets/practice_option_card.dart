@@ -9,11 +9,15 @@ class PracticeOptionCard extends StatelessWidget {
     required this.language,
     required this.onTap,
     super.key,
+    this.subtitleOverride,
   });
 
   final PracticeOption option;
   final AppLanguage language;
   final VoidCallback onTap;
+  // Shows the real count once it's known (e.g. "6 questões para revisar")
+  // instead of the option's generic description.
+  final String? subtitleOverride;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +58,7 @@ class PracticeOptionCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      option.description(language),
+                      subtitleOverride ?? option.description(language),
                       style: TextStyle(
                         fontSize: 12,
                         color: context.colors.textSecondary,
