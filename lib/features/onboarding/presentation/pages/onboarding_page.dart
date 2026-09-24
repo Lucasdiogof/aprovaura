@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
@@ -92,16 +93,32 @@ class _OnboardingView extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  Text(
-                    switch (state.step) {
-                      0 => t.goalQuestion,
-                      1 => t.examYearQuestion,
-                      _ => t.subjectsQuestion,
-                    },
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: context.colors.textPrimary,
-                    ),
+                  Row(
+                    children: [
+                      // A hello on the first step only; later steps stay
+                      // focused on the choice itself.
+                      if (state.step == 0) ...[
+                        const AurudoIllustration(
+                          pose: AurudoPose.neutral,
+                          size: 72,
+                        ),
+                        const SizedBox(width: 12),
+                      ],
+                      Expanded(
+                        child: Text(
+                          switch (state.step) {
+                            0 => t.goalQuestion,
+                            1 => t.examYearQuestion,
+                            _ => t.subjectsQuestion,
+                          },
+                          style: Theme.of(context).textTheme.headlineSmall
+                              ?.copyWith(
+                                fontWeight: FontWeight.w700,
+                                color: context.colors.textPrimary,
+                              ),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 20),
                   Expanded(

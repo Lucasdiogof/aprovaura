@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
@@ -74,7 +75,7 @@ class _NothingLeftView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.done_all_rounded, size: 40, color: colors.success),
+            const AurudoIllustration(pose: AurudoPose.celebrating),
             const SizedBox(height: 16),
             Text(
               strings.quickPracticeEmptyTitle,

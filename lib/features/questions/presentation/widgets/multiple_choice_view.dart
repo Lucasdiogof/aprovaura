@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
@@ -446,10 +447,11 @@ class _FinishedView extends StatelessWidget {
   }
 }
 
-// A neutral badge for a zero/developing result -- no glow, no bright
-// success color -- versus the celebratory one for good/excellent (and
-// for a correction, which always reads as a small win for having fixed
-// the mistake). tier: null means "correction mode", always celebratory.
+// Aurudo reacts to the result instead of a trophy: the Aura orb for a
+// perfect run, a fist-up for a good one, the laptop ("keep studying") for a
+// developing one, and a thoughtful pose for zero -- never the frustrated
+// pose for a score, which would read as scolding. tier: null means
+// "correction mode", always a small win for having fixed the mistake.
 class _ResultBadge extends StatelessWidget {
   const _ResultBadge({required this.tier});
 
@@ -457,39 +459,14 @@ class _ResultBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isCelebratory = tier == null || tier!.isCelebratory;
-    final colors = context.colors;
-    final color = isCelebratory ? colors.primaryFill : colors.textSecondary;
-
-    return SizedBox(
-      width: 120,
-      height: 120,
-      child: Center(
-        child: Container(
-          width: 88,
-          height: 88,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: isCelebratory ? color : colors.secondary,
-            border: isCelebratory ? null : Border.all(color: colors.border),
-            boxShadow: isCelebratory
-                ? [
-                    BoxShadow(
-                      color: color.withValues(alpha: 0.45),
-                      blurRadius: 32,
-                      spreadRadius: 6,
-                    ),
-                  ]
-                : null,
-          ),
-          child: Icon(
-            isCelebratory ? Icons.emoji_events_rounded : Icons.refresh_rounded,
-            color: isCelebratory ? colors.onPrimary : colors.textSecondary,
-            size: 44,
-          ),
-        ),
-      ),
-    );
+    final pose = switch (tier) {
+      null => AurudoPose.celebrating,
+      QuizResultTier.excellent => AurudoPose.farmingAura,
+      QuizResultTier.good => AurudoPose.celebrating,
+      QuizResultTier.developing => AurudoPose.studying,
+      QuizResultTier.zero => AurudoPose.thinking,
+    };
+    return AurudoIllustration(pose: pose, size: 136);
   }
 }
 

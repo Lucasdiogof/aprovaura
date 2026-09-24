@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/router/app_route_observer.dart';
@@ -78,6 +79,7 @@ class _FavoritesListPageState extends State<FavoritesListPage> with RouteAware {
                         return FavoritesEmptyView(
                           title: t.emptyTitle,
                           description: t.emptyDescription,
+                          pose: AurudoPose.neutral,
                         );
                       }
                       return ListView.separated(

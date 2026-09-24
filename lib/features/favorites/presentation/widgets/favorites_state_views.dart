@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 
@@ -9,10 +10,15 @@ class FavoritesEmptyView extends StatelessWidget {
     required this.title,
     required this.description,
     super.key,
+    this.pose,
   });
 
   final String title;
   final String description;
+
+  /// Aurudo instead of the bookmark icon (the main "no favorites yet"
+  /// state); sub-level empties keep the quieter icon.
+  final AurudoPose? pose;
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +28,14 @@ class FavoritesEmptyView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              Icons.bookmark_border_rounded,
-              size: 40,
-              color: context.colors.textSecondary,
-            ),
+            if (pose case final pose?)
+              AurudoIllustration(pose: pose)
+            else
+              Icon(
+                Icons.bookmark_border_rounded,
+                size: 40,
+                color: context.colors.textSecondary,
+              ),
             const SizedBox(height: 16),
             Text(
               title,
