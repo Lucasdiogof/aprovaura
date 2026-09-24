@@ -58,6 +58,16 @@ class PracticeStrings {
     AppLanguage.english => 'Finish for now',
   };
 
+  String get quickPracticeReviewErrorsButton => switch (language) {
+    AppLanguage.portuguese => 'Revisar meus erros',
+    AppLanguage.english => 'Review my mistakes',
+  };
+
+  String get quickPracticeGoToPracticeButton => switch (language) {
+    AppLanguage.portuguese => 'Ir para Praticar',
+    AppLanguage.english => 'Go to Practice',
+  };
+
   // Overrides the option's static description once the real count is
   // known -- e.g. "6 questões para revisar" instead of the generic blurb.
   String pendingReviewCount(int count) => switch (language) {

@@ -296,6 +296,9 @@ class _QuestionView extends StatelessWidget {
                 label: state.isLastQuestion
                     ? strings.seeResultButton
                     : strings.nextButton,
+                // Disabled (with a spinner) until the answer just given is
+                // confirmed persisted -- see MultipleChoiceCubit.next().
+                isLoading: state.isPersisting,
                 onPressed: () => context.read<MultipleChoiceCubit>().next(),
               ),
             ),

@@ -32,6 +32,7 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     required this.correctCount,
     this.answers = const {},
     this.favoriteQuestionIds = const {},
+    this.isPersisting = false,
   });
 
   final List<Question> questions;
@@ -41,6 +42,12 @@ class MultipleChoicePlaying extends MultipleChoiceState {
   // earlier question still shows what was picked there.
   final Map<int, int> answers;
   final Set<String> favoriteQuestionIds;
+  // True while the current answer's registerQuestionAnswered() call is in
+  // flight. next() refuses to advance (and the UI disables its button)
+  // until this clears, so the answer is guaranteed persisted before the
+  // question changes or the deck finishes -- see selectOption()'s comment
+  // for why that matters for quick practice's "Mais questões".
+  final bool isPersisting;
 
   Question get currentQuestion => questions[currentIndex];
   int? get selectedIndex => answers[currentIndex];
@@ -55,12 +62,14 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     int? correctCount,
     Map<int, int>? answers,
     Set<String>? favoriteQuestionIds,
+    bool? isPersisting,
   }) => MultipleChoicePlaying(
     questions: questions,
     currentIndex: currentIndex ?? this.currentIndex,
     correctCount: correctCount ?? this.correctCount,
     answers: answers ?? this.answers,
     favoriteQuestionIds: favoriteQuestionIds ?? this.favoriteQuestionIds,
+    isPersisting: isPersisting ?? this.isPersisting,
   );
 
   @override
@@ -70,6 +79,7 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     correctCount,
     answers,
     favoriteQuestionIds,
+    isPersisting,
   ];
 }
 

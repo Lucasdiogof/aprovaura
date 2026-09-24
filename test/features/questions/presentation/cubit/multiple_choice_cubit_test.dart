@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -174,7 +176,7 @@ void main() {
         act: (cubit) async {
           await pumpEventQueue();
           final state = cubit.state as MultipleChoicePlaying;
-          cubit.selectOption(state.currentQuestion.correctIndex);
+          await cubit.selectOption(state.currentQuestion.correctIndex);
         },
         verify: (cubit) {
           final state = cubit.state as MultipleChoicePlaying;
@@ -205,7 +207,7 @@ void main() {
           await pumpEventQueue();
           final state = cubit.state as MultipleChoicePlaying;
           final wrongIndex = (state.currentQuestion.correctIndex + 1) % 4;
-          cubit.selectOption(wrongIndex);
+          await cubit.selectOption(wrongIndex);
         },
         verify: (cubit) {
           final state = cubit.state as MultipleChoicePlaying;
@@ -235,8 +237,8 @@ void main() {
           await pumpEventQueue();
           final state = cubit.state as MultipleChoicePlaying;
           final correct = state.currentQuestion.correctIndex;
-          cubit.selectOption(correct);
-          cubit.selectOption((correct + 1) % 4);
+          await cubit.selectOption(correct);
+          await cubit.selectOption((correct + 1) % 4);
         },
         verify: (cubit) {
           final state = cubit.state as MultipleChoicePlaying;
@@ -264,7 +266,7 @@ void main() {
         act: (cubit) async {
           await pumpEventQueue();
           final state = cubit.state as MultipleChoicePlaying;
-          cubit.selectOption(state.currentQuestion.correctIndex);
+          await cubit.selectOption(state.currentQuestion.correctIndex);
         },
         verify: (_) {
           verifyNever(
@@ -273,6 +275,62 @@ void main() {
               isCorrect: any(named: 'isCorrect'),
             ),
           );
+        },
+      );
+
+      blocTest<MultipleChoiceCubit, MultipleChoiceState>(
+        'answering correctly does not touch favorite status either way',
+        build: () {
+          when(
+            () => questionRepository.getQuestions(
+              any(),
+              difficulty: any(named: 'difficulty'),
+            ),
+          ).thenAnswer((_) async => const Success(questions));
+          when(
+            () => favoritesRepository.getFavoriteQuestionIds(any()),
+          ).thenAnswer((_) async => const Success({'q1'}));
+          return buildCubit();
+        },
+        act: (cubit) async {
+          await pumpEventQueue();
+          final state = cubit.state as MultipleChoicePlaying;
+          await cubit.selectOption(state.currentQuestion.correctIndex);
+        },
+        verify: (cubit) {
+          final state = cubit.state as MultipleChoicePlaying;
+          expect(state.favoriteQuestionIds, {'q1'});
+          verifyNever(() => favoritesRepository.addFavorite(any()));
+          verifyNever(() => favoritesRepository.removeFavorite(any()));
+        },
+      );
+
+      blocTest<MultipleChoiceCubit, MultipleChoiceState>(
+        'answering wrong (and going to Revisar erros) does not unfavorite '
+        'either',
+        build: () {
+          when(
+            () => questionRepository.getQuestions(
+              any(),
+              difficulty: any(named: 'difficulty'),
+            ),
+          ).thenAnswer((_) async => const Success(questions));
+          when(
+            () => favoritesRepository.getFavoriteQuestionIds(any()),
+          ).thenAnswer((_) async => const Success({'q1'}));
+          return buildCubit();
+        },
+        act: (cubit) async {
+          await pumpEventQueue();
+          final state = cubit.state as MultipleChoicePlaying;
+          final wrongIndex = (state.currentQuestion.correctIndex + 1) % 4;
+          await cubit.selectOption(wrongIndex);
+        },
+        verify: (cubit) {
+          final state = cubit.state as MultipleChoicePlaying;
+          expect(state.favoriteQuestionIds, {'q1'});
+          verifyNever(() => favoritesRepository.addFavorite(any()));
+          verifyNever(() => favoritesRepository.removeFavorite(any()));
         },
       );
     });
@@ -313,7 +371,7 @@ void main() {
         act: (cubit) async {
           await pumpEventQueue();
           final state = cubit.state as MultipleChoicePlaying;
-          cubit.selectOption(state.currentQuestion.correctIndex);
+          await cubit.selectOption(state.currentQuestion.correctIndex);
           cubit.next();
         },
         verify: (cubit) {
@@ -336,7 +394,7 @@ void main() {
         act: (cubit) async {
           await pumpEventQueue();
           final state = cubit.state as MultipleChoicePlaying;
-          cubit.selectOption(state.currentQuestion.correctIndex);
+          await cubit.selectOption(state.currentQuestion.correctIndex);
           cubit.next();
         },
         verify: (cubit) {
@@ -370,7 +428,7 @@ void main() {
 
         await pumpEventQueue();
         var state = cubit.state as MultipleChoicePlaying;
-        cubit.selectOption(state.currentQuestion.correctIndex);
+        await cubit.selectOption(state.currentQuestion.correctIndex);
         cubit.next();
         final firstAttemptId =
             (cubit.state as MultipleChoiceFinished).attemptId;
@@ -378,7 +436,7 @@ void main() {
         await cubit.load(); // "Refazer atividade" / "Tentar novamente"
         await pumpEventQueue();
         state = cubit.state as MultipleChoicePlaying;
-        cubit.selectOption(state.currentQuestion.correctIndex);
+        await cubit.selectOption(state.currentQuestion.correctIndex);
         cubit.next();
         final secondAttemptId =
             (cubit.state as MultipleChoiceFinished).attemptId;
@@ -386,6 +444,49 @@ void main() {
         expect(firstAttemptId, 'attempt-1');
         expect(secondAttemptId, 'attempt-2');
         expect(secondAttemptId, isNot(firstAttemptId));
+      });
+
+      test('next() refuses to advance until the answer is confirmed persisted, '
+          'then advances once it is (the race-condition fix)', () async {
+        when(
+          () => questionRepository.getQuestions(
+            any(),
+            difficulty: any(named: 'difficulty'),
+          ),
+        ).thenAnswer((_) async => const Success(questions));
+        final persistGate = Completer<Result<void>>();
+        when(
+          () => progressRepository.registerQuestionAnswered(
+            questionId: any(named: 'questionId'),
+            isCorrect: any(named: 'isCorrect'),
+          ),
+        ).thenAnswer((_) => persistGate.future);
+        final cubit = buildCubit();
+
+        await pumpEventQueue();
+        final state = cubit.state as MultipleChoicePlaying;
+        final selecting = cubit.selectOption(
+          state.currentQuestion.correctIndex,
+        );
+
+        // The answer shows immediately -- selecting doesn't wait for
+        // anything to feel instant -- but it's flagged as persisting.
+        expect((cubit.state as MultipleChoicePlaying).hasAnswered, isTrue);
+        expect((cubit.state as MultipleChoicePlaying).isPersisting, isTrue);
+
+        // A tap on "Próxima" while the save is still in flight (or a
+        // duplicate tap) must be a no-op: still on question 0.
+        cubit.next();
+        cubit.next();
+        expect((cubit.state as MultipleChoicePlaying).currentIndex, 0);
+        expect((cubit.state as MultipleChoicePlaying).isPersisting, isTrue);
+
+        // Only once the save actually resolves does next() take effect.
+        persistGate.complete(const Success(null));
+        await selecting;
+        expect((cubit.state as MultipleChoicePlaying).isPersisting, isFalse);
+        cubit.next();
+        expect((cubit.state as MultipleChoicePlaying).currentIndex, 1);
       });
 
       blocTest<MultipleChoiceCubit, MultipleChoiceState>(
@@ -402,7 +503,7 @@ void main() {
         act: (cubit) async {
           await pumpEventQueue();
           final first = cubit.state as MultipleChoicePlaying;
-          cubit.selectOption(first.currentQuestion.correctIndex);
+          await cubit.selectOption(first.currentQuestion.correctIndex);
           cubit.next();
           cubit.previous();
         },

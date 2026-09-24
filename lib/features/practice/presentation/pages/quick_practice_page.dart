@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/features/error_review/presentation/pages/error_review_list_page.dart';
 import 'package:aura/features/practice/l10n/practice_strings.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
 import 'package:aura/features/questions/presentation/widgets/multiple_choice_view.dart';
@@ -92,8 +93,17 @@ class _NothingLeftView extends StatelessWidget {
             ),
             const SizedBox(height: 28),
             AppButton(
-              label: strings.quickPracticeMoreDismiss,
+              label: strings.quickPracticeReviewErrorsButton,
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const ErrorReviewListPage(),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            TextButton(
               onPressed: () => Navigator.of(context).maybePop(),
+              child: Text(strings.quickPracticeGoToPracticeButton),
             ),
           ],
         ),

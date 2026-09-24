@@ -98,28 +98,44 @@ class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
     );
   }
 
-  void selectOption(int index) {
+  // Emits the answer immediately (so tapping an option always feels
+  // instant), then awaits the persist call before clearing isPersisting.
+  // next() refuses to run while isPersisting is true, so the earliest a
+  // question can change -- and the earliest the deck can finish and hand
+  // control back to something that reloads (quick practice's "Mais
+  // questões") -- is strictly after this answer is confirmed saved. No
+  // artificial delay: it's a real wait on the real call, just one that
+  // can no longer be raced.
+  Future<void> selectOption(int index) async {
     final current = state;
     if (current is! MultipleChoicePlaying || current.hasAnswered) return;
 
     final isCorrect = index == current.currentQuestion.correctIndex;
+    final questionId = current.currentQuestion.id;
     emit(
       current.copyWith(
         answers: {...current.answers, current.currentIndex: index},
         correctCount: isCorrect ? current.correctCount + 1 : null,
+        isPersisting: trackProgress,
       ),
     );
-    if (trackProgress) {
-      _progressRepository.registerQuestionAnswered(
-        questionId: current.currentQuestion.id,
-        isCorrect: isCorrect,
-      );
+    if (!trackProgress) return;
+
+    await _progressRepository.registerQuestionAnswered(
+      questionId: questionId,
+      isCorrect: isCorrect,
+    );
+    if (isClosed) return;
+    final settled = state;
+    if (settled is MultipleChoicePlaying) {
+      emit(settled.copyWith(isPersisting: false));
     }
   }
 
   void next() {
     final current = state;
     if (current is! MultipleChoicePlaying || !current.hasAnswered) return;
+    if (current.isPersisting) return;
 
     if (current.isLastQuestion) {
       emit(
