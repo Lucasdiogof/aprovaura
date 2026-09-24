@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 
 class SubjectCard extends StatelessWidget {
@@ -19,14 +20,14 @@ class SubjectCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: context.colors.surface,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(AppRadius.lg),
       child: InkWell(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(AppRadius.lg),
         onTap: onTap,
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(AppSpacing.md),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(AppRadius.lg),
             border: Border.all(color: context.colors.border),
           ),
           child: Column(
@@ -35,11 +36,11 @@ class SubjectCard extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    width: 44,
-                    height: 44,
+                    width: 40,
+                    height: 40,
                     decoration: BoxDecoration(
                       color: subject.accentColor.withValues(alpha: 0.14),
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(AppRadius.sm),
                     ),
                     child: Icon(subject.icon, color: subject.accentColor),
                   ),
@@ -51,7 +52,7 @@ class SubjectCard extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: AppSpacing.sm),
               Text(
                 subject.label(language),
                 style: TextStyle(
@@ -59,7 +60,7 @@ class SubjectCard extends StatelessWidget {
                   color: context.colors.textPrimary,
                 ),
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: AppSpacing.xs),
               Text(
                 subject.description(language),
                 maxLines: 2,

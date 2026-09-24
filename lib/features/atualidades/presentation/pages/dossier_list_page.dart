@@ -3,11 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/atualidades/domain/entities/dossier_area.dart';
 import 'package:aura/features/atualidades/domain/repositories/atualidades_repository.dart';
 import 'package:aura/features/atualidades/l10n/atualidades_strings.dart';
 import 'package:aura/features/atualidades/presentation/cubit/dossier_list_cubit.dart';
 import 'package:aura/features/atualidades/presentation/cubit/dossier_list_state.dart';
+import 'package:aura/features/atualidades/presentation/dossier_freshness.dart';
 import 'package:aura/features/atualidades/presentation/pages/dossier_detail_page.dart';
 import 'package:aura/features/catalog/l10n/catalog_strings.dart';
 import 'package:aura/shared/widgets/app_button.dart';
@@ -43,17 +45,19 @@ class DossierListPage extends StatelessWidget {
                       when dossiers.isEmpty =>
                     const _ComingSoonView(),
                   DossierListLoaded(:final dossiers) => ListView.separated(
-                    padding: const EdgeInsets.all(24),
+                    padding: const EdgeInsets.all(AppSpacing.pageHorizontal),
                     itemCount: dossiers.length,
-                    separatorBuilder: (_, _) => const SizedBox(height: 12),
+                    separatorBuilder: (_, _) =>
+                        const SizedBox(height: AppSpacing.md),
                     itemBuilder: (context, index) {
                       final dossier = dossiers[index];
                       final t = AtualidadesStrings(language);
+                      final freshness = dossierFreshnessLabel(dossier, t);
                       return Material(
                         color: context.colors.surface,
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(AppRadius.md),
                         child: InkWell(
-                          borderRadius: BorderRadius.circular(16),
+                          borderRadius: BorderRadius.circular(AppRadius.md),
                           onTap: () => Navigator.of(context).push(
                             MaterialPageRoute<void>(
                               builder: (_) =>
@@ -61,9 +65,9 @@ class DossierListPage extends StatelessWidget {
                             ),
                           ),
                           child: Container(
-                            padding: const EdgeInsets.all(16),
+                            padding: const EdgeInsets.all(AppSpacing.md),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
+                              borderRadius: BorderRadius.circular(AppRadius.md),
                               border: Border.all(color: context.colors.border),
                             ),
                             child: Row(
@@ -80,16 +84,30 @@ class DossierListPage extends StatelessWidget {
                                           color: context.colors.textPrimary,
                                         ),
                                       ),
-                                      if (dossier.readMinutes != null) ...[
-                                        const SizedBox(height: 4),
-                                        Text(
-                                          t.readMinutesLabel(
-                                            dossier.readMinutes!,
-                                          ),
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                            color: context.colors.textSecondary,
-                                          ),
+                                      if (dossier.readMinutes != null ||
+                                          freshness != null) ...[
+                                        const SizedBox(height: AppSpacing.xs),
+                                        Wrap(
+                                          spacing: AppSpacing.sm,
+                                          runSpacing: 4,
+                                          crossAxisAlignment:
+                                              WrapCrossAlignment.center,
+                                          children: [
+                                            if (dossier.readMinutes != null)
+                                              Text(
+                                                t.readMinutesLabel(
+                                                  dossier.readMinutes!,
+                                                ),
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: context
+                                                      .colors
+                                                      .textSecondary,
+                                                ),
+                                              ),
+                                            if (freshness != null)
+                                              _FreshnessBadge(label: freshness),
+                                          ],
                                         ),
                                       ],
                                     ],
@@ -110,6 +128,31 @@ class DossierListPage extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _FreshnessBadge extends StatelessWidget {
+  const _FreshnessBadge({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      decoration: BoxDecoration(
+        color: context.colors.primary.withValues(alpha: 0.12),
+        borderRadius: BorderRadius.circular(AppRadius.pill),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+          fontSize: 11,
+          fontWeight: FontWeight.w700,
+          color: context.colors.primary,
         ),
       ),
     );

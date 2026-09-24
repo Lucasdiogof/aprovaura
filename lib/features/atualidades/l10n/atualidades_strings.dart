@@ -59,4 +59,21 @@ class AtualidadesStrings {
     AppLanguage.portuguese => 'Praticar',
     AppLanguage.english => 'Practice',
   };
+
+  String get newBadge => switch (language) {
+    AppLanguage.portuguese => 'Novo',
+    AppLanguage.english => 'New',
+  };
+
+  String get updatedTodayBadge => switch (language) {
+    AppLanguage.portuguese => 'Atualizado hoje',
+    AppLanguage.english => 'Updated today',
+  };
+
+  String updatedDaysAgoBadge(int days) => switch (language) {
+    AppLanguage.portuguese =>
+      days == 1 ? 'Atualizado há 1 dia' : 'Atualizado há $days dias',
+    AppLanguage.english =>
+      days == 1 ? 'Updated 1 day ago' : 'Updated $days days ago',
+  };
 }

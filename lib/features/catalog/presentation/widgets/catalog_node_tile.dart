@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/catalog/domain/entities/catalog_node.dart';
 import 'package:aura/features/catalog/presentation/catalog_node_icon.dart';
 import 'package:aura/features/progress/domain/entities/topic_progress.dart';
@@ -24,33 +25,33 @@ class CatalogNodeTile extends StatelessWidget {
     final accentColor = subject.accentColor;
     return Material(
       color: context.colors.surface,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(AppRadius.md),
       child: InkWell(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppRadius.md),
         onTap: onTap,
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(AppSpacing.md),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(AppRadius.md),
             border: Border.all(color: context.colors.border),
           ),
           child: Row(
             children: [
               Container(
-                width: 40,
-                height: 40,
+                width: 36,
+                height: 36,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: accentColor.withValues(alpha: 0.14),
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(AppRadius.sm),
                 ),
                 child: Icon(
                   catalogNodeIcon(node.icon, subject),
                   color: accentColor,
-                  size: 20,
+                  size: 18,
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: AppSpacing.md),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,12 +76,14 @@ class CatalogNodeTile extends StatelessWidget {
                       ),
                     ],
                     if (progress != null && progress!.total > 0) ...[
-                      const SizedBox(height: 8),
+                      const SizedBox(height: AppSpacing.sm),
                       Row(
                         children: [
                           Expanded(
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(100),
+                              borderRadius: BorderRadius.circular(
+                                AppRadius.pill,
+                              ),
                               child: LinearProgressIndicator(
                                 value: progress!.fraction,
                                 minHeight: 5,
@@ -89,7 +92,7 @@ class CatalogNodeTile extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const SizedBox(width: 8),
+                          const SizedBox(width: AppSpacing.sm),
                           Text(
                             '${(progress!.fraction * 100).round()}%',
                             style: TextStyle(
