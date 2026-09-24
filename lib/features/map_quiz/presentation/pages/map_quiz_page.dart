@@ -14,6 +14,10 @@ import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_cubit.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_state.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
+import 'package:aura/features/questions/presentation/quiz_result_tier.dart';
+import 'package:aura/features/xp/domain/entities/user_xp.dart';
+import 'package:aura/shared/widgets/aura/aura_badge.dart';
+import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
@@ -124,7 +128,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
                   // still going through the new idempotent award path.
                   context.read<XpCubit>().awardQuizXp(
                     attemptId: state.attemptId,
-                    correctCount: 1,
+                    correctCount: _awardedCorrectCount,
                   );
                 }
               },
@@ -510,6 +514,11 @@ class _ZoomControls extends StatelessWidget {
   }
 }
 
+/// The map quiz grants a flat award per finished map rather than per
+/// region (a big map can have dozens), so it calls award_quiz_xp() with a
+/// correct count of one.
+const _awardedCorrectCount = 1;
+
 class _FinishedView extends StatelessWidget {
   const _FinishedView({
     required this.strings,
@@ -521,19 +530,27 @@ class _FinishedView extends StatelessWidget {
   final int correctCount;
   final int totalCount;
 
+  AurudoPose get _pose => switch (QuizResultTier.fromFraction(
+    totalCount == 0 ? 0 : correctCount / totalCount,
+  )) {
+    QuizResultTier.excellent => AurudoPose.farmingAura,
+    QuizResultTier.good => AurudoPose.celebrating,
+    QuizResultTier.developing => AurudoPose.studying,
+    QuizResultTier.zero => AurudoPose.thinking,
+  };
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    // Scrollable like the multiple-choice result: with the mascot and the
+    // Aura badge this column no longer fits a short screen at large text
+    // sizes.
+    return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(32),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              Icons.emoji_events_outlined,
-              size: 48,
-              color: context.colors.primary,
-            ),
+            AurudoIllustration(pose: _pose, size: 136),
             const SizedBox(height: 16),
             Text(
               strings.finishedTitle,
@@ -548,6 +565,12 @@ class _FinishedView extends StatelessWidget {
               strings.finishedScore(correctCount, totalCount),
               textAlign: TextAlign.center,
               style: TextStyle(color: context.colors.textSecondary),
+            ),
+            const SizedBox(height: 16),
+            // The map quiz has always granted Aura on completion; until now
+            // it was the only finished screen that never said so.
+            const AuraBadge(
+              amount: UserXp.auraPerCorrectAnswer * _awardedCorrectCount,
             ),
             const SizedBox(height: 24),
             AppButton(

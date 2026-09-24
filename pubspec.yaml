@@ -97,8 +97,9 @@ flutter:
     # icon generator, not runtime assets.
     - lib/assets/branding/aprovaura_logo_light.png
     - lib/assets/branding/aprovaura_logo_dark.png
-    - lib/assets/branding/aprovaura_wordmark_light.png
-    - lib/assets/branding/aprovaura_wordmark_dark.png
+    # aprovaura_wordmark_{light,dark}.png stay in the repo as part of the
+    # brand kit, but are not bundled: every screen that shows the brand
+    # shows the symbol with it, so nothing loads the text-only lockup.
     - lib/assets/branding/aprovaura_mark.png
     - lib/assets/mascot/
     - lib/assets/maps/

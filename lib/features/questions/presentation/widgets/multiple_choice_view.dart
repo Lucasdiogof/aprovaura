@@ -18,6 +18,7 @@ import 'package:aura/features/questions/presentation/widgets/quiz_answer_option.
 import 'package:aura/features/questions/presentation/widgets/quiz_feedback.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
+import 'package:aura/features/xp/domain/entities/user_xp.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
@@ -320,9 +321,6 @@ class _FinishedView extends StatelessWidget {
     required this.isCorrectionMode,
   });
 
-  // Matches award_quiz_xp() in supabase/quiz_xp_ledger.sql -- keep in sync.
-  static const _xpPerCorrectAnswer = 10;
-
   final MultipleChoiceStrings strings;
   final int correctCount;
   final int totalCount;
@@ -334,7 +332,7 @@ class _FinishedView extends StatelessWidget {
     final fraction = totalCount == 0 ? 0.0 : correctCount / totalCount;
     final percent = (fraction * 100).round();
     final tier = QuizResultTier.fromFraction(fraction);
-    final xpEarned = correctCount * _xpPerCorrectAnswer;
+    final xpEarned = correctCount * UserXp.auraPerCorrectAnswer;
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
@@ -484,11 +482,8 @@ class _ErrorView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              Icons.error_outline_rounded,
-              size: 40,
-              color: context.colors.error,
-            ),
+            // Frustrated, not scolding: the load failed, the user didn't.
+            const AurudoIllustration(pose: AurudoPose.frustrated, size: 120),
             const SizedBox(height: 16),
             Text(
               message,
