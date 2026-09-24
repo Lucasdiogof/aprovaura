@@ -5,6 +5,7 @@ import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
+import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
 import 'package:aura/features/essay/l10n/essay_strings.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_submission_cubit.dart';
@@ -43,10 +44,20 @@ class EssaySubmissionPage extends StatelessWidget {
                     ),
                   ),
                   EssaySubmissionError() => _ErrorView(strings: t),
-                  EssaySubmissionLoaded(:final submission) => _SubmissionView(
-                    submission: submission,
-                    strings: t,
-                  ),
+                  EssaySubmissionLoaded(
+                    :final submission,
+                    :final isRequesting,
+                    :final failure,
+                  ) =>
+                    _SubmissionView(
+                      submission: submission,
+                      strings: t,
+                      isRequesting: isRequesting,
+                      failure: failure,
+                      gaveUpWaiting: context
+                          .read<EssaySubmissionCubit>()
+                          .gaveUpWaiting,
+                    ),
                 },
               ),
             ),
@@ -58,10 +69,27 @@ class EssaySubmissionPage extends StatelessWidget {
 }
 
 class _SubmissionView extends StatelessWidget {
-  const _SubmissionView({required this.submission, required this.strings});
+  const _SubmissionView({
+    required this.submission,
+    required this.strings,
+    required this.isRequesting,
+    required this.failure,
+    required this.gaveUpWaiting,
+  });
 
   final EssaySubmission submission;
   final EssayStrings strings;
+  final bool isRequesting;
+  final EssayEvaluationFailure? failure;
+  final bool gaveUpWaiting;
+
+  String _failureMessage() => switch (failure) {
+    EssayEvaluationFailure.dailyLimitReached => strings.evaluationDailyLimit,
+    EssayEvaluationFailure.providerUnavailable => strings.evaluationUnavailable,
+    EssayEvaluationFailure.invalidOutput => strings.evaluationInvalidOutput,
+    EssayEvaluationFailure.notConfigured => strings.evaluationNotConfigured,
+    _ => strings.evaluationUnavailable,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -103,6 +131,35 @@ class _SubmissionView extends StatelessWidget {
           const SizedBox(height: AppSpacing.lg),
           _Score(score: score, strings: strings),
         ],
+        if (submission.status.isInProgress || isRequesting) ...[
+          const SizedBox(height: AppSpacing.md),
+          _WaitingNote(
+            // Says "come back later" only after the screen stopped
+            // watching -- the marking may well still finish on the server.
+            message: gaveUpWaiting && !isRequesting
+                ? strings.stillEvaluatingHint
+                : strings.evaluatingHint,
+          ),
+        ],
+        if (failure != null) ...[
+          const SizedBox(height: AppSpacing.md),
+          _FailureNote(message: _failureMessage()),
+        ],
+        // Offered whenever nothing is running and the attempt has no
+        // result: a failed marking, or one the daily limit turned away.
+        // "submitted" counts here -- it only looks in progress; with a
+        // refusal recorded, nothing is actually being marked.
+        if (!isRequesting &&
+            (submission.status == EssaySubmissionStatus.failed ||
+                (submission.status == EssaySubmissionStatus.submitted &&
+                    failure != null))) ...[
+          const SizedBox(height: AppSpacing.md),
+          AppButton(
+            label: strings.retryEvaluationAction,
+            onPressed: () =>
+                context.read<EssaySubmissionCubit>().requestEvaluation(),
+          ),
+        ],
         const SizedBox(height: AppSpacing.xl),
         Text(
           strings.submittedTextHeading.toUpperCase(),
@@ -128,6 +185,66 @@ class _SubmissionView extends StatelessWidget {
           style: TextStyle(fontSize: 12, color: colors.textSecondary),
         ),
       ],
+    );
+  }
+}
+
+/// Reassurance while the server works, not a spinner that traps the
+/// person on the screen: leaving is explicitly fine.
+class _WaitingNote extends StatelessWidget {
+  const _WaitingNote({required this.message});
+
+  final String message;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 14,
+          height: 14,
+          child: CircularProgressIndicator(
+            strokeWidth: 2,
+            color: colors.textSecondary,
+          ),
+        ),
+        const SizedBox(width: AppSpacing.sm),
+        Expanded(
+          child: Text(
+            message,
+            style: TextStyle(
+              fontSize: 13,
+              height: 1.4,
+              color: colors.textSecondary,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _FailureNote extends StatelessWidget {
+  const _FailureNote({required this.message});
+
+  final String message;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    return Container(
+      padding: const EdgeInsets.all(AppSpacing.md),
+      decoration: BoxDecoration(
+        color: colors.error.withValues(alpha: 0.08),
+        borderRadius: BorderRadius.circular(AppRadius.lg),
+        border: Border.all(color: colors.error.withValues(alpha: 0.24)),
+      ),
+      child: Text(
+        message,
+        style: TextStyle(fontSize: 13.5, height: 1.4, color: colors.error),
+      ),
     );
   }
 }

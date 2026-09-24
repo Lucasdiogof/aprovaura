@@ -322,4 +322,58 @@ class EssayStrings {
       'Não conseguimos abrir esta tentativa agora. Tente de novo.',
     AppLanguage.english => "We couldn't open this attempt now. Try again.",
   };
+
+  String get evaluatingHint => switch (language) {
+    AppLanguage.portuguese =>
+      'Estamos corrigindo sua redação. Pode sair do app: quando voltar, o '
+          'resultado estará aqui.',
+    AppLanguage.english =>
+      "We're marking your essay. You can leave the app -- the result will "
+          'be here when you come back.',
+  };
+
+  String get stillEvaluatingHint => switch (language) {
+    AppLanguage.portuguese =>
+      'A correção está demorando mais que o normal. Volte daqui a pouco '
+          'para ver o resultado.',
+    AppLanguage.english =>
+      'The marking is taking longer than usual. Come back in a bit to see '
+          'the result.',
+  };
+
+  String get retryEvaluationAction => switch (language) {
+    AppLanguage.portuguese => 'Tentar corrigir de novo',
+    AppLanguage.english => 'Try marking again',
+  };
+
+  String get evaluationDailyLimit => switch (language) {
+    AppLanguage.portuguese =>
+      'Você atingiu o limite de correções de hoje. Tente novamente amanhã.',
+    AppLanguage.english =>
+      "You've reached today's marking limit. Try again tomorrow.",
+  };
+
+  String get evaluationUnavailable => switch (language) {
+    AppLanguage.portuguese =>
+      'A correção está indisponível no momento. Seu texto está salvo — '
+          'tente de novo daqui a pouco.',
+    AppLanguage.english =>
+      'Marking is unavailable right now. Your text is saved -- try again '
+          'in a little while.',
+  };
+
+  String get evaluationInvalidOutput => switch (language) {
+    AppLanguage.portuguese =>
+      'Não conseguimos concluir esta correção. Você pode tentar de novo.',
+    AppLanguage.english =>
+      "We couldn't finish this marking. You can try again.",
+  };
+
+  String get evaluationNotConfigured => switch (language) {
+    AppLanguage.portuguese =>
+      'A correção automática ainda não está disponível. Seu texto está '
+          'salvo.',
+    AppLanguage.english =>
+      'Automatic marking is not available yet. Your text is saved.',
+  };
 }

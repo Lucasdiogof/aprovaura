@@ -2,6 +2,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
+import 'package:aura/features/essay/domain/essay_failure.dart';
 import 'package:aura/features/essay/domain/entities/essay_draft.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
@@ -182,6 +183,37 @@ class EssayRepositoryImpl implements EssayRepository {
       return Error(UnexpectedFailure());
     }
   }
+
+  @override
+  Future<Result<void>> requestEvaluation(String submissionId) async {
+    try {
+      final response = await _client.functions.invoke(
+        'evaluate-essay',
+        body: {'submission_id': submissionId},
+      );
+      if (response.status == 200) return const Success(null);
+      return Error(
+        EssayEvaluationFailureWrapper(
+          EssayEvaluationFailure.fromReason(_reasonOf(response.data)),
+        ),
+      );
+    } on FunctionException catch (e) {
+      return Error(
+        EssayEvaluationFailureWrapper(
+          EssayEvaluationFailure.fromReason(_reasonOf(e.details)),
+        ),
+      );
+    } catch (_) {
+      return const Error(
+        EssayEvaluationFailureWrapper(
+          EssayEvaluationFailure.providerUnavailable,
+        ),
+      );
+    }
+  }
+
+  String? _reasonOf(Object? data) =>
+      data is Map && data['reason'] is String ? data['reason'] as String : null;
 
   EssayAttempt _attemptFromJson(Map<String, dynamic> json) => EssayAttempt(
     id: json['id'] as String,

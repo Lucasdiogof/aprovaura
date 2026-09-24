@@ -34,6 +34,34 @@ class EssayAttempt extends Equatable {
   ];
 }
 
+/// Why a marking could not start or finish. The UI turns this into a
+/// sentence -- the provider's own message never reaches the screen.
+enum EssayEvaluationFailure {
+  /// The daily free allowance is spent.
+  dailyLimitReached,
+
+  /// Gemini refused for now (rate limit) or was unreachable.
+  providerUnavailable,
+
+  /// The provider answered with something unusable, twice.
+  invalidOutput,
+
+  /// No API key configured on the server yet.
+  notConfigured,
+
+  /// Anything else, including a marking already in flight.
+  unexpected;
+
+  static EssayEvaluationFailure fromReason(String? reason) => switch (reason) {
+    'daily_limit_reached' => EssayEvaluationFailure.dailyLimitReached,
+    'rate_limited' ||
+    'provider_unavailable' => EssayEvaluationFailure.providerUnavailable,
+    'invalid_output' => EssayEvaluationFailure.invalidOutput,
+    'not_configured' => EssayEvaluationFailure.notConfigured,
+    _ => EssayEvaluationFailure.unexpected,
+  };
+}
+
 /// A submitted attempt, read-only by construction: the server has no update
 /// or delete policy for essay_submissions, so nothing in the app can change
 /// what was sent.

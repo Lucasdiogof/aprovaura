@@ -10,6 +10,7 @@ import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_theme.dart';
 import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
+import 'package:aura/features/essay/domain/essay_failure.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
 import 'package:aura/features/essay/presentation/pages/essay_submission_page.dart';
 
@@ -38,6 +39,9 @@ void main() {
     await sl.reset();
     repository = _MockEssayRepository();
     sl.registerLazySingleton<EssayRepository>(() => repository);
+    when(
+      () => repository.requestEvaluation(any()),
+    ).thenAnswer((_) async => const Success(null));
   });
 
   void stub(EssaySubmissionStatus status, {int? totalScore}) {
@@ -52,7 +56,9 @@ void main() {
     ) async {
       stub(EssaySubmissionStatus.submitted);
       await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
-      await tester.pumpAndSettle();
+      // pump, not pumpAndSettle: a waiting attempt keeps a poll timer
+      // armed, so "settled" never arrives.
+      await tester.pump();
 
       expect(find.text('Desinformação e o direito de saber'), findsOneWidget);
       expect(
@@ -67,23 +73,85 @@ void main() {
     testWidgets('a waiting attempt says so and shows no score', (tester) async {
       stub(EssaySubmissionStatus.submitted);
       await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
       expect(find.text('Aguardando correção'), findsOneWidget);
       expect(find.text('Nota'), findsNothing);
       expect(find.text('0'), findsNothing);
     });
 
-    testWidgets('an attempt being marked says "Corrigindo"', (tester) async {
-      stub(EssaySubmissionStatus.evaluating);
+    testWidgets('opening an attempt nobody picked up starts the marking', (
+      tester,
+    ) async {
+      stub(EssaySubmissionStatus.submitted);
+      await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
+      await tester.pump();
+
+      verify(() => repository.requestEvaluation('s1')).called(1);
+      expect(find.textContaining('Pode sair do app'), findsOneWidget);
+    });
+
+    testWidgets('the daily limit is said plainly, with a way to try again', (
+      tester,
+    ) async {
+      stub(EssaySubmissionStatus.submitted);
+      when(() => repository.requestEvaluation('s1')).thenAnswer(
+        (_) async => const Error(
+          EssayEvaluationFailureWrapper(
+            EssayEvaluationFailure.dailyLimitReached,
+          ),
+        ),
+      );
+      await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
+      // Three frames: the read, the refused request, and the re-read that
+      // carries the reason.
+      await tester.pump();
+      await tester.pump();
+      await tester.pump();
+
+      expect(
+        find.textContaining('limite de correções de hoje'),
+        findsOneWidget,
+      );
+      // Nothing about quotas, providers or API keys reaches the screen.
+      expect(find.textContaining('Gemini'), findsNothing);
+      expect(find.text('Tentar corrigir de novo'), findsOneWidget);
+    });
+
+    testWidgets('a failed marking offers a retry that asks again', (
+      tester,
+    ) async {
+      stub(EssaySubmissionStatus.failed);
       await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
       await tester.pumpAndSettle();
 
-      expect(find.text('Corrigindo'), findsOneWidget);
-      expect(find.text('Nota'), findsNothing);
+      // Nothing automatic here: retrying may cost one of the day's
+      // markings, so it waits for a tap.
+      verifyNever(() => repository.requestEvaluation(any()));
+
+      await tester.tap(find.text('Tentar corrigir de novo'));
+      await tester.pump();
+
+      verify(() => repository.requestEvaluation('s1')).called(1);
     });
 
-    testWidgets('a marked attempt shows its score', (tester) async {
+    testWidgets('an attempt being marked says so and does not re-ask', (
+      tester,
+    ) async {
+      stub(EssaySubmissionStatus.evaluating);
+      await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
+      await tester.pump();
+
+      expect(find.text('Corrigindo'), findsOneWidget);
+      expect(find.text('Nota'), findsNothing);
+      // Already in flight on the server: asking again would be refused
+      // anyway, and would look like a second marking.
+      verifyNever(() => repository.requestEvaluation(any()));
+    });
+
+    testWidgets('a marked attempt shows its score and nothing to retry', (
+      tester,
+    ) async {
       stub(EssaySubmissionStatus.evaluated, totalScore: 920);
       await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
       await tester.pumpAndSettle();
@@ -91,6 +159,8 @@ void main() {
       expect(find.text('Corrigida'), findsOneWidget);
       expect(find.text('Nota'), findsOneWidget);
       expect(find.text('920'), findsOneWidget);
+      expect(find.text('Tentar corrigir de novo'), findsNothing);
+      verifyNever(() => repository.requestEvaluation(any()));
     });
 
     testWidgets('a failed marking says what happened, in full', (tester) async {
@@ -120,7 +190,7 @@ void main() {
 
       stub(EssaySubmissionStatus.submitted);
       await tester.tap(find.text('Tentar novamente'));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
       expect(find.text('Aguardando correção'), findsOneWidget);
     });

@@ -47,4 +47,15 @@ abstract class EssayRepository {
 
   /// One attempt in full, including the text exactly as it was sent.
   Future<Result<EssaySubmission>> getSubmission(String submissionId);
+
+  /// Asks the server to mark an attempt (the `evaluate-essay` function).
+  ///
+  /// This is the call that spends one of the day's free markings -- but
+  /// only for a submission that has not been charged today, and never for
+  /// one already marked or already in flight. The app never talks to the
+  /// provider itself and never holds its key.
+  ///
+  /// Returns the failure reason when the server could not go through with
+  /// it; the submission and its text are untouched either way.
+  Future<Result<void>> requestEvaluation(String submissionId);
 }

@@ -74,6 +74,10 @@ void main() {
         ),
       ),
     );
+    // The attempt screen this flow lands on asks for the marking itself.
+    when(
+      () => repository.requestEvaluation(any()),
+    ).thenAnswer((_) async => const Success(null));
     when(() => repository.getSubmission('s1')).thenAnswer(
       (_) async => Success(
         EssaySubmission(
@@ -399,7 +403,12 @@ void main() {
       await tester.tap(find.text('Enviar para correção'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Enviar redação'));
-      await tester.pumpAndSettle();
+      // pump, not pumpAndSettle: the attempt screen it lands on starts
+      // watching for the result, so nothing ever "settles". These frames
+      // cover the save, the submit and the route transition.
+      for (var i = 0; i < 4; i++) {
+        await tester.pump(const Duration(milliseconds: 400));
+      }
 
       // The editor is replaced: going "back" into it would show text that
       // is already frozen elsewhere.
