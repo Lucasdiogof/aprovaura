@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/catalog/domain/entities/catalog_node.dart';
+import 'package:aura/features/catalog/presentation/catalog_node_icon.dart';
 import 'package:aura/features/progress/domain/entities/topic_progress.dart';
+import 'package:aura/features/subjects/domain/entities/subject.dart';
 
 class CatalogNodeTile extends StatelessWidget {
   const CatalogNodeTile({
     required this.node,
-    required this.accentColor,
+    required this.subject,
     required this.onTap,
     super.key,
     this.progress,
   });
 
   final CatalogNode node;
-  final Color accentColor;
+  final Subject subject;
   final VoidCallback onTap;
   final TopicProgress? progress;
 
   @override
   Widget build(BuildContext context) {
+    final accentColor = subject.accentColor;
     return Material(
       color: context.colors.surface,
       borderRadius: BorderRadius.circular(16),
@@ -41,9 +44,10 @@ class CatalogNodeTile extends StatelessWidget {
                   color: accentColor.withValues(alpha: 0.14),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Text(
-                  node.icon ?? '📚',
-                  style: const TextStyle(fontSize: 18),
+                child: Icon(
+                  catalogNodeIcon(node.icon, subject),
+                  color: accentColor,
+                  size: 20,
                 ),
               ),
               const SizedBox(width: 12),

@@ -16,6 +16,7 @@ import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart'
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/shared/widgets/app_button.dart';
+import 'package:aura/shared/widgets/stat_cell.dart';
 
 class MultipleChoiceView extends StatelessWidget {
   const MultipleChoiceView({
@@ -300,7 +301,7 @@ class _FinishedView extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: _StatCell(
+                    child: StatCell(
                       icon: Icons.track_changes_rounded,
                       iconColor: context.colors.primary,
                       value: '$correctCount/$totalCount',
@@ -309,7 +310,7 @@ class _FinishedView extends StatelessWidget {
                   ),
                   VerticalDivider(color: context.colors.border, width: 1),
                   Expanded(
-                    child: _StatCell(
+                    child: StatCell(
                       icon: Icons.bar_chart_rounded,
                       iconColor: context.colors.primary,
                       value: '$percent%',
@@ -319,7 +320,7 @@ class _FinishedView extends StatelessWidget {
                   if (showXp) ...[
                     VerticalDivider(color: context.colors.border, width: 1),
                     const Expanded(
-                      child: _StatCell(
+                      child: StatCell(
                         icon: Icons.star_rounded,
                         iconColor: Color(0xFFE0A32E),
                         value: '+$_xpEarned',
@@ -394,54 +395,6 @@ class _TrophyBadge extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _StatCell extends StatelessWidget {
-  const _StatCell({
-    required this.icon,
-    required this.iconColor,
-    required this.value,
-    required this.label,
-  });
-
-  final IconData icon;
-  final Color iconColor;
-  final String value;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: 44,
-          height: 44,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: iconColor.withValues(alpha: 0.14),
-            shape: BoxShape.circle,
-          ),
-          child: Icon(icon, color: iconColor, size: 22),
-        ),
-        const SizedBox(height: 10),
-        Text(
-          value,
-          style: TextStyle(
-            fontWeight: FontWeight.w800,
-            fontSize: 22,
-            color: context.colors.textPrimary,
-          ),
-        ),
-        const SizedBox(height: 2),
-        Text(
-          label,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 12, color: context.colors.textSecondary),
-        ),
-      ],
     );
   }
 }

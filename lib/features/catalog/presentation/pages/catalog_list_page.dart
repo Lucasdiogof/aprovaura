@@ -121,7 +121,7 @@ class _CatalogListPageState extends State<CatalogListPage> with RouteAware {
                         final activityBuilder = mappedActivities[node.id];
                         return CatalogNodeTile(
                           node: node,
-                          accentColor: widget.subject.accentColor,
+                          subject: widget.subject,
                           progress: progressByNodeId[node.id],
                           onTap: () => Navigator.of(context).push(
                             MaterialPageRoute<void>(
