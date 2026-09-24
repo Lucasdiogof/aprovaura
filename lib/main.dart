@@ -10,6 +10,7 @@ import 'package:aura/features/favorites/domain/repositories/favorites_repository
 import 'package:aura/features/home/domain/repositories/daily_goal_repository.dart';
 import 'package:aura/features/home/presentation/cubit/home_summary_cubit.dart';
 import 'package:aura/features/map_quiz/data/map_quiz_repository_impl.dart';
+import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
 import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.dart';
 import 'package:aura/features/streak/domain/repositories/streak_repository.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
@@ -39,6 +40,7 @@ void main() async {
       sl<DailyGoalRepository>(),
       sl<ErrorReviewRepository>(),
       sl<FavoritesRepository>(),
+      sl<MockExamRepository>(),
     ),
   );
 

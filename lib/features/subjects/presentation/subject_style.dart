@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 
-/// Icon, color and label for a catalog_nodes.subject key. Falls back to
-/// the raw key and the app's primary color for a subject the client
-/// doesn't know yet, instead of failing to render the row.
-({IconData icon, Color color, String label}) favoriteSubjectStyle(
+/// Icon, color and label for a subject key as it comes from the database
+/// (catalog_nodes.subject). Falls back to the raw key and the app's primary
+/// color for a subject the client doesn't know yet, instead of failing to
+/// render the row.
+({IconData icon, Color color, String label}) subjectStyle(
   String subjectKey,
   AppLanguage language, {
   required Color fallbackColor,

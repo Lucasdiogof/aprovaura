@@ -5,6 +5,7 @@ import 'package:aura/features/favorites/domain/repositories/favorites_repository
 import 'package:aura/features/home/domain/entities/daily_goal.dart';
 import 'package:aura/features/home/domain/repositories/daily_goal_repository.dart';
 import 'package:aura/features/home/presentation/cubit/home_summary_state.dart';
+import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
 
 /// Feeds Home's daily-goal card and the pending/favorites counts on its
 /// practice shortcuts. Lives above the auth boundary like StreakCubit and
@@ -15,17 +16,25 @@ class HomeSummaryCubit extends Cubit<HomeSummaryState> {
     this._dailyGoalRepository,
     this._errorReviewRepository,
     this._favoritesRepository,
+    this._mockExamRepository,
   ) : super(const HomeSummaryLoading());
 
   final DailyGoalRepository _dailyGoalRepository;
   final ErrorReviewRepository _errorReviewRepository;
   final FavoritesRepository _favoritesRepository;
+  final MockExamRepository _mockExamRepository;
 
   Future<void> load() async {
-    final (dailyGoalResult, pendingResult, favoritesResult) = await (
+    final (
+      dailyGoalResult,
+      pendingResult,
+      favoritesResult,
+      activeMockExamResult,
+    ) = await (
       _dailyGoalRepository.getTodayAnsweredCount(),
       _errorReviewRepository.listPendingTopics(),
       _favoritesRepository.listFavoriteTopics(),
+      _mockExamRepository.getActiveMockExam(),
     ).wait;
     if (isClosed) return;
 
@@ -53,6 +62,10 @@ class HomeSummaryCubit extends Cubit<HomeSummaryState> {
         dailyGoal: DailyGoal(answered: answeredToday),
         pendingErrorsCount: pendingErrorsCount,
         favoritesCount: favoritesCount,
+        activeMockExam: switch (activeMockExamResult) {
+          Success(:final data) => data,
+          Error() => null,
+        },
       ),
     );
   }

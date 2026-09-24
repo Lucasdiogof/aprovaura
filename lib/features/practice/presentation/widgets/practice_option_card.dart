@@ -10,6 +10,7 @@ class PracticeOptionCard extends StatelessWidget {
     required this.onTap,
     super.key,
     this.subtitleOverride,
+    this.titleOverride,
   });
 
   final PracticeOption option;
@@ -18,6 +19,9 @@ class PracticeOptionCard extends StatelessWidget {
   // Shows the real count once it's known (e.g. "6 questões para revisar")
   // instead of the option's generic description.
   final String? subtitleOverride;
+  // Same idea for the title -- "Continuar simulado" instead of "Montar
+  // simulado" while one is in progress.
+  final String? titleOverride;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +54,7 @@ class PracticeOptionCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      option.title(language),
+                      titleOverride ?? option.title(language),
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
                         color: context.colors.textPrimary,

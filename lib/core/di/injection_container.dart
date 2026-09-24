@@ -14,6 +14,8 @@ import 'package:aura/features/favorites/data/favorites_repository_impl.dart';
 import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
 import 'package:aura/features/home/data/daily_goal_repository_impl.dart';
 import 'package:aura/features/home/domain/repositories/daily_goal_repository.dart';
+import 'package:aura/features/mock_exam/data/mock_exam_repository_impl.dart';
+import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
 import 'package:aura/features/profile/data/profile_repository_impl.dart';
 import 'package:aura/features/profile/domain/repositories/profile_repository.dart';
 import 'package:aura/features/progress/data/progress_repository_impl.dart';
@@ -69,6 +71,9 @@ void registerSupabaseDependencies() {
   sl.registerLazySingleton<QuestionRepository>(
     () => QuickPracticeQuestionRepositoryImpl(sl()),
     instanceName: 'quickPracticeQuestions',
+  );
+  sl.registerLazySingleton<MockExamRepository>(
+    () => MockExamRepositoryImpl(sl()),
   );
   sl.registerLazySingleton<DailyGoalRepository>(
     () => DailyGoalRepositoryImpl(sl()),

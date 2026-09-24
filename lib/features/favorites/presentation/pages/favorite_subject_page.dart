@@ -9,7 +9,7 @@ import 'package:aura/features/favorites/domain/repositories/favorites_repository
 import 'package:aura/features/favorites/l10n/favorites_strings.dart';
 import 'package:aura/features/favorites/presentation/cubit/favorites_list_cubit.dart';
 import 'package:aura/features/favorites/presentation/cubit/favorites_list_state.dart';
-import 'package:aura/features/favorites/presentation/favorite_subject_style.dart';
+import 'package:aura/features/subjects/presentation/subject_style.dart';
 import 'package:aura/features/favorites/presentation/pages/favorite_topic_page.dart';
 import 'package:aura/features/favorites/presentation/widgets/favorite_nav_card.dart';
 import 'package:aura/features/favorites/presentation/widgets/favorites_state_views.dart';
@@ -53,7 +53,7 @@ class _FavoriteSubjectPageState extends State<FavoriteSubjectPage>
   Widget build(BuildContext context) {
     final language = context.watch<LocaleCubit>().state;
     final t = FavoritesStrings(language);
-    final style = favoriteSubjectStyle(
+    final style = subjectStyle(
       widget.subjectKey,
       language,
       fallbackColor: context.colors.primary,

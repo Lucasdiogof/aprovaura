@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:aura/core/l10n/app_language.dart';
+import 'package:aura/features/mock_exam/l10n/mock_exam_strings.dart';
 
 enum PracticeOption {
   quickPractice,
   reviewMistakes,
-  favorites;
+  favorites,
+  mockExam;
 
   IconData get icon => switch (this) {
     PracticeOption.quickPractice => Icons.bolt_outlined,
     PracticeOption.reviewMistakes => Icons.refresh_outlined,
     PracticeOption.favorites => Icons.bookmark_outline,
+    PracticeOption.mockExam => Icons.assignment_outlined,
   };
 
   String title(AppLanguage language) => switch (this) {
@@ -25,6 +28,7 @@ enum PracticeOption {
       AppLanguage.portuguese => 'Favoritos',
       AppLanguage.english => 'Favorites',
     },
+    PracticeOption.mockExam => MockExamStrings(language).homeTitle,
   };
 
   String description(AppLanguage language) => switch (this) {
@@ -42,5 +46,6 @@ enum PracticeOption {
         'Revise conteúdos e atividades que você salvou.',
       AppLanguage.english => 'Review content and activities you saved.',
     },
+    PracticeOption.mockExam => MockExamStrings(language).homeDescription,
   };
 }

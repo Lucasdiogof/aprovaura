@@ -10,7 +10,7 @@ import 'package:aura/features/favorites/domain/repositories/favorites_repository
 import 'package:aura/features/favorites/l10n/favorites_strings.dart';
 import 'package:aura/features/favorites/presentation/cubit/favorites_list_cubit.dart';
 import 'package:aura/features/favorites/presentation/cubit/favorites_list_state.dart';
-import 'package:aura/features/favorites/presentation/favorite_subject_style.dart';
+import 'package:aura/features/subjects/presentation/subject_style.dart';
 import 'package:aura/features/favorites/presentation/pages/favorite_subject_page.dart';
 import 'package:aura/features/favorites/presentation/widgets/favorite_nav_card.dart';
 import 'package:aura/features/favorites/presentation/widgets/favorites_state_views.dart';
@@ -87,7 +87,7 @@ class _FavoritesListPageState extends State<FavoritesListPage> with RouteAware {
                             const SizedBox(height: AppSpacing.md),
                         itemBuilder: (context, index) {
                           final group = subjects[index];
-                          final style = favoriteSubjectStyle(
+                          final style = subjectStyle(
                             group.subject,
                             language,
                             fallbackColor: context.colors.primary,
