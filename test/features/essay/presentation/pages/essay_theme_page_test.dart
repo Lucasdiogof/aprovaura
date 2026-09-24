@@ -4,6 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
@@ -68,7 +69,16 @@ void main() {
     when(
       () => repository.getTheme('t1'),
     ).thenAnswer((_) async => const Success(_theme));
+    when(
+      () => repository.listAttempts('t1'),
+    ).thenAnswer((_) async => const Success(<EssayAttempt>[]));
   });
+
+  void stubAttempts(List<EssayAttempt> attempts) {
+    when(
+      () => repository.listAttempts('t1'),
+    ).thenAnswer((_) async => Success(attempts));
+  }
 
   group(EssayThemePage, () {
     testWidgets('shows the prompt and every motivating text', (tester) async {
@@ -85,15 +95,14 @@ void main() {
       expect(find.text('Um trecho sem título e sem fonte.'), findsOneWidget);
     });
 
-    testWidgets('a theme never tried offers to start and shows no stats', (
+    testWidgets('a theme never tried offers to start and shows no history', (
       tester,
     ) async {
       await tester.pumpApp(const EssayThemePage(summary: _fresh));
       await tester.pumpAndSettle();
 
       expect(find.text('Começar redação'), findsOneWidget);
-      expect(find.text('Última nota'), findsNothing);
-      expect(find.text('Tentativas'), findsNothing);
+      expect(find.text('TENTATIVAS'), findsNothing);
     });
 
     testWidgets('a draft turns the CTA into continuing', (tester) async {
@@ -103,16 +112,52 @@ void main() {
       expect(find.text('Continuar redação'), findsOneWidget);
     });
 
-    testWidgets('a graded theme offers a new attempt and shows the score', (
+    testWidgets('a draft written after an attempt is a new one', (
       tester,
     ) async {
+      const draftAfterAttempt = EssayThemeSummary(
+        id: 't1',
+        title: 'Desinformação e o direito de saber',
+        origin: EssayThemeOrigin.practice(),
+        hasDraft: true,
+        attemptCount: 1,
+        lastStatus: EssaySubmissionStatus.evaluated,
+        lastScore: 880,
+      );
+      await tester.pumpApp(const EssayThemePage(summary: draftAfterAttempt));
+      await tester.pumpAndSettle();
+
+      // Says "nova" so it is clear the old attempt is untouched.
+      await tester.scrollUntilVisible(find.text('Continuar nova redação'), 300);
+      expect(find.text('Continuar nova redação'), findsOneWidget);
+    });
+
+    testWidgets('the history lists attempts, newest first', (tester) async {
+      stubAttempts([
+        EssayAttempt(
+          id: 's2',
+          status: EssaySubmissionStatus.submitted,
+          wordCount: 300,
+          submittedAt: DateTime(2026, 9, 24),
+        ),
+        EssayAttempt(
+          id: 's1',
+          status: EssaySubmissionStatus.evaluated,
+          wordCount: 280,
+          submittedAt: DateTime(2026, 9, 18),
+          totalScore: 880,
+          evaluatedAt: DateTime(2026, 9, 18),
+        ),
+      ]);
       await tester.pumpApp(const EssayThemePage(summary: _graded));
       await tester.pumpAndSettle();
 
-      expect(find.text('Última nota'), findsOneWidget);
-      expect(find.text('880'), findsOneWidget);
-      expect(find.text('Tentativas'), findsOneWidget);
-      expect(find.text('2'), findsOneWidget);
+      expect(find.text('TENTATIVAS'), findsOneWidget);
+      // The waiting one says so and shows no number at all.
+      expect(find.text('Aguardando correção'), findsOneWidget);
+      expect(find.text('Corrigida'), findsOneWidget);
+      expect(find.text('880 pontos'), findsOneWidget);
+      expect(find.text('0'), findsNothing);
 
       // The CTA sits past the prompt and the motivating texts, so the list
       // has to be scrolled before it is even built.

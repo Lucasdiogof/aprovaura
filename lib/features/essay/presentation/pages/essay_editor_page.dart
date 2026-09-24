@@ -11,7 +11,9 @@ import 'package:aura/features/essay/presentation/cubit/essay_editor_cubit.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_editor_state.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_delete_draft_sheet.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_prompt_sheet.dart';
+import 'package:aura/features/essay/presentation/pages/essay_submission_page.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_save_status_line.dart';
+import 'package:aura/features/essay/presentation/widgets/essay_submit_sheet.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_unsaved_sheet.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
@@ -105,6 +107,40 @@ class _EssayEditorViewState extends State<_EssayEditorView> {
     }
   }
 
+  /// Sending: confirm, then flush and freeze. The confirmation comes first
+  /// so nobody is asked to wait on a save they did not ask for.
+  Future<void> _submit() async {
+    final t = _strings;
+    final cubit = context.read<EssayEditorCubit>();
+    if (!await showEssaySubmitSheet(context, strings: t)) return;
+    if (!mounted) return;
+
+    final outcome = await cubit.submit();
+    if (!mounted) return;
+
+    switch (outcome) {
+      case EssaySubmitOutcome.submitted:
+        final attempt = cubit.submittedAttempt!;
+        // Replaces the editor: this attempt is frozen, so going "back" to
+        // an editor holding its text would be a lie.
+        await Navigator.of(context).pushReplacement(
+          MaterialPageRoute<void>(
+            builder: (_) => EssaySubmissionPage(submissionId: attempt.id),
+          ),
+        );
+      case EssaySubmitOutcome.saveFailed:
+        await AppInfoBottomSheet.showError(
+          context,
+          description: t.submitSaveFailed,
+        );
+      case EssaySubmitOutcome.submitFailed:
+        await AppInfoBottomSheet.showError(
+          context,
+          description: t.submitFailed,
+        );
+    }
+  }
+
   /// Leaving: anything typed and not yet confirmed is flushed first. Only
   /// if that fails does the person get a say -- and the sheet never claims
   /// the text is safe when it is not.
@@ -183,6 +219,8 @@ class _EssayEditorViewState extends State<_EssayEditorView> {
                   focusNode: _focusNode,
                   strings: t,
                   status: state.status,
+                  isSubmitting: state.isSubmitting,
+                  onSubmit: _submit,
                 ),
               },
             ),
@@ -201,12 +239,16 @@ class _Editor extends StatelessWidget {
     required this.focusNode,
     required this.strings,
     required this.status,
+    required this.isSubmitting,
+    required this.onSubmit,
   });
 
   final TextEditingController controller;
   final FocusNode focusNode;
   final EssayStrings strings;
   final EssaySaveStatus status;
+  final bool isSubmitting;
+  final VoidCallback onSubmit;
 
   static int wordsIn(String text) =>
       text.trim().isEmpty ? 0 : text.trim().split(RegExp(r'\s+')).length;
@@ -257,11 +299,30 @@ class _Editor extends StatelessWidget {
           const SizedBox(height: AppSpacing.xs),
           ValueListenableBuilder<TextEditingValue>(
             valueListenable: controller,
-            // Only this line rebuilds as the person types.
-            builder: (context, value, _) => Text(
-              strings.wordCount(wordsIn(value.text)),
-              style: TextStyle(fontSize: 12, color: colors.textSecondary),
-            ),
+            // Only this block rebuilds as the person types: the counter and
+            // whether there is anything to send.
+            builder: (context, value, _) {
+              final words = wordsIn(value.text);
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    strings.wordCount(words),
+                    style: TextStyle(fontSize: 12, color: colors.textSecondary),
+                  ),
+                  const SizedBox(height: AppSpacing.sm),
+                  // Full width on its own line: "Enviar para correção"
+                  // does not fit beside the counter at 360px, and this is
+                  // the screen's main action anyway -- it earns the row.
+                  AppButton(
+                    label: strings.submitAction,
+                    isLoading: isSubmitting,
+                    // Nothing written, nothing to freeze.
+                    onPressed: words == 0 ? null : onSubmit,
+                  ),
+                ],
+              );
+            },
           ),
         ],
       ),

@@ -58,6 +58,18 @@ select 1, 'rls: no write policy on submissions/evaluations/quota', case
   then 'ok' else 'a write policy exists -- writes must go through the RPCs' end
 
 union all
+select 1, 'column: submissions carry a client request id', case
+  when exists (select 1 from information_schema.columns
+               where table_schema = 'public' and table_name = 'essay_submissions'
+                 and column_name = 'client_request_id')
+  then 'ok' else 'MISSING -- a retry could create a second submission' end
+
+union all
+select 1, 'index: one submission per client request id', case
+  when to_regclass('public.essay_submissions_client_request_idx') is not null
+  then 'ok' else 'MISSING -- double tap could duplicate a submission' end
+
+union all
 select 1, 'index: one evaluation in flight per user', case
   when to_regclass('public.essay_submissions_one_in_flight_per_user') is not null
   then 'ok' else 'MISSING -- concurrent evaluations would burn the free quota' end
@@ -91,7 +103,7 @@ select 1, 'rpc: ' || fn || ' exists', case
   then 'ok' else 'MISSING -- run essays.sql' end
 from unnest(array[
   'list_essay_themes_for_user', 'save_essay_draft', 'delete_essay_draft',
-  'submit_essay', 'list_essay_attempts',
+  'submit_essay_draft', 'list_essay_attempts',
   'get_essay_submission', 'get_essay_quota', 'start_essay_evaluation',
   'complete_essay_evaluation', 'fail_essay_evaluation',
   'essay_daily_evaluation_limit', 'essay_award_amount',
@@ -104,7 +116,7 @@ select 1, 'rpc: writing functions are security definer', case
         join pg_namespace n on n.oid = p.pronamespace
         where n.nspname = 'public' and p.prosecdef
           and p.proname in ('save_essay_draft', 'delete_essay_draft',
-                            'submit_essay', 'start_essay_evaluation',
+                            'submit_essay_draft', 'start_essay_evaluation',
                             'complete_essay_evaluation',
                             'fail_essay_evaluation')) = 6
   then 'ok' else 'at least one writing RPC is not security definer' end
@@ -214,5 +226,33 @@ union all
 select 2, 'data: submitted text is never empty', case
   when not exists (select 1 from essay_submissions where length(btrim(body)) = 0)
   then 'ok' else 'an empty essay was submitted' end
+
+union all
+select 2, 'data: no request id produced two submissions', case
+  when not exists (
+    select 1 from essay_submissions
+    where client_request_id is not null
+    group by user_id, client_request_id having count(*) > 1)
+  then 'ok' else 'a retry created a duplicate submission' end
+
+union all
+select 2, 'data: every submission belongs to a real user', case
+  when not exists (
+    select 1 from essay_submissions s
+    left join auth.users u on u.id = s.user_id
+    where u.id is null)
+  then 'ok' else 'a submission is orphaned' end
+
+union all
+select 2, 'data: no draft survived the submit that froze it', case
+  when not exists (
+    select 1 from essay_drafts d
+    join essay_submissions s
+      on s.user_id = d.user_id and s.theme_id = d.theme_id
+    where d.updated_at <= s.submitted_at)
+  then 'ok'
+  -- submit_essay_draft deletes the draft in the same transaction, so any
+  -- draft that exists must be newer than the last submission of its theme.
+  else 'a draft predates a submission of the same theme' end
 )
 select "check", result from checks order by ord, "check";

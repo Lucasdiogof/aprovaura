@@ -8,11 +8,14 @@ import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_theme.dart';
+import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/entities/essay_draft.dart';
+import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_editor_cubit.dart';
 import 'package:aura/features/essay/presentation/pages/essay_editor_page.dart';
+import 'package:aura/features/essay/presentation/pages/essay_submission_page.dart';
 
 import '../../../../helpers/pump_app.dart';
 
@@ -56,6 +59,33 @@ void main() {
     when(
       () => repository.deleteDraft(any()),
     ).thenAnswer((_) async => const Success(null));
+    when(
+      () => repository.submitDraft(
+        themeId: any(named: 'themeId'),
+        clientRequestId: any(named: 'clientRequestId'),
+      ),
+    ).thenAnswer(
+      (_) async => Success(
+        EssayAttempt(
+          id: 's1',
+          status: EssaySubmissionStatus.submitted,
+          wordCount: 2,
+          submittedAt: DateTime(2026, 9, 24),
+        ),
+      ),
+    );
+    when(() => repository.getSubmission('s1')).thenAnswer(
+      (_) async => Success(
+        EssaySubmission(
+          id: 's1',
+          themeTitle: _theme.title,
+          body: 'Texto enviado',
+          wordCount: 2,
+          status: EssaySubmissionStatus.submitted,
+          submittedAt: DateTime(2026, 9, 24),
+        ),
+      ),
+    );
   });
 
   group(EssayEditorPage, () {
@@ -334,6 +364,82 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(EssayEditorPage), findsNothing);
+    });
+
+    testWidgets('sending asks first and can be called off', (tester) async {
+      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Meu texto');
+      await _settleAutosave(tester);
+
+      await tester.tap(find.text('Enviar para correção'));
+      await tester.pumpAndSettle();
+      expect(find.text('Enviar redação para correção?'), findsOneWidget);
+
+      await tester.tap(find.text('Voltar e revisar'));
+      await tester.pumpAndSettle();
+
+      verifyNever(
+        () => repository.submitDraft(
+          themeId: any(named: 'themeId'),
+          clientRequestId: any(named: 'clientRequestId'),
+        ),
+      );
+      expect(find.text('Meu texto'), findsOneWidget);
+    });
+
+    testWidgets('confirming freezes the text and opens the attempt', (
+      tester,
+    ) async {
+      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Meu texto');
+      await _settleAutosave(tester);
+
+      await tester.tap(find.text('Enviar para correção'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Enviar redação'));
+      await tester.pumpAndSettle();
+
+      // The editor is replaced: going "back" into it would show text that
+      // is already frozen elsewhere.
+      expect(find.byType(EssayEditorPage), findsNothing);
+      expect(find.byType(EssaySubmissionPage), findsOneWidget);
+      expect(find.text('Aguardando correção'), findsOneWidget);
+    });
+
+    testWidgets('nothing written, nothing to send', (tester) async {
+      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpAndSettle();
+
+      final button = tester.widget<ElevatedButton>(
+        find.widgetWithText(ElevatedButton, 'Enviar para correção'),
+      );
+      expect(button.onPressed, isNull);
+    });
+
+    testWidgets('a failed submit keeps the text and says so', (tester) async {
+      when(
+        () => repository.submitDraft(
+          themeId: any(named: 'themeId'),
+          clientRequestId: any(named: 'clientRequestId'),
+        ),
+      ).thenAnswer((_) async => Error(ServerFailure()));
+
+      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Meu texto');
+      await _settleAutosave(tester);
+
+      await tester.tap(find.text('Enviar para correção'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Enviar redação'));
+      await tester.pumpAndSettle();
+
+      expect(find.textContaining('continua salvo aqui'), findsOneWidget);
+      await tester.tap(find.text('Entendi'));
+      await tester.pumpAndSettle();
+      expect(find.text('Meu texto'), findsOneWidget);
     });
 
     testWidgets('fits a 360px screen and renders on dark', (tester) async {

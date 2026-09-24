@@ -5,7 +5,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/entities/essay_draft.dart';
+import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_editor_cubit.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_editor_state.dart';
@@ -16,6 +18,13 @@ class _MockEssayRepository extends Mock implements EssayRepository {}
 /// asserting about what autosave did, not about timer slop.
 final _afterDebounce =
     EssayEditorCubit.debounce + const Duration(milliseconds: 300);
+
+final _attempt = EssayAttempt(
+  id: 's1',
+  status: EssaySubmissionStatus.submitted,
+  wordCount: 0,
+  submittedAt: DateTime(2026, 9, 24),
+);
 
 void main() {
   late EssayRepository repository;
@@ -28,6 +37,12 @@ void main() {
     when(
       () => repository.deleteDraft(any()),
     ).thenAnswer((_) async => const Success(null));
+    when(
+      () => repository.submitDraft(
+        themeId: any(named: 'themeId'),
+        clientRequestId: any(named: 'clientRequestId'),
+      ),
+    ).thenAnswer((_) async => Success(_attempt));
   });
 
   void stubDraft(EssayDraft? draft) {
@@ -275,6 +290,122 @@ void main() {
       gate.complete(const Success(null));
       expect(await first, isTrue);
       verify(() => repository.deleteDraft('t1')).called(1);
+      await cubit.close();
+    });
+  });
+
+  group('$EssayEditorCubit submit', () {
+    test('flushes the pending text before freezing it', () async {
+      stubDraft(EssayDraft(body: 'versão antiga', updatedAt: DateTime(2026)));
+      final cubit = EssayEditorCubit(repository, 't1');
+      await Future<void>.delayed(const Duration(milliseconds: 10));
+
+      cubit.textChanged('versão nova');
+      expect(await cubit.submit(), EssaySubmitOutcome.submitted);
+
+      // The save happens first: freezing an older version than what is on
+      // screen would be the worst possible outcome here.
+      verifyInOrder([
+        () => repository.saveDraft('t1', 'versão nova'),
+        () => repository.submitDraft(
+          themeId: 't1',
+          clientRequestId: any(named: 'clientRequestId'),
+        ),
+      ]);
+      await cubit.close();
+    });
+
+    test('a failed flush stops the submit entirely', () async {
+      stubDraft(EssayDraft(body: 'antigo', updatedAt: DateTime(2026)));
+      when(
+        () => repository.saveDraft(any(), any()),
+      ).thenAnswer((_) async => Error(ServerFailure()));
+
+      final cubit = EssayEditorCubit(repository, 't1');
+      await Future<void>.delayed(const Duration(milliseconds: 10));
+      cubit.textChanged('novo');
+
+      expect(await cubit.submit(), EssaySubmitOutcome.saveFailed);
+      verifyNever(
+        () => repository.submitDraft(
+          themeId: any(named: 'themeId'),
+          clientRequestId: any(named: 'clientRequestId'),
+        ),
+      );
+      await cubit.close();
+    });
+
+    test(
+      'two taps send one request id, so the server sees one attempt',
+      () async {
+        stubDraft(EssayDraft(body: 'texto', updatedAt: DateTime(2026)));
+        var generated = 0;
+        final cubit = EssayEditorCubit(
+          repository,
+          't1',
+          requestIdGenerator: () => 'req-${++generated}',
+        );
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+
+        final first = cubit.submit();
+        final second = cubit.submit();
+        await Future.wait([first, second]);
+
+        // The second tap is refused while the first is in flight, and any
+        // later retry reuses the same id -- the server recognises it.
+        verify(
+          () => repository.submitDraft(themeId: 't1', clientRequestId: 'req-1'),
+        ).called(1);
+        expect(generated, 1);
+        await cubit.close();
+      },
+    );
+
+    test('a retry after failure reuses the same request id', () async {
+      stubDraft(EssayDraft(body: 'texto', updatedAt: DateTime(2026)));
+      when(
+        () => repository.submitDraft(
+          themeId: any(named: 'themeId'),
+          clientRequestId: any(named: 'clientRequestId'),
+        ),
+      ).thenAnswer((_) async => Error(ServerFailure()));
+
+      final cubit = EssayEditorCubit(
+        repository,
+        't1',
+        requestIdGenerator: () => 'req-fixo',
+      );
+      await Future<void>.delayed(const Duration(milliseconds: 10));
+
+      expect(await cubit.submit(), EssaySubmitOutcome.submitFailed);
+      // The draft is untouched, so trying again is safe.
+      expect((cubit.state as EssayEditorReady).hasSavedDraft, isTrue);
+
+      when(
+        () => repository.submitDraft(
+          themeId: any(named: 'themeId'),
+          clientRequestId: any(named: 'clientRequestId'),
+        ),
+      ).thenAnswer((_) async => Success(_attempt));
+      expect(await cubit.submit(), EssaySubmitOutcome.submitted);
+
+      verify(
+        () =>
+            repository.submitDraft(themeId: 't1', clientRequestId: 'req-fixo'),
+      ).called(2);
+      await cubit.close();
+    });
+
+    test('after submitting there is no draft left to delete', () async {
+      stubDraft(EssayDraft(body: 'texto', updatedAt: DateTime(2026)));
+      final cubit = EssayEditorCubit(repository, 't1');
+      await Future<void>.delayed(const Duration(milliseconds: 10));
+
+      await cubit.submit();
+
+      final state = cubit.state as EssayEditorReady;
+      expect(state.hasSavedDraft, isFalse);
+      expect(cubit.submittedAttempt?.id, 's1');
       await cubit.close();
     });
   });

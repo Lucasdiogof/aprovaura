@@ -157,6 +157,19 @@ create table if not exists essay_submissions (
   evaluated_at timestamptz
 );
 
+-- Identifica a TENTATIVA DE ENVIO, não a redação: o app gera um uuid ao
+-- confirmar o envio e repete o mesmo em qualquer retry. É isto que faz
+-- dois toques, um timeout ou uma retentativa de rede criarem UMA
+-- submission -- garantia no banco, não botão desabilitado na tela.
+-- Nullable porque submissions criadas por outro caminho (SQL à mão) não
+-- têm request id; o índice único ignora essas.
+alter table essay_submissions
+  add column if not exists client_request_id uuid;
+
+create unique index if not exists essay_submissions_client_request_idx
+  on essay_submissions (user_id, client_request_id)
+  where client_request_id is not null;
+
 create index if not exists essay_submissions_user_theme_idx
   on essay_submissions (user_id, theme_id, submitted_at desc);
 
@@ -393,12 +406,29 @@ begin
 end;
 $$;
 
--- 3.2 Envio: congela o rascunho numa submission nova e limpa o rascunho.
--- Recusa texto curto demais aqui, antes de existir qualquer submission --
--- é a primeira das duas barreiras que impedem gastar chamada à toa.
+-- 3.2 Envio: congela o rascunho numa submission nova e apaga o rascunho,
+-- na MESMA transação. Ou as duas coisas acontecem, ou nenhuma -- nunca
+-- existe o estado ambíguo "submission criada, rascunho sobrevivendo".
+--
+-- O texto NÃO vem do cliente: sai do próprio essay_drafts. O que a tela
+-- mostra como salvo e o que vira submission são a mesma linha, então não
+-- há como divergirem.
+--
+-- IDEMPOTENTE por p_client_request_id: repetir a chamada com o mesmo id
+-- devolve a submission já criada, sem criar outra e sem tocar em nada.
+-- (Uma segunda chamada com id NOVO também não duplica: o rascunho já não
+-- existe, e a função recusa com 'no draft to submit'.)
+--
+-- Recusa texto vazio ou só espaços. Não inventa regra editorial de
+-- tamanho: o piso é o mínimo técnico da fase 2, que existe para não gastar
+-- chamada de IA com texto que não dá para corrigir.
 drop function if exists submit_essay(uuid);
-create or replace function submit_essay(p_theme_id uuid)
-returns uuid
+drop function if exists submit_essay_draft(uuid, uuid);
+create or replace function submit_essay_draft(
+  p_theme_id uuid,
+  p_client_request_id uuid
+)
+returns table (id uuid, submitted_at timestamptz, status text)
 language plpgsql
 security definer
 set search_path = public
@@ -412,29 +442,45 @@ begin
   if v_user_id is null then
     raise exception 'not authenticated';
   end if;
-
-  select d.body into v_body
-  from essay_drafts d
-  where d.user_id = v_user_id and d.theme_id = p_theme_id;
-
-  if v_body is null then
-    raise exception 'no draft to submit' using errcode = 'P0002';
+  if p_client_request_id is null then
+    raise exception 'missing request id' using errcode = 'P0008';
   end if;
 
-  v_words := essay_word_count(v_body);
-  if v_words < essay_min_word_count() then
-    raise exception 'text too short'
-      using errcode = 'P0003', detail = v_words::text;
+  -- Mesma tentativa de envio chegando de novo: devolve o que já existe.
+  select s.id into v_id
+  from essay_submissions s
+  where s.user_id = v_user_id and s.client_request_id = p_client_request_id;
+
+  if v_id is null then
+    select d.body into v_body
+    from essay_drafts d
+    where d.user_id = v_user_id and d.theme_id = p_theme_id
+    for update;
+
+    if v_body is null or length(btrim(v_body)) = 0 then
+      raise exception 'no draft to submit' using errcode = 'P0002';
+    end if;
+
+    v_words := essay_word_count(v_body);
+    if v_words < essay_min_word_count() then
+      raise exception 'text too short'
+        using errcode = 'P0003', detail = v_words::text;
+    end if;
+
+    insert into essay_submissions (
+      user_id, theme_id, body, word_count, client_request_id
+    )
+    values (v_user_id, p_theme_id, v_body, v_words, p_client_request_id)
+    returning essay_submissions.id into v_id;
+
+    delete from essay_drafts
+    where user_id = v_user_id and theme_id = p_theme_id;
   end if;
 
-  insert into essay_submissions (user_id, theme_id, body, word_count)
-  values (v_user_id, p_theme_id, v_body, v_words)
-  returning id into v_id;
-
-  delete from essay_drafts
-  where user_id = v_user_id and theme_id = p_theme_id;
-
-  return v_id;
+  return query
+  select s.id, s.submitted_at, s.status
+  from essay_submissions s
+  where s.id = v_id;
 end;
 $$;
 

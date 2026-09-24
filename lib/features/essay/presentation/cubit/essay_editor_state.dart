@@ -1,5 +1,18 @@
 import 'package:equatable/equatable.dart';
 
+/// How a submit ended, for the page to react without reading failures.
+enum EssaySubmitOutcome {
+  /// The attempt exists on the server.
+  submitted,
+
+  /// The pending text could not be saved, so nothing was submitted -- an
+  /// older version must never be frozen in place of what is on screen.
+  saveFailed,
+
+  /// The server refused or never answered. The draft is untouched.
+  submitFailed,
+}
+
 /// What the little line above the editor says.
 enum EssaySaveStatus {
   /// Nothing written since the last confirmed save.
@@ -40,6 +53,7 @@ class EssayEditorReady extends EssayEditorState {
     this.status = EssaySaveStatus.idle,
     this.hasSavedDraft = false,
     this.isDeleting = false,
+    this.isSubmitting = false,
   });
 
   /// Only what the editor starts with. The live text lives in the
@@ -53,18 +67,27 @@ class EssayEditorReady extends EssayEditorState {
   /// whether "apagar rascunho" is offered at all.
   final bool hasSavedDraft;
   final bool isDeleting;
+  final bool isSubmitting;
 
   EssayEditorReady copyWith({
     EssaySaveStatus? status,
     bool? hasSavedDraft,
     bool? isDeleting,
+    bool? isSubmitting,
   }) => EssayEditorReady(
     initialBody: initialBody,
     status: status ?? this.status,
     hasSavedDraft: hasSavedDraft ?? this.hasSavedDraft,
     isDeleting: isDeleting ?? this.isDeleting,
+    isSubmitting: isSubmitting ?? this.isSubmitting,
   );
 
   @override
-  List<Object?> get props => [initialBody, status, hasSavedDraft, isDeleting];
+  List<Object?> get props => [
+    initialBody,
+    status,
+    hasSavedDraft,
+    isDeleting,
+    isSubmitting,
+  ];
 }

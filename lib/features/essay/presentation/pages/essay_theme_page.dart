@@ -4,6 +4,7 @@ import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
+import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
@@ -11,6 +12,7 @@ import 'package:aura/features/essay/l10n/essay_strings.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_theme_cubit.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_theme_state.dart';
 import 'package:aura/features/essay/presentation/pages/essay_editor_page.dart';
+import 'package:aura/features/essay/presentation/widgets/essay_attempt_row.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_origin_badge.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_supporting_text_view.dart';
 import 'package:aura/shared/widgets/app_button.dart';
@@ -27,7 +29,13 @@ class EssayThemePage extends StatelessWidget {
   final EssayThemeSummary summary;
 
   String _ctaLabel(EssayStrings strings) {
-    if (summary.hasDraft) return strings.continueButton;
+    // A draft that came after an attempt is a new one being written, and
+    // saying so keeps it clear that the old attempt is untouched.
+    if (summary.hasDraft) {
+      return summary.hasBeenTried
+          ? strings.continueNewAttemptButton
+          : strings.continueButton;
+    }
     if (summary.hasBeenTried) return strings.newAttemptButton;
     return strings.startButton;
   }
@@ -51,9 +59,10 @@ class EssayThemePage extends StatelessWidget {
                     ),
                   ),
                   EssayThemeError() => _ErrorView(strings: t),
-                  EssayThemeLoaded(:final theme) => _ThemeView(
+                  EssayThemeLoaded(:final theme, :final attempts) => _ThemeView(
                     theme: theme,
                     summary: summary,
+                    attempts: attempts,
                     strings: t,
                     ctaLabel: _ctaLabel(t),
                   ),
@@ -71,12 +80,14 @@ class _ThemeView extends StatelessWidget {
   const _ThemeView({
     required this.theme,
     required this.summary,
+    required this.attempts,
     required this.strings,
     required this.ctaLabel,
   });
 
   final EssayTheme theme;
   final EssayThemeSummary summary;
+  final List<EssayAttempt> attempts;
   final EssayStrings strings;
   final String ctaLabel;
 
@@ -109,9 +120,13 @@ class _ThemeView extends StatelessWidget {
             style: TextStyle(color: colors.textSecondary, height: 1.45),
           ),
         ],
-        if (summary.hasBeenTried) ...[
-          const SizedBox(height: AppSpacing.lg),
-          _AttemptSummary(summary: summary, strings: strings),
+        if (attempts.isNotEmpty) ...[
+          const SizedBox(height: AppSpacing.xl),
+          _SectionHeading(label: strings.attemptsHeading),
+          for (final attempt in attempts) ...[
+            const SizedBox(height: AppSpacing.sm),
+            EssayAttemptRow(attempt: attempt, strings: strings),
+          ],
         ],
         const SizedBox(height: AppSpacing.xl),
         _SectionHeading(label: strings.proposalHeading),
@@ -161,71 +176,6 @@ class _SectionHeading extends StatelessWidget {
         letterSpacing: 0.8,
         color: context.colors.textSecondary,
       ),
-    );
-  }
-}
-
-/// Last score and attempt count, kept deliberately small -- the full
-/// history is its own screen, in a later phase.
-class _AttemptSummary extends StatelessWidget {
-  const _AttemptSummary({required this.summary, required this.strings});
-
-  final EssayThemeSummary summary;
-  final EssayStrings strings;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    return Row(
-      children: [
-        if (summary.lastScore case final score?) ...[
-          _Stat(label: strings.lastScoreLabel, value: '$score'),
-          const SizedBox(width: AppSpacing.xl),
-        ],
-        _Stat(
-          label: strings.attemptsLabel,
-          value: '${summary.attemptCount}',
-          muted: true,
-          color: colors.textSecondary,
-        ),
-      ],
-    );
-  }
-}
-
-class _Stat extends StatelessWidget {
-  const _Stat({
-    required this.label,
-    required this.value,
-    this.muted = false,
-    this.color,
-  });
-
-  final String label;
-  final String value;
-  final bool muted;
-  final Color? color;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: TextStyle(fontSize: 11.5, color: colors.textSecondary),
-        ),
-        const SizedBox(height: 2),
-        Text(
-          value,
-          style: TextStyle(
-            fontSize: muted ? 16 : 20,
-            fontWeight: FontWeight.w800,
-            color: color ?? colors.primary,
-          ),
-        ),
-      ],
     );
   }
 }

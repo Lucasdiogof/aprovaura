@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/utils/id_generator.dart';
+import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_editor_state.dart';
 
@@ -24,13 +26,19 @@ import 'package:aura/features/essay/presentation/cubit/essay_editor_state.dart';
 /// editing the same draft overwrite each other and nothing is merged.
 /// Merging prose automatically would invent text the person never wrote.
 class EssayEditorCubit extends Cubit<EssayEditorState> {
-  EssayEditorCubit(this._repository, this.themeId)
-    : super(const EssayEditorLoading()) {
+  EssayEditorCubit(
+    this._repository,
+    this.themeId, {
+    this.requestIdGenerator = generateAttemptId,
+  }) : super(const EssayEditorLoading()) {
     load();
   }
 
   final EssayRepository _repository;
   final String themeId;
+
+  /// Injectable so a test can pin the id this screen will send.
+  final String Function() requestIdGenerator;
 
   /// Long enough that a normal typing rhythm produces one save per pause,
   /// short enough that stopping to think already persists.
@@ -45,6 +53,19 @@ class EssayEditorCubit extends Cubit<EssayEditorState> {
   String _persistedBody = '';
 
   bool _inFlight = false;
+
+  /// Identifies this attempt to submit. Generated once and kept: a retry
+  /// after a timeout carries the same id, so the server recognises it as
+  /// the same attempt instead of creating a second one.
+  String? _requestId;
+
+  /// Guards [submit] synchronously. The flag in the state is for the UI and
+  /// is only set after the flush awaits -- two taps in the same frame would
+  /// both get past a check that depended on it.
+  bool _submitting = false;
+
+  /// The attempt this editor produced, once it has been sent.
+  EssayAttempt? submittedAttempt;
 
   /// True while a change is typed but not yet confirmed by the server.
   bool get hasUnsavedChanges => _pendingBody != _persistedBody;
@@ -115,6 +136,56 @@ class EssayEditorCubit extends Cubit<EssayEditorState> {
       case Error():
         // The text stays in the editor. Only the status changes.
         _setStatus(EssaySaveStatus.failed);
+    }
+  }
+
+  /// Sends the essay for marking.
+  ///
+  /// Order matters: whatever is on screen is flushed FIRST, and a failed
+  /// flush aborts the whole thing -- freezing an older version than the one
+  /// the person is looking at would be the worst possible outcome here.
+  ///
+  /// Creating the submission consumes no evaluation quota and starts no
+  /// marking: it only freezes the text.
+  Future<EssaySubmitOutcome> submit() async {
+    if (state is! EssayEditorReady || _submitting) {
+      return EssaySubmitOutcome.submitFailed;
+    }
+    _submitting = true;
+    try {
+      if (!await saveNow()) return EssaySubmitOutcome.saveFailed;
+      if (isClosed) return EssaySubmitOutcome.submitFailed;
+
+      emit((state as EssayEditorReady).copyWith(isSubmitting: true));
+      // Generated once and kept: a retry after a timeout carries the same
+      // id, so the server recognises the attempt instead of creating two.
+      final requestId = _requestId ??= requestIdGenerator();
+      final result = await _repository.submitDraft(
+        themeId: themeId,
+        clientRequestId: requestId,
+      );
+      if (isClosed) return EssaySubmitOutcome.submitFailed;
+
+      switch (result) {
+        case Success(:final data):
+          submittedAttempt = data;
+          _pendingBody = '';
+          _persistedBody = '';
+          emit(
+            (state as EssayEditorReady).copyWith(
+              isSubmitting: false,
+              hasSavedDraft: false,
+            ),
+          );
+          return EssaySubmitOutcome.submitted;
+        case Error():
+          // The draft is still there: the server only deletes it inside
+          // the same transaction that creates the submission.
+          emit((state as EssayEditorReady).copyWith(isSubmitting: false));
+          return EssaySubmitOutcome.submitFailed;
+      }
+    } finally {
+      _submitting = false;
     }
   }
 

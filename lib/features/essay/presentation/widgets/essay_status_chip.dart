@@ -24,23 +24,33 @@ class EssayStatusChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
 
-    if (summary.lastScore != null) {
-      return _Chip(
-        label: '${summary.lastScore}',
-        foreground: colors.primary,
-        emphasized: true,
-      );
-    }
-    if (summary.lastStatus?.isInProgress ?? false) {
-      return _Chip(
-        label: strings.evaluatingBadge,
-        foreground: colors.textSecondary,
-      );
-    }
+    // A draft outranks everything: it is the thing the person can act on
+    // right now. Only then does the last attempt get to speak.
     if (summary.hasDraft) {
       return _Chip(label: strings.draftBadge, foreground: colors.warning);
     }
-    return const SizedBox.shrink();
+    return switch (summary.lastStatus) {
+      EssaySubmissionStatus.evaluated when summary.lastScore != null => _Chip(
+        label: '${summary.lastScore}',
+        foreground: colors.primary,
+        emphasized: true,
+      ),
+      EssaySubmissionStatus.submitted => _Chip(
+        label: strings.statusSubmittedShort,
+        foreground: colors.textSecondary,
+      ),
+      EssaySubmissionStatus.evaluating => _Chip(
+        label: strings.evaluatingBadge,
+        foreground: colors.textSecondary,
+      ),
+      EssaySubmissionStatus.failed => _Chip(
+        label: strings.statusFailedShort,
+        foreground: colors.error,
+      ),
+      // Marked but with no score stored is not a state the server can
+      // produce; showing nothing beats inventing a number.
+      _ => const SizedBox.shrink(),
+    };
   }
 }
 

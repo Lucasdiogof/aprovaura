@@ -209,4 +209,117 @@ class EssayStrings {
       'Não conseguimos abrir sua redação agora. Tente de novo.',
     AppLanguage.english => "We couldn't open your essay now. Try again.",
   };
+
+  String get submitAction => switch (language) {
+    AppLanguage.portuguese => 'Enviar para correção',
+    AppLanguage.english => 'Send for marking',
+  };
+
+  String get submitConfirmTitle => switch (language) {
+    AppLanguage.portuguese => 'Enviar redação para correção?',
+    AppLanguage.english => 'Send this essay for marking?',
+  };
+
+  String get submitConfirmDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Depois de enviada, esta versão da redação não poderá mais ser '
+          'alterada. Você pode escrever uma nova tentativa depois.',
+    AppLanguage.english =>
+      'Once sent, this version cannot be changed. You can write another '
+          'attempt later.',
+  };
+
+  String get submitConfirmAction => switch (language) {
+    AppLanguage.portuguese => 'Enviar redação',
+    AppLanguage.english => 'Send essay',
+  };
+
+  String get submitReviewAction => switch (language) {
+    AppLanguage.portuguese => 'Voltar e revisar',
+    AppLanguage.english => 'Back to review',
+  };
+
+  String get submitFailed => switch (language) {
+    AppLanguage.portuguese =>
+      'Não conseguimos enviar sua redação. Seu texto continua salvo aqui.',
+    AppLanguage.english =>
+      "We couldn't send your essay. Your text is still saved here.",
+  };
+
+  String get submitSaveFailed => switch (language) {
+    AppLanguage.portuguese =>
+      'Não conseguimos salvar a última versão do seu texto, então não '
+          'enviamos nada. Tente de novo.',
+    AppLanguage.english =>
+      "We couldn't save your latest text, so nothing was sent. Try again.",
+  };
+
+  String get submittedTitle => switch (language) {
+    AppLanguage.portuguese => 'Redação enviada',
+    AppLanguage.english => 'Essay sent',
+  };
+
+  /// Status of an attempt nobody has started marking yet. Deliberately not
+  /// "corrigindo": no evaluation has begun.
+  String get statusSubmitted => switch (language) {
+    AppLanguage.portuguese => 'Aguardando correção',
+    AppLanguage.english => 'Waiting for marking',
+  };
+
+  String get statusEvaluating => switch (language) {
+    AppLanguage.portuguese => 'Corrigindo',
+    AppLanguage.english => 'Marking',
+  };
+
+  String get statusEvaluated => switch (language) {
+    AppLanguage.portuguese => 'Corrigida',
+    AppLanguage.english => 'Marked',
+  };
+
+  String get statusFailed => switch (language) {
+    AppLanguage.portuguese => 'Não foi possível concluir a correção.',
+    AppLanguage.english => "We couldn't finish the marking.",
+  };
+
+  /// Short form of the failed status, for the theme card.
+  String get statusFailedShort => switch (language) {
+    AppLanguage.portuguese => 'Correção pendente',
+    AppLanguage.english => 'Marking pending',
+  };
+
+  String get statusSubmittedShort => switch (language) {
+    AppLanguage.portuguese => 'Enviada',
+    AppLanguage.english => 'Sent',
+  };
+
+  String get attemptsHeading => switch (language) {
+    AppLanguage.portuguese => 'Tentativas',
+    AppLanguage.english => 'Attempts',
+  };
+
+  String scorePoints(int score) => switch (language) {
+    AppLanguage.portuguese => '$score pontos',
+    AppLanguage.english => '$score points',
+  };
+
+  String get submittedTextHeading => switch (language) {
+    AppLanguage.portuguese => 'Texto enviado',
+    AppLanguage.english => 'Text sent',
+  };
+
+  String get scoreLabel => switch (language) {
+    AppLanguage.portuguese => 'Nota',
+    AppLanguage.english => 'Score',
+  };
+
+  String get continueNewAttemptButton => switch (language) {
+    AppLanguage.portuguese => 'Continuar nova redação',
+    AppLanguage.english => 'Continue the new one',
+  };
+
+  String get submissionLoadFailed => switch (language) {
+    AppLanguage.portuguese =>
+      'Não conseguimos abrir esta tentativa agora. Tente de novo.',
+    AppLanguage.english => "We couldn't open this attempt now. Try again.",
+  };
 }

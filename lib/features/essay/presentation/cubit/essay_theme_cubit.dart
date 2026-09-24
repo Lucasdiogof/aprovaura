@@ -14,11 +14,27 @@ class EssayThemeCubit extends Cubit<EssayThemeState> {
 
   Future<void> load() async {
     emit(const EssayThemeLoading());
-    final result = await _repository.getTheme(themeId);
+    // Both at once: the proposal and the history are independent, and
+    // asking in sequence would just double the wait.
+    final (themeResult, attemptsResult) = await (
+      _repository.getTheme(themeId),
+      _repository.listAttempts(themeId),
+    ).wait;
     if (isClosed) return;
-    switch (result) {
+
+    switch (themeResult) {
       case Success(:final data):
-        emit(EssayThemeLoaded(data));
+        emit(
+          EssayThemeLoaded(
+            data,
+            // A history that fails to load is not worth blocking the
+            // proposal for: the page still does its main job.
+            attempts: switch (attemptsResult) {
+              Success(data: final attempts) => attempts,
+              Error() => const [],
+            },
+          ),
+        );
       case Error():
         emit(const EssayThemeError());
     }

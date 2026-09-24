@@ -1,4 +1,5 @@
 import 'package:aura/core/error/result.dart';
+import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/entities/essay_draft.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
@@ -27,4 +28,23 @@ abstract class EssayRepository {
   /// Deletes the draft. Never touches submissions: a previously graded
   /// attempt survives throwing away a new draft.
   Future<Result<void>> deleteDraft(String themeId);
+
+  /// Freezes the saved draft into a submission and deletes the draft, in
+  /// one transaction on the server. The text is not sent again: it is read
+  /// from the draft, so what the screen showed as saved is exactly what
+  /// becomes the attempt.
+  ///
+  /// [clientRequestId] identifies this attempt to submit, not the essay:
+  /// repeating the call with the same id returns the submission already
+  /// created instead of making another one.
+  Future<Result<EssayAttempt>> submitDraft({
+    required String themeId,
+    required String clientRequestId,
+  });
+
+  /// Every attempt at a theme, newest first.
+  Future<Result<List<EssayAttempt>>> listAttempts(String themeId);
+
+  /// One attempt in full, including the text exactly as it was sent.
+  Future<Result<EssaySubmission>> getSubmission(String submissionId);
 }

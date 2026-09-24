@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
 
 sealed class EssayThemeState extends Equatable {
@@ -17,10 +18,14 @@ class EssayThemeError extends EssayThemeState {
 }
 
 class EssayThemeLoaded extends EssayThemeState {
-  const EssayThemeLoaded(this.theme);
+  const EssayThemeLoaded(this.theme, {this.attempts = const []});
 
   final EssayTheme theme;
 
+  /// Newest first, straight from the server -- the history is never kept
+  /// only in the app, so closing it or changing device loses nothing.
+  final List<EssayAttempt> attempts;
+
   @override
-  List<Object?> get props => [theme];
+  List<Object?> get props => [theme, attempts];
 }
