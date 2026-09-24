@@ -4,6 +4,7 @@ import 'package:aura/core/error/result.dart';
 import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/essay_failure.dart';
 import 'package:aura/features/essay/domain/entities/essay_draft.dart';
+import 'package:aura/features/essay/domain/entities/essay_evaluation.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
@@ -166,6 +167,7 @@ class EssayRepositoryImpl implements EssayRepository {
       return Success(
         EssaySubmission(
           id: row['id'] as String,
+          themeId: row['theme_id'] as String? ?? '',
           themeTitle: row['theme_title'] as String? ?? '',
           body: row['body'] as String? ?? '',
           wordCount: row['word_count'] as int? ?? 0,
@@ -175,6 +177,7 @@ class EssayRepositoryImpl implements EssayRepository {
           submittedAt: DateTime.parse(row['submitted_at'] as String),
           totalScore: row['total_score'] as int?,
           evaluatedAt: _dateOrNull(row['evaluated_at']),
+          evaluation: _evaluationFromJson(row),
         ),
       );
     } on PostgrestException {
@@ -214,6 +217,60 @@ class EssayRepositoryImpl implements EssayRepository {
 
   String? _reasonOf(Object? data) =>
       data is Map && data['reason'] is String ? data['reason'] as String : null;
+
+  /// Null until the marking finished: get_essay_submission left-joins the
+  /// evaluation, so every column of it comes back null while the attempt
+  /// is still waiting.
+  EssayEvaluation? _evaluationFromJson(Map<String, dynamic> row) {
+    final total = row['total_score'] as int?;
+    if (total == null) return null;
+    return EssayEvaluation(
+      totalScore: total,
+      competencies: _competencies(row),
+      generalFeedback: row['general_feedback'] as String? ?? '',
+      strengths: _strings(row['strengths']),
+      priorityImprovements: _strings(row['priority_improvements']),
+      possibleThemeDeviation: row['possible_theme_deviation'] as bool? ?? false,
+      insufficientText: row['insufficient_text'] as bool? ?? false,
+    );
+  }
+
+  List<EssayCompetency> _competencies(Map<String, dynamic> row) {
+    final raw = row['competencies'];
+    if (raw is List && raw.isNotEmpty) {
+      final parsed = raw
+          .whereType<Map<String, dynamic>>()
+          .map(
+            (e) => EssayCompetency(
+              key: e['competency'] as String? ?? '',
+              title: e['title'] as String? ?? '',
+              score: (e['score'] as num?)?.toInt() ?? 0,
+              summary: e['summary'] as String? ?? '',
+              strengths: _strings(e['strengths']),
+              improvements: _strings(e['improvements']),
+              evidence: _strings(e['evidence']),
+            ),
+          )
+          .where((e) => e.key.isNotEmpty)
+          .toList(growable: false);
+      if (parsed.isNotEmpty) return parsed;
+    }
+    // Falls back to the five score columns, which are never null on a
+    // finished marking: better a scoreboard with no commentary than an
+    // empty screen.
+    return [
+      for (var i = 1; i <= 5; i++)
+        EssayCompetency(
+          key: 'c$i',
+          title: '',
+          score: row['c${i}_score'] as int? ?? 0,
+        ),
+    ];
+  }
+
+  List<String> _strings(Object? value) => value is List
+      ? value.whereType<String>().toList(growable: false)
+      : const [];
 
   EssayAttempt _attemptFromJson(Map<String, dynamic> json) => EssayAttempt(
     id: json['id'] as String,

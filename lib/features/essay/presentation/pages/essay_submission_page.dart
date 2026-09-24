@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/di/injection_container.dart';
+import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
@@ -10,7 +11,11 @@ import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
 import 'package:aura/features/essay/l10n/essay_strings.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_submission_cubit.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_submission_state.dart';
+import 'package:aura/features/essay/domain/entities/essay_theme.dart';
+import 'package:aura/features/essay/presentation/pages/essay_editor_page.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_attempt_status_label.dart';
+import 'package:aura/features/essay/presentation/widgets/essay_result_view.dart';
+import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
@@ -127,9 +132,9 @@ class _SubmissionView extends StatelessWidget {
           strings: strings,
           expanded: true,
         ),
-        if (submission.totalScore case final score?) ...[
+        if (submission.evaluation case final evaluation?) ...[
           const SizedBox(height: AppSpacing.lg),
-          _Score(score: score, strings: strings),
+          EssayResultView(evaluation: evaluation, strings: strings),
         ],
         if (submission.status.isInProgress || isRequesting) ...[
           const SizedBox(height: AppSpacing.md),
@@ -184,6 +189,12 @@ class _SubmissionView extends StatelessWidget {
           strings.wordCount(submission.wordCount),
           style: TextStyle(fontSize: 12, color: colors.textSecondary),
         ),
+        if (submission.status == EssaySubmissionStatus.evaluated) ...[
+          const SizedBox(height: AppSpacing.xxl),
+          // The attempt is frozen; the way forward is another one, which
+          // never touches this one.
+          _WriteAnotherButton(themeId: submission.themeId, strings: strings),
+        ],
       ],
     );
   }
@@ -249,31 +260,48 @@ class _FailureNote extends StatelessWidget {
   }
 }
 
-class _Score extends StatelessWidget {
-  const _Score({required this.score, required this.strings});
+/// Opens the editor for the same proposal. The theme has to be fetched
+/// first because a submission only carries its id -- one call, and then
+/// straight into writing.
+class _WriteAnotherButton extends StatefulWidget {
+  const _WriteAnotherButton({required this.themeId, required this.strings});
 
-  final int score;
+  final String themeId;
   final EssayStrings strings;
 
   @override
+  State<_WriteAnotherButton> createState() => _WriteAnotherButtonState();
+}
+
+class _WriteAnotherButtonState extends State<_WriteAnotherButton> {
+  bool _loading = false;
+
+  Future<void> _open() async {
+    if (_loading) return;
+    setState(() => _loading = true);
+    final result = await sl<EssayRepository>().getTheme(widget.themeId);
+    if (!mounted) return;
+    setState(() => _loading = false);
+
+    switch (result) {
+      case Success(:final EssayTheme data):
+        await Navigator.of(context).push(
+          MaterialPageRoute<void>(builder: (_) => EssayEditorPage(theme: data)),
+        );
+      case Error():
+        await AppInfoBottomSheet.showError(
+          context,
+          description: widget.strings.themeLoadFailed,
+        );
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          strings.scoreLabel,
-          style: TextStyle(fontSize: 12, color: colors.textSecondary),
-        ),
-        Text(
-          '$score',
-          style: TextStyle(
-            fontSize: 34,
-            fontWeight: FontWeight.w800,
-            color: colors.primary,
-          ),
-        ),
-      ],
+    return AppButton(
+      label: widget.strings.writeAnotherAction,
+      isLoading: _loading,
+      onPressed: _open,
     );
   }
 }

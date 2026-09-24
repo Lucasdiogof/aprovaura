@@ -376,4 +376,94 @@ class EssayStrings {
     AppLanguage.english =>
       'Automatic marking is not available yet. Your text is saved.',
   };
+
+  /// Always next to the score. The marking is a study aid, not the ENEM.
+  String get estimatedScoreLabel => switch (language) {
+    AppLanguage.portuguese => 'Nota estimada',
+    AppLanguage.english => 'Estimated score',
+  };
+
+  String get estimatedScoreNote => switch (language) {
+    AppLanguage.portuguese =>
+      'Estimativa de treino, feita por IA. Não é a nota oficial do ENEM.',
+    AppLanguage.english =>
+      'A practice estimate, produced by AI. Not an official ENEM score.',
+  };
+
+  String outOf(int max) => switch (language) {
+    AppLanguage.portuguese => 'de $max',
+    AppLanguage.english => 'of $max',
+  };
+
+  String get competenciesHeading => switch (language) {
+    AppLanguage.portuguese => 'Competências',
+    AppLanguage.english => 'Competencies',
+  };
+
+  String competencyLabel(String key) {
+    final number = key.replaceAll(RegExp('[^0-9]'), '');
+    return switch (language) {
+      AppLanguage.portuguese => 'Competência $number',
+      AppLanguage.english => 'Competency $number',
+    };
+  }
+
+  String get whatWentWellHeading => switch (language) {
+    AppLanguage.portuguese => 'O que funcionou',
+    AppLanguage.english => 'What worked',
+  };
+
+  String get whatToImproveHeading => switch (language) {
+    AppLanguage.portuguese => 'O que melhorar',
+    AppLanguage.english => 'What to improve',
+  };
+
+  String get evidenceHeading => switch (language) {
+    AppLanguage.portuguese => 'No seu texto',
+    AppLanguage.english => 'In your text',
+  };
+
+  String get generalFeedbackHeading => switch (language) {
+    AppLanguage.portuguese => 'Comentário geral',
+    AppLanguage.english => 'Overall comment',
+  };
+
+  String get strengthsHeading => switch (language) {
+    AppLanguage.portuguese => 'Pontos fortes',
+    AppLanguage.english => 'Strengths',
+  };
+
+  String get priorityHeading => switch (language) {
+    AppLanguage.portuguese => 'Comece por aqui',
+    AppLanguage.english => 'Start here',
+  };
+
+  String get themeDeviationWarning => switch (language) {
+    AppLanguage.portuguese =>
+      'A correção achou que o texto pode ter fugido do tema proposto. Vale '
+          'reler a proposta antes da próxima tentativa.',
+    AppLanguage.english =>
+      'The marking suspects the text may have strayed from the proposal. '
+          'Worth rereading it before the next attempt.',
+  };
+
+  String get insufficientTextWarning => switch (language) {
+    AppLanguage.portuguese =>
+      'O texto ficou curto demais para uma avaliação completa. Uma redação '
+          'mais desenvolvida recebe uma correção mais útil.',
+    AppLanguage.english =>
+      'The text was too short for a full assessment. A longer essay gets a '
+          'more useful marking.',
+  };
+
+  String get writeAnotherAction => switch (language) {
+    AppLanguage.portuguese => 'Fazer nova redação',
+    AppLanguage.english => 'Write another one',
+  };
+
+  String get themeLoadFailed => switch (language) {
+    AppLanguage.portuguese =>
+      'Não conseguimos abrir a proposta agora. Tente de novo.',
+    AppLanguage.english => "We couldn't open the proposal now. Try again.",
+  };
 }

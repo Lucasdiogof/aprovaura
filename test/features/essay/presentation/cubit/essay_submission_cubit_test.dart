@@ -13,6 +13,7 @@ class _MockEssayRepository extends Mock implements EssayRepository {}
 EssaySubmission _submission(EssaySubmissionStatus status, {int? score}) =>
     EssaySubmission(
       id: 's1',
+      themeId: 't1',
       themeTitle: 'Tema',
       body: 'Texto da redação.',
       wordCount: 3,

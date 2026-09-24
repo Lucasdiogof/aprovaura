@@ -82,6 +82,7 @@ void main() {
       (_) async => Success(
         EssaySubmission(
           id: 's1',
+          themeId: _theme.id,
           themeTitle: _theme.title,
           body: 'Texto enviado',
           wordCount: 2,

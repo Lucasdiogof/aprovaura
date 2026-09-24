@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:aura/features/essay/domain/entities/essay_evaluation.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
 
 /// One attempt in a theme's history: what was sent, when, and where its
@@ -68,6 +69,7 @@ enum EssayEvaluationFailure {
 class EssaySubmission extends Equatable {
   const EssaySubmission({
     required this.id,
+    required this.themeId,
     required this.themeTitle,
     required this.body,
     required this.wordCount,
@@ -75,9 +77,14 @@ class EssaySubmission extends Equatable {
     required this.submittedAt,
     this.totalScore,
     this.evaluatedAt,
+    this.evaluation,
   });
 
   final String id;
+
+  /// Kept so a finished attempt can offer to write another one for the
+  /// same proposal.
+  final String themeId;
   final String themeTitle;
   final String body;
   final int wordCount;
@@ -86,9 +93,14 @@ class EssaySubmission extends Equatable {
   final int? totalScore;
   final DateTime? evaluatedAt;
 
+  /// Present only once the marking finished. While it is null there is
+  /// nothing to show but the status -- no empty competency blocks.
+  final EssayEvaluation? evaluation;
+
   @override
   List<Object?> get props => [
     id,
+    themeId,
     themeTitle,
     body,
     wordCount,
@@ -96,5 +108,6 @@ class EssaySubmission extends Equatable {
     submittedAt,
     totalScore,
     evaluatedAt,
+    evaluation,
   ];
 }

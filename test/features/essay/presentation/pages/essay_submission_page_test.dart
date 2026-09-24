@@ -10,6 +10,7 @@ import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_theme.dart';
 import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
+import 'package:aura/features/essay/domain/entities/essay_evaluation.dart';
 import 'package:aura/features/essay/domain/essay_failure.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
 import 'package:aura/features/essay/presentation/pages/essay_submission_page.dart';
@@ -21,8 +22,10 @@ class _MockEssayRepository extends Mock implements EssayRepository {}
 EssaySubmission _submission({
   required EssaySubmissionStatus status,
   int? totalScore,
+  EssayEvaluation? evaluation,
 }) => EssaySubmission(
   id: 's1',
+  themeId: 't1',
   themeTitle: 'Desinformação e o direito de saber',
   body: 'O primeiro parágrafo da redação enviada.',
   wordCount: 6,
@@ -30,6 +33,23 @@ EssaySubmission _submission({
   submittedAt: DateTime(2026, 9, 24),
   totalScore: totalScore,
   evaluatedAt: totalScore == null ? null : DateTime(2026, 9, 24),
+  evaluation: evaluation,
+);
+
+EssayEvaluation _evaluation(int total) => EssayEvaluation(
+  totalScore: total,
+  competencies: [
+    for (var i = 1; i <= 5; i++)
+      EssayCompetency(
+        key: 'c$i',
+        title: 'Título da competência $i',
+        score: total ~/ 5,
+        summary: 'Resumo da competência $i.',
+      ),
+  ],
+  generalFeedback: 'Comentário geral da correção.',
+  strengths: const ['Um ponto forte'],
+  priorityImprovements: const ['Uma prioridade'],
 );
 
 void main() {
@@ -46,7 +66,13 @@ void main() {
 
   void stub(EssaySubmissionStatus status, {int? totalScore}) {
     when(() => repository.getSubmission('s1')).thenAnswer(
-      (_) async => Success(_submission(status: status, totalScore: totalScore)),
+      (_) async => Success(
+        _submission(
+          status: status,
+          totalScore: totalScore,
+          evaluation: totalScore == null ? null : _evaluation(totalScore),
+        ),
+      ),
     );
   }
 
@@ -157,10 +183,58 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Corrigida'), findsOneWidget);
-      expect(find.text('Nota'), findsOneWidget);
+      expect(find.text('Nota estimada'), findsOneWidget);
       expect(find.text('920'), findsOneWidget);
       expect(find.text('Tentar corrigir de novo'), findsNothing);
       verifyNever(() => repository.requestEvaluation(any()));
+    });
+
+    testWidgets('a marked attempt shows the whole correction', (tester) async {
+      stub(EssaySubmissionStatus.evaluated, totalScore: 900);
+      await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('COMPETÊNCIAS'), findsOneWidget);
+      expect(find.text('Competência 1'), findsOneWidget);
+      expect(find.text('Comentário geral da correção.'), findsOneWidget);
+      expect(find.text('Um ponto forte'), findsOneWidget);
+      expect(find.text('Uma prioridade'), findsOneWidget);
+    });
+
+    testWidgets('a waiting attempt shows no competency blocks at all', (
+      tester,
+    ) async {
+      stub(EssaySubmissionStatus.evaluating);
+      await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
+      await tester.pump();
+
+      // Empty scaffolding for a result that does not exist yet would be
+      // worse than showing only the status.
+      expect(find.text('COMPETÊNCIAS'), findsNothing);
+      expect(find.text('Nota estimada'), findsNothing);
+    });
+
+    testWidgets('a marked attempt offers another go at the same theme', (
+      tester,
+    ) async {
+      stub(EssaySubmissionStatus.evaluated, totalScore: 900);
+      when(
+        () => repository.getTheme('t1'),
+      ).thenAnswer((_) async => Error(ServerFailure()));
+      await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
+      await tester.pumpAndSettle();
+
+      await tester.scrollUntilVisible(find.text('Fazer nova redação'), 300);
+      await tester.tap(find.text('Fazer nova redação'));
+      await tester.pumpAndSettle();
+
+      // It asks for the proposal before opening the editor -- here that
+      // fails, and the attempt stays exactly where it was.
+      verify(() => repository.getTheme('t1')).called(1);
+      expect(
+        find.textContaining('Não conseguimos abrir a proposta'),
+        findsOneWidget,
+      );
     });
 
     testWidgets('a failed marking says what happened, in full', (tester) async {
