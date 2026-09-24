@@ -64,7 +64,16 @@ select 'unique partial index: one in_progress mock exam per user', case
   ) then 'ok' else 'MISSING -- run mock_exams.sql' end
 
 union all
-select 'all 8 mock exam RPCs exist (one signature each)', case
+select 'column: mock_exams.current_item_position exists', case
+  when exists (
+    select 1 from information_schema.columns
+    where table_schema = 'public'
+      and table_name = 'mock_exams'
+      and column_name = 'current_item_position'
+  ) then 'ok' else 'MISSING -- run mock_exams.sql again' end
+
+union all
+select 'all 9 mock exam RPCs exist (one signature each)', case
   when (
     select count(*) from pg_proc
     where pronamespace = 'public'::regnamespace
@@ -72,9 +81,10 @@ select 'all 8 mock exam RPCs exist (one signature each)', case
         'get_mock_exam_availability', 'create_mock_exam',
         'get_active_mock_exam', 'get_mock_exam_items',
         'answer_mock_exam_item', 'finish_mock_exam',
-        'abandon_mock_exam', 'get_mock_exam_result'
+        'abandon_mock_exam', 'get_mock_exam_result',
+        'set_mock_exam_position'
       )
-  ) = 8 then 'ok' else 'MISSING or DUPLICATED -- run mock_exams.sql' end
+  ) = 9 then 'ok' else 'MISSING or DUPLICATED -- run mock_exams.sql' end
 
 union all
 select 'write RPCs are security definer', case
@@ -83,10 +93,10 @@ select 'write RPCs are security definer', case
     where pronamespace = 'public'::regnamespace
       and proname in (
         'create_mock_exam', 'answer_mock_exam_item',
-        'finish_mock_exam', 'abandon_mock_exam'
+        'finish_mock_exam', 'abandon_mock_exam', 'set_mock_exam_position'
       )
       and prosecdef
-  ) = 4 then 'ok' else 'NOT security definer -- run mock_exams.sql' end
+  ) = 5 then 'ok' else 'NOT security definer -- run mock_exams.sql' end
 
 union all
 select 'get_daily_question_count() also counts mock exam answers', case

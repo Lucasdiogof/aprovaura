@@ -8,12 +8,15 @@ class ModernAppBar extends StatelessWidget {
     this.subtitle,
     this.showBackButton = false,
     this.onBack,
+    this.trailing,
   });
 
   final String title;
   final String? subtitle;
   final bool showBackButton;
   final VoidCallback? onBack;
+  // Optional action at the far right (e.g. an overflow menu).
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -75,6 +78,7 @@ class ModernAppBar extends StatelessWidget {
                 ],
               ),
             ),
+            ?trailing,
           ],
         ),
       ),

@@ -3,9 +3,12 @@ import 'package:aura/core/error/result.dart';
 import 'package:aura/features/mock_exam/domain/entities/active_mock_exam.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_availability.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_difficulty.dart';
+import 'package:aura/features/mock_exam/domain/entities/mock_exam_item.dart';
+import 'package:aura/features/mock_exam/domain/entities/mock_exam_score.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_subject_config.dart';
 import 'package:aura/features/mock_exam/domain/mock_exam_failure.dart';
 import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
+import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 
 /// Talks to the RPCs in supabase/mock_exams.sql. A PostgrestException means
 /// the server answered (and its message is one of the known codes, mapped
@@ -40,6 +43,7 @@ class MockExamRepositoryImpl implements MockExamRepository {
       id: row['id'] as String,
       questionCount: row['question_count'] as int,
       answeredCount: row['answered_count'] as int,
+      currentItemPosition: row['current_item_position'] as int?,
     );
   });
 
@@ -61,6 +65,68 @@ class MockExamRepositoryImpl implements MockExamRepository {
       params: {'p_mock_exam_id': mockExamId},
     ),
   );
+
+  @override
+  Future<Result<List<MockExamItem>>> getItems(String mockExamId) => _guard(
+    () async {
+      final rows = await _client.rpc<List<dynamic>>(
+        'get_mock_exam_items',
+        params: {'p_mock_exam_id': mockExamId},
+      );
+      return [
+        for (final row in rows.cast<Map<String, dynamic>>())
+          MockExamItem(
+            position: row['item_position'] as int,
+            questionId: row['question_id'] as String,
+            subject: row['subject'] as String,
+            difficulty: QuestionDifficulty.fromDb(row['difficulty'] as String?),
+            prompt: row['prompt'] as String,
+            options: (row['options'] as List<dynamic>).cast<String>(),
+            selectedIndex: row['selected_index'] as int?,
+          ),
+      ];
+    },
+  );
+
+  @override
+  Future<Result<void>> answerItem(
+    String mockExamId, {
+    required int position,
+    required int selectedIndex,
+  }) => _guard(
+    () => _client.rpc<void>(
+      'answer_mock_exam_item',
+      params: {
+        'p_mock_exam_id': mockExamId,
+        'p_position': position,
+        'p_selected_index': selectedIndex,
+      },
+    ),
+  );
+
+  @override
+  Future<Result<void>> setCurrentPosition(String mockExamId, int position) =>
+      _guard(
+        () => _client.rpc<void>(
+          'set_mock_exam_position',
+          params: {'p_mock_exam_id': mockExamId, 'p_position': position},
+        ),
+      );
+
+  @override
+  Future<Result<MockExamScore>> finishMockExam(String mockExamId) =>
+      _guard(() async {
+        final rows = await _client.rpc<List<dynamic>>(
+          'finish_mock_exam',
+          params: {'p_mock_exam_id': mockExamId},
+        );
+        final row = rows.first as Map<String, dynamic>;
+        return MockExamScore(
+          scoredCount: row['scored_count'] as int,
+          answeredCount: row['answered_count'] as int,
+          correctCount: row['correct_count'] as int,
+        );
+      });
 
   Future<Result<T>> _guard<T>(Future<T> Function() call) async {
     try {

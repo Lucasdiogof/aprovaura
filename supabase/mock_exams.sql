@@ -57,6 +57,15 @@ create table if not exists mock_exams (
   abandoned_at timestamptz
 );
 
+-- Questão que o usuário estava VENDO por último (item_position), gravada
+-- por set_mock_exam_position() a cada navegação -- é para onde "Continuar
+-- simulado" volta, mesmo que ela já esteja respondida. Null = nunca
+-- navegou: o app abre na primeira questão sem resposta. Adicionada depois
+-- da primeira versão deste arquivo, daí o "add column if not exists" (rodar
+-- o arquivo de novo num banco que já tem a tabela só acrescenta a coluna).
+alter table mock_exams
+  add column if not exists current_item_position integer;
+
 create index if not exists mock_exams_user_created_idx
   on mock_exams (user_id, created_at desc);
 
@@ -164,7 +173,8 @@ begin
         'answer_mock_exam_item',
         'finish_mock_exam',
         'abandon_mock_exam',
-        'get_mock_exam_result'
+        'get_mock_exam_result',
+        'set_mock_exam_position'
       )
   loop
     execute 'drop function ' || r.signature;
@@ -368,12 +378,14 @@ $$;
 -- 3.3 O simulado em andamento do usuário (0 ou 1 linha). question_count
 -- aqui são os itens que ainda existem; answered_count é quantos já têm
 -- alternativa marcada -- é o "37/90" do card de continuar.
+-- current_item_position: onde retomar (ver a coluna em mock_exams).
 create function get_active_mock_exam()
 returns table (
   id uuid,
   created_at timestamptz,
   question_count integer,
-  answered_count integer
+  answered_count integer,
+  current_item_position integer
 )
 language sql
 stable
@@ -381,12 +393,64 @@ as $$
   select e.id,
          e.created_at,
          count(i.item_position)::int,
-         count(i.selected_option)::int
+         count(i.selected_option)::int,
+         e.current_item_position
   from mock_exams e
   left join mock_exam_items i on i.mock_exam_id = e.id
   where e.user_id = auth.uid()
     and e.status = 'in_progress'
-  group by e.id, e.created_at;
+  group by e.id, e.created_at, e.current_item_position;
+$$;
+
+-- 3.3b Guarda qual questão o usuário está vendo, para "Continuar simulado"
+-- voltar exatamente nela. Só aceita posição que existe neste simulado e
+-- simulado em andamento do próprio usuário. Não toca em resposta nenhuma
+-- e não revela nada: é só um marcador de navegação.
+-- Erros: mock_exam_not_found, mock_exam_not_in_progress,
+--        mock_exam_invalid_answer (posição inexistente).
+create function set_mock_exam_position(
+  p_mock_exam_id uuid,
+  p_position integer
+) returns void
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_status text;
+begin
+  if v_user_id is null then
+    raise exception 'not authenticated';
+  end if;
+
+  select e.status into v_status
+  from mock_exams e
+  where e.id = p_mock_exam_id and e.user_id = v_user_id
+  for share;
+
+  if not found then
+    raise exception using message = 'mock_exam_not_found';
+  end if;
+  if v_status <> 'in_progress' then
+    raise exception using
+      message = 'mock_exam_not_in_progress',
+      detail = v_status;
+  end if;
+  if not exists (
+    select 1 from mock_exam_items i
+    where i.mock_exam_id = p_mock_exam_id and i.item_position = p_position
+  ) then
+    raise exception using
+      message = 'mock_exam_invalid_answer',
+      detail = format('position %s', p_position);
+  end if;
+
+  update mock_exams e
+  set current_item_position = p_position,
+      updated_at = now()
+  where e.id = p_mock_exam_id;
+end;
 $$;
 
 -- 3.4 As questões do simulado, na ordem congelada, com as alternativas já
@@ -434,7 +498,9 @@ as $$
   order by i.item_position;
 $$;
 
--- 3.5 Marca (ou troca) a alternativa de uma questão. Só grava a escolha:
+-- 3.5 Marca (ou TROCA) a alternativa de uma questão -- enquanto o simulado
+-- está em andamento, a última escolha é a que vale (B e depois C -> C). Só
+-- grava a escolha:
 -- não corrige, não toca user_question_progress, não devolve nada que
 -- revele o resultado. p_selected_index é a posição NA ORDEM MOSTRADA; o
 -- servidor converte para o índice original via option_order. Repetir a

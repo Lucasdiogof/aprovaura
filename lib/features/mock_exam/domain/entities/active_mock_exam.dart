@@ -7,12 +7,22 @@ class ActiveMockExam extends Equatable {
     required this.id,
     required this.questionCount,
     required this.answeredCount,
+    this.currentItemPosition,
   });
 
   final String id;
   final int questionCount;
   final int answeredCount;
 
+  /// The question the user was last looking at (item_position), where
+  /// "Continuar simulado" resumes. Null until they first navigate.
+  final int? currentItemPosition;
+
   @override
-  List<Object?> get props => [id, questionCount, answeredCount];
+  List<Object?> get props => [
+    id,
+    questionCount,
+    answeredCount,
+    currentItemPosition,
+  ];
 }

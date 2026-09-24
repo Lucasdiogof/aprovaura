@@ -177,25 +177,167 @@ class MockExamStrings {
     AppLanguage.english => 'Mock exam discarded. You can build another now.',
   };
 
-  // --- Placeholder until the exam runner exists (FASE 4/5) ------------------
+  // --- Exam runner --------------------------------------------------------
 
   String get sessionTitle => switch (language) {
     AppLanguage.portuguese => 'Simulado',
     AppLanguage.english => 'Mock exam',
   };
 
-  String get sessionPlaceholderTitle => switch (language) {
-    AppLanguage.portuguese => 'Simulado salvo',
-    AppLanguage.english => 'Mock exam saved',
+  String answeredOfTotal(int answered, int total) => switch (language) {
+    AppLanguage.portuguese => '$answered de $total respondidas',
+    AppLanguage.english => '$answered of $total answered',
   };
 
-  String get sessionPlaceholderDescription => switch (language) {
+  String get savingLabel => switch (language) {
+    AppLanguage.portuguese => 'Salvando…',
+    AppLanguage.english => 'Saving…',
+  };
+
+  String get saveErrorMessage => switch (language) {
     AppLanguage.portuguese =>
-      'Suas questões já estão sorteadas e guardadas. A resolução da prova '
-          'chega na próxima etapa.',
+      'Não foi possível salvar sua resposta. Toque na alternativa de novo.',
+    AppLanguage.english => "Couldn't save your answer. Tap the option again.",
+  };
+
+  String get previousButton => switch (language) {
+    AppLanguage.portuguese => 'Anterior',
+    AppLanguage.english => 'Previous',
+  };
+
+  String get nextButton => switch (language) {
+    AppLanguage.portuguese => 'Próxima',
+    AppLanguage.english => 'Next',
+  };
+
+  String get submitButton => switch (language) {
+    AppLanguage.portuguese => 'Entregar simulado',
+    AppLanguage.english => 'Hand in mock exam',
+  };
+
+  String get menuTooltip => switch (language) {
+    AppLanguage.portuguese => 'Mais opções',
+    AppLanguage.english => 'More options',
+  };
+
+  String get exitTitle => switch (language) {
+    AppLanguage.portuguese => 'Sair do simulado?',
+    AppLanguage.english => 'Leave the mock exam?',
+  };
+
+  String get exitDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Seu progresso está salvo e você poderá continuar depois.',
     AppLanguage.english =>
-      'Your questions are drawn and saved. Taking the exam comes in the '
-          'next step.',
+      'Your progress is saved and you can pick it up later.',
+  };
+
+  String get exitConfirmButton => switch (language) {
+    AppLanguage.portuguese => 'Sair e continuar depois',
+    AppLanguage.english => 'Leave and continue later',
+  };
+
+  String get abandonMenuItem => switch (language) {
+    AppLanguage.portuguese => 'Abandonar simulado',
+    AppLanguage.english => 'Abandon mock exam',
+  };
+
+  String get abandonTitle => switch (language) {
+    AppLanguage.portuguese => 'Abandonar simulado?',
+    AppLanguage.english => 'Abandon this mock exam?',
+  };
+
+  String get abandonDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Suas respostas desta tentativa não serão corrigidas e este simulado '
+          'será encerrado.',
+    AppLanguage.english =>
+      "Your answers in this attempt won't be graded and this mock exam "
+          'will be closed.',
+  };
+
+  String unansweredTitle(int count) => switch (language) {
+    AppLanguage.portuguese =>
+      count == 1
+          ? 'Você deixou 1 questão sem resposta.'
+          : 'Você deixou $count questões sem resposta.',
+    AppLanguage.english =>
+      count == 1
+          ? 'You left 1 question unanswered.'
+          : 'You left $count questions unanswered.',
+  };
+
+  String get unansweredDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Questões em branco contam como erradas e não entram em Revisar erros.',
+    AppLanguage.english =>
+      "Blank questions count as wrong and don't go to Review mistakes.",
+  };
+
+  String get reviewButton => switch (language) {
+    AppLanguage.portuguese => 'Voltar e revisar',
+    AppLanguage.english => 'Go back and review',
+  };
+
+  String get submitAnywayButton => switch (language) {
+    AppLanguage.portuguese => 'Entregar assim mesmo',
+    AppLanguage.english => 'Hand in anyway',
+  };
+
+  String get submitTitle => switch (language) {
+    AppLanguage.portuguese => 'Entregar simulado?',
+    AppLanguage.english => 'Hand in the mock exam?',
+  };
+
+  String get submitDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Depois de entregar, não dá mais para trocar as respostas.',
+    AppLanguage.english => "Once handed in, answers can't be changed.",
+  };
+
+  String get sessionLoadError => switch (language) {
+    AppLanguage.portuguese => 'Não foi possível carregar o simulado.',
+    AppLanguage.english => "Couldn't load the mock exam.",
+  };
+
+  String get notInProgressMessage => switch (language) {
+    AppLanguage.portuguese => 'Este simulado não está mais em andamento.',
+    AppLanguage.english => 'This mock exam is no longer in progress.',
+  };
+
+  String get backButton => switch (language) {
+    AppLanguage.portuguese => 'Voltar',
+    AppLanguage.english => 'Back',
+  };
+
+  // --- Result (technical placeholder until FASE 6) --------------------------
+
+  String get resultTitle => switch (language) {
+    AppLanguage.portuguese => 'Simulado entregue',
+    AppLanguage.english => 'Mock exam handed in',
+  };
+
+  String resultScore(int correct, int total) => switch (language) {
+    AppLanguage.portuguese => 'Você acertou $correct de $total questões.',
+    AppLanguage.english => 'You got $correct of $total questions right.',
+  };
+
+  String resultBlank(int count) => switch (language) {
+    AppLanguage.portuguese =>
+      count == 1 ? '1 ficou em branco.' : '$count ficaram em branco.',
+    AppLanguage.english =>
+      count == 1 ? '1 was left blank.' : '$count were left blank.',
+  };
+
+  String get resultPlaceholderNote => switch (language) {
+    AppLanguage.portuguese =>
+      'O resultado detalhado por matéria chega na próxima etapa.',
+    AppLanguage.english => 'The per-subject breakdown comes in the next step.',
+  };
+
+  String get backHomeButton => switch (language) {
+    AppLanguage.portuguese => 'Voltar ao início',
+    AppLanguage.english => 'Back to home',
   };
 
   // --- Errors ---------------------------------------------------------------
