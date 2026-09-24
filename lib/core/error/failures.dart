@@ -28,6 +28,7 @@ class AuthFailure extends Failure {
   static String _defaultMessage() => switch (_currentLanguage()) {
     AppLanguage.portuguese => 'Falha de autenticação.',
     AppLanguage.english => 'Authentication failed.',
+    AppLanguage.spanish => 'Fallo de autenticación.',
   };
 
   @override
@@ -40,6 +41,7 @@ class ServerFailure extends Failure {
   static String _defaultMessage() => switch (_currentLanguage()) {
     AppLanguage.portuguese => 'Erro ao carregar os dados. Tente novamente.',
     AppLanguage.english => 'Error loading data. Please try again.',
+    AppLanguage.spanish => 'Error al cargar los datos. Intenta de nuevo.',
   };
 }
 
@@ -49,5 +51,6 @@ class UnexpectedFailure extends Failure {
   static String _defaultMessage() => switch (_currentLanguage()) {
     AppLanguage.portuguese => 'Erro inesperado. Tente novamente.',
     AppLanguage.english => 'Unexpected error. Please try again.',
+    AppLanguage.spanish => 'Error inesperado. Intenta de nuevo.',
   };
 }

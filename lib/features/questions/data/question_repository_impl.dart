@@ -1,14 +1,16 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/questions/domain/entities/question.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
 
 class QuestionRepositoryImpl implements QuestionRepository {
-  QuestionRepositoryImpl(this._client);
+  QuestionRepositoryImpl(this._client, this._localeCubit);
 
   final SupabaseClient _client;
+  final LocaleCubit _localeCubit;
 
   @override
   Future<Result<List<Question>>> getQuestions(
@@ -16,15 +18,19 @@ class QuestionRepositoryImpl implements QuestionRepository {
     QuestionDifficulty? difficulty,
   }) async {
     try {
-      var query = _client
-          .from('questions')
-          .select()
-          .eq('catalog_node_id', catalogNodeId);
-      if (difficulty != null) {
-        query = query.eq('difficulty', difficulty.dbValue);
-      }
-      final rows = await query.order('order_index', ascending: true);
-      return Success(rows.map((row) => _fromJson(row)).toList(growable: false));
+      final rows = await _client.rpc<List<dynamic>>(
+        'get_catalog_questions',
+        params: {
+          'p_catalog_node_id': catalogNodeId,
+          'p_difficulty': difficulty?.dbValue,
+          'p_locale': _localeCubit.state.databaseLocale,
+        },
+      );
+      final questions = rows
+          .cast<Map<String, dynamic>>()
+          .map(_fromJson)
+          .toList(growable: false);
+      return Success(questions);
     } on PostgrestException {
       return Error(ServerFailure());
     } catch (_) {

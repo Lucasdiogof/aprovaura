@@ -1,6 +1,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/questions/domain/entities/question.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
@@ -18,12 +19,13 @@ import 'package:aura/features/questions/domain/repositories/question_repository.
 /// satisfy [QuestionRepository], the same way review sessions ignore
 /// difficulty.
 class QuickPracticeQuestionRepositoryImpl implements QuestionRepository {
-  QuickPracticeQuestionRepositoryImpl(this._client);
+  QuickPracticeQuestionRepositoryImpl(this._client, this._localeCubit);
 
   /// How many questions one round of quick practice serves.
   static const deckSize = 10;
 
   final SupabaseClient _client;
+  final LocaleCubit _localeCubit;
 
   @override
   Future<Result<List<Question>>> getQuestions(
@@ -33,7 +35,10 @@ class QuickPracticeQuestionRepositoryImpl implements QuestionRepository {
     try {
       final rows = await _client.rpc<List<dynamic>>(
         'get_quick_practice_questions',
-        params: {'p_limit': deckSize},
+        params: {
+          'p_limit': deckSize,
+          'p_locale': _localeCubit.state.databaseLocale,
+        },
       );
       final questions = rows
           .cast<Map<String, dynamic>>()

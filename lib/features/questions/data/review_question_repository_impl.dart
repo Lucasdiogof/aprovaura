@@ -1,6 +1,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/questions/domain/entities/question.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
@@ -10,9 +11,10 @@ import 'package:aura/features/questions/domain/repositories/question_repository.
 // questions for that topic, not its full bank. difficulty is accepted to
 // satisfy the interface but unused: review sessions aren't filtered by it.
 class ReviewQuestionRepositoryImpl implements QuestionRepository {
-  ReviewQuestionRepositoryImpl(this._client);
+  ReviewQuestionRepositoryImpl(this._client, this._localeCubit);
 
   final SupabaseClient _client;
+  final LocaleCubit _localeCubit;
 
   @override
   Future<Result<List<Question>>> getQuestions(
@@ -22,7 +24,10 @@ class ReviewQuestionRepositoryImpl implements QuestionRepository {
     try {
       final rows = await _client.rpc<List<dynamic>>(
         'get_wrong_questions_for_node',
-        params: {'p_catalog_node_id': catalogNodeId},
+        params: {
+          'p_catalog_node_id': catalogNodeId,
+          'p_locale': _localeCubit.state.databaseLocale,
+        },
       );
       final questions = rows
           .cast<Map<String, dynamic>>()

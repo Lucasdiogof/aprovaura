@@ -27,6 +27,7 @@ enum MockExamDifficulty {
     MockExamDifficulty.misto => switch (language) {
       AppLanguage.portuguese => 'Misto',
       AppLanguage.english => 'Mixed',
+      AppLanguage.spanish => 'Mixto',
     },
   };
 }

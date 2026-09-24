@@ -17,14 +17,17 @@ enum QuestionDifficulty {
     QuestionDifficulty.facil => switch (language) {
       AppLanguage.portuguese => 'Fácil',
       AppLanguage.english => 'Easy',
+      AppLanguage.spanish => 'Fácil',
     },
     QuestionDifficulty.medio => switch (language) {
       AppLanguage.portuguese => 'Médio',
       AppLanguage.english => 'Medium',
+      AppLanguage.spanish => 'Medio',
     },
     QuestionDifficulty.dificil => switch (language) {
       AppLanguage.portuguese => 'Difícil',
       AppLanguage.english => 'Hard',
+      AppLanguage.spanish => 'Difícil',
     },
   };
 }

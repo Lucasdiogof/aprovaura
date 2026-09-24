@@ -1,6 +1,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/favorites/domain/entities/favorite_question.dart';
 import 'package:aura/features/favorites/domain/entities/favorite_topic.dart';
 import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
@@ -8,9 +9,10 @@ import 'package:aura/features/questions/domain/entities/question.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 
 class FavoritesRepositoryImpl implements FavoritesRepository {
-  FavoritesRepositoryImpl(this._client);
+  FavoritesRepositoryImpl(this._client, this._localeCubit);
 
   final SupabaseClient _client;
+  final LocaleCubit _localeCubit;
 
   String get _userId => _client.auth.currentUser!.id;
 
@@ -67,7 +69,10 @@ class FavoritesRepositoryImpl implements FavoritesRepository {
   @override
   Future<Result<List<FavoriteTopic>>> listFavoriteTopics() async {
     try {
-      final rows = await _client.rpc<List<dynamic>>('list_favorite_topics');
+      final rows = await _client.rpc<List<dynamic>>(
+        'list_favorite_topics',
+        params: {'p_locale': _localeCubit.state.databaseLocale},
+      );
       final topics = rows
           .cast<Map<String, dynamic>>()
           .map(_fromJson)
@@ -91,7 +96,10 @@ class FavoritesRepositoryImpl implements FavoritesRepository {
     try {
       final rows = await _client.rpc<List<dynamic>>(
         'get_favorite_questions_for_node',
-        params: {'p_catalog_node_id': catalogNodeId},
+        params: {
+          'p_catalog_node_id': catalogNodeId,
+          'p_locale': _localeCubit.state.databaseLocale,
+        },
       );
       final questions = rows
           .cast<Map<String, dynamic>>()

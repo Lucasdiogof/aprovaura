@@ -9,26 +9,31 @@ class MultipleChoiceStrings {
   String questionProgress(int current, int total) => switch (language) {
     AppLanguage.portuguese => 'Questão $current de $total',
     AppLanguage.english => 'Question $current of $total',
+    AppLanguage.spanish => 'Pregunta $current de $total',
   };
 
   String get correctFeedbackTitle => switch (language) {
     AppLanguage.portuguese => 'Muito bem!',
     AppLanguage.english => 'Well done!',
+    AppLanguage.spanish => '¡Muy bien!',
   };
 
   String get incorrectFeedbackTitle => switch (language) {
     AppLanguage.portuguese => 'Não foi dessa vez',
     AppLanguage.english => 'Not quite',
+    AppLanguage.spanish => 'No fue esta vez',
   };
 
   String get nextButton => switch (language) {
     AppLanguage.portuguese => 'Próxima',
     AppLanguage.english => 'Next',
+    AppLanguage.spanish => 'Siguiente',
   };
 
   String get seeResultButton => switch (language) {
     AppLanguage.portuguese => 'Ver resultado',
     AppLanguage.english => 'See result',
+    AppLanguage.spanish => 'Ver resultado',
   };
 
   // Four tiers, not just "did well or not": a genuine 0% needs a neutral,
@@ -45,6 +50,12 @@ class MultipleChoiceStrings {
       QuizResultTier.developing => 'Keep practicing',
       QuizResultTier.good => 'Nice work!',
       QuizResultTier.excellent => 'Perfect!',
+    },
+    AppLanguage.spanish => switch (tier) {
+      QuizResultTier.zero => '¿Intentamos de nuevo?',
+      QuizResultTier.developing => 'Sigue practicando',
+      QuizResultTier.good => '¡Bien hecho!',
+      QuizResultTier.excellent => '¡Perfecto!',
     },
   };
 
@@ -67,11 +78,22 @@ class MultipleChoiceStrings {
       QuizResultTier.excellent =>
         'You got everything right! Completed with excellence.',
     },
+    AppLanguage.spanish => switch (tier) {
+      QuizResultTier.zero =>
+        'Esta actividad fue difícil. Repasa el contenido e intenta de '
+            'nuevo.',
+      QuizResultTier.developing =>
+        'Acertaste algunas preguntas. Sigue practicando para mejorar.',
+      QuizResultTier.good => 'Vas por buen camino, sigue así.',
+      QuizResultTier.excellent =>
+        '¡Acertaste todo! Actividad completada con excelencia.',
+    },
   };
 
   String get correctionTitle => switch (language) {
     AppLanguage.portuguese => 'Revisão concluída!',
     AppLanguage.english => 'Review complete!',
+    AppLanguage.spanish => '¡Revisión completada!',
   };
 
   String correctionSubtitle(int totalCount) => switch (language) {
@@ -83,41 +105,52 @@ class MultipleChoiceStrings {
       totalCount == 1
           ? 'You reviewed 1 question you had gotten wrong before.'
           : 'You reviewed $totalCount questions you had gotten wrong before.',
+    AppLanguage.spanish =>
+      totalCount == 1
+          ? 'Revisaste 1 pregunta que habías errado antes.'
+          : 'Revisaste $totalCount preguntas que habías errado antes.',
   };
 
   String get finishedCorrectLabel => switch (language) {
     AppLanguage.portuguese => 'corretas',
     AppLanguage.english => 'correct',
+    AppLanguage.spanish => 'correctas',
   };
 
   String get finishedScoreLabel => switch (language) {
     AppLanguage.portuguese => 'de aproveitamento',
     AppLanguage.english => 'score',
+    AppLanguage.spanish => 'de aciertos',
   };
 
   String get continueButton => switch (language) {
     AppLanguage.portuguese => 'Continuar',
     AppLanguage.english => 'Continue',
+    AppLanguage.spanish => 'Continuar',
   };
 
   String get finishedRetryButton => switch (language) {
     AppLanguage.portuguese => 'Refazer atividade',
     AppLanguage.english => 'Redo activity',
+    AppLanguage.spanish => 'Repetir actividad',
   };
 
   String get retryButton => switch (language) {
     AppLanguage.portuguese => 'Tentar novamente',
     AppLanguage.english => 'Try again',
+    AppLanguage.spanish => 'Intentar de nuevo',
   };
 
   String get backButton => switch (language) {
     AppLanguage.portuguese => 'Voltar',
     AppLanguage.english => 'Back',
+    AppLanguage.spanish => 'Volver',
   };
 
   String get reportQuestionTitle => switch (language) {
     AppLanguage.portuguese => 'Reportar esta questão?',
     AppLanguage.english => 'Report this question?',
+    AppLanguage.spanish => '¿Reportar esta pregunta?',
   };
 
   String get reportQuestionDescription => switch (language) {
@@ -125,25 +158,31 @@ class MultipleChoiceStrings {
       'Avise que algo parece errado ou confuso aqui. Vamos revisar.',
     AppLanguage.english =>
       'Let us know something looks wrong or confusing here. We\'ll take a look.',
+    AppLanguage.spanish =>
+      'Avísanos si algo parece incorrecto o confuso aquí. Lo revisaremos.',
   };
 
   String get reportQuestionConfirm => switch (language) {
     AppLanguage.portuguese => 'Reportar',
     AppLanguage.english => 'Report',
+    AppLanguage.spanish => 'Reportar',
   };
 
   String get reportQuestionCancel => switch (language) {
     AppLanguage.portuguese => 'Cancelar',
     AppLanguage.english => 'Cancel',
+    AppLanguage.spanish => 'Cancelar',
   };
 
   String get reportQuestionThanks => switch (language) {
     AppLanguage.portuguese => 'Obrigado! Vamos revisar essa questão.',
     AppLanguage.english => "Thanks! We'll take a look at this question.",
+    AppLanguage.spanish => '¡Gracias! Vamos a revisar esta pregunta.',
   };
 
   String get reportQuestionFailed => switch (language) {
     AppLanguage.portuguese => 'Não deu para enviar o report agora.',
     AppLanguage.english => "Couldn't send the report right now.",
+    AppLanguage.spanish => 'No se pudo enviar el reporte ahora.',
   };
 }

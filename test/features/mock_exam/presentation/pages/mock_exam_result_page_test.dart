@@ -14,6 +14,7 @@ import 'package:aura/features/mock_exam/domain/entities/mock_exam_availability.d
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_result.dart';
 import 'package:aura/features/mock_exam/domain/mock_exam_failure.dart';
 import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
+import 'package:aura/features/mock_exam/l10n/mock_exam_strings.dart';
 import 'package:aura/features/mock_exam/presentation/pages/mock_exam_result_page.dart';
 import 'package:aura/features/mock_exam/presentation/pages/mock_exam_setup_page.dart';
 
@@ -336,7 +337,13 @@ void main() {
 
     for (final language in AppLanguage.values) {
       await tester.pumpWidget(
+        // Keyed by language: without a key, this tree is structurally
+        // identical to the previous iteration's, so Flutter reuses the old
+        // BlocProvider's State instead of recreating it -- `create` never
+        // runs again after the first iteration, and every later language
+        // silently keeps rendering the first one's text.
         BlocProvider<LocaleCubit>(
+          key: ValueKey(language),
           create: (_) => LocaleCubit()..emit(language),
           child: MaterialApp(
             theme: AppTheme.dark,
@@ -345,14 +352,16 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      // Scroll through the whole list so every row gets laid out.
-      await tester.drag(find.byType(ListView), const Offset(0, -4000));
-      await tester.pumpAndSettle();
-      expect(
-        find.text('Voltar para o início').evaluate().isNotEmpty ||
-            find.text('Back to home').evaluate().isNotEmpty,
-        isTrue,
-      );
+      // Scroll in small steps until the button shows up -- a single fixed
+      // drag distance is fragile across languages, since shorter text
+      // (English) lays out a shorter list than longer text (Portuguese,
+      // Spanish) and can overshoot the scrollable extent in one jump.
+      final backHome = find.text(MockExamStrings(language).backHomeButton);
+      for (var i = 0; i < 20 && backHome.evaluate().isEmpty; i++) {
+        await tester.drag(find.byType(ListView), const Offset(0, -300));
+        await tester.pumpAndSettle();
+      }
+      expect(backHome, findsOneWidget, reason: language.name);
       expect(tester.takeException(), isNull, reason: language.name);
     }
   });

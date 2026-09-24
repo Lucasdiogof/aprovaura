@@ -38,7 +38,11 @@ class App extends StatelessWidget {
                   GlobalWidgetsLocalizations.delegate,
                   GlobalCupertinoLocalizations.delegate,
                 ],
-                supportedLocales: const [Locale('pt', 'BR'), Locale('en')],
+                supportedLocales: const [
+                  Locale('pt', 'BR'),
+                  Locale('en'),
+                  Locale('es'),
+                ],
                 routerConfig: appRouter,
               );
             },

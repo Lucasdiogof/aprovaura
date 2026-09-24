@@ -1,5 +1,6 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/mock_exam/domain/entities/active_mock_exam.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_availability.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_difficulty.dart';
@@ -16,9 +17,10 @@ import 'package:aura/features/questions/domain/entities/question_difficulty.dart
 /// by MockExamFailure.fromServer); anything else thrown while calling an
 /// RPC is treated as the request never getting through.
 class MockExamRepositoryImpl implements MockExamRepository {
-  MockExamRepositoryImpl(this._client);
+  MockExamRepositoryImpl(this._client, this._localeCubit);
 
   final SupabaseClient _client;
+  final LocaleCubit _localeCubit;
 
   @override
   Future<Result<MockExamAvailability>> getAvailability() => _guard(() async {
@@ -91,7 +93,10 @@ class MockExamRepositoryImpl implements MockExamRepository {
     () async {
       final rows = await _client.rpc<List<dynamic>>(
         'get_mock_exam_items',
-        params: {'p_mock_exam_id': mockExamId},
+        params: {
+          'p_mock_exam_id': mockExamId,
+          'p_locale': _localeCubit.state.databaseLocale,
+        },
       );
       return [
         for (final row in rows.cast<Map<String, dynamic>>())

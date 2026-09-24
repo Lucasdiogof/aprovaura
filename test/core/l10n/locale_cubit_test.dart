@@ -29,6 +29,16 @@ void main() {
       await cubit.close();
     });
 
+    test('emits Spanish once storage finishes loading', () async {
+      SharedPreferences.setMockInitialValues({'app_language': 'spanish'});
+      final cubit = LocaleCubit();
+
+      await pumpEventQueue();
+
+      expect(cubit.state, AppLanguage.spanish);
+      await cubit.close();
+    });
+
     test('keeps the device-locale default when nothing is saved', () async {
       final cubit = LocaleCubit();
       final initial = cubit.state;
@@ -46,6 +56,13 @@ void main() {
       expect: () => [AppLanguage.english],
     );
 
+    blocTest<LocaleCubit, AppLanguage>(
+      'setLanguage emits Spanish',
+      build: LocaleCubit.new,
+      act: (cubit) => cubit.setLanguage(AppLanguage.spanish),
+      expect: () => [AppLanguage.spanish],
+    );
+
     test('setLanguage persists the language for the next load', () async {
       final cubit = LocaleCubit();
       await cubit.setLanguage(AppLanguage.english);
@@ -53,6 +70,15 @@ void main() {
 
       final prefs = await SharedPreferences.getInstance();
       expect(prefs.getString('app_language'), 'english');
+    });
+
+    test('setLanguage persists Spanish for the next load', () async {
+      final cubit = LocaleCubit();
+      await cubit.setLanguage(AppLanguage.spanish);
+      await cubit.close();
+
+      final prefs = await SharedPreferences.getInstance();
+      expect(prefs.getString('app_language'), 'spanish');
     });
   });
 }

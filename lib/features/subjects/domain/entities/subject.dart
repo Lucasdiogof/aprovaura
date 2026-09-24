@@ -37,34 +37,42 @@ enum Subject {
     Subject.matematica => switch (language) {
       AppLanguage.portuguese => 'Matemática',
       AppLanguage.english => 'Math',
+      AppLanguage.spanish => 'Matemáticas',
     },
     Subject.geografia => switch (language) {
       AppLanguage.portuguese => 'Geografia',
       AppLanguage.english => 'Geography',
+      AppLanguage.spanish => 'Geografía',
     },
     Subject.historia => switch (language) {
       AppLanguage.portuguese => 'História',
       AppLanguage.english => 'History',
+      AppLanguage.spanish => 'Historia',
     },
     Subject.portugues => switch (language) {
       AppLanguage.portuguese => 'Português',
       AppLanguage.english => 'Portuguese',
+      AppLanguage.spanish => 'Portugués',
     },
     Subject.biologia => switch (language) {
       AppLanguage.portuguese => 'Biologia',
       AppLanguage.english => 'Biology',
+      AppLanguage.spanish => 'Biología',
     },
     Subject.fisica => switch (language) {
       AppLanguage.portuguese => 'Física',
       AppLanguage.english => 'Physics',
+      AppLanguage.spanish => 'Física',
     },
     Subject.quimica => switch (language) {
       AppLanguage.portuguese => 'Química',
       AppLanguage.english => 'Chemistry',
+      AppLanguage.spanish => 'Química',
     },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese => 'Atualidades',
       AppLanguage.english => 'Current events',
+      AppLanguage.spanish => 'Actualidad',
     },
   };
 
@@ -72,38 +80,49 @@ enum Subject {
     Subject.matematica => switch (language) {
       AppLanguage.portuguese => 'Exercícios e desafios para todos os níveis.',
       AppLanguage.english => 'Exercises and challenges for every level.',
+      AppLanguage.spanish => 'Ejercicios y desafíos para todos los niveles.',
     },
     Subject.geografia => switch (language) {
       AppLanguage.portuguese => 'Explore países, capitais, rios e muito mais.',
       AppLanguage.english => 'Explore countries, capitals, rivers and more.',
+      AppLanguage.spanish => 'Explora países, capitales, ríos y mucho más.',
     },
     Subject.historia => switch (language) {
       AppLanguage.portuguese =>
         'Viaje no tempo e aprenda os fatos que marcaram o mundo.',
       AppLanguage.english =>
         'Travel through time and learn the facts that shaped the world.',
+      AppLanguage.spanish =>
+        'Viaja en el tiempo y aprende los hechos que marcaron el mundo.',
     },
     Subject.portugues => switch (language) {
       AppLanguage.portuguese =>
         'Gramática, interpretação de texto e muito mais.',
       AppLanguage.english => 'Grammar, reading comprehension and more.',
+      AppLanguage.spanish => 'Gramática, comprensión de textos y mucho más.',
     },
     Subject.biologia => switch (language) {
       AppLanguage.portuguese => 'Estude os seres vivos e seus processos.',
       AppLanguage.english => 'Study living things and their processes.',
+      AppLanguage.spanish => 'Estudia los seres vivos y sus procesos.',
     },
     Subject.fisica => switch (language) {
       AppLanguage.portuguese => 'Entenda as leis da natureza de forma prática.',
       AppLanguage.english => 'Understand the laws of nature in practice.',
+      AppLanguage.spanish =>
+        'Comprende las leyes de la naturaleza de forma práctica.',
     },
     Subject.quimica => switch (language) {
       AppLanguage.portuguese => 'Reações, elementos e transformações.',
       AppLanguage.english => 'Reactions, elements and transformations.',
+      AppLanguage.spanish => 'Reacciones, elementos y transformaciones.',
     },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese =>
         'Fique por dentro dos principais acontecimentos.',
       AppLanguage.english => 'Stay on top of major current events.',
+      AppLanguage.spanish =>
+        'Mantente al día de los principales acontecimientos.',
     },
   };
 }

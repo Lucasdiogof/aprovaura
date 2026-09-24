@@ -19,14 +19,17 @@ enum PracticeOption {
     PracticeOption.quickPractice => switch (language) {
       AppLanguage.portuguese => 'Prática rápida',
       AppLanguage.english => 'Quick practice',
+      AppLanguage.spanish => 'Práctica rápida',
     },
     PracticeOption.reviewMistakes => switch (language) {
       AppLanguage.portuguese => 'Revisar erros',
       AppLanguage.english => 'Review mistakes',
+      AppLanguage.spanish => 'Revisar errores',
     },
     PracticeOption.favorites => switch (language) {
       AppLanguage.portuguese => 'Favoritos',
       AppLanguage.english => 'Favorites',
+      AppLanguage.spanish => 'Favoritos',
     },
     PracticeOption.mockExam => MockExamStrings(language).homeTitle,
   };
@@ -36,15 +39,19 @@ enum PracticeOption {
       AppLanguage.portuguese =>
         'Questões variadas para estudar por alguns minutos.',
       AppLanguage.english => 'Mixed questions to study for a few minutes.',
+      AppLanguage.spanish =>
+        'Preguntas variadas para estudiar por unos minutos.',
     },
     PracticeOption.reviewMistakes => switch (language) {
       AppLanguage.portuguese => 'Pratique novamente questões que você errou.',
       AppLanguage.english => 'Practice questions you got wrong again.',
+      AppLanguage.spanish => 'Practica de nuevo las preguntas que erraste.',
     },
     PracticeOption.favorites => switch (language) {
       AppLanguage.portuguese =>
         'Revise conteúdos e atividades que você salvou.',
       AppLanguage.english => 'Review content and activities you saved.',
+      AppLanguage.spanish => 'Repasa contenidos y actividades que guardaste.',
     },
     PracticeOption.mockExam => MockExamStrings(language).homeDescription,
   };

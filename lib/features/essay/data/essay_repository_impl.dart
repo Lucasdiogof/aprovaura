@@ -1,6 +1,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/essay_failure.dart';
 import 'package:aura/features/essay/domain/entities/essay_draft.dart';
@@ -10,15 +11,17 @@ import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
 
 class EssayRepositoryImpl implements EssayRepository {
-  EssayRepositoryImpl(this._client);
+  EssayRepositoryImpl(this._client, this._localeCubit);
 
   final SupabaseClient _client;
+  final LocaleCubit _localeCubit;
 
   @override
   Future<Result<List<EssayThemeSummary>>> listThemes() async {
     try {
       final rows = await _client.rpc<List<dynamic>>(
         'list_essay_themes_for_user',
+        params: {'p_locale': _localeCubit.state.databaseLocale},
       );
       return Success(
         rows
@@ -36,15 +39,16 @@ class EssayRepositoryImpl implements EssayRepository {
   @override
   Future<Result<EssayTheme>> getTheme(String themeId) async {
     try {
-      // essay_themes is public reference data, like catalog_nodes and
-      // questions -- a plain select under RLS, no RPC needed.
-      final row = await _client
-          .from('essay_themes')
-          .select()
-          .eq('id', themeId)
-          .maybeSingle();
-      if (row == null) return Error(ServerFailure());
-      return Success(_themeFromJson(row));
+      final rows = await _client.rpc<List<dynamic>>(
+        'get_essay_theme',
+        params: {
+          'p_theme_id': themeId,
+          'p_locale': _localeCubit.state.databaseLocale,
+        },
+      );
+      final list = rows.cast<Map<String, dynamic>>();
+      if (list.isEmpty) return Error(ServerFailure());
+      return Success(_themeFromJson(list.first));
     } on PostgrestException {
       return Error(ServerFailure());
     } catch (_) {
@@ -161,7 +165,10 @@ class EssayRepositoryImpl implements EssayRepository {
     try {
       final rows = await _client.rpc<List<dynamic>>(
         'get_essay_submission',
-        params: {'p_submission_id': submissionId},
+        params: {
+          'p_submission_id': submissionId,
+          'p_locale': _localeCubit.state.databaseLocale,
+        },
       );
       final list = rows.cast<Map<String, dynamic>>();
       if (list.isEmpty) return Error(ServerFailure());

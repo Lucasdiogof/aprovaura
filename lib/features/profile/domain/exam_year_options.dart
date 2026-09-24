@@ -17,5 +17,6 @@ String examYearLabel(String value, AppLanguage language) {
   return switch (language) {
     AppLanguage.portuguese => 'Ainda não sei',
     AppLanguage.english => "I'm not sure yet",
+    AppLanguage.spanish => 'Todavía no lo sé',
   };
 }

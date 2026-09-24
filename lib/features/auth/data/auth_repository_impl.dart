@@ -110,6 +110,8 @@ class AuthRepositoryImpl implements AuthRepository {
         'Conta criada. Confirme seu e-mail antes de entrar.',
       AppLanguage.english =>
         'Account created. Please confirm your email before signing in.',
+      AppLanguage.spanish =>
+        'Cuenta creada. Confirma tu correo electrónico antes de entrar.',
     };
   }
 }

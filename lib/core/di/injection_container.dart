@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/atualidades/data/atualidades_repository_impl.dart';
 import 'package:aura/features/atualidades/data/dossier_question_repository_impl.dart';
 import 'package:aura/features/atualidades/domain/repositories/atualidades_repository.dart';
@@ -43,16 +44,16 @@ void registerSupabaseDependencies() {
     () => ProfileRepositoryImpl(sl()),
   );
   sl.registerLazySingleton<CatalogRepository>(
-    () => CatalogRepositoryImpl(sl()),
+    () => CatalogRepositoryImpl(sl(), sl<LocaleCubit>()),
   );
   sl.registerLazySingleton<AtualidadesRepository>(
-    () => AtualidadesRepositoryImpl(sl()),
+    () => AtualidadesRepositoryImpl(sl(), sl<LocaleCubit>()),
   );
   sl.registerLazySingleton<QuestionRepository>(
-    () => QuestionRepositoryImpl(sl()),
+    () => QuestionRepositoryImpl(sl(), sl<LocaleCubit>()),
   );
   sl.registerLazySingleton<QuestionRepository>(
-    () => DossierQuestionRepositoryImpl(sl()),
+    () => DossierQuestionRepositoryImpl(sl(), sl<LocaleCubit>()),
     instanceName: 'dossierQuestions',
   );
   sl.registerLazySingleton<StreakRepository>(() => StreakRepositoryImpl(sl()));
@@ -60,23 +61,25 @@ void registerSupabaseDependencies() {
     () => ProgressRepositoryImpl(sl()),
   );
   sl.registerLazySingleton<QuestionRepository>(
-    () => ReviewQuestionRepositoryImpl(sl()),
+    () => ReviewQuestionRepositoryImpl(sl(), sl<LocaleCubit>()),
     instanceName: 'reviewQuestions',
   );
-  sl.registerLazySingleton<EssayRepository>(() => EssayRepositoryImpl(sl()));
+  sl.registerLazySingleton<EssayRepository>(
+    () => EssayRepositoryImpl(sl(), sl<LocaleCubit>()),
+  );
   sl.registerLazySingleton<ErrorReviewRepository>(
-    () => ErrorReviewRepositoryImpl(sl()),
+    () => ErrorReviewRepositoryImpl(sl(), sl<LocaleCubit>()),
   );
   sl.registerLazySingleton<XpRepository>(() => XpRepositoryImpl(sl()));
   sl.registerLazySingleton<FavoritesRepository>(
-    () => FavoritesRepositoryImpl(sl()),
+    () => FavoritesRepositoryImpl(sl(), sl<LocaleCubit>()),
   );
   sl.registerLazySingleton<QuestionRepository>(
-    () => QuickPracticeQuestionRepositoryImpl(sl()),
+    () => QuickPracticeQuestionRepositoryImpl(sl(), sl<LocaleCubit>()),
     instanceName: 'quickPracticeQuestions',
   );
   sl.registerLazySingleton<MockExamRepository>(
-    () => MockExamRepositoryImpl(sl()),
+    () => MockExamRepositoryImpl(sl(), sl<LocaleCubit>()),
   );
   sl.registerLazySingleton<DailyGoalRepository>(
     () => DailyGoalRepositoryImpl(sl()),

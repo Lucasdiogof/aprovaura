@@ -1,19 +1,22 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/error_review/domain/entities/error_topic.dart';
 import 'package:aura/features/error_review/domain/repositories/error_review_repository.dart';
 
 class ErrorReviewRepositoryImpl implements ErrorReviewRepository {
-  ErrorReviewRepositoryImpl(this._client);
+  ErrorReviewRepositoryImpl(this._client, this._localeCubit);
 
   final SupabaseClient _client;
+  final LocaleCubit _localeCubit;
 
   @override
   Future<Result<List<ErrorTopic>>> listPendingTopics() async {
     try {
       final rows = await _client.rpc<List<dynamic>>(
         'list_pending_error_topics',
+        params: {'p_locale': _localeCubit.state.databaseLocale},
       );
       final topics = rows
           .cast<Map<String, dynamic>>()

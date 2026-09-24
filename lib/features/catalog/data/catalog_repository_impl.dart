@@ -1,14 +1,16 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/catalog/domain/entities/catalog_node.dart';
 import 'package:aura/features/catalog/domain/repositories/catalog_repository.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 
 class CatalogRepositoryImpl implements CatalogRepository {
-  CatalogRepositoryImpl(this._client);
+  CatalogRepositoryImpl(this._client, this._localeCubit);
 
   final SupabaseClient _client;
+  final LocaleCubit _localeCubit;
 
   @override
   Future<Result<List<CatalogNode>>> getChildren({
@@ -38,12 +40,15 @@ class CatalogRepositoryImpl implements CatalogRepository {
     required String subject,
     required String? parentId,
   }) async {
-    var query = _client.from('catalog_nodes').select().eq('subject', subject);
-    query = parentId == null
-        ? query.filter('parent_id', 'is', null)
-        : query.eq('parent_id', parentId);
-    final rows = await query.order('order_index', ascending: true);
-    return rows;
+    final result = await _client.rpc<List<dynamic>>(
+      'catalog_children',
+      params: {
+        'p_subject': subject,
+        'p_parent': parentId,
+        'p_locale': _localeCubit.state.databaseLocale,
+      },
+    );
+    return result.cast<Map<String, dynamic>>();
   }
 
   Future<List<Map<String, dynamic>>> _childrenWithDifficulty({
@@ -57,6 +62,7 @@ class CatalogRepositoryImpl implements CatalogRepository {
         'p_subject': subject,
         'p_parent': parentId,
         'p_difficulty': difficulty.dbValue,
+        'p_locale': _localeCubit.state.databaseLocale,
       },
     );
     return result.cast<Map<String, dynamic>>();
