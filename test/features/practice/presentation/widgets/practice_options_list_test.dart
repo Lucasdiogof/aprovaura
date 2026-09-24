@@ -10,6 +10,7 @@ import 'package:aura/features/home/domain/repositories/daily_goal_repository.dar
 import 'package:aura/features/home/presentation/cubit/home_summary_cubit.dart';
 import 'package:aura/features/mock_exam/domain/entities/active_mock_exam.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_item.dart';
+import 'package:aura/features/mock_exam/domain/entities/mock_exam_session_info.dart';
 import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
 import 'package:aura/features/mock_exam/presentation/pages/mock_exam_session_page.dart';
 import 'package:aura/features/practice/presentation/widgets/practice_options_list.dart';
@@ -57,6 +58,14 @@ void main() {
         ),
       ),
     );
+    when(() => mockExamRepository.getSession('e1')).thenAnswer(
+      (_) async => const Success(
+        MockExamSessionInfo(
+          status: MockExamStatus.inProgress,
+          currentItemPosition: 38,
+        ),
+      ),
+    );
     when(() => mockExamRepository.getItems('e1')).thenAnswer(
       (_) async => const Success([
         MockExamItem(
@@ -97,5 +106,49 @@ void main() {
     expect(find.byType(MockExamSessionPage), findsOneWidget);
     expect(find.text('Quando começou a Era Vargas?'), findsOneWidget);
     expect(find.text('Simulado salvo'), findsNothing);
+  });
+
+  testWidgets('Home follows the server: finished/abandoned -> Montar', (
+    tester,
+  ) async {
+    await tester.pumpApp(
+      const Scaffold(body: SingleChildScrollView(child: PracticeOptionsList())),
+      providers: [BlocProvider<HomeSummaryCubit>.value(value: summaryCubit)],
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Continuar simulado'), findsOneWidget);
+
+    // Handed in / abandoned (here or on another device): the next refresh
+    // -- which Home runs every time it regains focus -- flips the card.
+    when(
+      () => mockExamRepository.getActiveMockExam(),
+    ).thenAnswer((_) async => const Success(null));
+    await summaryCubit.refresh();
+    await tester.pumpAndSettle();
+
+    expect(find.text('Montar simulado'), findsOneWidget);
+    expect(
+      find.text('Escolha matérias, níveis e quantidade de questões.'),
+      findsOneWidget,
+    );
+    expect(find.text('Montar outro'), findsNothing);
+  });
+
+  testWidgets('Home progress count updates after answering', (tester) async {
+    await tester.pumpApp(
+      const Scaffold(body: SingleChildScrollView(child: PracticeOptionsList())),
+      providers: [BlocProvider<HomeSummaryCubit>.value(value: summaryCubit)],
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('37 de 90 questões respondidas'), findsOneWidget);
+
+    when(() => mockExamRepository.getActiveMockExam()).thenAnswer(
+      (_) async => const Success(
+        ActiveMockExam(id: 'e1', questionCount: 90, answeredCount: 40),
+      ),
+    );
+    await summaryCubit.refresh();
+    await tester.pumpAndSettle();
+    expect(find.text('40 de 90 questões respondidas'), findsOneWidget);
   });
 }

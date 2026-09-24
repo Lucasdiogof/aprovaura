@@ -6,6 +6,7 @@ import 'package:aura/features/mock_exam/domain/entities/mock_exam_difficulty.dar
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_item.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_result.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_score.dart';
+import 'package:aura/features/mock_exam/domain/entities/mock_exam_session_info.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_subject_config.dart';
 import 'package:aura/features/mock_exam/domain/mock_exam_failure.dart';
 import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
@@ -66,6 +67,25 @@ class MockExamRepositoryImpl implements MockExamRepository {
       params: {'p_mock_exam_id': mockExamId},
     ),
   );
+
+  // A plain select, no RPC: mock_exams has a select-own RLS policy, and
+  // status/current_item_position reveal nothing about the grade.
+  @override
+  Future<Result<MockExamSessionInfo?>> getSession(String mockExamId) =>
+      _guard(() async {
+        final row = await _client
+            .from('mock_exams')
+            .select('status, current_item_position')
+            .eq('id', mockExamId)
+            .maybeSingle();
+        if (row == null) return null;
+        final status = MockExamStatus.fromDb(row['status'] as String?);
+        if (status == null) return null;
+        return MockExamSessionInfo(
+          status: status,
+          currentItemPosition: row['current_item_position'] as int?,
+        );
+      });
 
   @override
   Future<Result<List<MockExamItem>>> getItems(String mockExamId) => _guard(

@@ -4,11 +4,17 @@ import 'package:aura/features/mock_exam/domain/entities/mock_exam_item.dart';
 enum MockExamRunnerStatus {
   loading,
   loadError,
-
-  /// The exam was finished or discarded elsewhere (another device, an old
-  /// screen) -- there is nothing left to answer here.
-  notInProgress,
   ready,
+
+  /// Handed in somewhere else (another device, an old screen): nothing left
+  /// to answer, the result is what's next.
+  finishedElsewhere,
+
+  /// Discarded somewhere else: nothing left to answer or grade.
+  abandonedElsewhere,
+
+  /// No such exam for this user (or it has no questions left at all).
+  notFound,
 }
 
 class MockExamRunnerState extends Equatable {
@@ -19,6 +25,7 @@ class MockExamRunnerState extends Equatable {
     this.answers = const {},
     this.pendingSaves = 0,
     this.hasSaveError = false,
+    this.hasRemovedQuestionNotice = false,
     this.isFinishing = false,
     this.isAbandoning = false,
   });
@@ -39,6 +46,10 @@ class MockExamRunnerState extends Equatable {
 
   /// The last answer couldn't be saved and was rolled back on screen.
   final bool hasSaveError;
+
+  /// A question was deleted from the bank mid-session and the exam was
+  /// reloaded without it.
+  final bool hasRemovedQuestionNotice;
   final bool isFinishing;
   final bool isAbandoning;
 
@@ -69,6 +80,7 @@ class MockExamRunnerState extends Equatable {
     Map<int, int>? answers,
     int? pendingSaves,
     bool? hasSaveError,
+    bool? hasRemovedQuestionNotice,
     bool? isFinishing,
     bool? isAbandoning,
   }) => MockExamRunnerState(
@@ -78,6 +90,8 @@ class MockExamRunnerState extends Equatable {
     answers: answers ?? this.answers,
     pendingSaves: pendingSaves ?? this.pendingSaves,
     hasSaveError: hasSaveError ?? this.hasSaveError,
+    hasRemovedQuestionNotice:
+        hasRemovedQuestionNotice ?? this.hasRemovedQuestionNotice,
     isFinishing: isFinishing ?? this.isFinishing,
     isAbandoning: isAbandoning ?? this.isAbandoning,
   );
@@ -90,6 +104,7 @@ class MockExamRunnerState extends Equatable {
     answers,
     pendingSaves,
     hasSaveError,
+    hasRemovedQuestionNotice,
     isFinishing,
     isAbandoning,
   ];

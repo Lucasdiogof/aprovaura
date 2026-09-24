@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -8,8 +10,10 @@ import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_theme.dart';
-import 'package:aura/features/mock_exam/domain/entities/active_mock_exam.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_item.dart';
+import 'package:aura/features/mock_exam/domain/entities/mock_exam_session_info.dart';
+import 'package:aura/features/mock_exam/domain/mock_exam_failure.dart';
+import 'package:aura/features/mock_exam/presentation/pages/mock_exam_result_page.dart';
 import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
 import 'package:aura/features/mock_exam/presentation/pages/mock_exam_session_page.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
@@ -37,10 +41,9 @@ void main() {
     await sl.reset();
     repository = _MockMockExamRepository();
     sl.registerLazySingleton<MockExamRepository>(() => repository);
-    when(() => repository.getActiveMockExam()).thenAnswer(
-      (_) async => const Success(
-        ActiveMockExam(id: _examId, questionCount: 3, answeredCount: 0),
-      ),
+    when(() => repository.getSession(_examId)).thenAnswer(
+      (_) async =>
+          const Success(MockExamSessionInfo(status: MockExamStatus.inProgress)),
     );
     when(
       () => repository.getItems(_examId),
@@ -145,18 +148,147 @@ void main() {
     },
   );
 
-  testWidgets('an exam finished elsewhere shows a clear message', (
+  testWidgets('finished elsewhere: human message and a way to the result', (
     tester,
   ) async {
+    when(() => repository.getSession(_examId)).thenAnswer(
+      (_) async =>
+          const Success(MockExamSessionInfo(status: MockExamStatus.finished)),
+    );
     when(
-      () => repository.getActiveMockExam(),
+      () => repository.getResult(_examId),
     ).thenAnswer((_) async => const Success(null));
     await pumpSession(tester);
 
     expect(
-      find.text('Este simulado não está mais em andamento.'),
+      find.text('Este simulado já foi entregue. Seu resultado está pronto.'),
       findsOneWidget,
     );
+    expect(find.text('Próxima'), findsNothing);
+    await tester.tap(find.text('Ver resultado'));
+    await tester.pumpAndSettle();
+    expect(find.byType(MockExamResultPage), findsOneWidget);
+  });
+
+  testWidgets('finished on another device while open: detected on tap', (
+    tester,
+  ) async {
+    await pumpSession(tester);
+    when(
+      () => repository.answerItem(
+        any(),
+        position: any(named: 'position'),
+        selectedIndex: any(named: 'selectedIndex'),
+      ),
+    ).thenAnswer(
+      (_) async => Error(
+        MockExamFailure(
+          MockExamFailureKind.notInProgress,
+          serverStatus: 'finished',
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('Opção dois'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Ver resultado'), findsOneWidget);
+    // Not a technical error, not "tap again".
+    expect(
+      find.text(
+        'Não foi possível salvar sua resposta. Toque na alternativa de novo.',
+      ),
+      findsNothing,
+    );
+  });
+
+  testWidgets('abandoned elsewhere: human message, back home', (tester) async {
+    when(() => repository.getSession(_examId)).thenAnswer(
+      (_) async =>
+          const Success(MockExamSessionInfo(status: MockExamStatus.abandoned)),
+    );
+    await pumpSession(tester);
+
+    expect(
+      find.text('Este simulado foi abandonado e não pode mais ser respondido.'),
+      findsOneWidget,
+    );
+    expect(find.text('Voltar para o início'), findsOneWidget);
+  });
+
+  testWidgets('leaving while a save is in flight waits for it, no timer', (
+    tester,
+  ) async {
+    final save = Completer<Result<void>>();
+    when(
+      () => repository.answerItem(
+        any(),
+        position: any(named: 'position'),
+        selectedIndex: any(named: 'selectedIndex'),
+      ),
+    ).thenAnswer((_) => save.future);
+    await tester.pumpApp(
+      Builder(
+        builder: (context) => TextButton(
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder: (_) => const MockExamSessionPage(mockExamId: _examId),
+            ),
+          ),
+          child: const Text('home'),
+        ),
+      ),
+    );
+    await tester.tap(find.text('home'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Opção dois'));
+    await tester.pump();
+    // A save is in flight, so the "Salvando…" spinner never settles --
+    // pump fixed frames instead of pumpAndSettle.
+    await tester.tap(find.byIcon(Icons.arrow_back));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    await tester.tap(find.text('Sair e continuar depois'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    await tester.pump(const Duration(seconds: 5));
+
+    // Still waiting on the real call -- no timer lets it leave early.
+    expect(find.text('Salvando suas respostas…'), findsOneWidget);
+    expect(find.text('Sair sem esperar'), findsOneWidget);
+
+    save.complete(const Success(null));
+    await tester.pumpAndSettle();
+    expect(find.byType(MockExamSessionPage), findsNothing);
+    expect(find.text('home'), findsOneWidget);
+  });
+
+  testWidgets('leaving after a failed save says it was not saved', (
+    tester,
+  ) async {
+    when(
+      () => repository.answerItem(
+        any(),
+        position: any(named: 'position'),
+        selectedIndex: any(named: 'selectedIndex'),
+      ),
+    ).thenAnswer(
+      (_) async => Error(MockExamFailure(MockExamFailureKind.network)),
+    );
+    await pumpSession(tester);
+
+    await tester.tap(find.text('Opção dois'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byIcon(Icons.arrow_back));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Sair e continuar depois'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Sua última resposta não foi salva'), findsOneWidget);
+    await tester.tap(find.text('Ficar e marcar de novo'));
+    await tester.pumpAndSettle();
+    expect(find.byType(MockExamSessionPage), findsOneWidget);
   });
 
   testWidgets('long prompt and options fit 360px in dark mode', (tester) async {

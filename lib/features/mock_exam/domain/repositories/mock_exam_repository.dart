@@ -4,6 +4,7 @@ import 'package:aura/features/mock_exam/domain/entities/mock_exam_availability.d
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_item.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_result.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_score.dart';
+import 'package:aura/features/mock_exam/domain/entities/mock_exam_session_info.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_subject_config.dart';
 
 /// Every Error returned here carries a MockExamFailure.
@@ -17,6 +18,10 @@ abstract class MockExamRepository {
   Future<Result<String>> createMockExam(List<MockExamSubjectConfig> config);
 
   Future<Result<void>> abandonMockExam(String mockExamId);
+
+  /// Status + resume position of one exam (any status). Success(null) when
+  /// there is no such exam for this user.
+  Future<Result<MockExamSessionInfo?>> getSession(String mockExamId);
 
   /// The exam's questions in their frozen order, with the answers given so
   /// far. Never includes the correct answer while the exam is in progress.

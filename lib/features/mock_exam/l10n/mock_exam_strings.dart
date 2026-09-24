@@ -295,14 +295,74 @@ class MockExamStrings {
     AppLanguage.english => "Once handed in, answers can't be changed.",
   };
 
+  String get finishedElsewhereMessage => switch (language) {
+    AppLanguage.portuguese =>
+      'Este simulado já foi entregue. Seu resultado está pronto.',
+    AppLanguage.english =>
+      'This mock exam was already handed in. Your result is ready.',
+  };
+
+  String get seeResultButton => switch (language) {
+    AppLanguage.portuguese => 'Ver resultado',
+    AppLanguage.english => 'See result',
+  };
+
+  String get abandonedElsewhereMessage => switch (language) {
+    AppLanguage.portuguese =>
+      'Este simulado foi abandonado e não pode mais ser respondido.',
+    AppLanguage.english =>
+      'This mock exam was abandoned and can no longer be answered.',
+  };
+
+  String get removedQuestionNotice => switch (language) {
+    AppLanguage.portuguese =>
+      'Uma questão foi retirada do banco e saiu deste simulado.',
+    AppLanguage.english =>
+      'A question was removed from the bank and left this mock exam.',
+  };
+
+  String get savingBeforeExit => switch (language) {
+    AppLanguage.portuguese => 'Salvando suas respostas…',
+    AppLanguage.english => 'Saving your answers…',
+  };
+
+  String get leaveWithoutWaitingButton => switch (language) {
+    AppLanguage.portuguese => 'Sair sem esperar',
+    AppLanguage.english => 'Leave without waiting',
+  };
+
+  String get unsavedTitle => switch (language) {
+    AppLanguage.portuguese => 'Sua última resposta não foi salva',
+    AppLanguage.english => "Your last answer wasn't saved",
+  };
+
+  String get unsavedDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Ela não chegou ao servidor. Você pode ficar e marcar de novo, ou sair '
+          'assim mesmo -- as outras respostas estão salvas.',
+    AppLanguage.english =>
+      "It didn't reach the server. Stay and pick it again, or leave anyway "
+          '-- your other answers are saved.',
+  };
+
+  String get stayButton => switch (language) {
+    AppLanguage.portuguese => 'Ficar e marcar de novo',
+    AppLanguage.english => 'Stay and pick again',
+  };
+
+  String get leaveAnywayButton => switch (language) {
+    AppLanguage.portuguese => 'Sair assim mesmo',
+    AppLanguage.english => 'Leave anyway',
+  };
+
   String get sessionLoadError => switch (language) {
     AppLanguage.portuguese => 'Não foi possível carregar o simulado.',
     AppLanguage.english => "Couldn't load the mock exam.",
   };
 
-  String get notInProgressMessage => switch (language) {
-    AppLanguage.portuguese => 'Este simulado não está mais em andamento.',
-    AppLanguage.english => 'This mock exam is no longer in progress.',
+  String get notFoundMessage => switch (language) {
+    AppLanguage.portuguese => 'Este simulado não está mais disponível.',
+    AppLanguage.english => 'This mock exam is no longer available.',
   };
 
   String get backButton => switch (language) {
@@ -491,6 +551,7 @@ class MockExamStrings {
       AppLanguage.portuguese => 'Esse simulado não está mais em andamento.',
       AppLanguage.english => 'That mock exam is no longer in progress.',
     },
+    MockExamFailureKind.itemRemoved => removedQuestionNotice,
     MockExamFailureKind.network => switch (language) {
       AppLanguage.portuguese =>
         'Sem conexão com o servidor. Verifique sua internet e tente de novo.',

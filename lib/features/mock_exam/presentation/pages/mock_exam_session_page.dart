@@ -12,6 +12,7 @@ import 'package:aura/features/mock_exam/l10n/mock_exam_strings.dart';
 import 'package:aura/features/mock_exam/presentation/cubit/mock_exam_runner_cubit.dart';
 import 'package:aura/features/mock_exam/presentation/cubit/mock_exam_runner_state.dart';
 import 'package:aura/features/mock_exam/presentation/pages/mock_exam_result_page.dart';
+import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_sheet_frame.dart';
 import 'package:aura/features/questions/l10n/multiple_choice_strings.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_answer_option.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart';
@@ -48,8 +49,13 @@ class MockExamSessionPage extends StatelessWidget {
 class _MockExamRunnerView extends StatelessWidget {
   const _MockExamRunnerView();
 
-  /// Back/close: never abandons. The exam is already saved answer by
-  /// answer, so leaving only waits (briefly) for the last write to land.
+  /// Back/close: never abandons. Leaving waits for the real write queue
+  /// (no timer): if everything is already saved it leaves at once;
+  /// otherwise it shows "Salvando…" until the server answers, with an
+  /// explicit "Sair sem esperar" so a hung connection can't trap anyone
+  /// (writes already sent keep going in the background, and reopening
+  /// always shows what the server actually has). If the last answer
+  /// didn't make it, it says so instead of claiming it's saved.
   Future<void> _confirmExit(BuildContext context, MockExamStrings t) async {
     final cubit = context.read<MockExamRunnerCubit>();
     if (cubit.state.isBusy) return;
@@ -58,15 +64,40 @@ class _MockExamRunnerView extends StatelessWidget {
       title: t.exitTitle,
       description: t.exitDescription,
       primaryActionLabel: t.exitConfirmButton,
-      onPrimaryAction: () async {
-        await cubit.flush().timeout(
-          const Duration(seconds: 3),
-          onTimeout: () {},
-        );
-        if (context.mounted) Navigator.of(context).pop();
-      },
+      onPrimaryAction: () => _leave(context, t),
       secondaryActionLabel: t.activeContinueButton,
     );
+  }
+
+  Future<void> _leave(BuildContext context, MockExamStrings t) async {
+    final cubit = context.read<MockExamRunnerCubit>();
+    if (cubit.state.isSaving) {
+      final waited = await MockExamSheetFrame.show<bool>(
+        context,
+        (_) => _SavingBeforeExitSheet(cubit: cubit, strings: t),
+      );
+      if (!context.mounted) return;
+      // Dismissed some other way, or "Sair sem esperar".
+      if (waited != true) {
+        Navigator.of(context).pop();
+        return;
+      }
+    }
+    if (!context.mounted) return;
+    if (cubit.state.hasSaveError) {
+      await AppInfoBottomSheet.showError(
+        context,
+        title: t.unsavedTitle,
+        description: t.unsavedDescription,
+        primaryActionLabel: t.stayButton,
+        secondaryActionLabel: t.leaveAnywayButton,
+        onSecondaryAction: () {
+          if (context.mounted) Navigator.of(context).pop();
+        },
+      );
+      return;
+    }
+    Navigator.of(context).pop();
   }
 
   Future<void> _confirmAbandon(BuildContext context, MockExamStrings t) async {
@@ -80,7 +111,11 @@ class _MockExamRunnerView extends StatelessWidget {
         final failure = await cubit.abandon();
         if (!context.mounted) return;
         if (failure == null) {
-          Navigator.of(context).pop();
+          // Unless it turned out to be already handed in -- then the screen
+          // now says so and offers the result instead.
+          if (cubit.state.status != MockExamRunnerStatus.finishedElsewhere) {
+            Navigator.of(context).pop();
+          }
           return;
         }
         await AppInfoBottomSheet.showError(
@@ -207,11 +242,33 @@ class _MockExamRunnerView extends StatelessWidget {
                       actionLabel: t.retryButton,
                       onAction: context.read<MockExamRunnerCubit>().load,
                     ),
-                    MockExamRunnerStatus.notInProgress => _MessageView(
+                    MockExamRunnerStatus.finishedElsewhere => _MessageView(
+                      icon: Icons.assignment_turned_in_outlined,
+                      iconColor: context.colors.primary,
+                      message: t.finishedElsewhereMessage,
+                      actionLabel: t.seeResultButton,
+                      onAction: () => Navigator.of(context).pushReplacement(
+                        MaterialPageRoute<void>(
+                          builder: (_) => MockExamResultPage(
+                            mockExamId: context
+                                .read<MockExamRunnerCubit>()
+                                .mockExamId,
+                          ),
+                        ),
+                      ),
+                    ),
+                    MockExamRunnerStatus.abandonedElsewhere => _MessageView(
                       icon: Icons.assignment_late_outlined,
                       iconColor: context.colors.textSecondary,
-                      message: t.notInProgressMessage,
-                      actionLabel: t.backButton,
+                      message: t.abandonedElsewhereMessage,
+                      actionLabel: t.backHomeButton,
+                      onAction: () => Navigator.of(context).pop(),
+                    ),
+                    MockExamRunnerStatus.notFound => _MessageView(
+                      icon: Icons.assignment_late_outlined,
+                      iconColor: context.colors.textSecondary,
+                      message: t.notFoundMessage,
+                      actionLabel: t.backHomeButton,
                       onAction: () => Navigator.of(context).pop(),
                     ),
                     MockExamRunnerStatus.ready => _QuestionView(
@@ -293,9 +350,20 @@ class _QuestionView extends StatelessWidget {
               ),
               if (state.hasSaveError) ...[
                 const SizedBox(height: AppSpacing.sm),
-                _SaveErrorBanner(
+                _NoticeBanner(
+                  icon: Icons.cloud_off_rounded,
+                  color: context.colors.error,
                   message: strings.saveErrorMessage,
                   onDismiss: cubit.dismissSaveError,
+                ),
+              ],
+              if (state.hasRemovedQuestionNotice) ...[
+                const SizedBox(height: AppSpacing.sm),
+                _NoticeBanner(
+                  icon: Icons.info_outline_rounded,
+                  color: context.colors.textSecondary,
+                  message: strings.removedQuestionNotice,
+                  onDismiss: cubit.dismissRemovedQuestionNotice,
                 ),
               ],
             ],
@@ -444,9 +512,16 @@ class _AnsweredCounter extends StatelessWidget {
   }
 }
 
-class _SaveErrorBanner extends StatelessWidget {
-  const _SaveErrorBanner({required this.message, required this.onDismiss});
+class _NoticeBanner extends StatelessWidget {
+  const _NoticeBanner({
+    required this.icon,
+    required this.color,
+    required this.message,
+    required this.onDismiss,
+  });
 
+  final IconData icon;
+  final Color color;
   final String message;
   final VoidCallback onDismiss;
 
@@ -460,27 +535,20 @@ class _SaveErrorBanner extends StatelessWidget {
         AppSpacing.sm,
       ),
       decoration: BoxDecoration(
-        color: context.colors.error.withValues(alpha: 0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(AppRadius.sm),
       ),
       child: Row(
         children: [
-          Icon(Icons.cloud_off_rounded, size: 18, color: context.colors.error),
+          Icon(icon, size: 18, color: color),
           const SizedBox(width: AppSpacing.sm),
           Expanded(
-            child: Text(
-              message,
-              style: TextStyle(fontSize: 12, color: context.colors.error),
-            ),
+            child: Text(message, style: TextStyle(fontSize: 12, color: color)),
           ),
           IconButton(
             visualDensity: VisualDensity.compact,
             onPressed: onDismiss,
-            icon: Icon(
-              Icons.close_rounded,
-              size: 18,
-              color: context.colors.error,
-            ),
+            icon: Icon(Icons.close_rounded, size: 18, color: color),
           ),
         ],
       ),
@@ -523,6 +591,60 @@ class _MessageView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+/// "Salvando suas respostas…" while the write queue drains. Closes itself
+/// with true as soon as the server has answered every queued write; "Sair
+/// sem esperar" closes it with false.
+class _SavingBeforeExitSheet extends StatefulWidget {
+  const _SavingBeforeExitSheet({required this.cubit, required this.strings});
+
+  final MockExamRunnerCubit cubit;
+  final MockExamStrings strings;
+
+  @override
+  State<_SavingBeforeExitSheet> createState() => _SavingBeforeExitSheetState();
+}
+
+class _SavingBeforeExitSheetState extends State<_SavingBeforeExitSheet> {
+  @override
+  void initState() {
+    super.initState();
+    widget.cubit.flush().then((_) {
+      if (mounted) Navigator.of(context).pop(true);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(
+          width: 28,
+          height: 28,
+          child: CircularProgressIndicator(
+            strokeWidth: 3,
+            color: context.colors.primary,
+          ),
+        ),
+        const SizedBox(height: AppSpacing.lg),
+        Text(
+          widget.strings.savingBeforeExit,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: context.colors.textPrimary,
+          ),
+        ),
+        const SizedBox(height: AppSpacing.md),
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(false),
+          child: Text(widget.strings.leaveWithoutWaitingButton),
+        ),
+      ],
     );
   }
 }
