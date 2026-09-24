@@ -5,7 +5,7 @@ import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_subject_config.dart';
 import 'package:aura/features/mock_exam/l10n/mock_exam_strings.dart';
 import 'package:aura/features/subjects/presentation/subject_style.dart';
-import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_sheet_frame.dart';
+import 'package:aura/shared/widgets/app_sheet_frame.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 
 /// "Seu simulado": the last look at the config before creating it, with
@@ -15,7 +15,7 @@ Future<bool> showMockExamConfirmSheet(
   required List<MockExamSubjectConfig> selections,
   required AppLanguage language,
 }) async {
-  final confirmed = await MockExamSheetFrame.show<bool>(
+  final confirmed = await AppSheetFrame.show<bool>(
     context,
     (_) => _MockExamConfirmSheet(selections: selections, language: language),
   );

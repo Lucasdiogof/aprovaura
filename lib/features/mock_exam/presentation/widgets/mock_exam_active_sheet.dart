@@ -5,7 +5,7 @@ import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/mock_exam/domain/entities/active_mock_exam.dart';
 import 'package:aura/features/mock_exam/domain/mock_exam_failure.dart';
 import 'package:aura/features/mock_exam/l10n/mock_exam_strings.dart';
-import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_sheet_frame.dart';
+import 'package:aura/shared/widgets/app_sheet_frame.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 
 enum MockExamActiveChoice { continueExam, discarded }
@@ -20,7 +20,7 @@ Future<MockExamActiveChoice?> showMockExamActiveSheet(
   required ActiveMockExam? active,
   required AppLanguage language,
   required Future<MockExamFailure?> Function(String mockExamId) onDiscard,
-}) => MockExamSheetFrame.show<MockExamActiveChoice>(
+}) => AppSheetFrame.show<MockExamActiveChoice>(
   context,
   (_) => _MockExamActiveSheet(
     active: active,

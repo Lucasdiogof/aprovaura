@@ -90,7 +90,8 @@ select 1, 'rpc: ' || fn || ' exists', case
                where n.nspname = 'public' and p.proname = fn)
   then 'ok' else 'MISSING -- run essays.sql' end
 from unnest(array[
-  'list_essay_themes_for_user', 'submit_essay', 'list_essay_attempts',
+  'list_essay_themes_for_user', 'save_essay_draft', 'delete_essay_draft',
+  'submit_essay', 'list_essay_attempts',
   'get_essay_submission', 'get_essay_quota', 'start_essay_evaluation',
   'complete_essay_evaluation', 'fail_essay_evaluation',
   'essay_daily_evaluation_limit', 'essay_award_amount',
@@ -102,9 +103,10 @@ select 1, 'rpc: writing functions are security definer', case
   when (select count(*) from pg_proc p
         join pg_namespace n on n.oid = p.pronamespace
         where n.nspname = 'public' and p.prosecdef
-          and p.proname in ('submit_essay', 'start_essay_evaluation',
+          and p.proname in ('save_essay_draft', 'delete_essay_draft',
+                            'submit_essay', 'start_essay_evaluation',
                             'complete_essay_evaluation',
-                            'fail_essay_evaluation')) = 4
+                            'fail_essay_evaluation')) = 6
   then 'ok' else 'at least one writing RPC is not security definer' end
 
 union all

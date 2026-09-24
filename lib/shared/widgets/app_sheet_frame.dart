@@ -3,10 +3,10 @@ import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
 
 /// Same shell as AppInfoBottomSheet (rounded surface, drag handle, safe
-/// area), for the mock exam sheets that need more than an icon + one
-/// sentence: a summary list, or three actions.
-class MockExamSheetFrame extends StatelessWidget {
-  const MockExamSheetFrame({required this.child, super.key});
+/// area), for sheets that need more than an icon and one sentence: a
+/// summary list, a long proposal, or three actions.
+class AppSheetFrame extends StatelessWidget {
+  const AppSheetFrame({required this.child, super.key});
 
   final Widget child;
 
@@ -17,7 +17,7 @@ class MockExamSheetFrame extends StatelessWidget {
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       barrierColor: Colors.black.withValues(alpha: 0.35),
-      builder: (context) => MockExamSheetFrame(child: builder(context)),
+      builder: (context) => AppSheetFrame(child: builder(context)),
     );
   }
 

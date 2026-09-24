@@ -12,6 +12,7 @@ import 'package:aura/features/essay/presentation/cubit/essay_theme_cubit.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_theme_state.dart';
 import 'package:aura/features/essay/presentation/pages/essay_editor_page.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_origin_badge.dart';
+import 'package:aura/features/essay/presentation/widgets/essay_supporting_text_view.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
@@ -128,7 +129,7 @@ class _ThemeView extends StatelessWidget {
           _SectionHeading(label: strings.supportingTextsHeading),
           for (final text in theme.supportingTexts) ...[
             const SizedBox(height: AppSpacing.md),
-            _SupportingTextView(text: text),
+            EssaySupportingTextView(text: text),
           ],
         ],
         const SizedBox(height: AppSpacing.xxl),
@@ -159,61 +160,6 @@ class _SectionHeading extends StatelessWidget {
         fontWeight: FontWeight.w800,
         letterSpacing: 0.8,
         color: context.colors.textSecondary,
-      ),
-    );
-  }
-}
-
-/// One motivating text. The source sits under the body in small type: it is
-/// information about the excerpt, not something to act on.
-class _SupportingTextView extends StatelessWidget {
-  const _SupportingTextView({required this.text});
-
-  final EssaySupportingText text;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    return Container(
-      padding: const EdgeInsets.all(AppSpacing.md),
-      decoration: BoxDecoration(
-        color: colors.surface,
-        borderRadius: BorderRadius.circular(AppRadius.lg),
-        border: Border.all(color: colors.border),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (text.title case final title?) ...[
-            Text(
-              title,
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                color: colors.textPrimary,
-              ),
-            ),
-            const SizedBox(height: AppSpacing.xs),
-          ],
-          Text(
-            text.body,
-            style: TextStyle(
-              fontSize: 14.5,
-              height: 1.6,
-              color: colors.textPrimary,
-            ),
-          ),
-          if (text.source case final source?) ...[
-            const SizedBox(height: AppSpacing.sm),
-            Text(
-              source,
-              style: TextStyle(
-                fontSize: 12,
-                fontStyle: FontStyle.italic,
-                color: colors.textSecondary,
-              ),
-            ),
-          ],
-        ],
       ),
     );
   }

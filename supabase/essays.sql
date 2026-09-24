@@ -328,6 +328,71 @@ as $$
   order by t.order_index, t.title;
 $$;
 
+-- 3.1.1 Autosave do rascunho. O cliente manda tema e texto -- nunca um
+-- user_id: quem escreve é sempre auth.uid(). Um upsert por (usuário,
+-- tema), então digitar por vinte minutos continua sendo UMA linha, não uma
+-- por autosave.
+--
+-- Texto em branco APAGA o rascunho em vez de guardar uma linha vazia: é o
+-- mesmo efeito de "apagar rascunho" e evita que o banco acumule registros
+-- que não representam nada. (A lista de temas também exige
+-- length(btrim(body)) > 0 para acender o selo "Rascunho", então nem um
+-- resquício vazio acenderia.)
+--
+-- Devolve updated_at para a tela poder dizer quando salvou.
+drop function if exists save_essay_draft(uuid, text);
+create or replace function save_essay_draft(p_theme_id uuid, p_body text)
+returns timestamptz
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_updated timestamptz;
+begin
+  if v_user_id is null then
+    raise exception 'not authenticated';
+  end if;
+
+  if length(btrim(coalesce(p_body, ''))) = 0 then
+    delete from essay_drafts
+    where user_id = v_user_id and theme_id = p_theme_id;
+    return null;
+  end if;
+
+  insert into essay_drafts (user_id, theme_id, body, updated_at)
+  values (v_user_id, p_theme_id, p_body, now())
+  on conflict (user_id, theme_id)
+  do update set body = excluded.body, updated_at = now()
+  returning updated_at into v_updated;
+
+  return v_updated;
+end;
+$$;
+
+-- 3.1.2 Apagar o rascunho. Só o rascunho: submissions já enviadas são
+-- imutáveis e não têm policy de delete -- começar outro texto e desistir
+-- dele nunca apaga uma tentativa anterior.
+drop function if exists delete_essay_draft(uuid);
+create or replace function delete_essay_draft(p_theme_id uuid)
+returns void
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user_id uuid := auth.uid();
+begin
+  if v_user_id is null then
+    raise exception 'not authenticated';
+  end if;
+
+  delete from essay_drafts
+  where user_id = v_user_id and theme_id = p_theme_id;
+end;
+$$;
+
 -- 3.2 Envio: congela o rascunho numa submission nova e limpa o rascunho.
 -- Recusa texto curto demais aqui, antes de existir qualquer submission --
 -- é a primeira das duas barreiras que impedem gastar chamada à toa.

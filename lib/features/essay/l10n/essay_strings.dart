@@ -104,25 +104,109 @@ class EssayStrings {
     AppLanguage.english => 'Try again',
   };
 
-  /// Placeholder for the editor, which lands in the next phase. Deliberately
-  /// plain: an empty box that looked like an editor would invite writing
-  /// that nothing can save yet.
-  String get editorComingTitle => switch (language) {
-    AppLanguage.portuguese => 'O editor chega na próxima etapa',
-    AppLanguage.english => 'The editor arrives in the next step',
-  };
-
-  String get editorComingDescription => switch (language) {
-    AppLanguage.portuguese =>
-      'Por enquanto dá para ler a proposta e os textos motivadores. Escrever '
-          'e enviar vem em seguida.',
-    AppLanguage.english =>
-      'For now you can read the prompt and the motivating texts. Writing and '
-          'submitting come next.',
-  };
-
   String get backButton => switch (language) {
     AppLanguage.portuguese => 'Voltar',
     AppLanguage.english => 'Back',
+  };
+
+  String get editorHint => switch (language) {
+    AppLanguage.portuguese => 'Comece a escrever sua redação...',
+    AppLanguage.english => 'Start writing your essay...',
+  };
+
+  String wordCount(int count) => switch (language) {
+    AppLanguage.portuguese => '$count ${count == 1 ? 'palavra' : 'palavras'}',
+    AppLanguage.english => '$count ${count == 1 ? 'word' : 'words'}',
+  };
+
+  String get savingStatus => switch (language) {
+    AppLanguage.portuguese => 'Salvando...',
+    AppLanguage.english => 'Saving...',
+  };
+
+  String get savedStatus => switch (language) {
+    AppLanguage.portuguese => 'Salvo',
+    AppLanguage.english => 'Saved',
+  };
+
+  String get saveFailedStatus => switch (language) {
+    AppLanguage.portuguese => 'Não foi possível salvar',
+    AppLanguage.english => "Couldn't save",
+  };
+
+  String get retrySaveAction => switch (language) {
+    AppLanguage.portuguese => 'Tentar de novo',
+    AppLanguage.english => 'Try again',
+  };
+
+  String get saveDraftAction => switch (language) {
+    AppLanguage.portuguese => 'Salvar rascunho',
+    AppLanguage.english => 'Save draft',
+  };
+
+  String get draftSavedFeedback => switch (language) {
+    AppLanguage.portuguese => 'Rascunho salvo.',
+    AppLanguage.english => 'Draft saved.',
+  };
+
+  String get deleteDraftAction => switch (language) {
+    AppLanguage.portuguese => 'Apagar rascunho',
+    AppLanguage.english => 'Delete draft',
+  };
+
+  String get deleteDraftTitle => switch (language) {
+    AppLanguage.portuguese => 'Apagar rascunho?',
+    AppLanguage.english => 'Delete draft?',
+  };
+
+  String get deleteDraftDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Todo o texto desta redação será apagado. Esta ação não pode ser '
+          'desfeita.',
+    AppLanguage.english =>
+      'All the text of this essay will be deleted. This cannot be undone.',
+  };
+
+  String get deleteDraftFailed => switch (language) {
+    AppLanguage.portuguese =>
+      'Não conseguimos apagar seu rascunho. Seu texto continua aqui.',
+    AppLanguage.english =>
+      "We couldn't delete your draft. Your text is still here.",
+  };
+
+  String get cancelAction => switch (language) {
+    AppLanguage.portuguese => 'Cancelar',
+    AppLanguage.english => 'Cancel',
+  };
+
+  String get unsavedTitle => switch (language) {
+    AppLanguage.portuguese => 'Não foi possível salvar sua redação',
+    AppLanguage.english => "We couldn't save your essay",
+  };
+
+  String get unsavedDescription => switch (language) {
+    AppLanguage.portuguese => 'Seu texto ainda não foi salvo.',
+    AppLanguage.english => 'Your text has not been saved yet.',
+  };
+
+  String get trySavingAgain => switch (language) {
+    AppLanguage.portuguese => 'Tentar salvar novamente',
+    AppLanguage.english => 'Try saving again',
+  };
+
+  String get leaveAnyway => switch (language) {
+    AppLanguage.portuguese => 'Sair mesmo assim',
+    AppLanguage.english => 'Leave anyway',
+  };
+
+  String get viewPromptAction => switch (language) {
+    AppLanguage.portuguese => 'Ver proposta',
+    AppLanguage.english => 'View prompt',
+  };
+
+  String get editorLoadFailed => switch (language) {
+    AppLanguage.portuguese =>
+      'Não conseguimos abrir sua redação agora. Tente de novo.',
+    AppLanguage.english => "We couldn't open your essay now. Try again.",
   };
 }

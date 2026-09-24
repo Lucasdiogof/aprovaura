@@ -12,7 +12,7 @@ import 'package:aura/features/mock_exam/l10n/mock_exam_strings.dart';
 import 'package:aura/features/mock_exam/presentation/cubit/mock_exam_runner_cubit.dart';
 import 'package:aura/features/mock_exam/presentation/cubit/mock_exam_runner_state.dart';
 import 'package:aura/features/mock_exam/presentation/pages/mock_exam_result_page.dart';
-import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_sheet_frame.dart';
+import 'package:aura/shared/widgets/app_sheet_frame.dart';
 import 'package:aura/features/questions/l10n/multiple_choice_strings.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_answer_option.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart';
@@ -73,7 +73,7 @@ class _MockExamRunnerView extends StatelessWidget {
   Future<void> _leave(BuildContext context, MockExamStrings t) async {
     final cubit = context.read<MockExamRunnerCubit>();
     if (cubit.state.isSaving) {
-      final waited = await MockExamSheetFrame.show<bool>(
+      final waited = await AppSheetFrame.show<bool>(
         context,
         (_) => _SavingBeforeExitSheet(cubit: cubit, strings: t),
       );

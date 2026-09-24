@@ -1,6 +1,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/features/essay/domain/entities/essay_draft.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
@@ -41,6 +42,60 @@ class EssayRepositoryImpl implements EssayRepository {
           .maybeSingle();
       if (row == null) return Error(ServerFailure());
       return Success(_themeFromJson(row));
+    } on PostgrestException {
+      return Error(ServerFailure());
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
+  Future<Result<EssayDraft?>> getDraft(String themeId) async {
+    try {
+      // No user id in the filter: the RLS policy on essay_drafts already
+      // narrows this to the caller's own row.
+      final row = await _client
+          .from('essay_drafts')
+          .select('body, updated_at')
+          .eq('theme_id', themeId)
+          .maybeSingle();
+      if (row == null) return const Success(null);
+      return Success(
+        EssayDraft(
+          body: row['body'] as String? ?? '',
+          updatedAt: DateTime.parse(row['updated_at'] as String),
+        ),
+      );
+    } on PostgrestException {
+      return Error(ServerFailure());
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
+  Future<Result<DateTime?>> saveDraft(String themeId, String body) async {
+    try {
+      final updatedAt = await _client.rpc<String?>(
+        'save_essay_draft',
+        params: {'p_theme_id': themeId, 'p_body': body},
+      );
+      return Success(updatedAt == null ? null : DateTime.parse(updatedAt));
+    } on PostgrestException {
+      return Error(ServerFailure());
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
+  Future<Result<void>> deleteDraft(String themeId) async {
+    try {
+      await _client.rpc<void>(
+        'delete_essay_draft',
+        params: {'p_theme_id': themeId},
+      );
+      return const Success(null);
     } on PostgrestException {
       return Error(ServerFailure());
     } catch (_) {

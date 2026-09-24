@@ -120,7 +120,11 @@ void main() {
       expect(find.text('Fazer nova redação'), findsOneWidget);
     });
 
-    testWidgets('the CTA opens the editor placeholder', (tester) async {
+    testWidgets('the CTA opens the editor, ready to write', (tester) async {
+      when(
+        () => repository.getDraft('t1'),
+      ).thenAnswer((_) async => const Success(null));
+
       await tester.pumpApp(const EssayThemePage(summary: _fresh));
       await tester.pumpAndSettle();
 
@@ -129,9 +133,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(EssayEditorPage), findsOneWidget);
-      // No text field yet: the placeholder must not invite writing that
-      // nothing can save.
-      expect(find.byType(TextField), findsNothing);
+      expect(find.byType(TextField), findsOneWidget);
     });
 
     testWidgets('a failure offers to try again', (tester) async {
