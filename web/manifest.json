@@ -1,11 +1,11 @@
 {
-    "name": "Aura",
-    "short_name": "Aura",
+    "name": "Aprovaura",
+    "short_name": "Aprovaura",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#1E3A5F",
-    "theme_color": "#1E3A5F",
-    "description": "Aprenda, pratique e evolua para o ENEM, vestibulares e concursos.",
+    "background_color": "#0B0F1A",
+    "theme_color": "#0B0F1A",
+    "description": "Estude. Acerte. Ganhe Aura. Prepare-se para o ENEM, vestibulares e concursos.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

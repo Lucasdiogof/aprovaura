@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ic_launcher_background">#0B2C5C</color>
-    <!-- Navy of the brand app icon; the launch screen matches it -->
-    <color name="splash_background">#0B2C5C</color>
+    <color name="ic_launcher_background">#0B0F1A</color>
+    <!-- Aprovaura navy (#0B0F1A): app icon background and launch screen -->
+    <color name="splash_background">#0B0F1A</color>
 </resources>

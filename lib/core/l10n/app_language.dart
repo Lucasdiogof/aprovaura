@@ -21,5 +21,5 @@ enum AppLanguage {
     AppLanguage.english => 'English',
   };
 
-  String get appName => 'Aura';
+  String get appName => 'Aprovaura';
 }

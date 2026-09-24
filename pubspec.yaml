@@ -61,19 +61,24 @@ dev_dependencies:
   bloc_test: ^10.0.0
   mocktail: ^1.0.4
 
-# Launcher icons are generated from the brand's app-icon master (full-bleed
-# navy, no corner radius -- each OS applies its own mask). Android's adaptive
-# foreground is the monogram alone, on transparency, inside the safe zone.
+# Launcher icons are generated from the Aprovaura app-icon master: the
+# official "A" symbol on solid #0B0F1A, full-bleed, no corner radius (each OS
+# applies its own mask). Android's adaptive foreground is the symbol alone,
+# on transparency, already placed inside the 66dp safe circle -- so the
+# plugin's default 16% inset is turned off (it would shrink it twice).
+# Master + foreground are derived by aprovaura-brand/gerar_assets.py; an
+# official 1024 master can replace aprovaura_app_icon_1024.png as-is.
 # Web/PWA icons are not generated here: they are committed under web/icons.
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "lib/assets/branding/aura_app_icon.png"
+  image_path: "lib/assets/branding/aprovaura_app_icon_1024.png"
   min_sdk_android: 21
   remove_alpha_ios: true
-  background_color_ios: "#0B2C5C"
-  adaptive_icon_background: "#0B2C5C"
-  adaptive_icon_foreground: "lib/assets/branding/aura_adaptive_foreground.png"
+  background_color_ios: "#0B0F1A"
+  adaptive_icon_background: "#0B0F1A"
+  adaptive_icon_foreground: "lib/assets/branding/aprovaura_adaptive_foreground.png"
+  adaptive_icon_foreground_inset: 0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -87,12 +92,15 @@ flutter:
   uses-material-design: true
 
   assets:
-    # Only the in-product marks are bundled; aura_app_icon.png and
-    # aura_adaptive_foreground.png are build-time sources for the launcher
+    # Only the in-product marks are bundled; aprovaura_app_icon_1024.png and
+    # aprovaura_adaptive_foreground.png are build-time sources for the launcher
     # icon generator, not runtime assets.
-    - lib/assets/branding/aura_logo.png
-    - lib/assets/branding/aura_logo_on_dark.png
-    - lib/assets/branding/aura_mark.png
+    - lib/assets/branding/aprovaura_logo_light.png
+    - lib/assets/branding/aprovaura_logo_dark.png
+    - lib/assets/branding/aprovaura_wordmark_light.png
+    - lib/assets/branding/aprovaura_wordmark_dark.png
+    - lib/assets/branding/aprovaura_mark.png
+    - lib/assets/mascot/
     - lib/assets/maps/
 
   # An image asset can refer to one or more resolution-specific "variants", see

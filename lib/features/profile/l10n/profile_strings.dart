@@ -173,22 +173,23 @@ class ProfileStrings {
   };
 
   String get aboutRowLabel => switch (language) {
-    AppLanguage.portuguese => 'Sobre o Aura',
-    AppLanguage.english => 'About Aura',
+    AppLanguage.portuguese => 'Sobre a Aprovaura',
+    AppLanguage.english => 'About Aprovaura',
   };
 
   String get aboutPageTitle => switch (language) {
-    AppLanguage.portuguese => 'Sobre o Aura',
-    AppLanguage.english => 'About Aura',
+    AppLanguage.portuguese => 'Sobre a Aprovaura',
+    AppLanguage.english => 'About Aprovaura',
   };
 
   String get aboutAppDescription => switch (language) {
     AppLanguage.portuguese =>
-      'Um app gamificado de estudos para o ENEM, vestibulares e concursos. '
-          'Aprenda, pratique e evolua.',
+      'Estude. Acerte. Ganhe Aura. Um app de estudos gamificado para o ENEM, '
+          'vestibulares e concursos -- cada acerto vira Aura, a sua pontuação.',
     AppLanguage.english =>
-      'A gamified study app for the ENEM, university entrance exams and '
-          'civil service exams. Learn, practice and evolve.',
+      'Study. Get it right. Earn Aura. A gamified study app for the ENEM, '
+          'university entrance exams and civil service exams -- every right '
+          'answer turns into Aura, your score.',
   };
 
   String get versionRowLabel => switch (language) {

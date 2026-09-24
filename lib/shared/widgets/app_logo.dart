@@ -2,9 +2,9 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-/// The brand marks, as shipped in `lib/assets/branding`.
+/// The Aprovaura brand marks, as shipped in `lib/assets/branding`.
 ///
-/// [AppLogo.wordmark] is the horizontal logo (symbol + "aura") and scales
+/// [AppLogo.wordmark] is the horizontal logo (symbol + "Aprovaura") and scales
 /// with the space it is given, so the same widget reads well on a phone and
 /// on a wide web window without ever stretching the artwork.
 /// [AppLogo.mark] is the monogram on its own, for headers where the wordmark
@@ -14,11 +14,14 @@ class AppLogo extends StatelessWidget {
 
   const AppLogo.mark({super.key, double this.size = 56}) : maxWidth = null;
 
-  /// Only the wordmark's fill differs between these two: on the dark theme
-  /// the navy lettering of the original would be all but invisible.
-  static const _logo = 'lib/assets/branding/aura_logo.png';
-  static const _logoOnDark = 'lib/assets/branding/aura_logo_on_dark.png';
-  static const _markAsset = 'lib/assets/branding/aura_mark.png';
+  /// Same artwork; only the "Aprov" lettering differs. The dark file is the
+  /// official asset (near-white "Aprov", for dark surfaces); the light file
+  /// recolors just those pixels to the light theme's text color so it reads
+  /// on light surfaces -- symbol, gradient "aura" and type are untouched.
+  static const _logoLight = 'lib/assets/branding/aprovaura_logo_light.png';
+  static const _logoDark = 'lib/assets/branding/aprovaura_logo_dark.png';
+  static const _markAsset = 'lib/assets/branding/aprovaura_mark.png';
+  static const _semanticLabel = 'Aprovaura';
 
   static const _minWordmarkWidth = 160.0;
 
@@ -36,7 +39,7 @@ class AppLogo extends StatelessWidget {
         _markAsset,
         width: size,
         fit: BoxFit.contain,
-        semanticLabel: 'Aura',
+        semanticLabel: _semanticLabel,
       );
     }
 
@@ -54,10 +57,10 @@ class AppLogo extends StatelessWidget {
               .toDouble(),
         );
         return Image.asset(
-          isDark ? _logoOnDark : _logo,
+          isDark ? _logoDark : _logoLight,
           width: width,
           fit: BoxFit.contain,
-          semanticLabel: 'Aura',
+          semanticLabel: _semanticLabel,
         );
       },
     );
