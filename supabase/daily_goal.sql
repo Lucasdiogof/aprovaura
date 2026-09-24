@@ -1,3 +1,7 @@
+-- ATENÇÃO: substituída pela versão no fim de mock_exams.sql, que também
+-- conta respostas dadas dentro de um simulado. Não rode este arquivo de
+-- novo depois de mock_exams.sql -- voltaria à versão antiga.
+--
 -- "Meta de hoje": quantas questões o usuário respondeu no dia corrente,
 -- em horário de Brasília (nunca UTC, senão a virada acontece às 21h aqui).
 --
