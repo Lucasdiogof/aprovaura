@@ -5,6 +5,8 @@ import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/atualidades/presentation/pages/atualidades_areas_page.dart';
 import 'package:aura/features/catalog/presentation/pages/catalog_list_page.dart';
+import 'package:aura/features/essay/presentation/pages/essay_themes_page.dart';
+import 'package:aura/features/essay/presentation/widgets/essay_subject_card.dart';
 import 'package:aura/features/home/l10n/home_strings.dart';
 import 'package:aura/features/practice/l10n/practice_strings.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
@@ -79,13 +81,27 @@ class PracticePage extends StatelessWidget {
                   childAspectRatio: 0.95,
                 ),
                 delegate: SliverChildBuilderDelegate(
-                  (context, index) => SubjectCard(
-                    subject: Subject.values[index],
-                    language: language,
-                    onTap: () =>
-                        _openSubject(context, Subject.values[index], language),
-                  ),
-                  childCount: Subject.values.length,
+                  // Redação closes the grid: same tile, but it is a feature
+                  // of its own rather than a Subject (see EssaySubjectCard).
+                  (context, index) => index == Subject.values.length
+                      ? EssaySubjectCard(
+                          language: language,
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute<void>(
+                              builder: (_) => const EssayThemesPage(),
+                            ),
+                          ),
+                        )
+                      : SubjectCard(
+                          subject: Subject.values[index],
+                          language: language,
+                          onTap: () => _openSubject(
+                            context,
+                            Subject.values[index],
+                            language,
+                          ),
+                        ),
+                  childCount: Subject.values.length + 1,
                 ),
               ),
             ),

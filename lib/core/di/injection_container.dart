@@ -9,6 +9,8 @@ import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/catalog/data/catalog_repository_impl.dart';
 import 'package:aura/features/catalog/domain/repositories/catalog_repository.dart';
 import 'package:aura/features/error_review/data/error_review_repository_impl.dart';
+import 'package:aura/features/essay/data/essay_repository_impl.dart';
+import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
 import 'package:aura/features/error_review/domain/repositories/error_review_repository.dart';
 import 'package:aura/features/favorites/data/favorites_repository_impl.dart';
 import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
@@ -61,6 +63,7 @@ void registerSupabaseDependencies() {
     () => ReviewQuestionRepositoryImpl(sl()),
     instanceName: 'reviewQuestions',
   );
+  sl.registerLazySingleton<EssayRepository>(() => EssayRepositoryImpl(sl()));
   sl.registerLazySingleton<ErrorReviewRepository>(
     () => ErrorReviewRepositoryImpl(sl()),
   );

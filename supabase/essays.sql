@@ -22,10 +22,22 @@
 -- submission NOVA; nada nunca sobrescreve uma tentativa anterior.
 --
 -- COTA DIÁRIA (3 por usuário/dia): contada por SUBMISSION distinta, não por
--- chamada. É o que faz "retentar uma redação que falhou por erro técnico"
--- não custar uma cota a mais -- a linha em essay_evaluation_quota já
--- existe, o insert bate no unique e não conta de novo. A proteção vive
--- aqui, no banco; a UI só reflete.
+-- chamada. A proteção vive aqui, no banco; a UI só reflete.
+--
+-- A regra exata, decidida em 2026-09-24 e fixada aqui para não virar
+-- ambiguidade depois:
+--   * a MESMA submission nunca consome duas cotas no MESMO dia -- retentar
+--     uma falha técnica reencontra a linha (user, hoje, submission) e o
+--     insert não conta de novo;
+--   * a mesma submission retentada em OUTRO dia consome 1 cota daquele dia
+--     novo, porque é uma chamada real ao provider e precisa continuar
+--     dentro do orçamento gratuito. Falha antiga não vira estoque
+--     ilimitado de chamadas de graça;
+--   * recusa anterior à chamada (não é sua, já corrigida, já em voo, cota
+--     esgotada) não consome nada -- a cota debitada é devolvida quando a
+--     correção não vai acontecer;
+--   * rascunho e envio não consomem nada. Só tentativa real de avaliação
+--     entra nessa contabilidade.
 --
 -- AURA: +50 uma vez por submission corrigida com sucesso, gravado no mesmo
 -- ledger xp_awards do resto do app usando submission_id como attempt_id --
