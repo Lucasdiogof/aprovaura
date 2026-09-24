@@ -19,6 +19,7 @@ import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_content_w
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 import 'package:aura/shared/widgets/section_label.dart';
+import 'package:aura/shared/widgets/aura/aura_glyph.dart';
 import 'package:aura/shared/widgets/stat_cell.dart';
 
 /// A finished mock exam's result, loaded from the server by [mockExamId]
@@ -194,9 +195,9 @@ class _ResultBody extends StatelessWidget {
 }
 
 /// Score ring (accuracy) + "68 / 90 corretas" + the tier message, then
-/// wrong / blank / XP. Correct is only in the headline and the percentage
+/// wrong / blank / Aura. Correct is only in the headline and the percentage
 /// only in the ring -- nothing said twice. Wrong and blank are always
-/// separate, and XP is what the server actually credited.
+/// separate, and the Aura is what the server actually credited.
 class _ScoreCard extends StatelessWidget {
   const _ScoreCard({required this.result, required this.strings});
 
@@ -341,9 +342,10 @@ class _ScoreCard extends StatelessWidget {
               ),
               _Stat(
                 icon: Icons.bolt_rounded,
-                color: context.colors.primary,
+                color: context.colors.auraViolet,
+                glyph: true,
                 value: '+${result.xpAwarded}',
-                label: t.statXp,
+                label: t.statAura,
               ),
             ],
           ),
@@ -365,12 +367,16 @@ class _Stat extends StatelessWidget {
     required this.color,
     required this.value,
     required this.label,
+    this.glyph = false,
   });
 
   final IconData icon;
   final Color color;
   final String value;
   final String label;
+
+  /// Shows the Aura glyph instead of [icon] (the Aura earned).
+  final bool glyph;
 
   @override
   Widget build(BuildContext context) {
@@ -380,6 +386,7 @@ class _Stat extends StatelessWidget {
         child: StatCell(
           icon: icon,
           iconColor: color,
+          iconWidget: glyph ? const AuraGlyph(size: 22) : null,
           value: value,
           label: label,
         ),

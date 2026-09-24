@@ -11,12 +11,16 @@ class StatCell extends StatelessWidget {
     required this.value,
     required this.label,
     super.key,
+    this.iconWidget,
   });
 
   final IconData icon;
   final Color iconColor;
   final String value;
   final String label;
+
+  /// Replaces [icon] inside the tinted circle (e.g. the Aura glyph).
+  final Widget? iconWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +35,7 @@ class StatCell extends StatelessWidget {
             color: iconColor.withValues(alpha: 0.14),
             shape: BoxShape.circle,
           ),
-          child: Icon(icon, color: iconColor, size: 22),
+          child: iconWidget ?? Icon(icon, color: iconColor, size: 22),
         ),
         const SizedBox(height: 10),
         Text(

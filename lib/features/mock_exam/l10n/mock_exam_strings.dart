@@ -1,4 +1,5 @@
 import 'package:aura/core/l10n/app_language.dart';
+import 'package:aura/shared/l10n/aura_strings.dart';
 import 'package:aura/features/mock_exam/domain/mock_exam_failure.dart';
 
 class MockExamStrings {
@@ -452,7 +453,7 @@ class MockExamStrings {
     AppLanguage.english => 'Blank',
   };
 
-  String get statXp => 'XP';
+  String get statAura => AuraStrings.unit;
 
   String resultMeta(int questions, int subjects) =>
       '${questionCount(questions)} · ${subjectCount(subjects)} · '

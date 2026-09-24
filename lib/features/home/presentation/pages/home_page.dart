@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
+import 'package:aura/features/xp/presentation/cubit/xp_state.dart';
+import 'package:aura/shared/widgets/aura/aura_badge.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
@@ -40,6 +43,7 @@ class HomePage extends StatelessWidget {
       profileState.authUser.email,
     );
     final streakState = context.watch<StreakCubit>().state;
+    final xpState = context.watch<XpCubit>().state;
     final streakDays = switch (streakState) {
       StreakLoaded(:final streak) => streak.currentStreak,
       _ => 0,
@@ -73,12 +77,29 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  t.greeting(displayName),
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.w700,
-                    color: context.colors.textPrimary,
-                  ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        t.greeting(displayName),
+                        style: Theme.of(context).textTheme.headlineSmall
+                            ?.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: context.colors.textPrimary,
+                            ),
+                      ),
+                    ),
+                    // Aura total, always in view on Home. Hidden (not a
+                    // misleading 0) until the real total has loaded.
+                    if (xpState case XpLoaded(:final xp)) ...[
+                      const SizedBox(width: AppSpacing.sm),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: AuraCounter(total: xp.totalXp),
+                      ),
+                    ],
+                  ],
                 ),
                 const SizedBox(height: AppSpacing.xs),
                 Text(

@@ -20,6 +20,8 @@ import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
+import 'package:aura/shared/l10n/aura_strings.dart';
+import 'package:aura/shared/widgets/aura/aura_glyph.dart';
 import 'package:aura/shared/widgets/stat_cell.dart';
 
 class MultipleChoiceView extends StatelessWidget {
@@ -393,9 +395,10 @@ class _FinishedView extends StatelessWidget {
                     Expanded(
                       child: StatCell(
                         icon: Icons.star_rounded,
-                        iconColor: const Color(0xFFE0A32E),
+                        iconColor: context.colors.auraViolet,
+                        iconWidget: const AuraGlyph(size: 22),
                         value: '+$xpEarned',
-                        label: 'XP',
+                        label: AuraStrings.unit,
                       ),
                     ),
                   ],

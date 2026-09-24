@@ -264,8 +264,15 @@ class ProfileStrings {
     AppLanguage.english => 'Level $level',
   };
 
-  String xpToNextLevel(int current, int total) => switch (language) {
-    AppLanguage.portuguese => '$current / $total XP para o próximo nível',
-    AppLanguage.english => '$current / $total XP to next level',
+  String auraTotal(int total) => switch (language) {
+    AppLanguage.portuguese => '$total Aura no total',
+    AppLanguage.english => '$total Aura in total',
   };
+
+  String auraToNextLevel(int current, int total, int nextLevel) =>
+      switch (language) {
+        AppLanguage.portuguese =>
+          '$current / $total Aura para o nível $nextLevel',
+        AppLanguage.english => '$current / $total Aura to level $nextLevel',
+      };
 }
