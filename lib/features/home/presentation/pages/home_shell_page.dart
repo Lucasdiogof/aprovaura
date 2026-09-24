@@ -16,6 +16,7 @@ import 'package:aura/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:aura/features/profile/presentation/pages/profile_page.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
+import 'package:aura/shared/widgets/aura_bottom_nav_bar.dart';
 
 class HomeShellPage extends StatefulWidget {
   const HomeShellPage({required this.user, super.key});
@@ -74,49 +75,26 @@ class _HomeShellPageState extends State<HomeShellPage> with RouteAware {
           const pages = [HomePage(), PracticePage(), ProfilePage()];
           return Scaffold(
             body: IndexedStack(index: shellState.index, children: pages),
-            bottomNavigationBar: Container(
-              decoration: BoxDecoration(
-                color: context.colors.surface,
-                border: Border(top: BorderSide(color: context.colors.border)),
-              ),
-              child: SafeArea(
-                top: false,
-                child: NavigationBar(
-                  selectedIndex: shellState.index,
-                  onDestinationSelected: _shellCubit.navigateToTab,
-                  backgroundColor: Colors.transparent,
-                  elevation: 0,
-                  indicatorColor: context.colors.primary.withValues(
-                    alpha: 0.15,
-                  ),
-                  destinations: [
-                    NavigationDestination(
-                      icon: const Icon(Icons.home_outlined),
-                      selectedIcon: Icon(
-                        Icons.home,
-                        color: context.colors.primary,
-                      ),
-                      label: t.navHome,
-                    ),
-                    NavigationDestination(
-                      icon: const Icon(Icons.bolt_outlined),
-                      selectedIcon: Icon(
-                        Icons.bolt,
-                        color: context.colors.primary,
-                      ),
-                      label: t.navPractice,
-                    ),
-                    NavigationDestination(
-                      icon: const Icon(Icons.person_outline),
-                      selectedIcon: Icon(
-                        Icons.person,
-                        color: context.colors.primary,
-                      ),
-                      label: t.navProfile,
-                    ),
-                  ],
+            bottomNavigationBar: AuraBottomNavBar(
+              currentIndex: shellState.index,
+              onTap: _shellCubit.navigateToTab,
+              destinations: [
+                AuraNavDestination(
+                  icon: Icons.home_outlined,
+                  selectedIcon: Icons.home_rounded,
+                  label: t.navHome,
                 ),
-              ),
+                AuraNavDestination(
+                  icon: Icons.bolt_outlined,
+                  selectedIcon: Icons.bolt_rounded,
+                  label: t.navPractice,
+                ),
+                AuraNavDestination(
+                  icon: Icons.person_outline,
+                  selectedIcon: Icons.person_rounded,
+                  label: t.navProfile,
+                ),
+              ],
             ),
           );
         },
