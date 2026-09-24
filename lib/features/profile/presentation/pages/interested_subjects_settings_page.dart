@@ -65,6 +65,10 @@ class _InterestedSubjectsSettingsPageState
                 children: [
                   ModernAppBar(
                     title: t.interestedSubjectsPageTitle,
+                    subtitle: t.interestedSubjectsSelectedCount(
+                      formState.selected.length,
+                      Subject.values.length,
+                    ),
                     showBackButton: true,
                   ),
                   Expanded(

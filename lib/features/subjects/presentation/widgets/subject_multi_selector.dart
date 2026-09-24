@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:aura/core/l10n/app_language.dart';
+import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 import 'package:aura/shared/widgets/selectable_option_tile.dart';
 
@@ -21,7 +22,7 @@ class SubjectMultiSelector extends StatelessWidget {
       children: [
         for (final subject in Subject.values)
           Padding(
-            padding: const EdgeInsets.only(bottom: 12),
+            padding: const EdgeInsets.only(bottom: AppSpacing.sm),
             child: SelectableOptionTile(
               title: subject.label(language),
               icon: subject.icon,

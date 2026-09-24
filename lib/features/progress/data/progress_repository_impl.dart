@@ -1,6 +1,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/features/progress/domain/entities/profile_stats.dart';
 import 'package:aura/features/progress/domain/entities/topic_progress.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
@@ -50,6 +51,24 @@ class ProgressRepositoryImpl implements ProgressRepository {
         params: {'p_question_id': questionId, 'p_is_correct': isCorrect},
       );
       return const Success(null);
+    } on PostgrestException {
+      return Error(ServerFailure());
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
+  Future<Result<ProfileStats>> getProfileStats() async {
+    try {
+      final rows = await _client.rpc<List<dynamic>>('get_profile_stats');
+      final row = rows.cast<Map<String, dynamic>>().first;
+      return Success(
+        ProfileStats(
+          totalAnswered: row['total_answered'] as int,
+          correctAnswered: row['correct_answered'] as int,
+        ),
+      );
     } on PostgrestException {
       return Error(ServerFailure());
     } catch (_) {

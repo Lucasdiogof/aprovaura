@@ -16,6 +16,29 @@ class ProfileStrings {
     AppLanguage.english => 'Not informed',
   };
 
+  // Shown in place of the name specifically when it's empty -- unlike
+  // notInformedLabel (goal, subjects), a blank name up top reads like the
+  // profile is broken, not just "no preference set yet".
+  String get namePlaceholder => switch (language) {
+    AppLanguage.portuguese => 'Estudante',
+    AppLanguage.english => 'Student',
+  };
+
+  String get streakStatLabel => switch (language) {
+    AppLanguage.portuguese => 'dias seguidos',
+    AppLanguage.english => 'day streak',
+  };
+
+  String get questionsStatLabel => switch (language) {
+    AppLanguage.portuguese => 'questões',
+    AppLanguage.english => 'questions',
+  };
+
+  String get accuracyStatLabel => switch (language) {
+    AppLanguage.portuguese => 'de acerto',
+    AppLanguage.english => 'accuracy',
+  };
+
   String get goalRowLabel => switch (language) {
     AppLanguage.portuguese => 'Meu objetivo',
     AppLanguage.english => 'My goal',
@@ -98,6 +121,45 @@ class ProfileStrings {
     AppLanguage.english => 'Language',
   };
 
+  String get appearanceSectionLabel => switch (language) {
+    AppLanguage.portuguese => 'Aparência',
+    AppLanguage.english => 'Appearance',
+  };
+
+  String get languageSectionLabel => switch (language) {
+    AppLanguage.portuguese => 'Idioma',
+    AppLanguage.english => 'Language',
+  };
+
+  String get aboutSectionLabel => switch (language) {
+    AppLanguage.portuguese => 'Sobre',
+    AppLanguage.english => 'About',
+  };
+
+  String get aboutRowLabel => switch (language) {
+    AppLanguage.portuguese => 'Sobre o Aura',
+    AppLanguage.english => 'About Aura',
+  };
+
+  String get aboutPageTitle => switch (language) {
+    AppLanguage.portuguese => 'Sobre o Aura',
+    AppLanguage.english => 'About Aura',
+  };
+
+  String get aboutAppDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Um app gamificado de estudos para o ENEM, vestibulares e concursos. '
+          'Aprenda, pratique e evolua.',
+    AppLanguage.english =>
+      'A gamified study app for the ENEM, university entrance exams and '
+          'civil service exams. Learn, practice and evolve.',
+  };
+
+  String get versionRowLabel => switch (language) {
+    AppLanguage.portuguese => 'Versão do app',
+    AppLanguage.english => 'App version',
+  };
+
   String get themePageTitle => switch (language) {
     AppLanguage.portuguese => 'Tema',
     AppLanguage.english => 'Theme',
@@ -153,6 +215,12 @@ class ProfileStrings {
     AppLanguage.portuguese => 'Matérias de interesse',
     AppLanguage.english => 'Subjects of interest',
   };
+
+  String interestedSubjectsSelectedCount(int selected, int total) =>
+      switch (language) {
+        AppLanguage.portuguese => '$selected de $total selecionadas',
+        AppLanguage.english => '$selected of $total selected',
+      };
 
   String levelLabel(int level) => switch (language) {
     AppLanguage.portuguese => 'Nível $level',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/core/theme/app_spacing.dart';
 
 class SelectableOptionTile extends StatelessWidget {
   const SelectableOptionTile({
@@ -23,14 +24,14 @@ class SelectableOptionTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: context.colors.surface,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(AppRadius.md),
       child: InkWell(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppRadius.md),
         onTap: onTap,
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(AppSpacing.md),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(AppRadius.md),
             border: Border.all(
               color: selected ? context.colors.primary : context.colors.border,
               width: selected ? 1.5 : 1,
@@ -40,15 +41,15 @@ class SelectableOptionTile extends StatelessWidget {
             children: [
               if (icon != null) ...[
                 Container(
-                  width: 40,
-                  height: 40,
+                  width: 36,
+                  height: 36,
                   decoration: BoxDecoration(
                     color: context.colors.primary.withValues(alpha: 0.12),
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(icon, color: context.colors.primary, size: 20),
+                  child: Icon(icon, color: context.colors.primary, size: 18),
                 ),
-                const SizedBox(width: 12),
+                const SizedBox(width: AppSpacing.md),
               ],
               Expanded(
                 child: Column(
