@@ -1,4 +1,6 @@
-# Aura
+# Aprovaura
+
+> Estude. Acerte. Ganhe Aura. — *Aprovaura* (aprovação + Aura) is the app; **Aura** is its score.
 
 <p>
   <strong>🇺🇸 English</strong>
@@ -10,7 +12,7 @@ A gamified study app for Brazilian students preparing for the ENEM, university e
 
 ## Overview
 
-Aura turns school subjects into short, structured, habit-forming lessons. Content for each subject is organized as a browsable tree (region/area → theme → activity) rather than a flat quiz list, so it can grow deep (Brazil's geography and history get particular depth) without turning into an unnavigable pile of questions.
+Aprovaura turns school subjects into short, structured, habit-forming lessons. Content for each subject is organized as a browsable tree (region/area → theme → activity) rather than a flat quiz list, so it can grow deep (Brazil's geography and history get particular depth) without turning into an unnavigable pile of questions.
 
 The content catalog, navigation, auth, profile and the practice engine are all built and populated: Matemática, Geografia, História, Português, Biologia, Física and Química have full question banks (~1,400 questions), each one tagged fácil/médio/difícil so a learner can filter a subject down to just the level they want. Geografia additionally has dozens of interactive map and flag quizzes, and Atualidades (current affairs) has its own living dossier model with practice quizzes. Progression is real as well: answered questions and found map regions are tracked per user, completing an activity awards XP and feeds a daily streak, wrong answers pile up into a review list, and any question can be favorited. Every practice entry point is wired: Home opens on the streak plus quick practice, review mistakes and favorites, and the Practice tab holds the subject catalog.
 

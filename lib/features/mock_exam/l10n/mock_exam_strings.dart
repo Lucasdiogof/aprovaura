@@ -340,10 +340,10 @@ class MockExamStrings {
   String get unsavedDescription => switch (language) {
     AppLanguage.portuguese =>
       'Ela não chegou ao servidor. Você pode ficar e marcar de novo, ou sair '
-          'assim mesmo -- as outras respostas estão salvas.',
+          'assim mesmo — as outras respostas estão salvas.',
     AppLanguage.english =>
       "It didn't reach the server. Stay and pick it again, or leave anyway "
-          '-- your other answers are saved.',
+          '— your other answers are saved.',
   };
 
   String get stayButton => switch (language) {

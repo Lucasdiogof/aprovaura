@@ -1,4 +1,6 @@
-# Aura
+# Aprovaura
+
+> Estude. Acerte. Ganhe Aura. — *Aprovaura* (aprovação + Aura) é o app; **Aura** é a pontuação dele.
 
 <p>
   <a href="README.md">🇺🇸 English</a>
@@ -10,7 +12,7 @@ Um aplicativo de estudos gamificado para estudantes brasileiros se preparando pa
 
 ## Visão geral
 
-O Aura pega a ideia do Duolingo — lições curtas, estruturadas e que criam hábito — e aplica a matérias escolares em vez de idiomas. O conteúdo de cada matéria é organizado como uma árvore navegável (região/área → tema → atividade) em vez de uma lista plana de quizzes, então ele consegue crescer em profundidade (Geografia e História do Brasil ganham bastante destaque) sem virar uma pilha de questões impossível de navegar.
+A Aprovaura pega a ideia do Duolingo — lições curtas, estruturadas e que criam hábito — e aplica a matérias escolares em vez de idiomas. O conteúdo de cada matéria é organizado como uma árvore navegável (região/área → tema → atividade) em vez de uma lista plana de quizzes, então ele consegue crescer em profundidade (Geografia e História do Brasil ganham bastante destaque) sem virar uma pilha de questões impossível de navegar.
 
 O catálogo de conteúdo, a navegação, a autenticação, o perfil e o motor de prática já estão prontos e populados: Matemática, Geografia, História, Português, Biologia, Física e Química têm bancos de questões completos (~1.400 questões), cada uma marcada como fácil/médio/difícil, para o aluno conseguir filtrar uma matéria só pelo nível que quiser. A Geografia ainda tem dezenas de quizzes interativos de mapa e bandeiras, e Atualidades tem seu próprio modelo de dossiê vivo, com quiz de prática. A progressão também é real: questões respondidas e regiões encontradas no mapa são registradas por usuário, terminar uma atividade dá XP e alimenta a ofensiva diária, os erros viram uma lista de revisão e qualquer questão pode ser favoritada. Todos os atalhos de prática estão ligados: a Início abre com a ofensiva mais prática rápida, revisar erros e favoritos, e a aba Praticar guarda o catálogo de matérias.
 
