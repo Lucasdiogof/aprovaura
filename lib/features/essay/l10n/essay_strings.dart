@@ -74,11 +74,6 @@ class EssayStrings {
     AppLanguage.english => 'Last score',
   };
 
-  String get attemptsLabel => switch (language) {
-    AppLanguage.portuguese => 'Tentativas',
-    AppLanguage.english => 'Attempts',
-  };
-
   String get emptyTitle => switch (language) {
     AppLanguage.portuguese => 'Nenhum tema disponível no momento.',
     AppLanguage.english => 'No themes available right now.',
@@ -254,11 +249,6 @@ class EssayStrings {
       "We couldn't save your latest text, so nothing was sent. Try again.",
   };
 
-  String get submittedTitle => switch (language) {
-    AppLanguage.portuguese => 'Redação enviada',
-    AppLanguage.english => 'Essay sent',
-  };
-
   /// Status of an attempt nobody has started marking yet. Deliberately not
   /// "corrigindo": no evaluation has begun.
   String get statusSubmitted => switch (language) {
@@ -305,11 +295,6 @@ class EssayStrings {
   String get submittedTextHeading => switch (language) {
     AppLanguage.portuguese => 'Texto enviado',
     AppLanguage.english => 'Text sent',
-  };
-
-  String get scoreLabel => switch (language) {
-    AppLanguage.portuguese => 'Nota',
-    AppLanguage.english => 'Score',
   };
 
   String get continueNewAttemptButton => switch (language) {

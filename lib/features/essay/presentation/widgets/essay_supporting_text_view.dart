@@ -3,8 +3,14 @@ import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
 
-/// One motivating text. The source sits under the body in small italic: it
-/// is information about the excerpt, not something to act on.
+/// One motivating text.
+///
+/// A rule down the left instead of a bordered card: several boxed cards in
+/// a row read as a stack of unrelated things, when what this actually is
+/// is one passage after another in the same document.
+///
+/// The source sits under the body in small italic -- information about the
+/// excerpt, not something to act on.
 class EssaySupportingTextView extends StatelessWidget {
   const EssaySupportingTextView({required this.text, super.key});
 
@@ -14,11 +20,14 @@ class EssaySupportingTextView extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     return Container(
-      padding: const EdgeInsets.all(AppSpacing.md),
+      padding: const EdgeInsets.fromLTRB(
+        AppSpacing.md,
+        AppSpacing.xs,
+        0,
+        AppSpacing.xs,
+      ),
       decoration: BoxDecoration(
-        color: colors.surface,
-        borderRadius: BorderRadius.circular(AppRadius.lg),
-        border: Border.all(color: colors.border),
+        border: Border(left: BorderSide(color: colors.border, width: 3)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

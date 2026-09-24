@@ -16,6 +16,7 @@ import 'package:aura/features/essay/presentation/widgets/essay_attempt_row.dart'
 import 'package:aura/features/essay/presentation/widgets/essay_origin_badge.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_supporting_text_view.dart';
 import 'package:aura/shared/widgets/app_button.dart';
+import 'package:aura/shared/widgets/content_width.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
 /// The proposal itself: prompt and motivating texts, laid out to be read.
@@ -96,14 +97,17 @@ class _ThemeView extends StatelessWidget {
     final colors = context.colors;
     final textTheme = Theme.of(context).textTheme;
     return ListView(
-      padding: const EdgeInsets.fromLTRB(
-        AppSpacing.pageHorizontal,
+      padding: EdgeInsets.fromLTRB(
+        appHorizontalPadding(context),
         AppSpacing.md,
-        AppSpacing.pageHorizontal,
+        appHorizontalPadding(context),
         AppSpacing.xxl,
       ),
       children: [
-        EssayOriginBadge(origin: theme.origin, strings: strings),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: EssayOriginBadge(origin: theme.origin, strings: strings),
+        ),
         const SizedBox(height: AppSpacing.md),
         Text(
           theme.title,
@@ -119,14 +123,6 @@ class _ThemeView extends StatelessWidget {
             description,
             style: TextStyle(color: colors.textSecondary, height: 1.45),
           ),
-        ],
-        if (attempts.isNotEmpty) ...[
-          const SizedBox(height: AppSpacing.xl),
-          _SectionHeading(label: strings.attemptsHeading),
-          for (final attempt in attempts) ...[
-            const SizedBox(height: AppSpacing.sm),
-            EssayAttemptRow(attempt: attempt, strings: strings),
-          ],
         ],
         const SizedBox(height: AppSpacing.xl),
         _SectionHeading(label: strings.proposalHeading),
@@ -145,6 +141,16 @@ class _ThemeView extends StatelessWidget {
           for (final text in theme.supportingTexts) ...[
             const SizedBox(height: AppSpacing.md),
             EssaySupportingTextView(text: text),
+          ],
+        ],
+        // History after the proposal, not in the middle of it: reading the
+        // theme and reviewing past attempts are different errands.
+        if (attempts.isNotEmpty) ...[
+          const SizedBox(height: AppSpacing.xl),
+          _SectionHeading(label: strings.attemptsHeading),
+          for (final attempt in attempts) ...[
+            const SizedBox(height: AppSpacing.sm),
+            EssayAttemptRow(attempt: attempt, strings: strings),
           ],
         ],
         const SizedBox(height: AppSpacing.xxl),

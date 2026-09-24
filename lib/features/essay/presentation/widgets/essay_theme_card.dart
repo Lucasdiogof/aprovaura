@@ -87,12 +87,17 @@ class EssayThemeCard extends StatelessWidget {
               const SizedBox(height: AppSpacing.sm),
               Row(
                 children: [
-                  Text(
-                    _actionLabel,
-                    style: TextStyle(
-                      fontSize: 13.5,
-                      fontWeight: FontWeight.w700,
-                      color: colors.primary,
+                  // Wraps rather than truncates at large text sizes: the
+                  // label is the one thing on the card that says what
+                  // tapping it does.
+                  Flexible(
+                    child: Text(
+                      _actionLabel,
+                      style: TextStyle(
+                        fontSize: 13.5,
+                        fontWeight: FontWeight.w700,
+                        color: colors.primary,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 2),

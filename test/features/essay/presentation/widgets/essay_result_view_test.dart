@@ -95,8 +95,9 @@ void main() {
 
       expect(find.text('Competência 1'), findsOneWidget);
       expect(find.text('Competência 5'), findsOneWidget);
-      expect(find.text('200'), findsOneWidget);
-      expect(find.text('80'), findsOneWidget);
+      // Score and ceiling are one rich span: "200 / 200".
+      expect(find.text('200 / 200', findRichText: true), findsOneWidget);
+      expect(find.text('80 / 200', findRichText: true), findsOneWidget);
     });
 
     testWidgets('a competency opens into the reasons for its score', (
@@ -140,7 +141,7 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('120'), findsOneWidget);
+      expect(find.text('120 / 200', findRichText: true), findsOneWidget);
       // Nothing to expand, so no chevron pretending there is.
       expect(find.byType(ExpansionTile), findsNothing);
     });

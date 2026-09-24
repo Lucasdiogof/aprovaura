@@ -19,6 +19,11 @@ class EssayCompetencyTile extends StatelessWidget {
   final EssayCompetency competency;
   final EssayStrings strings;
 
+  /// The room an ExpansionTile keeps for its chevron. A competency with
+  /// nothing to expand borrows the same gutter, so the scores and the bars
+  /// line up down the column whether or not there is detail behind them.
+  static const _chevronGutter = 40.0;
+
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
@@ -28,45 +33,59 @@ class EssayCompetencyTile extends StatelessWidget {
         competency.improvements.isNotEmpty ||
         competency.evidence.isNotEmpty;
 
-    final header = Row(
+    // One line for label and score, so the numbers line up down the
+    // column and the lowest competency is findable at a glance. The title
+    // gets a single line under it -- five wrapped titles turned the list
+    // into a wall.
+    final header = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
+        Row(
+          children: [
+            Expanded(
+              child: Text(
                 strings.competencyLabel(competency.key),
                 style: TextStyle(
-                  fontSize: 13,
+                  fontSize: 13.5,
                   fontWeight: FontWeight.w700,
                   color: colors.textPrimary,
                 ),
               ),
-              if (competency.title.isNotEmpty) ...[
-                const SizedBox(height: 2),
-                Text(
-                  competency.title,
-                  style: TextStyle(
-                    fontSize: 12,
-                    height: 1.3,
-                    color: colors.textSecondary,
+            ),
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: '${competency.score}',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w800,
+                      color: colors.primary,
+                    ),
                   ),
-                ),
-              ],
-              const SizedBox(height: AppSpacing.sm),
-              _ScoreBar(fraction: competency.fraction),
-            ],
-          ),
+                  TextSpan(
+                    text: ' / ${EssayCompetency.maxScore}',
+                    style: TextStyle(
+                      fontSize: 11.5,
+                      color: colors.textSecondary,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-        const SizedBox(width: AppSpacing.md),
-        Text(
-          '${competency.score}',
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w800,
-            color: colors.primary,
+        if (competency.title.isNotEmpty) ...[
+          const SizedBox(height: 2),
+          Text(
+            competency.title,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(fontSize: 12, color: colors.textSecondary),
           ),
-        ),
+        ],
+        const SizedBox(height: AppSpacing.sm),
+        _ScoreBar(fraction: competency.fraction),
       ],
     );
 
@@ -105,7 +124,12 @@ class EssayCompetencyTile extends StatelessWidget {
                 ),
               )
             : Padding(
-                padding: const EdgeInsets.all(AppSpacing.md),
+                padding: const EdgeInsets.fromLTRB(
+                  AppSpacing.md,
+                  AppSpacing.md,
+                  AppSpacing.md + _chevronGutter,
+                  AppSpacing.md,
+                ),
                 child: header,
               ),
       ),
@@ -198,27 +222,53 @@ class _Bullets extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 7, right: 8),
-                    child: Container(
-                      width: 4,
-                      height: 4,
-                      decoration: BoxDecoration(
-                        color: color,
-                        shape: BoxShape.circle,
+                  if (!quoted)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 7, right: 8),
+                      child: Container(
+                        width: 4,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          color: color,
+                          shape: BoxShape.circle,
+                        ),
                       ),
                     ),
-                  ),
                   Expanded(
-                    child: Text(
-                      quoted ? '"$item"' : item,
-                      style: TextStyle(
-                        fontSize: 13.5,
-                        height: 1.45,
-                        fontStyle: quoted ? FontStyle.italic : null,
-                        color: colors.textPrimary,
-                      ),
-                    ),
+                    child: quoted
+                        // A tonal strip with a rule on the left: these are
+                        // the person's own words coming back, not the
+                        // marker's prose.
+                        ? Container(
+                            padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
+                            decoration: BoxDecoration(
+                              color: colors.background,
+                              borderRadius: BorderRadius.circular(AppRadius.sm),
+                              border: Border(
+                                left: BorderSide(
+                                  color: colors.border,
+                                  width: 3,
+                                ),
+                              ),
+                            ),
+                            child: Text(
+                              '"$item"',
+                              style: TextStyle(
+                                fontSize: 13.5,
+                                height: 1.45,
+                                fontStyle: FontStyle.italic,
+                                color: colors.textPrimary,
+                              ),
+                            ),
+                          )
+                        : Text(
+                            item,
+                            style: TextStyle(
+                              fontSize: 13.5,
+                              height: 1.45,
+                              color: colors.textPrimary,
+                            ),
+                          ),
                   ),
                 ],
               ),

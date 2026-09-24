@@ -49,7 +49,7 @@ class EssayAttemptRow extends StatelessWidget {
                     Text(
                       MaterialLocalizations.of(
                         context,
-                      ).formatMediumDate(attempt.submittedAt.toLocal()),
+                      ).formatShortDate(attempt.submittedAt.toLocal()),
                       style: TextStyle(
                         fontSize: 13.5,
                         fontWeight: FontWeight.w600,

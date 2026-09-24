@@ -17,6 +17,7 @@ import 'package:aura/features/essay/presentation/widgets/essay_attempt_status_la
 import 'package:aura/features/essay/presentation/widgets/essay_result_view.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 import 'package:aura/shared/widgets/app_button.dart';
+import 'package:aura/shared/widgets/content_width.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
 /// One attempt, exactly as it was sent. Read-only by construction: nothing
@@ -101,10 +102,10 @@ class _SubmissionView extends StatelessWidget {
     final colors = context.colors;
     final textTheme = Theme.of(context).textTheme;
     return ListView(
-      padding: const EdgeInsets.fromLTRB(
-        AppSpacing.pageHorizontal,
+      padding: EdgeInsets.fromLTRB(
+        appHorizontalPadding(context),
         AppSpacing.md,
-        AppSpacing.pageHorizontal,
+        appHorizontalPadding(context),
         AppSpacing.xxl,
       ),
       children: [
@@ -121,16 +122,23 @@ class _SubmissionView extends StatelessWidget {
           // Formatted here from the server's timestamp -- the database
           // never stores a formatted string. MaterialLocalizations already
           // follows the app's locale, so this needs no date package.
+          // Short, not medium: medium drops the year, and a history that
+          // spans two exam seasons would read as "18 de set." twice.
           MaterialLocalizations.of(
             context,
-          ).formatMediumDate(submission.submittedAt.toLocal()),
+          ).formatShortDate(submission.submittedAt.toLocal()),
           style: TextStyle(fontSize: 12.5, color: colors.textSecondary),
         ),
         const SizedBox(height: AppSpacing.md),
-        EssayAttemptStatusLabel(
-          status: submission.status,
-          strings: strings,
-          expanded: true,
+        // Aligned, not stretched: inside a stretching list a chip would
+        // become a full-width banner.
+        Align(
+          alignment: Alignment.centerLeft,
+          child: EssayAttemptStatusLabel(
+            status: submission.status,
+            strings: strings,
+            expanded: true,
+          ),
         ),
         if (submission.evaluation case final evaluation?) ...[
           const SizedBox(height: AppSpacing.lg),

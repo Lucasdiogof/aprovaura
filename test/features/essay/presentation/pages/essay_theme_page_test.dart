@@ -152,6 +152,9 @@ void main() {
       await tester.pumpApp(const EssayThemePage(summary: _graded));
       await tester.pumpAndSettle();
 
+      // The history sits after the proposal and the motivating texts, so
+      // the list has to be scrolled before those rows are even built.
+      await tester.scrollUntilVisible(find.text('880 pontos'), 300);
       expect(find.text('TENTATIVAS'), findsOneWidget);
       // The waiting one says so and shows no number at all.
       expect(find.text('Aguardando correção'), findsOneWidget);
@@ -159,8 +162,6 @@ void main() {
       expect(find.text('880 pontos'), findsOneWidget);
       expect(find.text('0'), findsNothing);
 
-      // The CTA sits past the prompt and the motivating texts, so the list
-      // has to be scrolled before it is even built.
       await tester.scrollUntilVisible(find.text('Fazer nova redação'), 300);
       expect(find.text('Fazer nova redação'), findsOneWidget);
     });

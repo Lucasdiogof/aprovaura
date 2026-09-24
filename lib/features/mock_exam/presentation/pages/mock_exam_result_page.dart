@@ -15,7 +15,7 @@ import 'package:aura/features/mock_exam/presentation/pages/mock_exam_setup_page.
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 import 'package:aura/features/subjects/presentation/subject_style.dart';
-import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_content_width.dart';
+import 'package:aura/shared/widgets/content_width.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 import 'package:aura/shared/widgets/section_label.dart';
@@ -127,9 +127,9 @@ class _ResultBody extends StatelessWidget {
     final hasErrors = result.wrongCount > 0;
     return ListView(
       padding: EdgeInsets.fromLTRB(
-        mockExamHorizontalPadding(context),
+        appHorizontalPadding(context),
         AppSpacing.lg,
-        mockExamHorizontalPadding(context),
+        appHorizontalPadding(context),
         AppSpacing.xxl,
       ),
       children: [

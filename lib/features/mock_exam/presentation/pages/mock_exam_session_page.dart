@@ -19,7 +19,7 @@ import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart'
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/subjects/presentation/subject_style.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
-import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_content_width.dart';
+import 'package:aura/shared/widgets/content_width.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
@@ -325,9 +325,9 @@ class _QuestionView extends StatelessWidget {
           ),
         Padding(
           padding: EdgeInsets.fromLTRB(
-            mockExamHorizontalPadding(context),
+            appHorizontalPadding(context),
             AppSpacing.lg,
-            mockExamHorizontalPadding(context),
+            appHorizontalPadding(context),
             0,
           ),
           child: Column(
@@ -382,9 +382,9 @@ class _QuestionView extends StatelessWidget {
           child: SingleChildScrollView(
             key: ValueKey(item.position),
             padding: EdgeInsets.fromLTRB(
-              mockExamHorizontalPadding(context),
+              appHorizontalPadding(context),
               AppSpacing.xl,
-              mockExamHorizontalPadding(context),
+              appHorizontalPadding(context),
               AppSpacing.xl,
             ),
             child: Column(
@@ -425,9 +425,9 @@ class _QuestionView extends StatelessWidget {
             top: false,
             child: Padding(
               padding: EdgeInsets.fromLTRB(
-                mockExamHorizontalPadding(context),
+                appHorizontalPadding(context),
                 AppSpacing.md,
-                mockExamHorizontalPadding(context),
+                appHorizontalPadding(context),
                 AppSpacing.md,
               ),
               child: Row(

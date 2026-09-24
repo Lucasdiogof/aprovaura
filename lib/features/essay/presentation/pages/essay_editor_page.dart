@@ -16,6 +16,7 @@ import 'package:aura/features/essay/presentation/widgets/essay_save_status_line.
 import 'package:aura/features/essay/presentation/widgets/essay_submit_sheet.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_unsaved_sheet.dart';
 import 'package:aura/shared/widgets/app_button.dart';
+import 'package:aura/shared/widgets/content_width.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 
 /// Where the essay is actually written.
@@ -256,76 +257,105 @@ class _Editor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(
-        AppSpacing.pageHorizontal,
-        AppSpacing.sm,
-        AppSpacing.pageHorizontal,
-        AppSpacing.sm,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          EssaySaveStatusLine(status: status, strings: strings),
-          const SizedBox(height: AppSpacing.sm),
-          Expanded(
-            child: TextField(
-              controller: controller,
-              focusNode: focusNode,
-              autofocus: true,
-              maxLines: null,
-              expands: true,
-              textAlignVertical: TextAlignVertical.top,
-              keyboardType: TextInputType.multiline,
-              textCapitalization: TextCapitalization.sentences,
-              onChanged: context.read<EssayEditorCubit>().textChanged,
-              style: TextStyle(
-                fontSize: 16,
-                height: 1.7,
-                color: colors.textPrimary,
-              ),
-              decoration: InputDecoration(
-                hintText: strings.editorHint,
-                filled: false,
-                // No box around the writing area: the page itself is the
-                // paper, and a border would shrink it for nothing.
-                border: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                contentPadding: EdgeInsets.zero,
-              ),
+    // Writing a full-bleed line across a tablet is miserable; the padding
+    // grows instead, and on a phone this is the usual page padding.
+    final horizontal = appHorizontalPadding(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(
+              horizontal,
+              AppSpacing.sm,
+              horizontal,
+              AppSpacing.sm,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                EssaySaveStatusLine(status: status, strings: strings),
+                const SizedBox(height: AppSpacing.sm),
+                Expanded(
+                  child: TextField(
+                    controller: controller,
+                    focusNode: focusNode,
+                    autofocus: true,
+                    maxLines: null,
+                    expands: true,
+                    textAlignVertical: TextAlignVertical.top,
+                    keyboardType: TextInputType.multiline,
+                    textCapitalization: TextCapitalization.sentences,
+                    onChanged: context.read<EssayEditorCubit>().textChanged,
+                    style: TextStyle(
+                      fontSize: 16,
+                      height: 1.7,
+                      color: colors.textPrimary,
+                    ),
+                    decoration: InputDecoration(
+                      hintText: strings.editorHint,
+                      filled: false,
+                      // No box around the writing area: the page itself is the
+                      // paper, and a border would shrink it for nothing.
+                      border: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      contentPadding: EdgeInsets.zero,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: AppSpacing.xs),
-          ValueListenableBuilder<TextEditingValue>(
-            valueListenable: controller,
-            // Only this block rebuilds as the person types: the counter and
-            // whether there is anything to send.
-            builder: (context, value, _) {
-              final words = wordsIn(value.text);
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    strings.wordCount(words),
-                    style: TextStyle(fontSize: 12, color: colors.textSecondary),
-                  ),
-                  const SizedBox(height: AppSpacing.sm),
-                  // Full width on its own line: "Enviar para correção"
-                  // does not fit beside the counter at 360px, and this is
-                  // the screen's main action anyway -- it earns the row.
-                  AppButton(
-                    label: strings.submitAction,
-                    isLoading: isSubmitting,
-                    // Nothing written, nothing to freeze.
-                    onPressed: words == 0 ? null : onSubmit,
-                  ),
-                ],
-              );
-            },
+        ),
+        // The footer is a surface of its own, with a rule above it: a long
+        // text otherwise runs straight into the counter and looks like it
+        // is sliding under the button.
+        DecoratedBox(
+          decoration: BoxDecoration(
+            color: colors.background,
+            border: Border(top: BorderSide(color: colors.border)),
           ),
-        ],
-      ),
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(
+              horizontal,
+              AppSpacing.sm,
+              horizontal,
+              AppSpacing.sm,
+            ),
+            child: ValueListenableBuilder<TextEditingValue>(
+              valueListenable: controller,
+              // Only this block rebuilds as the person types: the counter
+              // and whether there is anything to send.
+              builder: (context, value, _) {
+                final words = wordsIn(value.text);
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      strings.wordCount(words),
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: colors.textSecondary,
+                      ),
+                    ),
+                    const SizedBox(height: AppSpacing.sm),
+                    // Full width on its own line: "Enviar para correção"
+                    // does not fit beside the counter at 360px, and this is
+                    // the screen's main action anyway -- it earns the row.
+                    AppButton(
+                      label: strings.submitAction,
+                      isLoading: isSubmitting,
+                      // Nothing written, nothing to freeze.
+                      onPressed: words == 0 ? null : onSubmit,
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

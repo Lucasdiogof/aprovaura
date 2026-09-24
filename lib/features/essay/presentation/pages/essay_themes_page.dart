@@ -12,6 +12,7 @@ import 'package:aura/features/essay/presentation/cubit/essay_themes_state.dart';
 import 'package:aura/features/essay/presentation/pages/essay_theme_page.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_theme_card.dart';
 import 'package:aura/shared/widgets/app_button.dart';
+import 'package:aura/shared/widgets/content_width.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
@@ -74,10 +75,10 @@ class _ThemeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      padding: const EdgeInsets.fromLTRB(
-        AppSpacing.pageHorizontal,
+      padding: EdgeInsets.fromLTRB(
+        appHorizontalPadding(context),
         AppSpacing.md,
-        AppSpacing.pageHorizontal,
+        appHorizontalPadding(context),
         AppSpacing.xxl,
       ),
       itemCount: themes.length + 1,

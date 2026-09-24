@@ -15,7 +15,7 @@ import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_active_sh
 import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_confirm_sheet.dart';
 import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_subject_tile.dart';
 import 'package:aura/features/subjects/presentation/subject_style.dart';
-import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_content_width.dart';
+import 'package:aura/shared/widgets/content_width.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
@@ -133,9 +133,9 @@ class _MockExamSetupView extends StatelessWidget {
                   ),
                   MockExamSetupStatus.ready => ListView(
                     padding: EdgeInsets.fromLTRB(
-                      mockExamHorizontalPadding(context),
+                      appHorizontalPadding(context),
                       AppSpacing.lg,
-                      mockExamHorizontalPadding(context),
+                      appHorizontalPadding(context),
                       AppSpacing.xxl,
                     ),
                     children: [
@@ -201,9 +201,9 @@ class _SummaryBar extends StatelessWidget {
         top: false,
         child: Padding(
           padding: EdgeInsets.fromLTRB(
-            mockExamHorizontalPadding(context),
+            appHorizontalPadding(context),
             AppSpacing.md,
-            mockExamHorizontalPadding(context),
+            appHorizontalPadding(context),
             AppSpacing.md,
           ),
           child: Column(

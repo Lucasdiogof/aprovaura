@@ -32,6 +32,11 @@ class EssayStatusChip extends StatelessWidget {
     return switch (summary.lastStatus) {
       EssaySubmissionStatus.evaluated when summary.lastScore != null => _Chip(
         label: '${summary.lastScore}',
+        // The number alone is the right size for the card, but on its own
+        // it says nothing: read aloud it is just "920".
+        semanticsLabel:
+            '${strings.lastScoreLabel}: '
+            '${strings.scorePoints(summary.lastScore!)}',
         foreground: colors.primary,
         emphasized: true,
       ),
@@ -58,10 +63,12 @@ class _Chip extends StatelessWidget {
   const _Chip({
     required this.label,
     required this.foreground,
+    this.semanticsLabel,
     this.emphasized = false,
   });
 
   final String label;
+  final String? semanticsLabel;
   final Color foreground;
   final bool emphasized;
 
@@ -78,6 +85,7 @@ class _Chip extends StatelessWidget {
       ),
       child: Text(
         label,
+        semanticsLabel: semanticsLabel,
         style: TextStyle(
           fontSize: emphasized ? 14 : 12,
           fontWeight: FontWeight.w800,
