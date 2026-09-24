@@ -94,11 +94,18 @@ class MapQuizPlaying extends MapQuizState {
 }
 
 class MapQuizFinished extends MapQuizState {
-  const MapQuizFinished({required this.correctCount, required this.totalCount});
+  const MapQuizFinished({
+    required this.correctCount,
+    required this.totalCount,
+    required this.attemptId,
+  });
 
   final int correctCount;
   final int totalCount;
+  // Identifies this attempt for award_quiz_xp()'s idempotency check --
+  // see MultipleChoiceFinished.attemptId for the full rationale.
+  final String attemptId;
 
   @override
-  List<Object?> get props => [correctCount, totalCount];
+  List<Object?> get props => [correctCount, totalCount, attemptId];
 }

@@ -19,10 +19,12 @@ import 'package:aura/features/profile/domain/repositories/profile_repository.dar
 import 'package:aura/features/progress/data/progress_repository_impl.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/questions/data/favorite_question_repository_impl.dart';
+import 'package:aura/features/questions/data/question_report_repository_impl.dart';
 import 'package:aura/features/questions/data/question_repository_impl.dart';
 import 'package:aura/features/questions/data/quick_practice_question_repository_impl.dart';
 import 'package:aura/features/questions/data/review_question_repository_impl.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
+import 'package:aura/features/questions/domain/repositories/question_report_repository.dart';
 import 'package:aura/features/streak/data/streak_repository_impl.dart';
 import 'package:aura/features/streak/domain/repositories/streak_repository.dart';
 import 'package:aura/features/xp/data/xp_repository_impl.dart';
@@ -75,5 +77,8 @@ void registerSupabaseDependencies() {
   );
   sl.registerLazySingleton<DailyGoalRepository>(
     () => DailyGoalRepositoryImpl(sl()),
+  );
+  sl.registerLazySingleton<QuestionReportRepository>(
+    () => QuestionReportRepositoryImpl(sl()),
   );
 }

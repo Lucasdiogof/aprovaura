@@ -60,7 +60,10 @@ class _FakeXpRepository implements XpRepository {
   Future<Result<UserXp>> getCurrent() => throw UnimplementedError();
 
   @override
-  Future<Result<UserXp>> awardActivityXp() => throw UnimplementedError();
+  Future<Result<UserXp>> awardQuizXp({
+    required String attemptId,
+    required int correctCount,
+  }) => throw UnimplementedError();
 }
 
 void main() {

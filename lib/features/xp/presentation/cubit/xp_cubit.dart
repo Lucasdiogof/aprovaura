@@ -21,8 +21,14 @@ class XpCubit extends Cubit<XpState> {
     }
   }
 
-  Future<void> awardActivityCompletion() async {
-    final result = await _repository.awardActivityXp();
+  Future<void> awardQuizXp({
+    required String attemptId,
+    required int correctCount,
+  }) async {
+    final result = await _repository.awardQuizXp(
+      attemptId: attemptId,
+      correctCount: correctCount,
+    );
     if (result case Success(:final data)) {
       emit(XpLoaded(data));
     }

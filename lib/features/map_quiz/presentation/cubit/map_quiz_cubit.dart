@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/utils/id_generator.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_region.dart';
 import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_state.dart';
@@ -16,6 +17,7 @@ class MapQuizCubit extends Cubit<MapQuizState> {
     required this.mapId,
     required this.catalogNodeId,
     this.backgroundMapId,
+    this.attemptIdGenerator = generateAttemptId,
   }) : super(const MapQuizLoading()) {
     load();
   }
@@ -29,8 +31,17 @@ class MapQuizCubit extends Cubit<MapQuizState> {
   // convey a recognizable map on their own the way filled country
   // polygons do.
   final String? backgroundMapId;
+  // Overridable only so tests can assert on a deterministic
+  // MapQuizFinished.attemptId instead of a random UUID. Not private: a
+  // named initializing formal for a private field can't be passed by
+  // name from another library, which is exactly what tests need to do.
+  final String Function() attemptIdGenerator;
+  // Set fresh on every load() (including a retry), so award_quiz_xp()
+  // treats each attempt as its own idempotency key.
+  String _attemptId = '';
 
   Future<void> load() async {
+    _attemptId = attemptIdGenerator();
     emit(const MapQuizLoading());
     final result = await _repository.loadRegions(mapId);
     if (isClosed) return;
@@ -113,6 +124,7 @@ class MapQuizCubit extends Cubit<MapQuizState> {
         MapQuizFinished(
           correctCount: correctCount,
           totalCount: current.totalCount,
+          attemptId: _attemptId,
         ),
       );
       return;

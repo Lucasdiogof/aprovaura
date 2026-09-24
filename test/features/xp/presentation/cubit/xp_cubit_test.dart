@@ -50,28 +50,42 @@ void main() {
       );
     });
 
-    group('awardActivityCompletion', () {
+    group('awardQuizXp', () {
       blocTest<XpCubit, XpState>(
         'emits $XpLoaded with the updated total on success',
         build: () {
           when(
-            () => repository.awardActivityXp(),
+            () => repository.awardQuizXp(
+              attemptId: any(named: 'attemptId'),
+              correctCount: any(named: 'correctCount'),
+            ),
           ).thenAnswer((_) async => const Success(UserXp(totalXp: 300)));
           return XpCubit(repository);
         },
-        act: (cubit) => cubit.awardActivityCompletion(),
+        act: (cubit) =>
+            cubit.awardQuizXp(attemptId: 'attempt-1', correctCount: 5),
         expect: () => [const XpLoaded(UserXp(totalXp: 300))],
+        verify: (_) {
+          verify(
+            () =>
+                repository.awardQuizXp(attemptId: 'attempt-1', correctCount: 5),
+          ).called(1);
+        },
       );
 
       blocTest<XpCubit, XpState>(
         'emits nothing when the repository call fails',
         build: () {
           when(
-            () => repository.awardActivityXp(),
-          ).thenAnswer((_) async => Error(ServerFailure('boom')));
+            () => repository.awardQuizXp(
+              attemptId: any(named: 'attemptId'),
+              correctCount: any(named: 'correctCount'),
+            ),
+          ).thenAnswer((_) async => Error<UserXp>(ServerFailure('boom')));
           return XpCubit(repository);
         },
-        act: (cubit) => cubit.awardActivityCompletion(),
+        act: (cubit) =>
+            cubit.awardQuizXp(attemptId: 'attempt-1', correctCount: 0),
         expect: () => <XpState>[],
       );
     });

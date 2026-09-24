@@ -1,4 +1,5 @@
 import 'package:aura/core/l10n/app_language.dart';
+import 'package:aura/features/questions/presentation/quiz_result_tier.dart';
 
 class MultipleChoiceStrings {
   const MultipleChoiceStrings(this.language);
@@ -30,30 +31,41 @@ class MultipleChoiceStrings {
     AppLanguage.english => 'See result',
   };
 
-  String finishedTitle(double fraction) => switch (language) {
-    AppLanguage.portuguese => switch (fraction) {
-      >= 0.8 => 'Mandou bem!',
-      >= 0.5 => 'Dá para melhorar!',
-      _ => 'Vamos tentar de novo?',
+  // Four tiers, not just "did well or not": a genuine 0% needs a neutral,
+  // non-celebratory tone that a middling 40% doesn't.
+  String finishedTitle(QuizResultTier tier) => switch (language) {
+    AppLanguage.portuguese => switch (tier) {
+      QuizResultTier.zero => 'Vamos tentar de novo?',
+      QuizResultTier.developing => 'Continue praticando',
+      QuizResultTier.good => 'Mandou bem!',
+      QuizResultTier.excellent => 'Perfeito!',
     },
-    AppLanguage.english => switch (fraction) {
-      >= 0.8 => 'Nice work!',
-      >= 0.5 => 'Room to improve!',
-      _ => "Let's try again?",
+    AppLanguage.english => switch (tier) {
+      QuizResultTier.zero => "Let's try again?",
+      QuizResultTier.developing => 'Keep practicing',
+      QuizResultTier.good => 'Nice work!',
+      QuizResultTier.excellent => 'Perfect!',
     },
   };
 
-  String finishedSubtitle(double fraction) => switch (language) {
-    AppLanguage.portuguese => switch (fraction) {
-      >= 0.8 => 'Você concluiu a atividade com sucesso.',
-      >= 0.5 => 'Você está no caminho certo, continue praticando.',
-      _ =>
-        'Essa atividade pegou pesado. Que tal revisar o conteúdo e tentar de novo?',
+  String finishedSubtitle(QuizResultTier tier) => switch (language) {
+    AppLanguage.portuguese => switch (tier) {
+      QuizResultTier.zero =>
+        'Essa atividade pegou pesado. Revise o conteúdo e tente novamente.',
+      QuizResultTier.developing =>
+        'Você acertou algumas questões. Continue praticando para evoluir.',
+      QuizResultTier.good => 'Você está no caminho certo, continue assim.',
+      QuizResultTier.excellent =>
+        'Você acertou tudo! Atividade concluída com excelência.',
     },
-    AppLanguage.english => switch (fraction) {
-      >= 0.8 => 'You completed the activity successfully.',
-      >= 0.5 => "You're on the right track, keep practicing.",
-      _ => 'That one was tough. Try reviewing the content and try again.',
+    AppLanguage.english => switch (tier) {
+      QuizResultTier.zero =>
+        'That one was tough. Review the content and try again.',
+      QuizResultTier.developing =>
+        'You got some of them right. Keep practicing to improve.',
+      QuizResultTier.good => "You're on the right track, keep it up.",
+      QuizResultTier.excellent =>
+        'You got everything right! Completed with excellence.',
     },
   };
 
@@ -93,11 +105,6 @@ class MultipleChoiceStrings {
     AppLanguage.english => 'Redo activity',
   };
 
-  String get backToTrailButton => switch (language) {
-    AppLanguage.portuguese => 'Voltar para trilha',
-    AppLanguage.english => 'Back to path',
-  };
-
   String get retryButton => switch (language) {
     AppLanguage.portuguese => 'Tentar novamente',
     AppLanguage.english => 'Try again',
@@ -106,5 +113,37 @@ class MultipleChoiceStrings {
   String get backButton => switch (language) {
     AppLanguage.portuguese => 'Voltar',
     AppLanguage.english => 'Back',
+  };
+
+  String get reportQuestionTitle => switch (language) {
+    AppLanguage.portuguese => 'Reportar esta questão?',
+    AppLanguage.english => 'Report this question?',
+  };
+
+  String get reportQuestionDescription => switch (language) {
+    AppLanguage.portuguese =>
+      'Avise que algo parece errado ou confuso aqui. Vamos revisar.',
+    AppLanguage.english =>
+      'Let us know something looks wrong or confusing here. We\'ll take a look.',
+  };
+
+  String get reportQuestionConfirm => switch (language) {
+    AppLanguage.portuguese => 'Reportar',
+    AppLanguage.english => 'Report',
+  };
+
+  String get reportQuestionCancel => switch (language) {
+    AppLanguage.portuguese => 'Cancelar',
+    AppLanguage.english => 'Cancel',
+  };
+
+  String get reportQuestionThanks => switch (language) {
+    AppLanguage.portuguese => 'Obrigado! Vamos revisar essa questão.',
+    AppLanguage.english => "Thanks! We'll take a look at this question.",
+  };
+
+  String get reportQuestionFailed => switch (language) {
+    AppLanguage.portuguese => 'Não deu para enviar o report agora.',
+    AppLanguage.english => "Couldn't send the report right now.",
   };
 }

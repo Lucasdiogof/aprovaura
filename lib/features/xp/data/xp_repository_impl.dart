@@ -28,9 +28,15 @@ class XpRepositoryImpl implements XpRepository {
   }
 
   @override
-  Future<Result<UserXp>> awardActivityXp() async {
+  Future<Result<UserXp>> awardQuizXp({
+    required String attemptId,
+    required int correctCount,
+  }) async {
     try {
-      final rows = await _client.rpc<List<dynamic>>('award_activity_xp');
+      final rows = await _client.rpc<List<dynamic>>(
+        'award_quiz_xp',
+        params: {'p_attempt_id': attemptId, 'p_correct_count': correctCount},
+      );
       final row = rows.cast<Map<String, dynamic>>().first;
       return Success(UserXp(totalXp: row['total_xp'] as int));
     } on PostgrestException {

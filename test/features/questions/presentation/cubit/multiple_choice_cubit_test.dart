@@ -64,6 +64,7 @@ void main() {
           favoritesRepository,
           catalogNodeId: 'node-1',
           trackProgress: trackProgress,
+          attemptIdGenerator: () => 'attempt-1',
         );
 
     test(
@@ -341,10 +342,51 @@ void main() {
         verify: (cubit) {
           expect(
             cubit.state,
-            const MultipleChoiceFinished(correctCount: 1, totalCount: 1),
+            const MultipleChoiceFinished(
+              correctCount: 1,
+              totalCount: 1,
+              attemptId: 'attempt-1',
+            ),
           );
         },
       );
+
+      test('a retry after finishing gets a fresh attemptId, not the same one '
+          '(so award_quiz_xp treats it as a new attempt)', () async {
+        when(
+          () => questionRepository.getQuestions(
+            any(),
+            difficulty: any(named: 'difficulty'),
+          ),
+        ).thenAnswer((_) async => const Success([questionA]));
+        var callCount = 0;
+        final cubit = MultipleChoiceCubit(
+          questionRepository,
+          progressRepository,
+          favoritesRepository,
+          catalogNodeId: 'node-1',
+          attemptIdGenerator: () => 'attempt-${++callCount}',
+        );
+
+        await pumpEventQueue();
+        var state = cubit.state as MultipleChoicePlaying;
+        cubit.selectOption(state.currentQuestion.correctIndex);
+        cubit.next();
+        final firstAttemptId =
+            (cubit.state as MultipleChoiceFinished).attemptId;
+
+        await cubit.load(); // "Refazer atividade" / "Tentar novamente"
+        await pumpEventQueue();
+        state = cubit.state as MultipleChoicePlaying;
+        cubit.selectOption(state.currentQuestion.correctIndex);
+        cubit.next();
+        final secondAttemptId =
+            (cubit.state as MultipleChoiceFinished).attemptId;
+
+        expect(firstAttemptId, 'attempt-1');
+        expect(secondAttemptId, 'attempt-2');
+        expect(secondAttemptId, isNot(firstAttemptId));
+      });
 
       blocTest<MultipleChoiceCubit, MultipleChoiceState>(
         'previous() moves back to the earlier question, keeping its answer',

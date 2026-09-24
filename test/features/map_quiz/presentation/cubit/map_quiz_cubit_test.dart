@@ -51,6 +51,7 @@ void main() {
       mapId: 'brazil_states',
       catalogNodeId: 'node-1',
       backgroundMapId: backgroundMapId,
+      attemptIdGenerator: () => 'attempt-1',
     );
 
     Future<MapQuizCubit> buildPlayingCubit({String? backgroundMapId}) async {
@@ -158,7 +159,11 @@ void main() {
 
         expect(
           cubit.state,
-          const MapQuizFinished(correctCount: 1, totalCount: 1),
+          const MapQuizFinished(
+            correctCount: 1,
+            totalCount: 1,
+            attemptId: 'attempt-1',
+          ),
         );
       });
 
@@ -246,7 +251,11 @@ void main() {
 
           expect(
             cubit.state,
-            const MapQuizFinished(correctCount: 0, totalCount: 1),
+            const MapQuizFinished(
+              correctCount: 0,
+              totalCount: 1,
+              attemptId: 'attempt-1',
+            ),
           );
         },
       );

@@ -117,7 +117,15 @@ class _MapQuizViewState extends State<_MapQuizView> {
                 }
                 if (state is MapQuizFinished) {
                   context.read<StreakCubit>().registerActivityCompletion();
-                  context.read<XpCubit>().awardActivityCompletion();
+                  // Map quiz isn't part of this phase's "+10 per correct
+                  // answer" rework (it wasn't in scope, and a big map can
+                  // have far more than 10 regions) -- correctCount: 1
+                  // keeps its old flat +10-per-completed-map amount while
+                  // still going through the new idempotent award path.
+                  context.read<XpCubit>().awardQuizXp(
+                    attemptId: state.attemptId,
+                    correctCount: 1,
+                  );
                 }
               },
               builder: (context, state) => switch (state) {

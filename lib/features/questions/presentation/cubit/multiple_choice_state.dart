@@ -77,11 +77,16 @@ class MultipleChoiceFinished extends MultipleChoiceState {
   const MultipleChoiceFinished({
     required this.correctCount,
     required this.totalCount,
+    required this.attemptId,
   });
 
   final int correctCount;
   final int totalCount;
+  // Identifies this attempt for award_quiz_xp()'s idempotency check: the
+  // same id for two calls (a rebuild, a retried request) is a no-op on
+  // the server, so XP is never double-awarded for one attempt.
+  final String attemptId;
 
   @override
-  List<Object?> get props => [correctCount, totalCount];
+  List<Object?> get props => [correctCount, totalCount, attemptId];
 }

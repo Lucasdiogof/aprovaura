@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/utils/id_generator.dart';
 import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/questions/domain/entities/question.dart';
@@ -15,6 +16,7 @@ class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
     required this.catalogNodeId,
     this.difficulty,
     this.trackProgress = true,
+    this.attemptIdGenerator = generateAttemptId,
   }) : super(const MultipleChoiceLoading()) {
     load();
   }
@@ -28,8 +30,18 @@ class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
   // catalog_nodes/questions tree that progress/favorites are tracked
   // against.
   final bool trackProgress;
+  // Overridable only so tests can assert on a deterministic
+  // MultipleChoiceFinished.attemptId instead of a random UUID. Not
+  // private: a named initializing formal for a private field can't be
+  // passed by name from another library, which is exactly what tests
+  // need to do.
+  final String Function() attemptIdGenerator;
+  // Set fresh on every load() (including a retry), so award_quiz_xp()
+  // treats each attempt as its own idempotency key.
+  String _attemptId = '';
 
   Future<void> load() async {
+    _attemptId = attemptIdGenerator();
     emit(const MultipleChoiceLoading());
     final result = await _repository.getQuestions(
       catalogNodeId,
@@ -114,6 +126,7 @@ class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
         MultipleChoiceFinished(
           correctCount: current.correctCount,
           totalCount: current.questions.length,
+          attemptId: _attemptId,
         ),
       );
       return;

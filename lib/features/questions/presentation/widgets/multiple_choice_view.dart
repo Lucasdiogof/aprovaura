@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/di/injection_container.dart';
+import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
+import 'package:aura/features/questions/domain/repositories/question_report_repository.dart';
 import 'package:aura/features/questions/domain/repositories/question_repository.dart';
 import 'package:aura/features/questions/l10n/multiple_choice_strings.dart';
 import 'package:aura/features/questions/presentation/cubit/multiple_choice_cubit.dart';
 import 'package:aura/features/questions/presentation/cubit/multiple_choice_state.dart';
+import 'package:aura/features/questions/presentation/quiz_result_tier.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_answer_option.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_feedback.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/shared/widgets/app_button.dart';
+import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 import 'package:aura/shared/widgets/stat_cell.dart';
 
 class MultipleChoiceView extends StatelessWidget {
@@ -28,6 +32,7 @@ class MultipleChoiceView extends StatelessWidget {
     this.trackProgress = true,
     this.awardsRewards = true,
     this.isCorrectionMode = false,
+    this.contextLabel,
     this.onSessionFinished,
   });
 
@@ -43,6 +48,10 @@ class MultipleChoiceView extends StatelessWidget {
   // True for error-review sessions: the result screen reads as a
   // correction instead of a fresh attempt, and only offers a way back.
   final bool isCorrectionMode;
+  // Breadcrumb shown above the question, e.g. "Geografia · Brasil ·
+  // Relevo" -- optional because not every caller has that chain handy
+  // (quick practice mixes subjects, dossiers don't have one at all).
+  final String? contextLabel;
   // Called once the deck is done, on top of the result screen. Quick
   // practice uses it to ask whether to deal another deck; passing the cubit
   // lets the caller reload without reaching into this widget's internals.
@@ -69,7 +78,10 @@ class MultipleChoiceView extends StatelessWidget {
               if (state is! MultipleChoiceFinished) return;
               if (awardsRewards) {
                 context.read<StreakCubit>().registerActivityCompletion();
-                context.read<XpCubit>().awardActivityCompletion();
+                context.read<XpCubit>().awardQuizXp(
+                  attemptId: state.attemptId,
+                  correctCount: state.correctCount,
+                );
               }
               onSessionFinished?.call(
                 context,
@@ -111,6 +123,7 @@ class MultipleChoiceView extends StatelessWidget {
                     strings: t,
                     state: state,
                     showFavoriteButton: trackProgress,
+                    contextLabel: contextLabel,
                   ),
                 },
               );
@@ -127,6 +140,7 @@ class _QuestionView extends StatelessWidget {
     required this.strings,
     required this.state,
     required this.showFavoriteButton,
+    this.contextLabel,
   });
 
   static const _letters = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -134,6 +148,7 @@ class _QuestionView extends StatelessWidget {
   final MultipleChoiceStrings strings;
   final MultipleChoicePlaying state;
   final bool showFavoriteButton;
+  final String? contextLabel;
 
   QuizOptionStatus _statusFor(int index) {
     if (!state.hasAnswered) return QuizOptionStatus.neutral;
@@ -144,36 +159,87 @@ class _QuestionView extends StatelessWidget {
     return QuizOptionStatus.neutral;
   }
 
+  Future<void> _confirmReport(BuildContext context) async {
+    final questionId = state.currentQuestion.id;
+    final questionPrompt = state.currentQuestion.prompt;
+    await AppInfoBottomSheet.showInfo(
+      context,
+      title: strings.reportQuestionTitle,
+      description: strings.reportQuestionDescription,
+      primaryActionLabel: strings.reportQuestionConfirm,
+      onPrimaryAction: () async {
+        final result = await sl<QuestionReportRepository>().reportQuestion(
+          questionId: questionId,
+          questionPrompt: questionPrompt,
+        );
+        if (!context.mounted) return;
+        final message = switch (result) {
+          Success() => strings.reportQuestionThanks,
+          Error() => strings.reportQuestionFailed,
+        };
+        await AppInfoBottomSheet.showInfo(context, description: message);
+      },
+      secondaryActionLabel: strings.reportQuestionCancel,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final question = state.currentQuestion;
     final wasCorrect = state.selectedIndex == question.correctIndex;
+    final label = contextLabel;
 
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(24, 20, 24, 0),
-          child: Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: QuizProgress(
-                  currentIndex: state.currentIndex,
-                  totalCount: state.questions.length,
-                ),
-              ),
-              if (showFavoriteButton)
-                IconButton(
-                  onPressed: () =>
-                      context.read<MultipleChoiceCubit>().toggleFavorite(),
-                  icon: Icon(
-                    state.isCurrentFavorited
-                        ? Icons.bookmark_rounded
-                        : Icons.bookmark_border_rounded,
-                    color: state.isCurrentFavorited
-                        ? context.colors.primary
-                        : context.colors.textSecondary,
+              if (label != null && label.isNotEmpty) ...[
+                Text(
+                  label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: context.colors.textSecondary,
                   ),
                 ),
+                const SizedBox(height: 6),
+              ],
+              Row(
+                children: [
+                  Expanded(
+                    child: QuizProgress(
+                      strings: strings,
+                      currentIndex: state.currentIndex,
+                      totalCount: state.questions.length,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () => _confirmReport(context),
+                    icon: Icon(
+                      Icons.flag_outlined,
+                      color: context.colors.textSecondary,
+                    ),
+                  ),
+                  if (showFavoriteButton)
+                    IconButton(
+                      onPressed: () =>
+                          context.read<MultipleChoiceCubit>().toggleFavorite(),
+                      icon: Icon(
+                        state.isCurrentFavorited
+                            ? Icons.bookmark_rounded
+                            : Icons.bookmark_border_rounded,
+                        color: state.isCurrentFavorited
+                            ? context.colors.primary
+                            : context.colors.textSecondary,
+                      ),
+                    ),
+                ],
+              ),
             ],
           ),
         ),
@@ -248,8 +314,8 @@ class _FinishedView extends StatelessWidget {
     required this.isCorrectionMode,
   });
 
-  // Matches the flat award in award_activity_xp() -- keep them in sync.
-  static const _xpEarned = 10;
+  // Matches award_quiz_xp() in supabase/quiz_xp_ledger.sql -- keep in sync.
+  static const _xpPerCorrectAnswer = 10;
 
   final MultipleChoiceStrings strings;
   final int correctCount;
@@ -261,6 +327,8 @@ class _FinishedView extends StatelessWidget {
   Widget build(BuildContext context) {
     final fraction = totalCount == 0 ? 0.0 : correctCount / totalCount;
     final percent = (fraction * 100).round();
+    final tier = QuizResultTier.fromFraction(fraction);
+    final xpEarned = correctCount * _xpPerCorrectAnswer;
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
@@ -268,12 +336,12 @@ class _FinishedView extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const SizedBox(height: 8),
-          _TrophyBadge(color: context.colors.primary),
+          _ResultBadge(tier: isCorrectionMode ? null : tier),
           const SizedBox(height: 24),
           Text(
             isCorrectionMode
                 ? strings.correctionTitle
-                : strings.finishedTitle(fraction),
+                : strings.finishedTitle(tier),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontWeight: FontWeight.w800,
@@ -285,7 +353,7 @@ class _FinishedView extends StatelessWidget {
           Text(
             isCorrectionMode
                 ? strings.correctionSubtitle(totalCount)
-                : strings.finishedSubtitle(fraction),
+                : strings.finishedSubtitle(tier),
             textAlign: TextAlign.center,
             style: TextStyle(color: context.colors.textSecondary),
           ),
@@ -319,11 +387,11 @@ class _FinishedView extends StatelessWidget {
                   ),
                   if (showXp) ...[
                     VerticalDivider(color: context.colors.border, width: 1),
-                    const Expanded(
+                    Expanded(
                       child: StatCell(
                         icon: Icons.star_rounded,
-                        iconColor: Color(0xFFE0A32E),
-                        value: '+$_xpEarned',
+                        iconColor: const Color(0xFFE0A32E),
+                        value: '+$xpEarned',
                         label: 'XP',
                       ),
                     ),
@@ -338,7 +406,11 @@ class _FinishedView extends StatelessWidget {
               label: strings.backButton,
               onPressed: () => Navigator.of(context).maybePop(),
             )
-          else ...[
+          // Only two distinct actions exist (leave, or do another round);
+          // which one leads depends on how the attempt went, instead of
+          // always offering "Continuar" and "Voltar para trilha" as if
+          // they were different things.
+          else if (tier.isCelebratory) ...[
             AppButton(
               label: strings.continueButton,
               onPressed: () => Navigator.of(context).maybePop(),
@@ -348,11 +420,16 @@ class _FinishedView extends StatelessWidget {
               onPressed: () => context.read<MultipleChoiceCubit>().load(),
               child: Text(strings.finishedRetryButton),
             ),
-            Divider(height: 24, color: context.colors.border),
+          ] else ...[
+            AppButton(
+              label: strings.retryButton,
+              onPressed: () => context.read<MultipleChoiceCubit>().load(),
+            ),
+            const SizedBox(height: 12),
             TextButton(
               onPressed: () => Navigator.of(context).maybePop(),
               child: Text(
-                strings.backToTrailButton,
+                strings.backButton,
                 style: TextStyle(color: context.colors.textSecondary),
               ),
             ),
@@ -363,13 +440,21 @@ class _FinishedView extends StatelessWidget {
   }
 }
 
-class _TrophyBadge extends StatelessWidget {
-  const _TrophyBadge({required this.color});
+// A neutral badge for a zero/developing result -- no glow, no bright
+// success color -- versus the celebratory one for good/excellent (and
+// for a correction, which always reads as a small win for having fixed
+// the mistake). tier: null means "correction mode", always celebratory.
+class _ResultBadge extends StatelessWidget {
+  const _ResultBadge({required this.tier});
 
-  final Color color;
+  final QuizResultTier? tier;
 
   @override
   Widget build(BuildContext context) {
+    final isCelebratory = tier == null || tier!.isCelebratory;
+    final colors = context.colors;
+    final color = isCelebratory ? colors.primary : colors.textSecondary;
+
     return SizedBox(
       width: 120,
       height: 120,
@@ -379,18 +464,21 @@ class _TrophyBadge extends StatelessWidget {
           height: 88,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: color,
-            boxShadow: [
-              BoxShadow(
-                color: color.withValues(alpha: 0.45),
-                blurRadius: 32,
-                spreadRadius: 6,
-              ),
-            ],
+            color: isCelebratory ? color : colors.secondary,
+            border: isCelebratory ? null : Border.all(color: colors.border),
+            boxShadow: isCelebratory
+                ? [
+                    BoxShadow(
+                      color: color.withValues(alpha: 0.45),
+                      blurRadius: 32,
+                      spreadRadius: 6,
+                    ),
+                  ]
+                : null,
           ),
           child: Icon(
-            Icons.emoji_events_rounded,
-            color: context.colors.onPrimary,
+            isCelebratory ? Icons.emoji_events_rounded : Icons.refresh_rounded,
+            color: isCelebratory ? colors.onPrimary : colors.textSecondary,
             size: 44,
           ),
         ),
