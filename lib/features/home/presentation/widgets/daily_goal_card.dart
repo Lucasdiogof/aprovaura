@@ -34,12 +34,16 @@ class DailyGoalCard extends StatelessWidget {
                 size: 18,
               ),
               const SizedBox(width: AppSpacing.sm),
-              Text(
-                strings.dailyGoalTitle,
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 13,
-                  color: colors.primary,
+              Flexible(
+                child: Text(
+                  strings.dailyGoalTitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 13,
+                    color: colors.primary,
+                  ),
                 ),
               ),
               const Spacer(),
@@ -79,7 +83,12 @@ class DailyGoalCard extends StatelessWidget {
             child: LinearProgressIndicator(
               value: goal.progress,
               minHeight: 8,
-              backgroundColor: colors.surface,
+              // Not colors.surface: on this card's own subtle primary tint,
+              // a plain surface track was nearly invisible in both themes
+              // (surface and the 8%-tinted background read almost the same).
+              // A stronger tint of the same primary keeps the empty track
+              // visible without introducing an unrelated gray.
+              backgroundColor: colors.primary.withValues(alpha: 0.18),
               valueColor: AlwaysStoppedAnimation(colors.primary),
             ),
           ),

@@ -14,7 +14,6 @@ class AppSpacing {
   static const lg = 16.0;
   static const xl = 20.0;
   static const xxl = 24.0;
-  static const xxxl = 32.0;
 }
 
 class AppRadius {
@@ -23,6 +22,5 @@ class AppRadius {
   static const sm = 12.0;
   static const md = 16.0;
   static const lg = 20.0;
-  static const xl = 24.0;
   static const pill = 100.0;
 }

@@ -6,9 +6,16 @@ import 'package:aura/core/theme/theme_cubit.dart';
 import 'package:aura/core/theme/theme_mode_label.dart';
 import 'package:aura/features/profile/l10n/profile_strings.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
+import 'package:aura/shared/widgets/selectable_option_tile.dart';
 
 class ThemeSettingsPage extends StatelessWidget {
   const ThemeSettingsPage({super.key});
+
+  static IconData _iconFor(ThemeMode mode) => switch (mode) {
+    ThemeMode.system => Icons.brightness_auto_outlined,
+    ThemeMode.light => Icons.light_mode_outlined,
+    ThemeMode.dark => Icons.dark_mode_outlined,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +37,10 @@ class ThemeSettingsPage extends StatelessWidget {
                   for (final option in ThemeMode.values)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 12),
-                      child: _ThemeOptionTile(
-                        mode: option,
+                      child: SelectableOptionTile(
+                        title: themeModeLabel(option, t.language),
+                        description: t.themeOptionDescription(option),
+                        icon: _iconFor(option),
                         selected: mode == option,
                         onTap: () => context.read<ThemeCubit>().setMode(option),
                       ),
@@ -41,89 +50,6 @@ class ThemeSettingsPage extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _ThemeOptionTile extends StatelessWidget {
-  const _ThemeOptionTile({
-    required this.mode,
-    required this.selected,
-    required this.onTap,
-  });
-
-  final ThemeMode mode;
-  final bool selected;
-  final VoidCallback onTap;
-
-  IconData get _icon => switch (mode) {
-    ThemeMode.system => Icons.brightness_auto_outlined,
-    ThemeMode.light => Icons.light_mode_outlined,
-    ThemeMode.dark => Icons.dark_mode_outlined,
-  };
-
-  @override
-  Widget build(BuildContext context) {
-    final t = ProfileStrings(context.watch<LocaleCubit>().state);
-    return Material(
-      color: context.colors.surface,
-      borderRadius: BorderRadius.circular(16),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(16),
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              color: selected ? context.colors.primary : context.colors.border,
-              width: selected ? 1.5 : 1,
-            ),
-          ),
-          child: Row(
-            children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: context.colors.primary.withValues(alpha: 0.12),
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(_icon, color: context.colors.primary, size: 20),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      themeModeLabel(mode, t.language),
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: context.colors.textPrimary,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      t.themeOptionDescription(mode),
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: context.colors.textSecondary,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Icon(
-                selected ? Icons.check_circle : Icons.circle_outlined,
-                color: selected
-                    ? context.colors.primary
-                    : context.colors.border,
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
