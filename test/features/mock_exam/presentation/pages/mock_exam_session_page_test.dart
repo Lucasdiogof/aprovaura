@@ -325,4 +325,31 @@ void main() {
     expect(find.text('Entregar simulado'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('large text (1.3x) at 360px, dark: no overflow', (tester) async {
+    tester.view.physicalSize = const Size(360, 740);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    SharedPreferences.setMockInitialValues({});
+    await tester.pumpWidget(
+      BlocProvider<LocaleCubit>(
+        create: (_) => LocaleCubit()..emit(AppLanguage.portuguese),
+        child: MaterialApp(
+          theme: AppTheme.dark,
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(
+              context,
+            ).copyWith(textScaler: const TextScaler.linear(1.3)),
+            child: child!,
+          ),
+          home: const MockExamSessionPage(mockExamId: _examId),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Opção dois'));
+    await tester.pumpAndSettle();
+    expect(find.text('Próxima'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 }

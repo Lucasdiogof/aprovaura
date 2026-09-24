@@ -19,6 +19,7 @@ import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart'
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/subjects/presentation/subject_style.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
+import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_content_width.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
@@ -314,11 +315,19 @@ class _QuestionView extends StatelessWidget {
 
     return Column(
       children: [
+        // Abandoning locks the whole screen; this is the visible "working
+        // on it" (finishing shows it on the hand-in button instead).
+        if (state.isAbandoning)
+          LinearProgressIndicator(
+            minHeight: 2,
+            color: context.colors.primary,
+            backgroundColor: Colors.transparent,
+          ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(
-            AppSpacing.pageHorizontal,
+          padding: EdgeInsets.fromLTRB(
+            mockExamHorizontalPadding(context),
             AppSpacing.lg,
-            AppSpacing.pageHorizontal,
+            mockExamHorizontalPadding(context),
             0,
           ),
           child: Column(
@@ -372,10 +381,10 @@ class _QuestionView extends StatelessWidget {
         Expanded(
           child: SingleChildScrollView(
             key: ValueKey(item.position),
-            padding: const EdgeInsets.fromLTRB(
-              AppSpacing.pageHorizontal,
+            padding: EdgeInsets.fromLTRB(
+              mockExamHorizontalPadding(context),
               AppSpacing.xl,
-              AppSpacing.pageHorizontal,
+              mockExamHorizontalPadding(context),
               AppSpacing.xl,
             ),
             child: Column(
@@ -415,10 +424,10 @@ class _QuestionView extends StatelessWidget {
           child: SafeArea(
             top: false,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(
-                AppSpacing.pageHorizontal,
+              padding: EdgeInsets.fromLTRB(
+                mockExamHorizontalPadding(context),
                 AppSpacing.md,
-                AppSpacing.pageHorizontal,
+                mockExamHorizontalPadding(context),
                 AppSpacing.md,
               ),
               child: Row(

@@ -138,5 +138,35 @@ void main() {
       expect(find.text('2 matérias · 10 questões'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
+
+    testWidgets('large text (1.3x) at 360px, dark: no overflow', (
+      tester,
+    ) async {
+      tester.view.physicalSize = const Size(360, 740);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      SharedPreferences.setMockInitialValues({});
+      await tester.pumpWidget(
+        BlocProvider<LocaleCubit>(
+          create: (_) => LocaleCubit()..emit(AppLanguage.portuguese),
+          child: MaterialApp(
+            theme: AppTheme.dark,
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(
+                context,
+              ).copyWith(textScaler: const TextScaler.linear(1.3)),
+              child: child!,
+            ),
+            home: const MockExamSetupPage(),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Geografia'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Português'));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+    });
   });
 }

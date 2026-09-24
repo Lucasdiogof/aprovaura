@@ -365,11 +365,6 @@ class MockExamStrings {
     AppLanguage.english => 'This mock exam is no longer available.',
   };
 
-  String get backButton => switch (language) {
-    AppLanguage.portuguese => 'Voltar',
-    AppLanguage.english => 'Back',
-  };
-
   // --- Result ---------------------------------------------------------------
 
   String get resultPageTitle => switch (language) {
@@ -397,9 +392,9 @@ class MockExamStrings {
     AppLanguage.english => 'correct',
   };
 
-  String accuracyLabel(double value) => switch (language) {
-    AppLanguage.portuguese => '${percent(value)} de aproveitamento',
-    AppLanguage.english => '${percent(value)} accuracy',
+  String get accuracyWord => switch (language) {
+    AppLanguage.portuguese => 'aproveitamento',
+    AppLanguage.english => 'accuracy',
   };
 
   String get tierReviewTitle => switch (language) {
@@ -445,11 +440,6 @@ class MockExamStrings {
   String get tierExcellentDescription => switch (language) {
     AppLanguage.portuguese => 'Domínio consistente. Continue nesse ritmo.',
     AppLanguage.english => 'Consistent mastery. Keep this pace.',
-  };
-
-  String get statCorrect => switch (language) {
-    AppLanguage.portuguese => 'Corretas',
-    AppLanguage.english => 'Correct',
   };
 
   String get statWrong => switch (language) {

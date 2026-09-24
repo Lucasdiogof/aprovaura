@@ -4,7 +4,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_item.dart';
-import 'package:aura/features/mock_exam/domain/entities/mock_exam_score.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_session_info.dart';
 import 'package:aura/features/mock_exam/domain/mock_exam_failure.dart';
 import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
@@ -34,8 +33,6 @@ MockExamSessionInfo _inProgress({int? currentPosition}) => MockExamSessionInfo(
 
 MockExamFailure _closed(String status) =>
     MockExamFailure(MockExamFailureKind.notInProgress, serverStatus: status);
-
-const _score = MockExamScore(scoredCount: 3, answeredCount: 1, correctCount: 1);
 
 void main() {
   late MockExamRepository repository;
@@ -513,7 +510,7 @@ void main() {
       });
       when(
         () => repository.finishMockExam(_examId),
-      ).thenAnswer((_) async => const Success(_score));
+      ).thenAnswer((_) async => const Success(null));
       final cubit = await loaded(items: [_item(1), _item(2), _item(3)]);
 
       cubit.select(1);
@@ -527,7 +524,7 @@ void main() {
     });
 
     test('double submit grades only once and locks the screen', () async {
-      final finish = Completer<Result<MockExamScore>>();
+      final finish = Completer<Result<void>>();
       when(
         () => repository.finishMockExam(_examId),
       ).thenAnswer((_) => finish.future);
@@ -538,7 +535,7 @@ void main() {
       cubit.select(2);
       expect(cubit.state.currentAnswer, isNull);
 
-      finish.complete(const Success(_score));
+      finish.complete(const Success(null));
       expect(await first, isA<MockExamFinished>());
       verify(() => repository.finishMockExam(_examId)).called(1);
     });
@@ -549,7 +546,7 @@ void main() {
         call++;
         return call == 1
             ? Error(MockExamFailure(MockExamFailureKind.network))
-            : const Success(_score);
+            : const Success(null);
       });
       final cubit = await loaded(items: [_item(1)]);
 
@@ -562,7 +559,7 @@ void main() {
       // finish_mock_exam() on a finished exam returns its grade.
       when(
         () => repository.finishMockExam(_examId),
-      ).thenAnswer((_) async => const Success(_score));
+      ).thenAnswer((_) async => const Success(null));
       final cubit = await loaded(items: [_item(1)]);
       expect(await cubit.finish(), isA<MockExamFinished>());
     });

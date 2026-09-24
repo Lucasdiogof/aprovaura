@@ -15,6 +15,7 @@ import 'package:aura/features/mock_exam/presentation/pages/mock_exam_setup_page.
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 import 'package:aura/features/subjects/presentation/subject_style.dart';
+import 'package:aura/features/mock_exam/presentation/widgets/mock_exam_content_width.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 import 'package:aura/shared/widgets/section_label.dart';
@@ -124,10 +125,10 @@ class _ResultBody extends StatelessWidget {
     final t = strings;
     final hasErrors = result.wrongCount > 0;
     return ListView(
-      padding: const EdgeInsets.fromLTRB(
-        AppSpacing.pageHorizontal,
+      padding: EdgeInsets.fromLTRB(
+        mockExamHorizontalPadding(context),
         AppSpacing.lg,
-        AppSpacing.pageHorizontal,
+        mockExamHorizontalPadding(context),
         AppSpacing.xxl,
       ),
       children: [
@@ -192,9 +193,10 @@ class _ResultBody extends StatelessWidget {
   }
 }
 
-/// Score ring + "68 / 90 corretas" + the tier message, then the four
-/// numbers that always add up (correct + wrong + blank = total) and the XP
-/// the server actually credited.
+/// Score ring (accuracy) + "68 / 90 corretas" + the tier message, then
+/// wrong / blank / XP. Correct is only in the headline and the percentage
+/// only in the ring -- nothing said twice. Wrong and blank are always
+/// separate, and XP is what the server actually credited.
 class _ScoreCard extends StatelessWidget {
   const _ScoreCard({required this.result, required this.strings});
 
@@ -245,13 +247,25 @@ class _ScoreCard extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(AppSpacing.md),
                         child: FittedBox(
-                          child: Text(
-                            t.percent(result.accuracyPercent),
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w800,
-                              color: context.colors.textPrimary,
-                            ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                t.percent(result.accuracyPercent),
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w800,
+                                  color: context.colors.textPrimary,
+                                ),
+                              ),
+                              Text(
+                                t.accuracyWord,
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: context.colors.textSecondary,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -288,14 +302,6 @@ class _ScoreCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 2),
-                    Text(
-                      t.accuracyLabel(result.accuracyPercent),
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: context.colors.textSecondary,
-                      ),
-                    ),
                     const SizedBox(height: AppSpacing.sm),
                     Text(
                       tierTitle,
@@ -321,12 +327,6 @@ class _ScoreCard extends StatelessWidget {
           Divider(color: context.colors.border, height: AppSpacing.xxl * 1.5),
           Row(
             children: [
-              _Stat(
-                icon: Icons.check_rounded,
-                color: context.colors.success,
-                value: '${result.correctCount}',
-                label: t.statCorrect,
-              ),
               _Stat(
                 icon: Icons.close_rounded,
                 color: context.colors.error,

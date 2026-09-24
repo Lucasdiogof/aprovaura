@@ -5,7 +5,6 @@ import 'package:aura/features/mock_exam/domain/entities/mock_exam_availability.d
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_difficulty.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_item.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_result.dart';
-import 'package:aura/features/mock_exam/domain/entities/mock_exam_score.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_session_info.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_subject_config.dart';
 import 'package:aura/features/mock_exam/domain/mock_exam_failure.dart';
@@ -135,19 +134,12 @@ class MockExamRepositoryImpl implements MockExamRepository {
       );
 
   @override
-  Future<Result<MockExamScore>> finishMockExam(String mockExamId) =>
-      _guard(() async {
-        final rows = await _client.rpc<List<dynamic>>(
-          'finish_mock_exam',
-          params: {'p_mock_exam_id': mockExamId},
-        );
-        final row = rows.first as Map<String, dynamic>;
-        return MockExamScore(
-          scoredCount: row['scored_count'] as int,
-          answeredCount: row['answered_count'] as int,
-          correctCount: row['correct_count'] as int,
-        );
-      });
+  Future<Result<void>> finishMockExam(String mockExamId) => _guard(
+    () => _client.rpc<void>(
+      'finish_mock_exam',
+      params: {'p_mock_exam_id': mockExamId},
+    ),
+  );
 
   @override
   Future<Result<MockExamResult?>> getResult(String mockExamId) =>

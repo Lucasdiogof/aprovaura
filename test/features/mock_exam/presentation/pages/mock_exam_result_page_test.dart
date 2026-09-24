@@ -157,11 +157,14 @@ void main() {
 
     expect(find.text('Resultado do simulado'), findsOneWidget);
     expect(find.text('75,6%'), findsOneWidget);
-    expect(find.text('75,6% de aproveitamento'), findsOneWidget);
+    expect(find.text('aproveitamento'), findsOneWidget);
+    // The percentage is said once (in the ring), not repeated as text.
+    expect(find.textContaining('de aproveitamento'), findsNothing);
     expect(find.text('Bom desempenho'), findsOneWidget);
     // Correct / wrong / blank never mixed, XP exactly as the server says.
-    expect(find.text('68'), findsOneWidget);
+    expect(find.textContaining('68 / 90', findRichText: true), findsOneWidget);
     expect(find.text('18'), findsOneWidget);
+    expect(find.text('Erradas'), findsOneWidget);
     expect(find.text('4'), findsOneWidget);
     expect(find.text('Em branco'), findsOneWidget);
     expect(find.text('+680'), findsOneWidget);
@@ -246,6 +249,8 @@ void main() {
     await pumpResult(tester);
 
     await tester.scrollUntilVisible(find.text('Revisar erros'), 200);
+    await tester.ensureVisible(find.text('Revisar erros'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Revisar erros'));
     await tester.pumpAndSettle();
     expect(find.byType(ErrorReviewListPage), findsOneWidget);
@@ -259,6 +264,8 @@ void main() {
     await pumpResult(tester);
 
     await tester.scrollUntilVisible(find.text('Fazer outro simulado'), 200);
+    await tester.ensureVisible(find.text('Fazer outro simulado'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Fazer outro simulado'));
     await tester.pumpAndSettle();
     expect(find.byType(MockExamSetupPage), findsOneWidget);
@@ -282,6 +289,8 @@ void main() {
     await tester.pumpAndSettle();
 
     await tester.scrollUntilVisible(find.text('Voltar para o início'), 200);
+    await tester.ensureVisible(find.text('Voltar para o início'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Voltar para o início'));
     await tester.pumpAndSettle();
     expect(find.byType(MockExamResultPage), findsNothing);
@@ -346,5 +355,44 @@ void main() {
       );
       expect(tester.takeException(), isNull, reason: language.name);
     }
+  });
+
+  testWidgets('large text (1.3x) at 360px, dark: no overflow', (tester) async {
+    stubResult(_intermediate);
+    tester.view.physicalSize = const Size(360, 740);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    SharedPreferences.setMockInitialValues({});
+    await tester.pumpWidget(
+      BlocProvider<LocaleCubit>(
+        create: (_) => LocaleCubit()..emit(AppLanguage.portuguese),
+        child: MaterialApp(
+          theme: AppTheme.dark,
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(
+              context,
+            ).copyWith(textScaler: const TextScaler.linear(1.3)),
+            child: child!,
+          ),
+          home: const MockExamResultPage(mockExamId: _examId),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.drag(find.byType(ListView), const Offset(0, -3000));
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('tablet: content stays at a readable width', (tester) async {
+    tester.view.physicalSize = const Size(1024, 1400);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    stubResult(_intermediate);
+    await pumpResult(tester);
+
+    final bars = find.byType(LinearProgressIndicator);
+    expect(bars, findsWidgets);
+    expect(tester.getSize(bars.first).width, lessThanOrEqualTo(640));
   });
 }

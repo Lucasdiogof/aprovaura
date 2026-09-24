@@ -3,7 +3,6 @@ import 'package:aura/features/mock_exam/domain/entities/active_mock_exam.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_availability.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_item.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_result.dart';
-import 'package:aura/features/mock_exam/domain/entities/mock_exam_score.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_session_info.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_subject_config.dart';
 
@@ -39,8 +38,9 @@ abstract class MockExamRepository {
   Future<Result<void>> setCurrentPosition(String mockExamId, int position);
 
   /// Grades on the server and applies the result. Safe to call again: a
-  /// finished exam just returns the grade it already has.
-  Future<Result<MockExamScore>> finishMockExam(String mockExamId);
+  /// finished exam just succeeds again with no new effect. The grade itself
+  /// is read afterwards by id (getResult), never carried from here.
+  Future<Result<void>> finishMockExam(String mockExamId);
 
   /// The finished exam's result, read from the server by id. Success(null)
   /// when there is no finished exam with that id for this user. Reading is
