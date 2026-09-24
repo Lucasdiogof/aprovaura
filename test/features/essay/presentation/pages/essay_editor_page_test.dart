@@ -12,6 +12,8 @@ import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/entities/essay_draft.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
+import 'package:aura/features/essay/domain/essay_failure.dart';
+import 'package:aura/features/essay/domain/essay_rules.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_editor_cubit.dart';
 import 'package:aura/features/essay/presentation/pages/essay_editor_page.dart';
@@ -42,6 +44,13 @@ Future<void> _settleAutosave(WidgetTester tester) async {
   );
   await tester.pumpAndSettle();
 }
+
+/// Long enough to clear EssayRules.minimumWords: below it the send button
+/// stays disabled, so a shorter string would test nothing.
+final _longEnough = List.generate(
+  EssayRules.minimumWords,
+  (i) => 'palavra${i + 1}',
+).join(' ');
 
 void main() {
   late EssayRepository repository;
@@ -103,7 +112,7 @@ void main() {
         tester.widget<TextField>(find.byType(TextField)).controller!.text,
         isEmpty,
       );
-      expect(find.text('0 palavras'), findsOneWidget);
+      expect(find.text('0 / 50 palavras'), findsOneWidget);
     });
 
     testWidgets('restores the saved draft into the field', (tester) async {
@@ -116,7 +125,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Três palavras aqui'), findsOneWidget);
-      expect(find.text('3 palavras'), findsOneWidget);
+      expect(find.text('3 / 50 palavras'), findsOneWidget);
     });
 
     testWidgets('typing autosaves and reports it', (tester) async {
@@ -246,7 +255,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Texto antigo'), findsNothing);
-      expect(find.text('0 palavras'), findsOneWidget);
+      expect(find.text('0 / 50 palavras'), findsOneWidget);
       verify(() => repository.deleteDraft('t1')).called(1);
     });
 
@@ -374,7 +383,7 @@ void main() {
     testWidgets('sending asks first and can be called off', (tester) async {
       await tester.pumpApp(const EssayEditorPage(theme: _theme));
       await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'Meu texto');
+      await tester.enterText(find.byType(TextField), _longEnough);
       await _settleAutosave(tester);
 
       await tester.tap(find.text('Enviar para correção'));
@@ -390,7 +399,7 @@ void main() {
           clientRequestId: any(named: 'clientRequestId'),
         ),
       );
-      expect(find.text('Meu texto'), findsOneWidget);
+      expect(find.text(_longEnough), findsOneWidget);
     });
 
     testWidgets('confirming freezes the text and opens the attempt', (
@@ -398,7 +407,7 @@ void main() {
     ) async {
       await tester.pumpApp(const EssayEditorPage(theme: _theme));
       await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'Meu texto');
+      await tester.enterText(find.byType(TextField), _longEnough);
       await _settleAutosave(tester);
 
       await tester.tap(find.text('Enviar para correção'));
@@ -434,11 +443,14 @@ void main() {
           themeId: any(named: 'themeId'),
           clientRequestId: any(named: 'clientRequestId'),
         ),
-      ).thenAnswer((_) async => Error(ServerFailure()));
+      ).thenAnswer(
+        (_) async =>
+            const Error(EssaySubmitFailure(EssaySubmitFailureKind.unexpected)),
+      );
 
       await tester.pumpApp(const EssayEditorPage(theme: _theme));
       await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'Meu texto');
+      await tester.enterText(find.byType(TextField), _longEnough);
       await _settleAutosave(tester);
 
       await tester.tap(find.text('Enviar para correção'));
@@ -449,7 +461,7 @@ void main() {
       expect(find.textContaining('continua salvo aqui'), findsOneWidget);
       await tester.tap(find.text('Entendi'));
       await tester.pumpAndSettle();
-      expect(find.text('Meu texto'), findsOneWidget);
+      expect(find.text(_longEnough), findsOneWidget);
     });
 
     testWidgets('fits a 360px screen and renders on dark', (tester) async {

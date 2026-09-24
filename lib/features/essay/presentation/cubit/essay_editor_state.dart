@@ -11,6 +11,11 @@ enum EssaySubmitOutcome {
 
   /// The server refused or never answered. The draft is untouched.
   submitFailed,
+
+  /// Under the minimum word count. The screen normally stops this before
+  /// it gets here; this is the server disagreeing, which it is entitled
+  /// to do -- the draft stays exactly where it was.
+  textTooShort,
 }
 
 /// What the little line above the editor says.

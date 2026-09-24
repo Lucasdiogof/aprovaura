@@ -114,6 +114,28 @@ class EssayStrings {
     AppLanguage.english => '$count ${count == 1 ? 'word' : 'words'}',
   };
 
+  /// "32 / 50 palavras" while the minimum is still ahead. The bare count
+  /// comes back the moment it is reached -- the target has done its job
+  /// and a permanent "/ 50" would read like a quota.
+  String wordCountToMinimum(int count, int minimum) => switch (language) {
+    AppLanguage.portuguese => '$count / $minimum palavras',
+    AppLanguage.english => '$count / $minimum words',
+  };
+
+  String minimumWordsHint(int minimum) => switch (language) {
+    AppLanguage.portuguese => 'Mínimo de $minimum palavras para enviar.',
+    AppLanguage.english => 'At least $minimum words to send.',
+  };
+
+  String submitTooShort(int minimum) => switch (language) {
+    AppLanguage.portuguese =>
+      'Escreva pelo menos $minimum palavras antes de enviar para correção. '
+          'Seu texto continua salvo aqui.',
+    AppLanguage.english =>
+      'Write at least $minimum words before sending for marking. Your text '
+          'is still saved here.',
+  };
+
   String get savingStatus => switch (language) {
     AppLanguage.portuguese => 'Salvando...',
     AppLanguage.english => 'Saving...',

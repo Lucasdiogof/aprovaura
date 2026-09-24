@@ -127,10 +127,12 @@ class EssayRepositoryImpl implements EssayRepository {
           submittedAt: DateTime.parse(row['submitted_at'] as String),
         ),
       );
-    } on PostgrestException {
-      return Error(ServerFailure());
+    } on PostgrestException catch (e) {
+      // "Texto curto demais" is a refusal the person can act on, so it
+      // travels as itself instead of collapsing into a server error.
+      return Error(EssaySubmitFailure.fromCode(e.code));
     } catch (_) {
-      return Error(UnexpectedFailure());
+      return const Error(EssaySubmitFailure(EssaySubmitFailureKind.unexpected));
     }
   }
 

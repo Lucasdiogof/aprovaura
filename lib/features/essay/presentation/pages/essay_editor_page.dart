@@ -5,6 +5,7 @@ import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
+import 'package:aura/features/essay/domain/essay_rules.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
 import 'package:aura/features/essay/l10n/essay_strings.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_editor_cubit.dart';
@@ -134,6 +135,13 @@ class _EssayEditorViewState extends State<_EssayEditorView> {
           context,
           description: t.submitSaveFailed,
         );
+      case EssaySubmitOutcome.textTooShort:
+        // The button should have caught this. If the server still says no,
+        // it says why -- and the text stays where it is.
+        await AppInfoBottomSheet.showError(
+          context,
+          description: t.submitTooShort(EssayRules.minimumWords),
+        );
       case EssaySubmitOutcome.submitFailed:
         await AppInfoBottomSheet.showError(
           context,
@@ -251,9 +259,6 @@ class _Editor extends StatelessWidget {
   final bool isSubmitting;
   final VoidCallback onSubmit;
 
-  static int wordsIn(String text) =>
-      text.trim().isEmpty ? 0 : text.trim().split(RegExp(r'\s+')).length;
-
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
@@ -328,17 +333,38 @@ class _Editor extends StatelessWidget {
               // Only this block rebuilds as the person types: the counter
               // and whether there is anything to send.
               builder: (context, value, _) {
-                final words = wordsIn(value.text);
+                final words = EssayRules.wordsIn(value.text);
+                final shortOfMinimum = words < EssayRules.minimumWords;
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      strings.wordCount(words),
+                      // The target only shows while it matters. Once the
+                      // minimum is behind, the count goes back to being
+                      // just a count.
+                      shortOfMinimum
+                          ? strings.wordCountToMinimum(
+                              words,
+                              EssayRules.minimumWords,
+                            )
+                          : strings.wordCount(words),
                       style: TextStyle(
                         fontSize: 12,
                         color: colors.textSecondary,
                       ),
                     ),
+                    if (shortOfMinimum) ...[
+                      const SizedBox(height: 2),
+                      // Quiet on purpose: someone mid-sentence is not
+                      // making a mistake, so this is not an error.
+                      Text(
+                        strings.minimumWordsHint(EssayRules.minimumWords),
+                        style: TextStyle(
+                          fontSize: 11.5,
+                          color: colors.textSecondary,
+                        ),
+                      ),
+                    ],
                     const SizedBox(height: AppSpacing.sm),
                     // Full width on its own line: "Enviar para correção"
                     // does not fit beside the counter at 360px, and this is
@@ -346,8 +372,10 @@ class _Editor extends StatelessWidget {
                     AppButton(
                       label: strings.submitAction,
                       isLoading: isSubmitting,
-                      // Nothing written, nothing to freeze.
-                      onPressed: words == 0 ? null : onSubmit,
+                      // The same floor the server enforces, so the obvious
+                      // refusal never costs a round trip -- and the sheet
+                      // never opens on something that cannot be sent.
+                      onPressed: shortOfMinimum ? null : onSubmit,
                     ),
                   ],
                 );

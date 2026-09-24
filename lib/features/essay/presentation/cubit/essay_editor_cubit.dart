@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/utils/id_generator.dart';
 import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
+import 'package:aura/features/essay/domain/essay_failure.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_editor_state.dart';
 
@@ -195,10 +196,14 @@ class EssayEditorCubit extends Cubit<EssayEditorState> {
             ),
           );
           return EssaySubmitOutcome.submitted;
-        case Error():
+        case Error(:final failure):
           // The draft is still there: the server only deletes it inside
           // the same transaction that creates the submission.
           emit((state as EssayEditorReady).copyWith(isSubmitting: false));
+          if (failure is EssaySubmitFailure &&
+              failure.kind == EssaySubmitFailureKind.textTooShort) {
+            return EssaySubmitOutcome.textTooShort;
+          }
           return EssaySubmitOutcome.submitFailed;
       }
     } finally {
