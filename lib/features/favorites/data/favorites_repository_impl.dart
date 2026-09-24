@@ -1,8 +1,11 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/features/favorites/domain/entities/favorite_question.dart';
 import 'package:aura/features/favorites/domain/entities/favorite_topic.dart';
 import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
+import 'package:aura/features/questions/domain/entities/question.dart';
+import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 
 class FavoritesRepositoryImpl implements FavoritesRepository {
   FavoritesRepositoryImpl(this._client);
@@ -76,6 +79,60 @@ class FavoritesRepositoryImpl implements FavoritesRepository {
       return Error(UnexpectedFailure());
     }
   }
+
+  // Two round trips regardless of how many questions: the favorited
+  // questions themselves (existing RPC, already ordered by order_index),
+  // then the caller's progress rows for exactly those ids. A question with
+  // no progress row simply isn't in the map -- that's "never answered".
+  @override
+  Future<Result<List<FavoriteQuestion>>> listFavoriteQuestions(
+    String catalogNodeId,
+  ) async {
+    try {
+      final rows = await _client.rpc<List<dynamic>>(
+        'get_favorite_questions_for_node',
+        params: {'p_catalog_node_id': catalogNodeId},
+      );
+      final questions = rows
+          .cast<Map<String, dynamic>>()
+          .map(_questionFromJson)
+          .toList(growable: false);
+      if (questions.isEmpty) return const Success([]);
+
+      final progressRows = await _client
+          .from('user_question_progress')
+          .select('question_id, is_correct')
+          .eq('user_id', _userId)
+          .inFilter('question_id', [for (final q in questions) q.id]);
+      final isCorrectById = {
+        for (final row in progressRows)
+          row['question_id'] as String: row['is_correct'] as bool,
+      };
+
+      return Success([
+        for (final question in questions)
+          FavoriteQuestion(
+            question: question,
+            status: FavoriteQuestionStatus.fromProgress(
+              isCorrectById[question.id],
+            ),
+          ),
+      ]);
+    } on PostgrestException {
+      return Error(ServerFailure());
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  Question _questionFromJson(Map<String, dynamic> json) => Question(
+    id: json['id'] as String,
+    prompt: json['prompt'] as String,
+    options: (json['options'] as List<dynamic>).cast<String>(),
+    correctIndex: json['correct_index'] as int,
+    explanation: json['explanation'] as String?,
+    difficulty: QuestionDifficulty.fromDb(json['difficulty'] as String?),
+  );
 
   FavoriteTopic _fromJson(Map<String, dynamic> json) => FavoriteTopic(
     catalogNodeId: json['catalog_node_id'] as String,

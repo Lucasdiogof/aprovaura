@@ -5,27 +5,31 @@ import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/router/app_route_observer.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
-import 'package:aura/features/favorites/domain/entities/favorite_subject.dart';
 import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
 import 'package:aura/features/favorites/l10n/favorites_strings.dart';
 import 'package:aura/features/favorites/presentation/cubit/favorites_list_cubit.dart';
 import 'package:aura/features/favorites/presentation/cubit/favorites_list_state.dart';
 import 'package:aura/features/favorites/presentation/favorite_subject_style.dart';
-import 'package:aura/features/favorites/presentation/pages/favorite_subject_page.dart';
+import 'package:aura/features/favorites/presentation/pages/favorite_topic_page.dart';
 import 'package:aura/features/favorites/presentation/widgets/favorite_nav_card.dart';
 import 'package:aura/features/favorites/presentation/widgets/favorites_state_views.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
-/// Top level of Favorites: one row per subject that still has at least
-/// one favorited question. Subject → topic → questions.
-class FavoritesListPage extends StatefulWidget {
-  const FavoritesListPage({super.key});
+/// Middle level of Favorites: the topics inside one subject that still
+/// have favorited questions. Reuses the same list_favorite_topics() load
+/// as the landing page and filters client-side, so both screens always
+/// agree on the counts.
+class FavoriteSubjectPage extends StatefulWidget {
+  const FavoriteSubjectPage({required this.subjectKey, super.key});
+
+  final String subjectKey;
 
   @override
-  State<FavoritesListPage> createState() => _FavoritesListPageState();
+  State<FavoriteSubjectPage> createState() => _FavoriteSubjectPageState();
 }
 
-class _FavoritesListPageState extends State<FavoritesListPage> with RouteAware {
+class _FavoriteSubjectPageState extends State<FavoriteSubjectPage>
+    with RouteAware {
   late final _cubit = FavoritesListCubit(sl<FavoritesRepository>());
 
   @override
@@ -49,22 +53,30 @@ class _FavoritesListPageState extends State<FavoritesListPage> with RouteAware {
   Widget build(BuildContext context) {
     final language = context.watch<LocaleCubit>().state;
     final t = FavoritesStrings(language);
+    final style = favoriteSubjectStyle(
+      widget.subjectKey,
+      language,
+      fallbackColor: context.colors.primary,
+    );
+
     return BlocProvider.value(
       value: _cubit,
       child: Scaffold(
         backgroundColor: context.colors.background,
         body: Column(
           children: [
-            ModernAppBar(title: t.pageTitle, showBackButton: true),
+            ModernAppBar(
+              title: style.label,
+              subtitle: t.pageTitle,
+              showBackButton: true,
+            ),
             Expanded(
               child: BlocBuilder<FavoritesListCubit, FavoritesListState>(
                 builder: (context, state) {
                   switch (state) {
                     case FavoritesListLoading():
                       return Center(
-                        child: CircularProgressIndicator(
-                          color: context.colors.primary,
-                        ),
+                        child: CircularProgressIndicator(color: style.color),
                       );
                     case FavoritesListError(:final message):
                       return FavoritesErrorView(
@@ -73,36 +85,41 @@ class _FavoritesListPageState extends State<FavoritesListPage> with RouteAware {
                         onRetry: _cubit.load,
                       );
                     case FavoritesListLoaded(:final topics):
-                      final subjects = FavoriteSubject.group(topics);
-                      if (subjects.isEmpty) {
+                      final subjectTopics = [
+                        for (final topic in topics)
+                          if (topic.subject == widget.subjectKey &&
+                              topic.favoriteCount > 0)
+                            topic,
+                      ];
+                      if (subjectTopics.isEmpty) {
                         return FavoritesEmptyView(
-                          title: t.emptyTitle,
-                          description: t.emptyDescription,
+                          title: t.sectionEmptyTitle,
+                          description: t.sectionEmptyDescription,
                         );
                       }
                       return ListView.separated(
                         padding: const EdgeInsets.all(AppSpacing.xxl),
-                        itemCount: subjects.length,
+                        itemCount: subjectTopics.length,
                         separatorBuilder: (_, _) =>
                             const SizedBox(height: AppSpacing.md),
                         itemBuilder: (context, index) {
-                          final group = subjects[index];
-                          final style = favoriteSubjectStyle(
-                            group.subject,
-                            language,
-                            fallbackColor: context.colors.primary,
-                          );
+                          final topic = subjectTopics[index];
                           return FavoriteNavCard(
-                            icon: style.icon,
+                            icon: Icons.bookmark_rounded,
                             accentColor: style.color,
-                            title: style.label,
+                            // The parent node is the region/area the topic
+                            // sits under ("África" above "Lagos").
+                            contextLabel: topic.parentTitle,
+                            title: topic.title,
                             countLabel: t.favoritedQuestions(
-                              group.questionCount,
+                              topic.favoriteCount,
                             ),
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute<void>(
-                                builder: (_) => FavoriteSubjectPage(
-                                  subjectKey: group.subject,
+                                builder: (_) => FavoriteTopicPage(
+                                  topic: topic,
+                                  subjectLabel: style.label,
+                                  accentColor: style.color,
                                 ),
                               ),
                             ),

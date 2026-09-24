@@ -18,7 +18,6 @@ import 'package:aura/features/profile/data/profile_repository_impl.dart';
 import 'package:aura/features/profile/domain/repositories/profile_repository.dart';
 import 'package:aura/features/progress/data/progress_repository_impl.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
-import 'package:aura/features/questions/data/favorite_question_repository_impl.dart';
 import 'package:aura/features/questions/data/question_report_repository_impl.dart';
 import 'package:aura/features/questions/data/question_repository_impl.dart';
 import 'package:aura/features/questions/data/quick_practice_question_repository_impl.dart';
@@ -66,10 +65,6 @@ void registerSupabaseDependencies() {
   sl.registerLazySingleton<XpRepository>(() => XpRepositoryImpl(sl()));
   sl.registerLazySingleton<FavoritesRepository>(
     () => FavoritesRepositoryImpl(sl()),
-  );
-  sl.registerLazySingleton<QuestionRepository>(
-    () => FavoriteQuestionRepositoryImpl(sl()),
-    instanceName: 'favoriteQuestions',
   );
   sl.registerLazySingleton<QuestionRepository>(
     () => QuickPracticeQuestionRepositoryImpl(sl()),

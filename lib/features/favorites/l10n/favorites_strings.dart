@@ -28,6 +28,36 @@ class FavoritesStrings {
     AppLanguage.english => 'Tap the bookmark on a question to save it here.',
   };
 
+  String get sectionEmptyTitle => switch (language) {
+    AppLanguage.portuguese => 'Nenhum favorito aqui',
+    AppLanguage.english => 'No favorites here',
+  };
+
+  String get sectionEmptyDescription => switch (language) {
+    AppLanguage.portuguese => 'Os favoritos desta seção foram removidos.',
+    AppLanguage.english => 'The favorites in this section were removed.',
+  };
+
+  String get practiceAllButton => switch (language) {
+    AppLanguage.portuguese => 'Praticar todas',
+    AppLanguage.english => 'Practice all',
+  };
+
+  String get statusUnanswered => switch (language) {
+    AppLanguage.portuguese => 'Não respondida',
+    AppLanguage.english => 'Not answered',
+  };
+
+  String get statusCorrect => switch (language) {
+    AppLanguage.portuguese => 'Acertou',
+    AppLanguage.english => 'Correct',
+  };
+
+  String get statusNeedsReview => switch (language) {
+    AppLanguage.portuguese => 'Precisa revisar',
+    AppLanguage.english => 'Needs review',
+  };
+
   String get retryButton => switch (language) {
     AppLanguage.portuguese => 'Tentar novamente',
     AppLanguage.english => 'Try again',

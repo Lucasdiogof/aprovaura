@@ -1,22 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/favorites/l10n/favorites_strings.dart';
-import 'package:aura/features/questions/domain/repositories/question_repository.dart';
+import 'package:aura/features/favorites/presentation/widgets/favorites_state_views.dart';
+import 'package:aura/features/questions/data/preloaded_question_repository.dart';
+import 'package:aura/features/questions/domain/entities/question.dart';
 import 'package:aura/features/questions/presentation/widgets/multiple_choice_view.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
+/// Runs favorited questions through the same quiz engine as everywhere
+/// else. Progress is tracked normally (trackProgress stays on), so
+/// answering a "Precisa revisar" favorite correctly clears it from Revisar
+/// erros and counts toward the topic's mastery exactly like answering it
+/// anywhere else -- same upsert, no duplicate row. Rewards stay off, as
+/// before: favorites are revisits of already-seen questions, and awarding
+/// XP here would let the same bookmarked deck be farmed repeatedly.
 class FavoritePracticePage extends StatelessWidget {
   const FavoritePracticePage({
     required this.catalogNodeId,
     required this.title,
+    required this.questions,
     super.key,
+    this.contextLabel,
   });
 
   final String catalogNodeId;
   final String title;
+  final List<Question> questions;
+  final String? contextLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -28,49 +40,19 @@ class FavoritePracticePage extends StatelessWidget {
           Expanded(
             child: MultipleChoiceView(
               catalogNodeId: catalogNodeId,
-              repository: sl<QuestionRepository>(
-                instanceName: 'favoriteQuestions',
-              ),
+              repository: PreloadedQuestionRepository(questions),
               awardsRewards: false,
-              onEmpty: (_) => const _AllUnfavoritedView(),
+              contextLabel: contextLabel,
+              onEmpty: (context) {
+                final t = FavoritesStrings(context.watch<LocaleCubit>().state);
+                return FavoritesEmptyView(
+                  title: t.sectionEmptyTitle,
+                  description: t.sectionEmptyDescription,
+                );
+              },
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-// Reachable if the user unfavorites every question in this topic from
-// another tab/session between opening this page and it loading.
-class _AllUnfavoritedView extends StatelessWidget {
-  const _AllUnfavoritedView();
-
-  @override
-  Widget build(BuildContext context) {
-    final t = FavoritesStrings(context.watch<LocaleCubit>().state);
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(32),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              Icons.bookmark_border_rounded,
-              size: 40,
-              color: context.colors.textSecondary,
-            ),
-            const SizedBox(height: 16),
-            Text(
-              t.emptyTitle,
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 18,
-                color: context.colors.textPrimary,
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
