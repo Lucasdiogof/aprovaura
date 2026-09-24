@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/router/app_route_observer.dart';
-import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
 import 'package:aura/features/home/l10n/home_strings.dart';

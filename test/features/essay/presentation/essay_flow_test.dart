@@ -4,7 +4,6 @@ import 'package:mocktail/mocktail.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
-import 'package:aura/features/essay/domain/entities/essay_draft.dart';
 import 'package:aura/features/essay/domain/entities/essay_evaluation.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';

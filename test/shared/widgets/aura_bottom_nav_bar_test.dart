@@ -52,7 +52,6 @@ void main() {
           ),
           child: StatefulBuilder(
             builder: (context, setState) {
-              var index = initialIndex;
               return Scaffold(
                 body: const SizedBox.expand(),
                 bottomNavigationBar: AuraBottomNavBar(
@@ -60,7 +59,7 @@ void main() {
                   destinations: _destinations,
                   onTap: (i) {
                     taps.add(i);
-                    setState(() => index = i);
+                    setState(() {});
                   },
                 ),
               );
