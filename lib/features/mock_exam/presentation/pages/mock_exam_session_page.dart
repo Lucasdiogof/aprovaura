@@ -354,7 +354,7 @@ class _QuestionView extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: AppSpacing.sm),
-                  _AnsweredCounter(state: state, strings: strings),
+                  _SavingIndicator(state: state, strings: strings),
                 ],
               ),
               if (state.hasSaveError) ...[
@@ -439,8 +439,10 @@ class _QuestionView extends StatelessWidget {
                           : cubit.previous,
                       icon: const Icon(Icons.chevron_left_rounded),
                       label: Text(strings.previousButton),
+                      // Same height as the filled button next to it, so the
+                      // footer reads as one pair of equal buttons.
                       style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        minimumSize: const Size.fromHeight(56),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(AppRadius.md),
                         ),
@@ -449,10 +451,9 @@ class _QuestionView extends StatelessWidget {
                   ),
                   const SizedBox(width: AppSpacing.md),
                   Expanded(
-                    flex: 2,
                     child: AppButton(
                       label: state.isLast
-                          ? strings.submitButton
+                          ? strings.submitShortButton
                           : strings.nextButton,
                       isLoading: state.isFinishing,
                       onPressed: state.isBusy
@@ -472,49 +473,33 @@ class _QuestionView extends StatelessWidget {
   }
 }
 
-/// Neutral progress only -- how many are answered, never how many are
-/// right. Swaps to "Salvando…" while a write is in flight.
-class _AnsweredCounter extends StatelessWidget {
-  const _AnsweredCounter({required this.state, required this.strings});
+/// Only while a write is in flight: a small "Salvando…" next to the
+/// subject line. Nothing otherwise -- "Questão N de M" and the bar above
+/// already say where the user is.
+class _SavingIndicator extends StatelessWidget {
+  const _SavingIndicator({required this.state, required this.strings});
 
   final MockExamRunnerState state;
   final MockExamStrings strings;
 
   @override
   Widget build(BuildContext context) {
-    final style = TextStyle(fontSize: 12, color: context.colors.textSecondary);
-    if (state.isSaving) {
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(
-            width: 10,
-            height: 10,
-            child: CircularProgressIndicator(
-              strokeWidth: 1.5,
-              color: context.colors.textSecondary,
-            ),
-          ),
-          const SizedBox(width: 6),
-          Text(strings.savingLabel, style: style),
-        ],
-      );
-    }
-    final currentAnswered = state.currentAnswer != null;
+    if (!state.isSaving) return const SizedBox.shrink();
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(
-          currentAnswered ? Icons.circle : Icons.circle_outlined,
-          size: 9,
-          color: currentAnswered
-              ? context.colors.primary
-              : context.colors.textHint,
+        SizedBox(
+          width: 10,
+          height: 10,
+          child: CircularProgressIndicator(
+            strokeWidth: 1.5,
+            color: context.colors.textSecondary,
+          ),
         ),
         const SizedBox(width: 6),
         Text(
-          strings.answeredOfTotal(state.answeredCount, state.totalCount),
-          style: style,
+          strings.savingLabel,
+          style: TextStyle(fontSize: 12, color: context.colors.textSecondary),
         ),
       ],
     );

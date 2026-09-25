@@ -221,12 +221,6 @@ class MockExamStrings {
     AppLanguage.spanish => 'Simulacro',
   };
 
-  String answeredOfTotal(int answered, int total) => switch (language) {
-    AppLanguage.portuguese => '$answered de $total respondidas',
-    AppLanguage.english => '$answered of $total answered',
-    AppLanguage.spanish => '$answered de $total respondidas',
-  };
-
   String get savingLabel => switch (language) {
     AppLanguage.portuguese => 'Salvando…',
     AppLanguage.english => 'Saving…',
@@ -257,6 +251,15 @@ class MockExamStrings {
     AppLanguage.portuguese => 'Entregar simulado',
     AppLanguage.english => 'Hand in mock exam',
     AppLanguage.spanish => 'Entregar simulacro',
+  };
+
+  /// The footer button on the last question: it shares the footer 50/50
+  /// with "Anterior", so the full label would wrap on a 360px phone. The
+  /// app bar already says "Simulado".
+  String get submitShortButton => switch (language) {
+    AppLanguage.portuguese => 'Entregar',
+    AppLanguage.english => 'Hand in',
+    AppLanguage.spanish => 'Entregar',
   };
 
   String get menuTooltip => switch (language) {

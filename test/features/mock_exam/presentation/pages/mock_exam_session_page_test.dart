@@ -72,20 +72,31 @@ void main() {
 
     expect(find.text('Questão 1 de 3'), findsOneWidget);
     expect(find.text('Geografia · Difícil'), findsOneWidget);
-    expect(find.text('0 de 3 respondidas'), findsOneWidget);
+    // No "N de M respondidas" counter: the progress line is enough.
+    expect(find.textContaining('respondidas'), findsNothing);
     expect(find.text('Anterior'), findsOneWidget);
     expect(find.text('Próxima'), findsOneWidget);
 
     await tester.tap(find.text('Opção dois'));
     await tester.pumpAndSettle();
 
-    expect(find.text('1 de 3 respondidas'), findsOneWidget);
     // Exam mode: selecting never reveals right/wrong.
     expect(find.byIcon(Icons.check_circle), findsNothing);
     expect(find.byIcon(Icons.cancel), findsNothing);
     verify(
       () => repository.answerItem(_examId, position: 1, selectedIndex: 1),
     ).called(1);
+  });
+
+  testWidgets('Anterior and Próxima/Entregar are the same size', (
+    tester,
+  ) async {
+    await pumpSession(tester);
+
+    final previous = tester.getSize(find.byType(OutlinedButton));
+    final next = tester.getSize(find.byType(ElevatedButton));
+    expect(previous.width, closeTo(next.width, 0.5));
+    expect(previous.height, closeTo(next.height, 0.5));
   });
 
   testWidgets('back asks before leaving and never abandons', (tester) async {
@@ -133,9 +144,9 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Questão 3 de 3'), findsOneWidget);
-      expect(find.text('Entregar simulado'), findsOneWidget);
+      expect(find.text('Entregar'), findsOneWidget);
 
-      await tester.tap(find.text('Entregar simulado'));
+      await tester.tap(find.text('Entregar'));
       await tester.pumpAndSettle();
       expect(find.text('Você deixou 2 questões sem resposta.'), findsOneWidget);
       expect(find.text('Entregar assim mesmo'), findsOneWidget);
@@ -322,7 +333,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('curta'));
     await tester.pumpAndSettle();
-    expect(find.text('Entregar simulado'), findsOneWidget);
+    expect(find.text('Entregar'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 
@@ -351,5 +362,42 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Próxima'), findsOneWidget);
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('"Entregar" fits half the footer at 360px, 1.3x text', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(360, 740);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    SharedPreferences.setMockInitialValues({});
+    await tester.pumpWidget(
+      BlocProvider<LocaleCubit>(
+        create: (_) => LocaleCubit()..emit(AppLanguage.portuguese),
+        child: MaterialApp(
+          theme: AppTheme.light,
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(
+              context,
+            ).copyWith(textScaler: const TextScaler.linear(1.3)),
+            child: child!,
+          ),
+          home: const MockExamSessionPage(mockExamId: _examId),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    for (var i = 0; i < 2; i++) {
+      await tester.tap(find.text('Próxima'));
+      await tester.pumpAndSettle();
+    }
+    expect(find.text('Entregar'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+    final previous = tester.getSize(find.byType(OutlinedButton));
+    final submit = tester.getSize(find.byType(ElevatedButton));
+    expect(previous.width, closeTo(submit.width, 0.5));
+    // Same height means neither label wrapped onto a second line.
+    expect(previous.height, closeTo(submit.height, 0.5));
+    expect(submit.height, 56);
   });
 }
