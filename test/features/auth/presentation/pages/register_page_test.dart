@@ -110,5 +110,32 @@ void main() {
         ).called(1);
       },
     );
+
+    testWidgets('shows a real label above every field, not just hints', (
+      tester,
+    ) async {
+      await pumpRegisterPage(tester);
+
+      expect(find.text('Nome completo'), findsOneWidget);
+      // The label and the hint are the same text for this one (optional)
+      // field, so both the label above it and the hint inside it match.
+      expect(find.text('Nome de usuário (opcional)'), findsNWidgets(2));
+      expect(find.text('E-mail'), findsOneWidget);
+      expect(find.text('Senha'), findsOneWidget);
+      // Same as the username field: "Confirmar senha" is both the label
+      // and the hint here, so it matches twice.
+      expect(find.text('Confirmar senha'), findsNWidgets(2));
+    });
+
+    testWidgets('no overflow on a very short viewport', (tester) async {
+      tester.view.physicalSize = const Size(360, 480);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+
+      await pumpRegisterPage(tester);
+      await tester.pump();
+
+      expect(tester.takeException(), isNull);
+    });
   });
 }

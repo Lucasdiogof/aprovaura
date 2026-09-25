@@ -18,6 +18,7 @@ class PasswordVisibilityToggle extends StatelessWidget {
       icon: Icon(
         obscured ? Icons.visibility_outlined : Icons.visibility_off_outlined,
         color: color,
+        size: 20,
       ),
       onPressed: onPressed,
     );

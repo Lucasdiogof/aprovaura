@@ -398,6 +398,6 @@ void main() {
     expect(previous.width, closeTo(submit.width, 0.5));
     // Same height means neither label wrapped onto a second line.
     expect(previous.height, closeTo(submit.height, 0.5));
-    expect(submit.height, 56);
+    expect(submit.height, 52);
   });
 }

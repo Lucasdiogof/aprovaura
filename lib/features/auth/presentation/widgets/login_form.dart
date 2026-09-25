@@ -39,6 +39,7 @@ class LoginForm extends StatelessWidget {
       children: [
         AppTextField(
           controller: emailController,
+          labelText: strings.emailLabel,
           prefixIcon: Icons.mail_outline_rounded,
           hintText: strings.emailHint,
           keyboardType: TextInputType.emailAddress,
@@ -50,6 +51,7 @@ class LoginForm extends StatelessWidget {
         const SizedBox(height: 14),
         AppTextField(
           controller: passwordController,
+          labelText: strings.passwordLabel,
           prefixIcon: Icons.lock_outline_rounded,
           hintText: strings.passwordHint,
           obscureText: obscurePassword,

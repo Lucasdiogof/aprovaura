@@ -11,6 +11,14 @@ class AuthStrings {
     AppLanguage.spanish => 'Tu nombre',
   };
 
+  /// Real, static label above the name field -- "Nome completo", distinct
+  /// from [nameHint], which stays inside the field as a discreet example.
+  String get nameLabel => switch (language) {
+    AppLanguage.portuguese => 'Nome completo',
+    AppLanguage.english => 'Full name',
+    AppLanguage.spanish => 'Nombre completo',
+  };
+
   String get nameRequired => switch (language) {
     AppLanguage.portuguese => 'Informe seu nome.',
     AppLanguage.english => 'Enter your name.',
@@ -23,16 +31,34 @@ class AuthStrings {
     AppLanguage.spanish => 'Nombre de usuario (opcional)',
   };
 
+  String get usernameLabel => switch (language) {
+    AppLanguage.portuguese => 'Nome de usuário (opcional)',
+    AppLanguage.english => 'Username (optional)',
+    AppLanguage.spanish => 'Nombre de usuario (opcional)',
+  };
+
   String get emailHint => switch (language) {
     AppLanguage.portuguese => 'seuemail@exemplo.com',
     AppLanguage.english => 'youremail@example.com',
     AppLanguage.spanish => 'tucorreo@ejemplo.com',
   };
 
+  String get emailLabel => switch (language) {
+    AppLanguage.portuguese => 'E-mail',
+    AppLanguage.english => 'Email',
+    AppLanguage.spanish => 'Correo electrónico',
+  };
+
   String get passwordHint => switch (language) {
     AppLanguage.portuguese => 'Digite sua senha',
     AppLanguage.english => 'Enter your password',
     AppLanguage.spanish => 'Ingresa tu contraseña',
+  };
+
+  String get passwordLabel => switch (language) {
+    AppLanguage.portuguese => 'Senha',
+    AppLanguage.english => 'Password',
+    AppLanguage.spanish => 'Contraseña',
   };
 
   String get emailRequired => switch (language) {
@@ -105,6 +131,12 @@ class AuthStrings {
     AppLanguage.spanish => 'Confirmar contraseña',
   };
 
+  String get confirmPasswordLabel => switch (language) {
+    AppLanguage.portuguese => 'Confirmar senha',
+    AppLanguage.english => 'Confirm password',
+    AppLanguage.spanish => 'Confirmar contraseña',
+  };
+
   String get confirmPasswordRequired => switch (language) {
     AppLanguage.portuguese => 'Confirme sua senha.',
     AppLanguage.english => 'Confirm your password.',
@@ -136,9 +168,9 @@ class AuthStrings {
   };
 
   String get signInSubtitle => switch (language) {
-    AppLanguage.portuguese => 'Entre para continuar de onde você parou.',
-    AppLanguage.english => 'Sign in to pick up where you left off.',
-    AppLanguage.spanish => 'Entra para continuar donde lo dejaste.',
+    AppLanguage.portuguese => 'Entre para continuar seus estudos.',
+    AppLanguage.english => 'Sign in to continue your studies.',
+    AppLanguage.spanish => 'Entra para continuar tus estudios.',
   };
 
   String get registerSubtitle => switch (language) {

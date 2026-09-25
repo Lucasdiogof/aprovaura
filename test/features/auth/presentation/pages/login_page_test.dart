@@ -103,5 +103,25 @@ void main() {
 
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });
+
+    testWidgets('shows real labels above the fields, not just hints', (
+      tester,
+    ) async {
+      await pumpLoginPage(tester);
+
+      expect(find.text('E-mail'), findsOneWidget);
+      expect(find.text('Senha'), findsOneWidget);
+    });
+
+    testWidgets('no overflow on a very short viewport', (tester) async {
+      tester.view.physicalSize = const Size(360, 480);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+
+      await pumpLoginPage(tester);
+      await tester.pump();
+
+      expect(tester.takeException(), isNull);
+    });
   });
 }

@@ -15,6 +15,7 @@ class AppTextField extends StatelessWidget {
     this.textInputAction,
     this.autofillHints,
     this.onSubmitted,
+    this.labelText,
   });
 
   final String hintText;
@@ -34,10 +35,16 @@ class AppTextField extends StatelessWidget {
   final List<String>? autofillHints;
   final ValueChanged<String>? onSubmitted;
 
+  /// A real, static label above the field (e.g. "E-mail") -- distinct from
+  /// [hintText], which stays inside the field as a discreet example
+  /// ("seuemail@exemplo.com"). Optional so fields that only ever had a
+  /// hint (most of the app, so far) don't change.
+  final String? labelText;
+
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    return TextField(
+    final field = TextField(
       controller: controller,
       obscureText: obscureText,
       keyboardType: keyboardType,
@@ -50,10 +57,29 @@ class AppTextField extends StatelessWidget {
         errorText: errorText,
         fillColor: fillColor,
         prefixIcon: prefixIcon != null
-            ? Icon(prefixIcon, size: 20, color: colors.textSecondary)
+            ? Icon(prefixIcon, size: 19, color: colors.textSecondary)
             : null,
         suffixIcon: suffixIcon,
       ),
+    );
+    final label = labelText;
+    if (label == null) return field;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 4, bottom: 6),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              color: colors.textSecondary,
+            ),
+          ),
+        ),
+        field,
+      ],
     );
   }
 }

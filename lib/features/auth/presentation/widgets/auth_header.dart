@@ -27,10 +27,10 @@ class AuthHeader extends StatelessWidget {
     return Column(
       children: [
         if (title == null)
-          const AppLogo.wordmark(maxWidth: 232)
+          const AppLogo.wordmark(maxWidth: 196)
         else ...[
-          const AppLogo.mark(size: 52),
-          const SizedBox(height: 18),
+          const AppLogo.mark(size: 44),
+          const SizedBox(height: 14),
           Text(
             title,
             textAlign: TextAlign.center,

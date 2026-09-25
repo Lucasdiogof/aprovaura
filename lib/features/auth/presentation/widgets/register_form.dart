@@ -51,6 +51,7 @@ class RegisterForm extends StatelessWidget {
       children: [
         AppTextField(
           controller: nameController,
+          labelText: strings.nameLabel,
           prefixIcon: Icons.person_outline_rounded,
           hintText: strings.nameHint,
           textInputAction: TextInputAction.next,
@@ -61,6 +62,7 @@ class RegisterForm extends StatelessWidget {
         const SizedBox(height: 14),
         AppTextField(
           controller: usernameController,
+          labelText: strings.usernameLabel,
           prefixIcon: Icons.alternate_email_rounded,
           hintText: strings.usernameHint,
           textInputAction: TextInputAction.next,
@@ -69,6 +71,7 @@ class RegisterForm extends StatelessWidget {
         const SizedBox(height: 14),
         AppTextField(
           controller: emailController,
+          labelText: strings.emailLabel,
           prefixIcon: Icons.mail_outline_rounded,
           hintText: strings.emailHint,
           keyboardType: TextInputType.emailAddress,
@@ -80,6 +83,7 @@ class RegisterForm extends StatelessWidget {
         const SizedBox(height: 14),
         AppTextField(
           controller: passwordController,
+          labelText: strings.passwordLabel,
           prefixIcon: Icons.lock_outline_rounded,
           hintText: strings.passwordHint,
           obscureText: obscurePassword,
@@ -96,6 +100,7 @@ class RegisterForm extends StatelessWidget {
         const SizedBox(height: 14),
         AppTextField(
           controller: confirmPasswordController,
+          labelText: strings.confirmPasswordLabel,
           prefixIcon: Icons.lock_outline_rounded,
           hintText: strings.confirmPasswordHint,
           obscureText: obscureConfirmPassword,

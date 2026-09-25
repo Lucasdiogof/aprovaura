@@ -60,7 +60,7 @@ class AppTheme {
           // Flat: the brand violet carries the emphasis; a drop shadow on a
           // dark surface just reads as a dirty outline.
           elevation: 0,
-          minimumSize: const Size.fromHeight(56),
+          minimumSize: const Size.fromHeight(52),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),

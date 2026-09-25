@@ -442,7 +442,7 @@ class _QuestionView extends StatelessWidget {
                       // Same height as the filled button next to it, so the
                       // footer reads as one pair of equal buttons.
                       style: OutlinedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(56),
+                        minimumSize: const Size.fromHeight(52),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(AppRadius.md),
                         ),

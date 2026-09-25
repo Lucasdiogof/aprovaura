@@ -32,18 +32,34 @@ class AuthScaffold extends StatelessWidget {
                   24 + MediaQuery.viewInsetsOf(context).bottom,
                 ),
                 child: ConstrainedBox(
+                  // Never negative: on a very short viewport (a small
+                  // browser window, a landscape phone) maxHeight - 48 can
+                  // go below zero, which BoxConstraints rejects outright.
                   constraints: BoxConstraints(
-                    minHeight: constraints.maxHeight - 48,
+                    minHeight: (constraints.maxHeight - 48).clamp(
+                      0,
+                      double.infinity,
+                    ),
                   ),
-                  child: Center(
+                  // Align, not Center: the content's own height is short
+                  // relative to a tall screen, and under the unbounded
+                  // height a SingleChildScrollView gives its child, Center
+                  // (and mainAxisAlignment on a Column inside it) both
+                  // collapse to the content's natural size and centre
+                  // that -- there is no bounded space for "start" to mean
+                  // anything against. Align has no such ambiguity: it
+                  // fills the ConstrainedBox's minHeight and places its
+                  // child at the top, full stop.
+                  child: Align(
+                    alignment: Alignment.topCenter,
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(
                         maxWidth: _maxContentWidth,
                       ),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: children,
+                        children: [const SizedBox(height: 12), ...children],
                       ),
                     ),
                   ),
