@@ -9,6 +9,7 @@ import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_theme.dart';
 import 'package:aura/core/theme/theme_cubit.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
@@ -23,6 +24,7 @@ import 'package:aura/features/profile/presentation/pages/interested_subjects_set
 import 'package:aura/features/profile/presentation/pages/my_account_page.dart';
 import 'package:aura/features/profile/presentation/pages/profile_page.dart';
 import 'package:aura/features/profile/presentation/pages/settings_page.dart';
+import 'package:aura/features/profile/presentation/widgets/delete_account_tile.dart';
 import 'package:aura/features/profile/presentation/widgets/settings_group.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/streak/domain/repositories/streak_repository.dart';
@@ -149,8 +151,8 @@ void main() {
       await pumpProfile(tester);
       await tester.scrollUntilVisible(find.text('Excluir minha conta'), 200);
 
-      // Estudos, Conta, Sair, Excluir conta.
-      expect(find.byType(SettingsGroup), findsNWidgets(4));
+      // Estudos, Conta, Sair -- "Excluir minha conta" is plain text.
+      expect(find.byType(SettingsGroup), findsNWidgets(3));
       expect(find.text('Estudos'), findsOneWidget);
       expect(find.text('Conta'), findsOneWidget);
     });
@@ -246,10 +248,18 @@ void main() {
       await pumpProfile(tester);
       await tester.scrollUntilVisible(find.text('Excluir minha conta'), 200);
 
+      // Centered red text, not a card.
+      final label = find.text('Excluir minha conta');
       expect(
-        find.text('Remove permanentemente sua conta e seus dados'),
+        find.ancestor(of: label, matching: find.byType(SettingsGroup)),
+        findsNothing,
+      );
+      expect(
+        find.ancestor(of: label, matching: find.byType(TextButton)),
         findsOneWidget,
       );
+      final context = tester.element(label);
+      expect(tester.widget<Text>(label).style?.color, context.colors.error);
     });
 
     testWidgets('asks before doing anything', (tester) async {
@@ -297,8 +307,15 @@ void main() {
       await tester.tap(find.widgetWithText(ElevatedButton, 'Excluir conta'));
       await tester.pump();
 
+      // The label turns into a spinner; tapping the button again is a no-op.
       expect(find.byType(CircularProgressIndicator), findsWidgets);
-      await tester.tap(find.text('Excluir minha conta'));
+      await tester.tap(
+        find.descendant(
+          of: find.byType(DeleteAccountTile),
+          matching: find.byType(TextButton),
+        ),
+        warnIfMissed: false,
+      );
       await tester.pump();
 
       verify(() => authRepository.deleteAccount()).called(1);

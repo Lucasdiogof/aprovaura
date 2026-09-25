@@ -5,10 +5,12 @@ import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/profile/l10n/profile_strings.dart';
-import 'package:aura/features/profile/presentation/widgets/settings_tile.dart';
+import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 
-/// "Excluir conta", with its confirmation and the wait that follows.
+/// "Excluir minha conta" as plain red text at the end of the Profile, with
+/// its confirmation and the wait that follows.
 ///
 /// The work behind it was already built and deployed (the `delete-account`
 /// Edge Function, reached through `AuthCubit.deleteAccount`); this only
@@ -69,22 +71,39 @@ class _DeleteAccountTileState extends State<DeleteAccountTile> {
   @override
   Widget build(BuildContext context) {
     final t = ProfileStrings(context.watch<LocaleCubit>().state);
-    return SettingsTile(
-      icon: Icons.delete_outline_rounded,
-      title: t.deleteAccountRowLabel,
-      subtitle: t.deleteAccountRowSubtitle,
-      tone: SettingsTileTone.destructive,
-      showChevron: false,
-      // Tapping while it runs does nothing: the request is already on its
-      // way and a second one would just fail on a deleted user.
-      onTap: _deleting ? null : _confirm,
-      trailing: _deleting
-          ? const SizedBox(
-              width: 18,
-              height: 18,
-              child: CircularProgressIndicator(strokeWidth: 2.2),
-            )
-          : null,
+    final color = context.colors.error;
+    // Plain centered red text, not a card: it closes the page quietly
+    // instead of competing with the rows above. What it does is spelled
+    // out by the confirmation, which always comes first.
+    return Center(
+      child: TextButton(
+        // Tapping while it runs does nothing: the request is already on its
+        // way and a second one would just fail on a deleted user.
+        onPressed: _deleting ? null : _confirm,
+        style: TextButton.styleFrom(
+          foregroundColor: color,
+          minimumSize: const Size(0, 48),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+        ),
+        child: _deleting
+            ? SizedBox(
+                width: 18,
+                height: 18,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.2,
+                  color: color,
+                ),
+              )
+            : Text(
+                t.deleteAccountRowLabel,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: color,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+      ),
     );
   }
 }

@@ -265,10 +265,10 @@ class _ProfileBody extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: AppSpacing.lg),
-                    // In a group of its own: ending the account is not one
-                    // more setting, and it should never be the row next to
-                    // the one you meant to tap.
-                    const SettingsGroup(children: [DeleteAccountTile()]),
+                    // Apart from everything else: ending the account is not
+                    // one more setting, and it should never be the row next
+                    // to the one you meant to tap.
+                    const DeleteAccountTile(),
                   ],
                 ),
               ),

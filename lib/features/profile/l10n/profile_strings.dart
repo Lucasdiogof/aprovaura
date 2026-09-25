@@ -110,12 +110,6 @@ class ProfileStrings {
     AppLanguage.spanish => 'Tema, idioma y preferencias',
   };
 
-  String get deleteAccountRowSubtitle => switch (language) {
-    AppLanguage.portuguese => 'Remove permanentemente sua conta e seus dados',
-    AppLanguage.english => 'Permanently removes your account and your data',
-    AppLanguage.spanish => 'Elimina permanentemente tu cuenta y tus datos',
-  };
-
   String get signOutConfirmTitle => switch (language) {
     AppLanguage.portuguese => 'Sair da sua conta?',
     AppLanguage.english => 'Sign out of your account?',
