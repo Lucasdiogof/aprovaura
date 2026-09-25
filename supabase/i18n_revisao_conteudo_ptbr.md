@@ -54,3 +54,16 @@ Critério: enunciado + alternativas + explicação com mais de 100 caracteres e 
 | matematica | Probabilidade | 1 |
 
 Total: 155 questões.
+
+## Nomes nos mapas (lib/assets/maps/*.geojson)
+
+Levantado na FASE 14, em 2026-09-25. As traduções en/es (em `lib/features/map_quiz/l10n/map_region_names.dart`) usam a forma correta. Os `.geojson` ficaram intocados.
+
+| Arquivo | sigla | nome atual | Problema |
+|---|---|---|---|
+| `*_capitals` | SWZ | Mebabane | Erro de grafia: a capital de Essuatíni é **Mbabane**. |
+| `*_capitals` | KAZ | Nur-Sultã | A cidade voltou a se chamar **Astana** em 2022. |
+| `*_capitals` | TZA | Dar es Salaam | A capital oficial da Tanzânia é **Dodoma**; Dar es Salaam é a maior cidade. |
+| `*_capitals` | ZAF | Cidade do Cabo | A África do Sul tem três capitais; a executiva é **Pretória**, e Cidade do Cabo é a legislativa. Hoje o quiz aceita só Cidade do Cabo. |
+| `world_soils` | — | Chernozion (Terra Negra) | O termo usual é **Chernozem** (ou Tchernozem). |
+| `*_capitals` | — | Moscovo, Amesterdão, Teerão, Bagdade, Copenhaga, Helsínquia, Mónaco | Grafia de Portugal. Em pt-BR: Moscou, Amsterdã, Teerã, Bagdá, Copenhague, Helsinque, Mônaco. A camada `world_cities` já usa "Moscou", então o mesmo lugar aparece com duas grafias. |

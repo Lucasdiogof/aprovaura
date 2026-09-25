@@ -10,6 +10,7 @@ import 'package:aura/features/map_quiz/domain/entities/map_prompt_mode.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_region.dart';
 import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.dart';
 import 'package:aura/features/map_quiz/l10n/map_quiz_strings.dart';
+import 'package:aura/features/map_quiz/l10n/map_region_names.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_cubit.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_state.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
@@ -54,6 +55,7 @@ class MapQuizPage extends StatelessWidget {
         backgroundMapId: backgroundMapId,
       ),
       child: _MapQuizView(
+        mapId: mapId,
         interactionType: interactionType,
         title: title,
         promptMode: promptMode,
@@ -64,11 +66,13 @@ class MapQuizPage extends StatelessWidget {
 
 class _MapQuizView extends StatefulWidget {
   const _MapQuizView({
+    required this.mapId,
     required this.interactionType,
     required this.title,
     required this.promptMode,
   });
 
+  final String mapId;
   final MapInteractionType interactionType;
   final String title;
   final MapPromptMode promptMode;
@@ -160,6 +164,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
                 ) =>
                   _PlayingView(
                     strings: t,
+                    mapId: widget.mapId,
                     interactionType: widget.interactionType,
                     promptMode: widget.promptMode,
                     regions: regions,
@@ -189,6 +194,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
 class _PlayingView extends StatelessWidget {
   const _PlayingView({
     required this.strings,
+    required this.mapId,
     required this.interactionType,
     required this.promptMode,
     required this.regions,
@@ -205,6 +211,7 @@ class _PlayingView extends StatelessWidget {
   });
 
   final MapQuizStrings strings;
+  final String mapId;
   final MapInteractionType interactionType;
   final MapPromptMode promptMode;
   final List<MapRegion> regions;
@@ -399,7 +406,11 @@ class _PlayingView extends StatelessWidget {
                             child: Text(
                               promptMode == MapPromptMode.flag
                                   ? strings.flagPrompt
-                                  : currentTarget.name,
+                                  : localizedRegionName(
+                                      currentTarget.name,
+                                      strings.language,
+                                      mapId: mapId,
+                                    ),
                               key: ValueKey(currentTarget.id),
                               style: TextStyle(
                                 fontSize: 20,
