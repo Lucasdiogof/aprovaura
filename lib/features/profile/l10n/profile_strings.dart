@@ -136,6 +136,22 @@ class ProfileStrings {
     AppLanguage.spanish => 'Cerrar sesión',
   };
 
+  /// Shown on the blocking overlay while [AuthCubit.signOut] is running.
+  String get signingOutMessage => switch (language) {
+    AppLanguage.portuguese => 'Saindo...',
+    AppLanguage.english => 'Signing out...',
+    AppLanguage.spanish => 'Cerrando sesión...',
+  };
+
+  String get signOutFailedMessage => switch (language) {
+    AppLanguage.portuguese =>
+      'Não deu para sair agora. Tente novamente em instantes.',
+    AppLanguage.english =>
+      "Couldn't sign out right now. Please try again shortly.",
+    AppLanguage.spanish =>
+      'No se pudo cerrar sesión ahora. Intenta de nuevo en unos momentos.',
+  };
+
   String get myAccountPageTitle => switch (language) {
     AppLanguage.portuguese => 'Minha conta',
     AppLanguage.english => 'My account',
@@ -200,6 +216,13 @@ class ProfileStrings {
     AppLanguage.portuguese => 'Excluir conta',
     AppLanguage.english => 'Delete account',
     AppLanguage.spanish => 'Eliminar cuenta',
+  };
+
+  /// Shown on the blocking overlay while the account is being deleted.
+  String get deletingAccountMessage => switch (language) {
+    AppLanguage.portuguese => 'Excluindo conta...',
+    AppLanguage.english => 'Deleting account...',
+    AppLanguage.spanish => 'Eliminando cuenta...',
   };
 
   String get cancelButtonLabel => switch (language) {

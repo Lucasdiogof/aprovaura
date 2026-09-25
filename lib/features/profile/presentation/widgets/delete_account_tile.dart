@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/profile/l10n/profile_strings.dart';
 import 'package:aura/core/theme/app_colors.dart';
@@ -16,40 +17,36 @@ import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 /// Edge Function, reached through `AuthCubit.deleteAccount`); this only
 /// puts it somewhere findable. Nothing here decides anything: the server
 /// takes the user id from the caller's own JWT, never from the app.
-///
-/// It owns its own loading state because the confirmation sheet closes
-/// itself before running the action -- so the row is what has to show that
-/// something is happening, and what has to stop a second tap.
-class DeleteAccountTile extends StatefulWidget {
+class DeleteAccountTile extends StatelessWidget {
   const DeleteAccountTile({super.key});
 
-  @override
-  State<DeleteAccountTile> createState() => _DeleteAccountTileState();
-}
-
-class _DeleteAccountTileState extends State<DeleteAccountTile> {
-  bool _deleting = false;
-
-  ProfileStrings get _strings =>
+  ProfileStrings _strings(BuildContext context) =>
       ProfileStrings(context.read<LocaleCubit>().state);
 
-  Future<void> _confirm() async {
-    if (_deleting) return;
-    final t = _strings;
+  Future<void> _confirm(BuildContext context) async {
+    final t = _strings(context);
     await AppInfoBottomSheet.showError(
       context,
       title: t.deleteAccountConfirmTitle,
       description: t.deleteAccountConfirmDescription,
       primaryActionLabel: t.deleteAccountConfirmButton,
-      onPrimaryAction: _delete,
+      onPrimaryAction: () => _delete(context),
       secondaryActionLabel: t.cancelButtonLabel,
     );
   }
 
-  Future<void> _delete() async {
-    setState(() => _deleting = true);
-    final result = await context.read<AuthCubit>().deleteAccount();
-    if (!mounted) return;
+  Future<void> _delete(BuildContext context) async {
+    // The confirmation sheet is already closing itself by the time this
+    // runs, so the blocking overlay -- not a row-level spinner -- is what
+    // has to show that something is happening now and refuse a second tap.
+    final t = _strings(context);
+    final authCubit = context.read<AuthCubit>();
+    final loading = context.read<AppBlockingLoadingCubit>();
+    final result = await loading.run(
+      authCubit.deleteAccount,
+      message: t.deletingAccountMessage,
+    );
+    if (!context.mounted) return;
     switch (result) {
       case Success():
         // Account and local session are both gone: there is no authenticated
@@ -58,12 +55,11 @@ class _DeleteAccountTileState extends State<DeleteAccountTile> {
       case Error(:final failure):
         // Still signed in, with everything intact -- only the deletion did
         // not happen.
-        setState(() => _deleting = false);
         await AppInfoBottomSheet.showError(
           context,
           description: failure.message.isNotEmpty
               ? failure.message
-              : _strings.deleteAccountFailedMessage,
+              : t.deleteAccountFailedMessage,
         );
     }
   }
@@ -77,32 +73,21 @@ class _DeleteAccountTileState extends State<DeleteAccountTile> {
     // out by the confirmation, which always comes first.
     return Center(
       child: TextButton(
-        // Tapping while it runs does nothing: the request is already on its
-        // way and a second one would just fail on a deleted user.
-        onPressed: _deleting ? null : _confirm,
+        onPressed: () => _confirm(context),
         style: TextButton.styleFrom(
           foregroundColor: color,
           minimumSize: const Size(0, 48),
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
         ),
-        child: _deleting
-            ? SizedBox(
-                width: 18,
-                height: 18,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2.2,
-                  color: color,
-                ),
-              )
-            : Text(
-                t.deleteAccountRowLabel,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: color,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+        child: Text(
+          t.deleteAccountRowLabel,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: color,
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
     );
   }

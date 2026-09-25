@@ -9,6 +9,7 @@ import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_theme.dart';
 import 'package:aura/core/theme/theme_cubit.dart';
@@ -32,6 +33,7 @@ import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 import 'package:aura/features/xp/domain/repositories/xp_repository.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
+import 'package:aura/shared/widgets/app_loading_overlay.dart';
 
 class _MockProfileRepository extends Mock implements ProfileRepository {}
 
@@ -125,16 +127,20 @@ void main() {
           BlocProvider<StreakCubit>(create: (_) => StreakCubit(streak)),
           // SettingsPage reads it; in the app it lives above the shell.
           BlocProvider<ThemeCubit>(create: (_) => ThemeCubit()),
+          BlocProvider<AppBlockingLoadingCubit>(
+            create: (_) => AppBlockingLoadingCubit(),
+          ),
         ],
         child: MaterialApp.router(
           theme: theme ?? AppTheme.light,
           // MaterialApp.router has no `home`, so the text size is applied
-          // around whatever the router builds.
+          // around whatever the router builds. AppLoadingOverlay mirrors
+          // App.build's real placement: above everything the router shows.
           builder: (context, child) => MediaQuery(
             data: MediaQuery.of(
               context,
             ).copyWith(textScaler: TextScaler.linear(textScale)),
-            child: child ?? const SizedBox.shrink(),
+            child: Stack(children: [?child, const AppLoadingOverlay()]),
           ),
           routerConfig: router,
         ),

@@ -4,6 +4,7 @@ import 'package:aura/app.dart';
 import 'package:aura/core/config/env_config.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/theme/theme_cubit.dart';
 import 'package:aura/features/error_review/domain/repositories/error_review_repository.dart';
 import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
@@ -29,6 +30,9 @@ void main() async {
 
   sl.registerLazySingleton<ThemeCubit>(ThemeCubit.new);
   sl.registerLazySingleton<LocaleCubit>(LocaleCubit.new);
+  sl.registerLazySingleton<AppBlockingLoadingCubit>(
+    AppBlockingLoadingCubit.new,
+  );
   sl.registerLazySingleton<MapQuizRepository>(MapQuizRepositoryImpl.new);
   registerSupabaseDependencies();
   sl.registerLazySingleton<StreakCubit>(

@@ -5,6 +5,7 @@ import 'package:aura/app.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/theme/theme_cubit.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
@@ -95,6 +96,11 @@ void main() {
     }
     if (!sl.isRegistered<XpCubit>()) {
       sl.registerLazySingleton<XpCubit>(() => XpCubit(sl()));
+    }
+    if (!sl.isRegistered<AppBlockingLoadingCubit>()) {
+      sl.registerLazySingleton<AppBlockingLoadingCubit>(
+        AppBlockingLoadingCubit.new,
+      );
     }
 
     await tester.pumpWidget(const App());

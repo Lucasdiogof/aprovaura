@@ -5,6 +5,7 @@ import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
+import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/profile/l10n/profile_strings.dart';
 import 'package:aura/features/profile/presentation/cubit/profile_cubit.dart';
@@ -59,8 +60,25 @@ class _ProfileBody extends StatelessWidget {
   }
 
   Future<void> _signOut(BuildContext context) async {
-    await context.read<AuthCubit>().signOut();
-    if (context.mounted) context.go('/login');
+    final t = ProfileStrings(context.read<LocaleCubit>().state);
+    final authCubit = context.read<AuthCubit>();
+    final loading = context.read<AppBlockingLoadingCubit>();
+    try {
+      // Overlay first, sign-out second, navigation only once that's really
+      // done -- never the other way around, or the person would land on
+      // Login while the old session is still technically active.
+      await loading.run(authCubit.signOut, message: t.signingOutMessage);
+      if (context.mounted) context.go('/login');
+    } catch (_) {
+      // Still signed in -- the overlay already hid itself (loading.run's
+      // finally), so this is just the human-readable half of "it failed".
+      if (context.mounted) {
+        await AppInfoBottomSheet.showError(
+          context,
+          description: t.signOutFailedMessage,
+        );
+      }
+    }
   }
 
   void _openMyAccount(BuildContext context, ProfileState state) {

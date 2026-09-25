@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/shared/widgets/app_loading_indicator.dart';
 
+/// The app's one async-submit button: same height whether it shows its
+/// label or a spinner (so the layout never jumps), already refuses a
+/// second tap while [isLoading] is true.
 class AppButton extends StatelessWidget {
   const AppButton({
     required this.label,
@@ -15,18 +19,17 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: isLoading ? null : onPressed,
-      child: isLoading
-          ? SizedBox(
-              width: 22,
-              height: 22,
-              child: CircularProgressIndicator(
-                strokeWidth: 2.5,
-                color: context.colors.onPrimary,
-              ),
-            )
-          : Text(label),
+    return Semantics(
+      // A screen reader on a disabled-while-loading button would otherwise
+      // just say "button, disabled" -- this says why.
+      label: isLoading ? label : null,
+      value: isLoading ? 'loading' : null,
+      child: ElevatedButton(
+        onPressed: isLoading ? null : onPressed,
+        child: isLoading
+            ? AppLoadingIndicator(color: context.colors.onPrimary)
+            : Text(label),
+      ),
     );
   }
 }

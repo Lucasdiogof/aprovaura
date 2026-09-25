@@ -27,6 +27,8 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.error,
     required this.success,
     required this.warning,
+    required this.loadingScrim,
+    required this.loadingIndicator,
   });
 
   /// Page background.
@@ -63,6 +65,15 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color success;
   final Color warning;
 
+  /// The full-screen scrim behind [AppLoadingOverlay] -- a token instead of
+  /// a hardcoded `Colors.black38` so it can differ per theme.
+  final Color loadingScrim;
+
+  /// The spinner colour inside the overlay's card and [AppLoadingIndicator]
+  /// in general. Same value as [primary] today, named separately so a
+  /// future brand tweak to loading states doesn't have to touch [primary].
+  final Color loadingIndicator;
+
   /// The brand gradient. Reserved for the logo, Aura rewards and
   /// celebrations -- never as a general background.
   LinearGradient get auraGradient => LinearGradient(
@@ -87,6 +98,8 @@ class AppColors extends ThemeExtension<AppColors> {
     error: Color(0xFFDC2626),
     success: Color(0xFF16A34A),
     warning: Color(0xFFD97706),
+    loadingScrim: Color(0x66000000),
+    loadingIndicator: Color(0xFF7C3AED),
   );
 
   static const dark = AppColors(
@@ -106,6 +119,8 @@ class AppColors extends ThemeExtension<AppColors> {
     error: Color(0xFFEF4444),
     success: Color(0xFF22C55E),
     warning: Color(0xFFF59E0B),
+    loadingScrim: Color(0x8A000000),
+    loadingIndicator: Color(0xFFA78BFA),
   );
 
   @override
@@ -126,6 +141,8 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? error,
     Color? success,
     Color? warning,
+    Color? loadingScrim,
+    Color? loadingIndicator,
   }) {
     return AppColors(
       background: background ?? this.background,
@@ -144,6 +161,8 @@ class AppColors extends ThemeExtension<AppColors> {
       error: error ?? this.error,
       success: success ?? this.success,
       warning: warning ?? this.warning,
+      loadingScrim: loadingScrim ?? this.loadingScrim,
+      loadingIndicator: loadingIndicator ?? this.loadingIndicator,
     );
   }
 
@@ -168,6 +187,8 @@ class AppColors extends ThemeExtension<AppColors> {
       error: mix(error, other.error),
       success: mix(success, other.success),
       warning: mix(warning, other.warning),
+      loadingScrim: mix(loadingScrim, other.loadingScrim),
+      loadingIndicator: mix(loadingIndicator, other.loadingIndicator),
     );
   }
 }

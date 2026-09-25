@@ -28,4 +28,12 @@ class SharedStrings {
     AppLanguage.english => 'Got it',
     AppLanguage.spanish => 'Entendido',
   };
+
+  /// Screen-reader fallback for [AppLoadingOverlay] when the operation
+  /// behind it didn't pass its own message.
+  String get loadingLabel => switch (language) {
+    AppLanguage.portuguese => 'Carregando',
+    AppLanguage.english => 'Loading',
+    AppLanguage.spanish => 'Cargando',
+  };
 }
