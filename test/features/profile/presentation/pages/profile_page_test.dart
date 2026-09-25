@@ -179,8 +179,8 @@ void main() {
 
     testWidgets('the subjects row opens the subjects screen', (tester) async {
       await pumpProfile(tester);
-      await tester.scrollUntilVisible(find.text('Matérias de interesse'), 200);
-      await tester.tap(find.text('Matérias de interesse'));
+      await tester.scrollUntilVisible(find.text('Matérias em foco'), 200);
+      await tester.tap(find.text('Matérias em foco'));
       await tester.pumpAndSettle();
 
       expect(find.byType(InterestedSubjectsSettingsPage), findsOneWidget);

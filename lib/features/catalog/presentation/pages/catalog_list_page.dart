@@ -9,6 +9,7 @@ import 'package:aura/features/catalog/l10n/catalog_strings.dart';
 import 'package:aura/features/catalog/presentation/cubit/catalog_cubit.dart';
 import 'package:aura/features/catalog/presentation/cubit/catalog_state.dart';
 import 'package:aura/features/catalog/presentation/mapped_activities.dart';
+import 'package:aura/features/catalog/presentation/widgets/catalog_leaf_tile.dart';
 import 'package:aura/features/catalog/presentation/widgets/catalog_node_tile.dart';
 import 'package:aura/features/catalog/presentation/widgets/difficulty_selector.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
@@ -25,6 +26,7 @@ class CatalogListPage extends StatefulWidget {
     this.parentId,
     this.subtitle,
     this.difficulty,
+    this.depth = 0,
     super.key,
   });
 
@@ -33,6 +35,14 @@ class CatalogListPage extends StatefulWidget {
   final String? subtitle;
   final String? parentId;
   final QuestionDifficulty? difficulty;
+
+  /// How many catalog levels below the subject root this screen's own list
+  /// sits: 0 for the first screen after a subject (categories), 1+ for
+  /// every screen reached from tapping into one of those (subtopics).
+  /// Picks the tile density -- [CatalogNodeTile] at 0, the tighter
+  /// [CatalogLeafTile] below that -- so depth reads through density
+  /// instead of indentation.
+  final int depth;
 
   @override
   State<CatalogListPage> createState() => _CatalogListPageState();
@@ -115,31 +125,40 @@ class _CatalogListPageState extends State<CatalogListPage> with RouteAware {
                     ListView.separated(
                       padding: const EdgeInsets.all(24),
                       itemCount: nodes.length,
-                      separatorBuilder: (_, _) => const SizedBox(height: 12),
+                      separatorBuilder: (_, _) =>
+                          SizedBox(height: widget.depth == 0 ? 12 : 8),
                       itemBuilder: (context, index) {
                         final node = nodes[index];
                         final activityBuilder = mappedActivities[node.id];
-                        return CatalogNodeTile(
-                          node: node,
-                          subject: widget.subject,
-                          progress: progressByNodeId[node.id],
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute<void>(
-                              builder: activityBuilder != null
-                                  ? (context) =>
-                                        activityBuilder(context, node.id)
-                                  : (_) => CatalogListPage(
-                                      subject: widget.subject,
-                                      title: node.title,
-                                      subtitle: node.description,
-                                      parentId: node.id,
-                                      difficulty: context
-                                          .read<CatalogCubit>()
-                                          .difficulty,
-                                    ),
-                            ),
+                        void onTap() => Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: activityBuilder != null
+                                ? (context) => activityBuilder(context, node.id)
+                                : (_) => CatalogListPage(
+                                    subject: widget.subject,
+                                    title: node.title,
+                                    subtitle: node.description,
+                                    parentId: node.id,
+                                    difficulty: context
+                                        .read<CatalogCubit>()
+                                        .difficulty,
+                                    depth: widget.depth + 1,
+                                  ),
                           ),
                         );
+                        return widget.depth == 0
+                            ? CatalogNodeTile(
+                                node: node,
+                                subject: widget.subject,
+                                progress: progressByNodeId[node.id],
+                                onTap: onTap,
+                              )
+                            : CatalogLeafTile(
+                                node: node,
+                                subject: widget.subject,
+                                progress: progressByNodeId[node.id],
+                                onTap: onTap,
+                              );
                       },
                     ),
                 },

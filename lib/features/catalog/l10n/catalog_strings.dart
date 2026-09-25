@@ -41,4 +41,12 @@ class CatalogStrings {
       'Todavía no hay temas en este nivel de dificultad. Prueba otro '
           'nivel.',
   };
+
+  /// Replaces the progress bar once a topic's questions are all answered
+  /// correctly -- a discreet done state instead of a "100%" bar.
+  String get topicCompletedLabel => switch (language) {
+    AppLanguage.portuguese => 'Concluído',
+    AppLanguage.english => 'Completed',
+    AppLanguage.spanish => 'Completado',
+  };
 }

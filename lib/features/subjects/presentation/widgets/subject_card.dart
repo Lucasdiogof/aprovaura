@@ -9,11 +9,15 @@ class SubjectCard extends StatelessWidget {
     required this.language,
     required this.onTap,
     super.key,
+    this.inFocus = false,
+    this.justEnteredFocus = false,
   });
 
   final Subject subject;
   final AppLanguage language;
   final VoidCallback onTap;
+  final bool inFocus;
+  final bool justEnteredFocus;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +26,8 @@ class SubjectCard extends StatelessWidget {
       accentColor: subject.accentColor,
       label: subject.label(language),
       description: subject.description(language),
+      inFocus: inFocus,
+      justEnteredFocus: justEnteredFocus,
       onTap: onTap,
     );
   }

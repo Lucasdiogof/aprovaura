@@ -53,13 +53,6 @@ class DifficultySelector extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: accentColor,
                     borderRadius: BorderRadius.circular(18),
-                    boxShadow: [
-                      BoxShadow(
-                        color: accentColor.withValues(alpha: 0.35),
-                        blurRadius: 8,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
                   ),
                 ),
               ),

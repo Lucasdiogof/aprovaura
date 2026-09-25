@@ -52,9 +52,9 @@ class ProfileStrings {
   };
 
   String get interestedSubjectsRowLabel => switch (language) {
-    AppLanguage.portuguese => 'Matérias de interesse',
-    AppLanguage.english => 'Subjects of interest',
-    AppLanguage.spanish => 'Materias de interés',
+    AppLanguage.portuguese => 'Matérias em foco',
+    AppLanguage.english => 'Focus subjects',
+    AppLanguage.spanish => 'Materias en foco',
   };
 
   String interestedSubjectsCount(int count) => switch (language) {
@@ -359,9 +359,9 @@ class ProfileStrings {
   };
 
   String get interestedSubjectsPageTitle => switch (language) {
-    AppLanguage.portuguese => 'Matérias de interesse',
-    AppLanguage.english => 'Subjects of interest',
-    AppLanguage.spanish => 'Materias de interés',
+    AppLanguage.portuguese => 'Matérias em foco',
+    AppLanguage.english => 'Focus subjects',
+    AppLanguage.spanish => 'Materias en foco',
   };
 
   String interestedSubjectsSelectedCount(int selected, int total) =>
