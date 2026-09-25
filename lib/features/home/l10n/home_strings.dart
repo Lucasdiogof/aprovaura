@@ -5,16 +5,45 @@ class HomeStrings {
 
   final AppLanguage language;
 
-  String greeting(String name) => switch (language) {
-    AppLanguage.portuguese => 'Olá, $name! 👋',
-    AppLanguage.english => 'Hi, $name! 👋',
-    AppLanguage.spanish => '¡Hola, $name! 👋',
+  /// "Bom dia" / "Boa tarde" / "Boa noite", by the device's current hour --
+  /// the hero's context line, above the name. No name and no punctuation:
+  /// the name carries its own line and weight.
+  String timeGreeting({DateTime? now}) {
+    final hour = (now ?? DateTime.now()).hour;
+    return switch (hour) {
+      >= 5 && < 12 => switch (language) {
+        AppLanguage.portuguese => 'Bom dia',
+        AppLanguage.english => 'Good morning',
+        AppLanguage.spanish => 'Buenos días',
+      },
+      >= 12 && < 18 => switch (language) {
+        AppLanguage.portuguese => 'Boa tarde',
+        AppLanguage.english => 'Good afternoon',
+        AppLanguage.spanish => 'Buenas tardes',
+      },
+      _ => switch (language) {
+        AppLanguage.portuguese => 'Boa noite',
+        AppLanguage.english => 'Good evening',
+        AppLanguage.spanish => 'Buenas noches',
+      },
+    };
+  }
+
+  /// The hero's subtitle -- a low-key nudge to start, not a motivational
+  /// slogan and not a repeat of [homeActionsHeading] below it.
+  String get homeSubtitle => switch (language) {
+    AppLanguage.portuguese => 'Pronto para avançar mais um pouco?',
+    AppLanguage.english => 'Ready to make a little more progress?',
+    AppLanguage.spanish => '¿Listo para avanzar un poco más?',
   };
 
-  String get homeSubtitle => switch (language) {
-    AppLanguage.portuguese => 'O que vamos estudar hoje?',
-    AppLanguage.english => 'What shall we study today?',
-    AppLanguage.spanish => '¿Qué vamos a estudiar hoy?',
+  /// Heading right above the practice shortcuts (quick practice, review
+  /// mistakes, favorites, mock exam) -- deliberately a different question
+  /// from [homeSubtitle] so the two don't read as the same line twice.
+  String get homeActionsHeading => switch (language) {
+    AppLanguage.portuguese => 'Como você quer praticar?',
+    AppLanguage.english => 'How do you want to practice?',
+    AppLanguage.spanish => '¿Cómo quieres practicar?',
   };
 
   String streakDaysCount(int days) => switch (language) {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_state.dart';
-import 'package:aura/shared/widgets/aura/aura_badge.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
@@ -11,8 +10,8 @@ import 'package:aura/features/home/l10n/home_strings.dart';
 import 'package:aura/features/home/presentation/cubit/home_summary_cubit.dart';
 import 'package:aura/features/home/presentation/cubit/home_summary_state.dart';
 import 'package:aura/features/home/presentation/widgets/daily_goal_card.dart';
+import 'package:aura/features/home/presentation/widgets/home_hero.dart';
 import 'package:aura/features/home/presentation/widgets/streak_card.dart';
-import 'package:aura/features/practice/l10n/practice_strings.dart';
 import 'package:aura/features/practice/presentation/widgets/practice_options_list.dart';
 import 'package:aura/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
@@ -36,7 +35,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final language = context.watch<LocaleCubit>().state;
     final t = HomeStrings(language);
-    final practiceStrings = PracticeStrings(language);
     final profileState = context.watch<ProfileCubit>().state;
     final displayName = _displayName(
       profileState.profile?.name ?? '',
@@ -77,42 +75,22 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        t.greeting(displayName),
-                        style: Theme.of(context).textTheme.headlineSmall
-                            ?.copyWith(
-                              fontWeight: FontWeight.w700,
-                              color: context.colors.textPrimary,
-                            ),
-                      ),
-                    ),
-                    // Aura total, always in view on Home. Hidden (not a
-                    // misleading 0) until the real total has loaded.
-                    if (xpState case XpLoaded(:final xp)) ...[
-                      const SizedBox(width: AppSpacing.sm),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4),
-                        child: AuraCounter(total: xp.totalXp),
-                      ),
-                    ],
-                  ],
+                HomeHero(
+                  strings: t,
+                  displayName: displayName,
+                  // Hidden (not a misleading 0) until the real total loads.
+                  auraTotal: switch (xpState) {
+                    XpLoaded(:final xp) => xp.totalXp,
+                    _ => null,
+                  },
                 ),
-                const SizedBox(height: AppSpacing.xs),
-                Text(
-                  t.homeSubtitle,
-                  style: TextStyle(color: context.colors.textSecondary),
-                ),
-                const SizedBox(height: AppSpacing.xl),
+                const SizedBox(height: AppSpacing.lg),
                 DailyGoalCard(strings: t, goal: dailyGoal),
-                const SizedBox(height: AppSpacing.md),
+                const SizedBox(height: AppSpacing.sm),
                 StreakCard(strings: t, streakDays: streakDays),
                 const SizedBox(height: AppSpacing.xxl),
                 Text(
-                  practiceStrings.pageSubtitle,
+                  t.homeActionsHeading,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w700,
                     color: context.colors.textPrimary,

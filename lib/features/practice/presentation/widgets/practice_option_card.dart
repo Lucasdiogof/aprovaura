@@ -71,7 +71,10 @@ class PracticeOptionCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Icon(Icons.chevron_right, color: context.colors.textSecondary),
+              Icon(
+                Icons.chevron_right_rounded,
+                color: context.colors.textSecondary,
+              ),
             ],
           ),
         ),
