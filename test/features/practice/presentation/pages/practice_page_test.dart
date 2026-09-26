@@ -14,6 +14,7 @@ import 'package:aura/features/profile/domain/entities/user_profile.dart';
 import 'package:aura/features/profile/domain/repositories/profile_repository.dart';
 import 'package:aura/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
+import 'package:aura/features/subjects/presentation/widgets/subject_card.dart';
 import 'package:aura/features/subjects/presentation/widgets/subject_tile.dart';
 import 'package:aura/shared/widgets/aura_sparkle_burst.dart';
 
@@ -174,5 +175,82 @@ void main() {
         expect(matematicaTile.justEnteredFocus, isFalse);
       },
     );
+  });
+
+  group('grid order', () {
+    testWidgets('with nothing in focus, the grid keeps Subject.values order', (
+      tester,
+    ) async {
+      // Tall enough that the whole (lazily built) grid is on screen at
+      // once -- these tests read every SubjectCard's position, not just
+      // whichever ones a short viewport happened to build.
+      tester.view.physicalSize = const Size(390, 1400);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+
+      await tester.pumpApp(const PracticePage(), providers: providers());
+      await tester.pumpAndSettle();
+
+      final order = tester
+          .widgetList<SubjectCard>(find.byType(SubjectCard))
+          .map((c) => c.subject)
+          .toList();
+      expect(order, Subject.values);
+    });
+
+    testWidgets(
+      'focused subjects move to the front, each group keeping its order',
+      (tester) async {
+        tester.view.physicalSize = const Size(390, 1400);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.reset);
+
+        final profileCubit = ProfileCubit(
+          _FakeProfileRepository(
+            initialFocus: [Subject.quimica, Subject.geografia],
+          ),
+          const AppUser(id: 'u1', email: 'a@example.com'),
+        );
+        await tester.pumpApp(
+          const PracticePage(),
+          providers: [BlocProvider<ProfileCubit>.value(value: profileCubit)],
+        );
+        await tester.pumpAndSettle();
+
+        final order = tester
+            .widgetList<SubjectCard>(find.byType(SubjectCard))
+            .map((c) => c.subject)
+            .toList();
+        // geografia and quimica first, in Subject.values' own relative
+        // order (geografia comes before quimica there) -- not the order
+        // they were focused in -- then every other subject, also in
+        // Subject.values' order.
+        expect(order, [
+          Subject.geografia,
+          Subject.quimica,
+          Subject.matematica,
+          Subject.historia,
+          Subject.portugues,
+          Subject.biologia,
+          Subject.fisica,
+          Subject.atualidades,
+        ]);
+      },
+    );
+
+    testWidgets('Redação always closes the grid, focus or not', (tester) async {
+      final profileCubit = ProfileCubit(
+        _FakeProfileRepository(initialFocus: [Subject.quimica]),
+        const AppUser(id: 'u1', email: 'a@example.com'),
+      );
+      await tester.pumpApp(
+        const PracticePage(),
+        providers: [BlocProvider<ProfileCubit>.value(value: profileCubit)],
+      );
+      await tester.pumpAndSettle();
+
+      await tester.scrollUntilVisible(find.text('Redação'), 300);
+      expect(find.text('Redação'), findsOneWidget);
+    });
   });
 }

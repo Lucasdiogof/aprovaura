@@ -44,6 +44,17 @@ class _PracticePageState extends State<PracticePage> {
     _previousFocus = current;
   }
 
+  /// Focused subjects first, each group keeping Subject.values' own order --
+  /// picking a subject as "em foco" is now a real reason to see it without
+  /// scrolling, not just a border. Redação isn't part of this: it always
+  /// closes the grid, focus or not.
+  List<Subject> _orderedSubjects(Set<Subject> focus) => [
+    for (final subject in Subject.values)
+      if (focus.contains(subject)) subject,
+    for (final subject in Subject.values)
+      if (!focus.contains(subject)) subject,
+  ];
+
   void _openSubject(
     BuildContext context,
     Subject subject,
@@ -75,6 +86,7 @@ class _PracticePageState extends State<PracticePage> {
         ?.interestedSubjects
         .toSet();
     if (focus != null) _syncFocus(focus);
+    final orderedSubjects = _orderedSubjects(focus ?? const {});
     return Scaffold(
       backgroundColor: context.colors.background,
       body: SafeArea(
@@ -117,31 +129,30 @@ class _PracticePageState extends State<PracticePage> {
                   // Redação closes the grid: same tile, but it is a feature
                   // of its own rather than a Subject (see EssaySubjectCard).
                   // It has no "em foco" state -- it isn't a Subject, so it
-                  // never appears in the interested-subjects screen.
-                  (context, index) => index == Subject.values.length
-                      ? EssaySubjectCard(
-                          language: language,
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute<void>(
-                              builder: (_) => const EssayThemesPage(),
-                            ),
-                          ),
-                        )
-                      : SubjectCard(
-                          subject: Subject.values[index],
-                          language: language,
-                          inFocus:
-                              focus?.contains(Subject.values[index]) ?? false,
-                          justEnteredFocus: _justEntered.contains(
-                            Subject.values[index],
-                          ),
-                          onTap: () => _openSubject(
-                            context,
-                            Subject.values[index],
-                            language,
+                  // never appears in the interested-subjects screen, and it
+                  // never moves even when focused subjects reorder above it.
+                  (context, index) {
+                    if (index == orderedSubjects.length) {
+                      return EssaySubjectCard(
+                        language: language,
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (_) => const EssayThemesPage(),
                           ),
                         ),
-                  childCount: Subject.values.length + 1,
+                      );
+                    }
+                    final subject = orderedSubjects[index];
+                    return SubjectCard(
+                      key: ValueKey(subject),
+                      subject: subject,
+                      language: language,
+                      inFocus: focus?.contains(subject) ?? false,
+                      justEnteredFocus: _justEntered.contains(subject),
+                      onTap: () => _openSubject(context, subject, language),
+                    );
+                  },
+                  childCount: orderedSubjects.length + 1,
                 ),
               ),
             ),
