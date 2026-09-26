@@ -578,6 +578,50 @@ class MockExamStrings {
     AppLanguage.spanish => 'Revisar errores',
   };
 
+  String get reviewMockExamButton => switch (language) {
+    AppLanguage.portuguese => 'Ver questões erradas',
+    AppLanguage.english => 'See the questions I missed',
+    AppLanguage.spanish => 'Ver preguntas erradas',
+  };
+
+  // --- Review (per-exam question review) -------------------------------------
+
+  String get reviewPageTitle => switch (language) {
+    AppLanguage.portuguese => 'Revisão do simulado',
+    AppLanguage.english => 'Mock exam review',
+    AppLanguage.spanish => 'Revisión del simulacro',
+  };
+
+  String get reviewLoadError => switch (language) {
+    AppLanguage.portuguese => 'Não foi possível carregar as questões.',
+    AppLanguage.english => "Couldn't load the questions.",
+    AppLanguage.spanish => 'No se pudieron cargar las preguntas.',
+  };
+
+  String reviewQuestionLabel(int position) => switch (language) {
+    AppLanguage.portuguese => 'Questão $position',
+    AppLanguage.english => 'Question $position',
+    AppLanguage.spanish => 'Pregunta $position',
+  };
+
+  String get reviewBlankBadge => switch (language) {
+    AppLanguage.portuguese => 'Em branco',
+    AppLanguage.english => 'Blank',
+    AppLanguage.spanish => 'En blanco',
+  };
+
+  String get reviewYourAnswerLabel => switch (language) {
+    AppLanguage.portuguese => 'Sua resposta',
+    AppLanguage.english => 'Your answer',
+    AppLanguage.spanish => 'Tu respuesta',
+  };
+
+  String get reviewCorrectAnswerLabel => switch (language) {
+    AppLanguage.portuguese => 'Resposta correta',
+    AppLanguage.english => 'Correct answer',
+    AppLanguage.spanish => 'Respuesta correcta',
+  };
+
   String get anotherExamButton => switch (language) {
     AppLanguage.portuguese => 'Fazer outro simulado',
     AppLanguage.english => 'Take another mock exam',

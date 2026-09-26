@@ -108,6 +108,9 @@ class MockExamRepositoryImpl implements MockExamRepository {
             prompt: row['prompt'] as String,
             options: (row['options'] as List<dynamic>).cast<String>(),
             selectedIndex: row['selected_index'] as int?,
+            correctIndex: row['correct_index'] as int?,
+            isCorrect: row['is_correct'] as bool?,
+            explanation: row['explanation'] as String?,
           ),
       ];
     },

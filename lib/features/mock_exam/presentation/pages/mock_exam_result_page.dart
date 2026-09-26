@@ -5,12 +5,12 @@ import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
-import 'package:aura/features/error_review/presentation/pages/error_review_list_page.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_result.dart';
 import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
 import 'package:aura/features/mock_exam/l10n/mock_exam_strings.dart';
 import 'package:aura/features/mock_exam/presentation/cubit/mock_exam_result_cubit.dart';
 import 'package:aura/features/mock_exam/presentation/mock_exam_result_tier.dart';
+import 'package:aura/features/mock_exam/presentation/pages/mock_exam_review_page.dart';
 import 'package:aura/features/mock_exam/presentation/pages/mock_exam_setup_page.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
@@ -157,16 +157,23 @@ class _ResultBody extends StatelessWidget {
         ),
         const SizedBox(height: AppSpacing.xxl),
         // At most three actions. Review first when there is something to
-        // review (blanks never are -- they were never answered).
+        // review (blanks never are -- they were never answered). This
+        // exam's own wrong questions, not the cross-topic "Revisar erros"
+        // (that one re-quizzes; this one only shows what happened).
         AppButton(
-          label: hasErrors ? t.reviewErrorsButton : t.anotherExamButton,
-          onPressed: () => Navigator.of(context).pushReplacement(
-            MaterialPageRoute<void>(
-              builder: (_) => hasErrors
-                  ? const ErrorReviewListPage()
-                  : const MockExamSetupPage(),
-            ),
-          ),
+          label: hasErrors ? t.reviewMockExamButton : t.anotherExamButton,
+          onPressed: () => hasErrors
+              ? Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) =>
+                        MockExamReviewPage(mockExamId: result.mockExamId),
+                  ),
+                )
+              : Navigator.of(context).pushReplacement(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const MockExamSetupPage(),
+                  ),
+                ),
         ),
         if (hasErrors) ...[
           const SizedBox(height: AppSpacing.sm),

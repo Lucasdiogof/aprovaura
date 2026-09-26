@@ -8,22 +8,18 @@ import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_theme.dart';
-import 'package:aura/features/error_review/domain/repositories/error_review_repository.dart';
-import 'package:aura/features/error_review/presentation/pages/error_review_list_page.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_availability.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_result.dart';
 import 'package:aura/features/mock_exam/domain/mock_exam_failure.dart';
 import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
 import 'package:aura/features/mock_exam/l10n/mock_exam_strings.dart';
 import 'package:aura/features/mock_exam/presentation/pages/mock_exam_result_page.dart';
+import 'package:aura/features/mock_exam/presentation/pages/mock_exam_review_page.dart';
 import 'package:aura/features/mock_exam/presentation/pages/mock_exam_setup_page.dart';
 
 import '../../../../helpers/pump_app.dart';
 
 class _MockMockExamRepository extends Mock implements MockExamRepository {}
-
-class _MockErrorReviewRepository extends Mock
-    implements ErrorReviewRepository {}
 
 const _examId = 'e1';
 
@@ -191,7 +187,7 @@ void main() {
     verifyNever(() => repository.finishMockExam(any()));
   });
 
-  testWidgets('0% gets the review tone and offers Revisar erros first', (
+  testWidgets('0% gets the review tone and offers to see the questions first', (
     tester,
   ) async {
     useTallScreen(tester);
@@ -199,7 +195,7 @@ void main() {
     await pumpResult(tester);
 
     expect(find.text('Vale revisar alguns pontos'), findsOneWidget);
-    expect(find.text('Revisar erros'), findsOneWidget);
+    expect(find.text('Ver questões erradas'), findsOneWidget);
     expect(find.text('Fazer outro simulado'), findsOneWidget);
     expect(find.text('Voltar para o início'), findsOneWidget);
   });
@@ -213,7 +209,7 @@ void main() {
 
     expect(find.text('Excelente resultado'), findsOneWidget);
     expect(find.text('100%'), findsWidgets);
-    expect(find.text('Revisar erros'), findsNothing);
+    expect(find.text('Ver questões erradas'), findsNothing);
     expect(find.text('Fazer outro simulado'), findsOneWidget);
     // Single subject.
     expect(find.text('Física'), findsOneWidget);
@@ -240,21 +236,21 @@ void main() {
     verifyNever(() => repository.finishMockExam(any()));
   });
 
-  testWidgets('Revisar erros opens the regular error review', (tester) async {
-    final errorReview = _MockErrorReviewRepository();
+  testWidgets('Ver questões erradas opens this exam\'s own review', (
+    tester,
+  ) async {
     when(
-      () => errorReview.listPendingTopics(),
+      () => repository.getItems(_examId),
     ).thenAnswer((_) async => const Success([]));
-    sl.registerLazySingleton<ErrorReviewRepository>(() => errorReview);
     stubResult(_intermediate);
     await pumpResult(tester);
 
-    await tester.scrollUntilVisible(find.text('Revisar erros'), 200);
-    await tester.ensureVisible(find.text('Revisar erros'));
+    await tester.scrollUntilVisible(find.text('Ver questões erradas'), 200);
+    await tester.ensureVisible(find.text('Ver questões erradas'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Revisar erros'));
+    await tester.tap(find.text('Ver questões erradas'));
     await tester.pumpAndSettle();
-    expect(find.byType(ErrorReviewListPage), findsOneWidget);
+    expect(find.byType(MockExamReviewPage), findsOneWidget);
   });
 
   testWidgets('Fazer outro simulado opens the setup screen', (tester) async {
