@@ -60,17 +60,20 @@ class _ErrorReviewListPageState extends State<ErrorReviewListPage>
         body: Column(
           children: [
             ModernAppBar(title: t.pageTitle, showBackButton: true),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
-              child: BlocBuilder<ErrorReviewCubit, ErrorReviewState>(
-                buildWhen: (previous, current) =>
-                    previous.source != current.source,
-                builder: (context, state) => ErrorSourceSelector(
-                  selected: state.source,
-                  strings: t,
-                  onChanged: context.read<ErrorReviewCubit>().setSource,
-                ),
-              ),
+            BlocBuilder<ErrorReviewCubit, ErrorReviewState>(
+              buildWhen: (previous, current) =>
+                  previous.source != current.source ||
+                  previous.hasMockExamErrors != current.hasMockExamErrors,
+              builder: (context, state) => state.hasMockExamErrors
+                  ? Padding(
+                      padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
+                      child: ErrorSourceSelector(
+                        selected: state.source,
+                        strings: t,
+                        onChanged: context.read<ErrorReviewCubit>().setSource,
+                      ),
+                    )
+                  : const SizedBox.shrink(),
             ),
             Expanded(
               child: BlocBuilder<ErrorReviewCubit, ErrorReviewState>(

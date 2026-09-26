@@ -28,6 +28,13 @@ void main() {
 
     setUp(() {
       repository = _MockErrorReviewRepository();
+      // Every fetch also checks for mock-exam errors (to decide whether
+      // the Prática/Simulados split is worth showing at all) -- default
+      // to none, so tests that don't care about that split don't have to
+      // stub it themselves.
+      when(
+        () => repository.listPendingTopics(source: 'mock_exam'),
+      ).thenAnswer((_) async => const Success(<ErrorTopic>[]));
     });
 
     test(
@@ -55,6 +62,23 @@ void main() {
       expect(cubit.state, const ErrorReviewError('boom'));
     });
 
+    test(
+      'hasMockExamErrors is true once a mock-exam error is pending',
+      () async {
+        when(
+          () => repository.listPendingTopics(source: null),
+        ).thenAnswer((_) async => const Success(topics));
+        when(
+          () => repository.listPendingTopics(source: 'mock_exam'),
+        ).thenAnswer((_) async => const Success(topics));
+        final cubit = ErrorReviewCubit(repository);
+
+        await pumpEventQueue();
+
+        expect(cubit.state.hasMockExamErrors, isTrue);
+      },
+    );
+
     blocTest<ErrorReviewCubit, ErrorReviewState>(
       'refresh() reloads without an intermediate $ErrorReviewLoading state',
       build: () {
@@ -80,9 +104,6 @@ void main() {
       when(
         () => repository.listPendingTopics(source: null),
       ).thenAnswer((_) async => const Success(topics));
-      when(
-        () => repository.listPendingTopics(source: 'mock_exam'),
-      ).thenAnswer((_) async => const Success(<ErrorTopic>[]));
       final cubit = ErrorReviewCubit(repository);
       // Let the constructor's own initial load settle first -- calling
       // setSource before that would race it, since neither fetch cancels
@@ -92,7 +113,6 @@ void main() {
       await cubit.setSource('mock_exam');
 
       expect(cubit.state, const ErrorReviewLoaded(<ErrorTopic>[], 'mock_exam'));
-      verify(() => repository.listPendingTopics(source: 'mock_exam')).called(1);
     });
 
     test('setSource is a no-op when it matches the current filter', () async {

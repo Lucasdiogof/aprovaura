@@ -26,6 +26,13 @@ void main() {
     ).thenAnswer((_) async => Success(topics));
   }
 
+  setUp(() {
+    // Every fetch also checks for mock-exam errors, to decide whether the
+    // Prática/Simulados selector is worth showing at all -- default to
+    // none, so a test not about that split doesn't have to stub it.
+    stubTopics(const [], source: 'mock_exam');
+  });
+
   group(ErrorReviewListPage, () {
     testWidgets('groups topics by subject, in the app\'s subject order', (
       tester,
@@ -113,7 +120,54 @@ void main() {
 
       expect(find.text('Relevo'), findsNothing);
       expect(find.text('Frações'), findsOneWidget);
-      verify(() => repository.listPendingTopics(source: 'mock_exam')).called(1);
     });
+
+    testWidgets(
+      'the selector shows up once there is a mock-exam error to split off',
+      (tester) async {
+        stubTopics(const [
+          ErrorTopic(
+            catalogNodeId: 'g1',
+            subject: 'geografia',
+            title: 'Relevo',
+            wrongCount: 2,
+          ),
+        ]);
+        stubTopics(const [
+          ErrorTopic(
+            catalogNodeId: 'm1',
+            subject: 'matematica',
+            title: 'Frações',
+            wrongCount: 1,
+          ),
+        ], source: 'mock_exam');
+        await tester.pumpApp(const ErrorReviewListPage());
+        await tester.pumpAndSettle();
+
+        expect(find.text('Tudo'), findsOneWidget);
+        expect(find.text('Prática'), findsOneWidget);
+        expect(find.text('Simulados'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'the selector never shows up when there are no mock-exam errors',
+      (tester) async {
+        stubTopics(const [
+          ErrorTopic(
+            catalogNodeId: 'g1',
+            subject: 'geografia',
+            title: 'Relevo',
+            wrongCount: 2,
+          ),
+        ]);
+        await tester.pumpApp(const ErrorReviewListPage());
+        await tester.pumpAndSettle();
+
+        expect(find.text('Relevo'), findsOneWidget);
+        expect(find.text('Simulados'), findsNothing);
+        expect(find.text('Prática'), findsNothing);
+      },
+    );
   });
 }
