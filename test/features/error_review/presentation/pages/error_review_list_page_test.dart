@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:aura/core/di/injection_container.dart';
@@ -21,9 +20,9 @@ void main() {
     sl.registerLazySingleton<ErrorReviewRepository>(() => repository);
   });
 
-  void stubTopics(List<ErrorTopic> topics) {
+  void stubTopics(List<ErrorTopic> topics, {String? source}) {
     when(
-      () => repository.listPendingTopics(),
+      () => repository.listPendingTopics(source: source),
     ).thenAnswer((_) async => Success(topics));
   }
 
@@ -82,6 +81,39 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Nenhum erro para revisar'), findsOneWidget);
+    });
+
+    testWidgets('switching to Simulados reloads with only mock-exam errors', (
+      tester,
+    ) async {
+      stubTopics(const [
+        ErrorTopic(
+          catalogNodeId: 'g1',
+          subject: 'geografia',
+          title: 'Relevo',
+          wrongCount: 2,
+        ),
+      ]);
+      stubTopics(const [
+        ErrorTopic(
+          catalogNodeId: 'm1',
+          subject: 'matematica',
+          title: 'Frações',
+          wrongCount: 1,
+        ),
+      ], source: 'mock_exam');
+      await tester.pumpApp(const ErrorReviewListPage());
+      await tester.pumpAndSettle();
+
+      expect(find.text('Relevo'), findsOneWidget);
+      expect(find.text('Frações'), findsNothing);
+
+      await tester.tap(find.text('Simulados'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Relevo'), findsNothing);
+      expect(find.text('Frações'), findsOneWidget);
+      verify(() => repository.listPendingTopics(source: 'mock_exam')).called(1);
     });
   });
 }

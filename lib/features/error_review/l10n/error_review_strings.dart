@@ -41,4 +41,22 @@ class ErrorReviewStrings {
     AppLanguage.english => 'Try again',
     AppLanguage.spanish => 'Intentar de nuevo',
   };
+
+  String get sourceAll => switch (language) {
+    AppLanguage.portuguese => 'Tudo',
+    AppLanguage.english => 'All',
+    AppLanguage.spanish => 'Todo',
+  };
+
+  String get sourcePractice => switch (language) {
+    AppLanguage.portuguese => 'Prática',
+    AppLanguage.english => 'Practice',
+    AppLanguage.spanish => 'Práctica',
+  };
+
+  String get sourceMockExam => switch (language) {
+    AppLanguage.portuguese => 'Simulados',
+    AppLanguage.english => 'Mock exams',
+    AppLanguage.spanish => 'Simulacros',
+  };
 }

@@ -12,11 +12,14 @@ class ErrorReviewRepositoryImpl implements ErrorReviewRepository {
   final LocaleCubit _localeCubit;
 
   @override
-  Future<Result<List<ErrorTopic>>> listPendingTopics() async {
+  Future<Result<List<ErrorTopic>>> listPendingTopics({String? source}) async {
     try {
       final rows = await _client.rpc<List<dynamic>>(
         'list_pending_error_topics',
-        params: {'p_locale': _localeCubit.state.databaseLocale},
+        params: {
+          'p_locale': _localeCubit.state.databaseLocale,
+          'p_source': source,
+        },
       );
       final topics = rows
           .cast<Map<String, dynamic>>()

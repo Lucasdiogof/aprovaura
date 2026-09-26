@@ -13,6 +13,7 @@ import 'package:aura/features/error_review/l10n/error_review_strings.dart';
 import 'package:aura/features/error_review/presentation/cubit/error_review_cubit.dart';
 import 'package:aura/features/error_review/presentation/cubit/error_review_state.dart';
 import 'package:aura/features/error_review/presentation/pages/review_practice_page.dart';
+import 'package:aura/features/error_review/presentation/widgets/error_source_selector.dart';
 import 'package:aura/features/error_review/presentation/widgets/error_topic_card.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 import 'package:aura/features/subjects/presentation/subject_style.dart';
@@ -59,6 +60,18 @@ class _ErrorReviewListPageState extends State<ErrorReviewListPage>
         body: Column(
           children: [
             ModernAppBar(title: t.pageTitle, showBackButton: true),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
+              child: BlocBuilder<ErrorReviewCubit, ErrorReviewState>(
+                buildWhen: (previous, current) =>
+                    previous.source != current.source,
+                builder: (context, state) => ErrorSourceSelector(
+                  selected: state.source,
+                  strings: t,
+                  onChanged: context.read<ErrorReviewCubit>().setSource,
+                ),
+              ),
+            ),
             Expanded(
               child: BlocBuilder<ErrorReviewCubit, ErrorReviewState>(
                 builder: (context, state) => switch (state) {
