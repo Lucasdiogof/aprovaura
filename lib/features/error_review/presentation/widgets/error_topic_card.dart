@@ -5,6 +5,10 @@ import 'package:aura/features/error_review/domain/entities/error_topic.dart';
 import 'package:aura/features/error_review/l10n/error_review_strings.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 
+/// One topic with pending errors. The subject is shown as a section
+/// header above a group of these now (see ErrorReviewListPage), so this
+/// card itself only names the topic and, when there is one, its parent --
+/// repeating the subject here too would just be noise under its own header.
 class ErrorTopicCard extends StatelessWidget {
   const ErrorTopicCard({
     required this.topic,
@@ -24,12 +28,6 @@ class ErrorTopicCard extends StatelessWidget {
     final accentColor = subject.isEmpty
         ? context.colors.primary
         : subject.first.accentColor;
-    final subjectLabel = subject.isEmpty
-        ? topic.subject
-        : subject.first.label(language);
-    final breadcrumb = topic.parentTitle == null
-        ? subjectLabel
-        : '$subjectLabel • ${topic.parentTitle}';
 
     return Material(
       color: context.colors.surface,
@@ -60,15 +58,17 @@ class ErrorTopicCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      breadcrumb,
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w600,
-                        color: context.colors.textSecondary,
+                    if (topic.parentTitle case final parentTitle?) ...[
+                      Text(
+                        parentTitle,
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          color: context.colors.textSecondary,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 2),
+                      const SizedBox(height: 2),
+                    ],
                     Text(
                       topic.title,
                       style: TextStyle(

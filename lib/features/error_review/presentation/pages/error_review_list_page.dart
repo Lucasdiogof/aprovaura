@@ -2,17 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/core/di/injection_container.dart';
+import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/router/app_route_observer.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/core/theme/app_spacing.dart';
+import 'package:aura/features/error_review/domain/entities/error_topic.dart';
 import 'package:aura/features/error_review/domain/repositories/error_review_repository.dart';
 import 'package:aura/features/error_review/l10n/error_review_strings.dart';
 import 'package:aura/features/error_review/presentation/cubit/error_review_cubit.dart';
 import 'package:aura/features/error_review/presentation/cubit/error_review_state.dart';
 import 'package:aura/features/error_review/presentation/pages/review_practice_page.dart';
 import 'package:aura/features/error_review/presentation/widgets/error_topic_card.dart';
+import 'package:aura/features/subjects/domain/entities/subject.dart';
+import 'package:aura/features/subjects/presentation/subject_style.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
+import 'package:aura/shared/widgets/section_label.dart';
 
 class ErrorReviewListPage extends StatefulWidget {
   const ErrorReviewListPage({super.key});
@@ -67,25 +73,9 @@ class _ErrorReviewListPageState extends State<ErrorReviewListPage>
                   ),
                   ErrorReviewLoaded(topics: final topics) when topics.isEmpty =>
                     _EmptyView(strings: t),
-                  ErrorReviewLoaded(:final topics) => ListView.separated(
-                    padding: const EdgeInsets.all(24),
-                    itemCount: topics.length,
-                    separatorBuilder: (_, _) => const SizedBox(height: 12),
-                    itemBuilder: (context, index) {
-                      final topic = topics[index];
-                      return ErrorTopicCard(
-                        topic: topic,
-                        language: language,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute<void>(
-                            builder: (_) => ReviewPracticePage(
-                              catalogNodeId: topic.catalogNodeId,
-                              title: topic.title,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
+                  ErrorReviewLoaded(:final topics) => _GroupedTopicList(
+                    topics: topics,
+                    language: language,
                   ),
                 },
               ),
@@ -93,6 +83,71 @@ class _ErrorReviewListPageState extends State<ErrorReviewListPage>
           ],
         ),
       ),
+    );
+  }
+}
+
+/// Topics grouped by subject, each under its own section header -- a flat
+/// list of every pending topic mixed together (algebra next to a history
+/// battle) made it hard to tell where to start; a subject you already
+/// know well can be skipped as a whole section now.
+class _GroupedTopicList extends StatelessWidget {
+  const _GroupedTopicList({required this.topics, required this.language});
+
+  final List<ErrorTopic> topics;
+  final AppLanguage language;
+
+  /// Subjects in the app's usual order -- topics arrive subject-major
+  /// already, but grouping is stable regardless of the server's order.
+  List<String> get _orderedSubjectKeys {
+    int rank(String key) {
+      final index = Subject.values.indexWhere((s) => s.name == key);
+      return index < 0 ? Subject.values.length : index;
+    }
+
+    final keys = topics.map((t) => t.subject).toSet().toList()
+      ..sort((a, b) => rank(a).compareTo(rank(b)));
+    return keys;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final subjectKeys = _orderedSubjectKeys;
+    return ListView(
+      padding: const EdgeInsets.all(24),
+      children: [
+        for (final subjectKey in subjectKeys) ...[
+          if (subjectKey != subjectKeys.first)
+            const SizedBox(height: AppSpacing.lg),
+          SectionLabel(
+            subjectStyle(
+              subjectKey,
+              language,
+              fallbackColor: context.colors.primary,
+            ).label,
+          ),
+          for (final MapEntry(key: index, value: topic)
+              in topics
+                  .where((t) => t.subject == subjectKey)
+                  .toList()
+                  .asMap()
+                  .entries) ...[
+            if (index > 0) const SizedBox(height: 12),
+            ErrorTopicCard(
+              topic: topic,
+              language: language,
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => ReviewPracticePage(
+                    catalogNodeId: topic.catalogNodeId,
+                    title: topic.title,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ],
+      ],
     );
   }
 }
