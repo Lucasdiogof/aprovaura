@@ -127,6 +127,15 @@ void main() {
       expect(find.text('Confirmar senha'), findsNWidgets(2));
     });
 
+    testWidgets('has a back button and no "already have an account" prompt', (
+      tester,
+    ) async {
+      await pumpRegisterPage(tester);
+
+      expect(find.byIcon(Icons.arrow_back_rounded), findsOneWidget);
+      expect(find.textContaining('Já tem uma conta'), findsNothing);
+    });
+
     testWidgets('no overflow on a very short viewport', (tester) async {
       tester.view.physicalSize = const Size(360, 480);
       tester.view.devicePixelRatio = 1;

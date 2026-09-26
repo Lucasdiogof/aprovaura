@@ -45,5 +45,48 @@ void main() {
       final topOfContent = tester.getTopLeft(find.text('content')).dy;
       expect(topOfContent, lessThan(120));
     });
+
+    testWidgets('no back button by default (login has nowhere to go back '
+        'to)', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          home: const AuthScaffold(children: [Text('content')]),
+        ),
+      );
+      await tester.pump();
+
+      expect(find.byIcon(Icons.arrow_back_rounded), findsNothing);
+    });
+
+    testWidgets('showBackButton pops the pushed screen', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          home: Builder(
+            builder: (context) => TextButton(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const AuthScaffold(
+                    showBackButton: true,
+                    children: [Text('content')],
+                  ),
+                ),
+              ),
+              child: const Text('open'),
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.text('open'));
+      await tester.pumpAndSettle();
+
+      expect(find.byIcon(Icons.arrow_back_rounded), findsOneWidget);
+      await tester.tap(find.byIcon(Icons.arrow_back_rounded));
+      await tester.pumpAndSettle();
+
+      expect(find.text('content'), findsNothing);
+      expect(find.text('open'), findsOneWidget);
+    });
   });
 }

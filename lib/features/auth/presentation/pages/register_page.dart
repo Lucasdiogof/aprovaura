@@ -14,7 +14,6 @@ import 'package:aura/features/auth/presentation/cubit/register_form_state.dart';
 import 'package:aura/features/auth/presentation/widgets/auth_card.dart';
 import 'package:aura/features/auth/presentation/widgets/auth_header.dart';
 import 'package:aura/features/auth/presentation/widgets/auth_scaffold.dart';
-import 'package:aura/features/auth/presentation/widgets/auth_switch_prompt.dart';
 import 'package:aura/features/auth/presentation/widgets/register_form.dart';
 import 'package:aura/features/profile/domain/repositories/profile_repository.dart';
 import 'package:aura/shared/utils/validators.dart';
@@ -115,8 +114,6 @@ class _RegisterPageState extends State<RegisterPage> {
     context.go('/onboarding');
   }
 
-  void _goToLogin() => context.pop();
-
   @override
   Widget build(BuildContext context) {
     final t = AuthStrings(context.watch<LocaleCubit>().state);
@@ -139,6 +136,7 @@ class _RegisterPageState extends State<RegisterPage> {
           return BlocBuilder<RegisterFormCubit, RegisterFormState>(
             builder: (context, formState) {
               return AuthScaffold(
+                showBackButton: true,
                 children: [
                   AuthHeader.page(
                     title: t.registerHeading,
@@ -168,12 +166,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       onSubmit: _submit,
                       isLoading: isSubmitting,
                     ),
-                  ),
-                  const SizedBox(height: 16),
-                  AuthSwitchPrompt(
-                    question: t.alreadyHaveAccountQuestion,
-                    action: t.signInAction,
-                    onTap: _goToLogin,
                   ),
                 ],
               );

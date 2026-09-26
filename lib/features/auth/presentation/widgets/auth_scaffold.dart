@@ -5,10 +5,20 @@ import 'package:aura/core/theme/app_colors.dart';
 /// and a single column capped at a comfortable reading width so the form
 /// doesn't stretch across a tablet or a browser window.
 class AuthScaffold extends StatelessWidget {
-  const AuthScaffold({required this.children, super.key});
+  const AuthScaffold({
+    required this.children,
+    this.showBackButton = false,
+    super.key,
+  });
 
   /// Laid out in a centred column; the caller owns the spacing between them.
   final List<Widget> children;
+
+  /// Login is the app's front door -- there's nowhere to go back to, so it
+  /// never sets this. A screen reached by pushing on top of it (sign-up)
+  /// does, since neither a browser tab nor a bare Scaffold here otherwise
+  /// gives any visible way back.
+  final bool showBackButton;
 
   static const _maxContentWidth = 420.0;
 
@@ -59,13 +69,49 @@ class AuthScaffold extends StatelessWidget {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [const SizedBox(height: 12), ...children],
+                        children: [
+                          const SizedBox(height: 12),
+                          if (showBackButton) ...[
+                            const _BackButton(),
+                            const SizedBox(height: 4),
+                          ],
+                          ...children,
+                        ],
                       ),
                     ),
                   ),
                 ),
               );
             },
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Plain arrow, no bar or shadow behind it -- AuthScaffold's own background
+/// is the floating gradient wash, and a solid app-bar-style header here
+/// would compete with AuthHeader's centred title right below it.
+class _BackButton extends StatelessWidget {
+  const _BackButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Material(
+        color: Colors.transparent,
+        shape: const CircleBorder(),
+        child: InkWell(
+          customBorder: const CircleBorder(),
+          onTap: () => Navigator.of(context).maybePop(),
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Icon(
+              Icons.arrow_back_rounded,
+              color: context.colors.textPrimary,
+            ),
           ),
         ),
       ),

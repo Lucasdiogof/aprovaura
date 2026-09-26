@@ -155,18 +155,6 @@ class AuthStrings {
     AppLanguage.spanish => 'Crear cuenta',
   };
 
-  String get alreadyHaveAccountQuestion => switch (language) {
-    AppLanguage.portuguese => 'Já tem uma conta?',
-    AppLanguage.english => 'Already have an account?',
-    AppLanguage.spanish => '¿Ya tienes una cuenta?',
-  };
-
-  String get signInAction => switch (language) {
-    AppLanguage.portuguese => 'Entrar',
-    AppLanguage.english => 'Sign in',
-    AppLanguage.spanish => 'Entrar',
-  };
-
   String get signInSubtitle => switch (language) {
     AppLanguage.portuguese => 'Entre para continuar seus estudos.',
     AppLanguage.english => 'Sign in to continue your studies.',
