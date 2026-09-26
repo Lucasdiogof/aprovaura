@@ -199,7 +199,7 @@ void main() {
     });
 
     testWidgets(
-      'focused subjects move to the front, each group keeping its order',
+      'focused subjects move to the front, in the order they were favorited',
       (tester) async {
         tester.view.physicalSize = const Size(390, 1400);
         tester.view.devicePixelRatio = 1;
@@ -221,13 +221,13 @@ void main() {
             .widgetList<SubjectCard>(find.byType(SubjectCard))
             .map((c) => c.subject)
             .toList();
-        // geografia and quimica first, in Subject.values' own relative
-        // order (geografia comes before quimica there) -- not the order
-        // they were focused in -- then every other subject, also in
-        // Subject.values' order.
+        // quimica and geografia first, in the order they were favorited
+        // (quimica was favorited first) -- not Subject.values' own order,
+        // where geografia comes before quimica -- then every other
+        // subject, in Subject.values' order.
         expect(order, [
-          Subject.geografia,
           Subject.quimica,
+          Subject.geografia,
           Subject.matematica,
           Subject.historia,
           Subject.portugues,

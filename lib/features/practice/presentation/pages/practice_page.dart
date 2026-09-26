@@ -44,16 +44,24 @@ class _PracticePageState extends State<PracticePage> {
     _previousFocus = current;
   }
 
-  /// Focused subjects first, each group keeping Subject.values' own order --
-  /// picking a subject as "em foco" is now a real reason to see it without
-  /// scrolling, not just a border. Redação isn't part of this: it always
-  /// closes the grid, focus or not.
-  List<Subject> _orderedSubjects(Set<Subject> focus) => [
-    for (final subject in Subject.values)
-      if (focus.contains(subject)) subject,
-    for (final subject in Subject.values)
-      if (!focus.contains(subject)) subject,
-  ];
+  /// Focused subjects first, in the order they were favorited (the order
+  /// `interestedSubjects` was saved in), then everything else in
+  /// `Subject.values` order. Picking a subject as "em foco" is now a real
+  /// reason to see it without scrolling, not just a border, and the person's
+  /// own choice of which came first is what decides the order -- not an
+  /// arbitrary fixed one. Redação isn't part of this: it always closes the
+  /// grid, focus or not.
+  List<Subject> _orderedSubjects(List<Subject> focusOrder) {
+    final ordered = <Subject>[];
+    final seen = <Subject>{};
+    for (final subject in focusOrder) {
+      if (seen.add(subject)) ordered.add(subject);
+    }
+    for (final subject in Subject.values) {
+      if (seen.add(subject)) ordered.add(subject);
+    }
+    return ordered;
+  }
 
   void _openSubject(
     BuildContext context,
@@ -79,14 +87,14 @@ class _PracticePageState extends State<PracticePage> {
     final language = context.watch<LocaleCubit>().state;
     final t = PracticeStrings(language);
     final homeStrings = HomeStrings(language);
-    final focus = context
+    final focusOrder = context
         .watch<ProfileCubit>()
         .state
         .profile
-        ?.interestedSubjects
-        .toSet();
+        ?.interestedSubjects;
+    final focus = focusOrder?.toSet();
     if (focus != null) _syncFocus(focus);
-    final orderedSubjects = _orderedSubjects(focus ?? const {});
+    final orderedSubjects = _orderedSubjects(focusOrder ?? const []);
     return Scaffold(
       backgroundColor: context.colors.background,
       body: SafeArea(
