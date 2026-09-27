@@ -21,6 +21,8 @@ class MapViewport extends Equatable {
     required this.padding,
     required this.proxyIds,
     required this.displacements,
+    this.reservedRight = 0,
+    this.markerRadius = MapViewportPolicy.pointRadius,
   });
 
   /// [MapViewportMode.locked], [MapViewportMode.constrained] or
@@ -35,6 +37,15 @@ class MapViewport extends Equatable {
 
   /// Space kept between the answers and the map's edge, in px.
   final double padding;
+
+  /// Extra room kept free on the right for the map's own buttons, when the
+  /// board would otherwise sit under them (an answer hidden under the zoom
+  /// buttons can't be tapped). The board is shifted left by half of it.
+  final double reservedRight;
+
+  /// Drawn radius of point markers: smaller on crowded boards (world
+  /// capitals) so dots don't merge into blobs. The hit radius stays large.
+  final double markerRadius;
 
   /// Polygons too small to tap even at [maxZoom] (Vatican, Nauru): each gets
   /// a small stand-in marker on its real location, with a hit area larger
@@ -59,6 +70,8 @@ class MapViewport extends Equatable {
     padding,
     proxyIds,
     displacements,
+    reservedRight,
+    markerRadius,
   ];
 }
 
@@ -92,24 +105,53 @@ abstract final class MapViewportPolicy {
   static double paddingFor(Size size) =>
       size.shortestSide < 600 ? 10 : (size.shortestSide < 900 ? 20 : 28);
 
-  static MapViewport resolve(MapBoard board, Size size) {
+  /// Drawn radius of point markers on normal and on crowded boards.
+  static const pointRadius = 5.5;
+  static const crowdedPointRadius = 4.0;
+
+  /// [controls] is the bottom-right corner the map's buttons take, if any.
+  static MapViewport resolve(
+    MapBoard board,
+    Size size, {
+    Size controls = Size.zero,
+  }) {
     final padding = paddingFor(size);
     final b = board.bounds;
     final x0 = WebMercator.x(b.west), x1 = WebMercator.x(b.east);
     final y0 = WebMercator.y(b.north), y1 = WebMercator.y(b.south);
-    final usableW = math.max(size.width - 2 * padding, 1.0);
-    final usableH = math.max(size.height - 2 * padding, 1.0);
-    // A single point has no extent: frame it at a sensible regional zoom.
-    final fitZoom = math.min(
-      math.min(
-        x1 - x0 > 1e-9 ? _log2(usableW / (x1 - x0)) : 6.0,
-        y1 - y0 > 1e-9 ? _log2(usableH / (y1 - y0)) : 6.0,
-      ),
-      8.0,
-    );
+
+    double fit(double reserved) {
+      final usableW = math.max(size.width - 2 * padding - reserved, 1.0);
+      final usableH = math.max(size.height - 2 * padding, 1.0);
+      // A single point has no extent: frame it at a sensible regional zoom.
+      return math.min(
+        math.min(
+          x1 - x0 > 1e-9 ? _log2(usableW / (x1 - x0)) : 6.0,
+          y1 - y0 > 1e-9 ? _log2(usableH / (y1 - y0)) : 6.0,
+        ),
+        8.0,
+      );
+    }
+
+    var reservedRight = 0.0;
+    var fitZoom = fit(0);
+    if (controls != Size.zero) {
+      // Would the centered board reach under the buttons' corner?
+      final scale = math.pow(2, fitZoom).toDouble();
+      final boardRight = (size.width + (x1 - x0) * scale) / 2;
+      final boardBottom = (size.height + (y1 - y0) * scale) / 2;
+      if (boardRight > size.width - controls.width &&
+          boardBottom > size.height - controls.height) {
+        reservedRight = controls.width;
+        fitZoom = fit(reservedRight);
+      }
+    }
+    // The camera looks a little right of the board's center, so the board
+    // itself sits centered in the room left of the buttons.
+    final shift = reservedRight / 2 / math.pow(2, fitZoom);
     final center = LatLng(
       WebMercator.lat((y0 + y1) / 2),
-      WebMercator.lng((x0 + x1) / 2),
+      WebMercator.lng((x0 + x1) / 2 + shift),
     );
 
     final type = board.interactionType;
@@ -208,7 +250,35 @@ abstract final class MapViewportPolicy {
       padding: padding,
       proxyIds: proxyIds,
       displacements: displacements,
+      reservedRight: reservedRight,
+      markerRadius: _markerRadius(board, markerIds, fitZoom, z0),
     );
+  }
+
+  /// Smaller dots when more than a third of the points would touch a
+  /// neighbour at the initial frame.
+  static double _markerRadius(
+    MapBoard board,
+    List<String> markerIds,
+    double fitZoom,
+    Offset Function(String) z0,
+  ) {
+    if (board.interactionType != MapInteractionType.point ||
+        markerIds.isEmpty) {
+      return pointRadius;
+    }
+    final scale = math.pow(2, fitZoom).toDouble();
+    const touching = pointRadius * 2 + 2;
+    var crowded = 0;
+    for (final a in markerIds) {
+      final pa = z0(a);
+      if (markerIds.any(
+        (b) => b != a && (z0(b) - pa).distance * scale < touching,
+      )) {
+        crowded++;
+      }
+    }
+    return crowded > markerIds.length / 3 ? crowdedPointRadius : pointRadius;
   }
 
   static double _log2(double v) => math.log(v) / math.ln2;

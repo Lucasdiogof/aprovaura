@@ -59,6 +59,26 @@ class MapQuizStrings {
     AppLanguage.spanish => 'Intentar de nuevo',
   };
 
+  /// Brings the map back to the initial frame after the user zoomed or
+  /// panned.
+  String get showAllButton => switch (language) {
+    AppLanguage.portuguese => 'Ver tudo',
+    AppLanguage.english => 'Show all',
+    AppLanguage.spanish => 'Ver todo',
+  };
+
+  String get zoomInTooltip => switch (language) {
+    AppLanguage.portuguese => 'Aproximar',
+    AppLanguage.english => 'Zoom in',
+    AppLanguage.spanish => 'Acercar',
+  };
+
+  String get zoomOutTooltip => switch (language) {
+    AppLanguage.portuguese => 'Afastar',
+    AppLanguage.english => 'Zoom out',
+    AppLanguage.spanish => 'Alejar',
+  };
+
   String get backButton => switch (language) {
     AppLanguage.portuguese => 'Voltar',
     AppLanguage.english => 'Back',

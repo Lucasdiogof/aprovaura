@@ -169,6 +169,58 @@ void main() {
     });
   });
 
+  group('the map buttons', () {
+    test('when the board would sit under the zoom buttons, the frame keeps '
+        'their corner free -- no answer hidden under a control', () {
+      final board = _board('world_straits', MapInteractionType.point);
+      const controls = Size(60, 108);
+      final v = MapViewportPolicy.resolve(board, _web, controls: controls);
+      expect(v.reservedRight, controls.width);
+      final toScreen = boardProjection(
+        center: v.center,
+        zoom: v.fitZoom,
+        size: _web,
+      );
+      for (final r in board.regions) {
+        final o = toScreen(board.metrics[r.id]!.anchor);
+        final underButtons =
+            o.dx > _web.width - controls.width &&
+            o.dy > _web.height - controls.height;
+        expect(underButtons, isFalse, reason: r.name);
+      }
+    });
+
+    test('when the board is nowhere near them, nothing is reserved', () {
+      final board = _board('world_straits', MapInteractionType.point);
+      final v = MapViewportPolicy.resolve(
+        board,
+        _phone,
+        controls: const Size(60, 108),
+      );
+      expect(v.reservedRight, 0);
+    });
+  });
+
+  group('marker size', () {
+    test('crowded boards (world capitals) draw smaller dots', () {
+      final crowded = MapViewportPolicy.resolve(
+        _board('world_capitals', MapInteractionType.point),
+        _phone,
+      );
+      final sparse = MapViewportPolicy.resolve(
+        _board('south_america_capitals', MapInteractionType.point),
+        _phone,
+      );
+      expect(crowded.markerRadius, MapViewportPolicy.crowdedPointRadius);
+      expect(sparse.markerRadius, MapViewportPolicy.pointRadius);
+      // The touch area never shrinks with the drawing.
+      expect(
+        MapMarkerSizes.pointHitRadius,
+        greaterThan(MapViewportPolicy.pointRadius * 3),
+      );
+    });
+  });
+
   group('markers too close together', () {
     test('Rome and the Vatican are nudged apart, not stacked', () {
       final board = _board('europe_capitals', MapInteractionType.point);

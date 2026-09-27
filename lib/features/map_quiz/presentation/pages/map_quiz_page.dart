@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_map/flutter_map.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
-import 'package:aura/features/map_quiz/domain/entities/flag_emoji.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_interaction_type.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_prompt_mode.dart';
-import 'package:aura/features/map_quiz/domain/entities/map_region.dart';
+import 'package:aura/features/map_quiz/domain/entities/map_board.dart';
 import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.dart';
 import 'package:aura/features/map_quiz/l10n/map_quiz_strings.dart';
 import 'package:aura/features/map_quiz/l10n/map_region_names.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_cubit.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_state.dart';
+import 'package:aura/features/map_quiz/presentation/widgets/map_quiz_board.dart';
+import 'package:aura/features/map_quiz/presentation/widgets/map_quiz_header.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/questions/presentation/quiz_result_tier.dart';
@@ -55,12 +55,7 @@ class MapQuizPage extends StatelessWidget {
         interactionType: interactionType,
         backgroundMapId: backgroundMapId,
       ),
-      child: _MapQuizView(
-        mapId: mapId,
-        interactionType: interactionType,
-        title: title,
-        promptMode: promptMode,
-      ),
+      child: _MapQuizView(mapId: mapId, title: title, promptMode: promptMode),
     );
   }
 }
@@ -68,13 +63,11 @@ class MapQuizPage extends StatelessWidget {
 class _MapQuizView extends StatefulWidget {
   const _MapQuizView({
     required this.mapId,
-    required this.interactionType,
     required this.title,
     required this.promptMode,
   });
 
   final String mapId;
-  final MapInteractionType interactionType;
   final String title;
   final MapPromptMode promptMode;
 
@@ -83,22 +76,6 @@ class _MapQuizView extends StatefulWidget {
 }
 
 class _MapQuizViewState extends State<_MapQuizView> {
-  final _hitNotifier = ValueNotifier<LayerHitResult<String>?>(null);
-  final _mapController = MapController();
-
-  @override
-  void dispose() {
-    _hitNotifier.dispose();
-    _mapController.dispose();
-    super.dispose();
-  }
-
-  void _handleTap() {
-    final hitValues = _hitNotifier.value?.hitValues;
-    if (hitValues == null || hitValues.isEmpty) return;
-    context.read<MapQuizCubit>().onRegionTapped(hitValues.first);
-  }
-
   @override
   Widget build(BuildContext context) {
     final language = context.watch<LocaleCubit>().state;
@@ -154,8 +131,8 @@ class _MapQuizViewState extends State<_MapQuizView> {
                     totalCount: totalCount,
                   ),
                 MapQuizPlaying(
+                  :final board,
                   :final regions,
-                  :final backgroundRegions,
                   :final remainingIds,
                   :final currentTargetId,
                   :final correctCount,
@@ -166,10 +143,8 @@ class _MapQuizViewState extends State<_MapQuizView> {
                   _PlayingView(
                     strings: t,
                     mapId: widget.mapId,
-                    interactionType: widget.interactionType,
                     promptMode: widget.promptMode,
-                    regions: regions,
-                    backgroundRegions: backgroundRegions,
+                    board: board,
                     solvedIds: regions
                         .map((region) => region.id)
                         .toSet()
@@ -179,9 +154,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
                     totalCount: totalCount,
                     lastTap: lastTap,
                     revealed: revealed,
-                    hitNotifier: _hitNotifier,
-                    mapController: _mapController,
-                    onTap: _handleTap,
+                    onRegionTapped: context.read<MapQuizCubit>().onRegionTapped,
                   ),
               },
             ),
@@ -196,27 +169,21 @@ class _PlayingView extends StatelessWidget {
   const _PlayingView({
     required this.strings,
     required this.mapId,
-    required this.interactionType,
     required this.promptMode,
-    required this.regions,
-    required this.backgroundRegions,
+    required this.board,
     required this.solvedIds,
     required this.currentTargetId,
     required this.correctCount,
     required this.totalCount,
     required this.lastTap,
     required this.revealed,
-    required this.hitNotifier,
-    required this.mapController,
-    required this.onTap,
+    required this.onRegionTapped,
   });
 
   final MapQuizStrings strings;
   final String mapId;
-  final MapInteractionType interactionType;
   final MapPromptMode promptMode;
-  final List<MapRegion> regions;
-  final List<MapRegion> backgroundRegions;
+  final MapBoard board;
   final Set<String> solvedIds;
   final String currentTargetId;
   final int correctCount;
@@ -225,303 +192,40 @@ class _PlayingView extends StatelessWidget {
   // True once the miss limit is hit for the current target -- the target's
   // own region is highlighted as the answer instead of accepting taps.
   final bool revealed;
-  final LayerHitNotifier<String> hitNotifier;
-  final MapController mapController;
-  final VoidCallback onTap;
-
-  Color _regionColor(BuildContext context, String regionId) {
-    final colors = context.colors;
-    if (revealed && regionId == currentTargetId) {
-      return colors.warning.withValues(alpha: 0.85);
-    }
-    if (lastTap?.regionId == regionId) {
-      return lastTap!.wasCorrect
-          ? colors.success.withValues(alpha: 0.7)
-          : colors.error.withValues(alpha: 0.7);
-    }
-    if (solvedIds.contains(regionId)) {
-      return colors.success.withValues(
-        alpha: interactionType == MapInteractionType.polygon ? 0.35 : 0.9,
-      );
-    }
-    return switch (interactionType) {
-      MapInteractionType.polygon => colors.secondary,
-      MapInteractionType.line => colors.textSecondary,
-      MapInteractionType.point => colors.primary,
-    };
-  }
-
-  Widget? _buildBackgroundLayer(BuildContext context) {
-    if (backgroundRegions.isEmpty) return null;
-    return IgnorePointer(
-      child: PolygonLayer<String>(
-        polygons: [
-          for (final region in backgroundRegions)
-            for (final part in region.parts)
-              Polygon<String>(
-                points: part,
-                color: context.colors.secondary.withValues(alpha: 0.5),
-                borderColor: context.colors.border,
-                borderStrokeWidth: 0.8,
-              ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildInteractionLayer(BuildContext context) =>
-      switch (interactionType) {
-        MapInteractionType.polygon => PolygonLayer<String>(
-          hitNotifier: hitNotifier,
-          polygons: [
-            for (final region in regions)
-              for (final part in region.parts)
-                Polygon<String>(
-                  points: part,
-                  hitValue: region.id,
-                  color: _regionColor(context, region.id),
-                  borderColor: context.colors.border,
-                  borderStrokeWidth: 1.2,
-                ),
-          ],
-        ),
-        MapInteractionType.line => PolylineLayer<String>(
-          hitNotifier: hitNotifier,
-          minimumHitbox: 20,
-          polylines: [
-            for (final region in regions)
-              for (final part in region.parts)
-                Polyline<String>(
-                  points: part,
-                  hitValue: region.id,
-                  color: _regionColor(context, region.id),
-                  strokeWidth: 3.5,
-                ),
-          ],
-        ),
-        MapInteractionType.point => CircleLayer<String>(
-          hitNotifier: hitNotifier,
-          circles: [
-            for (final region in regions)
-              for (final part in region.parts)
-                for (final point in part)
-                  CircleMarker<String>(
-                    point: point,
-                    radius: 12,
-                    hitValue: region.id,
-                    color: _regionColor(context, region.id),
-                    borderColor: context.colors.background,
-                    borderStrokeWidth: 2,
-                  ),
-          ],
-        ),
-      };
+  final ValueChanged<String> onRegionTapped;
 
   @override
   Widget build(BuildContext context) {
-    final currentTarget = regions.firstWhere(
+    final currentTarget = board.regions.firstWhere(
       (region) => region.id == currentTargetId,
     );
-    final allPoints = regions.expand(
-      (region) => region.parts.expand((part) => part),
-    );
-    final bounds = LatLngBounds.fromPoints(allPoints.toList());
-
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(24, 16, 24, 12),
-          child: Container(
-            padding: const EdgeInsets.all(18),
-            decoration: BoxDecoration(
-              color: context.colors.surface,
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: context.colors.border),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 52,
-                      height: 52,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: context.colors.primary.withValues(alpha: 0.14),
-                        shape: BoxShape.circle,
-                      ),
-                      child: promptMode == MapPromptMode.flag
-                          ? Text(
-                              flagEmojiForCountryId(currentTarget.id) ?? '🏳️',
-                              style: const TextStyle(fontSize: 26),
-                            )
-                          : Icon(
-                              Icons.gps_fixed_rounded,
-                              color: context.colors.primary,
-                              size: 26,
-                            ),
-                    ),
-                    const SizedBox(width: 14),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            revealed
-                                ? strings.revealedLabel
-                                : promptMode == MapPromptMode.flag
-                                ? strings.identifyFlagLabel
-                                : strings.locateLabel,
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w800,
-                              letterSpacing: 0.6,
-                              color: revealed
-                                  ? context.colors.warning
-                                  : context.colors.primary,
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 350),
-                            transitionBuilder: (child, animation) =>
-                                FadeTransition(
-                                  opacity: animation,
-                                  child: SlideTransition(
-                                    position:
-                                        Tween<Offset>(
-                                          begin: const Offset(0, 0.2),
-                                          end: Offset.zero,
-                                        ).animate(
-                                          CurvedAnimation(
-                                            parent: animation,
-                                            curve: Curves.easeOut,
-                                          ),
-                                        ),
-                                    child: child,
-                                  ),
-                                ),
-                            child: Text(
-                              promptMode == MapPromptMode.flag
-                                  ? strings.flagPrompt
-                                  : localizedRegionName(
-                                      currentTarget.name,
-                                      strings.language,
-                                      mapId: mapId,
-                                    ),
-                              key: ValueKey(currentTarget.id),
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800,
-                                color: context.colors.textPrimary,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 14,
-                        vertical: 8,
-                      ),
-                      decoration: BoxDecoration(
-                        color: context.colors.primary.withValues(alpha: 0.14),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        strings.progressLabel(correctCount, totalCount),
-                        style: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: context.colors.primary,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(99),
-                  child: LinearProgressIndicator(
-                    value: totalCount == 0 ? 0.0 : correctCount / totalCount,
-                    minHeight: 8,
-                    backgroundColor: context.colors.secondary,
-                    valueColor: AlwaysStoppedAnimation(context.colors.primary),
-                  ),
-                ),
-              ],
-            ),
+        MapQuizHeader(
+          strings: strings,
+          promptMode: promptMode,
+          targetId: currentTarget.id,
+          targetName: localizedRegionName(
+            currentTarget.name,
+            strings.language,
+            mapId: mapId,
           ),
+          revealed: revealed,
+          correctCount: correctCount,
+          totalCount: totalCount,
         ),
         Expanded(
-          child: Stack(
-            children: [
-              FlutterMap(
-                mapController: mapController,
-                options: MapOptions(
-                  initialCameraFit: CameraFit.bounds(
-                    bounds: bounds,
-                    padding: const EdgeInsets.all(24),
-                  ),
-                  interactionOptions: const InteractionOptions(
-                    flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
-                  ),
-                ),
-                children: [
-                  ?_buildBackgroundLayer(context),
-                  GestureDetector(
-                    onTap: onTap,
-                    child: _buildInteractionLayer(context),
-                  ),
-                ],
-              ),
-              Positioned(
-                right: 12,
-                bottom: 12,
-                child: _ZoomControls(mapController: mapController),
-              ),
-            ],
+          child: MapQuizBoard(
+            board: board,
+            strings: strings,
+            solvedIds: solvedIds,
+            currentTargetId: currentTargetId,
+            lastTap: lastTap,
+            revealed: revealed,
+            onRegionTapped: onRegionTapped,
           ),
         ),
       ],
-    );
-  }
-}
-
-class _ZoomControls extends StatelessWidget {
-  const _ZoomControls({required this.mapController});
-
-  final MapController mapController;
-
-  void _zoomBy(double delta) {
-    final camera = mapController.camera;
-    mapController.move(camera.center, camera.zoom + delta);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: context.colors.surface,
-      borderRadius: BorderRadius.circular(12),
-      elevation: 2,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          IconButton(
-            icon: Icon(Icons.add, color: context.colors.textPrimary),
-            onPressed: () => _zoomBy(1),
-          ),
-          Divider(height: 1, color: context.colors.border),
-          IconButton(
-            icon: Icon(Icons.remove, color: context.colors.textPrimary),
-            onPressed: () => _zoomBy(-1),
-          ),
-        ],
-      ),
     );
   }
 }
