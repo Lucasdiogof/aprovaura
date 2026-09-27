@@ -13,6 +13,7 @@ import 'package:aura/features/questions/domain/repositories/question_repository.
 import 'package:aura/features/questions/l10n/multiple_choice_strings.dart';
 import 'package:aura/features/questions/presentation/cubit/multiple_choice_cubit.dart';
 import 'package:aura/features/questions/presentation/cubit/multiple_choice_state.dart';
+import 'package:aura/features/questions/presentation/question_meta_label.dart';
 import 'package:aura/features/questions/presentation/quiz_result_tier.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_answer_option.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_feedback.dart';
@@ -191,7 +192,7 @@ class _QuestionView extends StatelessWidget {
   Widget build(BuildContext context) {
     final question = state.currentQuestion;
     final wasCorrect = state.selectedIndex == question.correctIndex;
-    final label = contextLabel;
+    final label = contextLabel ?? questionMetaLabel(question, strings.language);
 
     return Column(
       children: [

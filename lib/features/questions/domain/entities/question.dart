@@ -9,6 +9,7 @@ class Question extends Equatable {
     required this.correctIndex,
     this.explanation,
     this.difficulty = QuestionDifficulty.medio,
+    this.subject,
   });
 
   final String id;
@@ -17,6 +18,10 @@ class Question extends Equatable {
   final int correctIndex;
   final String? explanation;
   final QuestionDifficulty difficulty;
+  // catalog_nodes.subject key ("geografia", ...). Only filled where the
+  // deck mixes subjects (quick practice), so the question can say which
+  // one it's from; a topic's own questions don't need it.
+  final String? subject;
 
   @override
   List<Object?> get props => [
@@ -26,5 +31,6 @@ class Question extends Equatable {
     correctIndex,
     explanation,
     difficulty,
+    subject,
   ];
 }

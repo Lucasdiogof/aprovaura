@@ -59,5 +59,6 @@ class QuickPracticeQuestionRepositoryImpl implements QuestionRepository {
     correctIndex: json['correct_index'] as int,
     explanation: json['explanation'] as String?,
     difficulty: QuestionDifficulty.fromDb(json['difficulty'] as String?),
+    subject: json['subject'] as String?,
   );
 }
