@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:aura/core/error/failures.dart';
@@ -173,6 +175,27 @@ void main() {
         await cubit.updateProfile(name: 'Novo Nome');
 
         expect(cubit.state, before);
+      });
+
+      test('shows the change before the save finishes', () async {
+        final cubit = await buildLoadedCubit();
+        final save = Completer<Result<void>>();
+        when(
+          () => repository.updateProfile(
+            name: any(named: 'name'),
+            username: any(named: 'username'),
+            goal: any(named: 'goal'),
+            examYear: any(named: 'examYear'),
+            interestedSubjects: any(named: 'interestedSubjects'),
+          ),
+        ).thenAnswer((_) => save.future);
+
+        final pending = cubit.updateProfile(goal: Goal.vestibular);
+        expect(cubit.state.profile?.goal, Goal.vestibular);
+
+        save.complete(const Success(null));
+        await pending;
+        expect(cubit.state.profile?.goal, Goal.vestibular);
       });
 
       test('returns the $Result from the repository call', () async {

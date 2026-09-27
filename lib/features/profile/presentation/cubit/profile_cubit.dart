@@ -58,6 +58,23 @@ class ProfileCubit extends Cubit<ProfileState> {
     String? examYear,
     List<Subject>? interestedSubjects,
   }) async {
+    // Optimistic: the choice shows up the instant it's tapped instead of
+    // after the round trip, which on a slow connection read as "the screen
+    // ignores my taps". Rolled back if the save fails.
+    final previous = state.profile;
+    if (previous != null) {
+      emit(
+        state.copyWith(
+          profile: previous.copyWith(
+            name: name,
+            username: username,
+            goal: goal,
+            examYear: examYear,
+            interestedSubjects: interestedSubjects,
+          ),
+        ),
+      );
+    }
     final result = await _repository.updateProfile(
       name: name,
       username: username,
@@ -65,21 +82,13 @@ class ProfileCubit extends Cubit<ProfileState> {
       examYear: examYear,
       interestedSubjects: interestedSubjects,
     );
-    if (result is Success<void>) {
-      final profile = state.profile;
-      if (profile != null) {
-        emit(
-          state.copyWith(
-            profile: profile.copyWith(
-              name: name,
-              username: username,
-              goal: goal,
-              examYear: examYear,
-              interestedSubjects: interestedSubjects,
-            ),
-          ),
-        );
-      }
+    switch (result) {
+      case Success():
+        // Nothing local to patch if the profile never loaded: fetch the
+        // saved row, or the screen would keep showing no selection at all.
+        if (previous == null) await load();
+      case Error():
+        if (previous != null) emit(state.copyWith(profile: previous));
     }
     return result;
   }

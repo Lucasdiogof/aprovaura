@@ -183,6 +183,31 @@ void main() {
       expect(find.byType(GoalSettingsPage), findsOneWidget);
     });
 
+    testWidgets('tapping a goal selects it and saves it', (tester) async {
+      when(
+        () => profileRepository.updateProfile(goal: Goal.vestibular),
+      ).thenAnswer((_) async => const Success(null));
+      await pumpProfile(tester);
+      await tester.scrollUntilVisible(find.text('Meu objetivo'), 200);
+      await tester.tap(find.text('Meu objetivo'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Vestibular'));
+      await tester.pumpAndSettle();
+
+      verify(
+        () => profileRepository.updateProfile(goal: Goal.vestibular),
+      ).called(1);
+      final tile = find.ancestor(
+        of: find.text('Vestibular'),
+        matching: find.byType(InkWell),
+      );
+      expect(
+        find.descendant(of: tile, matching: find.byIcon(Icons.check_circle)),
+        findsOneWidget,
+      );
+    });
+
     testWidgets('the subjects row opens the subjects screen', (tester) async {
       await pumpProfile(tester);
       await tester.scrollUntilVisible(find.text('Matérias em foco'), 200);
