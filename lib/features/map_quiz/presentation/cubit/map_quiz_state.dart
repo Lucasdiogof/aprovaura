@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:aura/features/map_quiz/domain/entities/map_board.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_region.dart';
 
 class TapFeedback extends Equatable {
@@ -33,19 +34,22 @@ class MapQuizError extends MapQuizState {
 
 class MapQuizPlaying extends MapQuizState {
   const MapQuizPlaying({
-    required this.regions,
+    required this.board,
     required this.remainingIds,
     required this.currentTargetId,
     required this.correctCount,
     required this.totalCount,
-    this.backgroundRegions = const [],
     this.lastTap,
     this.wrongAttempts = 0,
     this.revealed = false,
   });
 
-  final List<MapRegion> regions;
-  final List<MapRegion> backgroundRegions;
+  /// Geometry and framing data, prepared once per load and never changed
+  /// while playing -- the camera is framed from it, not from the target.
+  final MapBoard board;
+
+  List<MapRegion> get regions => board.regions;
+  List<MapRegion> get backgroundRegions => board.background;
   final List<String> remainingIds;
   final String currentTargetId;
   final int correctCount;
@@ -68,8 +72,7 @@ class MapQuizPlaying extends MapQuizState {
     int? wrongAttempts,
     bool? revealed,
   }) => MapQuizPlaying(
-    regions: regions,
-    backgroundRegions: backgroundRegions,
+    board: board,
     remainingIds: remainingIds ?? this.remainingIds,
     currentTargetId: currentTargetId ?? this.currentTargetId,
     correctCount: correctCount ?? this.correctCount,
@@ -81,8 +84,7 @@ class MapQuizPlaying extends MapQuizState {
 
   @override
   List<Object?> get props => [
-    regions,
-    backgroundRegions,
+    board,
     remainingIds,
     currentTargetId,
     correctCount,

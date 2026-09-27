@@ -3,7 +3,9 @@ import 'package:latlong2/latlong.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/features/map_quiz/domain/entities/map_board.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_region.dart';
+import 'package:aura/features/map_quiz/domain/entities/map_viewport_spec.dart';
 import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_cubit.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_state.dart';
@@ -36,6 +38,9 @@ void main() {
 
     setUp(() {
       mapRepository = _MockMapQuizRepository();
+      when(
+        () => mapRepository.loadViewportSpec(any()),
+      ).thenAnswer((_) async => MapViewportSpec.fallback);
       progressRepository = _MockProgressRepository();
       when(
         () => progressRepository.registerRegionFound(
@@ -52,6 +57,7 @@ void main() {
       catalogNodeId: 'node-1',
       backgroundMapId: backgroundMapId,
       attemptIdGenerator: () => 'attempt-1',
+      boardBuilder: (input) async => buildMapBoard(input),
     );
 
     Future<MapQuizCubit> buildPlayingCubit({String? backgroundMapId}) async {

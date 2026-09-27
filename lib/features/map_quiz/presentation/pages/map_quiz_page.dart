@@ -52,6 +52,7 @@ class MapQuizPage extends StatelessWidget {
         sl<ProgressRepository>(),
         mapId: mapId,
         catalogNodeId: catalogNodeId,
+        interactionType: interactionType,
         backgroundMapId: backgroundMapId,
       ),
       child: _MapQuizView(

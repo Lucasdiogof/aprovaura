@@ -1,6 +1,9 @@
+import 'package:flutter/foundation.dart' show compute;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/utils/id_generator.dart';
+import 'package:aura/features/map_quiz/domain/entities/map_board.dart';
+import 'package:aura/features/map_quiz/domain/entities/map_interaction_type.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_region.dart';
 import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.dart';
 import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_state.dart';
@@ -16,8 +19,10 @@ class MapQuizCubit extends Cubit<MapQuizState> {
     this._progressRepository, {
     required this.mapId,
     required this.catalogNodeId,
+    this.interactionType = MapInteractionType.polygon,
     this.backgroundMapId,
     this.attemptIdGenerator = generateAttemptId,
+    this.boardBuilder = _buildBoardInBackground,
   }) : super(const MapQuizLoading()) {
     load();
   }
@@ -31,6 +36,10 @@ class MapQuizCubit extends Cubit<MapQuizState> {
   // convey a recognizable map on their own the way filled country
   // polygons do.
   final String? backgroundMapId;
+  final MapInteractionType interactionType;
+  // Walks every vertex once (37k on the world map), so by default it runs
+  // off the UI thread. Tests pass [buildMapBoard] directly.
+  final Future<MapBoard> Function(MapBoardInput) boardBuilder;
   // Overridable only so tests can assert on a deterministic
   // MapQuizFinished.attemptId instead of a random UUID. Not private: a
   // named initializing formal for a private field can't be passed by
@@ -48,12 +57,20 @@ class MapQuizCubit extends Cubit<MapQuizState> {
     switch (result) {
       case Success(:final data):
         final background = await _loadBackground();
+        final spec = await _repository.loadViewportSpec(mapId);
+        final board = await boardBuilder(
+          MapBoardInput(
+            regions: data,
+            background: background,
+            interactionType: interactionType,
+            spec: spec,
+          ),
+        );
         if (isClosed) return;
         final ids = data.map((region) => region.id).toList()..shuffle();
         emit(
           MapQuizPlaying(
-            regions: data,
-            backgroundRegions: background,
+            board: board,
             remainingIds: ids,
             currentTargetId: ids.first,
             correctCount: 0,
@@ -144,3 +161,6 @@ class MapQuizCubit extends Cubit<MapQuizState> {
     );
   }
 }
+
+Future<MapBoard> _buildBoardInBackground(MapBoardInput input) =>
+    compute(buildMapBoard, input);

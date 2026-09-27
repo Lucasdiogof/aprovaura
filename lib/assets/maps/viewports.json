@@ -1,0 +1,135 @@
+{
+  "_comment": "Framing metadata per map dataset (mapId), read by MapQuizRepository.loadViewportSpec. scope: world | continent | country | region | subnational | custom. mode: auto (default: decided from the real pixel size of the smallest target on the device) | locked | constrained | world. focus: [west, south, east, north] -- geometry outside it (overseas territories, most of Russia, remote islands) is still drawn and tappable but does not stretch the initial frame; an answer with nothing inside the focus counts whole, so every answer stays inside the initial frame.",
+  "africa_capitals": {
+    "scope": "continent"
+  },
+  "africa_cities": {
+    "scope": "continent"
+  },
+  "africa_countries": {
+    "scope": "continent"
+  },
+  "africa_rivers": {
+    "scope": "continent"
+  },
+  "asia_capitals": {
+    "scope": "continent"
+  },
+  "asia_cities": {
+    "scope": "continent"
+  },
+  "asia_countries": {
+    "scope": "continent"
+  },
+  "asia_rivers": {
+    "scope": "continent"
+  },
+  "brazil_biomes": {
+    "scope": "country"
+  },
+  "brazil_industry": {
+    "scope": "country"
+  },
+  "brazil_ports": {
+    "scope": "country"
+  },
+  "brazil_relief": {
+    "scope": "country"
+  },
+  "brazil_states": {
+    "scope": "country"
+  },
+  "europe_capitals": {
+    "scope": "continent"
+  },
+  "europe_cities": {
+    "scope": "continent"
+  },
+  "europe_countries": {
+    "scope": "continent",
+    "focus": [
+      -25,
+      34,
+      50,
+      72
+    ]
+  },
+  "europe_rivers": {
+    "scope": "continent"
+  },
+  "north_america_capitals": {
+    "scope": "continent"
+  },
+  "north_america_cities": {
+    "scope": "continent"
+  },
+  "north_america_countries": {
+    "scope": "continent"
+  },
+  "north_america_relief": {
+    "scope": "continent"
+  },
+  "north_america_rivers": {
+    "scope": "continent"
+  },
+  "oceania_capitals": {
+    "scope": "continent"
+  },
+  "oceania_cities": {
+    "scope": "continent"
+  },
+  "oceania_countries": {
+    "scope": "continent"
+  },
+  "oceania_relief": {
+    "scope": "continent"
+  },
+  "south_america_biomes": {
+    "scope": "continent"
+  },
+  "south_america_capitals": {
+    "scope": "continent"
+  },
+  "south_america_cities": {
+    "scope": "continent"
+  },
+  "south_america_countries": {
+    "scope": "continent",
+    "focus": [
+      -82,
+      -56,
+      -34,
+      13
+    ]
+  },
+  "south_america_rivers": {
+    "scope": "continent"
+  },
+  "world_biomes": {
+    "scope": "world"
+  },
+  "world_capitals": {
+    "scope": "world"
+  },
+  "world_cities": {
+    "scope": "world"
+  },
+  "world_countries": {
+    "scope": "world"
+  },
+  "world_currents": {
+    "scope": "world"
+  },
+  "world_relief": {
+    "scope": "world"
+  },
+  "world_rivers": {
+    "scope": "world"
+  },
+  "world_soils": {
+    "scope": "world"
+  },
+  "world_straits": {
+    "scope": "world"
+  }
+}
