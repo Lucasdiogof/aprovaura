@@ -323,12 +323,15 @@ class _QuestionView extends StatelessWidget {
             color: context.colors.primary,
             backgroundColor: Colors.transparent,
           ),
-        Padding(
+        Container(
           padding: EdgeInsets.fromLTRB(
             appHorizontalPadding(context),
             AppSpacing.lg,
             appHorizontalPadding(context),
-            0,
+            AppSpacing.lg,
+          ),
+          decoration: BoxDecoration(
+            border: Border(bottom: BorderSide(color: context.colors.border)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -339,23 +342,15 @@ class _QuestionView extends StatelessWidget {
                 totalCount: state.totalCount,
               ),
               const SizedBox(height: AppSpacing.sm),
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      '$subjectLabel · ${item.difficulty.label(language)}',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        color: context.colors.textSecondary,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: AppSpacing.sm),
-                  _SavingIndicator(state: state, strings: strings),
-                ],
+              Text(
+                '$subjectLabel · ${item.difficulty.label(language)}',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: context.colors.textSecondary,
+                ),
               ),
               if (state.hasSaveError) ...[
                 const SizedBox(height: AppSpacing.sm),
@@ -467,39 +462,6 @@ class _QuestionView extends StatelessWidget {
               ),
             ),
           ),
-        ),
-      ],
-    );
-  }
-}
-
-/// Only while a write is in flight: a small "Salvando…" next to the
-/// subject line. Nothing otherwise -- "Questão N de M" and the bar above
-/// already say where the user is.
-class _SavingIndicator extends StatelessWidget {
-  const _SavingIndicator({required this.state, required this.strings});
-
-  final MockExamRunnerState state;
-  final MockExamStrings strings;
-
-  @override
-  Widget build(BuildContext context) {
-    if (!state.isSaving) return const SizedBox.shrink();
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SizedBox(
-          width: 10,
-          height: 10,
-          child: CircularProgressIndicator(
-            strokeWidth: 1.5,
-            color: context.colors.textSecondary,
-          ),
-        ),
-        const SizedBox(width: 6),
-        Text(
-          strings.savingLabel,
-          style: TextStyle(fontSize: 12, color: context.colors.textSecondary),
         ),
       ],
     );

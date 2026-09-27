@@ -65,8 +65,13 @@ class _ErrorReviewListPageState extends State<ErrorReviewListPage>
                   previous.source != current.source ||
                   previous.hasMockExamErrors != current.hasMockExamErrors,
               builder: (context, state) => state.hasMockExamErrors
-                  ? Padding(
-                      padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
+                  ? Container(
+                      padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(color: context.colors.border),
+                        ),
+                      ),
                       child: ErrorSourceSelector(
                         selected: state.source,
                         strings: t,

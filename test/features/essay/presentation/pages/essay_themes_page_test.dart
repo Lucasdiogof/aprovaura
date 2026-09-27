@@ -97,25 +97,18 @@ void main() {
       expect(find.text(_practice.description!), findsOneWidget);
     });
 
-    testWidgets('a practice theme says it is ours, with no exam metadata', (
-      tester,
-    ) async {
-      stub(const Success([_practice]));
-      await tester.pumpApp(const EssayThemesPage());
-      await tester.pumpAndSettle();
+    testWidgets(
+      'never shows the origin badge, practice or official (reading the '
+      'titles is the point, not scanning provenance)',
+      (tester) async {
+        stub(const Success([_practice, _official]));
+        await tester.pumpApp(const EssayThemesPage());
+        await tester.pumpAndSettle();
 
-      expect(find.text('Aura · Tema de treino'), findsOneWidget);
-      expect(find.textContaining('ENEM'), findsNothing);
-      expect(find.text('Oficial'), findsNothing);
-    });
-
-    testWidgets('an official theme shows its exam and year', (tester) async {
-      stub(const Success([_official]));
-      await tester.pumpApp(const EssayThemesPage());
-      await tester.pumpAndSettle();
-
-      expect(find.text('Oficial · ENEM 2025'), findsOneWidget);
-    });
+        expect(find.text('Aura · Tema de treino'), findsNothing);
+        expect(find.text('Oficial · ENEM 2025'), findsNothing);
+      },
+    );
 
     testWidgets('a theme never tried shows no score and no zero', (
       tester,

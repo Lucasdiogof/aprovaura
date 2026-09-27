@@ -24,20 +24,6 @@ class EssayStrings {
     AppLanguage.spanish => 'Elige un tema y practica tu escritura.',
   };
 
-  /// Practice themes are ours and say so. The middle dot keeps the brand
-  /// and the qualifier in one badge without pretending to be an exam.
-  String get practiceBadge => switch (language) {
-    AppLanguage.portuguese => 'Aura · Tema de treino',
-    AppLanguage.english => 'Aura · Practice theme',
-    AppLanguage.spanish => 'Aura · Tema de práctica',
-  };
-
-  String get officialBadge => switch (language) {
-    AppLanguage.portuguese => 'Oficial',
-    AppLanguage.english => 'Official',
-    AppLanguage.spanish => 'Oficial',
-  };
-
   String get draftBadge => switch (language) {
     AppLanguage.portuguese => 'Rascunho',
     AppLanguage.english => 'Draft',
@@ -135,15 +121,6 @@ class EssayStrings {
     AppLanguage.portuguese => '$count ${count == 1 ? 'palavra' : 'palavras'}',
     AppLanguage.english => '$count ${count == 1 ? 'word' : 'words'}',
     AppLanguage.spanish => '$count ${count == 1 ? 'palabra' : 'palabras'}',
-  };
-
-  /// "32 / 50 palavras" while the minimum is still ahead. The bare count
-  /// comes back the moment it is reached -- the target has done its job
-  /// and a permanent "/ 50" would read like a quota.
-  String wordCountToMinimum(int count, int minimum) => switch (language) {
-    AppLanguage.portuguese => '$count / $minimum palavras',
-    AppLanguage.english => '$count / $minimum words',
-    AppLanguage.spanish => '$count / $minimum palabras',
   };
 
   String minimumWordsHint(int minimum) => switch (language) {

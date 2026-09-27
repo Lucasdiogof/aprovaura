@@ -41,8 +41,8 @@ class CatalogNodeTile extends StatelessWidget {
         onTap: onTap,
         child: Container(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.md,
-            vertical: AppSpacing.sm + 2,
+            horizontal: AppSpacing.lg,
+            vertical: AppSpacing.md,
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(AppRadius.md),
@@ -51,8 +51,8 @@ class CatalogNodeTile extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                width: 32,
-                height: 32,
+                width: 44,
+                height: 44,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: accentColor.withValues(alpha: 0.14),
@@ -61,10 +61,10 @@ class CatalogNodeTile extends StatelessWidget {
                 child: Icon(
                   catalogNodeIcon(node.icon, subject),
                   color: accentColor,
-                  size: 16,
+                  size: 22,
                 ),
               ),
-              const SizedBox(width: AppSpacing.sm + 2),
+              const SizedBox(width: AppSpacing.md),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,18 +74,19 @@ class CatalogNodeTile extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
+                        fontSize: 16,
                         fontWeight: FontWeight.w600,
                         color: colors.textPrimary,
                       ),
                     ),
                     if (node.description != null) ...[
-                      const SizedBox(height: 2),
+                      const SizedBox(height: 3),
                       Text(
                         node.description!,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 13,
                           color: colors.textSecondary,
                         ),
                       ),
@@ -151,7 +152,7 @@ class CatalogNodeTile extends StatelessWidget {
               Icon(
                 Icons.chevron_right_rounded,
                 color: colors.textSecondary.withValues(alpha: 0.7),
-                size: 18,
+                size: 20,
               ),
             ],
           ),

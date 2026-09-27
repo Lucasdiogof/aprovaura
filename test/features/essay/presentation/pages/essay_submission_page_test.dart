@@ -225,6 +225,12 @@ void main() {
       await tester.pumpAndSettle();
 
       await tester.scrollUntilVisible(find.text('Fazer nova redação'), 300);
+      // scrollUntilVisible stops as soon as any sliver of the target is
+      // inside the viewport -- with the default 800x600 test surface, that
+      // can leave it a few pixels past the visible edge, close enough to
+      // pass "is it visible" but not close enough for a real tap.
+      // ensureVisible finishes the job.
+      await tester.ensureVisible(find.text('Fazer nova redação'));
       await tester.tap(find.text('Fazer nova redação'));
       await tester.pumpAndSettle();
 

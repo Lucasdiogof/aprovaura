@@ -221,12 +221,6 @@ class MockExamStrings {
     AppLanguage.spanish => 'Simulacro',
   };
 
-  String get savingLabel => switch (language) {
-    AppLanguage.portuguese => 'Salvando…',
-    AppLanguage.english => 'Saving…',
-    AppLanguage.spanish => 'Guardando…',
-  };
-
   String get saveErrorMessage => switch (language) {
     AppLanguage.portuguese =>
       'Não foi possível salvar sua resposta. Toque na alternativa de novo.',

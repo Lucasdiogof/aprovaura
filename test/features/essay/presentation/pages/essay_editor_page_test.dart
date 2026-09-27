@@ -112,7 +112,7 @@ void main() {
         tester.widget<TextField>(find.byType(TextField)).controller!.text,
         isEmpty,
       );
-      expect(find.text('0 / 50 palavras'), findsOneWidget);
+      expect(find.text('Mínimo de 50 palavras para enviar.'), findsOneWidget);
     });
 
     testWidgets('restores the saved draft into the field', (tester) async {
@@ -125,7 +125,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Três palavras aqui'), findsOneWidget);
-      expect(find.text('3 / 50 palavras'), findsOneWidget);
+      expect(find.text('Mínimo de 50 palavras para enviar.'), findsOneWidget);
     });
 
     testWidgets('typing autosaves and reports it', (tester) async {
@@ -255,7 +255,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Texto antigo'), findsNothing);
-      expect(find.text('0 / 50 palavras'), findsOneWidget);
+      expect(find.text('Mínimo de 50 palavras para enviar.'), findsOneWidget);
       verify(() => repository.deleteDraft('t1')).called(1);
     });
 

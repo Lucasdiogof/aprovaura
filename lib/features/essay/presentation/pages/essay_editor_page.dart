@@ -191,21 +191,33 @@ class _EssayEditorViewState extends State<_EssayEditorView> {
           child: Scaffold(
             backgroundColor: colors.background,
             appBar: AppBar(
+              // Tall enough for the title to wrap up to 3 lines instead of
+              // being cut short with "..." -- a real essay theme title is
+              // often a full sentence, and truncating it here was the only
+              // place in the app it was ever shown in full.
+              toolbarHeight: 88,
               title: Text(
                 widget.theme.title,
-                maxLines: 1,
+                maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16, height: 1.25),
               ),
               // No custom leading: the default back button already goes
               // through maybePop, which is what PopScope hooks into.
               actions: [
                 TextButton(
-                  onPressed: () => showEssayPromptSheet(
-                    context,
-                    theme: widget.theme,
-                    language: context.read<LocaleCubit>().state,
-                  ),
+                  onPressed: () {
+                    // The prompt sheet covers the keyboard's own space but
+                    // doesn't dismiss it -- without this, the keyboard stays
+                    // up behind the sheet, and behind the editor again once
+                    // the sheet closes.
+                    _focusNode.unfocus();
+                    showEssayPromptSheet(
+                      context,
+                      theme: widget.theme,
+                      language: context.read<LocaleCubit>().state,
+                    );
+                  },
                   child: Text(t.viewPromptAction),
                 ),
                 if (state is EssayEditorReady)
@@ -338,34 +350,29 @@ class _Editor extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
-                      // The target only shows while it matters. Once the
-                      // minimum is behind, the count goes back to being
-                      // just a count.
-                      shortOfMinimum
-                          ? strings.wordCountToMinimum(
-                              words,
-                              EssayRules.minimumWords,
-                            )
-                          : strings.wordCount(words),
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: colors.textSecondary,
-                      ),
-                    ),
-                    if (shortOfMinimum) ...[
-                      const SizedBox(height: 2),
-                      // Quiet on purpose: someone mid-sentence is not
-                      // making a mistake, so this is not an error.
+                    if (shortOfMinimum)
+                      // Just the one line while short of the minimum -- the
+                      // running "X / 50" count next to it said the same
+                      // thing twice.
                       Text(
                         strings.minimumWordsHint(EssayRules.minimumWords),
                         style: TextStyle(
-                          fontSize: 11.5,
+                          fontSize: 12,
+                          color: colors.textSecondary,
+                        ),
+                      )
+                    else
+                      // The target only shows while it matters. Once the
+                      // minimum is behind, this goes back to being just a
+                      // count.
+                      Text(
+                        strings.wordCount(words),
+                        style: TextStyle(
+                          fontSize: 12,
                           color: colors.textSecondary,
                         ),
                       ),
-                    ],
-                    const SizedBox(height: AppSpacing.sm),
+                    const SizedBox(height: AppSpacing.lg),
                     // Full width on its own line: "Enviar para correção"
                     // does not fit beside the counter at 360px, and this is
                     // the screen's main action anyway -- it earns the row.

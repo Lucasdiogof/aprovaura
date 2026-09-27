@@ -102,7 +102,7 @@ void main() {
   testWidgets('back asks before leaving and never abandons', (tester) async {
     await pumpSession(tester);
 
-    await tester.tap(find.byIcon(Icons.arrow_back));
+    await tester.tap(find.byIcon(Icons.arrow_back_rounded));
     await tester.pumpAndSettle();
 
     expect(find.text('Sair do simulado?'), findsOneWidget);
@@ -257,7 +257,7 @@ void main() {
     await tester.pump();
     // A save is in flight, so the "Salvando…" spinner never settles --
     // pump fixed frames instead of pumpAndSettle.
-    await tester.tap(find.byIcon(Icons.arrow_back));
+    await tester.tap(find.byIcon(Icons.arrow_back_rounded));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
     await tester.tap(find.text('Sair e continuar depois'));
@@ -291,7 +291,7 @@ void main() {
 
     await tester.tap(find.text('Opção dois'));
     await tester.pumpAndSettle();
-    await tester.tap(find.byIcon(Icons.arrow_back));
+    await tester.tap(find.byIcon(Icons.arrow_back_rounded));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Sair e continuar depois'));
     await tester.pumpAndSettle();

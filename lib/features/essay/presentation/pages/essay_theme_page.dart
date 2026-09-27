@@ -13,7 +13,6 @@ import 'package:aura/features/essay/presentation/cubit/essay_theme_cubit.dart';
 import 'package:aura/features/essay/presentation/cubit/essay_theme_state.dart';
 import 'package:aura/features/essay/presentation/pages/essay_editor_page.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_attempt_row.dart';
-import 'package:aura/features/essay/presentation/widgets/essay_origin_badge.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_supporting_text_view.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/content_width.dart';
@@ -104,11 +103,6 @@ class _ThemeView extends StatelessWidget {
         AppSpacing.xxl,
       ),
       children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: EssayOriginBadge(origin: theme.origin, strings: strings),
-        ),
-        const SizedBox(height: AppSpacing.md),
         Text(
           theme.title,
           style: textTheme.headlineSmall?.copyWith(

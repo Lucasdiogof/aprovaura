@@ -3,7 +3,6 @@ import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
 import 'package:aura/features/essay/l10n/essay_strings.dart';
-import 'package:aura/features/essay/presentation/widgets/essay_origin_badge.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_status_chip.dart';
 
 /// A theme in the list: provenance, title, a line of description, and the
@@ -48,18 +47,9 @@ class EssayThemeCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Flexible(
-                    child: EssayOriginBadge(
-                      origin: summary.origin,
-                      strings: strings,
-                    ),
-                  ),
-                  const SizedBox(width: AppSpacing.sm),
-                  EssayStatusChip(summary: summary, strings: strings),
-                ],
+              Align(
+                alignment: Alignment.centerLeft,
+                child: EssayStatusChip(summary: summary, strings: strings),
               ),
               const SizedBox(height: AppSpacing.sm),
               Text(

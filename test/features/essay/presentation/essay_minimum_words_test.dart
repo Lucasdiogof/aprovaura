@@ -85,15 +85,16 @@ void main() {
     ) async {
       await open(tester, '');
 
-      expect(find.text('0 / 50 palavras'), findsOneWidget);
+      // Just the one line while short of the minimum -- a running "0 / 50"
+      // next to it said the same thing twice.
       expect(find.text('Mínimo de 50 palavras para enviar.'), findsOneWidget);
     });
 
     testWidgets('one word short still shows the target', (tester) async {
       await open(tester, _words(EssayRules.minimumWords - 1));
 
-      expect(find.text('49 / 50 palavras'), findsOneWidget);
       expect(find.text('Mínimo de 50 palavras para enviar.'), findsOneWidget);
+      expect(find.textContaining('/ 50'), findsNothing);
     });
 
     testWidgets('at the minimum the target goes away', (tester) async {
