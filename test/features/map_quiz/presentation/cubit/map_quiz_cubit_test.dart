@@ -133,6 +133,18 @@ void main() {
 
     group('onRegionTapped', () {
       test(
+        'keeps the very same board from question to question -- the '
+        'frame comes from all answers, never from the current target',
+        () async {
+          final cubit = await buildPlayingCubit();
+          final before = (cubit.state as MapQuizPlaying).board;
+          cubit.onRegionTapped((cubit.state as MapQuizPlaying).currentTargetId);
+          final after = (cubit.state as MapQuizPlaying).board;
+          expect(identical(before, after), isTrue);
+        },
+      );
+
+      test(
         'registers progress and advances to the next target on a correct tap',
         () async {
           final cubit = await buildPlayingCubit();
