@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/app.dart';
+import 'package:aura/core/auth/secure_session_storage.dart';
 import 'package:aura/core/config/env_config.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
@@ -26,6 +28,13 @@ void main() async {
   await Supabase.initialize(
     url: EnvConfig.supabaseUrl,
     publishableKey: EnvConfig.supabasePublishableKey,
+    authOptions: FlutterAuthClientOptions(
+      localStorage: kIsWeb
+          ? null
+          : SecureSessionStorage(
+              persistSessionKey: supabaseSessionKey(EnvConfig.supabaseUrl),
+            ),
+    ),
   );
 
   sl.registerLazySingleton<ThemeCubit>(ThemeCubit.new);
