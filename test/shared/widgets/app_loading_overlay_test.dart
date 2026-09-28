@@ -86,13 +86,21 @@ void main() {
       await tester.pumpAndSettle();
     });
 
-    testWidgets('shows the message when the operation has one', (tester) async {
+    testWidgets('keeps the message off screen, for screen readers only', (
+      tester,
+    ) async {
       final loading = await pumpHost(tester);
       final completer = Completer<void>();
       unawaited(loading.run(() => completer.future, message: 'Saindo...'));
       await tester.pump();
 
-      expect(find.text('Saindo...'), findsOneWidget);
+      expect(find.text('Saindo...'), findsNothing);
+      expect(
+        find.byWidgetPredicate(
+          (w) => w is Semantics && w.properties.label == 'Saindo...',
+        ),
+        findsOneWidget,
+      );
 
       completer.complete();
       await tester.pumpAndSettle();

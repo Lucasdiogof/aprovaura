@@ -4,7 +4,6 @@ import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/loading/app_blocking_loading_state.dart';
 import 'package:aura/core/theme/app_colors.dart';
-import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/shared/l10n/shared_strings.dart';
 import 'package:aura/shared/widgets/app_loading_indicator.dart';
 
@@ -57,20 +56,11 @@ class _Barrier extends StatelessWidget {
         child: Stack(
           children: [
             ModalBarrier(dismissible: false, color: colors.loadingScrim),
-            // No card, no dialog chrome -- just the scrim doing the
-            // blocking and a spinner over it, the way a plain loading
-            // state should look.
-            Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const AppLoadingIndicator(size: 32, color: Colors.white),
-                  if (message != null) ...[
-                    const SizedBox(height: AppSpacing.md),
-                    Text(message!, style: const TextStyle(color: Colors.white)),
-                  ],
-                ],
-              ),
+            // Just the scrim doing the blocking and a spinner over it: no
+            // card and no visible text, so it never reads as a dialog. The
+            // message only reaches screen readers, through the label above.
+            const Center(
+              child: AppLoadingIndicator(size: 32, color: Colors.white),
             ),
           ],
         ),
