@@ -3,6 +3,15 @@
 Registro da demanda de i18n: problemas encontrados no **conteúdo original em português** durante a tradução.
 Nada aqui foi corrigido automaticamente. A regra da demanda é não mexer no pt-BR em silêncio, e a correção fica a critério do dono do conteúdo.
 
+> **Status em 2026-09-27: tudo resolvido, a pedido do dono do conteúdo.**
+> - Acentos: a outra conta corrigiu parte em 2026-09-26 (`f1eec90`, `129d34d`); o restante (133 questões com
+>   acentuação parcial — "é/e", crase, "dá", "têm", nomes de Goiás) foi corrigido por `supabase/content_acentos_ptbr.sql`,
+>   rodado no banco. A única questão que ainda tem "tambem"/"cafe" sem acento é a de Português sobre acentuação,
+>   onde isso é o assunto.
+> - Nomes nos mapas: corrigidos nos `.geojson` e no dicionário de tradução (detalhes no fim deste arquivo).
+>
+> As tabelas abaixo ficam como registro do que foi encontrado.
+
 ## Questões sem acentuação
 
 Estas questões foram cadastradas sem nenhum acento ("Goias", "e" no lugar de "é", "nao", "populacao"). As traduções en/es estão corretas;
@@ -67,3 +76,8 @@ Levantado na FASE 14, em 2026-09-25. As traduções en/es (em `lib/features/map_
 | `*_capitals` | ZAF | Cidade do Cabo | A África do Sul tem três capitais; a executiva é **Pretória**, e Cidade do Cabo é a legislativa. Hoje o quiz aceita só Cidade do Cabo. |
 | `world_soils` | — | Chernozion (Terra Negra) | O termo usual é **Chernozem** (ou Tchernozem). |
 | `*_capitals` | — | Moscovo, Amesterdão, Teerão, Bagdade, Copenhaga, Helsínquia, Mónaco | Grafia de Portugal. Em pt-BR: Moscou, Amsterdã, Teerã, Bagdá, Copenhague, Helsinque, Mônaco. A camada `world_cities` já usa "Moscou", então o mesmo lugar aparece com duas grafias. |
+
+**Resolvido em 2026-09-27:** Mbabane, Astana, Tchernozem, Moscou, Amsterdã, Teerã, Bagdá, Copenhague, Helsinque e Mônaco
+(e também Bangcoc, Madagascar e Benin, que estavam na grafia de Portugal). Nas camadas de capitais, a Tanzânia passou a
+**Dodoma** e a África do Sul a **Pretória**, com nome *e* coordenadas novos; Dar es Salaam e Cidade do Cabo continuam
+nas camadas de grandes cidades, onde estão certas. As `sigla` não mudaram, então progresso e bandeiras seguem valendo.
