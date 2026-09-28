@@ -178,12 +178,12 @@ function buildPrompt(row: StartRow): string {
     .join('\n\n---\n\n');
 }
 
-async function callGemini(apiKey: string, prompt: string): Promise<unknown> {
+async function callGemini(apiKey: string, prompt: string, model: string): Promise<unknown> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
+      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
       {
         method: 'POST',
         signal: controller.signal,
@@ -220,9 +220,42 @@ async function callGemini(apiKey: string, prompt: string): Promise<unknown> {
 }
 
 class ProviderError extends Error {
-  constructor(public readonly reason: string) {
+  constructor(public readonly reason: string, public readonly detail?: string) {
     super(reason);
   }
+}
+
+/** Pergunta ao próprio Google quais modelos de texto estão disponíveis
+ * para esta chave agora, em vez de arriscar outro nome chutado (já
+ * aconteceu de um nome "óbvio" ter sido descontinuado). Só é chamada
+ * quando o modelo principal falha por sobrecarga -- silenciosa em caso de
+ * erro, porque o pior cenário aqui é simplesmente não ter um plano B. */
+async function listTextModels(apiKey: string): Promise<string[]> {
+  try {
+    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models', {
+      headers: { 'x-goog-api-key': apiKey },
+    });
+    if (!response.ok) return [];
+    const payload = await response.json();
+    const models = Array.isArray(payload?.models) ? payload.models : [];
+    return models
+      .filter((m: Record<string, unknown>) =>
+        Array.isArray(m.supportedGenerationMethods) &&
+        (m.supportedGenerationMethods as string[]).includes('generateContent'))
+      .map((m: Record<string, unknown>) => String(m.name).replace(/^models\//, ''));
+  } catch (_) {
+    return [];
+  }
+}
+
+/** Escolhe um modelo mais simples/barato como plano B: outro "flash",
+ * nunca o mesmo que já falhou, evitando variantes experimentais ou de
+ * pré-visualização quando existir opção estável. */
+function pickFallbackModel(available: string[], primary: string): string | null {
+  const flashModels = available.filter((m) =>
+    m !== primary && /flash/i.test(m) && !/embed|vision|image|tts/i.test(m));
+  const stable = flashModels.filter((m) => !/exp|preview|thinking/i.test(m));
+  return stable[0] ?? flashModels[0] ?? null;
 }
 
 /** Recusa o que não dá para gravar: competência faltando, nota fora de
@@ -330,35 +363,61 @@ Deno.serve(async (req) => {
   }
 
   const prompt = buildPrompt(row);
-  let lastReason = 'unexpected';
 
-  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-    try {
-      const raw = await callGemini(apiKey, prompt);
-      const validated = validate(raw);
+  /** Tenta um modelo até MAX_ATTEMPTS vezes -- só repete no mesmo modelo
+   * quando o problema foi a FORMA da resposta (invalid_output). Rate
+   * limit ou provider fora do ar não melhoram tentando de novo no mesmo
+   * segundo com o mesmo modelo -- e gastariam cota à toa. */
+  async function tryModel(model: string): Promise<{ ok: true; data: Record<string, unknown> } | { ok: false; reason: string }> {
+    let reason = 'unexpected';
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      try {
+        const raw = await callGemini(apiKey!, prompt, model);
+        return { ok: true, data: validate(raw) };
+      } catch (error) {
+        reason = error instanceof ProviderError ? error.reason : 'unexpected';
+        if (reason !== 'invalid_output' || attempt === MAX_ATTEMPTS) break;
+      }
+    }
+    return { ok: false, reason };
+  }
 
-      const { data: completed, error: completeError } = await caller.rpc(
-        'complete_essay_evaluation',
-        {
-          p_submission_id: submissionId,
-          p_result: toRpcPayload(validated),
-          p_provider: PROVIDER,
-          p_model: MODEL,
-          p_prompt_version: PROMPT_VERSION,
-        },
-      );
-      if (completeError) throw new ProviderError('unexpected');
+  let modelUsed = MODEL;
+  let attemptResult = await tryModel(modelUsed);
 
-      const result = Array.isArray(completed) ? completed[0] : completed;
-      return json({ status: 'evaluated', total_score: result?.total_score ?? null });
-    } catch (error) {
-      lastReason = error instanceof ProviderError ? error.reason : 'unexpected';
-      // Só faz sentido repetir quando o problema foi a FORMA da resposta.
-      // Rate limit ou provider fora do ar não melhoram tentando de novo
-      // no mesmo segundo -- e gastariam cota.
-      if (lastReason !== 'invalid_output' || attempt === MAX_ATTEMPTS) break;
+  // Plano B: o modelo principal está fora do ar ou sobrecarregado (não um
+  // problema de cota, que "rate_limited" já cobre à parte). Em vez de
+  // desistir na hora, pergunta ao Google quais modelos de texto estão
+  // disponíveis para esta chave agora e tenta um "flash" mais simples --
+  // uma correção com um modelo mais barato ainda vale mais que nenhuma.
+  if (!attemptResult.ok && attemptResult.reason === 'provider_unavailable') {
+    const available = await listTextModels(apiKey);
+    const fallback = pickFallbackModel(available, modelUsed);
+    if (fallback) {
+      modelUsed = fallback;
+      attemptResult = await tryModel(modelUsed);
     }
   }
+
+  if (attemptResult.ok) {
+    const { data: completed, error: completeError } = await caller.rpc(
+      'complete_essay_evaluation',
+      {
+        p_submission_id: submissionId,
+        p_result: toRpcPayload(attemptResult.data),
+        p_provider: PROVIDER,
+        p_model: modelUsed,
+        p_prompt_version: PROMPT_VERSION,
+      },
+    );
+    if (!completeError) {
+      const result = Array.isArray(completed) ? completed[0] : completed;
+      return json({ status: 'evaluated', total_score: result?.total_score ?? null });
+    }
+    attemptResult = { ok: false, reason: 'unexpected' };
+  }
+
+  const lastReason = attemptResult.reason;
 
   // Erro recuperável: status 'failed', texto e submission intactos, e a
   // cota do dia já debitada continua valendo para a retentativa (ver a
