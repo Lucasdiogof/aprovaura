@@ -202,31 +202,25 @@ async function callGemini(apiKey: string, prompt: string): Promise<unknown> {
       },
     );
 
-    if (response.status === 429) throw new ProviderError('rate_limited', `status=429`);
-    if (!response.ok) {
-      // Google's own generic API error text (never essay content, never
-      // anything the person typed) -- safe to persist for diagnosis.
-      const bodyText = await response.text().catch(() => '');
-      throw new ProviderError('provider_unavailable', `status=${response.status} ${bodyText.slice(0, 300)}`);
-    }
+    if (response.status === 429) throw new ProviderError('rate_limited');
+    if (!response.ok) throw new ProviderError('provider_unavailable');
 
     const payload = await response.json();
     const text = payload?.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (typeof text !== 'string') throw new ProviderError('invalid_output', 'missing text in response');
+    if (typeof text !== 'string') throw new ProviderError('invalid_output');
     return JSON.parse(text);
   } catch (error) {
     if (error instanceof ProviderError) throw error;
-    if (error instanceof SyntaxError) throw new ProviderError('invalid_output', 'json parse error');
+    if (error instanceof SyntaxError) throw new ProviderError('invalid_output');
     // Timeout, DNS, TLS: tudo recuperável -- a submission continua lá.
-    const message = error instanceof Error ? error.message : String(error);
-    throw new ProviderError('provider_unavailable', `fetch error: ${message}`);
+    throw new ProviderError('provider_unavailable');
   } finally {
     clearTimeout(timeout);
   }
 }
 
 class ProviderError extends Error {
-  constructor(public readonly reason: string, public readonly detail?: string) {
+  constructor(public readonly reason: string) {
     super(reason);
   }
 }
@@ -337,11 +331,6 @@ Deno.serve(async (req) => {
 
   const prompt = buildPrompt(row);
   let lastReason = 'unexpected';
-  // TEMP DEBUG (2026-09-26): appended to the DB's failure_reason only --
-  // never sent to the client -- so the cause of a real failure can be
-  // read back with a plain SQL query instead of needing dashboard log
-  // access. Revert once evaluate-essay is confirmed working end-to-end.
-  let lastDetail: string | undefined;
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     try {
@@ -358,13 +347,12 @@ Deno.serve(async (req) => {
           p_prompt_version: PROMPT_VERSION,
         },
       );
-      if (completeError) throw new ProviderError('unexpected', completeError.message);
+      if (completeError) throw new ProviderError('unexpected');
 
       const result = Array.isArray(completed) ? completed[0] : completed;
       return json({ status: 'evaluated', total_score: result?.total_score ?? null });
     } catch (error) {
       lastReason = error instanceof ProviderError ? error.reason : 'unexpected';
-      lastDetail = error instanceof ProviderError ? error.detail : undefined;
       // Só faz sentido repetir quando o problema foi a FORMA da resposta.
       // Rate limit ou provider fora do ar não melhoram tentando de novo
       // no mesmo segundo -- e gastariam cota.
@@ -377,7 +365,7 @@ Deno.serve(async (req) => {
   // regra de cota no cabeçalho do essays.sql).
   await caller.rpc('fail_essay_evaluation', {
     p_submission_id: submissionId,
-    p_reason: lastDetail ? `${lastReason}::${lastDetail}` : lastReason,
+    p_reason: lastReason,
   });
   // Log mínimo: código do motivo, nunca o texto da redação nem a resposta
   // do provider.
