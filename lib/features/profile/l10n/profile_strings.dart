@@ -309,6 +309,12 @@ class ProfileStrings {
           'convierte en Aura, tu puntuación.',
   };
 
+  String get privacyPolicyRowLabel => switch (language) {
+    AppLanguage.portuguese => 'Política de Privacidade',
+    AppLanguage.english => 'Privacy Policy',
+    AppLanguage.spanish => 'Política de Privacidad',
+  };
+
   String get versionRowLabel => switch (language) {
     AppLanguage.portuguese => 'Versão do app',
     AppLanguage.english => 'App version',

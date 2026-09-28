@@ -265,6 +265,33 @@ class EssayStrings {
     AppLanguage.spanish => '¿Enviar la redacción a corrección?',
   };
 
+  /// Shown right above the final "send" button: the text goes to an
+  /// external AI provider, which on its free plan may use it -- the person
+  /// should know that before deciding to send.
+  String get aiCorrectionNotice => switch (language) {
+    AppLanguage.portuguese =>
+      'A correção é feita por inteligência artificial do Google (Gemini). '
+          'Só o texto e o tema são enviados, sem seus dados de conta, mas o '
+          'Google pode usá-los para melhorar seus serviços. Não escreva dados '
+          'pessoais na redação.',
+    AppLanguage.english =>
+      "Your essay is graded by Google's AI (Gemini). Only the text and the "
+          'topic are sent, without your account details, but Google may use '
+          "them to improve its services. Don't include personal data in your "
+          'essay.',
+    AppLanguage.spanish =>
+      'La corrección la hace la inteligencia artificial de Google (Gemini). '
+          'Solo se envían el texto y el tema, sin tus datos de cuenta, pero '
+          'Google puede usarlos para mejorar sus servicios. No escribas datos '
+          'personales en la redacción.',
+  };
+
+  String get privacyPolicyLink => switch (language) {
+    AppLanguage.portuguese => 'Política de Privacidade',
+    AppLanguage.english => 'Privacy Policy',
+    AppLanguage.spanish => 'Política de Privacidad',
+  };
+
   String get submitConfirmDescription => switch (language) {
     AppLanguage.portuguese =>
       'Depois de enviada, esta versão da redação não poderá mais ser '

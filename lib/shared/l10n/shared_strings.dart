@@ -29,6 +29,14 @@ class SharedStrings {
     AppLanguage.spanish => 'Entendido',
   };
 
+  String get linkOpenFailed => switch (language) {
+    AppLanguage.portuguese =>
+      'Não foi possível abrir o link. Tente de novo em instantes.',
+    AppLanguage.english => "Couldn't open the link. Please try again shortly.",
+    AppLanguage.spanish =>
+      'No se pudo abrir el enlace. Inténtalo de nuevo en un momento.',
+  };
+
   /// Screen-reader fallback for [AppLoadingOverlay] when the operation
   /// behind it didn't pass its own message.
   String get loadingLabel => switch (language) {

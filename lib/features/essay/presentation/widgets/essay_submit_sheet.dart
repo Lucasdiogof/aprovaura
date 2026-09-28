@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:aura/core/config/app_info.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/essay/l10n/essay_strings.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/app_sheet_frame.dart';
+import 'package:aura/shared/utils/external_link.dart';
 
 /// Last look before freezing the text. Says plainly what sending costs --
 /// this version stops being editable -- and that another attempt is always
 /// possible, which is what makes the decision easy rather than scary.
+///
+/// It is also where the person learns, before deciding, that the text goes
+/// to Google's AI for grading (see the privacy policy's section 7): this
+/// is the moment of consent, so the notice sits right above the button.
 ///
 /// Resolves to true only on "Enviar redação".
 Future<bool> showEssaySubmitSheet(
@@ -47,7 +53,9 @@ class _SubmitSheet extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(color: colors.textSecondary, height: 1.4),
         ),
-        const SizedBox(height: AppSpacing.xl),
+        const SizedBox(height: AppSpacing.lg),
+        _AiCorrectionNotice(strings: strings),
+        const SizedBox(height: AppSpacing.lg),
         AppButton(
           label: strings.submitConfirmAction,
           onPressed: () => Navigator.of(context).pop(true),
@@ -58,6 +66,64 @@ class _SubmitSheet extends StatelessWidget {
           child: Text(strings.submitReviewAction),
         ),
       ],
+    );
+  }
+}
+
+class _AiCorrectionNotice extends StatelessWidget {
+  const _AiCorrectionNotice({required this.strings});
+
+  final EssayStrings strings;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    return Container(
+      padding: const EdgeInsets.fromLTRB(
+        AppSpacing.md,
+        AppSpacing.md,
+        AppSpacing.md,
+        AppSpacing.xs,
+      ),
+      decoration: BoxDecoration(
+        color: colors.surface,
+        borderRadius: BorderRadius.circular(AppRadius.md),
+        border: Border.all(color: colors.border),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(
+                Icons.privacy_tip_outlined,
+                size: 18,
+                color: colors.textSecondary,
+              ),
+              const SizedBox(width: AppSpacing.sm),
+              Expanded(
+                child: Text(
+                  strings.aiCorrectionNotice,
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    height: 1.4,
+                    color: colors.textSecondary,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton(
+              onPressed: () =>
+                  openExternalLink(context, AppInfo.privacyPolicyUrl),
+              child: Text(strings.privacyPolicyLink),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

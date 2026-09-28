@@ -7,11 +7,11 @@ import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/profile/l10n/profile_strings.dart';
 import 'package:aura/features/profile/presentation/widgets/profile_row.dart';
 import 'package:aura/shared/widgets/app_logo.dart';
+import 'package:aura/shared/utils/external_link.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
-/// Just what's real today: what the app is, and its version. No privacy
-/// policy link -- there isn't one written yet, and a placeholder would be
-/// worse than not having the row at all.
+/// What the app is, its privacy policy (public, on lucksrei.com -- the
+/// stores require it to be reachable from inside the app) and its version.
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
@@ -38,6 +38,18 @@ class AboutPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: AppSpacing.xl),
+                ProfileRow(
+                  icon: Icons.privacy_tip_outlined,
+                  label: t.privacyPolicyRowLabel,
+                  trailing: Icon(
+                    Icons.open_in_new_rounded,
+                    size: 18,
+                    color: context.colors.textSecondary,
+                  ),
+                  onTap: () =>
+                      openExternalLink(context, AppInfo.privacyPolicyUrl),
+                ),
+                const SizedBox(height: AppSpacing.sm),
                 ProfileRow(
                   icon: Icons.info_outline,
                   label: t.versionRowLabel,

@@ -380,6 +380,21 @@ void main() {
       expect(find.byType(EssayEditorPage), findsNothing);
     });
 
+    testWidgets('before sending, says the essay goes to Google AI and links '
+        'the privacy policy', (tester) async {
+      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), _longEnough);
+      await _settleAutosave(tester);
+
+      await tester.tap(find.text('Enviar para correção'));
+      await tester.pumpAndSettle();
+
+      expect(find.textContaining('Gemini'), findsOneWidget);
+      expect(find.textContaining('Não escreva dados pessoais'), findsOneWidget);
+      expect(find.text('Política de Privacidade'), findsOneWidget);
+    });
+
     testWidgets('sending asks first and can be called off', (tester) async {
       await tester.pumpApp(const EssayEditorPage(theme: _theme));
       await tester.pumpAndSettle();
