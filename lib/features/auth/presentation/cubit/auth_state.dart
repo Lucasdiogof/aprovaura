@@ -26,11 +26,16 @@ class AuthSuccess extends AuthState {
 }
 
 class AuthError extends AuthState {
-  const AuthError(this.message, {this.isInvalidCredentials = false});
+  const AuthError(
+    this.message, {
+    this.isInvalidCredentials = false,
+    this.isEmailTaken = false,
+  });
 
   final String message;
   final bool isInvalidCredentials;
+  final bool isEmailTaken;
 
   @override
-  List<Object?> get props => [message, isInvalidCredentials];
+  List<Object?> get props => [message, isInvalidCredentials, isEmailTaken];
 }

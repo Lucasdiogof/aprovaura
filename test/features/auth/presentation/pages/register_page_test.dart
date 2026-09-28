@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:aura/features/auth/domain/entities/app_user.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_state.dart';
 import 'package:aura/features/auth/presentation/pages/register_page.dart';
@@ -108,6 +109,55 @@ void main() {
           () =>
               authCubit.signUp(email: 'dash@example.com', password: 'senha123'),
         ).called(1);
+      },
+    );
+
+    testWidgets('ignores a second tap while the sign-up is still finishing', (
+      tester,
+    ) async {
+      // AuthSuccess comes before the profile is saved and the page leaves:
+      // the button must stay locked through that window too.
+      when(() => authCubit.state).thenReturn(
+        const AuthSuccess(AppUser(id: 'u1', email: 'dash@example.com')),
+      );
+      await pumpRegisterPage(tester);
+      final fields = find.byType(TextField);
+
+      await tester.enterText(fields.at(0), 'Lucas Diogo');
+      await tester.enterText(fields.at(2), 'dash@example.com');
+      await tester.enterText(fields.at(3), 'senha123');
+      await tester.enterText(fields.at(4), 'senha123');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pump();
+
+      verifyNever(
+        () => authCubit.signUp(
+          email: any(named: 'email'),
+          password: any(named: 'password'),
+        ),
+      );
+    });
+
+    testWidgets(
+      'an email that already has an account gets its own message and a way '
+      'to sign in',
+      (tester) async {
+        whenListen(
+          authCubit,
+          Stream<AuthState>.fromIterable(const [
+            AuthError(
+              'Já existe uma conta com este e-mail.',
+              isEmailTaken: true,
+            ),
+          ]),
+          initialState: const AuthInitial(),
+        );
+        await pumpRegisterPage(tester);
+        await tester.pumpAndSettle();
+
+        expect(find.text('Esse e-mail já tem conta'), findsOneWidget);
+        expect(find.text('Entrar'), findsOneWidget);
+        expect(find.textContaining('already registered'), findsNothing);
       },
     );
 

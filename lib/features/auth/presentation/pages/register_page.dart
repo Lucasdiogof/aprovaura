@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aura/core/di/injection_container.dart';
+import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
 import 'package:aura/features/auth/l10n/auth_strings.dart';
@@ -88,6 +89,11 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void _submit() {
+    // Busy from the first tap until the page leaves for onboarding: after
+    // AuthSuccess the profile is still being saved, and a second tap there
+    // used to fire another sign-up ("User already registered") while the
+    // first one carried on to onboarding.
+    if (_isBusy(context.read<AuthCubit>().state)) return;
     _formCubit.markSubmitted();
     final name = _nameController.text.trim();
     final email = _emailController.text.trim();
@@ -102,16 +108,31 @@ class _RegisterPageState extends State<RegisterPage> {
     context.read<AuthCubit>().signUp(email: email, password: password);
   }
 
+  bool _isBusy(AuthState state) => state is AuthLoading || state is AuthSuccess;
+
   Future<void> _onSignedUp(BuildContext context, AppUser user) async {
     final name = _nameController.text.trim();
     final username = _usernameController.text.trim();
-    await sl<ProfileRepository>().createProfile(
+    final profiles = sl<ProfileRepository>();
+    Future<Result<void>> create() => profiles.createProfile(
       id: user.id,
       name: name,
       username: username.isEmpty ? null : username,
     );
+    // The account already exists at this point, so there is no going back
+    // to the form: one retry covers a dropped request, and onboarding's own
+    // save surfaces anything that is still wrong after that.
+    if (await create() is Error) await create();
     if (!context.mounted) return;
     context.go('/onboarding');
+  }
+
+  void _goToSignIn() {
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go('/login');
+    }
   }
 
   @override
@@ -124,15 +145,25 @@ class _RegisterPageState extends State<RegisterPage> {
           switch (state) {
             case AuthSuccess(:final user):
               unawaited(_onSignedUp(context, user));
-            case AuthError(:final message):
-              AppInfoBottomSheet.showError(context, description: message);
+            case AuthError(:final message, :final isEmailTaken):
+              if (isEmailTaken) {
+                AppInfoBottomSheet.showError(
+                  context,
+                  title: t.emailTakenTitle,
+                  description: message,
+                  secondaryActionLabel: t.signInButton,
+                  onSecondaryAction: _goToSignIn,
+                );
+              } else {
+                AppInfoBottomSheet.showError(context, description: message);
+              }
             case AuthLoading():
             case AuthInitial():
               break;
           }
         },
         builder: (context, authState) {
-          final isSubmitting = authState is AuthLoading;
+          final isSubmitting = _isBusy(authState);
           return BlocBuilder<RegisterFormCubit, RegisterFormState>(
             builder: (context, formState) {
               return AuthScaffold(

@@ -119,6 +119,12 @@ class AuthStrings {
           'tienes una.',
   };
 
+  String get emailTakenTitle => switch (language) {
+    AppLanguage.portuguese => 'Esse e-mail já tem conta',
+    AppLanguage.english => 'This email already has an account',
+    AppLanguage.spanish => 'Este correo ya tiene una cuenta',
+  };
+
   String get registerHeading => switch (language) {
     AppLanguage.portuguese => 'Criar sua conta',
     AppLanguage.english => 'Create your account',

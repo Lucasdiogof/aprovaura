@@ -3,6 +3,7 @@ import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/features/auth/data/auth_error_messages.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:get_it/get_it.dart';
@@ -26,7 +27,7 @@ class AuthRepositoryImpl implements AuthRepository {
       if (user == null) return Error(AuthFailure());
       return Success(_toAppUser(user));
     } on AuthException catch (e) {
-      return Error(AuthFailure(e.message, e.code == 'invalid_credentials'));
+      return Error(_failureFrom(e));
     } catch (_) {
       return Error(UnexpectedFailure());
     }
@@ -49,7 +50,7 @@ class AuthRepositoryImpl implements AuthRepository {
       }
       return Success(_toAppUser(user));
     } on AuthException catch (e) {
-      return Error(AuthFailure(e.message));
+      return Error(_failureFrom(e));
     } catch (_) {
       return Error(UnexpectedFailure());
     }
@@ -64,7 +65,7 @@ class AuthRepositoryImpl implements AuthRepository {
       await _client.auth.resetPasswordForEmail(email);
       return const Success(null);
     } on AuthException catch (e) {
-      return Error(AuthFailure(e.message));
+      return Error(_failureFrom(e));
     } catch (_) {
       return Error(UnexpectedFailure());
     }
@@ -100,6 +101,15 @@ class AuthRepositoryImpl implements AuthRepository {
 
   AppUser _toAppUser(User user) =>
       AppUser(id: user.id, email: user.email ?? '');
+
+  AuthFailure _failureFrom(AuthException e) {
+    final kind = classifyAuthError(e);
+    return AuthFailure(
+      authErrorMessage(kind),
+      kind == AuthErrorKind.invalidCredentials,
+      kind == AuthErrorKind.emailTaken,
+    );
+  }
 
   String _pendingConfirmationMessage() {
     final language = GetIt.instance.isRegistered<LocaleCubit>()

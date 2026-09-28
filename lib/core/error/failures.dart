@@ -20,10 +20,16 @@ abstract class Failure extends Equatable {
 }
 
 class AuthFailure extends Failure {
-  AuthFailure([String? message, this.isInvalidCredentials = false])
-    : super(message ?? _defaultMessage());
+  AuthFailure([
+    String? message,
+    this.isInvalidCredentials = false,
+    this.isEmailTaken = false,
+  ]) : super(message ?? _defaultMessage());
 
   final bool isInvalidCredentials;
+
+  /// Sign-up hit an email that already has an account.
+  final bool isEmailTaken;
 
   static String _defaultMessage() => switch (_currentLanguage()) {
     AppLanguage.portuguese => 'Falha de autenticação.',
@@ -32,7 +38,7 @@ class AuthFailure extends Failure {
   };
 
   @override
-  List<Object?> get props => [message, isInvalidCredentials];
+  List<Object?> get props => [message, isInvalidCredentials, isEmailTaken];
 }
 
 class ServerFailure extends Failure {

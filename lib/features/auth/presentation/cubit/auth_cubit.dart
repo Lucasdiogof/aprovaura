@@ -33,7 +33,12 @@ class AuthCubit extends Cubit<AuthState> {
       case Success(:final data):
         emit(AuthSuccess(data));
       case Error(:final failure):
-        emit(AuthError(failure.message));
+        emit(
+          AuthError(
+            failure.message,
+            isEmailTaken: failure is AuthFailure && failure.isEmailTaken,
+          ),
+        );
     }
   }
 
