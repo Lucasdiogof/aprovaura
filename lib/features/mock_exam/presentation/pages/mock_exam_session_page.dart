@@ -128,36 +128,25 @@ class _MockExamRunnerView extends StatelessWidget {
     );
   }
 
-  /// "Entregar simulado": warns about blanks first (with a way back to the
-  /// first one), otherwise a plain confirmation. Only a confirmed choice
-  /// reaches finish_mock_exam().
+  /// "Entregar simulado": a plain confirmation. Blanks can't happen any
+  /// more (the next/hand-in button waits for an answer); an exam started
+  /// before that rule just goes back to its first blank instead.
   Future<void> _confirmSubmit(BuildContext context, MockExamStrings t) async {
     final cubit = context.read<MockExamRunnerCubit>();
     if (cubit.state.isBusy) return;
-    final unanswered = cubit.state.unansweredCount;
-    if (unanswered > 0) {
-      await AppInfoBottomSheet.showInfo(
-        context,
-        title: t.unansweredTitle(unanswered),
-        description: t.unansweredDescription,
-        primaryActionLabel: t.reviewButton,
-        onPrimaryAction: () {
-          final index = cubit.state.firstUnansweredIndex;
-          if (index != null) cubit.goTo(index);
-        },
-        secondaryActionLabel: t.submitAnywayButton,
-        onSecondaryAction: () => _submit(context, t),
-      );
-    } else {
-      await AppInfoBottomSheet.showInfo(
-        context,
-        title: t.submitTitle,
-        description: t.submitDescription,
-        primaryActionLabel: t.submitButton,
-        onPrimaryAction: () => _submit(context, t),
-        secondaryActionLabel: t.reviewButton,
-      );
+    final blank = cubit.state.firstUnansweredIndex;
+    if (blank != null) {
+      cubit.goTo(blank);
+      return;
     }
+    await AppInfoBottomSheet.showInfo(
+      context,
+      title: t.submitTitle,
+      description: t.submitDescription,
+      primaryActionLabel: t.submitButton,
+      onPrimaryAction: () => _submit(context, t),
+      secondaryActionLabel: t.reviewButton,
+    );
   }
 
   Future<void> _submit(BuildContext context, MockExamStrings t) async {
@@ -451,7 +440,8 @@ class _QuestionView extends StatelessWidget {
                           ? strings.submitShortButton
                           : strings.nextButton,
                       isLoading: state.isFinishing,
-                      onPressed: state.isBusy
+                      // Nothing to move on to until this one is answered.
+                      onPressed: state.isBusy || selected == null
                           ? null
                           : state.isLast
                           ? onSubmit

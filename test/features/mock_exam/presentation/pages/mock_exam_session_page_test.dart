@@ -132,29 +132,35 @@ void main() {
   });
 
   testWidgets(
-    'the last question hands in; blanks are flagged with a way back',
+    'moves on only after an answer; the last one hands in with a plain '
+    'confirmation',
     (tester) async {
       await pumpSession(tester);
 
+      // Unanswered: "Próxima" does nothing.
       await tester.tap(find.text('Próxima'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Opção um'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('Próxima'));
-      await tester.pumpAndSettle();
-
-      expect(find.text('Questão 3 de 3'), findsOneWidget);
-      expect(find.text('Entregar'), findsOneWidget);
-
-      await tester.tap(find.text('Entregar'));
-      await tester.pumpAndSettle();
-      expect(find.text('Você deixou 2 questões sem resposta.'), findsOneWidget);
-      expect(find.text('Entregar assim mesmo'), findsOneWidget);
-
-      // "Voltar e revisar" jumps to the first blank one, nothing is graded.
-      await tester.tap(find.text('Voltar e revisar'));
       await tester.pumpAndSettle();
       expect(find.text('Questão 1 de 3'), findsOneWidget);
+
+      for (var i = 0; i < 2; i++) {
+        await tester.tap(find.text('Opção um'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Próxima'));
+        await tester.pumpAndSettle();
+      }
+      expect(find.text('Questão 3 de 3'), findsOneWidget);
+
+      // Same rule for handing in.
+      await tester.tap(find.text('Entregar'));
+      await tester.pumpAndSettle();
+      expect(find.text('Entregar simulado?'), findsNothing);
+
+      await tester.tap(find.text('Opção um'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Entregar'));
+      await tester.pumpAndSettle();
+      expect(find.text('Entregar simulado?'), findsOneWidget);
+      expect(find.textContaining('sem resposta'), findsNothing);
       verifyNever(() => repository.finishMockExam(any()));
     },
   );
@@ -388,6 +394,8 @@ void main() {
     );
     await tester.pumpAndSettle();
     for (var i = 0; i < 2; i++) {
+      await tester.tap(find.text('Opção um'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Próxima'));
       await tester.pumpAndSettle();
     }

@@ -354,12 +354,22 @@ void main() {
       expect(cubit.state.hasSaveError, isFalse);
     });
 
+    test('next does nothing until the current question is answered', () async {
+      final cubit = await loaded(items: [_item(1), _item(2)]);
+      cubit.next();
+      expect(cubit.state.currentIndex, 0);
+      cubit.select(0);
+      cubit.next();
+      expect(cubit.state.currentIndex, 1);
+      await cubit.flush();
+    });
+
     test('a failed position save is dropped silently (not an error)', () async {
       when(() => repository.setCurrentPosition(any(), any())).thenAnswer(
         (_) async => Error(MockExamFailure(MockExamFailureKind.network)),
       );
       final cubit = await loaded(items: [_item(1), _item(2)]);
-      cubit.next();
+      cubit.goTo(1);
       await cubit.flush();
       expect(cubit.state.status, MockExamRunnerStatus.ready);
       expect(cubit.state.currentIndex, 1);
@@ -387,7 +397,7 @@ void main() {
         () => repository.setCurrentPosition(any(), any()),
       ).thenAnswer((_) async => Error(_closed('abandoned')));
 
-      cubit.next();
+      cubit.goTo(1);
       await cubit.flush();
 
       expect(cubit.state.status, MockExamRunnerStatus.abandonedElsewhere);

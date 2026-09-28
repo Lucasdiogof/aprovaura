@@ -307,41 +307,10 @@ class MockExamStrings {
           'se cerrará.',
   };
 
-  String unansweredTitle(int count) => switch (language) {
-    AppLanguage.portuguese =>
-      count == 1
-          ? 'Você deixou 1 questão sem resposta.'
-          : 'Você deixou $count questões sem resposta.',
-    AppLanguage.english =>
-      count == 1
-          ? 'You left 1 question unanswered.'
-          : 'You left $count questions unanswered.',
-    AppLanguage.spanish =>
-      count == 1
-          ? 'Dejaste 1 pregunta sin responder.'
-          : 'Dejaste $count preguntas sin responder.',
-  };
-
-  String get unansweredDescription => switch (language) {
-    AppLanguage.portuguese =>
-      'Questões em branco contam como erradas e não entram em Revisar erros.',
-    AppLanguage.english =>
-      "Blank questions count as wrong and don't go to Review mistakes.",
-    AppLanguage.spanish =>
-      'Las preguntas en blanco cuentan como erradas y no entran en Revisar '
-          'errores.',
-  };
-
   String get reviewButton => switch (language) {
     AppLanguage.portuguese => 'Voltar e revisar',
     AppLanguage.english => 'Go back and review',
     AppLanguage.spanish => 'Volver y revisar',
-  };
-
-  String get submitAnywayButton => switch (language) {
-    AppLanguage.portuguese => 'Entregar assim mesmo',
-    AppLanguage.english => 'Hand in anyway',
-    AppLanguage.spanish => 'Entregar de todos modos',
   };
 
   String get submitTitle => switch (language) {

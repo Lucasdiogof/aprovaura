@@ -239,7 +239,12 @@ class MockExamRunnerCubit extends Cubit<MockExamRunnerState> {
     }
   }
 
-  void next() => goTo(state.currentIndex + 1);
+  /// Only past an answered question: the exam has no blanks to warn about
+  /// at the end, because there is no way to leave one behind.
+  void next() {
+    if (state.currentAnswer == null) return;
+    goTo(state.currentIndex + 1);
+  }
 
   void previous() => goTo(state.currentIndex - 1);
 
