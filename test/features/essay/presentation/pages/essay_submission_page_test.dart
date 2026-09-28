@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -160,6 +162,45 @@ void main() {
 
       verify(() => repository.requestEvaluation('s1')).called(1);
     });
+
+    testWidgets(
+      'retrying a failed attempt hides the old failure while it runs',
+      (tester) async {
+        stub(EssaySubmissionStatus.failed);
+        // Held open on purpose: the default stub resolves instantly, which
+        // races straight through the in-flight window this test exists to
+        // check. Holding it lets the test actually look at the screen
+        // while the retry is still running.
+        final requestCompleter = Completer<Result<void>>();
+        when(
+          () => repository.requestEvaluation('s1'),
+        ).thenAnswer((_) => requestCompleter.future);
+        await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
+        await tester.pumpAndSettle();
+
+        expect(
+          find.text('Não foi possível concluir a correção.'),
+          findsOneWidget,
+        );
+
+        await tester.tap(find.text('Tentar corrigir de novo'));
+        await tester.pump();
+
+        // The chip and the note both still read submission.status ==
+        // failed at this exact moment -- only isRequesting says a fresh
+        // attempt is running. Showing the old failure right next to
+        // "corrigindo sua redação" would look like the retry itself just
+        // failed again, instantly.
+        expect(
+          find.text('Não foi possível concluir a correção.'),
+          findsNothing,
+        );
+        expect(find.text('Corrigindo'), findsOneWidget);
+
+        requestCompleter.complete(const Success(null));
+        await tester.pumpAndSettle();
+      },
+    );
 
     testWidgets('an attempt being marked says so and does not re-ask', (
       tester,

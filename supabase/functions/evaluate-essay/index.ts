@@ -220,7 +220,7 @@ async function callGemini(apiKey: string, prompt: string, model: string): Promis
 }
 
 class ProviderError extends Error {
-  constructor(public readonly reason: string, public readonly detail?: string) {
+  constructor(public readonly reason: string) {
     super(reason);
   }
 }
@@ -248,12 +248,30 @@ async function listTextModels(apiKey: string): Promise<string[]> {
   }
 }
 
-/** Escolhe um modelo mais simples/barato como plano B: outro "flash",
- * nunca o mesmo que já falhou, evitando variantes experimentais ou de
- * pré-visualização quando existir opção estável. */
+/** Escolhe um modelo mais simples/barato como plano B, nunca o mesmo que
+ * já falhou. Prioriza "flash-lite" sobre "flash": são tiers com
+ * capacidade separada, então uma sobrecarga no tier "flash" (o principal)
+ * não costuma afetar o "flash-lite" junto -- já vimos isso na prática:
+ * gemini-flash-latest devolveu o MESMO 503 que o modelo principal, porque
+ * os dois apontam pro mesmo backend sobrecarregado. Dentro de cada tier,
+ * prioriza o apelido "-latest" (o Google sempre aponta ele pro modelo
+ * recomendado do momento) -- um nome fixo pode ser descontinuado sem
+ * aviso, como aconteceu com gemini-2.5-flash. */
 function pickFallbackModel(available: string[], primary: string): string | null {
-  const flashModels = available.filter((m) =>
-    m !== primary && /flash/i.test(m) && !/embed|vision|image|tts/i.test(m));
+  const isUsable = (m: string) => m !== primary && !/embed|vision|image|tts/i.test(m);
+
+  const liteLatest = available.find((m) => isUsable(m) && /^gemini-flash-lite-latest$/i.test(m));
+  if (liteLatest) return liteLatest;
+
+  const liteModels = available.filter((m) => isUsable(m) && /flash.*lite|lite.*flash/i.test(m));
+  const stableLite = liteModels.filter((m) => !/exp|preview|thinking/i.test(m));
+  if (stableLite[0]) return stableLite[0];
+  if (liteModels[0]) return liteModels[0];
+
+  const flashLatest = available.find((m) => isUsable(m) && /^gemini-flash-latest$/i.test(m));
+  if (flashLatest) return flashLatest;
+
+  const flashModels = available.filter((m) => isUsable(m) && /flash/i.test(m));
   const stable = flashModels.filter((m) => !/exp|preview|thinking/i.test(m));
   return stable[0] ?? flashModels[0] ?? null;
 }

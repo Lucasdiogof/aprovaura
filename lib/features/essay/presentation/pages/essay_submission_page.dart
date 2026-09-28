@@ -135,7 +135,12 @@ class _SubmissionView extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: EssayAttemptStatusLabel(
-            status: submission.status,
+            // While a fresh retry is in flight, the chip says so -- not
+            // the previous attempt's "failed", which submission.status
+            // still holds until the new result actually comes back.
+            status: isRequesting
+                ? EssaySubmissionStatus.evaluating
+                : submission.status,
             strings: strings,
             expanded: true,
           ),
@@ -154,7 +159,10 @@ class _SubmissionView extends StatelessWidget {
                 : strings.evaluatingHint,
           ),
         ],
-        if (failure != null) ...[
+        // Only once nothing is running: a stale error from a previous
+        // attempt has no business sitting next to "corrigindo sua
+        // redação" while a fresh retry is in flight.
+        if (!isRequesting && failure != null) ...[
           const SizedBox(height: AppSpacing.md),
           _FailureNote(message: _failureMessage()),
         ],

@@ -57,26 +57,19 @@ class _Barrier extends StatelessWidget {
         child: Stack(
           children: [
             ModalBarrier(dismissible: false, color: colors.loadingScrim),
+            // No card, no dialog chrome -- just the scrim doing the
+            // blocking and a spinner over it, the way a plain loading
+            // state should look.
             Center(
-              child: Container(
-                padding: const EdgeInsets.all(AppSpacing.xl),
-                decoration: BoxDecoration(
-                  color: colors.surfaceElevated,
-                  borderRadius: BorderRadius.circular(AppRadius.lg),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const AppLoadingIndicator(size: 32),
-                    if (message != null) ...[
-                      const SizedBox(height: AppSpacing.md),
-                      Text(
-                        message!,
-                        style: TextStyle(color: colors.textPrimary),
-                      ),
-                    ],
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const AppLoadingIndicator(size: 32, color: Colors.white),
+                  if (message != null) ...[
+                    const SizedBox(height: AppSpacing.md),
+                    Text(message!, style: const TextStyle(color: Colors.white)),
                   ],
-                ),
+                ],
               ),
             ),
           ],
