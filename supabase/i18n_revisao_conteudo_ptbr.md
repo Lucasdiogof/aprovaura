@@ -81,3 +81,6 @@ Levantado na FASE 14, em 2026-09-25. As traduções en/es (em `lib/features/map_
 (e também Bangcoc, Madagascar e Benin, que estavam na grafia de Portugal). Nas camadas de capitais, a Tanzânia passou a
 **Dodoma** e a África do Sul a **Pretória**, com nome *e* coordenadas novos; Dar es Salaam e Cidade do Cabo continuam
 nas camadas de grandes cidades, onde estão certas. As `sigla` não mudaram, então progresso e bandeiras seguem valendo.
+Na mesma data, também trocados para a grafia usada no Brasil: Tashkent, Bishkek, Vientiane, Tbilisi, Ierevan,
+Valletta, Andorra la Vella, Túnis, Brazzaville, Lusaka e N'Djamena; a capital de Palau passou a **Ngerulmud**
+(nome e coordenadas do complexo governamental, ~1,5 km da vila de Melekeok, onde estava o ponto).
