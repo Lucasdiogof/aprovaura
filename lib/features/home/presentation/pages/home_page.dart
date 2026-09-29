@@ -70,7 +70,9 @@ class _HomePageState extends State<HomePage> {
       xp: xp,
       streak: streak,
       dailyGoal: dailyGoal,
-      today: DateTime.now(),
+      // The goal's own day (São Paulo, like the server), never the
+      // device's date: see DailyGoal.dayOf.
+      today: DailyGoal.dayOf(DateTime.now()),
     );
     if (pending == null) return;
     // Spent the moment it starts playing, so a rebuild, a theme change or

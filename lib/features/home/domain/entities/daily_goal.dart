@@ -23,6 +23,16 @@ class DailyGoal extends Equatable {
   /// Whole times the target was reached (20 of 10 -> 2, 29 of 10 -> 2).
   int get timesReached => target <= 0 ? 0 : answered ~/ target;
 
+  /// The day [instant] counts toward, as the server counts it:
+  /// get_daily_question_count() dates answers in America/Sao_Paulo (UTC-3,
+  /// no daylight saving since 2019), not in the device's own zone. Anything
+  /// keyed by "the goal of that day" uses this, so a phone set to another
+  /// timezone never files today's goal under a different date.
+  static DateTime dayOf(DateTime instant) {
+    final saoPaulo = instant.toUtc().subtract(const Duration(hours: 3));
+    return DateTime(saoPaulo.year, saoPaulo.month, saoPaulo.day);
+  }
+
   @override
   List<Object?> get props => [answered, target];
 }

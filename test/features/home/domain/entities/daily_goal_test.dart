@@ -42,5 +42,18 @@ void main() {
       expect(const DailyGoal(answered: 30).timesReached, 3);
       expect(const DailyGoal(answered: 5, target: 0).isExceeded, isFalse);
     });
+
+    test("the goal's day is São Paulo's date, not the device's", () {
+      // 22:30 in São Paulo on the 28th is already the 29th in UTC.
+      expect(
+        DailyGoal.dayOf(DateTime.utc(2026, 9, 29, 1, 30)),
+        DateTime(2026, 9, 28),
+      );
+      // 00:30 in São Paulo: the new day has started there too.
+      expect(
+        DailyGoal.dayOf(DateTime.utc(2026, 9, 29, 3, 30)),
+        DateTime(2026, 9, 29),
+      );
+    });
   });
 }

@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:aura/features/home/domain/entities/daily_goal.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/app_language.dart';
@@ -258,7 +259,10 @@ void main() {
         findsNothing,
       );
       // The real point: nothing was written down as celebrated.
-      expect(ledger().hasCelebratedDailyGoal(DateTime.now()), isFalse);
+      expect(
+        ledger().hasCelebratedDailyGoal(DailyGoal.dayOf(DateTime.now())),
+        isFalse,
+      );
 
       navigator.pop();
       await tester.pump(const Duration(milliseconds: 500));
@@ -295,7 +299,10 @@ void main() {
         find.byType(AurudoAchievementOverlay, skipOffstage: false),
         findsNothing,
       );
-      expect(ledger().hasCelebratedDailyGoal(DateTime.now()), isFalse);
+      expect(
+        ledger().hasCelebratedDailyGoal(DailyGoal.dayOf(DateTime.now())),
+        isFalse,
+      );
 
       tab.value = 0;
       await settle(tester);

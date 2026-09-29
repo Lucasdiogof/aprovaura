@@ -193,11 +193,11 @@ bool markReactionSeen(String attemptId, [AurudoReaction? reaction]) {
             ledger.markStreakMilestoneCelebrated(days);
           }
         case AurudoSecondaryAchievementType.dailyGoalComplete:
-          ledger.markDailyGoalCelebrated(DateTime.now());
+          ledger.markDailyGoalCelebrated(DailyGoal.dayOf(DateTime.now()));
       }
     }
     if (types.contains(AurudoReactionType.dailyGoalComplete)) {
-      ledger.markDailyGoalCelebrated(DateTime.now());
+      ledger.markDailyGoalCelebrated(DailyGoal.dayOf(DateTime.now()));
     }
   }
   return false;
