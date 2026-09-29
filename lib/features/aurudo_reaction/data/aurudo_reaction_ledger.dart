@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:aura/features/aurudo_reaction/domain/aurudo_reaction_resolver.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Remembers which Aurudo reactions have already played, so a rebuild or a
@@ -78,6 +80,43 @@ class AurudoReactionLedger {
     );
   }
 
+  /// Whether this user's current standing has been written down once
+  /// without celebrating it.
+  bool get hasBaseline => _read().baselineTaken;
+
+  /// Records where the user already is as "seen", celebrating nothing.
+  ///
+  /// Without this, a ledger that starts empty -- a fresh install, a new
+  /// device, cleared storage -- would read level 8 and a 30-day streak as
+  /// achievements that just happened and throw a party for history. The
+  /// first observation is the floor; only what grows past it is news.
+  void takeBaseline({
+    required int level,
+    required int streakDays,
+    required bool dailyGoalComplete,
+    required DateTime today,
+  }) {
+    final data = _read();
+    _write(
+      data.copyWith(
+        baselineTaken: true,
+        lastLevelCelebrated: level,
+        streakMilestonesCelebrated: {
+          ...data.streakMilestonesCelebrated,
+          ...AurudoReactionResolver.streakMilestones.where(
+            (days) => days <= streakDays,
+          ),
+        },
+        dailyGoalDates: dailyGoalComplete
+            ? _bounded([
+                ...data.dailyGoalDates,
+                _dateKey(today),
+              ], _maxRecentDailyGoalDates)
+            : data.dailyGoalDates,
+      ),
+    );
+  }
+
   bool hasCelebratedEssayCorrection(String submissionId) =>
       _read().essayCorrections.contains(submissionId);
 
@@ -122,6 +161,7 @@ class _LedgerData {
     required this.lastLevelCelebrated,
     required this.streakMilestonesCelebrated,
     required this.essayCorrections,
+    required this.baselineTaken,
   });
 
   const _LedgerData.empty()
@@ -129,7 +169,8 @@ class _LedgerData {
       dailyGoalDates = const [],
       lastLevelCelebrated = null,
       streakMilestonesCelebrated = const {},
-      essayCorrections = const [];
+      essayCorrections = const [],
+      baselineTaken = false;
 
   factory _LedgerData.fromJson(Map<String, dynamic> json) => _LedgerData(
     recentAttempts: List<String>.from(
@@ -145,6 +186,7 @@ class _LedgerData {
     essayCorrections: List<String>.from(
       json['essayCorrections'] as List? ?? const [],
     ),
+    baselineTaken: json['baselineTaken'] as bool? ?? false,
   );
 
   final List<String> recentAttempts;
@@ -153,12 +195,17 @@ class _LedgerData {
   final Set<int> streakMilestonesCelebrated;
   final List<String> essayCorrections;
 
+  /// Whether this user's standing has been recorded once without
+  /// celebrating it -- see [AurudoReactionLedger.takeBaseline].
+  final bool baselineTaken;
+
   Map<String, dynamic> toJson() => {
     'recentAttempts': recentAttempts,
     'dailyGoalDates': dailyGoalDates,
     'lastLevelCelebrated': lastLevelCelebrated,
     'streakMilestonesCelebrated': streakMilestonesCelebrated.toList(),
     'essayCorrections': essayCorrections,
+    'baselineTaken': baselineTaken,
   };
 
   _LedgerData copyWith({
@@ -167,10 +214,12 @@ class _LedgerData {
     int? lastLevelCelebrated,
     Set<int>? streakMilestonesCelebrated,
     List<String>? essayCorrections,
+    bool? baselineTaken,
   }) => _LedgerData(
     recentAttempts: recentAttempts ?? this.recentAttempts,
     dailyGoalDates: dailyGoalDates ?? this.dailyGoalDates,
     lastLevelCelebrated: lastLevelCelebrated ?? this.lastLevelCelebrated,
+    baselineTaken: baselineTaken ?? this.baselineTaken,
     streakMilestonesCelebrated:
         streakMilestonesCelebrated ?? this.streakMilestonesCelebrated,
     essayCorrections: essayCorrections ?? this.essayCorrections,

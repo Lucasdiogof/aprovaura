@@ -177,7 +177,7 @@ class _ResultBodyState extends State<_ResultBody> {
       correctCount: result.correctCount,
       totalAnswered: result.questionCount,
     );
-    final alreadySeen = markReactionSeen(result.mockExamId);
+    final alreadySeen = markReactionSeen(result.mockExamId, reaction);
     setState(() {
       _reaction = reaction;
       // Opened again, or reached without having just been handed in: the

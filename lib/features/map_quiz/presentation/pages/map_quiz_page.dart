@@ -344,7 +344,7 @@ class _FinishedViewState extends State<_FinishedView> {
       awardedCorrectCount: _awardedCorrectCount,
     );
     if (!mounted) return;
-    final alreadySeen = markReactionSeen(widget.attemptId);
+    final alreadySeen = markReactionSeen(widget.attemptId, reaction);
     if (alreadySeen) {
       // Already celebrated once: this is the result being opened again,
       // and it goes straight to its final state.

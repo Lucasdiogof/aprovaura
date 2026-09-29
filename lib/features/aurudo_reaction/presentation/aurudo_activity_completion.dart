@@ -6,6 +6,8 @@ import 'package:aura/features/aurudo_reaction/data/current_aurudo_reaction_ledge
 import 'package:aura/features/aurudo_reaction/domain/aurudo_reaction_resolver.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_activity_outcome.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_secondary_achievement.dart';
 import 'package:aura/features/home/domain/entities/daily_goal.dart';
 import 'package:aura/features/home/domain/repositories/daily_goal_repository.dart';
 import 'package:aura/features/streak/domain/entities/streak.dart';
@@ -158,9 +160,45 @@ Future<AurudoReaction> awardAndResolveReaction({
 /// open straight in the final state instead of replaying the scene. The
 /// mark happens at the moment the scene actually starts presenting, never
 /// while the activity is still finishing.
-bool markReactionSeen(String attemptId) {
+bool markReactionSeen(String attemptId, [AurudoReaction? reaction]) {
   final ledger = currentAurudoReactionLedger();
-  final already = ledger?.hasCelebratedAttempt(attemptId) ?? false;
-  if (!already) ledger?.markAttemptCelebrated(attemptId);
-  return already;
+  if (ledger == null) return false;
+  final already = ledger.hasCelebratedAttempt(attemptId);
+  if (already) return true;
+  ledger.markAttemptCelebrated(attemptId);
+  // The achievements this scene is about to show are spent here too, so
+  // Home does not celebrate the same level, milestone or goal again when
+  // the person walks back to it.
+  if (reaction != null) {
+    final types = {
+      reaction.type,
+      ...reaction.secondary.map(
+        (a) => switch (a.type) {
+          AurudoSecondaryAchievementType.levelUp => AurudoReactionType.levelUp,
+          AurudoSecondaryAchievementType.streakMilestone =>
+            AurudoReactionType.streakMilestone,
+          AurudoSecondaryAchievementType.dailyGoalComplete =>
+            AurudoReactionType.dailyGoalComplete,
+        },
+      ),
+    };
+    for (final achievement in reaction.secondary) {
+      switch (achievement.type) {
+        case AurudoSecondaryAchievementType.levelUp:
+          if (achievement.value case final level?) {
+            ledger.markLevelCelebrated(level);
+          }
+        case AurudoSecondaryAchievementType.streakMilestone:
+          if (achievement.value case final days?) {
+            ledger.markStreakMilestoneCelebrated(days);
+          }
+        case AurudoSecondaryAchievementType.dailyGoalComplete:
+          ledger.markDailyGoalCelebrated(DateTime.now());
+      }
+    }
+    if (types.contains(AurudoReactionType.dailyGoalComplete)) {
+      ledger.markDailyGoalCelebrated(DateTime.now());
+    }
+  }
+  return false;
 }

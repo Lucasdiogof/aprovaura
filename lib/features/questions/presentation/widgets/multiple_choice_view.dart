@@ -415,7 +415,7 @@ class _FinishedViewState extends State<_FinishedView> {
       totalAnswered: widget.totalCount,
     );
     if (!mounted) return;
-    final alreadySeen = markReactionSeen(widget.attemptId);
+    final alreadySeen = markReactionSeen(widget.attemptId, reaction);
     setState(() {
       _reaction = reaction;
       _instant = alreadySeen;
