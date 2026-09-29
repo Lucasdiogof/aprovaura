@@ -200,14 +200,16 @@ void main() {
     expect(find.text('Voltar para o início'), findsOneWidget);
   });
 
-  testWidgets('100%: excellent, no review button (nothing to review)', (
+  testWidgets('100%: perfect, no review button (nothing to review)', (
     tester,
   ) async {
     useTallScreen(tester);
     stubResult(_single(correct: 10, accuracy: 100));
     await pumpResult(tester);
 
-    expect(find.text('Excelente resultado'), findsOneWidget);
+    // Everything right is the app's signature reaction, so it gets its
+    // own headline rather than the "excellent" tier's.
+    expect(find.text('Perfeito!'), findsOneWidget);
     expect(find.text('100%'), findsWidgets);
     expect(find.text('Ver questões erradas'), findsNothing);
     expect(find.text('Fazer outro simulado'), findsOneWidget);

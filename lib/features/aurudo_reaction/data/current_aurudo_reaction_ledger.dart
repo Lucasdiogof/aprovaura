@@ -11,6 +11,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Always call this fresh at the point of use, never cache the result
 /// across a sign-out -- see [AurudoReactionLedger]'s own doc comment.
 AurudoReactionLedger? currentAurudoReactionLedger() {
+  // Same posture for a screen reached without auth or storage wired up:
+  // no ledger means no dedupe, never a crash on a results screen.
+  if (!sl.isRegistered<AuthRepository>() ||
+      !sl.isRegistered<SharedPreferences>()) {
+    return null;
+  }
   final userId = sl<AuthRepository>().currentUser?.id;
   if (userId == null) return null;
   return AurudoReactionLedger(sl<SharedPreferences>(), userId: userId);

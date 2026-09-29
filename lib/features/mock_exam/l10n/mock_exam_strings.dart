@@ -1,4 +1,5 @@
 import 'package:aura/core/l10n/app_language.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
 import 'package:aura/shared/l10n/aura_strings.dart';
 import 'package:aura/features/mock_exam/domain/mock_exam_failure.dart';
 
@@ -448,6 +449,50 @@ class MockExamStrings {
     AppLanguage.portuguese => 'aproveitamento',
     AppLanguage.english => 'accuracy',
     AppLanguage.spanish => 'aciertos',
+  };
+
+  /// 100% right. The app's signature reaction, and the only headline in
+  /// the exam that is an exclamation -- everything else here keeps the
+  /// analytical tone the report needs.
+  String get tierPerfectTitle => switch (language) {
+    AppLanguage.portuguese => 'Perfeito!',
+    AppLanguage.english => 'Perfect!',
+    AppLanguage.spanish => '¡Perfecto!',
+  };
+
+  String get tierPerfectDescription => switch (language) {
+    AppLanguage.portuguese => 'Você acertou todas as questões deste simulado.',
+    AppLanguage.english => 'You got every question in this exam right.',
+    AppLanguage.spanish => 'Acertaste todas las preguntas de este simulacro.',
+  };
+
+  /// An achievement earned by handing this exam in takes over the
+  /// headline -- except perfect, which always stays the main reaction.
+  String reactionHeadline(AurudoReactionType type, String fallback) =>
+      switch (type) {
+        AurudoReactionType.levelUp => switch (language) {
+          AppLanguage.portuguese => 'Subiu de nível!',
+          AppLanguage.english => 'Level up!',
+          AppLanguage.spanish => '¡Subiste de nivel!',
+        },
+        AurudoReactionType.streakMilestone => switch (language) {
+          AppLanguage.portuguese => 'Sequência em dia!',
+          AppLanguage.english => 'Streak going strong!',
+          AppLanguage.spanish => '¡Racha en marcha!',
+        },
+        _ => fallback,
+      };
+
+  String levelUpBadge(int level) => switch (language) {
+    AppLanguage.portuguese => 'Nível $level',
+    AppLanguage.english => 'Level $level',
+    AppLanguage.spanish => 'Nivel $level',
+  };
+
+  String streakMilestoneBadge(int days) => switch (language) {
+    AppLanguage.portuguese => '$days dias seguidos',
+    AppLanguage.english => '$days-day streak',
+    AppLanguage.spanish => '$days días seguidos',
   };
 
   String get tierReviewTitle => switch (language) {

@@ -7,6 +7,7 @@ import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_activity_completion.dart';
 import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
 import 'package:aura/features/mock_exam/l10n/mock_exam_strings.dart';
 import 'package:aura/features/mock_exam/presentation/cubit/mock_exam_runner_cubit.dart';
@@ -151,6 +152,11 @@ class _MockExamRunnerView extends StatelessWidget {
 
   Future<void> _submit(BuildContext context, MockExamStrings t) async {
     final cubit = context.read<MockExamRunnerCubit>();
+    // Where XP and the streak stand before handing in -- the result screen
+    // diffs against this to know whether a level or a milestone was earned
+    // by this exam. Taken before finish() so the exam's own reward cannot
+    // already be in it.
+    final before = AurudoRewardsSnapshot.fromCubits(context);
     final result = await cubit.finish();
     if (!context.mounted) return;
     switch (result) {
@@ -158,11 +164,22 @@ class _MockExamRunnerView extends StatelessWidget {
         // XP was already credited on the server inside finish_mock_exam();
         // this only refreshes the on-screen total. The streak counts a
         // handed-in exam like any other finished activity.
-        unawaited(context.read<XpCubit>().load());
-        unawaited(context.read<StreakCubit>().registerActivityCompletion());
+        //
+        // Both are awaited now, not fire-and-forget: the result screen
+        // reads these numbers the moment it opens, and celebrating a
+        // level up that has not landed yet would simply never happen.
+        // The hand-in button stays in its loading state throughout.
+        await Future.wait([
+          context.read<XpCubit>().load(),
+          context.read<StreakCubit>().registerActivityCompletion(),
+        ]);
+        if (!context.mounted) return;
         await Navigator.of(context).pushReplacement(
           MaterialPageRoute<void>(
-            builder: (_) => MockExamResultPage(mockExamId: cubit.mockExamId),
+            builder: (_) => MockExamResultPage(
+              mockExamId: cubit.mockExamId,
+              before: before,
+            ),
           ),
         );
       case MockExamFinishFailed(:final failure):

@@ -51,6 +51,42 @@ class AurudoRewardsSnapshot {
   }
 }
 
+/// The numbers as they stand right now, once an activity's rewards have
+/// landed. [includeDailyGoal] is false where the goal cannot be
+/// attributed to this activity -- see the mock exam, whose answers
+/// already counted toward the goal while it was being taken.
+Future<AurudoRewardsSnapshot> currentRewardsSnapshot(
+  BuildContext context, {
+  bool includeDailyGoal = true,
+}) async {
+  final snapshot = AurudoRewardsSnapshot.fromCubits(context);
+  if (!includeDailyGoal) return snapshot;
+  return snapshot.withDailyGoal(await AurudoRewardsSnapshot.readDailyGoal());
+}
+
+/// The one reaction that should play, from what changed between [before]
+/// and [after].
+///
+/// A signal missing on either side is simply not looked at: the resolver
+/// never guesses an achievement it cannot see happening.
+AurudoReaction resolveFromSnapshots({
+  required AurudoRewardsSnapshot? before,
+  required AurudoRewardsSnapshot? after,
+  required int correctCount,
+  required int totalAnswered,
+}) => const AurudoReactionResolver().resolveActivity(
+  AurudoActivityOutcome(
+    correctCount: correctCount,
+    totalAnswered: totalAnswered,
+    xpBefore: before?.xp,
+    xpAfter: after?.xp,
+    streakBefore: before?.streak,
+    streakAfter: after?.streak,
+    dailyGoalBefore: before?.dailyGoal,
+    dailyGoalAfter: after?.dailyGoal,
+  ),
+);
+
 /// Grants this activity's rewards, then resolves the one reaction that
 /// should play.
 ///
@@ -79,11 +115,11 @@ Future<AurudoReaction> awardAndResolveReaction({
   // answered questions): score alone decides, and there is no
   // achievement to look for.
   if (before == null) {
-    return const AurudoReactionResolver().resolveActivity(
-      AurudoActivityOutcome(
-        correctCount: correctCount,
-        totalAnswered: totalAnswered,
-      ),
+    return resolveFromSnapshots(
+      before: null,
+      after: null,
+      correctCount: correctCount,
+      totalAnswered: totalAnswered,
     );
   }
 
@@ -98,31 +134,19 @@ Future<AurudoReaction> awardAndResolveReaction({
     ),
   ]);
   if (!context.mounted) {
-    return const AurudoReactionResolver().resolveActivity(
-      AurudoActivityOutcome(
-        correctCount: correctCount,
-        totalAnswered: totalAnswered,
-      ),
+    return resolveFromSnapshots(
+      before: null,
+      after: null,
+      correctCount: correctCount,
+      totalAnswered: totalAnswered,
     );
   }
 
-  UserXp? xpAfter;
-  if (xpCubit.state case XpLoaded(:final xp)) xpAfter = xp;
-  Streak? streakAfter;
-  if (streakCubit.state case StreakLoaded(:final streak)) streakAfter = streak;
-  final dailyGoalAfter = await AurudoRewardsSnapshot.readDailyGoal();
-
-  return const AurudoReactionResolver().resolveActivity(
-    AurudoActivityOutcome(
-      correctCount: correctCount,
-      totalAnswered: totalAnswered,
-      xpBefore: before.xp,
-      xpAfter: xpAfter,
-      streakBefore: before.streak,
-      streakAfter: streakAfter,
-      dailyGoalBefore: before.dailyGoal,
-      dailyGoalAfter: dailyGoalAfter,
-    ),
+  return resolveFromSnapshots(
+    before: before,
+    after: await currentRewardsSnapshot(context),
+    correctCount: correctCount,
+    totalAnswered: totalAnswered,
   );
 }
 

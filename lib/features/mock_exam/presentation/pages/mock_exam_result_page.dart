@@ -5,6 +5,11 @@ import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_secondary_achievement.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_achievement_badge.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_activity_completion.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_stage.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_result.dart';
 import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository.dart';
 import 'package:aura/features/mock_exam/l10n/mock_exam_strings.dart';
@@ -27,22 +32,31 @@ import 'package:aura/shared/widgets/stat_cell.dart';
 /// reopened, and (later) reached from a history screen. Every number here
 /// is the server's; the screen only lays them out.
 class MockExamResultPage extends StatelessWidget {
-  const MockExamResultPage({required this.mockExamId, super.key});
+  const MockExamResultPage({required this.mockExamId, this.before, super.key});
 
   final String mockExamId;
+
+  /// Where XP and the streak stood just before this exam was handed in,
+  /// captured by the session screen. Null everywhere else this page is
+  /// opened from (an exam closed on another device, and later a history
+  /// screen): with nothing to diff against, the result opens in its final
+  /// state and celebrates nothing.
+  final AurudoRewardsSnapshot? before;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) =>
           MockExamResultCubit(sl<MockExamRepository>(), mockExamId: mockExamId),
-      child: const _MockExamResultView(),
+      child: _MockExamResultView(before: before),
     );
   }
 }
 
 class _MockExamResultView extends StatelessWidget {
-  const _MockExamResultView();
+  const _MockExamResultView({required this.before});
+
+  final AurudoRewardsSnapshot? before;
 
   @override
   Widget build(BuildContext context) {
@@ -72,9 +86,11 @@ class _MockExamResultView extends StatelessWidget {
                   onAction: () => Navigator.of(context).pop(),
                 ),
                 MockExamResultLoaded(:final result) => _ResultBody(
+                  key: ValueKey(result.mockExamId),
                   result: result,
                   strings: t,
                   language: language,
+                  before: before,
                 ),
               },
             ),
@@ -85,16 +101,73 @@ class _MockExamResultView extends StatelessWidget {
   }
 }
 
-class _ResultBody extends StatelessWidget {
+/// The result, opened by the Aurudo Reaction System and then handed over
+/// to the report.
+///
+/// Aurudo reacts to how it went, the score card sums it up, and the
+/// breakdown by subject and by difficulty -- the reason anyone takes a
+/// mock exam -- follows right under it in the same scroll. The mascot is
+/// deliberately smaller here than on a quiz or a map: seven subjects to
+/// read through are the point of this screen, and it never scrolls with
+/// them.
+class _ResultBody extends StatefulWidget {
   const _ResultBody({
     required this.result,
     required this.strings,
     required this.language,
+    required this.before,
+    super.key,
   });
 
   final MockExamResult result;
   final MockExamStrings strings;
   final AppLanguage language;
+  final AurudoRewardsSnapshot? before;
+
+  @override
+  State<_ResultBody> createState() => _ResultBodyState();
+}
+
+class _ResultBodyState extends State<_ResultBody> {
+  AurudoReaction? _reaction;
+  bool _instant = false;
+
+  MockExamResult get result => widget.result;
+  MockExamStrings get strings => widget.strings;
+  AppLanguage get language => widget.language;
+
+  @override
+  void initState() {
+    super.initState();
+    _resolve();
+  }
+
+  void _resolve() {
+    // Nothing is granted here: finish_mock_exam() already did all of it
+    // server-side, and this screen only reads. The reaction is resolved
+    // from what the session screen saw before handing in versus what the
+    // cubits hold now.
+    //
+    // The daily goal is deliberately left out on both sides: an exam's
+    // answers count toward it while the exam is being taken, so the goal
+    // may well have been reached twenty questions ago. Claiming it at
+    // hand-in would celebrate the wrong moment.
+    final reaction = resolveFromSnapshots(
+      before: widget.before,
+      after: widget.before == null
+          ? null
+          : AurudoRewardsSnapshot.fromCubits(context),
+      correctCount: result.correctCount,
+      totalAnswered: result.questionCount,
+    );
+    final alreadySeen = markReactionSeen(result.mockExamId);
+    setState(() {
+      _reaction = reaction;
+      // Opened again, or reached without having just been handed in: the
+      // scene does not replay.
+      _instant = alreadySeen || widget.before == null;
+    });
+  }
 
   /// Subjects in the app's usual order (the server sorts alphabetically).
   List<MockExamResultLine> get _subjectsInAppOrder {
@@ -121,10 +194,38 @@ class _ResultBody extends StatelessWidget {
     );
   }
 
+  /// The headline: the exam's own tier copy, which is already written in
+  /// the sober voice this screen needs -- unless the hand-in also earned
+  /// something, which takes the line instead. Perfect always wins.
+  (String, String) _headlineFor(AurudoReaction reaction) {
+    final t = strings;
+    final isPerfect =
+        result.questionCount > 0 && result.correctCount == result.questionCount;
+    if (isPerfect) return (t.tierPerfectTitle, t.tierPerfectDescription);
+    final tier = MockExamResultTier.fromAccuracy(result.accuracyPercent);
+    final (title, description) = switch (tier) {
+      MockExamResultTier.review => (t.tierReviewTitle, t.tierReviewDescription),
+      MockExamResultTier.advancing => (
+        t.tierAdvancingTitle,
+        t.tierAdvancingDescription,
+      ),
+      MockExamResultTier.good => (t.tierGoodTitle, t.tierGoodDescription),
+      MockExamResultTier.excellent => (
+        t.tierExcellentTitle,
+        t.tierExcellentDescription,
+      ),
+    };
+    return (t.reactionHeadline(reaction.type, title), description);
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = strings;
     final hasErrors = result.wrongCount > 0;
+    final reaction = _reaction;
+    final (headlineTitle, headlineDescription) = reaction == null
+        ? ('', '')
+        : _headlineFor(reaction);
     return ListView(
       padding: EdgeInsets.fromLTRB(
         appHorizontalPadding(context),
@@ -133,7 +234,27 @@ class _ResultBody extends StatelessWidget {
         AppSpacing.xxl,
       ),
       children: [
-        _ScoreCard(result: result, strings: t),
+        if (reaction != null)
+          AurudoReactionStage(
+            reaction: reaction,
+            instant: _instant,
+            // Smaller than on a quiz or a map on purpose: this screen has
+            // a report to get to.
+            mascotSize: 120,
+            headline: _Headline(
+              title: headlineTitle,
+              description: headlineDescription,
+            ),
+            content: _ScoreCard(result: result, strings: t),
+            stats: reaction.secondary.isEmpty
+                ? null
+                : _SecondaryBadgesRow(
+                    achievements: reaction.secondary,
+                    strings: t,
+                  ),
+          )
+        else
+          _ScoreCard(result: result, strings: t),
         const SizedBox(height: AppSpacing.xxl),
         SectionLabel(t.bySubjectTitle),
         _BreakdownCard(
@@ -201,6 +322,86 @@ class _ResultBody extends StatelessWidget {
   }
 }
 
+class _Headline extends StatelessWidget {
+  const _Headline({required this.title, required this.description});
+
+  final String title;
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          title,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 22,
+            color: context.colors.textPrimary,
+          ),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          description,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 13,
+            height: 1.4,
+            color: context.colors.textSecondary,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// What handing this exam in earned, beyond the score. Perfect stays the
+/// main reaction, so these are always badges beside it.
+///
+/// The daily goal is never here: an exam's answers count toward it while
+/// the exam is being taken, so hand-in is the wrong moment to claim it.
+class _SecondaryBadgesRow extends StatelessWidget {
+  const _SecondaryBadgesRow({
+    required this.achievements,
+    required this.strings,
+  });
+
+  final List<AurudoSecondaryAchievement> achievements;
+  final MockExamStrings strings;
+
+  String _labelFor(AurudoSecondaryAchievement achievement) =>
+      switch (achievement.type) {
+        AurudoSecondaryAchievementType.levelUp => strings.levelUpBadge(
+          achievement.value ?? 0,
+        ),
+        AurudoSecondaryAchievementType.streakMilestone =>
+          strings.streakMilestoneBadge(achievement.value ?? 0),
+        AurudoSecondaryAchievementType.dailyGoalComplete => '',
+      };
+
+  @override
+  Widget build(BuildContext context) {
+    final badges = [
+      for (final achievement in achievements)
+        if (achievement.type !=
+            AurudoSecondaryAchievementType.dailyGoalComplete)
+          AurudoAchievementBadge(
+            achievement: achievement,
+            label: _labelFor(achievement),
+          ),
+    ];
+    if (badges.isEmpty) return const SizedBox.shrink();
+    return Wrap(
+      alignment: WrapAlignment.center,
+      spacing: 8,
+      runSpacing: 8,
+      children: badges,
+    );
+  }
+}
+
 /// Score ring (accuracy) + "68 / 90 corretas" + the tier message, then
 /// wrong / blank / Aura. Correct is only in the headline and the percentage
 /// only in the ring -- nothing said twice. Wrong and blank are always
@@ -214,19 +415,6 @@ class _ScoreCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = strings;
-    final tier = MockExamResultTier.fromAccuracy(result.accuracyPercent);
-    final (tierTitle, tierDescription) = switch (tier) {
-      MockExamResultTier.review => (t.tierReviewTitle, t.tierReviewDescription),
-      MockExamResultTier.advancing => (
-        t.tierAdvancingTitle,
-        t.tierAdvancingDescription,
-      ),
-      MockExamResultTier.good => (t.tierGoodTitle, t.tierGoodDescription),
-      MockExamResultTier.excellent => (
-        t.tierExcellentTitle,
-        t.tierExcellentDescription,
-      ),
-    };
     return Container(
       padding: const EdgeInsets.all(AppSpacing.xl),
       decoration: BoxDecoration(
@@ -308,23 +496,6 @@ class _ScoreCard extends StatelessWidget {
                             ),
                           ),
                         ],
-                      ),
-                    ),
-                    const SizedBox(height: AppSpacing.sm),
-                    Text(
-                      tierTitle,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: context.colors.textPrimary,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      tierDescription,
-                      style: TextStyle(
-                        fontSize: 12,
-                        height: 1.35,
-                        color: context.colors.textSecondary,
                       ),
                     ),
                   ],
