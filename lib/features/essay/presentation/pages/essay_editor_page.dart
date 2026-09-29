@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
@@ -244,8 +245,8 @@ class _EssayEditorViewState extends State<_EssayEditorView> {
             ),
             body: SafeArea(
               child: switch (state) {
-                EssayEditorLoading() => Center(
-                  child: CircularProgressIndicator(color: colors.primary),
+                EssayEditorLoading() => const Center(
+                  child: AppAuraLoader.medium(),
                 ),
                 EssayEditorLoadFailed() => _LoadFailedView(strings: t),
                 EssayEditorReady() => _Editor(

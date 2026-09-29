@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
@@ -55,7 +57,14 @@ class _MockExamActiveSheetState extends State<_MockExamActiveSheet> {
       _isDiscarding = true;
       _error = null;
     });
-    final failure = await widget.onDiscard(active.id);
+    // Remote and destructive: the app's blocking overlay covers it from
+    // the tap on, and always comes down (run() has its own finally) --
+    // on success the sheet closes with "discarded", on failure it stays
+    // open with the reason, ready for another try. Never a reaction.
+    final failure = await context.read<AppBlockingLoadingCubit>().run(
+      () => widget.onDiscard(active.id),
+      message: MockExamStrings(widget.language).discardingExam,
+    );
     if (!mounted) return;
     if (failure == null || failure.kind == MockExamFailureKind.notInProgress) {
       // notInProgress: it was already finished/discarded elsewhere -- either
@@ -146,16 +155,8 @@ class _MockExamActiveSheetState extends State<_MockExamActiveSheet> {
                 ),
               ),
               onPressed: _isDiscarding || active == null ? null : _discard,
-              child: _isDiscarding
-                  ? SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2.5,
-                        color: context.colors.error,
-                      ),
-                    )
-                  : Text(t.activeDiscardButton),
+              // The overlay is the feedback; the button only stays blocked.
+              child: Text(t.activeDiscardButton),
             ),
           ),
           TextButton(

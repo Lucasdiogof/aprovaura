@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
@@ -70,10 +71,8 @@ class _MockExamResultView extends StatelessWidget {
           Expanded(
             child: BlocBuilder<MockExamResultCubit, MockExamResultState>(
               builder: (context, state) => switch (state) {
-                MockExamResultLoading() => Center(
-                  child: CircularProgressIndicator(
-                    color: context.colors.primary,
-                  ),
+                MockExamResultLoading() => const Center(
+                  child: AppAuraLoader.medium(),
                 ),
                 MockExamResultError() => _MessageView(
                   message: t.resultLoadError,

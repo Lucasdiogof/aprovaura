@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
@@ -33,10 +34,8 @@ class DossierListPage extends StatelessWidget {
             Expanded(
               child: BlocBuilder<DossierListCubit, DossierListState>(
                 builder: (context, state) => switch (state) {
-                  DossierListLoading() => Center(
-                    child: CircularProgressIndicator(
-                      color: context.colors.primary,
-                    ),
+                  DossierListLoading() => const Center(
+                    child: AppAuraLoader.medium(),
                   ),
                   DossierListError(:final message) => _ErrorView(
                     message: message,

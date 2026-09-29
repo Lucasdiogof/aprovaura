@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
@@ -111,8 +112,8 @@ class _EssaySubmissionPageState extends State<EssaySubmissionPage> {
   Widget _body(EssayStrings t) =>
       BlocBuilder<EssaySubmissionCubit, EssaySubmissionState>(
         builder: (context, state) => switch (state) {
-          EssaySubmissionLoading() => Center(
-            child: CircularProgressIndicator(color: context.colors.primary),
+          EssaySubmissionLoading() => const Center(
+            child: AppAuraLoader.medium(),
           ),
           EssaySubmissionError() => _ErrorView(strings: t),
           EssaySubmissionLoaded(
@@ -448,14 +449,8 @@ class _WaitingNote extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          width: 14,
-          height: 14,
-          child: CircularProgressIndicator(
-            strokeWidth: 2,
-            color: colors.textSecondary,
-          ),
-        ),
+        // The line next to it already says what is happening.
+        const ExcludeSemantics(child: AppAuraLoader.small()),
         const SizedBox(width: AppSpacing.sm),
         Expanded(
           child: Text(

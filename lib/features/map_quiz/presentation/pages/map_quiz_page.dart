@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/utils/id_generator.dart';
@@ -27,7 +28,6 @@ import 'package:aura/features/questions/presentation/quiz_result_tier.dart';
 import 'package:aura/features/xp/domain/entities/user_xp.dart';
 import 'package:aura/shared/widgets/aura/aura_badge.dart';
 import 'package:aura/shared/widgets/app_button.dart';
-import 'package:aura/shared/widgets/app_loading_indicator.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
 class MapQuizPage extends StatelessWidget {
@@ -147,11 +147,7 @@ class _MapQuizViewState extends State<_MapQuizView> {
                 }
               },
               builder: (context, state) => switch (state) {
-                MapQuizLoading() => Center(
-                  child: CircularProgressIndicator(
-                    color: context.colors.primary,
-                  ),
-                ),
+                MapQuizLoading() => const Center(child: AppAuraLoader.medium()),
                 MapQuizError(:final message) => _ErrorView(
                   strings: t,
                   message: message,
@@ -366,7 +362,7 @@ class _FinishedViewState extends State<_FinishedView> {
   Widget build(BuildContext context) {
     final reaction = _reaction;
     if (reaction == null) {
-      return const Center(child: AppLoadingIndicator());
+      return const Center(child: AppAuraLoader.medium());
     }
 
     final strings = widget.strings;

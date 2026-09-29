@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/router/app_route_observer.dart';
@@ -105,10 +106,8 @@ class _CatalogListPageState extends State<CatalogListPage> with RouteAware {
             Expanded(
               child: BlocBuilder<CatalogCubit, CatalogState>(
                 builder: (context, state) => switch (state) {
-                  CatalogLoading() => Center(
-                    child: CircularProgressIndicator(
-                      color: context.colors.primary,
-                    ),
+                  CatalogLoading() => const Center(
+                    child: AppAuraLoader.medium(),
                   ),
                   CatalogError(:final message) => _ErrorView(message: message),
                   CatalogLoaded(nodes: final nodes) when nodes.isEmpty =>

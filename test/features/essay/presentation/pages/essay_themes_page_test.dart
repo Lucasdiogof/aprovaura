@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
@@ -78,7 +79,7 @@ void main() {
       await tester.pumpApp(const EssayThemesPage());
       await tester.pump();
 
-      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      expect(find.byType(AppAuraLoader), findsOneWidget);
       await tester.pumpAndSettle();
     });
 

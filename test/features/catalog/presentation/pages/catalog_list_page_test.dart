@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
@@ -103,7 +104,49 @@ void main() {
       );
       await tester.pump();
 
-      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      expect(find.byType(AppAuraLoader), findsOneWidget);
+    });
+
+    testWidgets('local loading: the medium loader in the content area, never '
+        'the blocking overlay; then the content takes its place', (
+      tester,
+    ) async {
+      final pending = Completer<Result<List<CatalogNode>>>();
+      when(
+        () => catalogRepository.getChildren(
+          subject: any(named: 'subject'),
+          parentId: any(named: 'parentId'),
+          difficulty: any(named: 'difficulty'),
+        ),
+      ).thenAnswer((_) => pending.future);
+      when(
+        () => progressRepository.getBatchProgress(
+          any(),
+          difficulty: any(named: 'difficulty'),
+        ),
+      ).thenAnswer((_) async => const Success({}));
+
+      // No app-level blocking overlay provided at all: a local load must
+      // not need (or touch) it.
+      await tester.pumpApp(
+        const CatalogListPage(subject: Subject.geografia, title: 'Geografia'),
+      );
+      await tester.pump();
+
+      expect(
+        tester.getSize(find.byType(AppAuraLoader)),
+        const Size.square(AppAuraLoader.mediumSize),
+      );
+      // The page chrome stays: only the content area waits.
+      expect(find.text('Geografia'), findsWidgets);
+
+      pending.complete(
+        const Success([CatalogNode(id: 'n1', title: 'Estados')]),
+      );
+      await tester.pump();
+      await tester.pump();
+      expect(find.byType(AppAuraLoader), findsNothing);
+      expect(find.text('Estados'), findsOneWidget);
     });
   });
 }

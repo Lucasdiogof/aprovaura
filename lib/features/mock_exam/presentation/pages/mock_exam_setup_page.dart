@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
@@ -122,10 +123,8 @@ class _MockExamSetupView extends StatelessWidget {
               ModernAppBar(title: t.setupTitle, showBackButton: true),
               Expanded(
                 child: switch (state.status) {
-                  MockExamSetupStatus.loading => Center(
-                    child: CircularProgressIndicator(
-                      color: context.colors.primary,
-                    ),
+                  MockExamSetupStatus.loading => const Center(
+                    child: AppAuraLoader.medium(),
                   ),
                   MockExamSetupStatus.loadError => _LoadErrorView(
                     strings: t,

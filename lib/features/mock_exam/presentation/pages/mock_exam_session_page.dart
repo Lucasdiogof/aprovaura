@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/app_language.dart';
@@ -251,10 +252,8 @@ class _MockExamRunnerView extends StatelessWidget {
                 ),
                 Expanded(
                   child: switch (state.status) {
-                    MockExamRunnerStatus.loading => Center(
-                      child: CircularProgressIndicator(
-                        color: context.colors.primary,
-                      ),
+                    MockExamRunnerStatus.loading => const Center(
+                      child: AppAuraLoader.medium(),
                     ),
                     MockExamRunnerStatus.loadError => _MessageView(
                       icon: Icons.error_outline_rounded,
@@ -590,14 +589,8 @@ class _SavingBeforeExitSheetState extends State<_SavingBeforeExitSheet> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(
-          width: 28,
-          height: 28,
-          child: CircularProgressIndicator(
-            strokeWidth: 3,
-            color: context.colors.primary,
-          ),
-        ),
+        // The line under it already says what is happening.
+        const ExcludeSemantics(child: AppAuraLoader.medium()),
         const SizedBox(height: AppSpacing.lg),
         Text(
           widget.strings.savingBeforeExit,

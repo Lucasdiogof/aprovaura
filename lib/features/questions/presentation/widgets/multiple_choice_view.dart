@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
@@ -30,7 +31,6 @@ import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart'
 import 'package:aura/features/xp/domain/entities/user_xp.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
-import 'package:aura/shared/widgets/app_loading_indicator.dart';
 import 'package:aura/shared/l10n/aura_strings.dart';
 import 'package:aura/shared/widgets/aura/aura_glyph.dart';
 import 'package:aura/shared/widgets/stat_cell.dart';
@@ -133,10 +133,8 @@ class _MultipleChoiceViewState extends State<MultipleChoiceView> {
                   context.read<MultipleChoiceCubit>().previous();
                 },
                 child: switch (state) {
-                  MultipleChoiceLoading() => Center(
-                    child: CircularProgressIndicator(
-                      color: context.colors.primary,
-                    ),
+                  MultipleChoiceLoading() => const Center(
+                    child: AppAuraLoader.medium(),
                   ),
                   MultipleChoiceEmpty() => widget.onEmpty(context),
                   MultipleChoiceError(:final message) => _ErrorView(
@@ -419,7 +417,7 @@ class _FinishedViewState extends State<_FinishedView> {
   Widget build(BuildContext context) {
     final reaction = _reaction;
     if (reaction == null) {
-      return const Center(child: AppLoadingIndicator());
+      return const Center(child: AppAuraLoader.medium());
     }
 
     final strings = widget.strings;

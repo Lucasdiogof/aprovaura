@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
@@ -53,10 +54,8 @@ class EssayThemePage extends StatelessWidget {
             Expanded(
               child: BlocBuilder<EssayThemeCubit, EssayThemeState>(
                 builder: (context, state) => switch (state) {
-                  EssayThemeLoading() => Center(
-                    child: CircularProgressIndicator(
-                      color: context.colors.primary,
-                    ),
+                  EssayThemeLoading() => const Center(
+                    child: AppAuraLoader.medium(),
                   ),
                   EssayThemeError() => _ErrorView(strings: t),
                   EssayThemeLoaded(:final theme, :final attempts) => _ThemeView(

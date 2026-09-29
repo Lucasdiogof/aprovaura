@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/app_language.dart';
@@ -83,10 +84,8 @@ class _ErrorReviewListPageState extends State<ErrorReviewListPage>
             Expanded(
               child: BlocBuilder<ErrorReviewCubit, ErrorReviewState>(
                 builder: (context, state) => switch (state) {
-                  ErrorReviewLoading() => Center(
-                    child: CircularProgressIndicator(
-                      color: context.colors.primary,
-                    ),
+                  ErrorReviewLoading() => const Center(
+                    child: AppAuraLoader.medium(),
                   ),
                   ErrorReviewError(:final message) => _ErrorView(
                     strings: t,

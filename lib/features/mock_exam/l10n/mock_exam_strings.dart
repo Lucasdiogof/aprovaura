@@ -745,4 +745,12 @@ class MockExamStrings {
     AppLanguage.english => 'Abandoning your mock exam...',
     AppLanguage.spanish => 'Abandonando el simulacro...',
   };
+
+  /// On the blocking overlay while an unfinished exam is discarded to make
+  /// room for a new one.
+  String get discardingExam => switch (language) {
+    AppLanguage.portuguese => 'Descartando simulado...',
+    AppLanguage.english => 'Discarding your mock exam...',
+    AppLanguage.spanish => 'Descartando el simulacro...',
+  };
 }
