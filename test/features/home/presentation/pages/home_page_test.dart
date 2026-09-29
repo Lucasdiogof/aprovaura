@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -143,7 +145,11 @@ void main() {
     await settle(tester);
   }
 
-  Future<void> pumpHome(WidgetTester tester, {ThemeData? theme}) async {
+  Future<void> pumpHome(
+    WidgetTester tester, {
+    ThemeData? theme,
+    Widget home = const HomePage(),
+  }) async {
     tester.view.physicalSize = const Size(400, 1400);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);
@@ -158,10 +164,7 @@ void main() {
           BlocProvider<HomeSummaryCubit>.value(value: summaryCubit),
           BlocProvider<ProfileCubit>.value(value: profileCubit),
         ],
-        child: MaterialApp(
-          theme: theme ?? AppTheme.light,
-          home: const HomePage(),
-        ),
+        child: MaterialApp(theme: theme ?? AppTheme.light, home: home),
       ),
     );
     await tester.pump();
@@ -223,6 +226,80 @@ void main() {
 
       expect(find.byType(AurudoAchievementOverlay), findsOneWidget);
       expect(find.text('Meta batida!'), findsWidgets);
+    });
+
+    testWidgets('under an activity pushed on top, nothing is spent; coming '
+        'back plays it once', (tester) async {
+      await pumpHome(tester);
+      await settleBaseline(tester);
+      final navigator = tester.state<NavigatorState>(find.byType(Navigator));
+      unawaited(
+        navigator.push(
+          MaterialPageRoute<void>(builder: (_) => const Scaffold()),
+        ),
+      );
+      // Past the route transition: Home is now really covered.
+      await tester.pump(const Duration(milliseconds: 500));
+      await settle(tester);
+
+      // The goal lands while the activity still covers Home.
+      when(
+        () => dailyGoalRepository.getTodayAnsweredCount(),
+      ).thenAnswer((_) async => const Success(12));
+      await summaryCubit.load();
+      // Longer than the overlay lives: had Home claimed it under the
+      // activity, it would already be gone -- spent where nobody saw it.
+      await tester.pump(
+        AurudoAchievementOverlay.visibleDuration +
+            const Duration(milliseconds: 500),
+      );
+      expect(
+        find.byType(AurudoAchievementOverlay, skipOffstage: false),
+        findsNothing,
+      );
+      // The real point: nothing was written down as celebrated.
+      expect(ledger().hasCelebratedDailyGoal(DateTime.now()), isFalse);
+
+      navigator.pop();
+      await tester.pump(const Duration(milliseconds: 500));
+      await settle(tester);
+      expect(find.byType(AurudoAchievementOverlay), findsOneWidget);
+    });
+
+    testWidgets('from another tab of the shell, nothing is spent until Home '
+        'is shown', (tester) async {
+      // Home is the first tab, visible when the app opens -- that first
+      // look is what takes the baseline.
+      final tab = ValueNotifier(0);
+      addTearDown(tab.dispose);
+      await pumpHome(
+        tester,
+        home: ValueListenableBuilder<int>(
+          valueListenable: tab,
+          builder: (_, index, _) => IndexedStack(
+            index: index,
+            children: const [HomePage(), SizedBox.shrink()],
+          ),
+        ),
+      );
+      await settleBaseline(tester);
+      tab.value = 1;
+      await settle(tester);
+
+      when(
+        () => dailyGoalRepository.getTodayAnsweredCount(),
+      ).thenAnswer((_) async => const Success(12));
+      await summaryCubit.load();
+      await settle(tester);
+      expect(
+        find.byType(AurudoAchievementOverlay, skipOffstage: false),
+        findsNothing,
+      );
+      expect(ledger().hasCelebratedDailyGoal(DateTime.now()), isFalse);
+
+      tab.value = 0;
+      await settle(tester);
+      expect(find.byType(AurudoAchievementOverlay), findsOneWidget);
     });
 
     testWidgets('and it leaves on its own, without a button', (tester) async {

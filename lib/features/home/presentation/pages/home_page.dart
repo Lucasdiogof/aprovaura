@@ -55,6 +55,16 @@ class _HomePageState extends State<HomePage> {
     required DailyGoal? dailyGoal,
   }) {
     if (_pending != null) return;
+    // Only while Home is really on screen. It lives in the shell's
+    // IndexedStack, so it keeps rebuilding from another tab and under an
+    // activity pushed on top -- deciding there spent the achievement on an
+    // overlay nobody could see (a goal reached mid-exam, with the exam
+    // started from Praticar, was simply lost). Both lookups are inherited
+    // dependencies, so Home rebuilds -- and asks again -- the moment it
+    // comes back into view.
+    final onScreen =
+        Visibility.of(context) && TickerMode.valuesOf(context).enabled;
+    if (!onScreen) return;
     if (xp == null || streak == null || dailyGoal == null) return;
     final pending = pendingHomeReaction(
       xp: xp,
