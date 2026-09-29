@@ -84,14 +84,6 @@ class HomeStrings {
     AppLanguage.spanish => '$answered / $target preguntas',
   };
 
-  /// The big line once the goal is passed: a plain count, since "20 / 10"
-  /// reads like a mistake.
-  String dailyGoalAnsweredToday(int answered) => switch (language) {
-    AppLanguage.portuguese => '$answered questões hoje',
-    AppLanguage.english => '$answered questions today',
-    AppLanguage.spanish => '$answered preguntas hoy',
-  };
-
   /// Under the count once the goal is passed. [times] is the whole number
   /// of targets reached: 1 means "passed it", 2 "doubled" and so on.
   String dailyGoalExceeded(int times) => switch (language) {

@@ -5,7 +5,6 @@ import 'package:aura/features/xp/presentation/cubit/xp_state.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
-import 'package:aura/features/home/domain/entities/daily_goal.dart';
 import 'package:aura/features/home/l10n/home_strings.dart';
 import 'package:aura/features/home/presentation/cubit/home_summary_cubit.dart';
 import 'package:aura/features/home/presentation/cubit/home_summary_state.dart';
@@ -51,9 +50,11 @@ class HomePage extends StatelessWidget {
       _ => 0,
     };
     final summaryState = context.watch<HomeSummaryCubit>().state;
+    // Null while loading: the goal card waits for the real state before
+    // animating anything.
     final dailyGoal = switch (summaryState) {
       HomeSummaryLoaded(:final dailyGoal) => dailyGoal,
-      _ => const DailyGoal(answered: 0),
+      _ => null,
     };
     return BlocListener<StreakCubit, StreakState>(
       listenWhen: (previous, current) =>
