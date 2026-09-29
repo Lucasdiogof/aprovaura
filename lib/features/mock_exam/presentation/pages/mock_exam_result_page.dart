@@ -341,12 +341,15 @@ class _ScoreCard extends StatelessWidget {
                 value: '${result.wrongCount}',
                 label: t.statWrong,
               ),
-              _Stat(
-                icon: Icons.remove_rounded,
-                color: context.colors.textSecondary,
-                value: '${result.blankCount}',
-                label: t.statBlank,
-              ),
+              // Blanks can't happen any more (the exam only moves on after
+              // an answer); only an exam from before that rule shows them.
+              if (result.blankCount > 0)
+                _Stat(
+                  icon: Icons.remove_rounded,
+                  color: context.colors.textSecondary,
+                  value: '${result.blankCount}',
+                  label: t.statBlank,
+                ),
               _Stat(
                 icon: Icons.bolt_rounded,
                 color: context.colors.auraViolet,

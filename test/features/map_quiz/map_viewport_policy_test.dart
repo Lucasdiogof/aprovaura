@@ -74,9 +74,38 @@ void main() {
       for (final name in ['Vaticano', 'Mônaco', 'San Marino']) {
         expect(v.proxyIds, contains(_id(board, name)), reason: name);
       }
-      for (final name in ['França', 'Luxemburgo', 'Itália']) {
+      for (final name in ['França', 'Itália', 'Bélgica']) {
         expect(v.proxyIds, isNot(contains(_id(board, name))), reason: name);
       }
+    });
+
+    test('tiny in the first frame gets a marker on a phone, not on a tablet '
+        'where it is already big enough', () {
+      final board = _board('europe_countries', MapInteractionType.polygon);
+      final lux = _id(board, 'Luxemburgo');
+      expect(MapViewportPolicy.resolve(board, _phone).proxyIds, contains(lux));
+      expect(
+        MapViewportPolicy.resolve(board, _tablet).proxyIds,
+        isNot(contains(lux)),
+      );
+    });
+
+    test(
+      'Distrito Federal gets a marker on a phone; its neighbours do not',
+      () {
+        final board = _board('brazil_states', MapInteractionType.polygon);
+        final v = MapViewportPolicy.resolve(board, _phone);
+        expect(v.proxyIds, {_id(board, 'Distrito Federal')});
+      },
+    );
+
+    test('world boards only mark what stays tiny even zoomed in', () {
+      final board = _board('world_countries', MapInteractionType.polygon);
+      final v = MapViewportPolicy.resolve(board, _phone);
+      // Only the "tiny even at max zoom" rule applies here: the same 50
+      // stand-ins as before the first-frame rule existed.
+      expect(v.proxyIds, hasLength(50));
+      expect(v.proxyIds, contains(_id(board, 'Vaticano')));
     });
 
     test('world boards are framed whole and allow limited zoom', () {

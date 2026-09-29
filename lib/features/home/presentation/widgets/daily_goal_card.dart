@@ -72,13 +72,26 @@ class DailyGoalCard extends StatelessWidget {
           ),
           const SizedBox(height: AppSpacing.sm),
           Text(
-            strings.dailyGoalProgress(goal.answered, goal.target),
+            goal.isExceeded
+                ? strings.dailyGoalAnsweredToday(goal.answered)
+                : strings.dailyGoalProgress(goal.answered, goal.target),
             style: TextStyle(
               fontWeight: FontWeight.w800,
               fontSize: 20,
               color: colors.textPrimary,
             ),
           ),
+          if (goal.isExceeded) ...[
+            const SizedBox(height: 2),
+            Text(
+              strings.dailyGoalExceeded(goal.timesReached),
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 13,
+                color: colors.success,
+              ),
+            ),
+          ],
           const SizedBox(height: AppSpacing.md),
           ClipRRect(
             borderRadius: BorderRadius.circular(AppRadius.pill),

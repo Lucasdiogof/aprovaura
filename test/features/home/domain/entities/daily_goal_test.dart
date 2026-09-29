@@ -32,5 +32,15 @@ void main() {
       const goal = DailyGoal(answered: 3, target: 0);
       expect(goal.progress, 0);
     });
+
+    test('exceeded and times reached, only past the target', () {
+      expect(const DailyGoal(answered: 10).isExceeded, isFalse);
+      expect(const DailyGoal(answered: 14).isExceeded, isTrue);
+      expect(const DailyGoal(answered: 14).timesReached, 1);
+      expect(const DailyGoal(answered: 20).timesReached, 2);
+      expect(const DailyGoal(answered: 29).timesReached, 2);
+      expect(const DailyGoal(answered: 30).timesReached, 3);
+      expect(const DailyGoal(answered: 5, target: 0).isExceeded, isFalse);
+    });
   });
 }

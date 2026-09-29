@@ -17,6 +17,12 @@ class DailyGoal extends Equatable {
 
   bool get isComplete => answered >= target;
 
+  /// Past the target, not just on it: the card stops saying "20 / 10".
+  bool get isExceeded => target > 0 && answered > target;
+
+  /// Whole times the target was reached (20 of 10 -> 2, 29 of 10 -> 2).
+  int get timesReached => target <= 0 ? 0 : answered ~/ target;
+
   @override
   List<Object?> get props => [answered, target];
 }

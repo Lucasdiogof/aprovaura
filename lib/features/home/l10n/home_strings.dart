@@ -84,6 +84,46 @@ class HomeStrings {
     AppLanguage.spanish => '$answered / $target preguntas',
   };
 
+  /// The big line once the goal is passed: a plain count, since "20 / 10"
+  /// reads like a mistake.
+  String dailyGoalAnsweredToday(int answered) => switch (language) {
+    AppLanguage.portuguese => '$answered questões hoje',
+    AppLanguage.english => '$answered questions today',
+    AppLanguage.spanish => '$answered preguntas hoy',
+  };
+
+  /// Under the count once the goal is passed. [times] is the whole number
+  /// of targets reached: 1 means "passed it", 2 "doubled" and so on.
+  String dailyGoalExceeded(int times) => switch (language) {
+    AppLanguage.portuguese => switch (times) {
+      <= 1 => 'Você passou da meta de hoje!',
+      2 => 'Você dobrou a meta de hoje!',
+      3 => 'Você triplicou a meta de hoje!',
+      4 => 'Você quadruplicou a meta de hoje!',
+      5 => 'Você quintuplicou a meta de hoje!',
+      6 => 'Você sextuplicou a meta de hoje!',
+      _ => 'Você fez $times vezes a meta de hoje!',
+    },
+    AppLanguage.english => switch (times) {
+      <= 1 => "You went past today's goal!",
+      2 => "You doubled today's goal!",
+      3 => "You tripled today's goal!",
+      4 => "You quadrupled today's goal!",
+      5 => "You quintupled today's goal!",
+      6 => "You sextupled today's goal!",
+      _ => "You did $times times today's goal!",
+    },
+    AppLanguage.spanish => switch (times) {
+      <= 1 => '¡Superaste la meta de hoy!',
+      2 => '¡Duplicaste la meta de hoy!',
+      3 => '¡Triplicaste la meta de hoy!',
+      4 => '¡Cuadruplicaste la meta de hoy!',
+      5 => '¡Quintuplicaste la meta de hoy!',
+      6 => '¡Sextuplicaste la meta de hoy!',
+      _ => '¡Hiciste $times veces la meta de hoy!',
+    },
+  };
+
   String get dailyGoalCompleteBadge => switch (language) {
     AppLanguage.portuguese => 'Meta batida!',
     AppLanguage.english => 'Goal reached!',

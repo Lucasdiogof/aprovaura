@@ -87,6 +87,13 @@ abstract final class MapViewportPolicy {
   /// A polygon smaller than this even at max zoom gets a stand-in marker.
   static const proxyBelowPx = 16.0;
 
+  /// On a regional board, a polygon this small in the initial frame gets a
+  /// stand-in too, even if zooming would make it big enough: few people
+  /// zoom before tapping, and a 6 px Distrito Federal next to Goiás was
+  /// missed on a phone. World boards skip this -- almost everything there
+  /// starts tiny and zooming is the expected way in.
+  static const proxyAtFitBelowPx = 7.0;
+
   /// Markers still closer than this at max zoom are nudged apart by
   /// [displacementPx].
   static const displaceBelowPx = 10.0;
@@ -159,10 +166,20 @@ abstract final class MapViewportPolicy {
     double scaleAt(double zoom) => math.pow(2, zoom).toDouble();
 
     // Stand-ins for polygons too small to tap even fully zoomed in.
+    final isWorldBoard =
+        board.spec.mode == MapViewportMode.world ||
+        (board.spec.mode == MapViewportMode.auto &&
+            board.spec.scope == MapScope.world);
+    bool needsProxy(String id) {
+      final size = board.metrics[id]!.size;
+      return size * scaleAt(capZoom) < proxyBelowPx ||
+          (!isWorldBoard && size * scaleAt(fitZoom) < proxyAtFitBelowPx);
+    }
+
     final proxyIds = <String>{
       if (type == MapInteractionType.polygon)
         for (final r in board.regions)
-          if (board.metrics[r.id]!.size * scaleAt(capZoom) < proxyBelowPx) r.id,
+          if (needsProxy(r.id)) r.id,
     };
 
     // Markers on the board: every point, plus the stand-ins.
