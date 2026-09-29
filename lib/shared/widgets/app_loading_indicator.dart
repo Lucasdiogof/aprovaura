@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 
-/// The one spinner the app uses everywhere loading needs a visual: inside
-/// [AppButton] while it submits, inside [AppLoadingOverlay], and anywhere
-/// else that used to reach for a bare `CircularProgressIndicator` sized by
-/// hand. Same stroke, same brand colour, one place to change either.
+/// The loader every existing call site already uses, now drawn as the
+/// Aprovaura sparkles ([AppAuraLoader]) -- one identity everywhere, from
+/// [AppButton] to [AppLoadingOverlay], without touching each caller.
+///
+/// New code can use [AppAuraLoader] directly (with its small / medium /
+/// large sizes); this stays as the thin, backwards-compatible name.
 class AppLoadingIndicator extends StatelessWidget {
-  const AppLoadingIndicator({super.key, this.size = 22, this.color});
+  const AppLoadingIndicator({
+    super.key,
+    this.size = AppAuraLoader.smallSize,
+    this.color,
+    this.semanticsLabel,
+  });
 
   final double size;
 
-  /// Defaults to [AppColors.loadingIndicator]. Only overridden where the
-  /// spinner sits on a colour that needs a different one for contrast
-  /// (e.g. white on a solid brand-violet button).
+  /// Only where the loader sits on a colour that needs one plain colour
+  /// for contrast (white on a solid brand-violet button). Null keeps the
+  /// brand sparkles.
   final Color? color;
 
+  final String? semanticsLabel;
+
   @override
-  Widget build(BuildContext context) {
-    return SizedBox.square(
-      dimension: size,
-      child: CircularProgressIndicator(
-        strokeWidth: size <= 24 ? 2.5 : 3,
-        color: color ?? context.colors.loadingIndicator,
-      ),
-    );
-  }
+  Widget build(BuildContext context) =>
+      AppAuraLoader(size: size, color: color, semanticsLabel: semanticsLabel);
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_state.dart';
 import 'package:aura/features/auth/presentation/pages/login_page.dart';
@@ -101,7 +102,7 @@ void main() {
       when(() => authCubit.state).thenReturn(const AuthLoading());
       await pumpLoginPage(tester);
 
-      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      expect(find.byType(AppAuraLoader), findsOneWidget);
     });
 
     testWidgets('shows real labels above the fields, not just hints', (

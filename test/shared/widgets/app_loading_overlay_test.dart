@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/theme/app_theme.dart';
-import 'package:aura/shared/widgets/app_loading_indicator.dart';
 import 'package:aura/shared/widgets/app_loading_overlay.dart';
 
 class _TestLocaleCubit extends LocaleCubit {
@@ -61,7 +61,7 @@ void main() {
       await pumpHost(tester);
       await tester.pumpAndSettle();
 
-      expect(find.byType(AppLoadingIndicator), findsNothing);
+      expect(find.byType(AppAuraLoader), findsNothing);
       await tester.tap(find.text('behind the overlay'));
       // No exception, no barrier in the way.
       expect(tester.takeException(), isNull);
@@ -75,7 +75,7 @@ void main() {
       unawaited(loading.run(() => completer.future));
       await tester.pump();
 
-      expect(find.byType(AppLoadingIndicator), findsOneWidget);
+      expect(find.byType(AppAuraLoader), findsOneWidget);
       await tester.tap(find.text('behind the overlay'), warnIfMissed: false);
       await tester.pump();
 
@@ -86,20 +86,39 @@ void main() {
       await tester.pumpAndSettle();
     });
 
-    testWidgets('keeps the message off screen, for screen readers only', (
-      tester,
-    ) async {
+    testWidgets('shows the action short line under the loader', (tester) async {
       final loading = await pumpHost(tester);
       final completer = Completer<void>();
       unawaited(loading.run(() => completer.future, message: 'Saindo...'));
       await tester.pump();
 
-      expect(find.text('Saindo...'), findsNothing);
+      expect(find.byType(AppAuraLoader), findsOneWidget);
+      expect(find.text('Saindo...'), findsOneWidget);
+      // Said once, as the overlay's label -- not again per element.
       expect(
         find.byWidgetPredicate(
           (w) => w is Semantics && w.properties.label == 'Saindo...',
         ),
         findsOneWidget,
+      );
+
+      completer.complete();
+      await tester.pumpAndSettle();
+    });
+
+    testWidgets('without a message, only the loader', (tester) async {
+      final loading = await pumpHost(tester);
+      final completer = Completer<void>();
+      unawaited(loading.run(() => completer.future));
+      await tester.pump();
+
+      expect(find.byType(AppAuraLoader), findsOneWidget);
+      expect(
+        find.byType(Text).evaluate().where((e) {
+          final w = e.widget as Text;
+          return w.data != 'behind the overlay';
+        }),
+        isEmpty,
       );
 
       completer.complete();
@@ -115,7 +134,7 @@ void main() {
       await tester.pump();
 
       // Already in the tree on the very first pump after the state change.
-      expect(find.byType(AppLoadingIndicator), findsOneWidget);
+      expect(find.byType(AppAuraLoader), findsOneWidget);
 
       completer.complete();
       await tester.pumpAndSettle();

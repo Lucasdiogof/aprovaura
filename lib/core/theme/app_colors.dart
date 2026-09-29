@@ -98,7 +98,7 @@ class AppColors extends ThemeExtension<AppColors> {
     error: Color(0xFFDC2626),
     success: Color(0xFF16A34A),
     warning: Color(0xFFD97706),
-    loadingScrim: Color(0x66000000),
+    loadingScrim: Color(0x52000000), // ~32%: the screen stays readable
     loadingIndicator: Color(0xFF7C3AED),
   );
 
@@ -119,7 +119,7 @@ class AppColors extends ThemeExtension<AppColors> {
     error: Color(0xFFEF4444),
     success: Color(0xFF22C55E),
     warning: Color(0xFFF59E0B),
-    loadingScrim: Color(0x8A000000),
+    loadingScrim: Color(0x73000000), // ~45%
     loadingIndicator: Color(0xFFA78BFA),
   );
 

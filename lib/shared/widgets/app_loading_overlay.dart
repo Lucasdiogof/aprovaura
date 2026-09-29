@@ -4,8 +4,9 @@ import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/loading/app_blocking_loading_state.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/shared/l10n/shared_strings.dart';
-import 'package:aura/shared/widgets/app_loading_indicator.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 
 /// Sits once, above the whole routed app (see `App.build`'s
 /// `MaterialApp.router(builder: ...)`) -- never per screen. Nothing under
@@ -15,7 +16,8 @@ import 'package:aura/shared/widgets/app_loading_indicator.dart';
 class AppLoadingOverlay extends StatelessWidget {
   const AppLoadingOverlay({super.key});
 
-  static const _fade = Duration(milliseconds: 160);
+  /// Scrim and loader both arrive and leave over this (spec: 120-180ms).
+  static const fade = Duration(milliseconds: 160);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class AppLoadingOverlay extends StatelessWidget {
         return IgnorePointer(
           ignoring: !state.isVisible,
           child: AnimatedSwitcher(
-            duration: reduced ? Duration.zero : _fade,
+            duration: reduced ? Duration.zero : fade,
             child: state.isVisible
                 ? _Barrier(message: state.message)
                 : const SizedBox.shrink(),
@@ -56,11 +58,58 @@ class _Barrier extends StatelessWidget {
         child: Stack(
           children: [
             ModalBarrier(dismissible: false, color: colors.loadingScrim),
-            // Just the scrim doing the blocking and a spinner over it: no
-            // card and no visible text, so it never reads as a dialog. The
-            // message only reaches screen readers, through the label above.
-            const Center(
-              child: AppLoadingIndicator(size: 32, color: Colors.white),
+            // The Aura loader over the dimmed screen, with the action's
+            // short line under it when there is one ("Saindo..."). No card:
+            // the screen behind stays visible, only inactive. The text uses
+            // the theme's text colour, which reads on the scrim in both
+            // themes (a darkened light page, a darker dark one).
+            // Transparent Material: the overlay sits above the Navigator,
+            // where there is no text style to inherit -- without it the
+            // line would render with Flutter's yellow "no Material" underline.
+            Material(
+              type: MaterialType.transparency,
+              child: Center(
+                child: ExcludeSemantics(
+                  // Said once by the label above, not again per element.
+                  child: TweenAnimationBuilder<double>(
+                    tween: Tween(begin: 0, end: 1),
+                    duration: MediaQuery.disableAnimationsOf(context)
+                        ? Duration.zero
+                        : AppLoadingOverlay.fade,
+                    curve: Curves.easeOut,
+                    builder: (context, t, child) => Opacity(
+                      opacity: t,
+                      child: Transform.scale(
+                        scale: 0.96 + 0.04 * t,
+                        child: child,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const AppAuraLoader.large(),
+                        if (message != null) ...[
+                          const SizedBox(height: AppSpacing.md),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: AppSpacing.xxl,
+                            ),
+                            child: Text(
+                              message!,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: colors.textPrimary,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         ),

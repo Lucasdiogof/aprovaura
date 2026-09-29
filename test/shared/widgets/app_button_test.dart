@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/theme/app_theme.dart';
 import 'package:aura/shared/widgets/app_button.dart';
-import 'package:aura/shared/widgets/app_loading_indicator.dart';
 
 void main() {
   Widget host({required bool isLoading, required VoidCallback onPressed}) =>
@@ -25,7 +25,7 @@ void main() {
       await tester.pumpWidget(host(isLoading: false, onPressed: () => taps++));
 
       expect(find.text('Entrar'), findsOneWidget);
-      expect(find.byType(AppLoadingIndicator), findsNothing);
+      expect(find.byType(AppAuraLoader), findsNothing);
       await tester.tap(find.byType(AppButton));
       expect(taps, 1);
     });
@@ -37,7 +37,7 @@ void main() {
       await tester.pumpWidget(host(isLoading: true, onPressed: () => taps++));
 
       expect(find.text('Entrar'), findsNothing);
-      expect(find.byType(AppLoadingIndicator), findsOneWidget);
+      expect(find.byType(AppAuraLoader), findsOneWidget);
       await tester.tap(find.byType(AppButton));
       expect(taps, 0);
     });
