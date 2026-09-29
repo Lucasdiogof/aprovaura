@@ -284,13 +284,13 @@ class ProfileStrings {
   };
 
   String get aboutRowLabel => switch (language) {
-    AppLanguage.portuguese => 'Sobre a Aprovaura',
+    AppLanguage.portuguese => 'Sobre o Aprovaura',
     AppLanguage.english => 'About Aprovaura',
     AppLanguage.spanish => 'Acerca de Aprovaura',
   };
 
   String get aboutPageTitle => switch (language) {
-    AppLanguage.portuguese => 'Sobre a Aprovaura',
+    AppLanguage.portuguese => 'Sobre o Aprovaura',
     AppLanguage.english => 'About Aprovaura',
     AppLanguage.spanish => 'Acerca de Aprovaura',
   };
