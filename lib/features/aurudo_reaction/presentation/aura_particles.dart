@@ -185,24 +185,28 @@ class _AuraParticlesPainter extends CustomPainter {
     }
   }
 
-  void _paintSparkle(Canvas canvas, Offset at, double size, Color color) {
-    final paint = Paint()..color = color;
-    final path = Path()
-      ..moveTo(at.dx, at.dy - size)
-      ..lineTo(at.dx + size * 0.28, at.dy - size * 0.28)
-      ..lineTo(at.dx + size, at.dy)
-      ..lineTo(at.dx + size * 0.28, at.dy + size * 0.28)
-      ..lineTo(at.dx, at.dy + size)
-      ..lineTo(at.dx - size * 0.28, at.dy + size * 0.28)
-      ..lineTo(at.dx - size, at.dy)
-      ..lineTo(at.dx - size * 0.28, at.dy - size * 0.28)
-      ..close();
-    canvas.drawPath(path, paint);
-  }
+  void _paintSparkle(Canvas canvas, Offset at, double size, Color color) =>
+      paintAuraSparkle(canvas, at, size, color);
 
   @override
   bool shouldRepaint(_AuraParticlesPainter oldDelegate) =>
       oldDelegate.progress != progress ||
       oldDelegate.style != style ||
       !identical(oldDelegate.particles, particles);
+}
+
+/// The four-point sparkle every Aura particle uses, shared so each scene
+/// (these particles, the farm-Aura animation) draws the same shape.
+void paintAuraSparkle(Canvas canvas, Offset at, double size, Color color) {
+  final path = Path()
+    ..moveTo(at.dx, at.dy - size)
+    ..lineTo(at.dx + size * 0.28, at.dy - size * 0.28)
+    ..lineTo(at.dx + size, at.dy)
+    ..lineTo(at.dx + size * 0.28, at.dy + size * 0.28)
+    ..lineTo(at.dx, at.dy + size)
+    ..lineTo(at.dx - size * 0.28, at.dy + size * 0.28)
+    ..lineTo(at.dx - size, at.dy)
+    ..lineTo(at.dx - size * 0.28, at.dy - size * 0.28)
+    ..close();
+  canvas.drawPath(path, Paint()..color = color);
 }

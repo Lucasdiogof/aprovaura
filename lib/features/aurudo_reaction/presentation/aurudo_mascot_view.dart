@@ -3,13 +3,18 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/essay_reaction_tier.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 
 /// Which [AurudoPose] (or short pose-to-pose story) plays for a resolved
 /// [AurudoReactionType], today's honest placeholder until a rigged
 /// Rive/Lottie asset exists: the character itself never fakes an
 /// articulated gesture, only the surrounding scene (particles, halo) does
-/// that work -- see [AurudoReactionStage].
+/// that work -- see [AurudoReactionStage]. The one exception is
+/// `perfectFarmAura`, which [AurudoMascotView] hands to
+/// [AurudoFarmAuraAnimation] (real cut-out layers); its pose here is that
+/// animation's fallback. `dailyGoalComplete` shares the still pose, never
+/// the animation.
 ///
 /// [essayTier] only matters for [AurudoReactionType.correctionReady] --
 /// every other reaction ignores it. A missing tier for `correctionReady`
@@ -130,6 +135,11 @@ class _AurudoMascotViewState extends State<AurudoMascotView> {
 
   @override
   Widget build(BuildContext context) {
+    // The signature reaction has its own renderer (all its motion lives
+    // there); every other reaction keeps its still pose(s) below.
+    if (widget.type == AurudoReactionType.perfectFarmAura) {
+      return AurudoFarmAuraAnimation(size: widget.size, instant: _reduced);
+    }
     final pose = _poses[_index];
     return AnimatedSwitcher(
       duration: _reduced ? Duration.zero : AurudoMascotView.crossfadeDuration,

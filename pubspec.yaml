@@ -104,6 +104,9 @@ flutter:
     # shows the symbol with it, so nothing loads the text-only lockup.
     - lib/assets/branding/aprovaura_mark.png
     - lib/assets/mascot/
+    # Asset folders are not recursive: the perfectFarmAura layers need
+    # their own line.
+    - lib/assets/mascot/farm_aura/
     - lib/assets/maps/
 
   # An image asset can refer to one or more resolution-specific "variants", see

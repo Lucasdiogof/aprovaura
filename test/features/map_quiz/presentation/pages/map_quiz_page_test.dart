@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
@@ -208,7 +209,7 @@ void main() {
       await pumpMap(tester);
       await finishPerfect(tester);
 
-      expect(poseFinder(AurudoPose.farmingAura), findsOneWidget);
+      expect(find.byType(AurudoFarmAuraAnimation), findsOneWidget);
       expect(find.text('Perfeito!'), findsOneWidget);
       expect(find.text('Você acertou 2 de 2.'), findsOneWidget);
     });
@@ -230,7 +231,7 @@ void main() {
       await tester.pump(_revealWait);
       await settleCompletion(tester);
 
-      expect(poseFinder(AurudoPose.farmingAura), findsNothing);
+      expect(find.byType(AurudoFarmAuraAnimation), findsNothing);
       expect(find.text('Você acertou 1 de 2.'), findsOneWidget);
     });
 
@@ -275,7 +276,7 @@ void main() {
       await pumpMap(tester);
       await finishPerfect(tester);
 
-      expect(poseFinder(AurudoPose.farmingAura), findsOneWidget);
+      expect(find.byType(AurudoFarmAuraAnimation), findsOneWidget);
       expect(find.text('Perfeito!'), findsOneWidget);
       expect(find.text('Você acertou 2 de 2.'), findsOneWidget);
     });
@@ -337,7 +338,7 @@ void main() {
       await pumpMap(tester);
       await finishPerfect(tester);
 
-      expect(poseFinder(AurudoPose.farmingAura), findsOneWidget);
+      expect(find.byType(AurudoFarmAuraAnimation), findsOneWidget);
       expect(find.text('Perfeito!'), findsOneWidget);
       expect(find.text('Nível 8'), findsOneWidget);
     });
@@ -396,7 +397,7 @@ void main() {
       await pumpMap(tester);
       await finishPerfect(tester);
 
-      expect(poseFinder(AurudoPose.farmingAura), findsOneWidget);
+      expect(find.byType(AurudoFarmAuraAnimation), findsOneWidget);
       expect(find.byType(AurudoAchievementBadge), findsNWidgets(3));
       expect(find.text('Perfeito!'), findsOneWidget);
     });
@@ -435,7 +436,7 @@ void main() {
       // Back on the board, playing a fresh attempt.
       expect(find.byType(MapQuizBoard), findsOneWidget);
       await finishPerfect(tester);
-      expect(poseFinder(AurudoPose.farmingAura), findsOneWidget);
+      expect(find.byType(AurudoFarmAuraAnimation), findsOneWidget);
     });
   });
 
@@ -510,7 +511,7 @@ void main() {
       await pumpMap(tester);
       await finishPerfect(tester);
 
-      expect(poseFinder(AurudoPose.farmingAura), findsOneWidget);
+      expect(find.byType(AurudoFarmAuraAnimation), findsOneWidget);
       expect(find.text('Perfeito!'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });

@@ -13,12 +13,15 @@ import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_seque
 /// scatters around Aurudo for them.
 ///
 /// `dailyGoalComplete` deliberately uses fewer particles than
-/// `perfectFarmAura`: perfect has to stay the visually strongest reaction
-/// in the app, never tied by a smaller achievement landing in the same
-/// activity.
+/// `perfectFarmAura` (whose ten, `FarmAuraTimeline.particleCount`, are
+/// drawn by its own animation): perfect has to stay the visually strongest
+/// reaction in the app, never tied by a smaller achievement landing in the
+/// same activity.
 AuraParticlesStyle? _particlesStyleFor(AurudoReactionType type) =>
     switch (type) {
-      AurudoReactionType.perfectFarmAura => AuraParticlesStyle.converge,
+      // Brings its own particles, on its own clock (AurudoFarmAuraAnimation):
+      // a second set here would double them.
+      AurudoReactionType.perfectFarmAura => null,
       AurudoReactionType.dailyGoalComplete => AuraParticlesStyle.converge,
       AurudoReactionType.great => AuraParticlesStyle.burst,
       AurudoReactionType.levelUp => AuraParticlesStyle.burst,
@@ -30,7 +33,6 @@ AuraParticlesStyle? _particlesStyleFor(AurudoReactionType type) =>
     };
 
 int _particlesCountFor(AurudoReactionType type) => switch (type) {
-  AurudoReactionType.perfectFarmAura => 10,
   AurudoReactionType.levelUp => 8,
   AurudoReactionType.dailyGoalComplete => 5,
   AurudoReactionType.writing => 4,

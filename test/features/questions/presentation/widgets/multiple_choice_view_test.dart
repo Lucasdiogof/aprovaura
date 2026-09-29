@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
@@ -185,12 +186,7 @@ void main() {
       await pumpQuiz(tester);
       await answerAll(tester, correct: [true, true]);
 
-      expect(
-        find.byWidgetPredicate(
-          (w) => w is AurudoIllustration && w.pose == AurudoPose.farmingAura,
-        ),
-        findsOneWidget,
-      );
+      expect(find.byType(AurudoFarmAuraAnimation), findsOneWidget);
       expect(find.text('Perfeito!'), findsOneWidget);
       verify(
         () => xpRepository.awardQuizXp(
@@ -207,12 +203,7 @@ void main() {
       await pumpQuiz(tester);
       await answerAll(tester, correct: [true, false]);
 
-      expect(
-        find.byWidgetPredicate(
-          (w) => w is AurudoIllustration && w.pose == AurudoPose.farmingAura,
-        ),
-        findsNothing,
-      );
+      expect(find.byType(AurudoFarmAuraAnimation), findsNothing);
     });
 
     testWidgets('a weak result never uses frustrated, and reaches studying', (
@@ -266,12 +257,7 @@ void main() {
         await answerAll(tester, correct: [true, true]);
 
         expect(find.text('Revisão concluída!'), findsOneWidget);
-        expect(
-          find.byWidgetPredicate(
-            (w) => w is AurudoIllustration && w.pose == AurudoPose.farmingAura,
-          ),
-          findsOneWidget,
-        );
+        expect(find.byType(AurudoFarmAuraAnimation), findsOneWidget);
         verifyNever(
           () => xpRepository.awardQuizXp(
             attemptId: any(named: 'attemptId'),
