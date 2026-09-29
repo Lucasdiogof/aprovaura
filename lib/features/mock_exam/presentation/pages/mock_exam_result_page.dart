@@ -132,6 +132,12 @@ class _ResultBodyState extends State<_ResultBody> {
   AurudoReaction? _reaction;
   bool _instant = false;
 
+  /// The report waits its turn. Before the scene reaches it, the
+  /// breakdowns and the actions are not in the tree at all -- not just
+  /// invisible: nothing to tap, nothing to focus, nothing to reach by
+  /// scrolling, and no empty space reserved where they will go.
+  bool _reportVisible = false;
+
   MockExamResult get result => widget.result;
   MockExamStrings get strings => widget.strings;
   AppLanguage get language => widget.language;
@@ -140,6 +146,17 @@ class _ResultBodyState extends State<_ResultBody> {
   void initState() {
     super.initState();
     _resolve();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Nothing to wait for when the scene is not playing: a result being
+    // reopened, or a reader who asked for less motion, gets the whole
+    // screen at once.
+    if (_instant || MediaQuery.disableAnimationsOf(context)) {
+      _reportVisible = true;
+    }
   }
 
   void _resolve() {
@@ -166,6 +183,7 @@ class _ResultBodyState extends State<_ResultBody> {
       // Opened again, or reached without having just been handed in: the
       // scene does not replay.
       _instant = alreadySeen || widget.before == null;
+      if (_instant) _reportVisible = true;
     });
   }
 
@@ -252,71 +270,100 @@ class _ResultBodyState extends State<_ResultBody> {
                     achievements: reaction.secondary,
                     strings: t,
                   ),
+            onSequenceCompleted: () {
+              if (mounted && !_reportVisible) {
+                setState(() => _reportVisible = true);
+              }
+            },
           )
         else
           _ScoreCard(result: result, strings: t),
-        const SizedBox(height: AppSpacing.xxl),
-        SectionLabel(t.bySubjectTitle),
-        _BreakdownCard(
-          lines: [
-            for (final line in _subjectsInAppOrder) _subjectLine(context, line),
-          ],
-          strings: t,
-        ),
-        const SizedBox(height: AppSpacing.xl),
-        SectionLabel(t.byDifficultyTitle),
-        _BreakdownCard(
-          lines: [
-            for (final line in result.byDifficulty)
-              _LineData(
-                line: line,
-                label: QuestionDifficulty.fromDb(line.key).label(language),
-                color: context.colors.primary,
-              ),
-          ],
-          strings: t,
-        ),
-        const SizedBox(height: AppSpacing.xxl),
-        // At most three actions. Review first when there is something to
-        // review (blanks never are -- they were never answered). This
-        // exam's own wrong questions, not the cross-topic "Revisar erros"
-        // (that one re-quizzes; this one only shows what happened).
-        AppButton(
-          label: hasErrors ? t.reviewMockExamButton : t.anotherExamButton,
-          onPressed: () => hasErrors
-              ? Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (_) =>
-                        MockExamReviewPage(mockExamId: result.mockExamId),
-                  ),
-                )
-              : Navigator.of(context).pushReplacement(
-                  MaterialPageRoute<void>(
-                    builder: (_) => const MockExamSetupPage(),
-                  ),
+        // Appended only when the scene gets to it: before that the report
+        // is not in the tree, so there is no reserved gap, nothing to tap
+        // and nothing to scroll to. It arrives under what is already on
+        // screen, so nothing above it moves.
+        if (_reportVisible)
+          TweenAnimationBuilder<double>(
+            tween: Tween(begin: 0, end: 1),
+            duration: _instant
+                ? Duration.zero
+                : const Duration(milliseconds: 220),
+            builder: (context, value, child) =>
+                Opacity(opacity: value, child: child),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(height: AppSpacing.xxl),
+                SectionLabel(t.bySubjectTitle),
+                _BreakdownCard(
+                  lines: [
+                    for (final line in _subjectsInAppOrder)
+                      _subjectLine(context, line),
+                  ],
+                  strings: t,
                 ),
-        ),
-        if (hasErrors) ...[
-          const SizedBox(height: AppSpacing.sm),
-          OutlinedButton(
-            onPressed: () => Navigator.of(context).pushReplacement(
-              MaterialPageRoute<void>(
-                builder: (_) => const MockExamSetupPage(),
-              ),
+                const SizedBox(height: AppSpacing.xl),
+                SectionLabel(t.byDifficultyTitle),
+                _BreakdownCard(
+                  lines: [
+                    for (final line in result.byDifficulty)
+                      _LineData(
+                        line: line,
+                        label: QuestionDifficulty.fromDb(
+                          line.key,
+                        ).label(language),
+                        color: context.colors.primary,
+                      ),
+                  ],
+                  strings: t,
+                ),
+                const SizedBox(height: AppSpacing.xxl),
+                // At most three actions. Review first when there is something to
+                // review (blanks never are -- they were never answered). This
+                // exam's own wrong questions, not the cross-topic "Revisar erros"
+                // (that one re-quizzes; this one only shows what happened).
+                AppButton(
+                  label: hasErrors
+                      ? t.reviewMockExamButton
+                      : t.anotherExamButton,
+                  onPressed: () => hasErrors
+                      ? Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (_) => MockExamReviewPage(
+                              mockExamId: result.mockExamId,
+                            ),
+                          ),
+                        )
+                      : Navigator.of(context).pushReplacement(
+                          MaterialPageRoute<void>(
+                            builder: (_) => const MockExamSetupPage(),
+                          ),
+                        ),
+                ),
+                if (hasErrors) ...[
+                  const SizedBox(height: AppSpacing.sm),
+                  OutlinedButton(
+                    onPressed: () => Navigator.of(context).pushReplacement(
+                      MaterialPageRoute<void>(
+                        builder: (_) => const MockExamSetupPage(),
+                      ),
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(AppRadius.md),
+                      ),
+                    ),
+                    child: Text(t.anotherExamButton),
+                  ),
+                ],
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text(t.backHomeButton),
+                ),
+              ],
             ),
-            style: OutlinedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(vertical: 14),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(AppRadius.md),
-              ),
-            ),
-            child: Text(t.anotherExamButton),
           ),
-        ],
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(t.backHomeButton),
-        ),
       ],
     );
   }

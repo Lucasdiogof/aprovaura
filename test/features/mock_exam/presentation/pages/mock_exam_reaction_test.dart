@@ -149,15 +149,27 @@ void main() {
     WidgetTester tester, {
     AurudoRewardsSnapshot? before = const AurudoRewardsSnapshot(),
     String id = _examId,
+    bool settle = true,
+    bool reducedMotion = false,
   }) async {
     await tester.pumpApp(
-      MockExamResultPage(mockExamId: id, before: before),
+      MediaQuery(
+        data: MediaQueryData(disableAnimations: reducedMotion),
+        child: MockExamResultPage(mockExamId: id, before: before),
+      ),
       providers: [
         BlocProvider<XpCubit>.value(value: xpCubit),
         BlocProvider<StreakCubit>.value(value: streakCubit),
       ],
     );
-    await tester.pumpAndSettle();
+    if (settle) {
+      await tester.pumpAndSettle();
+    } else {
+      // Far enough in for the result to have loaded, early enough that
+      // the scene is still playing.
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+    }
   }
 
   Finder poseFinder(AurudoPose pose) =>
@@ -247,6 +259,60 @@ void main() {
       // so hand-in cannot know it was the moment the goal was reached.
       // Better no badge than one on the wrong moment.
       expect(find.text('Meta batida'), findsNothing);
+    });
+  });
+
+  group('the report waiting its turn', () {
+    testWidgets('is nowhere on screen while the scene is still playing', (
+      tester,
+    ) async {
+      useTallScreen(tester);
+      stubResult(_result(correct: 10));
+      await pumpResult(tester, settle: false);
+
+      // Not just invisible: not in the tree, so there is no reserved gap
+      // and nothing to reach.
+      expect(find.text('Por matéria'), findsNothing);
+      expect(find.text('Por dificuldade'), findsNothing);
+      expect(find.text('Fazer outro simulado'), findsNothing);
+      expect(find.text('Voltar para o início'), findsNothing);
+    });
+
+    testWidgets('arrives once the scene has finished', (tester) async {
+      useTallScreen(tester);
+      stubResult(_result(correct: 10));
+      await pumpResult(tester, settle: false);
+      expect(find.text('Por matéria'), findsNothing);
+
+      await tester.pumpAndSettle();
+      expect(find.text('Por matéria'), findsOneWidget);
+      expect(find.text('Por dificuldade'), findsOneWidget);
+      expect(find.text('Fazer outro simulado'), findsOneWidget);
+    });
+
+    testWidgets('a reopened result shows everything from the first frame', (
+      tester,
+    ) async {
+      useTallScreen(tester);
+      stubResult(_result(correct: 10));
+      // Seen once already: nothing replays, so nothing waits either.
+      await pumpResult(tester);
+      await pumpResult(tester, settle: false);
+
+      expect(find.text('Por matéria'), findsOneWidget);
+      expect(find.text('Fazer outro simulado'), findsOneWidget);
+    });
+
+    testWidgets('reduced motion shows everything from the first frame', (
+      tester,
+    ) async {
+      useTallScreen(tester);
+      stubResult(_result(correct: 10));
+      await pumpResult(tester, settle: false, reducedMotion: true);
+
+      expect(find.text('Por matéria'), findsOneWidget);
+      expect(find.text('Por dificuldade'), findsOneWidget);
+      expect(find.text('Fazer outro simulado'), findsOneWidget);
     });
   });
 
