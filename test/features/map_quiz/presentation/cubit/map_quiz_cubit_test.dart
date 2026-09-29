@@ -165,8 +165,8 @@ void main() {
         },
       );
 
-      test('emits $MapQuizFinished with a full correctCount when the last '
-          'target is answered correctly', () async {
+      test('holds the last correct answer on its feedback before finishing, '
+          'with a full correctCount', () async {
         when(
           () => mapRepository.loadRegions('brazil_states'),
         ).thenAnswer((_) async => const Success([regionA]));
@@ -175,6 +175,24 @@ void main() {
 
         cubit.onRegionTapped('sp');
 
+        // The region it just found turns green like any other answer --
+        // the map does not jump straight to the result.
+        final finishing = cubit.state as MapQuizPlaying;
+        expect(finishing.finishing, isTrue);
+        expect(finishing.correctCount, 1);
+        expect(finishing.remainingIds, isEmpty);
+        expect(
+          finishing.lastTap,
+          const TapFeedback(regionId: 'sp', wasCorrect: true),
+        );
+
+        // A tap during that moment finds nothing and changes nothing.
+        cubit.onRegionTapped('sp');
+        expect(cubit.state, finishing);
+
+        await Future<void>.delayed(
+          MapQuizCubit.feedbackDuration + const Duration(milliseconds: 50),
+        );
         expect(
           cubit.state,
           const MapQuizFinished(
@@ -183,6 +201,24 @@ void main() {
             attemptId: 'attempt-1',
           ),
         );
+      });
+
+      test('a closed cubit never finishes after the last feedback', () async {
+        when(
+          () => mapRepository.loadRegions('brazil_states'),
+        ).thenAnswer((_) async => const Success([regionA]));
+        final cubit = buildCubit();
+        await pumpEventQueue();
+
+        cubit.onRegionTapped('sp');
+        await cubit.close();
+        await Future<void>.delayed(
+          MapQuizCubit.feedbackDuration + const Duration(milliseconds: 50),
+        );
+
+        // Leaving the page mid-feedback: the timer is cancelled, so
+        // nothing emits into a closed cubit.
+        expect(cubit.state, isA<MapQuizPlaying>());
       });
 
       test('a wrong tap increments wrongAttempts and flags it in lastTap '
@@ -267,6 +303,8 @@ void main() {
 
           cubit.advancePastReveal();
 
+          // The reveal already had its own, longer moment on screen, so
+          // the two waits never stack: this finishes straight away.
           expect(
             cubit.state,
             const MapQuizFinished(

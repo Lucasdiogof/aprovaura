@@ -42,6 +42,7 @@ class MapQuizPlaying extends MapQuizState {
     this.lastTap,
     this.wrongAttempts = 0,
     this.revealed = false,
+    this.finishing = false,
   });
 
   /// Geometry and framing data, prepared once per load and never changed
@@ -63,6 +64,12 @@ class MapQuizPlaying extends MapQuizState {
   // taps, until the page advances past it.
   final bool revealed;
 
+  /// The last region has been found and the map is showing its feedback
+  /// before the result. Every other answer gets that moment; the last one
+  /// used to jump straight to the finished screen. Taps are ignored here
+  /// -- there is nothing left to find.
+  final bool finishing;
+
   MapQuizPlaying copyWith({
     List<String>? remainingIds,
     String? currentTargetId,
@@ -71,6 +78,7 @@ class MapQuizPlaying extends MapQuizState {
     bool clearLastTap = false,
     int? wrongAttempts,
     bool? revealed,
+    bool? finishing,
   }) => MapQuizPlaying(
     board: board,
     remainingIds: remainingIds ?? this.remainingIds,
@@ -80,6 +88,7 @@ class MapQuizPlaying extends MapQuizState {
     lastTap: clearLastTap ? null : (lastTap ?? this.lastTap),
     wrongAttempts: wrongAttempts ?? this.wrongAttempts,
     revealed: revealed ?? this.revealed,
+    finishing: finishing ?? this.finishing,
   );
 
   @override
@@ -92,6 +101,7 @@ class MapQuizPlaying extends MapQuizState {
     lastTap,
     wrongAttempts,
     revealed,
+    finishing,
   ];
 }
 

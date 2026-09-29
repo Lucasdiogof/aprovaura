@@ -248,6 +248,80 @@ void main() {
     });
   });
 
+  group('$MapQuizPage last answer', () {
+    testWidgets('the region just found stays on screen before the result', (
+      tester,
+    ) async {
+      await pumpMap(tester);
+      for (var i = 0; i < 2; i++) {
+        final cubit = cubitOf(tester);
+        cubit.onRegionTapped(targetOf(cubit));
+        await tester.pump();
+      }
+
+      // Mid-feedback: the board is still up, showing the answer, and the
+      // result has not taken over.
+      await tester.pump(MapQuizCubit.feedbackDuration ~/ 2);
+      expect(find.byType(MapQuizBoard), findsOneWidget);
+      expect(find.text('Perfeito!'), findsNothing);
+
+      await settleCompletion(tester);
+      expect(find.byType(MapQuizBoard), findsNothing);
+    });
+
+    testWidgets('after that feedback the perfect reaction plays', (
+      tester,
+    ) async {
+      await pumpMap(tester);
+      await finishPerfect(tester);
+
+      expect(poseFinder(AurudoPose.farmingAura), findsOneWidget);
+      expect(find.text('Perfeito!'), findsOneWidget);
+      expect(find.text('Você acertou 2 de 2.'), findsOneWidget);
+    });
+
+    testWidgets('a revealed last answer keeps its own longer moment', (
+      tester,
+    ) async {
+      await pumpMap(tester);
+      final first = cubitOf(tester);
+      first.onRegionTapped(targetOf(first));
+      await tester.pump();
+
+      final second = cubitOf(tester);
+      final wrong = targetOf(second) == 'sp' ? 'rj' : 'sp';
+      for (var miss = 0; miss < 3; miss++) {
+        second.onRegionTapped(wrong);
+        await tester.pump();
+      }
+
+      // Still revealed well past the shorter feedback wait: a reveal is
+      // not shortened to match a correct answer.
+      await tester.pump(MapQuizCubit.feedbackDuration);
+      expect(find.byType(MapQuizBoard), findsOneWidget);
+
+      await tester.pump(_revealWait);
+      await settleCompletion(tester);
+      expect(find.byType(MapQuizBoard), findsNothing);
+    });
+
+    testWidgets('leaving during that feedback leaves nothing pending', (
+      tester,
+    ) async {
+      await pumpMap(tester);
+      for (var i = 0; i < 2; i++) {
+        final cubit = cubitOf(tester);
+        cubit.onRegionTapped(targetOf(cubit));
+        await tester.pump();
+      }
+
+      // Out of the page before the feedback is over.
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump(const Duration(seconds: 2));
+      expect(tester.takeException(), isNull);
+    });
+  });
+
   group('$MapQuizPage achievements', () {
     testWidgets('a level up rides along as a badge, perfect stays the scene', (
       tester,

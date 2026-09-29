@@ -127,14 +127,19 @@ class _MapQuizViewState extends State<_MapQuizView> {
           Expanded(
             child: BlocConsumer<MapQuizCubit, MapQuizState>(
               listener: (context, state) {
+                // Both waits come from the cubit, which is also what holds
+                // the map on its last answer -- one definition each, never
+                // a literal repeated here.
                 if (state is MapQuizPlaying && state.revealed) {
-                  Future.delayed(const Duration(milliseconds: 1800), () {
+                  Future.delayed(MapQuizCubit.revealDuration, () {
                     if (context.mounted) {
                       context.read<MapQuizCubit>().advancePastReveal();
                     }
                   });
-                } else if (state is MapQuizPlaying && state.lastTap != null) {
-                  Future.delayed(const Duration(milliseconds: 700), () {
+                } else if (state is MapQuizPlaying &&
+                    state.lastTap != null &&
+                    !state.finishing) {
+                  Future.delayed(MapQuizCubit.feedbackDuration, () {
                     if (context.mounted) {
                       context.read<MapQuizCubit>().clearFeedback();
                     }

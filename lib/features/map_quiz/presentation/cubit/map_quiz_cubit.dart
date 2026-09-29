@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart' show compute;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/error/result.dart';
@@ -14,6 +16,15 @@ import 'package:aura/features/progress/domain/repositories/progress_repository.d
 const _maxWrongAttempts = 3;
 
 class MapQuizCubit extends Cubit<MapQuizState> {
+  /// How long a tap's own feedback stays on the board. One definition:
+  /// the page waits this long before clearing the green/red, and the last
+  /// answer of the map waits exactly the same before the result appears.
+  static const feedbackDuration = Duration(milliseconds: 700);
+
+  /// How long a revealed answer stays up after the miss limit. Longer on
+  /// purpose -- it is the one moment the map teaches instead of testing.
+  static const revealDuration = Duration(milliseconds: 1800);
+
   MapQuizCubit(
     this._repository,
     this._progressRepository, {
@@ -49,7 +60,13 @@ class MapQuizCubit extends Cubit<MapQuizState> {
   // treats each attempt as its own idempotency key.
   String _attemptId = '';
 
+  /// Holds the map on its last answer's feedback before finishing.
+  /// Cancelled on close, so leaving the page mid-feedback never emits
+  /// into a closed cubit.
+  Timer? _finishTimer;
+
   Future<void> load() async {
+    _finishTimer?.cancel();
     _attemptId = attemptIdGenerator();
     emit(const MapQuizLoading());
     final result = await _repository.loadRegions(mapId);
@@ -94,7 +111,9 @@ class MapQuizCubit extends Cubit<MapQuizState> {
 
   void onRegionTapped(String tappedId) {
     final current = state;
-    if (current is! MapQuizPlaying || current.revealed) return;
+    if (current is! MapQuizPlaying || current.revealed || current.finishing) {
+      return;
+    }
 
     final wasCorrect = tappedId == current.currentTargetId;
     if (!wasCorrect) {
@@ -119,7 +138,12 @@ class MapQuizCubit extends Cubit<MapQuizState> {
 
   void clearFeedback() {
     final current = state;
-    if (current is MapQuizPlaying && current.lastTap != null) {
+    // Not while finishing: that feedback is the last thing on screen
+    // before the result, and clearing it early is the very flash this
+    // exists to avoid.
+    if (current is MapQuizPlaying &&
+        current.lastTap != null &&
+        !current.finishing) {
       emit(current.copyWith(clearLastTap: true));
     }
   }
@@ -132,18 +156,54 @@ class MapQuizCubit extends Cubit<MapQuizState> {
     _advance(current, wasCorrect: false);
   }
 
+  @override
+  Future<void> close() {
+    _finishTimer?.cancel();
+    return super.close();
+  }
+
   void _advance(MapQuizPlaying current, {required bool wasCorrect}) {
     final targetId = current.currentTargetId;
     final remaining = List<String>.from(current.remainingIds)..remove(targetId);
     final correctCount = current.correctCount + (wasCorrect ? 1 : 0);
     if (remaining.isEmpty) {
+      // A revealed answer has already had its own (longer) moment on
+      // screen, so it finishes straight away -- the two waits must never
+      // stack.
+      if (!wasCorrect) {
+        emit(
+          MapQuizFinished(
+            correctCount: correctCount,
+            totalCount: current.totalCount,
+            attemptId: _attemptId,
+          ),
+        );
+        return;
+      }
+      // The last correct tap used to jump straight to the result, so the
+      // region it found never turned green. It now gets the same moment
+      // every other answer gets, and only then does the map finish.
       emit(
-        MapQuizFinished(
+        current.copyWith(
+          remainingIds: const [],
           correctCount: correctCount,
-          totalCount: current.totalCount,
-          attemptId: _attemptId,
+          lastTap: TapFeedback(regionId: targetId, wasCorrect: true),
+          wrongAttempts: 0,
+          revealed: false,
+          finishing: true,
         ),
       );
+      _finishTimer?.cancel();
+      _finishTimer = Timer(feedbackDuration, () {
+        if (isClosed) return;
+        emit(
+          MapQuizFinished(
+            correctCount: correctCount,
+            totalCount: current.totalCount,
+            attemptId: _attemptId,
+          ),
+        );
+      });
       return;
     }
     emit(
