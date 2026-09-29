@@ -51,7 +51,7 @@ class App extends StatelessWidget {
                 // route, dialog and bottom sheet) -- never a Stack rebuilt
                 // per screen. See AppBlockingLoadingCubit/AppLoadingOverlay.
                 builder: (context, child) =>
-                    Stack(children: [?child, const AppLoadingOverlay()]),
+                    AppLoadingOverlayHost(child: child),
               );
             },
           );

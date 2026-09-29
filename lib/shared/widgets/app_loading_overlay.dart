@@ -38,6 +38,39 @@ class AppLoadingOverlay extends StatelessWidget {
   }
 }
 
+/// Hosts the routed app under [AppLoadingOverlay] -- the one way to mount
+/// it (see `App.build`'s `MaterialApp.router(builder: ...)`).
+///
+/// The overlay's barrier only stops pointers. While it is up, the screen
+/// behind must also stop being reachable some other way: a screen reader
+/// would still list its buttons with their tap actions, and a keyboard
+/// could still move focus onto them -- in the middle of an operation that
+/// cannot be interrupted. So the app is wrapped in [ExcludeSemantics] and
+/// [ExcludeFocus] that switch on with the overlay. Both are always in the
+/// tree and only their flag changes, so no screen behind loses its state.
+class AppLoadingOverlayHost extends StatelessWidget {
+  const AppLoadingOverlayHost({required this.child, super.key});
+
+  final Widget? child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        if (child case final child?)
+          BlocBuilder<AppBlockingLoadingCubit, AppBlockingLoadingState>(
+            buildWhen: (a, b) => a.isVisible != b.isVisible,
+            builder: (context, state) => ExcludeFocus(
+              excluding: state.isVisible,
+              child: ExcludeSemantics(excluding: state.isVisible, child: child),
+            ),
+          ),
+        const AppLoadingOverlay(),
+      ],
+    );
+  }
+}
+
 class _Barrier extends StatelessWidget {
   const _Barrier({this.message});
 

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:aura/shared/widgets/app_aura_loader.dart';
@@ -138,6 +139,88 @@ void main() {
 
       completer.complete();
       await tester.pumpAndSettle();
+    });
+  });
+
+  /// What a screen reader can actually reach: the published semantics
+  /// tree, walked from the app's root node.
+  bool reachable(WidgetTester tester, String label) {
+    var found = false;
+    void visit(SemanticsNode node) {
+      if (node.label.contains(label)) found = true;
+      node.visitChildren((child) {
+        visit(child);
+        return true;
+      });
+    }
+
+    visit(tester.getSemantics(find.byType(MaterialApp)));
+    return found;
+  }
+
+  group(AppLoadingOverlayHost, () {
+    testWidgets('while up, the app behind is out of reach for screen readers '
+        'and keyboard focus; afterwards it is back, state intact', (
+      tester,
+    ) async {
+      final semantics = tester.ensureSemantics();
+      final loading = AppBlockingLoadingCubit();
+      addTearDown(loading.close);
+      final focus = FocusNode();
+      addTearDown(focus.dispose);
+      await tester.pumpWidget(
+        MultiBlocProvider(
+          providers: [
+            BlocProvider<LocaleCubit>(create: (_) => _TestLocaleCubit()),
+            BlocProvider<AppBlockingLoadingCubit>.value(value: loading),
+          ],
+          child: MaterialApp(
+            theme: AppTheme.light,
+            builder: (context, child) => AppLoadingOverlayHost(child: child),
+            home: Scaffold(
+              body: Column(
+                children: [
+                  TextButton(
+                    focusNode: focus,
+                    onPressed: () {},
+                    child: const Text('ação atrás'),
+                  ),
+                  const SizedBox(width: 200, child: TextField()),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.enterText(find.byType(TextField), 'digitado antes');
+      expect(reachable(tester, 'ação atrás'), isTrue);
+
+      final completer = Completer<void>();
+      unawaited(loading.run(() => completer.future, message: 'Saindo...'));
+      await tester.pump(const Duration(milliseconds: 200));
+
+      // Not listed, not focusable -- only the overlay's own line is.
+      expect(reachable(tester, 'ação atrás'), isFalse);
+      focus.requestFocus();
+      await tester.pump();
+      expect(focus.hasFocus, isFalse);
+      expect(
+        find.byWidgetPredicate(
+          (w) => w is Semantics && w.properties.label == 'Saindo...',
+        ),
+        findsOneWidget,
+      );
+
+      completer.complete();
+      await tester.pump(const Duration(milliseconds: 400));
+
+      expect(reachable(tester, 'ação atrás'), isTrue);
+      focus.requestFocus();
+      await tester.pump();
+      expect(focus.hasFocus, isTrue);
+      // The screen behind was never rebuilt from scratch.
+      expect(find.text('digitado antes'), findsOneWidget);
+      semantics.dispose();
     });
   });
 }
