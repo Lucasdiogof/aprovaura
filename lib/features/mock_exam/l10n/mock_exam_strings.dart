@@ -731,4 +731,18 @@ class MockExamStrings {
       AppLanguage.spanish => 'Algo salió mal. Intenta de nuevo.',
     },
   };
+
+  /// On the blocking overlay while the exam is being handed in.
+  String get finishingExam => switch (language) {
+    AppLanguage.portuguese => 'Finalizando simulado...',
+    AppLanguage.english => 'Handing in your mock exam...',
+    AppLanguage.spanish => 'Entregando el simulacro...',
+  };
+
+  /// On the blocking overlay while the exam is being abandoned.
+  String get abandoningExam => switch (language) {
+    AppLanguage.portuguese => 'Abandonando simulado...',
+    AppLanguage.english => 'Abandoning your mock exam...',
+    AppLanguage.spanish => 'Abandonando el simulacro...',
+  };
 }

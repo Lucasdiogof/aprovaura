@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
@@ -457,6 +458,10 @@ void main() {
         providers: [
           BlocProvider<XpCubit>.value(value: xpCubit),
           BlocProvider<StreakCubit>.value(value: streakCubit),
+          // Handing in goes through the app's blocking overlay.
+          BlocProvider<AppBlockingLoadingCubit>(
+            create: (_) => AppBlockingLoadingCubit(),
+          ),
         ],
       );
       await tester.pumpAndSettle();

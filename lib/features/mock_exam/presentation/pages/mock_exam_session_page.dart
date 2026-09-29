@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
@@ -110,7 +111,13 @@ class _MockExamRunnerView extends StatelessWidget {
       description: t.abandonDescription,
       primaryActionLabel: t.abandonMenuItem,
       onPrimaryAction: () async {
-        final failure = await cubit.abandon();
+        // The official blocking overlay, from the tap on: nothing behind
+        // it responds (answers, menu, back) and it always comes down, even
+        // when the call fails. Abandoning is never a result -- no Aurudo.
+        final failure = await context.read<AppBlockingLoadingCubit>().run(
+          cubit.abandon,
+          message: t.abandoningExam,
+        );
         if (!context.mounted) return;
         if (failure == null) {
           // Unless it turned out to be already handed in -- then the screen
@@ -157,23 +164,30 @@ class _MockExamRunnerView extends StatelessWidget {
     // by this exam. Taken before finish() so the exam's own reward cannot
     // already be in it.
     final before = AurudoRewardsSnapshot.fromCubits(context);
-    final result = await cubit.finish();
+    final xpCubit = context.read<XpCubit>();
+    final streakCubit = context.read<StreakCubit>();
+    // One blocking overlay for the whole hand-in: finishing, then the
+    // on-screen rewards catching up. It comes down (always -- run() has
+    // its own finally) before the result opens: processing first, then
+    // Aurudo reacting, never both on screen at once.
+    final result = await context.read<AppBlockingLoadingCubit>().run(() async {
+      final result = await cubit.finish();
+      if (result is MockExamFinished) {
+        // XP was already credited on the server inside
+        // finish_mock_exam(); this only refreshes the on-screen total.
+        // The streak counts a handed-in exam like any other finished
+        // activity. Awaited, not fire-and-forget: the result screen
+        // reads these numbers the moment it opens.
+        await Future.wait([
+          xpCubit.load(),
+          streakCubit.registerActivityCompletion(),
+        ]);
+      }
+      return result;
+    }, message: t.finishingExam);
     if (!context.mounted) return;
     switch (result) {
       case MockExamFinished():
-        // XP was already credited on the server inside finish_mock_exam();
-        // this only refreshes the on-screen total. The streak counts a
-        // handed-in exam like any other finished activity.
-        //
-        // Both are awaited now, not fire-and-forget: the result screen
-        // reads these numbers the moment it opens, and celebrating a
-        // level up that has not landed yet would simply never happen.
-        // The hand-in button stays in its loading state throughout.
-        await Future.wait([
-          context.read<XpCubit>().load(),
-          context.read<StreakCubit>().registerActivityCompletion(),
-        ]);
-        if (!context.mounted) return;
         await Navigator.of(context).pushReplacement(
           MaterialPageRoute<void>(
             builder: (_) => MockExamResultPage(
@@ -321,14 +335,6 @@ class _QuestionView extends StatelessWidget {
 
     return Column(
       children: [
-        // Abandoning locks the whole screen; this is the visible "working
-        // on it" (finishing shows it on the hand-in button instead).
-        if (state.isAbandoning)
-          LinearProgressIndicator(
-            minHeight: 2,
-            color: context.colors.primary,
-            backgroundColor: Colors.transparent,
-          ),
         Container(
           padding: EdgeInsets.fromLTRB(
             appHorizontalPadding(context),
@@ -456,7 +462,6 @@ class _QuestionView extends StatelessWidget {
                       label: state.isLast
                           ? strings.submitShortButton
                           : strings.nextButton,
-                      isLoading: state.isFinishing,
                       // Nothing to move on to until this one is answered.
                       onPressed: state.isBusy || selected == null
                           ? null
