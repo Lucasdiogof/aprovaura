@@ -55,6 +55,7 @@ class AurudoReactionStage extends StatefulWidget {
     this.stats,
     this.cta,
     this.mascotSize = 160,
+    this.instant = false,
     this.onSequenceCompleted,
     super.key,
   });
@@ -65,6 +66,14 @@ class AurudoReactionStage extends StatefulWidget {
   final Widget? stats;
   final Widget? cta;
   final double mascotSize;
+
+  /// Skips the whole timeline and shows the final state from the very
+  /// first frame, regardless of the platform's actual reduced-motion
+  /// setting. For revisiting a reaction that already played once -- e.g.
+  /// coming back to a result screen whose celebration the reaction ledger
+  /// already marked as seen -- where replaying the scene would be a
+  /// repeat, not a reduced-motion preference.
+  final bool instant;
   final VoidCallback? onSequenceCompleted;
 
   /// How long after the scene starts a tap is allowed to skip to the end.
@@ -86,7 +95,7 @@ class _AurudoReactionStageState extends State<AurudoReactionStage>
   void didChangeDependencies() {
     super.didChangeDependencies();
     if (_sequence != null) return;
-    final reduced = MediaQuery.disableAnimationsOf(context);
+    final reduced = widget.instant || MediaQuery.disableAnimationsOf(context);
     final sequence = AurudoReactionSequence(vsync: this, reducedMotion: reduced)
       ..controller.addStatusListener(_onStatus);
     _sequence = sequence;
@@ -139,6 +148,7 @@ class _AurudoReactionStageState extends State<AurudoReactionStage>
                 child: t < AurudoReactionSequence.mascotAt
                     ? null
                     : _MascotEntrance(
+                        instant: sequence.reducedMotion,
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
@@ -152,6 +162,7 @@ class _AurudoReactionStageState extends State<AurudoReactionStage>
                               type: widget.reaction.type,
                               essayTier: widget.reaction.essayTier,
                               size: widget.mascotSize,
+                              instant: sequence.reducedMotion,
                             ),
                           ],
                         ),
@@ -187,19 +198,19 @@ class _AurudoReactionStageState extends State<AurudoReactionStage>
 /// sequence flips it in from nothing at `mascotAt`) -- never a repeating
 /// or continuous motion.
 class _MascotEntrance extends StatelessWidget {
-  const _MascotEntrance({required this.child});
+  const _MascotEntrance({required this.child, required this.instant});
 
   final Widget child;
+  final bool instant;
 
   static const _distance = 8.0;
   static const _duration = Duration(milliseconds: 300);
 
   @override
   Widget build(BuildContext context) {
-    final reduced = MediaQuery.disableAnimationsOf(context);
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: 1),
-      duration: reduced ? Duration.zero : _duration,
+      duration: instant ? Duration.zero : _duration,
       curve: Curves.easeOutCubic,
       child: child,
       builder: (context, t, child) => Transform.translate(
@@ -223,19 +234,24 @@ class _Reveal extends StatelessWidget {
 
   static const _duration = Duration(milliseconds: 260);
 
+  static const _topGap = 20.0;
+
   @override
   Widget build(BuildContext context) {
     final child = this.child;
     if (child == null) return const SizedBox.shrink();
-    return AnimatedSlide(
-      duration: _duration,
-      curve: Curves.easeOutCubic,
-      offset: visible ? Offset.zero : const Offset(0, 0.12),
-      child: AnimatedOpacity(
+    return Padding(
+      padding: const EdgeInsets.only(top: _topGap),
+      child: AnimatedSlide(
         duration: _duration,
         curve: Curves.easeOutCubic,
-        opacity: visible ? 1 : 0,
-        child: child,
+        offset: visible ? Offset.zero : const Offset(0, 0.12),
+        child: AnimatedOpacity(
+          duration: _duration,
+          curve: Curves.easeOutCubic,
+          opacity: visible ? 1 : 0,
+          child: child,
+        ),
       ),
     );
   }

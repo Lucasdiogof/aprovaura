@@ -85,6 +85,23 @@ void main() {
       );
     });
 
+    testWidgets('instant: shows the final pose immediately, full motion on', (
+      tester,
+    ) async {
+      await tester.pumpApp(
+        const AurudoMascotView(
+          type: AurudoReactionType.encourage,
+          instant: true,
+        ),
+      );
+      expect(
+        find.byWidgetPredicate(
+          (w) => w is AurudoIllustration && w.pose == AurudoPose.studying,
+        ),
+        findsOneWidget,
+      );
+    });
+
     testWidgets('a single-pose reaction never switches poses', (tester) async {
       await tester.pumpApp(
         const AurudoMascotView(type: AurudoReactionType.great),

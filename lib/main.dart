@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/app.dart';
 import 'package:aura/core/auth/secure_session_storage.dart';
@@ -35,6 +36,13 @@ void main() async {
               persistSessionKey: supabaseSessionKey(EnvConfig.supabaseUrl),
             ),
     ),
+  );
+
+  // Registered eagerly (not a factory): the reaction ledger and other
+  // callers need it synchronously, and getInstance() is only genuinely
+  // async on its very first call per process.
+  sl.registerSingleton<SharedPreferences>(
+    await SharedPreferences.getInstance(),
   );
 
   sl.registerLazySingleton<ThemeCubit>(ThemeCubit.new);

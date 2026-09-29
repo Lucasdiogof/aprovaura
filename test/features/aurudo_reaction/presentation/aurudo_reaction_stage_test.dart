@@ -124,6 +124,25 @@ void main() {
       expect(_opacityOf(tester, 'Continuar'), 1);
     });
 
+    testWidgets(
+      'instant: everything available immediately even with full motion on',
+      (tester) async {
+        await tester.pumpApp(
+          const AurudoReactionStage(
+            reaction: reaction,
+            instant: true,
+            headline: Text('Perfeito!'),
+            content: Text('17 de 17'),
+            cta: Text('Continuar'),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(_opacityOf(tester, 'Perfeito!'), 1);
+        expect(_opacityOf(tester, '17 de 17'), 1);
+        expect(_opacityOf(tester, 'Continuar'), 1);
+      },
+    );
+
     testWidgets('a tap before the skip delay does nothing', (tester) async {
       await tester.pumpApp(
         const AurudoReactionStage(reaction: reaction, cta: Text('Continuar')),

@@ -54,6 +54,7 @@ class AurudoMascotView extends StatefulWidget {
     required this.type,
     this.essayTier,
     this.size = 160,
+    this.instant = false,
     super.key,
   });
 
@@ -63,6 +64,10 @@ class AurudoMascotView extends StatefulWidget {
   /// ignored for every other reaction.
   final EssayReactionTier? essayTier;
   final double size;
+
+  /// Forces the final pose immediately, regardless of the platform's
+  /// reduced-motion setting -- see `AurudoReactionStage.instant`.
+  final bool instant;
 
   /// How long the first pose of a two-pose story holds before crossfading.
   static const firstPoseDuration = Duration(milliseconds: 600);
@@ -90,7 +95,7 @@ class _AurudoMascotViewState extends State<AurudoMascotView> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _reduced = MediaQuery.disableAnimationsOf(context);
+    _reduced = widget.instant || MediaQuery.disableAnimationsOf(context);
     if (_reduced && _index != _poses.length - 1) {
       _timer?.cancel();
       _index = _poses.length - 1;

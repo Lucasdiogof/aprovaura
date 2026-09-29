@@ -1,4 +1,5 @@
 import 'package:aura/core/l10n/app_language.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
 import 'package:aura/features/questions/presentation/quiz_result_tier.dart';
 
 class MultipleChoiceStrings {
@@ -88,6 +89,48 @@ class MultipleChoiceStrings {
       QuizResultTier.excellent =>
         '¡Acertaste todo! Actividad completada con excelencia.',
     },
+  };
+
+  // The reaction resolver may pick a secondary achievement (level up,
+  // streak, daily goal) as the MAIN reaction instead of the plain tier --
+  // those get their own short headline; every other reaction reuses
+  // finishedTitle(tier), the same copy the result screen always had.
+  String reactionHeadline(AurudoReactionType type, QuizResultTier tier) =>
+      switch (type) {
+        AurudoReactionType.levelUp => switch (language) {
+          AppLanguage.portuguese => 'Subiu de nível!',
+          AppLanguage.english => 'Level up!',
+          AppLanguage.spanish => '¡Subiste de nivel!',
+        },
+        AurudoReactionType.streakMilestone => switch (language) {
+          AppLanguage.portuguese => 'Sequência em dia!',
+          AppLanguage.english => 'Streak going strong!',
+          AppLanguage.spanish => '¡Racha en marcha!',
+        },
+        AurudoReactionType.dailyGoalComplete => switch (language) {
+          AppLanguage.portuguese => 'Meta batida!',
+          AppLanguage.english => 'Goal reached!',
+          AppLanguage.spanish => '¡Meta alcanzada!',
+        },
+        _ => finishedTitle(tier),
+      };
+
+  String levelUpBadge(int level) => switch (language) {
+    AppLanguage.portuguese => 'Nível $level',
+    AppLanguage.english => 'Level $level',
+    AppLanguage.spanish => 'Nivel $level',
+  };
+
+  String streakMilestoneBadge(int days) => switch (language) {
+    AppLanguage.portuguese => '$days dias seguidos',
+    AppLanguage.english => '$days-day streak',
+    AppLanguage.spanish => '$days días seguidos',
+  };
+
+  String get dailyGoalBadge => switch (language) {
+    AppLanguage.portuguese => 'Meta batida',
+    AppLanguage.english => 'Goal reached',
+    AppLanguage.spanish => 'Meta alcanzada',
   };
 
   String get correctionTitle => switch (language) {

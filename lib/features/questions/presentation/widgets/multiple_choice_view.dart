@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
@@ -5,7 +7,18 @@ import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/core/theme/app_spacing.dart';
+import 'package:aura/features/aurudo_reaction/data/current_aurudo_reaction_ledger.dart';
+import 'package:aura/features/aurudo_reaction/domain/aurudo_reaction_resolver.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_activity_outcome.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_secondary_achievement.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_achievement_badge.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_stage.dart';
 import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
+import 'package:aura/features/home/domain/entities/daily_goal.dart';
+import 'package:aura/features/home/domain/repositories/daily_goal_repository.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 import 'package:aura/features/questions/domain/repositories/question_report_repository.dart';
@@ -18,16 +31,20 @@ import 'package:aura/features/questions/presentation/quiz_result_tier.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_answer_option.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_feedback.dart';
 import 'package:aura/features/questions/presentation/widgets/quiz_progress.dart';
+import 'package:aura/features/streak/domain/entities/streak.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
+import 'package:aura/features/streak/presentation/cubit/streak_state.dart';
 import 'package:aura/features/xp/domain/entities/user_xp.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
+import 'package:aura/features/xp/presentation/cubit/xp_state.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
+import 'package:aura/shared/widgets/app_loading_indicator.dart';
 import 'package:aura/shared/l10n/aura_strings.dart';
 import 'package:aura/shared/widgets/aura/aura_glyph.dart';
 import 'package:aura/shared/widgets/stat_cell.dart';
 
-class MultipleChoiceView extends StatelessWidget {
+class MultipleChoiceView extends StatefulWidget {
   const MultipleChoiceView({
     required this.catalogNodeId,
     required this.onEmpty,
@@ -64,15 +81,53 @@ class MultipleChoiceView extends StatelessWidget {
   onSessionFinished;
 
   @override
+  State<MultipleChoiceView> createState() => _MultipleChoiceViewState();
+}
+
+class _MultipleChoiceViewState extends State<MultipleChoiceView> {
+  // Captured once, before this session's own answers can move any of these
+  // numbers -- the Aurudo Reaction System diffs against these to notice a
+  // level up, a streak milestone or the daily goal completing *because of
+  // this session*, never because of one that already happened earlier.
+  // Null when awardsRewards is false: a session that grants no rewards has
+  // nothing to diff.
+  UserXp? _xpBefore;
+  Streak? _streakBefore;
+  DailyGoal? _dailyGoalBefore;
+  bool _snapshotTaken = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_snapshotTaken || !widget.awardsRewards) return;
+    _snapshotTaken = true;
+    if (context.read<XpCubit>().state case XpLoaded(:final xp)) {
+      _xpBefore = xp;
+    }
+    if (context.read<StreakCubit>().state case StreakLoaded(:final streak)) {
+      _streakBefore = streak;
+    }
+    unawaited(_loadDailyGoalBefore());
+  }
+
+  Future<void> _loadDailyGoalBefore() async {
+    final result = await sl<DailyGoalRepository>().getTodayAnsweredCount();
+    if (!mounted) return;
+    if (result case Success(:final data)) {
+      setState(() => _dailyGoalBefore = DailyGoal(answered: data));
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => MultipleChoiceCubit(
-        repository ?? sl<QuestionRepository>(),
+        widget.repository ?? sl<QuestionRepository>(),
         sl<ProgressRepository>(),
         sl<FavoritesRepository>(),
-        catalogNodeId: catalogNodeId,
-        difficulty: difficulty,
-        trackProgress: trackProgress,
+        catalogNodeId: widget.catalogNodeId,
+        difficulty: widget.difficulty,
+        trackProgress: widget.trackProgress,
       ),
       child: Builder(
         builder: (context) {
@@ -81,14 +136,7 @@ class MultipleChoiceView extends StatelessWidget {
           return BlocConsumer<MultipleChoiceCubit, MultipleChoiceState>(
             listener: (context, state) {
               if (state is! MultipleChoiceFinished) return;
-              if (awardsRewards) {
-                context.read<StreakCubit>().registerActivityCompletion();
-                context.read<XpCubit>().awardQuizXp(
-                  attemptId: state.attemptId,
-                  correctCount: state.correctCount,
-                );
-              }
-              onSessionFinished?.call(
+              widget.onSessionFinished?.call(
                 context,
                 context.read<MultipleChoiceCubit>(),
               );
@@ -108,7 +156,7 @@ class MultipleChoiceView extends StatelessWidget {
                       color: context.colors.primary,
                     ),
                   ),
-                  MultipleChoiceEmpty() => onEmpty(context),
+                  MultipleChoiceEmpty() => widget.onEmpty(context),
                   MultipleChoiceError(:final message) => _ErrorView(
                     strings: t,
                     message: message,
@@ -116,19 +164,25 @@ class MultipleChoiceView extends StatelessWidget {
                   MultipleChoiceFinished(
                     :final correctCount,
                     :final totalCount,
+                    :final attemptId,
                   ) =>
                     _FinishedView(
+                      key: ValueKey(attemptId),
                       strings: t,
                       correctCount: correctCount,
                       totalCount: totalCount,
-                      showXp: awardsRewards,
-                      isCorrectionMode: isCorrectionMode,
+                      attemptId: attemptId,
+                      awardsRewards: widget.awardsRewards,
+                      isCorrectionMode: widget.isCorrectionMode,
+                      xpBefore: _xpBefore,
+                      streakBefore: _streakBefore,
+                      dailyGoalBefore: _dailyGoalBefore,
                     ),
                   MultipleChoicePlaying() => _QuestionView(
                     strings: t,
                     state: state,
-                    showFavoriteButton: trackProgress,
-                    contextLabel: contextLabel,
+                    showFavoriteButton: widget.trackProgress,
+                    contextLabel: widget.contextLabel,
                   ),
                 },
               );
@@ -313,40 +367,202 @@ class _QuestionView extends StatelessWidget {
   }
 }
 
-class _FinishedView extends StatelessWidget {
+/// The finished screen, now presented through the Aurudo Reaction System
+/// instead of a static badge. Three steps, in order:
+///
+/// 1. If [awardsRewards], award XP and register the streak completion
+///    (awaited -- the numbers must be final before anything is shown) and
+///    read the daily-goal count again, all *after* the deck's last answer
+///    is already persisted (this widget only exists once the cubit reaches
+///    `MultipleChoiceFinished`, which is itself gated on that).
+/// 2. Resolve the one reaction that should play from the before/after
+///    snapshots -- no thresholds duplicated here.
+/// 3. Check the reaction ledger for [attemptId]: already played once (a
+///    rebuild reaching this same attempt again) shows the final state
+///    instantly instead of replaying the scene, and only a reaction not
+///    yet marked gets marked now, at the point it actually starts
+///    presenting.
+class _FinishedView extends StatefulWidget {
   const _FinishedView({
     required this.strings,
     required this.correctCount,
     required this.totalCount,
-    required this.showXp,
+    required this.attemptId,
+    required this.awardsRewards,
     required this.isCorrectionMode,
+    required this.xpBefore,
+    required this.streakBefore,
+    required this.dailyGoalBefore,
+    super.key,
   });
 
   final MultipleChoiceStrings strings;
   final int correctCount;
   final int totalCount;
-  final bool showXp;
+  final String attemptId;
+  final bool awardsRewards;
+  final bool isCorrectionMode;
+  final UserXp? xpBefore;
+  final Streak? streakBefore;
+  final DailyGoal? dailyGoalBefore;
+
+  @override
+  State<_FinishedView> createState() => _FinishedViewState();
+}
+
+class _FinishedViewState extends State<_FinishedView> {
+  AurudoReaction? _reaction;
+  bool _instant = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.awardsRewards) {
+      _resolveWithRewards();
+    } else {
+      _finishResolving(
+        const AurudoReactionResolver().resolveActivity(
+          AurudoActivityOutcome(
+            correctCount: widget.correctCount,
+            totalAnswered: widget.totalCount,
+          ),
+        ),
+      );
+    }
+  }
+
+  Future<void> _resolveWithRewards() async {
+    final xpCubit = context.read<XpCubit>();
+    final streakCubit = context.read<StreakCubit>();
+    final dailyGoalRepository = sl<DailyGoalRepository>();
+
+    await Future.wait([
+      streakCubit.registerActivityCompletion(),
+      xpCubit.awardQuizXp(
+        attemptId: widget.attemptId,
+        correctCount: widget.correctCount,
+      ),
+    ]);
+    if (!mounted) return;
+
+    UserXp? xpAfter;
+    if (xpCubit.state case XpLoaded(:final xp)) xpAfter = xp;
+    Streak? streakAfter;
+    if (streakCubit.state case StreakLoaded(:final streak)) {
+      streakAfter = streak;
+    }
+    DailyGoal? dailyGoalAfter;
+    final dailyGoalResult = await dailyGoalRepository.getTodayAnsweredCount();
+    if (dailyGoalResult case Success(:final data)) {
+      dailyGoalAfter = DailyGoal(answered: data);
+    }
+    if (!mounted) return;
+
+    _finishResolving(
+      const AurudoReactionResolver().resolveActivity(
+        AurudoActivityOutcome(
+          correctCount: widget.correctCount,
+          totalAnswered: widget.totalCount,
+          xpBefore: widget.xpBefore,
+          xpAfter: xpAfter,
+          streakBefore: widget.streakBefore,
+          streakAfter: streakAfter,
+          dailyGoalBefore: widget.dailyGoalBefore,
+          dailyGoalAfter: dailyGoalAfter,
+        ),
+      ),
+    );
+  }
+
+  void _finishResolving(AurudoReaction reaction) {
+    final ledger = currentAurudoReactionLedger();
+    final alreadyCelebrated =
+        ledger?.hasCelebratedAttempt(widget.attemptId) ?? false;
+    if (!alreadyCelebrated) {
+      ledger?.markAttemptCelebrated(widget.attemptId);
+    }
+    setState(() {
+      _reaction = reaction;
+      _instant = alreadyCelebrated;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final reaction = _reaction;
+    if (reaction == null) {
+      return const Center(child: AppLoadingIndicator());
+    }
+
+    final strings = widget.strings;
+    final fraction = widget.totalCount == 0
+        ? 0.0
+        : widget.correctCount / widget.totalCount;
+    final tier = QuizResultTier.fromFraction(fraction);
+    final xpEarned = widget.correctCount * UserXp.auraPerCorrectAnswer;
+
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(vertical: 24),
+      child: AurudoReactionStage(
+        reaction: reaction,
+        instant: _instant,
+        headline: _FinishedHeadline(
+          strings: strings,
+          type: reaction.type,
+          tier: tier,
+          totalCount: widget.totalCount,
+          isCorrectionMode: widget.isCorrectionMode,
+        ),
+        content: _ResultStatsCard(
+          correctCount: widget.correctCount,
+          totalCount: widget.totalCount,
+          percent: (fraction * 100).round(),
+          xpEarned: xpEarned,
+          showXp: widget.awardsRewards,
+          strings: strings,
+        ),
+        stats: reaction.secondary.isEmpty
+            ? null
+            : _SecondaryBadgesRow(
+                achievements: reaction.secondary,
+                strings: strings,
+              ),
+        cta: _FinishedCtas(
+          strings: strings,
+          tier: tier,
+          isCorrectionMode: widget.isCorrectionMode,
+        ),
+      ),
+    );
+  }
+}
+
+class _FinishedHeadline extends StatelessWidget {
+  const _FinishedHeadline({
+    required this.strings,
+    required this.type,
+    required this.tier,
+    required this.totalCount,
+    required this.isCorrectionMode,
+  });
+
+  final MultipleChoiceStrings strings;
+  final AurudoReactionType type;
+  final QuizResultTier tier;
+  final int totalCount;
   final bool isCorrectionMode;
 
   @override
   Widget build(BuildContext context) {
-    final fraction = totalCount == 0 ? 0.0 : correctCount / totalCount;
-    final percent = (fraction * 100).round();
-    final tier = QuizResultTier.fromFraction(fraction);
-    final xpEarned = correctCount * UserXp.auraPerCorrectAnswer;
-
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(24),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(height: 8),
-          _ResultBadge(tier: isCorrectionMode ? null : tier),
-          const SizedBox(height: 24),
           Text(
             isCorrectionMode
                 ? strings.correctionTitle
-                : strings.finishedTitle(tier),
+                : strings.reactionHeadline(type, tier),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontWeight: FontWeight.w800,
@@ -362,110 +578,177 @@ class _FinishedView extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(color: context.colors.textSecondary),
           ),
-          const SizedBox(height: 28),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 12),
-            decoration: BoxDecoration(
-              color: context.colors.surface,
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: context.colors.border),
-            ),
-            child: IntrinsicHeight(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: StatCell(
-                      icon: Icons.track_changes_rounded,
-                      iconColor: context.colors.primary,
-                      value: '$correctCount/$totalCount',
-                      label: strings.finishedCorrectLabel,
-                    ),
-                  ),
-                  VerticalDivider(color: context.colors.border, width: 1),
-                  Expanded(
-                    child: StatCell(
-                      icon: Icons.bar_chart_rounded,
-                      iconColor: context.colors.primary,
-                      value: '$percent%',
-                      label: strings.finishedScoreLabel,
-                    ),
-                  ),
-                  if (showXp) ...[
-                    VerticalDivider(color: context.colors.border, width: 1),
-                    Expanded(
-                      child: StatCell(
-                        icon: Icons.star_rounded,
-                        iconColor: context.colors.auraViolet,
-                        iconWidget: const AuraGlyph(size: 22),
-                        value: '+$xpEarned',
-                        label: AuraStrings.unit,
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 28),
-          if (isCorrectionMode)
-            AppButton(
-              label: strings.backButton,
-              onPressed: () => Navigator.of(context).maybePop(),
-            )
-          // Only two distinct actions exist (leave, or do another round);
-          // which one leads depends on how the attempt went, instead of
-          // always offering "Continuar" and "Voltar para trilha" as if
-          // they were different things.
-          else if (tier.isCelebratory) ...[
-            AppButton(
-              label: strings.continueButton,
-              onPressed: () => Navigator.of(context).maybePop(),
-            ),
-            const SizedBox(height: 12),
-            TextButton(
-              onPressed: () => context.read<MultipleChoiceCubit>().load(),
-              child: Text(strings.finishedRetryButton),
-            ),
-          ] else ...[
-            AppButton(
-              label: strings.retryButton,
-              onPressed: () => context.read<MultipleChoiceCubit>().load(),
-            ),
-            const SizedBox(height: 12),
-            TextButton(
-              onPressed: () => Navigator.of(context).maybePop(),
-              child: Text(
-                strings.backButton,
-                style: TextStyle(color: context.colors.textSecondary),
-              ),
-            ),
-          ],
         ],
       ),
     );
   }
 }
 
-// Aurudo reacts to the result instead of a trophy: the Aura orb for a
-// perfect run, a fist-up for a good one, the laptop ("keep studying") for a
-// developing one, and a thoughtful pose for zero -- never the frustrated
-// pose for a score, which would read as scolding. tier: null means
-// "correction mode", always a small win for having fixed the mistake.
-class _ResultBadge extends StatelessWidget {
-  const _ResultBadge({required this.tier});
+class _ResultStatsCard extends StatelessWidget {
+  const _ResultStatsCard({
+    required this.correctCount,
+    required this.totalCount,
+    required this.percent,
+    required this.xpEarned,
+    required this.showXp,
+    required this.strings,
+  });
 
-  final QuizResultTier? tier;
+  final int correctCount;
+  final int totalCount;
+  final int percent;
+  final int xpEarned;
+  final bool showXp;
+  final MultipleChoiceStrings strings;
 
   @override
   Widget build(BuildContext context) {
-    final pose = switch (tier) {
-      null => AurudoPose.celebrating,
-      QuizResultTier.excellent => AurudoPose.farmingAura,
-      QuizResultTier.good => AurudoPose.celebrating,
-      QuizResultTier.developing => AurudoPose.studying,
-      QuizResultTier.zero => AurudoPose.thinking,
-    };
-    return AurudoIllustration(pose: pose, size: 136);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 12),
+        decoration: BoxDecoration(
+          color: context.colors.surface,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: context.colors.border),
+        ),
+        child: IntrinsicHeight(
+          child: Row(
+            children: [
+              Expanded(
+                child: StatCell(
+                  icon: Icons.track_changes_rounded,
+                  iconColor: context.colors.primary,
+                  value: '$correctCount/$totalCount',
+                  label: strings.finishedCorrectLabel,
+                ),
+              ),
+              VerticalDivider(color: context.colors.border, width: 1),
+              Expanded(
+                child: StatCell(
+                  icon: Icons.bar_chart_rounded,
+                  iconColor: context.colors.primary,
+                  value: '$percent%',
+                  label: strings.finishedScoreLabel,
+                ),
+              ),
+              if (showXp) ...[
+                VerticalDivider(color: context.colors.border, width: 1),
+                Expanded(
+                  child: StatCell(
+                    icon: Icons.star_rounded,
+                    iconColor: context.colors.auraViolet,
+                    iconWidget: const AuraGlyph(size: 22),
+                    value: '+$xpEarned',
+                    label: AuraStrings.unit,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SecondaryBadgesRow extends StatelessWidget {
+  const _SecondaryBadgesRow({
+    required this.achievements,
+    required this.strings,
+  });
+
+  final List<AurudoSecondaryAchievement> achievements;
+  final MultipleChoiceStrings strings;
+
+  String _labelFor(AurudoSecondaryAchievement achievement) =>
+      switch (achievement.type) {
+        AurudoSecondaryAchievementType.levelUp => strings.levelUpBadge(
+          achievement.value!,
+        ),
+        AurudoSecondaryAchievementType.streakMilestone =>
+          strings.streakMilestoneBadge(achievement.value!),
+        AurudoSecondaryAchievementType.dailyGoalComplete =>
+          strings.dailyGoalBadge,
+      };
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        spacing: AppSpacing.sm,
+        runSpacing: AppSpacing.sm,
+        children: [
+          for (final achievement in achievements)
+            AurudoAchievementBadge(
+              achievement: achievement,
+              label: _labelFor(achievement),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _FinishedCtas extends StatelessWidget {
+  const _FinishedCtas({
+    required this.strings,
+    required this.tier,
+    required this.isCorrectionMode,
+  });
+
+  final MultipleChoiceStrings strings;
+  final QuizResultTier tier;
+  final bool isCorrectionMode;
+
+  @override
+  Widget build(BuildContext context) {
+    if (isCorrectionMode) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: AppButton(
+          label: strings.backButton,
+          onPressed: () => Navigator.of(context).maybePop(),
+        ),
+      );
+    }
+    // Only two distinct actions exist (leave, or do another round); which
+    // one leads depends on how the attempt went, instead of always
+    // offering "Continuar" and "Voltar para trilha" as if they were
+    // different things.
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        children: tier.isCelebratory
+            ? [
+                AppButton(
+                  label: strings.continueButton,
+                  onPressed: () => Navigator.of(context).maybePop(),
+                ),
+                const SizedBox(height: 12),
+                TextButton(
+                  onPressed: () => context.read<MultipleChoiceCubit>().load(),
+                  child: Text(strings.finishedRetryButton),
+                ),
+              ]
+            : [
+                AppButton(
+                  label: strings.retryButton,
+                  onPressed: () => context.read<MultipleChoiceCubit>().load(),
+                ),
+                const SizedBox(height: 12),
+                TextButton(
+                  onPressed: () => Navigator.of(context).maybePop(),
+                  child: Text(
+                    strings.backButton,
+                    style: TextStyle(color: context.colors.textSecondary),
+                  ),
+                ),
+              ],
+      ),
+    );
   }
 }
 
