@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:aura/shared/widgets/app_aura_loader.dart';
+import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_theme.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 
@@ -53,5 +54,52 @@ void main() {
 
       expect(loadingHeight, idleHeight);
     });
+
+    for (final (name, theme, colors) in [
+      ('light', AppTheme.light, AppColors.light),
+      ('dark', AppTheme.dark, AppColors.dark),
+    ]) {
+      testWidgets('$name: loading keeps the active violet, not the disabled '
+          'fade; a really disabled button keeps its disabled look', (
+        tester,
+      ) async {
+        Future<Color?> fillOf({
+          required bool isLoading,
+          VoidCallback? onPressed,
+        }) async {
+          await tester.pumpWidget(
+            MaterialApp(
+              theme: theme,
+              home: Scaffold(
+                body: AppButton(
+                  label: 'Entrar',
+                  isLoading: isLoading,
+                  onPressed: onPressed,
+                ),
+              ),
+            ),
+          );
+          await tester.pump();
+          return tester
+              .widget<Material>(
+                find.descendant(
+                  of: find.byType(ElevatedButton),
+                  matching: find.byType(Material),
+                ),
+              )
+              .color;
+        }
+
+        final loading = await fillOf(isLoading: true, onPressed: () {});
+        final disabled = await fillOf(isLoading: false);
+
+        expect(
+          loading,
+          colors.primaryFill.withValues(alpha: AppButton.loadingFillOpacity),
+        );
+        expect(disabled, colors.primaryFill.withValues(alpha: 0.45));
+        expect(loading, isNot(disabled));
+      });
+    }
   });
 }

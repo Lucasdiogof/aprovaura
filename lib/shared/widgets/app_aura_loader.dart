@@ -22,20 +22,33 @@ class AppAuraLoader extends StatefulWidget {
     super.key,
     this.size = mediumSize,
     this.color,
+    this.palette,
     this.semanticsLabel,
   });
 
   /// Inside a button.
-  const AppAuraLoader.small({super.key, this.color, this.semanticsLabel})
-    : size = smallSize;
+  const AppAuraLoader.small({
+    super.key,
+    this.color,
+    this.palette,
+    this.semanticsLabel,
+  }) : size = smallSize;
 
   /// In a card, a list, a screen section.
-  const AppAuraLoader.medium({super.key, this.color, this.semanticsLabel})
-    : size = mediumSize;
+  const AppAuraLoader.medium({
+    super.key,
+    this.color,
+    this.palette,
+    this.semanticsLabel,
+  }) : size = mediumSize;
 
   /// On the blocking overlay or a whole screen.
-  const AppAuraLoader.large({super.key, this.color, this.semanticsLabel})
-    : size = largeSize;
+  const AppAuraLoader.large({
+    super.key,
+    this.color,
+    this.palette,
+    this.semanticsLabel,
+  }) : size = largeSize;
 
   static const smallSize = 20.0;
   static const mediumSize = 32.0;
@@ -51,6 +64,11 @@ class AppAuraLoader extends StatefulWidget {
   /// would vanish -- white inside a filled button. Null uses the brand:
   /// violet, light purple and Aura cyan.
   final Color? color;
+
+  /// Main, secondary and small sparkle colours, for a surface that needs
+  /// its own mix -- white with a touch of cyan on a violet button. Wins
+  /// over [color] when both are given.
+  final List<Color>? palette;
 
   /// What a screen reader says. Defaults to "Carregando" in the app's
   /// language; pass the specific action ("Saindo...") where there is one.
@@ -103,13 +121,15 @@ class _AppAuraLoaderState extends State<AppAuraLoader>
     final colors = context.colors;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final single = widget.color;
-    final palette = single == null
-        ? [colors.primary, colors.auraViolet, colors.auraCyan]
-        : [
-            single,
-            single.withValues(alpha: 0.75),
-            single.withValues(alpha: 0.6),
-          ];
+    final palette =
+        widget.palette ??
+        (single == null
+            ? [colors.primary, colors.auraViolet, colors.auraCyan]
+            : [
+                single,
+                single.withValues(alpha: 0.75),
+                single.withValues(alpha: 0.6),
+              ]);
     return Semantics(
       label: widget.semanticsLabel ?? _defaultLabel(),
       child: RepaintBoundary(
@@ -123,7 +143,7 @@ class _AppAuraLoaderState extends State<AppAuraLoader>
               palette: palette,
               // A faint halo where there is contrast to spare: dark mode,
               // brand colours only (never around white-on-violet).
-              halo: isDark && single == null,
+              halo: isDark && single == null && widget.palette == null,
             ),
           ),
         ),
