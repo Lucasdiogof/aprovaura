@@ -12,13 +12,6 @@ class EssayStrings {
     AppLanguage.spanish => 'Redacción',
   };
 
-  /// On the Practice grid, under the title.
-  String get subjectDescription => switch (language) {
-    AppLanguage.portuguese => 'Escreva e receba uma correção.',
-    AppLanguage.english => 'Write one and get it marked.',
-    AppLanguage.spanish => 'Escribe una y recibe una corrección.',
-  };
-
   String get themesSubtitle => switch (language) {
     AppLanguage.portuguese => 'Escolha um tema e pratique sua escrita.',
     AppLanguage.english => 'Pick a theme and practise your writing.',

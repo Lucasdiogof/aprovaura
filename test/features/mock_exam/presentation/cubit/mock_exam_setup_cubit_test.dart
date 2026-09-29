@@ -25,7 +25,8 @@ Map<MockExamDifficulty, int> _counts(int facil, int medio, int dificil) => {
 };
 
 // The real numbers in the database when this feature was built, plus
-// Atualidades (must never be offered) and a subject with a level at 0.
+// Atualidades and Redação (must never be offered) and a subject with a level
+// at 0.
 final _availability = MockExamAvailability({
   'geografia': _counts(142, 178, 63),
   'historia': _counts(79, 46, 21),
@@ -34,7 +35,9 @@ final _availability = MockExamAvailability({
   'fisica': _counts(58, 95, 42),
   'matematica': _counts(82, 66, 22),
   'quimica': _counts(3, 0, 0),
+  'filosofia': _counts(40, 40, 40),
   'atualidades': _counts(10, 10, 10),
+  'redacao': _counts(10, 10, 10),
 });
 
 void main() {
@@ -85,8 +88,10 @@ void main() {
           'biologia',
           'fisica',
           'quimica',
+          'filosofia',
         ]);
         expect(cubit.state.subjects, isNot(contains('atualidades')));
+        expect(cubit.state.subjects, isNot(contains('redacao')));
         expect(cubit.state.available('geografia', _d), 63);
       },
     );

@@ -1,0 +1,659 @@
+=== Helenismo e Idade Média > Escolas helenísticas c=1 d=facil
+P: Para Epicuro, a felicidade consiste principalmente em:
+- Acumular riquezas e poder
+- Alcançar a ataraxia (tranquilidade da alma) e a ausência de dor
+- Obedecer cegamente ao destino
+- Buscar todos os prazeres intensos sem limite
+E: O prazer epicurista é moderado: ausência de dor no corpo (aponia) e de perturbação na alma (ataraxia).
+--- en
+P: For Epicurus, happiness consists mainly in:
+- Accumulating wealth and power
+- Reaching ataraxia (peace of mind) and the absence of pain
+- Blindly obeying fate
+- Seeking every intense pleasure without limit
+E: Epicurean pleasure is moderate: absence of pain in the body (aponia) and of disturbance in the soul (ataraxia).
+--- es
+P: Para Epicuro, la felicidad consiste principalmente en:
+- Acumular riquezas y poder
+- Alcanzar la ataraxia (tranquilidad del alma) y la ausencia de dolor
+- Obedecer ciegamente al destino
+- Buscar todos los placeres intensos sin límite
+E: El placer epicúreo es moderado: ausencia de dolor en el cuerpo (aponía) y de perturbación en el alma (ataraxia).
+
+=== Helenismo e Idade Média > Escolas helenísticas c=2 d=facil
+P: Os estoicos ensinavam que, para viver bem, é preciso:
+- Fugir de todas as responsabilidades
+- Buscar a fama a qualquer custo
+- Viver de acordo com a natureza e aceitar o que não depende de nós
+- Duvidar da existência do mundo
+E: Para o estoicismo, sábio é quem distingue o que está sob seu controle e aceita com serenidade o resto.
+--- en
+P: The Stoics taught that, to live well, one must:
+- Flee from all responsibilities
+- Seek fame at any cost
+- Live according to nature and accept what does not depend on us
+- Doubt the existence of the world
+E: For Stoicism, the wise person distinguishes what is under their control and calmly accepts the rest.
+--- es
+P: Los estoicos enseñaban que, para vivir bien, es preciso:
+- Huir de todas las responsabilidades
+- Buscar la fama a cualquier costo
+- Vivir de acuerdo con la naturaleza y aceptar lo que no depende de nosotros
+- Dudar de la existencia del mundo
+E: Para el estoicismo, sabio es quien distingue lo que está bajo su control y acepta con serenidad lo demás.
+
+=== Helenismo e Idade Média > Escolas helenísticas c=0 d=medio
+P: Os céticos, como Pirro, recomendavam a suspensão do juízo (epoché) porque:
+- Para todo argumento há outro de igual força, e não se pode alcançar certeza
+- A verdade está nos livros sagrados
+- Só os sentidos dão certeza absoluta
+- A razão prova tudo o que existe
+E: Diante de razões equivalentes, o cético suspende o juízo e busca, com isso, a tranquilidade.
+--- en
+P: The Skeptics, like Pyrrho, recommended suspending judgment (epoché) because:
+- For every argument there is another of equal strength, and certainty cannot be reached
+- Truth lies in sacred books
+- Only the senses give absolute certainty
+- Reason proves everything that exists
+E: Faced with equally strong reasons, the skeptic suspends judgment and thereby seeks tranquility.
+--- es
+P: Los escépticos, como Pirrón, recomendaban la suspensión del juicio (epojé) porque:
+- Para todo argumento hay otro de igual fuerza, y no se puede alcanzar certeza
+- La verdad está en los libros sagrados
+- Solo los sentidos dan certeza absoluta
+- La razón prueba todo lo que existe
+E: Ante razones equivalentes, el escéptico suspende el juicio y busca así la tranquilidad.
+
+=== Helenismo e Idade Média > Escolas helenísticas c=3 d=medio
+P: Diógenes de Sínope, que vivia num barril e desprezava convenções sociais, pertencia à escola:
+- Estoica
+- Epicurista
+- Cética
+- Cínica
+E: Os cínicos defendiam uma vida simples, segundo a natureza, rejeitando riquezas e convenções.
+--- en
+P: Diogenes of Sinope, who lived in a barrel and scorned social conventions, belonged to the school of the:
+- Stoics
+- Epicureans
+- Skeptics
+- Cynics
+E: The Cynics advocated a simple life according to nature, rejecting wealth and conventions.
+--- es
+P: Diógenes de Sinope, que vivía en un barril y despreciaba las convenciones sociales, pertenecía a la escuela:
+- Estoica
+- Epicúrea
+- Escéptica
+- Cínica
+E: Los cínicos defendían una vida sencilla, según la naturaleza, rechazando riquezas y convenciones.
+
+=== Helenismo e Idade Média > Escolas helenísticas c=1 d=dificil
+P: As escolas helenísticas surgiram num contexto marcado:
+- Pelo auge da democracia ateniense
+- Pelo fim da autonomia das pólis e pela formação de grandes impérios após Alexandre
+- Pela queda do Império Romano do Ocidente
+- Pela Reforma Protestante
+E: Com as conquistas de Alexandre, a pólis perde autonomia; a filosofia se volta para a busca da tranquilidade individual.
+--- en
+P: The Hellenistic schools emerged in a context marked by:
+- The height of Athenian democracy
+- The end of the polis' autonomy and the rise of large empires after Alexander
+- The fall of the Western Roman Empire
+- The Protestant Reformation
+E: With Alexander's conquests, the polis loses autonomy; philosophy turns to the search for individual tranquility.
+--- es
+P: Las escuelas helenísticas surgieron en un contexto marcado:
+- Por el auge de la democracia ateniense
+- Por el fin de la autonomía de las polis y la formación de grandes imperios tras Alejandro
+- Por la caída del Imperio romano de Occidente
+- Por la Reforma protestante
+E: Con las conquistas de Alejandro, la polis pierde autonomía; la filosofía se vuelca a la búsqueda de la tranquilidad individual.
+
+=== Helenismo e Idade Média > Escolas helenísticas c=3 d=dificil
+P: O argumento de Epicuro de que "a morte não é nada para nós" baseia-se na ideia de que:
+- A alma é imortal e será julgada pelos deuses
+- A morte é um castigo pelos erros da vida
+- Os deuses controlam o destino humano
+- Quando a morte está presente, nós não estamos, e não há sensação após ela
+E: Como tudo é sensação e a morte é o fim da sensação, não há por que temê-la.
+--- en
+P: Epicurus' argument that "death is nothing to us" is based on the idea that:
+- The soul is immortal and will be judged by the gods
+- Death is a punishment for life's mistakes
+- The gods control human fate
+- When death is present, we are not, and there is no sensation after it
+E: Since everything is sensation and death is the end of sensation, there is no reason to fear it.
+--- es
+P: El argumento de Epicuro de que "la muerte no es nada para nosotros" se basa en la idea de que:
+- El alma es inmortal y será juzgada por los dioses
+- La muerte es un castigo por los errores de la vida
+- Los dioses controlan el destino humano
+- Cuando la muerte está presente, nosotros no estamos, y no hay sensación después de ella
+E: Como todo es sensación y la muerte es el fin de la sensación, no hay por qué temerla.
+
+=== Helenismo e Idade Média > Filosofia medieval c=0 d=facil
+P: Um tema central da filosofia medieval foi a relação entre:
+- Fé e razão
+- Átomos e vazio
+- Capital e trabalho
+- Mito e logos
+E: Pensadores medievais buscaram conciliar a fé cristã com a razão filosófica herdada dos gregos.
+--- en
+P: A central theme of medieval philosophy was the relationship between:
+- Faith and reason
+- Atoms and the void
+- Capital and labor
+- Myth and logos
+E: Medieval thinkers sought to reconcile Christian faith with the philosophical reason inherited from the Greeks.
+--- es
+P: Un tema central de la filosofía medieval fue la relación entre:
+- Fe y razón
+- Átomos y vacío
+- Capital y trabajo
+- Mito y logos
+E: Los pensadores medievales buscaron conciliar la fe cristiana con la razón filosófica heredada de los griegos.
+
+=== Helenismo e Idade Média > Filosofia medieval c=2 d=facil
+P: Santo Agostinho, principal nome da Patrística, foi fortemente influenciado pela filosofia de:
+- Aristóteles
+- Epicuro
+- Platão
+- Demócrito
+E: Agostinho aproximou o cristianismo do pensamento platônico (via neoplatonismo).
+--- en
+P: Saint Augustine, the main name of Patristics, was strongly influenced by the philosophy of:
+- Aristotle
+- Epicurus
+- Plato
+- Democritus
+E: Augustine brought Christianity close to Platonic thought (through Neoplatonism).
+--- es
+P: San Agustín, principal nombre de la Patrística, fue fuertemente influido por la filosofía de:
+- Aristóteles
+- Epicuro
+- Platón
+- Demócrito
+E: Agustín acercó el cristianismo al pensamiento platónico (a través del neoplatonismo).
+
+=== Helenismo e Idade Média > Filosofia medieval c=1 d=medio
+P: São Tomás de Aquino, principal nome da Escolástica, buscou conciliar a fé cristã com a filosofia de:
+- Platão
+- Aristóteles
+- Heráclito
+- Pitágoras
+E: Tomás de Aquino integrou o pensamento aristotélico à teologia cristã, por exemplo nas Cinco Vias.
+--- en
+P: Saint Thomas Aquinas, the main name of Scholasticism, sought to reconcile Christian faith with the philosophy of:
+- Plato
+- Aristotle
+- Heraclitus
+- Pythagoras
+E: Thomas Aquinas integrated Aristotelian thought into Christian theology, for example in the Five Ways.
+--- es
+P: Santo Tomás de Aquino, principal nombre de la Escolástica, buscó conciliar la fe cristiana con la filosofía de:
+- Platón
+- Aristóteles
+- Heráclito
+- Pitágoras
+E: Tomás de Aquino integró el pensamiento aristotélico a la teología cristiana, por ejemplo en las Cinco Vías.
+
+=== Helenismo e Idade Média > Filosofia medieval c=3 d=medio
+P: Para Santo Agostinho, o mal:
+- É uma substância criada por Deus
+- É uma força igual e oposta a Deus
+- Não existe de forma alguma no mundo
+- É ausência (privação) do bem, ligada ao mau uso do livre-arbítrio
+E: Agostinho define o mal como privação do bem; o mal moral nasce do mau uso da liberdade humana.
+--- en
+P: For Saint Augustine, evil:
+- Is a substance created by God
+- Is a force equal and opposite to God
+- Does not exist in the world at all
+- Is the absence (privation) of good, linked to the misuse of free will
+E: Augustine defines evil as privation of good; moral evil arises from the misuse of human freedom.
+--- es
+P: Para San Agustín, el mal:
+- Es una sustancia creada por Dios
+- Es una fuerza igual y opuesta a Dios
+- No existe de ninguna manera en el mundo
+- Es ausencia (privación) del bien, ligada al mal uso del libre albedrío
+E: Agustín define el mal como privación del bien; el mal moral nace del mal uso de la libertad humana.
+
+=== Helenismo e Idade Média > Filosofia medieval c=0 d=dificil
+P: As "Cinco Vias" de Tomás de Aquino são:
+- Argumentos racionais para demonstrar a existência de Deus
+- Regras para a vida monástica
+- Etapas do método científico moderno
+- Críticas à Igreja Católica
+E: Nas Cinco Vias (primeiro motor, causa primeira, ser necessário etc.), Tomás argumenta racionalmente pela existência de Deus.
+--- en
+P: Thomas Aquinas' "Five Ways" are:
+- Rational arguments to demonstrate the existence of God
+- Rules for monastic life
+- Steps of the modern scientific method
+- Criticisms of the Catholic Church
+E: In the Five Ways (first mover, first cause, necessary being etc.), Thomas argues rationally for the existence of God.
+--- es
+P: Las "Cinco Vías" de Tomás de Aquino son:
+- Argumentos racionales para demostrar la existencia de Dios
+- Reglas para la vida monástica
+- Etapas del método científico moderno
+- Críticas a la Iglesia católica
+E: En las Cinco Vías (primer motor, causa primera, ser necesario, etc.), Tomás argumenta racionalmente a favor de la existencia de Dios.
+
+=== Helenismo e Idade Média > Filosofia medieval c=2 d=dificil
+P: A chamada "querela dos universais" discutia:
+- Se a Terra está no centro do universo
+- Quem deveria ser o papa
+- Se conceitos gerais (como "humanidade") existem de fato ou são apenas nomes
+- Se a Bíblia deveria ser traduzida
+E: Realistas afirmavam que os universais existem; nominalistas, como Guilherme de Ockham, que são apenas nomes.
+--- en
+P: The so-called "problem of universals" debated:
+- Whether the Earth is at the center of the universe
+- Who should be pope
+- Whether general concepts (such as "humanity") really exist or are just names
+- Whether the Bible should be translated
+E: Realists claimed that universals exist; nominalists, such as William of Ockham, that they are only names.
+--- es
+P: La llamada "querella de los universales" discutía:
+- Si la Tierra está en el centro del universo
+- Quién debía ser el papa
+- Si los conceptos generales (como "humanidad") existen de hecho o son solo nombres
+- Si la Biblia debía traducirse
+E: Los realistas afirmaban que los universales existen; los nominalistas, como Guillermo de Ockham, que son solo nombres.
+
+=== Filosofia moderna > Racionalismo c=1 d=facil
+P: A frase "Penso, logo existo" é de:
+- John Locke
+- René Descartes
+- David Hume
+- Immanuel Kant
+E: Descartes chega ao cogito: mesmo duvidando de tudo, a existência de quem pensa é indubitável.
+--- en
+P: The phrase "I think, therefore I am" is by:
+- John Locke
+- René Descartes
+- David Hume
+- Immanuel Kant
+E: Descartes arrives at the cogito: even doubting everything, the existence of the one who thinks is indubitable.
+--- es
+P: La frase "Pienso, luego existo" es de:
+- John Locke
+- René Descartes
+- David Hume
+- Immanuel Kant
+E: Descartes llega al cogito: aun dudando de todo, la existencia de quien piensa es indudable.
+
+=== Filosofia moderna > Racionalismo c=3 d=facil
+P: Para os racionalistas, a principal fonte do conhecimento seguro é:
+- A tradição
+- A experiência sensível
+- A revelação religiosa
+- A razão
+E: O racionalismo (Descartes, Spinoza, Leibniz) considera a razão a fonte do conhecimento certo e universal.
+--- en
+P: For the rationalists, the main source of reliable knowledge is:
+- Tradition
+- Sense experience
+- Religious revelation
+- Reason
+E: Rationalism (Descartes, Spinoza, Leibniz) considers reason the source of certain and universal knowledge.
+--- es
+P: Para los racionalistas, la principal fuente del conocimiento seguro es:
+- La tradición
+- La experiencia sensible
+- La revelación religiosa
+- La razón
+E: El racionalismo (Descartes, Spinoza, Leibniz) considera la razón la fuente del conocimiento cierto y universal.
+
+=== Filosofia moderna > Racionalismo c=2 d=medio
+P: A dúvida metódica de Descartes consiste em:
+- Duvidar de tudo para sempre, sem chegar a nenhuma certeza
+- Aceitar apenas o que os sentidos mostram
+- Duvidar de tudo o que possa ser posto em dúvida, para encontrar uma verdade indubitável
+- Confiar nas opiniões dos antigos
+E: A dúvida cartesiana é um método, não um fim: serve para chegar a uma primeira certeza segura (o cogito).
+--- en
+P: Descartes' methodical doubt consists in:
+- Doubting everything forever, without reaching any certainty
+- Accepting only what the senses show
+- Doubting everything that can be doubted, in order to find an indubitable truth
+- Trusting the opinions of the ancients
+E: Cartesian doubt is a method, not an end: it serves to reach a first secure certainty (the cogito).
+--- es
+P: La duda metódica de Descartes consiste en:
+- Dudar de todo para siempre, sin llegar a ninguna certeza
+- Aceptar solo lo que muestran los sentidos
+- Dudar de todo lo que pueda ponerse en duda, para encontrar una verdad indudable
+- Confiar en las opiniones de los antiguos
+E: La duda cartesiana es un método, no un fin: sirve para llegar a una primera certeza segura (el cogito).
+
+=== Filosofia moderna > Racionalismo c=0 d=medio
+P: Descartes dividiu a realidade em duas substâncias, a pensante e a extensa. Essa posição é chamada de:
+- Dualismo
+- Materialismo
+- Monismo
+- Ceticismo
+E: O dualismo cartesiano separa res cogitans (mente, pensamento) e res extensa (corpo, matéria).
+--- en
+P: Descartes divided reality into two substances, thinking and extended. This position is called:
+- Dualism
+- Materialism
+- Monism
+- Skepticism
+E: Cartesian dualism separates res cogitans (mind, thought) and res extensa (body, matter).
+--- es
+P: Descartes dividió la realidad en dos sustancias, la pensante y la extensa. Esta posición se llama:
+- Dualismo
+- Materialismo
+- Monismo
+- Escepticismo
+E: El dualismo cartesiano separa res cogitans (mente, pensamiento) y res extensa (cuerpo, materia).
+
+=== Filosofia moderna > Racionalismo c=3 d=dificil
+P: Para Descartes, as ideias inatas são aquelas que:
+- Vêm dos sentidos após o nascimento
+- São inventadas pela imaginação
+- São ensinadas pela sociedade
+- Já estão na mente, como a ideia de Deus e as verdades matemáticas
+E: Descartes distingue ideias adventícias (dos sentidos), fictícias (imaginação) e inatas (presentes na razão).
+--- en
+P: For Descartes, innate ideas are those that:
+- Come from the senses after birth
+- Are invented by the imagination
+- Are taught by society
+- Are already in the mind, like the idea of God and mathematical truths
+E: Descartes distinguishes adventitious ideas (from the senses), fictitious (imagination) and innate (present in reason).
+--- es
+P: Para Descartes, las ideas innatas son aquellas que:
+- Vienen de los sentidos después del nacimiento
+- Son inventadas por la imaginación
+- Son enseñadas por la sociedad
+- Ya están en la mente, como la idea de Dios y las verdades matemáticas
+E: Descartes distingue ideas adventicias (de los sentidos), ficticias (imaginación) e innatas (presentes en la razón).
+
+=== Filosofia moderna > Racionalismo c=1 d=dificil
+P: Spinoza, racionalista do século XVII, identificou Deus com:
+- Um ser pessoal separado do mundo
+- A própria natureza (Deus sive Natura)
+- O primeiro motor imóvel de Aristóteles
+- A vontade do soberano
+E: Para Spinoza há uma única substância, Deus ou Natureza; tudo o que existe é modo dessa substância.
+--- en
+P: Spinoza, a 17th-century rationalist, identified God with:
+- A personal being separate from the world
+- Nature itself (Deus sive Natura)
+- Aristotle's unmoved mover
+- The will of the sovereign
+E: For Spinoza there is a single substance, God or Nature; everything that exists is a mode of this substance.
+--- es
+P: Spinoza, racionalista del siglo XVII, identificó a Dios con:
+- Un ser personal separado del mundo
+- La propia naturaleza (Deus sive Natura)
+- El primer motor inmóvil de Aristóteles
+- La voluntad del soberano
+E: Para Spinoza hay una única sustancia, Dios o Naturaleza; todo lo que existe es modo de esa sustancia.
+
+=== Filosofia moderna > Empirismo c=2 d=facil
+P: Para os empiristas, todo conhecimento tem origem na:
+- Razão pura
+- Revelação divina
+- Experiência sensível
+- Intuição mística
+E: O empirismo (Locke, Berkeley, Hume) afirma que o conhecimento vem da experiência.
+--- en
+P: For the empiricists, all knowledge originates in:
+- Pure reason
+- Divine revelation
+- Sense experience
+- Mystical intuition
+E: Empiricism (Locke, Berkeley, Hume) states that knowledge comes from experience.
+--- es
+P: Para los empiristas, todo conocimiento tiene origen en la:
+- Razón pura
+- Revelación divina
+- Experiencia sensible
+- Intuición mística
+E: El empirismo (Locke, Berkeley, Hume) afirma que el conocimiento viene de la experiencia.
+
+=== Filosofia moderna > Empirismo c=0 d=facil
+P: John Locke comparou a mente humana, ao nascer, a:
+- Uma folha em branco (tábula rasa)
+- Uma biblioteca completa
+- Um espelho perfeito
+- Uma máquina de calcular
+E: Para Locke não há ideias inatas: a mente começa vazia e é preenchida pela experiência.
+--- en
+P: John Locke compared the human mind at birth to:
+- A blank slate (tabula rasa)
+- A complete library
+- A perfect mirror
+- A calculating machine
+E: For Locke there are no innate ideas: the mind starts empty and is filled by experience.
+--- es
+P: John Locke comparó la mente humana, al nacer, con:
+- Una hoja en blanco (tabula rasa)
+- Una biblioteca completa
+- Un espejo perfecto
+- Una máquina de calcular
+E: Para Locke no hay ideas innatas: la mente empieza vacía y la experiencia la va llenando.
+
+=== Filosofia moderna > Empirismo c=3 d=medio
+P: David Hume criticou a ideia de causalidade afirmando que ela se baseia:
+- Em demonstrações matemáticas
+- Em ideias inatas
+- Na revelação divina
+- No hábito de ver eventos se sucederem, e não numa conexão necessária percebida
+E: Vemos que um fato segue outro repetidamente e, por hábito, esperamos que continue; a necessidade não é observada.
+--- en
+P: David Hume criticized the idea of causation by stating that it is based:
+- On mathematical proofs
+- On innate ideas
+- On divine revelation
+- On the habit of seeing events follow one another, not on a perceived necessary connection
+E: We see one event follow another repeatedly and, by habit, expect it to continue; the necessity is not observed.
+--- es
+P: David Hume criticó la idea de causalidad afirmando que se basa:
+- En demostraciones matemáticas
+- En ideas innatas
+- En la revelación divina
+- En el hábito de ver sucederse los hechos, y no en una conexión necesaria percibida
+E: Vemos que un hecho sigue a otro repetidamente y, por hábito, esperamos que continúe; la necesidad no se observa.
+
+=== Filosofia moderna > Empirismo c=1 d=medio
+P: A frase "ser é ser percebido" (esse est percipi) resume a filosofia de:
+- John Locke
+- George Berkeley
+- Francis Bacon
+- Thomas Hobbes
+E: Para Berkeley, as coisas só existem enquanto percebidas (por nós ou por Deus).
+--- en
+P: The phrase "to be is to be perceived" (esse est percipi) sums up the philosophy of:
+- John Locke
+- George Berkeley
+- Francis Bacon
+- Thomas Hobbes
+E: For Berkeley, things exist only as long as they are perceived (by us or by God).
+--- es
+P: La frase "ser es ser percibido" (esse est percipi) resume la filosofía de:
+- John Locke
+- George Berkeley
+- Francis Bacon
+- Thomas Hobbes
+E: Para Berkeley, las cosas solo existen en tanto son percibidas (por nosotros o por Dios).
+
+=== Filosofia moderna > Empirismo c=2 d=dificil
+P: Francis Bacon chamou de "ídolos" os:
+- Deuses das religiões antigas
+- Governantes que abusam do poder
+- Preconceitos e erros da mente que atrapalham o conhecimento verdadeiro
+- Métodos matemáticos de investigação
+E: Bacon descreve ídolos da tribo, da caverna, do foro (mercado) e do teatro, que distorcem o conhecimento.
+--- en
+P: Francis Bacon called "idols" the:
+- Gods of ancient religions
+- Rulers who abuse power
+- Prejudices and errors of the mind that hinder true knowledge
+- Mathematical methods of inquiry
+E: Bacon describes idols of the tribe, the cave, the marketplace and the theater, which distort knowledge.
+--- es
+P: Francis Bacon llamó "ídolos" a los:
+- Dioses de las religiones antiguas
+- Gobernantes que abusan del poder
+- Prejuicios y errores de la mente que estorban el conocimiento verdadero
+- Métodos matemáticos de investigación
+E: Bacon describe los ídolos de la tribu, de la caverna, del foro (mercado) y del teatro, que distorsionan el conocimiento.
+
+=== Filosofia moderna > Empirismo c=0 d=dificil
+P: O chamado "problema da indução", formulado por Hume, questiona:
+- Como justificar conclusões gerais a partir de casos particulares observados
+- Como provar teoremas geométricos
+- Por que os governos devem existir
+- Como distinguir o belo do feio
+E: Observar muitos casos não garante logicamente que o próximo será igual; a indução não tem justificativa racional plena.
+--- en
+P: The so-called "problem of induction", formulated by Hume, questions:
+- How to justify general conclusions from observed particular cases
+- How to prove geometric theorems
+- Why governments should exist
+- How to distinguish the beautiful from the ugly
+E: Observing many cases does not logically guarantee the next will be the same; induction lacks full rational justification.
+--- es
+P: El llamado "problema de la inducción", formulado por Hume, cuestiona:
+- Cómo justificar conclusiones generales a partir de casos particulares observados
+- Cómo probar teoremas geométricos
+- Por qué deben existir los gobiernos
+- Cómo distinguir lo bello de lo feo
+E: Observar muchos casos no garantiza lógicamente que el próximo será igual; la inducción no tiene plena justificación racional.
+
+=== Filosofia moderna > Kant e o Iluminismo c=1 d=facil
+P: Para Kant, o Esclarecimento (Iluminismo) é a saída do ser humano da:
+- Vida no campo
+- Menoridade, ou seja, da incapacidade de usar o próprio entendimento sem a direção de outro
+- Religião cristã
+- Monarquia absolutista
+E: No texto "O que é o Esclarecimento?", Kant convida: "Ousa saber! Tem coragem de usar teu próprio entendimento".
+--- en
+P: For Kant, Enlightenment is humanity's emergence from:
+- Life in the countryside
+- Immaturity, that is, the inability to use one's own understanding without another's guidance
+- The Christian religion
+- Absolute monarchy
+E: In "What is Enlightenment?", Kant urges: "Dare to know! Have the courage to use your own understanding".
+--- es
+P: Para Kant, la Ilustración es la salida del ser humano de la:
+- Vida en el campo
+- Minoría de edad, es decir, la incapacidad de usar el propio entendimiento sin la guía de otro
+- Religión cristiana
+- Monarquía absoluta
+E: En "¿Qué es la Ilustración?", Kant invita: "¡Atrévete a saber! Ten el valor de servirte de tu propio entendimiento".
+
+=== Filosofia moderna > Kant e o Iluminismo c=3 d=facil
+P: O imperativo categórico de Kant manda agir:
+- Buscando sempre o maior prazer
+- Conforme o que a maioria aprova
+- De acordo com as leis do Estado, sem exceção
+- Apenas segundo uma máxima que você possa querer que se torne lei universal
+E: A ação é moral quando sua máxima pode ser universalizada, feita por dever, e não por interesse.
+--- en
+P: Kant's categorical imperative commands us to act:
+- Always seeking the greatest pleasure
+- According to what the majority approves
+- According to the laws of the State, without exception
+- Only according to a maxim that you can will to become a universal law
+E: An action is moral when its maxim can be universalized, done out of duty and not out of interest.
+--- es
+P: El imperativo categórico de Kant manda actuar:
+- Buscando siempre el mayor placer
+- Conforme a lo que aprueba la mayoría
+- De acuerdo con las leyes del Estado, sin excepción
+- Solo según una máxima que puedas querer que se convierta en ley universal
+E: La acción es moral cuando su máxima puede universalizarse, hecha por deber y no por interés.
+
+=== Filosofia moderna > Kant e o Iluminismo c=0 d=medio
+P: Kant é conhecido por propor uma síntese entre:
+- Racionalismo e empirismo
+- Epicurismo e estoicismo
+- Platonismo e atomismo
+- Cristianismo e islamismo
+E: Para Kant, o conhecimento começa com a experiência, mas nem tudo nele vem dela: a razão contribui com formas e categorias.
+--- en
+P: Kant is known for proposing a synthesis between:
+- Rationalism and empiricism
+- Epicureanism and Stoicism
+- Platonism and atomism
+- Christianity and Islam
+E: For Kant, knowledge begins with experience, but not all of it comes from experience: reason contributes forms and categories.
+--- es
+P: Kant es conocido por proponer una síntesis entre:
+- Racionalismo y empirismo
+- Epicureísmo y estoicismo
+- Platonismo y atomismo
+- Cristianismo e islam
+E: Para Kant, el conocimiento empieza con la experiencia, pero no todo en él procede de ella: la razón aporta formas y categorías.
+
+=== Filosofia moderna > Kant e o Iluminismo c=2 d=medio
+P: A chamada "revolução copernicana" de Kant na teoria do conhecimento afirma que:
+- A Terra gira em torno do Sol
+- O conhecimento depende apenas dos objetos
+- Os objetos se regulam pelas estruturas do sujeito que conhece
+- Só Deus pode conhecer a realidade
+E: Em vez de o sujeito se adaptar ao objeto, é o objeto conhecido que se adapta às formas da sensibilidade e às categorias do entendimento.
+--- en
+P: Kant's so-called "Copernican revolution" in the theory of knowledge states that:
+- The Earth revolves around the Sun
+- Knowledge depends only on objects
+- Objects conform to the structures of the knowing subject
+- Only God can know reality
+E: Instead of the subject adapting to the object, the known object conforms to the forms of sensibility and the categories of understanding.
+--- es
+P: La llamada "revolución copernicana" de Kant en la teoría del conocimiento afirma que:
+- La Tierra gira alrededor del Sol
+- El conocimiento depende solo de los objetos
+- Los objetos se rigen por las estructuras del sujeto que conoce
+- Solo Dios puede conocer la realidad
+E: En lugar de que el sujeto se adapte al objeto, el objeto conocido se adapta a las formas de la sensibilidad y a las categorías del entendimiento.
+
+=== Filosofia moderna > Kant e o Iluminismo c=1 d=dificil
+P: Kant distingue o fenômeno do númeno. O númeno (coisa em si) é:
+- Aquilo que aparece aos nossos sentidos
+- A realidade tal como é em si mesma, que não podemos conhecer
+- Uma ideia inata de Descartes
+- Um conceito matemático
+E: Só conhecemos os fenômenos (as coisas como nos aparecem); a coisa em si pode ser pensada, mas não conhecida.
+--- en
+P: Kant distinguishes phenomenon from noumenon. The noumenon (thing in itself) is:
+- What appears to our senses
+- Reality as it is in itself, which we cannot know
+- One of Descartes' innate ideas
+- A mathematical concept
+E: We only know phenomena (things as they appear to us); the thing in itself can be thought but not known.
+--- es
+P: Kant distingue el fenómeno del noúmeno. El noúmeno (cosa en sí) es:
+- Aquello que aparece a nuestros sentidos
+- La realidad tal como es en sí misma, que no podemos conocer
+- Una idea innata de Descartes
+- Un concepto matemático
+E: Solo conocemos los fenómenos (las cosas como nos aparecen); la cosa en sí puede pensarse, pero no conocerse.
+
+=== Filosofia moderna > Kant e o Iluminismo c=3 d=dificil
+P: Uma das formulações do imperativo categórico diz que devemos tratar a humanidade:
+- Como meio para alcançar a felicidade geral
+- Conforme a utilidade de cada pessoa
+- Segundo a vontade do governante
+- Sempre como fim, e nunca apenas como meio
+E: A fórmula da humanidade exige respeitar a dignidade das pessoas: ninguém pode ser usado apenas como instrumento.
+--- en
+P: One formulation of the categorical imperative says we must treat humanity:
+- As a means to reach general happiness
+- According to each person's usefulness
+- According to the ruler's will
+- Always as an end, and never merely as a means
+E: The formula of humanity requires respecting people's dignity: no one may be used merely as an instrument.
+--- es
+P: Una de las formulaciones del imperativo categórico dice que debemos tratar a la humanidad:
+- Como medio para alcanzar la felicidad general
+- Según la utilidad de cada persona
+- Según la voluntad del gobernante
+- Siempre como fin, y nunca solo como medio
+E: La fórmula de la humanidad exige respetar la dignidad de las personas: nadie puede ser usado solo como instrumento.

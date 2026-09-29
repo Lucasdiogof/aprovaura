@@ -1,0 +1,527 @@
+=== Ética > Ética e moral c=2 d=facil
+P: A ética, como área da filosofia, se dedica principalmente a:
+- Estudar os astros e o universo
+- Classificar as espécies de seres vivos
+- Refletir sobre valores, o bem e como devemos agir
+- Descrever a formação das línguas
+E: A ética investiga os fundamentos do agir humano: o que é bom, justo e como devemos viver.
+--- en
+P: Ethics, as an area of philosophy, is mainly devoted to:
+- Studying the stars and the universe
+- Classifying species of living beings
+- Reflecting on values, the good and how we should act
+- Describing how languages were formed
+E: Ethics investigates the foundations of human action: what is good, just and how we should live.
+--- es
+P: La ética, como área de la filosofía, se dedica principalmente a:
+- Estudiar los astros y el universo
+- Clasificar las especies de seres vivos
+- Reflexionar sobre los valores, el bien y cómo debemos actuar
+- Describir la formación de las lenguas
+E: La ética investiga los fundamentos del actuar humano: qué es bueno, justo y cómo debemos vivir.
+
+=== Ética > Ética e moral c=0 d=facil
+P: Uma distinção comum entre moral e ética é que:
+- A moral são as normas e costumes de um grupo; a ética é a reflexão crítica sobre essas normas
+- A moral trata da natureza; a ética, da política
+- Moral e ética são termos sem nenhuma relação
+- A ética só existe nas religiões
+E: A moral (mores, costumes) é o conjunto de regras vividas; a ética as examina e busca seus fundamentos.
+--- en
+P: A common distinction between morality and ethics is that:
+- Morality is a group's norms and customs; ethics is the critical reflection on those norms
+- Morality deals with nature; ethics with politics
+- Morality and ethics are completely unrelated terms
+- Ethics exists only in religions
+E: Morality (mores, customs) is the set of rules people live by; ethics examines them and seeks their grounds.
+--- es
+P: Una distinción común entre moral y ética es que:
+- La moral son las normas y costumbres de un grupo; la ética es la reflexión crítica sobre esas normas
+- La moral trata de la naturaleza; la ética, de la política
+- Moral y ética son términos sin ninguna relación
+- La ética solo existe en las religiones
+E: La moral (mores, costumbres) es el conjunto de reglas vividas; la ética las examina y busca sus fundamentos.
+
+=== Ética > Ética e moral c=3 d=medio
+P: Para que uma ação possa ser avaliada moralmente, é pressuposto que o agente tenha:
+- Riqueza suficiente
+- Apoio da maioria
+- Conhecimento científico avançado
+- Consciência e liberdade para escolher
+E: Só se atribui responsabilidade moral a quem age com consciência e liberdade; ações forçadas ou ignorantes atenuam a culpa.
+--- en
+P: For an action to be morally evaluated, it is assumed that the agent has:
+- Enough wealth
+- The majority's support
+- Advanced scientific knowledge
+- Awareness and freedom to choose
+E: Moral responsibility is only attributed to those who act with awareness and freedom; forced or ignorant actions reduce blame.
+--- es
+P: Para que una acción pueda evaluarse moralmente, se presupone que el agente tiene:
+- Riqueza suficiente
+- Apoyo de la mayoría
+- Conocimiento científico avanzado
+- Conciencia y libertad para elegir
+E: Solo se atribuye responsabilidad moral a quien actúa con conciencia y libertad; las acciones forzadas o ignorantes atenúan la culpa.
+
+=== Ética > Ética e moral c=1 d=medio
+P: O relativismo moral defende que:
+- Existe uma única moral válida para todos os povos
+- Os valores morais variam conforme a cultura e a época
+- Só a ciência define o que é certo
+- As leis naturais determinam todos os costumes
+E: Para o relativismo, não há padrão moral universal: o certo e o errado dependem do contexto cultural.
+--- en
+P: Moral relativism holds that:
+- There is a single morality valid for all peoples
+- Moral values vary according to culture and time
+- Only science defines what is right
+- Natural laws determine all customs
+E: For relativism, there is no universal moral standard: right and wrong depend on cultural context.
+--- es
+P: El relativismo moral sostiene que:
+- Existe una única moral válida para todos los pueblos
+- Los valores morales varían según la cultura y la época
+- Solo la ciencia define lo que es correcto
+- Las leyes naturales determinan todas las costumbres
+E: Para el relativismo, no hay un patrón moral universal: lo correcto y lo incorrecto dependen del contexto cultural.
+
+=== Ética > Ética e moral c=2 d=dificil
+P: Em debates de bioética, como sobre eutanásia ou clonagem, a filosofia contribui principalmente ao:
+- Fornecer respostas prontas e indiscutíveis
+- Substituir a legislação vigente
+- Analisar argumentos e princípios envolvidos, como autonomia e dignidade
+- Proibir qualquer avanço científico
+E: A bioética examina os dilemas trazidos pela ciência à luz de princípios como autonomia, beneficência e justiça.
+--- en
+P: In bioethics debates, such as on euthanasia or cloning, philosophy contributes mainly by:
+- Providing ready-made, indisputable answers
+- Replacing current legislation
+- Analyzing the arguments and principles involved, such as autonomy and dignity
+- Banning any scientific progress
+E: Bioethics examines the dilemmas raised by science in light of principles such as autonomy, beneficence and justice.
+--- es
+P: En debates de bioética, como sobre la eutanasia o la clonación, la filosofía contribuye principalmente al:
+- Dar respuestas listas e indiscutibles
+- Sustituir la legislación vigente
+- Analizar los argumentos y principios implicados, como autonomía y dignidad
+- Prohibir cualquier avance científico
+E: La bioética examina los dilemas planteados por la ciencia a la luz de principios como autonomía, beneficencia y justicia.
+
+=== Ética > Ética e moral c=0 d=dificil
+P: O chamado "dilema do bonde", em que se decide desviar um veículo para salvar cinco pessoas sacrificando uma, é usado para discutir:
+- O conflito entre calcular consequências e respeitar deveres ou direitos individuais
+- As leis da física do movimento
+- A história dos transportes públicos
+- A origem mítica do mundo
+E: O dilema contrapõe o raciocínio consequencialista (salvar mais vidas) a princípios que proíbem usar alguém como meio.
+--- en
+P: The so-called "trolley problem", in which one decides to divert a vehicle to save five people by sacrificing one, is used to discuss:
+- The conflict between calculating consequences and respecting duties or individual rights
+- The physical laws of motion
+- The history of public transport
+- The mythical origin of the world
+E: The dilemma sets consequentialist reasoning (saving more lives) against principles that forbid using someone as a means.
+--- es
+P: El llamado "dilema del tranvía", en el que se decide desviar un vehículo para salvar a cinco personas sacrificando a una, se usa para discutir:
+- El conflicto entre calcular consecuencias y respetar deberes o derechos individuales
+- Las leyes físicas del movimiento
+- La historia del transporte público
+- El origen mítico del mundo
+E: El dilema contrapone el razonamiento consecuencialista (salvar más vidas) a principios que prohíben usar a alguien como medio.
+
+=== Ética > Teorias éticas c=1 d=facil
+P: O utilitarismo, de Jeremy Bentham e John Stuart Mill, avalia uma ação como correta quando ela:
+- Obedece à tradição religiosa
+- Produz a maior felicidade para o maior número de pessoas
+- É feita apenas por dever
+- Beneficia somente quem a pratica
+E: O utilitarismo é consequencialista: julga as ações pelos resultados em termos de bem-estar geral.
+--- en
+P: Utilitarianism, by Jeremy Bentham and John Stuart Mill, considers an action right when it:
+- Obeys religious tradition
+- Produces the greatest happiness for the greatest number of people
+- Is done only out of duty
+- Benefits only the person who performs it
+E: Utilitarianism is consequentialist: it judges actions by their results in terms of general well-being.
+--- es
+P: El utilitarismo, de Jeremy Bentham y John Stuart Mill, considera correcta una acción cuando:
+- Obedece a la tradición religiosa
+- Produce la mayor felicidad para el mayor número de personas
+- Se hace solo por deber
+- Beneficia únicamente a quien la realiza
+E: El utilitarismo es consecuencialista: juzga las acciones por sus resultados en términos de bienestar general.
+
+=== Ética > Teorias éticas c=3 d=facil
+P: A ética de Kant é chamada de ética do dever (deontológica) porque:
+- Avalia as ações apenas pelos resultados
+- Busca o prazer como fim último
+- Segue a vontade da maioria
+- O valor moral da ação está em ser feita por dever, segundo a razão
+E: Para Kant, a ação moral é a feita por respeito à lei moral, independentemente das consequências.
+--- en
+P: Kant's ethics is called an ethics of duty (deontological) because:
+- It judges actions only by their results
+- It seeks pleasure as the ultimate goal
+- It follows the will of the majority
+- The moral worth of an action lies in its being done out of duty, according to reason
+E: For Kant, a moral action is one done out of respect for the moral law, regardless of the consequences.
+--- es
+P: La ética de Kant se llama ética del deber (deontológica) porque:
+- Evalúa las acciones solo por sus resultados
+- Busca el placer como fin último
+- Sigue la voluntad de la mayoría
+- El valor moral de la acción está en hacerse por deber, según la razón
+E: Para Kant, la acción moral es la que se hace por respeto a la ley moral, independientemente de las consecuencias.
+
+=== Ética > Teorias éticas c=0 d=medio
+P: A ética das virtudes, de origem aristotélica, pergunta principalmente:
+- Que tipo de pessoa devo ser e que hábitos devo cultivar?
+- Qual ação gera mais prazer?
+- Quais regras universais devo seguir sem exceção?
+- O que a lei do Estado permite?
+E: A ética das virtudes foca o caráter: tornar-se justo, corajoso e prudente por meio da prática.
+--- en
+P: Virtue ethics, of Aristotelian origin, mainly asks:
+- What kind of person should I be and what habits should I cultivate?
+- Which action produces the most pleasure?
+- Which universal rules must I follow without exception?
+- What does the State's law allow?
+E: Virtue ethics focuses on character: becoming just, brave and prudent through practice.
+--- es
+P: La ética de las virtudes, de origen aristotélico, pregunta principalmente:
+- ¿Qué tipo de persona debo ser y qué hábitos debo cultivar?
+- ¿Qué acción produce más placer?
+- ¿Qué reglas universales debo seguir sin excepción?
+- ¿Qué permite la ley del Estado?
+E: La ética de las virtudes se centra en el carácter: volverse justo, valiente y prudente mediante la práctica.
+
+=== Ética > Teorias éticas c=2 d=medio
+P: John Stuart Mill aperfeiçoou o utilitarismo de Bentham ao afirmar que:
+- Todos os prazeres têm exatamente o mesmo valor
+- Só o dever importa, não as consequências
+- Há prazeres superiores (intelectuais) e inferiores, que diferem em qualidade
+- A felicidade não tem importância moral
+E: Mill diz que é melhor ser um humano insatisfeito do que um porco satisfeito: a qualidade dos prazeres conta.
+--- en
+P: John Stuart Mill refined Bentham's utilitarianism by stating that:
+- All pleasures have exactly the same value
+- Only duty matters, not consequences
+- There are higher (intellectual) and lower pleasures, which differ in quality
+- Happiness has no moral importance
+E: Mill says it is better to be a dissatisfied human than a satisfied pig: the quality of pleasures counts.
+--- es
+P: John Stuart Mill perfeccionó el utilitarismo de Bentham al afirmar que:
+- Todos los placeres tienen exactamente el mismo valor
+- Solo importa el deber, no las consecuencias
+- Hay placeres superiores (intelectuales) e inferiores, que difieren en calidad
+- La felicidad no tiene importancia moral
+E: Mill dice que es mejor ser un humano insatisfecho que un cerdo satisfecho: la calidad de los placeres cuenta.
+
+=== Ética > Teorias éticas c=1 d=dificil
+P: Uma crítica frequente ao utilitarismo é que ele pode:
+- Ignorar completamente o bem-estar das pessoas
+- Justificar sacrificar os direitos de uma minoria em nome do bem-estar da maioria
+- Exigir que se siga a tradição religiosa
+- Proibir qualquer cálculo de consequências
+E: Se só importa o saldo de felicidade, ações injustas contra poucos poderiam ser aprovadas; daí a defesa de direitos individuais.
+--- en
+P: A frequent criticism of utilitarianism is that it may:
+- Completely ignore people's well-being
+- Justify sacrificing a minority's rights for the sake of the majority's well-being
+- Require following religious tradition
+- Forbid any calculation of consequences
+E: If only the balance of happiness matters, unjust acts against a few could be approved; hence the defense of individual rights.
+--- es
+P: Una crítica frecuente al utilitarismo es que puede:
+- Ignorar por completo el bienestar de las personas
+- Justificar sacrificar los derechos de una minoría en nombre del bienestar de la mayoría
+- Exigir que se siga la tradición religiosa
+- Prohibir cualquier cálculo de consecuencias
+E: Si solo importa el saldo de felicidad, acciones injustas contra unos pocos podrían aprobarse; de ahí la defensa de los derechos individuales.
+
+=== Ética > Teorias éticas c=3 d=dificil
+P: Segundo Kant, mentir para salvar um amigo de um assassino seria:
+- Correto, pois a consequência é boa
+- Correto, se a maioria concordar
+- Indiferente do ponto de vista moral
+- Errado, pois a proibição de mentir não admite exceções baseadas nas consequências
+E: Na polêmica com Benjamin Constant, Kant sustenta que o dever de veracidade vale incondicionalmente.
+--- en
+P: According to Kant, lying to save a friend from a murderer would be:
+- Right, because the consequence is good
+- Right, if the majority agrees
+- Morally indifferent
+- Wrong, because the prohibition on lying admits no exceptions based on consequences
+E: In his dispute with Benjamin Constant, Kant holds that the duty of truthfulness applies unconditionally.
+--- es
+P: Según Kant, mentir para salvar a un amigo de un asesino sería:
+- Correcto, pues la consecuencia es buena
+- Correcto, si la mayoría está de acuerdo
+- Indiferente desde el punto de vista moral
+- Incorrecto, pues la prohibición de mentir no admite excepciones basadas en las consecuencias
+E: En la polémica con Benjamin Constant, Kant sostiene que el deber de veracidad vale incondicionalmente.
+
+=== Filosofia política > Maquiavel e o poder c=0 d=facil
+P: A obra mais conhecida de Nicolau Maquiavel, que trata de como conquistar e manter o poder, é:
+- O Príncipe
+- A República
+- Leviatã
+- O Contrato Social
+E: Em O Príncipe (1513), Maquiavel analisa a política como ela é, e não como deveria ser.
+--- en
+P: Niccolò Machiavelli's best-known work, about how to gain and keep power, is:
+- The Prince
+- The Republic
+- Leviathan
+- The Social Contract
+E: In The Prince (1513), Machiavelli analyzes politics as it is, not as it ought to be.
+--- es
+P: La obra más conocida de Nicolás Maquiavelo, que trata de cómo conquistar y mantener el poder, es:
+- El Príncipe
+- La República
+- Leviatán
+- El Contrato Social
+E: En El Príncipe (1513), Maquiavelo analiza la política tal como es, y no como debería ser.
+
+=== Filosofia política > Maquiavel e o poder c=2 d=facil
+P: Para Maquiavel, o governante precisa ter virtù, que significa:
+- Pureza religiosa
+- Riqueza herdada
+- Capacidade de agir com habilidade diante das circunstâncias
+- Obediência ao papa
+E: Virtù é a capacidade do príncipe de aproveitar a ocasião e enfrentar a fortuna (o acaso).
+--- en
+P: For Machiavelli, the ruler needs virtù, which means:
+- Religious purity
+- Inherited wealth
+- The ability to act skillfully in the face of circumstances
+- Obedience to the pope
+E: Virtù is the prince's ability to seize the moment and face fortuna (chance).
+--- es
+P: Para Maquiavelo, el gobernante necesita virtù, que significa:
+- Pureza religiosa
+- Riqueza heredada
+- Capacidad de actuar con habilidad ante las circunstancias
+- Obediencia al papa
+E: La virtù es la capacidad del príncipe de aprovechar la ocasión y enfrentar la fortuna (el azar).
+
+=== Filosofia política > Maquiavel e o poder c=1 d=medio
+P: Maquiavel é considerado um fundador da ciência política moderna porque:
+- Defendeu que a política deve seguir a moral cristã
+- Separou a análise política da moral e da religião, observando a realidade
+- Criou o sistema de três poderes
+- Propôs o fim de todos os governos
+E: Ele descreve o funcionamento real do poder, com autonomia em relação à moral tradicional.
+--- en
+P: Machiavelli is considered a founder of modern political science because:
+- He argued that politics must follow Christian morality
+- He separated political analysis from morality and religion, observing reality
+- He created the system of three powers
+- He proposed the end of all governments
+E: He describes how power really works, independently of traditional morality.
+--- es
+P: Maquiavelo es considerado un fundador de la ciencia política moderna porque:
+- Defendió que la política debe seguir la moral cristiana
+- Separó el análisis político de la moral y la religión, observando la realidad
+- Creó el sistema de los tres poderes
+- Propuso el fin de todos los gobiernos
+E: Describe el funcionamiento real del poder, con autonomía respecto de la moral tradicional.
+
+=== Filosofia política > Maquiavel e o poder c=3 d=medio
+P: Sobre a pergunta "é melhor ser amado ou temido?", Maquiavel responde que o príncipe:
+- Deve ser apenas amado
+- Deve ser odiado para impor respeito
+- Não precisa se preocupar com isso
+- Seria ideal ser ambos, mas, se tiver de escolher, é mais seguro ser temido, sem ser odiado
+E: O amor depende da vontade dos súditos; o temor, do príncipe. Mas ele deve evitar o ódio.
+--- en
+P: On the question "is it better to be loved or feared?", Machiavelli answers that the prince:
+- Should only be loved
+- Should be hated in order to command respect
+- Need not worry about it
+- Ideally would be both, but if he must choose, it is safer to be feared, without being hated
+E: Love depends on the subjects' will; fear, on the prince. But he must avoid hatred.
+--- es
+P: Ante la pregunta "¿es mejor ser amado o temido?", Maquiavelo responde que el príncipe:
+- Debe ser solo amado
+- Debe ser odiado para imponer respeto
+- No necesita preocuparse por ello
+- Lo ideal sería ser ambas cosas, pero, si debe elegir, es más seguro ser temido, sin ser odiado
+E: El amor depende de la voluntad de los súbditos; el temor, del príncipe. Pero debe evitar el odio.
+
+=== Filosofia política > Maquiavel e o poder c=2 d=dificil
+P: Os conceitos de virtù e fortuna, em Maquiavel, indicam que:
+- Tudo na política depende do destino, e nada pode ser feito
+- Os governantes são escolhidos por Deus
+- O sucesso político depende da capacidade do governante de enfrentar o acaso
+- A história é regida apenas por leis econômicas
+E: A fortuna governa parte das coisas, mas a virtù pode resistir e dominar as circunstâncias.
+--- en
+P: The concepts of virtù and fortuna, in Machiavelli, indicate that:
+- Everything in politics depends on fate, and nothing can be done
+- Rulers are chosen by God
+- Political success depends on the ruler's ability to face chance
+- History is governed only by economic laws
+E: Fortuna governs part of things, but virtù can resist and master circumstances.
+--- es
+P: Los conceptos de virtù y fortuna, en Maquiavelo, indican que:
+- Todo en la política depende del destino, y nada puede hacerse
+- Los gobernantes son elegidos por Dios
+- El éxito político depende de la capacidad del gobernante de enfrentar el azar
+- La historia se rige solo por leyes económicas
+E: La fortuna gobierna parte de las cosas, pero la virtù puede resistir y dominar las circunstancias.
+
+=== Filosofia política > Maquiavel e o poder c=0 d=dificil
+P: A expressão "os fins justificam os meios", atribuída popularmente a Maquiavel, é considerada uma simplificação porque:
+- Ele analisa as ações pelo objetivo de manter o Estado, e não autoriza qualquer ação para qualquer fim
+- Ele nunca tratou de política
+- Ele defendia que a moral cristã deve sempre prevalecer
+- Ele era contra qualquer governo forte
+E: A frase não aparece literalmente na obra; Maquiavel avalia as ações do príncipe pela preservação do Estado.
+--- en
+P: The expression "the end justifies the means", popularly attributed to Machiavelli, is considered a simplification because:
+- He judges actions by the goal of preserving the State, and does not authorize any action for any end
+- He never wrote about politics
+- He argued that Christian morality must always prevail
+- He opposed any strong government
+E: The phrase does not appear literally in his work; Machiavelli judges the prince's actions by the preservation of the State.
+--- es
+P: La expresión "el fin justifica los medios", atribuida popularmente a Maquiavelo, se considera una simplificación porque:
+- Él analiza las acciones por el objetivo de mantener el Estado, y no autoriza cualquier acción para cualquier fin
+- Nunca trató de política
+- Defendía que la moral cristiana siempre debe prevalecer
+- Estaba en contra de cualquier gobierno fuerte
+E: La frase no aparece literalmente en su obra; Maquiavelo evalúa las acciones del príncipe por la conservación del Estado.
+
+=== Filosofia política > Contratualistas c=1 d=facil
+P: Para Thomas Hobbes, no estado de natureza, sem governo, a vida humana seria:
+- Pacífica e harmoniosa
+- Uma guerra de todos contra todos
+- Organizada pela Igreja
+- Regida pela propriedade privada
+E: Hobbes descreve a vida sem Estado como "solitária, pobre, sórdida, brutal e curta": o homem é o lobo do homem.
+--- en
+P: For Thomas Hobbes, in the state of nature, without government, human life would be:
+- Peaceful and harmonious
+- A war of all against all
+- Organized by the Church
+- Ruled by private property
+E: Hobbes describes life without the State as "solitary, poor, nasty, brutish and short": man is a wolf to man.
+--- es
+P: Para Thomas Hobbes, en el estado de naturaleza, sin gobierno, la vida humana sería:
+- Pacífica y armoniosa
+- Una guerra de todos contra todos
+- Organizada por la Iglesia
+- Regida por la propiedad privada
+E: Hobbes describe la vida sin Estado como "solitaria, pobre, desagradable, brutal y corta": el hombre es un lobo para el hombre.
+
+=== Filosofia política > Contratualistas c=3 d=facil
+P: A frase "o homem nasce bom, a sociedade o corrompe" é associada a:
+- Thomas Hobbes
+- John Locke
+- Nicolau Maquiavel
+- Jean-Jacques Rousseau
+E: Rousseau via o ser humano naturalmente bom; a propriedade e a desigualdade social o corrompem.
+--- en
+P: The phrase "man is born good, society corrupts him" is associated with:
+- Thomas Hobbes
+- John Locke
+- Niccolò Machiavelli
+- Jean-Jacques Rousseau
+E: Rousseau saw human beings as naturally good; property and social inequality corrupt them.
+--- es
+P: La frase "el hombre nace bueno, la sociedad lo corrompe" se asocia a:
+- Thomas Hobbes
+- John Locke
+- Nicolás Maquiavelo
+- Jean-Jacques Rousseau
+E: Rousseau veía al ser humano naturalmente bueno; la propiedad y la desigualdad social lo corrompen.
+
+=== Filosofia política > Contratualistas c=0 d=medio
+P: Para John Locke, os direitos naturais que o governo deve proteger são:
+- Vida, liberdade e propriedade
+- Obediência, fé e trabalho
+- Poder, glória e riqueza
+- Igualdade absoluta de bens
+E: Locke fundamenta o liberalismo: o Estado existe para proteger esses direitos, e o povo pode resistir ao governo tirânico.
+--- en
+P: For John Locke, the natural rights that government must protect are:
+- Life, liberty and property
+- Obedience, faith and work
+- Power, glory and wealth
+- Absolute equality of goods
+E: Locke laid the foundations of liberalism: the State exists to protect these rights, and the people may resist a tyrannical government.
+--- es
+P: Para John Locke, los derechos naturales que el gobierno debe proteger son:
+- Vida, libertad y propiedad
+- Obediencia, fe y trabajo
+- Poder, gloria y riqueza
+- Igualdad absoluta de bienes
+E: Locke fundamenta el liberalismo: el Estado existe para proteger esos derechos, y el pueblo puede resistirse al gobierno tiránico.
+
+=== Filosofia política > Contratualistas c=2 d=medio
+P: Em Rousseau, a "vontade geral" é:
+- A soma dos interesses particulares de cada um
+- A vontade do rei absoluto
+- A vontade orientada ao bem comum, que expressa a soberania do povo
+- A opinião dos mais ricos
+E: A vontade geral visa o interesse comum e é a base da soberania popular, que não pode ser alienada.
+--- en
+P: In Rousseau, the "general will" is:
+- The sum of each person's private interests
+- The will of the absolute king
+- The will directed at the common good, which expresses popular sovereignty
+- The opinion of the richest
+E: The general will aims at the common interest and is the basis of popular sovereignty, which cannot be alienated.
+--- es
+P: En Rousseau, la "voluntad general" es:
+- La suma de los intereses particulares de cada uno
+- La voluntad del rey absoluto
+- La voluntad orientada al bien común, que expresa la soberanía del pueblo
+- La opinión de los más ricos
+E: La voluntad general busca el interés común y es la base de la soberanía popular, que no puede enajenarse.
+
+=== Filosofia política > Contratualistas c=3 d=dificil
+P: Em Leviatã, Hobbes justifica um poder soberano forte porque:
+- O rei é escolhido diretamente por Deus
+- A propriedade é um direito absoluto anterior ao Estado
+- O povo deve participar diretamente de todas as decisões
+- Só um poder capaz de impor medo garante a paz e a segurança que os indivíduos buscam ao fazer o contrato
+E: Os indivíduos transferem seus direitos ao soberano em troca de segurança; sem ele, voltariam à guerra de todos contra todos.
+--- en
+P: In Leviathan, Hobbes justifies a strong sovereign power because:
+- The king is chosen directly by God
+- Property is an absolute right prior to the State
+- The people must take part directly in every decision
+- Only a power able to inspire fear guarantees the peace and security individuals seek when making the contract
+E: Individuals transfer their rights to the sovereign in exchange for security; without it, they would return to the war of all against all.
+--- es
+P: En Leviatán, Hobbes justifica un poder soberano fuerte porque:
+- El rey es elegido directamente por Dios
+- La propiedad es un derecho absoluto anterior al Estado
+- El pueblo debe participar directamente en todas las decisiones
+- Solo un poder capaz de infundir temor garantiza la paz y la seguridad que los individuos buscan al hacer el contrato
+E: Los individuos transfieren sus derechos al soberano a cambio de seguridad; sin él, volverían a la guerra de todos contra todos.
+
+=== Filosofia política > Contratualistas c=1 d=dificil
+P: O que Hobbes, Locke e Rousseau têm em comum é a ideia de que:
+- O poder dos reis tem origem divina
+- A legitimidade do Estado se funda num acordo (contrato) entre os indivíduos
+- O estado de natureza é idêntico para os três
+- A propriedade deve ser abolida
+E: Os três são contratualistas, embora divirjam sobre o estado de natureza e o tipo de governo legítimo.
+--- en
+P: What Hobbes, Locke and Rousseau have in common is the idea that:
+- Kings' power has a divine origin
+- The legitimacy of the State rests on an agreement (contract) between individuals
+- The state of nature is identical for all three
+- Property must be abolished
+E: All three are social contract theorists, although they disagree about the state of nature and the kind of legitimate government.
+--- es
+P: Lo que Hobbes, Locke y Rousseau tienen en común es la idea de que:
+- El poder de los reyes tiene origen divino
+- La legitimidad del Estado se funda en un acuerdo (contrato) entre los individuos
+- El estado de naturaleza es idéntico para los tres
+- La propiedad debe abolirse
+E: Los tres son contractualistas, aunque discrepan sobre el estado de naturaleza y el tipo de gobierno legítimo.

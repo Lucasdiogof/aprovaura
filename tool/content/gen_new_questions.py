@@ -1,7 +1,7 @@
 """Usage: gen_new_questions.py SCRATCH SUBJECT IN.txt OUT.sql
 
 IN.txt blocks:
-=== <topic path exactly as in leaves.json> c=<correct index 0..3>
+=== <topic path exactly as in leaves.json> c=<correct index 0..3> [d=facil|medio|dificil]
 P: pt prompt
 - option (x4)
 E: pt explanation
@@ -23,9 +23,14 @@ for n, raw in enumerate(open(src, encoding='utf-8'), 1):
     if not line.strip():
         continue
     if line.startswith('=== '):
-        head, c = line[4:].rsplit(' c=', 1)
+        rest = line[4:]
+        d = 'dificil'
+        if ' d=' in rest:
+            rest, d = rest.rsplit(' d=', 1)
+            assert d in ('facil', 'medio', 'dificil'), (n, d)
+        head, c = rest.rsplit(' c=', 1)
         assert head in by_path, (n, head)
-        cur = {'node': by_path[head]['id'], 'c': int(c), 'pt': {'O': []}}
+        cur = {'node': by_path[head]['id'], 'c': int(c), 'd': d, 'pt': {'O': []}}
         qs.append(cur); lang = 'pt'
     elif line.startswith('--- '):
         lang = line[4:].strip(); assert lang in ('en', 'es'), n
@@ -58,14 +63,14 @@ def arr(o): return 'array[' + ', '.join(s(x) for x in o) + ']'
 qrows, trows = [], []
 for k, q in enumerate(qs):
     p = q['pt']
-    qrows.append(f"  ({s(q['id'])}, {s(q['node'])},\n   {s(p['P'])},\n   {arr(p['O'])}, {q['c']},\n   {s(p['E'])}, {100 + k})")
+    qrows.append(f"  ({s(q['id'])}, {s(q['node'])},\n   {s(p['P'])},\n   {arr(p['O'])}, {q['c']},\n   {s(p['E'])}, {100 + k}, {s(q['d'])})")
     for l in ('en', 'es'):
         b = q[l]
         trows.append(f"  ({s(q['id'])}, {s(l)},\n   {s(b['P'])},\n   {arr(b['O'])},\n   {s(b['E'])})")
 from collections import Counter
 QJ = (',' + chr(10)).join(qrows)
 TJ = (',' + chr(10)).join(trows)
-sql = f'''-- New "dificil" questions for {subject}: {len(qs)} questions, each already
+sql = f'''-- New questions for {subject}: {len(qs)} questions, each already
 -- with its en/es translation ({len(trows)} translation rows).
 --
 -- ids are deterministic (uuid5 of the pt-BR prompt), so running this twice
@@ -74,10 +79,10 @@ sql = f'''-- New "dificil" questions for {subject}: {len(qs)} questions, each al
 -- count differs from the original (correct_index is positional).
 
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
-select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, 'dificil'
+select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
 {QJ}
-) as v(id, node, prompt, options, correct_index, explanation, order_index)
+) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
 on conflict (id) do nothing;
 
@@ -95,5 +100,6 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 '''
 open(out, 'w', encoding='utf-8', newline='\n').write(sql)
-print(len(qs), 'questions; correct_index spread', dict(Counter(q['c'] for q in qs)))
+print(len(qs), 'questions; correct_index spread', dict(Counter(q['c'] for q in qs)),
+      'levels', dict(Counter(q['d'] for q in qs)))
 print('topics', dict(Counter(next(p for p, l in by_path.items() if l['id'] == q['node']) for q in qs)))

@@ -236,24 +236,72 @@ void main() {
           Subject.portugues,
           Subject.biologia,
           Subject.fisica,
+          Subject.filosofia,
           Subject.atualidades,
+          Subject.redacao,
         ]);
       },
     );
 
-    testWidgets('Redação always closes the grid, focus or not', (tester) async {
-      final profileCubit = ProfileCubit(
-        _FakeProfileRepository(initialFocus: [Subject.quimica]),
-        const AppUser(id: 'u1', email: 'a@example.com'),
-      );
+    testWidgets('Redação closes the grid unless it is in focus', (
+      tester,
+    ) async {
+      tester.view.physicalSize = const Size(390, 1600);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      List<Subject> order() => tester
+          .widgetList<SubjectCard>(find.byType(SubjectCard))
+          .map((c) => c.subject)
+          .toList();
+
       await tester.pumpApp(
         const PracticePage(),
-        providers: [BlocProvider<ProfileCubit>.value(value: profileCubit)],
+        providers: [
+          BlocProvider<ProfileCubit>.value(
+            value: ProfileCubit(
+              _FakeProfileRepository(initialFocus: [Subject.quimica]),
+              const AppUser(id: 'u1', email: 'a@example.com'),
+            ),
+          ),
+        ],
       );
       await tester.pumpAndSettle();
+      expect(order().last, Subject.redacao);
 
-      await tester.scrollUntilVisible(find.text('Redação'), 300);
-      expect(find.text('Redação'), findsOneWidget);
+      await tester.pumpApp(
+        const PracticePage(),
+        providers: [
+          BlocProvider<ProfileCubit>.value(
+            value: ProfileCubit(
+              _FakeProfileRepository(initialFocus: [Subject.redacao]),
+              const AppUser(id: 'u1', email: 'a@example.com'),
+            ),
+          ),
+        ],
+      );
+      await tester.pumpAndSettle();
+      expect(order().first, Subject.redacao);
+    });
+
+    testWidgets('the Redação tile opens the essay themes', (tester) async {
+      tester.view.physicalSize = const Size(390, 1600);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      await tester.pumpApp(
+        const PracticePage(),
+        providers: [
+          BlocProvider<ProfileCubit>.value(
+            value: ProfileCubit(
+              _FakeProfileRepository(),
+              const AppUser(id: 'u1', email: 'a@example.com'),
+            ),
+          ),
+        ],
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Redação'));
+      await tester.pumpAndSettle();
+      expect(find.byType(EssayThemesPage), findsOneWidget);
     });
   });
 }

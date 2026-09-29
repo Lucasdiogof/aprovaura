@@ -1,0 +1,659 @@
+=== Filosofia contemporânea > Nietzsche c=0 d=facil
+P: A frase "Deus está morto" é associada a:
+- Friedrich Nietzsche
+- Karl Marx
+- René Descartes
+- Santo Agostinho
+E: Nietzsche usa a expressão para indicar o esgotamento dos valores tradicionais da cultura ocidental.
+--- en
+P: The phrase "God is dead" is associated with:
+- Friedrich Nietzsche
+- Karl Marx
+- René Descartes
+- Saint Augustine
+E: Nietzsche uses the expression to indicate the exhaustion of the traditional values of Western culture.
+--- es
+P: La frase "Dios ha muerto" se asocia a:
+- Friedrich Nietzsche
+- Karl Marx
+- René Descartes
+- San Agustín
+E: Nietzsche usa la expresión para indicar el agotamiento de los valores tradicionales de la cultura occidental.
+
+=== Filosofia contemporânea > Nietzsche c=2 d=facil
+P: Nietzsche propôs a "transvaloração de todos os valores", que significa:
+- Aceitar sem críticas a moral tradicional
+- Transformar todos os valores em dinheiro
+- Criticar os valores tradicionais e criar novos, afirmativos da vida
+- Voltar aos valores da Idade Média
+E: Nietzsche critica a moral que nega a vida e propõe valores que afirmem a vontade e a existência.
+--- en
+P: Nietzsche proposed the "revaluation of all values", which means:
+- Uncritically accepting traditional morality
+- Turning all values into money
+- Criticizing traditional values and creating new ones that affirm life
+- Returning to the values of the Middle Ages
+E: Nietzsche criticizes the morality that denies life and proposes values that affirm will and existence.
+--- es
+P: Nietzsche propuso la "transvaloración de todos los valores", que significa:
+- Aceptar sin críticas la moral tradicional
+- Convertir todos los valores en dinero
+- Criticar los valores tradicionales y crear otros nuevos, afirmativos de la vida
+- Volver a los valores de la Edad Media
+E: Nietzsche critica la moral que niega la vida y propone valores que afirmen la voluntad y la existencia.
+
+=== Filosofia contemporânea > Nietzsche c=1 d=medio
+P: Em Nietzsche, a "moral de escravos" é aquela que:
+- Nasce da força e da afirmação da vida
+- Nasce do ressentimento dos fracos, que invertem os valores dos fortes
+- Foi criada pelos antigos gregos heroicos
+- Valoriza o orgulho e a nobreza
+E: Na Genealogia da Moral, a moral de escravos transforma fraqueza em virtude e condena o que é forte.
+--- en
+P: In Nietzsche, "slave morality" is one that:
+- Arises from strength and the affirmation of life
+- Arises from the resentment of the weak, who invert the values of the strong
+- Was created by the heroic ancient Greeks
+- Values pride and nobility
+E: In the Genealogy of Morals, slave morality turns weakness into virtue and condemns what is strong.
+--- es
+P: En Nietzsche, la "moral de esclavos" es aquella que:
+- Nace de la fuerza y de la afirmación de la vida
+- Nace del resentimiento de los débiles, que invierten los valores de los fuertes
+- Fue creada por los antiguos griegos heroicos
+- Valora el orgullo y la nobleza
+E: En la Genealogía de la moral, la moral de esclavos convierte la debilidad en virtud y condena lo fuerte.
+
+=== Filosofia contemporânea > Nietzsche c=3 d=medio
+P: O conceito nietzschiano de super-homem (Übermensch) refere-se a alguém que:
+- Tem poderes sobrenaturais
+- Obedece rigorosamente às leis religiosas
+- Busca a igualdade absoluta entre todos
+- Supera os valores herdados e cria os próprios valores
+E: O Übermensch é uma meta: o ser humano que se supera e afirma a vida criando valores próprios.
+--- en
+P: Nietzsche's concept of the overman (Übermensch) refers to someone who:
+- Has supernatural powers
+- Strictly obeys religious laws
+- Seeks absolute equality among all
+- Overcomes inherited values and creates their own
+E: The Übermensch is a goal: the human being who overcomes themselves and affirms life by creating their own values.
+--- es
+P: El concepto nietzscheano de superhombre (Übermensch) se refiere a alguien que:
+- Tiene poderes sobrenaturales
+- Obedece rigurosamente las leyes religiosas
+- Busca la igualdad absoluta entre todos
+- Supera los valores heredados y crea sus propios valores
+E: El Übermensch es una meta: el ser humano que se supera y afirma la vida creando valores propios.
+
+=== Filosofia contemporânea > Nietzsche c=2 d=dificil
+P: Em O Nascimento da Tragédia, Nietzsche contrapõe dois impulsos da cultura grega:
+- O racional e o empírico
+- O político e o religioso
+- O apolíneo (forma, medida) e o dionisíaco (embriaguez, excesso)
+- O material e o espiritual
+E: A tragédia grega nasceria da união entre o apolíneo, da ordem e da forma, e o dionisíaco, da força vital e do caos.
+--- en
+P: In The Birth of Tragedy, Nietzsche contrasts two drives of Greek culture:
+- The rational and the empirical
+- The political and the religious
+- The Apollonian (form, measure) and the Dionysian (intoxication, excess)
+- The material and the spiritual
+E: Greek tragedy would be born of the union between the Apollonian, of order and form, and the Dionysian, of vital force and chaos.
+--- es
+P: En El nacimiento de la tragedia, Nietzsche contrapone dos impulsos de la cultura griega:
+- Lo racional y lo empírico
+- Lo político y lo religioso
+- Lo apolíneo (forma, medida) y lo dionisíaco (embriaguez, exceso)
+- Lo material y lo espiritual
+E: La tragedia griega nacería de la unión entre lo apolíneo, del orden y la forma, y lo dionisíaco, de la fuerza vital y el caos.
+
+=== Filosofia contemporânea > Nietzsche c=0 d=dificil
+P: A ideia do eterno retorno, em Nietzsche, funciona como um teste que pergunta:
+- Você desejaria viver sua vida exatamente igual, infinitas vezes?
+- Qual é o princípio de todas as coisas?
+- Como provar a existência de Deus?
+- Qual é a melhor forma de governo?
+E: Quem consegue querer o eterno retorno de sua vida a afirma plenamente, sem ressentimento.
+--- en
+P: The idea of eternal recurrence, in Nietzsche, works as a test that asks:
+- Would you want to live your life exactly the same, infinitely many times?
+- What is the principle of all things?
+- How can God's existence be proved?
+- What is the best form of government?
+E: Whoever can will the eternal recurrence of their life affirms it fully, without resentment.
+--- es
+P: La idea del eterno retorno, en Nietzsche, funciona como una prueba que pregunta:
+- ¿Querrías vivir tu vida exactamente igual, infinitas veces?
+- ¿Cuál es el principio de todas las cosas?
+- ¿Cómo probar la existencia de Dios?
+- ¿Cuál es la mejor forma de gobierno?
+E: Quien puede querer el eterno retorno de su vida la afirma plenamente, sin resentimiento.
+
+=== Filosofia contemporânea > Existencialismo c=1 d=facil
+P: Para Jean-Paul Sartre, "a existência precede a essência", o que significa que:
+- Nascemos com uma natureza fixa definida por Deus
+- O ser humano primeiro existe e depois se define por suas escolhas
+- A essência humana é determinada pela biologia
+- Nada do que fazemos importa
+E: Não há natureza humana prévia: somos o que fazemos de nós mesmos.
+--- en
+P: For Jean-Paul Sartre, "existence precedes essence", which means that:
+- We are born with a fixed nature defined by God
+- Human beings first exist and then define themselves through their choices
+- Human essence is determined by biology
+- Nothing we do matters
+E: There is no prior human nature: we are what we make of ourselves.
+--- es
+P: Para Jean-Paul Sartre, "la existencia precede a la esencia", lo que significa que:
+- Nacemos con una naturaleza fija definida por Dios
+- El ser humano primero existe y luego se define por sus elecciones
+- La esencia humana está determinada por la biología
+- Nada de lo que hacemos importa
+E: No hay una naturaleza humana previa: somos lo que hacemos de nosotros mismos.
+
+=== Filosofia contemporânea > Existencialismo c=3 d=facil
+P: A frase "o homem está condenado a ser livre" é de:
+- Nietzsche
+- Kant
+- Marx
+- Sartre
+E: Para Sartre, não podemos escapar da liberdade: mesmo não escolher é uma escolha.
+--- en
+P: The phrase "man is condemned to be free" is by:
+- Nietzsche
+- Kant
+- Marx
+- Sartre
+E: For Sartre, we cannot escape freedom: even not choosing is a choice.
+--- es
+P: La frase "el hombre está condenado a ser libre" es de:
+- Nietzsche
+- Kant
+- Marx
+- Sartre
+E: Para Sartre, no podemos escapar de la libertad: incluso no elegir es una elección.
+
+=== Filosofia contemporânea > Existencialismo c=0 d=medio
+P: A frase "não se nasce mulher, torna-se mulher", de Simone de Beauvoir, afirma que:
+- Ser mulher é uma construção social e histórica, e não um destino biológico
+- As mulheres devem se afastar da vida pública
+- A natureza define todos os papéis sociais
+- Homens e mulheres não têm nenhuma diferença biológica
+E: Em O Segundo Sexo, Beauvoir mostra como os papéis femininos são construídos pela sociedade.
+--- en
+P: The phrase "one is not born, but rather becomes, a woman", by Simone de Beauvoir, states that:
+- Being a woman is a social and historical construction, not a biological destiny
+- Women should withdraw from public life
+- Nature defines all social roles
+- Men and women have no biological differences at all
+E: In The Second Sex, Beauvoir shows how female roles are built by society.
+--- es
+P: La frase "no se nace mujer, se llega a serlo", de Simone de Beauvoir, afirma que:
+- Ser mujer es una construcción social e histórica, y no un destino biológico
+- Las mujeres deben apartarse de la vida pública
+- La naturaleza define todos los papeles sociales
+- Hombres y mujeres no tienen ninguna diferencia biológica
+E: En El segundo sexo, Beauvoir muestra cómo los papeles femeninos son construidos por la sociedad.
+
+=== Filosofia contemporânea > Existencialismo c=2 d=medio
+P: Para Sartre, a "má-fé" ocorre quando a pessoa:
+- Mente para os outros por interesse
+- Pratica uma religião
+- Nega a própria liberdade, fingindo que não tinha escolha
+- Duvida de tudo metodicamente
+E: Na má-fé, a pessoa se esconde da angústia da liberdade atribuindo suas ações ao destino, à natureza ou aos outros.
+--- en
+P: For Sartre, "bad faith" occurs when a person:
+- Lies to others for their own interest
+- Practices a religion
+- Denies their own freedom, pretending they had no choice
+- Doubts everything methodically
+E: In bad faith, a person hides from the anguish of freedom by attributing their actions to fate, nature or others.
+--- es
+P: Para Sartre, la "mala fe" ocurre cuando la persona:
+- Miente a los demás por interés
+- Practica una religión
+- Niega su propia libertad, fingiendo que no tenía elección
+- Duda de todo metódicamente
+E: En la mala fe, la persona se esconde de la angustia de la libertad atribuyendo sus actos al destino, a la naturaleza o a los demás.
+
+=== Filosofia contemporânea > Existencialismo c=1 d=dificil
+P: Para Albert Camus, em O Mito de Sísifo, o absurdo surge:
+- Da certeza de que a vida tem um sentido dado por Deus
+- Do confronto entre a busca humana por sentido e o silêncio do mundo
+- Da vitória da razão sobre as emoções
+- Da organização política da sociedade
+E: Camus conclui que "é preciso imaginar Sísifo feliz": a revolta lúcida diante do absurdo dá valor à vida.
+--- en
+P: For Albert Camus, in The Myth of Sisyphus, the absurd arises:
+- From the certainty that life has a meaning given by God
+- From the clash between the human search for meaning and the silence of the world
+- From the victory of reason over emotions
+- From the political organization of society
+E: Camus concludes that "one must imagine Sisyphus happy": lucid revolt in the face of the absurd gives life value.
+--- es
+P: Para Albert Camus, en El mito de Sísifo, el absurdo surge:
+- De la certeza de que la vida tiene un sentido dado por Dios
+- Del choque entre la búsqueda humana de sentido y el silencio del mundo
+- De la victoria de la razón sobre las emociones
+- De la organización política de la sociedad
+E: Camus concluye que "hay que imaginar a Sísifo feliz": la rebelión lúcida ante el absurdo da valor a la vida.
+
+=== Filosofia contemporânea > Existencialismo c=3 d=dificil
+P: Para os existencialistas, a angústia é:
+- Uma doença que deve ser curada com remédios
+- Um sentimento exclusivo de quem não tem religião
+- Resultado da falta de riqueza
+- A experiência de perceber-se livre e responsável pelas próprias escolhas, sem garantias
+E: A angústia revela a liberdade: ao escolher, respondemos por nós e, de certo modo, pela humanidade.
+--- en
+P: For the existentialists, anguish is:
+- An illness to be cured with medicine
+- A feeling exclusive to those without religion
+- The result of lack of wealth
+- The experience of realizing oneself free and responsible for one's choices, with no guarantees
+E: Anguish reveals freedom: by choosing, we answer for ourselves and, in a way, for humanity.
+--- es
+P: Para los existencialistas, la angustia es:
+- Una enfermedad que debe curarse con medicamentos
+- Un sentimiento exclusivo de quien no tiene religión
+- Resultado de la falta de riqueza
+- La experiencia de percibirse libre y responsable de las propias elecciones, sin garantías
+E: La angustia revela la libertad: al elegir, respondemos por nosotros y, en cierto modo, por la humanidad.
+
+=== Filosofia contemporânea > Escola de Frankfurt c=2 d=facil
+P: A Escola de Frankfurt ficou conhecida por desenvolver a:
+- Lógica formal
+- Filosofia escolástica
+- Teoria crítica da sociedade
+- Física quântica
+E: A teoria crítica, de autores como Adorno, Horkheimer, Marcuse e Habermas, analisa criticamente a sociedade moderna.
+--- en
+P: The Frankfurt School became known for developing:
+- Formal logic
+- Scholastic philosophy
+- Critical theory of society
+- Quantum physics
+E: Critical theory, by authors such as Adorno, Horkheimer, Marcuse and Habermas, critically analyzes modern society.
+--- es
+P: La Escuela de Fráncfort se hizo conocida por desarrollar la:
+- Lógica formal
+- Filosofía escolástica
+- Teoría crítica de la sociedad
+- Física cuántica
+E: La teoría crítica, de autores como Adorno, Horkheimer, Marcuse y Habermas, analiza críticamente la sociedad moderna.
+
+=== Filosofia contemporânea > Escola de Frankfurt c=0 d=facil
+P: Adorno e Horkheimer criaram o conceito de "indústria cultural" para criticar:
+- A produção em massa de cultura como mercadoria padronizada
+- As artes tradicionais dos povos indígenas
+- A educação pública gratuita
+- A agricultura industrial
+E: A indústria cultural transforma cultura em produto de consumo padronizado, que favorece o conformismo.
+--- en
+P: Adorno and Horkheimer created the concept of the "culture industry" to criticize:
+- The mass production of culture as a standardized commodity
+- The traditional arts of Indigenous peoples
+- Free public education
+- Industrial agriculture
+E: The culture industry turns culture into a standardized consumer product that encourages conformity.
+--- es
+P: Adorno y Horkheimer crearon el concepto de "industria cultural" para criticar:
+- La producción en masa de cultura como mercancía estandarizada
+- Las artes tradicionales de los pueblos indígenas
+- La educación pública gratuita
+- La agricultura industrial
+E: La industria cultural convierte la cultura en un producto de consumo estandarizado que favorece el conformismo.
+
+=== Filosofia contemporânea > Escola de Frankfurt c=3 d=medio
+P: A "razão instrumental", criticada pela Escola de Frankfurt, é a razão que:
+- Reflete sobre os fins últimos da vida humana
+- Busca apenas a verdade desinteressada
+- Se opõe a qualquer técnica
+- Se preocupa apenas com os meios mais eficientes, sem questionar os fins
+E: Na Dialética do Esclarecimento, a razão reduzida a cálculo e eficiência pode servir à dominação.
+--- en
+P: "Instrumental reason", criticized by the Frankfurt School, is the reason that:
+- Reflects on the ultimate ends of human life
+- Seeks only disinterested truth
+- Opposes all technology
+- Cares only about the most efficient means, without questioning the ends
+E: In the Dialectic of Enlightenment, reason reduced to calculation and efficiency can serve domination.
+--- es
+P: La "razón instrumental", criticada por la Escuela de Fráncfort, es la razón que:
+- Reflexiona sobre los fines últimos de la vida humana
+- Busca solo la verdad desinteresada
+- Se opone a cualquier técnica
+- Se preocupa solo por los medios más eficientes, sin cuestionar los fines
+E: En la Dialéctica de la Ilustración, la razón reducida a cálculo y eficiencia puede servir a la dominación.
+
+=== Filosofia contemporânea > Escola de Frankfurt c=1 d=medio
+P: Jürgen Habermas propôs a ação comunicativa, baseada:
+- Na força e na coerção
+- No diálogo racional em busca de entendimento entre os participantes
+- Na obediência a líderes carismáticos
+- No cálculo individual de vantagens
+E: Para Habermas, normas legítimas surgem do debate livre em que valem os melhores argumentos.
+--- en
+P: Jürgen Habermas proposed communicative action, based on:
+- Force and coercion
+- Rational dialogue aimed at mutual understanding among participants
+- Obedience to charismatic leaders
+- Individual calculation of advantages
+E: For Habermas, legitimate norms arise from free debate in which the best arguments prevail.
+--- es
+P: Jürgen Habermas propuso la acción comunicativa, basada:
+- En la fuerza y la coerción
+- En el diálogo racional en busca de entendimiento entre los participantes
+- En la obediencia a líderes carismáticos
+- En el cálculo individual de ventajas
+E: Para Habermas, las normas legítimas surgen del debate libre en el que valen los mejores argumentos.
+
+=== Filosofia contemporânea > Escola de Frankfurt c=2 d=dificil
+P: Walter Benjamin, em "A obra de arte na era de sua reprodutibilidade técnica", afirma que a reprodução em massa:
+- Aumenta a aura única da obra original
+- Impede qualquer acesso do público à arte
+- Faz a obra perder sua "aura", mas amplia o acesso e muda sua função social
+- Não altera em nada a relação com a arte
+E: A fotografia e o cinema retiram a unicidade (aura) da obra, mas democratizam o acesso e politizam a arte.
+--- en
+P: Walter Benjamin, in "The Work of Art in the Age of Mechanical Reproduction", states that mass reproduction:
+- Increases the unique aura of the original work
+- Prevents any public access to art
+- Makes the work lose its "aura", but widens access and changes its social function
+- Changes nothing in our relationship with art
+E: Photography and cinema remove the work's uniqueness (aura), but democratize access and politicize art.
+--- es
+P: Walter Benjamin, en "La obra de arte en la época de su reproductibilidad técnica", afirma que la reproducción en masa:
+- Aumenta el aura única de la obra original
+- Impide cualquier acceso del público al arte
+- Hace que la obra pierda su "aura", pero amplía el acceso y cambia su función social
+- No altera en nada la relación con el arte
+E: La fotografía y el cine quitan la unicidad (aura) a la obra, pero democratizan el acceso y politizan el arte.
+
+=== Filosofia contemporânea > Escola de Frankfurt c=0 d=dificil
+P: Herbert Marcuse, em O Homem Unidimensional, critica a sociedade industrial avançada porque ela:
+- Integra os indivíduos ao consumo e reduz sua capacidade de pensar alternativas críticas
+- Impede totalmente o consumo
+- Retorna ao modo de vida feudal
+- Elimina toda forma de tecnologia
+E: A abundância e o consumo criariam falsas necessidades que neutralizam a crítica e a oposição.
+--- en
+P: Herbert Marcuse, in One-Dimensional Man, criticizes advanced industrial society because it:
+- Integrates individuals into consumption and reduces their ability to imagine critical alternatives
+- Completely prevents consumption
+- Returns to the feudal way of life
+- Eliminates all forms of technology
+E: Abundance and consumption would create false needs that neutralize criticism and opposition.
+--- es
+P: Herbert Marcuse, en El hombre unidimensional, critica la sociedad industrial avanzada porque:
+- Integra a los individuos al consumo y reduce su capacidad de pensar alternativas críticas
+- Impide totalmente el consumo
+- Vuelve al modo de vida feudal
+- Elimina toda forma de tecnología
+E: La abundancia y el consumo crearían falsas necesidades que neutralizan la crítica y la oposición.
+
+=== Lógica e conhecimento > Lógica e argumentação c=1 d=facil
+P: Um argumento é formado por:
+- Apenas uma opinião pessoal
+- Premissas e uma conclusão que se apoia nelas
+- Perguntas sem resposta
+- Uma lista de definições
+E: No argumento, as premissas oferecem razões para aceitar a conclusão.
+--- en
+P: An argument is made up of:
+- Just a personal opinion
+- Premises and a conclusion supported by them
+- Unanswered questions
+- A list of definitions
+E: In an argument, the premises offer reasons to accept the conclusion.
+--- es
+P: Un argumento está formado por:
+- Solo una opinión personal
+- Premisas y una conclusión que se apoya en ellas
+- Preguntas sin respuesta
+- Una lista de definiciones
+E: En un argumento, las premisas ofrecen razones para aceptar la conclusión.
+
+=== Lógica e conhecimento > Lógica e argumentação c=3 d=facil
+P: "Todo homem é mortal. Sócrates é homem. Logo, Sócrates é mortal." Esse argumento é um exemplo de:
+- Indução
+- Falácia
+- Analogia
+- Silogismo dedutivo
+E: No silogismo de Aristóteles, a conclusão decorre necessariamente das duas premissas.
+--- en
+P: "All men are mortal. Socrates is a man. Therefore, Socrates is mortal." This argument is an example of:
+- Induction
+- Fallacy
+- Analogy
+- Deductive syllogism
+E: In Aristotle's syllogism, the conclusion follows necessarily from the two premises.
+--- es
+P: "Todo hombre es mortal. Sócrates es hombre. Luego, Sócrates es mortal." Este argumento es un ejemplo de:
+- Inducción
+- Falacia
+- Analogía
+- Silogismo deductivo
+E: En el silogismo de Aristóteles, la conclusión se sigue necesariamente de las dos premisas.
+
+=== Lógica e conhecimento > Lógica e argumentação c=0 d=medio
+P: Atacar a pessoa que apresenta um argumento, em vez de discutir o argumento em si, é a falácia chamada:
+- Ad hominem
+- Apelo à autoridade
+- Falsa causa
+- Espantalho
+E: Na falácia ad hominem, desqualifica-se o autor para rejeitar sua ideia, sem examiná-la.
+--- en
+P: Attacking the person who presents an argument, instead of discussing the argument itself, is the fallacy called:
+- Ad hominem
+- Appeal to authority
+- False cause
+- Straw man
+E: In the ad hominem fallacy, the author is discredited to reject their idea without examining it.
+--- es
+P: Atacar a la persona que presenta un argumento, en lugar de discutir el argumento en sí, es la falacia llamada:
+- Ad hominem
+- Apelación a la autoridad
+- Falsa causa
+- Hombre de paja
+E: En la falacia ad hominem, se descalifica al autor para rechazar su idea sin examinarla.
+
+=== Lógica e conhecimento > Lógica e argumentação c=2 d=medio
+P: Um argumento indutivo se caracteriza por:
+- Ter conclusão necessariamente verdadeira se as premissas forem verdadeiras
+- Não ter premissas
+- Partir de casos particulares para uma conclusão geral provável
+- Ser sempre uma falácia
+E: A indução generaliza a partir de observações; sua conclusão é provável, não necessária.
+--- en
+P: An inductive argument is characterized by:
+- Having a necessarily true conclusion if the premises are true
+- Having no premises
+- Moving from particular cases to a probable general conclusion
+- Always being a fallacy
+E: Induction generalizes from observations; its conclusion is probable, not necessary.
+--- es
+P: Un argumento inductivo se caracteriza por:
+- Tener una conclusión necesariamente verdadera si las premisas son verdaderas
+- No tener premisas
+- Partir de casos particulares hacia una conclusión general probable
+- Ser siempre una falacia
+E: La inducción generaliza a partir de observaciones; su conclusión es probable, no necesaria.
+
+=== Lógica e conhecimento > Lógica e argumentação c=1 d=dificil
+P: Em lógica, um argumento é válido quando:
+- Todas as suas premissas são verdadeiras
+- É impossível as premissas serem verdadeiras e a conclusão falsa
+- A maioria das pessoas concorda com ele
+- A conclusão é verdadeira, qualquer que seja o raciocínio
+E: Validade diz respeito à forma: se as premissas forem verdadeiras, a conclusão necessariamente será. Um argumento válido pode ter premissas falsas.
+--- en
+P: In logic, an argument is valid when:
+- All its premises are true
+- It is impossible for the premises to be true and the conclusion false
+- Most people agree with it
+- The conclusion is true, whatever the reasoning
+E: Validity concerns form: if the premises are true, the conclusion must be true. A valid argument may have false premises.
+--- es
+P: En lógica, un argumento es válido cuando:
+- Todas sus premisas son verdaderas
+- Es imposible que las premisas sean verdaderas y la conclusión falsa
+- La mayoría de las personas está de acuerdo con él
+- La conclusión es verdadera, sea cual sea el razonamiento
+E: La validez se refiere a la forma: si las premisas son verdaderas, la conclusión necesariamente lo será. Un argumento válido puede tener premisas falsas.
+
+=== Lógica e conhecimento > Lógica e argumentação c=3 d=dificil
+P: Distorcer a posição do oponente, tornando-a mais fraca, para depois refutá-la facilmente é a falácia do:
+- Apelo à emoção
+- Ad hominem
+- Falso dilema
+- Espantalho
+E: Na falácia do espantalho, refuta-se uma versão caricata do argumento, e não o argumento real.
+--- en
+P: Distorting the opponent's position, making it weaker, in order to refute it easily is the fallacy of the:
+- Appeal to emotion
+- Ad hominem
+- False dilemma
+- Straw man
+E: In the straw man fallacy, a caricature of the argument is refuted, not the real argument.
+--- es
+P: Distorsionar la posición del oponente, haciéndola más débil, para luego refutarla fácilmente es la falacia del:
+- Apelación a la emoción
+- Ad hominem
+- Falso dilema
+- Hombre de paja
+E: En la falacia del hombre de paja, se refuta una versión caricaturizada del argumento, no el argumento real.
+
+=== Lógica e conhecimento > Teoria do conhecimento c=2 d=facil
+P: A definição clássica de conhecimento, discutida desde Platão, é:
+- Qualquer opinião que alguém tenha
+- Aquilo que a maioria acredita
+- Crença verdadeira e justificada
+- Tudo o que está escrito nos livros
+E: Para haver conhecimento, não basta crer: a crença precisa ser verdadeira e bem justificada.
+--- en
+P: The classical definition of knowledge, discussed since Plato, is:
+- Any opinion someone holds
+- What the majority believes
+- Justified true belief
+- Everything written in books
+E: For there to be knowledge, believing is not enough: the belief must be true and well justified.
+--- es
+P: La definición clásica de conocimiento, discutida desde Platón, es:
+- Cualquier opinión que alguien tenga
+- Lo que cree la mayoría
+- Creencia verdadera y justificada
+- Todo lo que está escrito en los libros
+E: Para que haya conocimiento no basta creer: la creencia debe ser verdadera y estar bien justificada.
+
+=== Lógica e conhecimento > Teoria do conhecimento c=0 d=facil
+P: O ceticismo, na teoria do conhecimento, é a posição que:
+- Duvida da possibilidade de alcançarmos conhecimento certo
+- Afirma que tudo pode ser conhecido com certeza
+- Defende que só a religião dá conhecimento
+- Considera a experiência sensível infalível
+E: O cético questiona se é possível ter certeza; alguns suspendem o juízo, outros duvidam de áreas específicas.
+--- en
+P: Skepticism, in the theory of knowledge, is the position that:
+- Doubts whether we can reach certain knowledge
+- Claims that everything can be known with certainty
+- Holds that only religion provides knowledge
+- Considers sense experience infallible
+E: The skeptic questions whether certainty is possible; some suspend judgment, others doubt specific areas.
+--- es
+P: El escepticismo, en la teoría del conocimiento, es la posición que:
+- Duda de la posibilidad de alcanzar un conocimiento cierto
+- Afirma que todo puede conocerse con certeza
+- Defiende que solo la religión da conocimiento
+- Considera infalible la experiencia sensible
+E: El escéptico cuestiona si es posible la certeza; algunos suspenden el juicio, otros dudan de áreas específicas.
+
+=== Lógica e conhecimento > Teoria do conhecimento c=3 d=medio
+P: Para Karl Popper, uma teoria é científica quando:
+- Pode ser provada verdadeira definitivamente
+- É aceita pela maioria dos cientistas
+- Foi formulada por um cientista famoso
+- Pode ser falseada, isto é, testada e potencialmente refutada pela experiência
+E: O critério da falseabilidade distingue ciência de não ciência: teorias científicas correm o risco de ser refutadas.
+--- en
+P: For Karl Popper, a theory is scientific when:
+- It can be proved definitively true
+- It is accepted by most scientists
+- It was formulated by a famous scientist
+- It is falsifiable, that is, testable and potentially refutable by experience
+E: The criterion of falsifiability distinguishes science from non-science: scientific theories run the risk of being refuted.
+--- es
+P: Para Karl Popper, una teoría es científica cuando:
+- Puede probarse definitivamente verdadera
+- Es aceptada por la mayoría de los científicos
+- Fue formulada por un científico famoso
+- Puede ser falsada, es decir, puesta a prueba y potencialmente refutada por la experiencia
+E: El criterio de falsabilidad distingue la ciencia de la no ciencia: las teorías científicas corren el riesgo de ser refutadas.
+
+=== Lógica e conhecimento > Teoria do conhecimento c=1 d=medio
+P: Thomas Kuhn chamou de "revolução científica" o momento em que:
+- A ciência para de progredir
+- Um paradigma é substituído por outro, como na passagem do geocentrismo ao heliocentrismo
+- Os cientistas se recusam a fazer experiências
+- A religião passa a controlar a ciência
+E: Para Kuhn, a ciência normal opera dentro de um paradigma; anomalias acumuladas levam a uma troca de paradigma.
+--- en
+P: Thomas Kuhn called a "scientific revolution" the moment when:
+- Science stops progressing
+- One paradigm is replaced by another, as in the shift from geocentrism to heliocentrism
+- Scientists refuse to do experiments
+- Religion takes control of science
+E: For Kuhn, normal science works within a paradigm; accumulated anomalies lead to a paradigm shift.
+--- es
+P: Thomas Kuhn llamó "revolución científica" al momento en que:
+- La ciencia deja de progresar
+- Un paradigma es sustituido por otro, como en el paso del geocentrismo al heliocentrismo
+- Los científicos se niegan a hacer experimentos
+- La religión pasa a controlar la ciencia
+E: Para Kuhn, la ciencia normal opera dentro de un paradigma; las anomalías acumuladas llevan a un cambio de paradigma.
+
+=== Lógica e conhecimento > Teoria do conhecimento c=0 d=dificil
+P: O chamado "problema de Gettier" mostrou que a definição de conhecimento como crença verdadeira justificada:
+- Pode falhar, pois há casos de crença verdadeira e justificada que parecem não ser conhecimento
+- É perfeita e não admite críticas
+- Foi criada por Descartes
+- Só vale para a matemática
+E: Gettier apresentou casos em que alguém acerta por sorte, com boa justificativa, sem de fato saber.
+--- en
+P: The so-called "Gettier problem" showed that defining knowledge as justified true belief:
+- Can fail, since there are cases of justified true belief that do not seem to be knowledge
+- Is perfect and admits no criticism
+- Was created by Descartes
+- Applies only to mathematics
+E: Gettier presented cases in which someone is right by luck, with good justification, without really knowing.
+--- es
+P: El llamado "problema de Gettier" mostró que la definición de conocimiento como creencia verdadera justificada:
+- Puede fallar, pues hay casos de creencia verdadera y justificada que no parecen ser conocimiento
+- Es perfecta y no admite críticas
+- Fue creada por Descartes
+- Solo vale para las matemáticas
+E: Gettier presentó casos en los que alguien acierta por suerte, con buena justificación, sin saber realmente.
+
+=== Lógica e conhecimento > Teoria do conhecimento c=2 d=dificil
+P: A distinção de Kant entre juízos analíticos e sintéticos afirma que um juízo analítico:
+- Amplia nosso conhecimento com dados da experiência
+- Depende sempre da observação empírica
+- Tem o predicado contido no conceito do sujeito, como em "todo solteiro é não casado"
+- É sempre falso
+E: No juízo analítico, o predicado apenas explicita o sujeito; o sintético acrescenta algo novo ao conceito.
+--- en
+P: Kant's distinction between analytic and synthetic judgments states that an analytic judgment:
+- Expands our knowledge with data from experience
+- Always depends on empirical observation
+- Has the predicate contained in the concept of the subject, as in "every bachelor is unmarried"
+- Is always false
+E: In an analytic judgment the predicate only makes the subject explicit; a synthetic one adds something new to the concept.
+--- es
+P: La distinción de Kant entre juicios analíticos y sintéticos afirma que un juicio analítico:
+- Amplía nuestro conocimiento con datos de la experiencia
+- Depende siempre de la observación empírica
+- Tiene el predicado contenido en el concepto del sujeto, como en "todo soltero es no casado"
+- Es siempre falso
+E: En el juicio analítico el predicado solo explicita al sujeto; el sintético añade algo nuevo al concepto.

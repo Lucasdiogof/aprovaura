@@ -68,6 +68,34 @@ O script valida as 4 alternativas em cada língua, o índice correto e a explica
 O id é o uuid5 do enunciado, então rodar o SQL de novo não duplica nada.
 Hoje as questões novas entram como `dificil`; mude no SQL gerado se precisar de outro nível.
 
+## Matéria nova: `gen_subject_catalog.py`
+
+Cria a árvore de uma matéria que ainda não existe (áreas e tópicos, já com en/es) e o
+`leaves.json` que o `gen_new_questions.py` usa, então as questões podem ser escritas antes
+de o catálogo estar no banco. As fontes ficam em `materias/` (ex.: `filosofia_catalogo.txt`,
+`filosofia_q1.txt` … `q4`).
+
+```
+== <área pt> | <descrição pt> | <emoji>
+en: <área en> | <descrição en>
+es: <área es> | <descrição es>
+-- <tópico pt>
+en: <tópico en>
+es: <tópico es>
+```
+
+```bash
+python tool/content/gen_subject_catalog.py filosofia tool/content/materias/filosofia_catalogo.txt supabase/catalog_seed_filosofia.sql <dir>
+cat tool/content/materias/filosofia_q*.txt > <dir>/all.txt
+python tool/content/gen_new_questions.py <dir> filosofia <dir>/all.txt supabase/questions_filosofia.sql
+```
+
+Nas questões, o cabeçalho aceita o nível: `=== <área> > <tópico> c=<0..3> d=facil|medio|dificil`
+(sem `d=`, fica `dificil`). Padrão das matérias novas: 6 questões por tópico, 2 de cada nível,
+gabarito equilibrado entre as letras. Depois de rodar os dois SQL, rode o checkup
+(`supabase/check_<materia>.sql`) e só então acrescente a matéria ao enum `Subject` no app:
+sem conteúdo, ela viraria um card vazio no Praticar.
+
 ## Acentos faltando: `find_missing_accents.py`
 
 Procura palavra sem acento cuja forma acentuada aparece em outras questões do banco

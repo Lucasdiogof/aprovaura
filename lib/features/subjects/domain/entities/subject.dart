@@ -9,7 +9,17 @@ enum Subject {
   biologia,
   fisica,
   quimica,
-  atualidades;
+  filosofia,
+  atualidades,
+
+  /// Not a question bank: the essay feature (themes, writing, AI marking).
+  /// It is a subject so it can be picked as "em foco" and ordered with the
+  /// others; the Practice grid opens the essay screen for it, and the mock
+  /// exam leaves it out.
+  redacao;
+
+  /// Has catalog_nodes and questions (everything but Redação).
+  bool get hasQuestions => this != Subject.redacao;
 
   IconData get icon => switch (this) {
     Subject.matematica => Icons.calculate_outlined,
@@ -19,7 +29,9 @@ enum Subject {
     Subject.biologia => Icons.eco_outlined,
     Subject.fisica => Icons.bolt_outlined,
     Subject.quimica => Icons.science_outlined,
+    Subject.filosofia => Icons.psychology_outlined,
     Subject.atualidades => Icons.newspaper_outlined,
+    Subject.redacao => Icons.edit_note_rounded,
   };
 
   Color get accentColor => switch (this) {
@@ -30,7 +42,10 @@ enum Subject {
     Subject.biologia => const Color(0xFF2DBE91),
     Subject.fisica => const Color(0xFF4C7CD1),
     Subject.quimica => const Color(0xFF9C6FE0),
+    Subject.filosofia => const Color(0xFFC77B4A),
     Subject.atualidades => const Color(0xFF6B7B8C),
+    // The brand violet: Redação is its own thing, not a subject accent.
+    Subject.redacao => const Color(0xFF8B5CF6),
   };
 
   String label(AppLanguage language) => switch (this) {
@@ -69,10 +84,20 @@ enum Subject {
       AppLanguage.english => 'Chemistry',
       AppLanguage.spanish => 'Química',
     },
+    Subject.filosofia => switch (language) {
+      AppLanguage.portuguese => 'Filosofia',
+      AppLanguage.english => 'Philosophy',
+      AppLanguage.spanish => 'Filosofía',
+    },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese => 'Atualidades',
       AppLanguage.english => 'Current events',
       AppLanguage.spanish => 'Actualidad',
+    },
+    Subject.redacao => switch (language) {
+      AppLanguage.portuguese => 'Redação',
+      AppLanguage.english => 'Essay',
+      AppLanguage.spanish => 'Redacción',
     },
   };
 
@@ -117,12 +142,24 @@ enum Subject {
       AppLanguage.english => 'Reactions, elements and transformations.',
       AppLanguage.spanish => 'Reacciones, elementos y transformaciones.',
     },
+    Subject.filosofia => switch (language) {
+      AppLanguage.portuguese =>
+        'Grandes pensadores, ética, política e conhecimento.',
+      AppLanguage.english => 'Great thinkers, ethics, politics and knowledge.',
+      AppLanguage.spanish =>
+        'Grandes pensadores, ética, política y conocimiento.',
+    },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese =>
         'Fique por dentro dos principais acontecimentos.',
       AppLanguage.english => 'Stay on top of major current events.',
       AppLanguage.spanish =>
         'Mantente al día de los principales acontecimientos.',
+    },
+    Subject.redacao => switch (language) {
+      AppLanguage.portuguese => 'Escreva e receba uma correção.',
+      AppLanguage.english => 'Write one and get it marked.',
+      AppLanguage.spanish => 'Escribe una y recibe una corrección.',
     },
   };
 }

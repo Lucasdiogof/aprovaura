@@ -1,0 +1,91 @@
+== Introdução à filosofia | O que é filosofia e a passagem do mito à razão | 🦉
+en: Introduction to philosophy | What philosophy is and the shift from myth to reason
+es: Introducción a la filosofía | Qué es la filosofía y el paso del mito a la razón
+-- O que é filosofia
+en: What philosophy is
+es: Qué es la filosofía
+-- Mito e logos
+en: Myth and logos
+es: Mito y logos
+
+== Filosofia antiga | Pré-socráticos, Sócrates, Platão e Aristóteles | 🏛️
+en: Ancient philosophy | Pre-Socratics, Socrates, Plato and Aristotle
+es: Filosofía antigua | Presocráticos, Sócrates, Platón y Aristóteles
+-- Pré-socráticos
+en: Pre-Socratics
+es: Presocráticos
+-- Sócrates e os sofistas
+en: Socrates and the Sophists
+es: Sócrates y los sofistas
+-- Platão
+en: Plato
+es: Platón
+-- Aristóteles
+en: Aristotle
+es: Aristóteles
+
+== Helenismo e Idade Média | Estoicos, epicuristas, Agostinho e Tomás de Aquino | ⛪
+en: Hellenism and the Middle Ages | Stoics, Epicureans, Augustine and Thomas Aquinas
+es: Helenismo y Edad Media | Estoicos, epicúreos, Agustín y Tomás de Aquino
+-- Escolas helenísticas
+en: Hellenistic schools
+es: Escuelas helenísticas
+-- Filosofia medieval
+en: Medieval philosophy
+es: Filosofía medieval
+
+== Filosofia moderna | Racionalismo, empirismo e Kant | 🔭
+en: Modern philosophy | Rationalism, empiricism and Kant
+es: Filosofía moderna | Racionalismo, empirismo y Kant
+-- Racionalismo
+en: Rationalism
+es: Racionalismo
+-- Empirismo
+en: Empiricism
+es: Empirismo
+-- Kant e o Iluminismo
+en: Kant and the Enlightenment
+es: Kant y la Ilustración
+
+== Ética | Moral, virtude, dever e consequências | ⚖️
+en: Ethics | Morality, virtue, duty and consequences
+es: Ética | Moral, virtud, deber y consecuencias
+-- Ética e moral
+en: Ethics and morality
+es: Ética y moral
+-- Teorias éticas
+en: Ethical theories
+es: Teorías éticas
+
+== Filosofia política | Poder, Estado e contrato social | 👑
+en: Political philosophy | Power, the State and the social contract
+es: Filosofía política | Poder, Estado y contrato social
+-- Maquiavel e o poder
+en: Machiavelli and power
+es: Maquiavelo y el poder
+-- Contratualistas
+en: Social contract theorists
+es: Contractualistas
+
+== Filosofia contemporânea | Nietzsche, existencialismo e Escola de Frankfurt | 💭
+en: Contemporary philosophy | Nietzsche, existentialism and the Frankfurt School
+es: Filosofía contemporánea | Nietzsche, existencialismo y Escuela de Fráncfort
+-- Nietzsche
+en: Nietzsche
+es: Nietzsche
+-- Existencialismo
+en: Existentialism
+es: Existencialismo
+-- Escola de Frankfurt
+en: Frankfurt School
+es: Escuela de Fráncfort
+
+== Lógica e conhecimento | Argumentação, falácias e teoria do conhecimento | 🧠
+en: Logic and knowledge | Argument, fallacies and theory of knowledge
+es: Lógica y conocimiento | Argumentación, falacias y teoría del conocimiento
+-- Lógica e argumentação
+en: Logic and argument
+es: Lógica y argumentación
+-- Teoria do conhecimento
+en: Theory of knowledge
+es: Teoría del conocimiento

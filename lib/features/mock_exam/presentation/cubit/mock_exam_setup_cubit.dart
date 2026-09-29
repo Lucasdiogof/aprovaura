@@ -58,10 +58,11 @@ class MockExamSetupCubit extends Cubit<MockExamSetupState> {
   }
 
   /// Only subjects the app knows how to draw (icon/color/label), minus
-  /// Atualidades, and only if they have at least one question at all.
+  /// Atualidades and Redação, and only if they have at least one question.
   static List<String> _offeredSubjects(MockExamAvailability availability) => [
     for (final subject in Subject.values)
       if (subject != Subject.atualidades &&
+          subject.hasQuestions &&
           availability.countFor(subject.name, MockExamDifficulty.misto) > 0)
         subject.name,
   ];

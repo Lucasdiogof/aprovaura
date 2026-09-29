@@ -7,7 +7,6 @@ import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/atualidades/presentation/pages/atualidades_areas_page.dart';
 import 'package:aura/features/catalog/presentation/pages/catalog_list_page.dart';
 import 'package:aura/features/essay/presentation/pages/essay_themes_page.dart';
-import 'package:aura/features/essay/presentation/widgets/essay_subject_card.dart';
 import 'package:aura/features/home/l10n/home_strings.dart';
 import 'package:aura/features/practice/l10n/practice_strings.dart';
 import 'package:aura/features/profile/presentation/cubit/profile_cubit.dart';
@@ -74,6 +73,12 @@ class _PracticePageState extends State<PracticePage> {
       );
       return;
     }
+    if (subject == Subject.redacao) {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute<void>(builder: (_) => const EssayThemesPage()));
+      return;
+    }
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) =>
@@ -134,22 +139,9 @@ class _PracticePageState extends State<PracticePage> {
                   childAspectRatio: 1.05,
                 ),
                 delegate: SliverChildBuilderDelegate(
-                  // Redação closes the grid: same tile, but it is a feature
-                  // of its own rather than a Subject (see EssaySubjectCard).
-                  // It has no "em foco" state -- it isn't a Subject, so it
-                  // never appears in the interested-subjects screen, and it
-                  // never moves even when focused subjects reorder above it.
+                  // Redação is one of the subjects (last unless picked as
+                  // "em foco"); tapping it opens the essay screen.
                   (context, index) {
-                    if (index == orderedSubjects.length) {
-                      return EssaySubjectCard(
-                        language: language,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute<void>(
-                            builder: (_) => const EssayThemesPage(),
-                          ),
-                        ),
-                      );
-                    }
                     final subject = orderedSubjects[index];
                     return SubjectCard(
                       key: ValueKey(subject),
@@ -160,7 +152,7 @@ class _PracticePageState extends State<PracticePage> {
                       onTap: () => _openSubject(context, subject, language),
                     );
                   },
-                  childCount: orderedSubjects.length + 1,
+                  childCount: orderedSubjects.length,
                 ),
               ),
             ),

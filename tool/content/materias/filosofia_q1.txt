@@ -1,0 +1,791 @@
+=== Introdução à filosofia > O que é filosofia c=1 d=facil
+P: A palavra "filosofia", de origem grega, significa:
+- Estudo dos deuses
+- Amor à sabedoria
+- Arte de governar
+- Ciência dos números
+E: "Filosofia" vem do grego philo (amor, amizade) e sophia (sabedoria): amor ou amizade pela sabedoria.
+--- en
+P: The word "philosophy", of Greek origin, means:
+- Study of the gods
+- Love of wisdom
+- Art of governing
+- Science of numbers
+E: "Philosophy" comes from the Greek philo (love, friendship) and sophia (wisdom): love or friendship of wisdom.
+--- es
+P: La palabra "filosofía", de origen griego, significa:
+- Estudio de los dioses
+- Amor a la sabiduría
+- Arte de gobernar
+- Ciencia de los números
+E: "Filosofía" viene del griego philo (amor, amistad) y sophia (sabiduría): amor o amistad por la sabiduría.
+
+=== Introdução à filosofia > O que é filosofia c=3 d=facil
+P: Segundo Platão e Aristóteles, a filosofia nasce do:
+- Medo da morte
+- Desejo de riqueza
+- Respeito às tradições
+- Espanto (admiração) diante do mundo
+E: Para os dois filósofos, o espanto (thaumazein) diante do que não se compreende é o ponto de partida da investigação filosófica.
+--- en
+P: According to Plato and Aristotle, philosophy is born from:
+- Fear of death
+- Desire for wealth
+- Respect for tradition
+- Wonder at the world
+E: For both philosophers, wonder (thaumazein) at what is not understood is the starting point of philosophical inquiry.
+--- es
+P: Según Platón y Aristóteles, la filosofía nace del:
+- Miedo a la muerte
+- Deseo de riqueza
+- Respeto a las tradiciones
+- Asombro ante el mundo
+E: Para ambos filósofos, el asombro (thaumazein) ante lo que no se comprende es el punto de partida de la investigación filosófica.
+
+=== Introdução à filosofia > O que é filosofia c=0 d=medio
+P: Uma característica central da atitude filosófica é:
+- Questionar o que parece óbvio e buscar justificativas racionais
+- Aceitar as crenças tradicionais sem discussão
+- Basear-se apenas em revelações religiosas
+- Rejeitar qualquer forma de argumentação
+E: A filosofia problematiza o que é aceito sem exame e exige razões e argumentos para as crenças.
+--- en
+P: A central feature of the philosophical attitude is:
+- Questioning what seems obvious and seeking rational justification
+- Accepting traditional beliefs without discussion
+- Relying only on religious revelation
+- Rejecting any form of argument
+E: Philosophy questions what is accepted without examination and demands reasons and arguments for beliefs.
+--- es
+P: Una característica central de la actitud filosófica es:
+- Cuestionar lo que parece obvio y buscar justificaciones racionales
+- Aceptar las creencias tradicionales sin discusión
+- Basarse solo en revelaciones religiosas
+- Rechazar cualquier forma de argumentación
+E: La filosofía problematiza lo que se acepta sin examen y exige razones y argumentos para las creencias.
+
+=== Introdução à filosofia > O que é filosofia c=2 d=medio
+P: A área da filosofia que investiga o que é o conhecimento e como podemos justificá-lo é a:
+- Estética
+- Ética
+- Epistemologia
+- Metafísica
+E: A epistemologia (teoria do conhecimento) estuda a natureza, as fontes e os limites do conhecimento.
+--- en
+P: The area of philosophy that investigates what knowledge is and how we can justify it is:
+- Aesthetics
+- Ethics
+- Epistemology
+- Metaphysics
+E: Epistemology (theory of knowledge) studies the nature, sources and limits of knowledge.
+--- es
+P: El área de la filosofía que investiga qué es el conocimiento y cómo podemos justificarlo es la:
+- Estética
+- Ética
+- Epistemología
+- Metafísica
+E: La epistemología (teoría del conocimiento) estudia la naturaleza, las fuentes y los límites del conocimiento.
+
+=== Introdução à filosofia > O que é filosofia c=1 d=dificil
+P: A distinção entre filosofia e senso comum está melhor expressa em:
+- O senso comum é sempre falso, e a filosofia, sempre verdadeira.
+- O senso comum aceita crenças sem examiná-las; a filosofia as submete à crítica racional.
+- A filosofia trata de temas práticos; o senso comum, de temas abstratos.
+- Os dois são idênticos, mudando apenas o vocabulário.
+E: O senso comum não é necessariamente falso, mas é acrítico; a filosofia examina as crenças e busca seus fundamentos.
+--- en
+P: The difference between philosophy and common sense is best expressed in:
+- Common sense is always false, and philosophy always true.
+- Common sense accepts beliefs without examining them; philosophy subjects them to rational criticism.
+- Philosophy deals with practical matters; common sense with abstract ones.
+- They are identical, only the vocabulary changes.
+E: Common sense is not necessarily false, but it is uncritical; philosophy examines beliefs and seeks their grounds.
+--- es
+P: La diferencia entre filosofía y sentido común está mejor expresada en:
+- El sentido común siempre es falso, y la filosofía, siempre verdadera.
+- El sentido común acepta creencias sin examinarlas; la filosofía las somete a la crítica racional.
+- La filosofía trata temas prácticos; el sentido común, temas abstractos.
+- Ambos son idénticos, solo cambia el vocabulario.
+E: El sentido común no es necesariamente falso, pero es acrítico; la filosofía examina las creencias y busca sus fundamentos.
+
+=== Introdução à filosofia > O que é filosofia c=3 d=dificil
+P: A metafísica, termo associado às obras de Aristóteles, investiga principalmente:
+- As regras da boa argumentação
+- Os critérios do belo na arte
+- A organização das cidades
+- O ser enquanto ser e os primeiros princípios da realidade
+E: A metafísica (ou "filosofia primeira", para Aristóteles) estuda o ser enquanto ser, suas causas e princípios mais gerais.
+--- en
+P: Metaphysics, a term associated with Aristotle's works, mainly investigates:
+- The rules of good reasoning
+- The criteria of beauty in art
+- The organization of cities
+- Being as being and the first principles of reality
+E: Metaphysics ("first philosophy" for Aristotle) studies being as being, its causes and most general principles.
+--- es
+P: La metafísica, término asociado a las obras de Aristóteles, investiga principalmente:
+- Las reglas de la buena argumentación
+- Los criterios de lo bello en el arte
+- La organización de las ciudades
+- El ser en cuanto ser y los primeros principios de la realidad
+E: La metafísica ("filosofía primera" para Aristóteles) estudia el ser en cuanto ser, sus causas y principios más generales.
+
+=== Introdução à filosofia > Mito e logos c=2 d=facil
+P: Os mitos gregos explicavam a origem do mundo e dos fenômenos principalmente por meio de:
+- Experimentos em laboratório
+- Cálculos matemáticos
+- Narrativas envolvendo deuses e heróis
+- Leis escritas pelos governantes
+E: O mito é uma narrativa sagrada que explica o mundo pela ação de deuses, titãs e heróis.
+--- en
+P: Greek myths explained the origin of the world and of natural events mainly through:
+- Laboratory experiments
+- Mathematical calculations
+- Stories involving gods and heroes
+- Laws written by rulers
+E: Myth is a sacred narrative that explains the world through the actions of gods, titans and heroes.
+--- es
+P: Los mitos griegos explicaban el origen del mundo y de los fenómenos principalmente mediante:
+- Experimentos de laboratorio
+- Cálculos matemáticos
+- Narraciones con dioses y héroes
+- Leyes escritas por los gobernantes
+E: El mito es una narración sagrada que explica el mundo por la acción de dioses, titanes y héroes.
+
+=== Introdução à filosofia > Mito e logos c=0 d=facil
+P: A palavra grega logos, ligada ao nascimento da filosofia, pode ser traduzida como:
+- Razão, palavra ou discurso racional
+- Destino imposto pelos deuses
+- Guerra entre cidades
+- Poesia épica
+E: Logos significa razão, palavra, discurso que explica e dá razões — em contraste com a explicação mítica.
+--- en
+P: The Greek word logos, linked to the birth of philosophy, can be translated as:
+- Reason, word or rational discourse
+- Fate imposed by the gods
+- War between cities
+- Epic poetry
+E: Logos means reason, word, discourse that explains and gives reasons — in contrast to mythical explanation.
+--- es
+P: La palabra griega logos, ligada al nacimiento de la filosofía, puede traducirse como:
+- Razón, palabra o discurso racional
+- Destino impuesto por los dioses
+- Guerra entre ciudades
+- Poesía épica
+E: Logos significa razón, palabra, discurso que explica y da razones, en contraste con la explicación mítica.
+
+=== Introdução à filosofia > Mito e logos c=1 d=medio
+P: A filosofia surgiu por volta do século VI a.C. nas colônias gregas da Jônia, como Mileto. Um fator que favoreceu esse surgimento foi:
+- A proibição total das religiões
+- O contato comercial e cultural com outros povos e a vida na pólis
+- A invenção da imprensa
+- O domínio romano sobre a Grécia
+E: O comércio, a circulação de ideias, a escrita alfabética e o debate público na pólis criaram condições para o pensamento racional.
+--- en
+P: Philosophy emerged around the 6th century BC in the Greek colonies of Ionia, such as Miletus. A factor that favored this was:
+- The total ban on religions
+- Trade and cultural contact with other peoples and life in the polis
+- The invention of the printing press
+- Roman rule over Greece
+E: Trade, the circulation of ideas, alphabetic writing and public debate in the polis created conditions for rational thought.
+--- es
+P: La filosofía surgió hacia el siglo VI a. C. en las colonias griegas de Jonia, como Mileto. Un factor que favoreció ese surgimiento fue:
+- La prohibición total de las religiones
+- El contacto comercial y cultural con otros pueblos y la vida en la polis
+- La invención de la imprenta
+- El dominio romano sobre Grecia
+E: El comercio, la circulación de ideas, la escritura alfabética y el debate público en la polis crearon condiciones para el pensamiento racional.
+
+=== Introdução à filosofia > Mito e logos c=3 d=medio
+P: Diferentemente do mito, a explicação filosófica busca:
+- Reforçar a autoridade dos sacerdotes
+- Preservar as tradições sem alterá-las
+- Explicar tudo pela vontade dos deuses
+- Princípios naturais que possam ser discutidos e criticados
+E: A filosofia procura causas e princípios na própria natureza (physis), abertos ao debate e à crítica.
+--- en
+P: Unlike myth, the philosophical explanation seeks:
+- To reinforce the authority of priests
+- To preserve traditions without changing them
+- To explain everything by the will of the gods
+- Natural principles that can be discussed and criticized
+E: Philosophy looks for causes and principles in nature itself (physis), open to debate and criticism.
+--- es
+P: A diferencia del mito, la explicación filosófica busca:
+- Reforzar la autoridad de los sacerdotes
+- Preservar las tradiciones sin cambiarlas
+- Explicarlo todo por la voluntad de los dioses
+- Principios naturales que puedan discutirse y criticarse
+E: La filosofía busca causas y principios en la propia naturaleza (physis), abiertos al debate y a la crítica.
+
+=== Introdução à filosofia > Mito e logos c=2 d=dificil
+P: Sobre a passagem do mito ao logos, é correto afirmar que:
+- Foi uma ruptura instantânea, sem nenhuma relação entre os dois
+- Eliminou completamente a religião da vida grega
+- Foi um processo gradual, e os primeiros filósofos ainda carregavam elementos do pensamento mítico
+- Aconteceu primeiro em Roma e depois na Grécia
+E: Muitos estudiosos veem continuidade: a filosofia reorganiza questões do mito (como a origem do cosmo) com outro tipo de explicação.
+--- en
+P: About the shift from myth to logos, it is correct to say that:
+- It was an instant break, with no relation between the two
+- It completely eliminated religion from Greek life
+- It was a gradual process, and the first philosophers still carried elements of mythical thought
+- It happened first in Rome and then in Greece
+E: Many scholars see continuity: philosophy reorganizes questions from myth (such as the origin of the cosmos) with another kind of explanation.
+--- es
+P: Sobre el paso del mito al logos, es correcto afirmar que:
+- Fue una ruptura instantánea, sin ninguna relación entre ambos
+- Eliminó por completo la religión de la vida griega
+- Fue un proceso gradual, y los primeros filósofos aún llevaban elementos del pensamiento mítico
+- Ocurrió primero en Roma y luego en Grecia
+E: Muchos estudiosos ven continuidad: la filosofía reorganiza preguntas del mito (como el origen del cosmos) con otro tipo de explicación.
+
+=== Introdução à filosofia > Mito e logos c=0 d=dificil
+P: A busca dos primeiros filósofos pela arché tinha como objetivo encontrar:
+- O princípio fundamental de onde tudo se origina
+- O deus mais poderoso do Olimpo
+- A melhor forma de governo
+- As regras da retórica
+E: Arché é o princípio primeiro, a substância ou origem de todas as coisas — para Tales, por exemplo, a água.
+--- en
+P: The first philosophers' search for the arché aimed to find:
+- The fundamental principle from which everything originates
+- The most powerful god of Olympus
+- The best form of government
+- The rules of rhetoric
+E: Arché is the first principle, the substance or origin of all things — for Thales, for example, water.
+--- es
+P: La búsqueda de los primeros filósofos por el arjé tenía como objetivo encontrar:
+- El principio fundamental del que todo se origina
+- El dios más poderoso del Olimpo
+- La mejor forma de gobierno
+- Las reglas de la retórica
+E: El arjé es el principio primero, la sustancia u origen de todas las cosas; para Tales, por ejemplo, el agua.
+
+=== Filosofia antiga > Pré-socráticos c=3 d=facil
+P: Para Tales de Mileto, considerado o primeiro filósofo, o princípio de todas as coisas era:
+- O fogo
+- O ar
+- O número
+- A água
+E: Tales afirmou que a água é a arché, observando que ela está presente em tudo o que vive.
+--- en
+P: For Thales of Miletus, considered the first philosopher, the principle of all things was:
+- Fire
+- Air
+- Number
+- Water
+E: Thales stated that water is the arché, noting that it is present in everything that lives.
+--- es
+P: Para Tales de Mileto, considerado el primer filósofo, el principio de todas las cosas era:
+- El fuego
+- El aire
+- El número
+- El agua
+E: Tales afirmó que el agua es el arjé, observando que está presente en todo lo que vive.
+
+=== Filosofia antiga > Pré-socráticos c=1 d=facil
+P: A frase "ninguém se banha duas vezes no mesmo rio" é atribuída a:
+- Parmênides
+- Heráclito
+- Pitágoras
+- Demócrito
+E: Heráclito defendia que tudo está em constante mudança (devir); o rio e quem se banha nunca são os mesmos.
+--- en
+P: The saying "no one steps in the same river twice" is attributed to:
+- Parmenides
+- Heraclitus
+- Pythagoras
+- Democritus
+E: Heraclitus held that everything is in constant change (becoming); neither the river nor the bather is ever the same.
+--- es
+P: La frase "nadie se baña dos veces en el mismo río" se atribuye a:
+- Parménides
+- Heráclito
+- Pitágoras
+- Demócrito
+E: Heráclito sostenía que todo está en cambio constante (devenir); ni el río ni quien se baña son nunca los mismos.
+
+=== Filosofia antiga > Pré-socráticos c=0 d=medio
+P: Contra a ideia de mudança constante, Parmênides afirmou que:
+- O ser é, e o não ser não é; a mudança percebida pelos sentidos é ilusão
+- Tudo flui e nada permanece
+- O mundo é formado por quatro elementos
+- Os números são a essência das coisas
+E: Para Parmênides, o ser é uno, imutável e eterno; a razão, e não os sentidos, alcança a verdade.
+--- en
+P: Against the idea of constant change, Parmenides stated that:
+- Being is, and non-being is not; the change perceived by the senses is illusion
+- Everything flows and nothing remains
+- The world is made of four elements
+- Numbers are the essence of things
+E: For Parmenides, being is one, unchanging and eternal; reason, not the senses, reaches the truth.
+--- es
+P: Contra la idea de cambio constante, Parménides afirmó que:
+- El ser es y el no ser no es; el cambio percibido por los sentidos es ilusión
+- Todo fluye y nada permanece
+- El mundo está formado por cuatro elementos
+- Los números son la esencia de las cosas
+E: Para Parménides, el ser es uno, inmutable y eterno; la razón, y no los sentidos, alcanza la verdad.
+
+=== Filosofia antiga > Pré-socráticos c=2 d=medio
+P: Demócrito e Leucipo defenderam que a realidade é composta por:
+- Água, terra, fogo e ar misturados pelo amor e pelo ódio
+- Ideias eternas fora do mundo sensível
+- Partículas indivisíveis (átomos) que se movem no vazio
+- Números e proporções harmônicas
+E: O atomismo afirma que tudo é formado por átomos, partículas indivisíveis, e pelo vazio em que se movem.
+--- en
+P: Democritus and Leucippus argued that reality is composed of:
+- Water, earth, fire and air mixed by love and strife
+- Eternal ideas outside the sensible world
+- Indivisible particles (atoms) moving in the void
+- Numbers and harmonic proportions
+E: Atomism states that everything is made of atoms, indivisible particles, and the void in which they move.
+--- es
+P: Demócrito y Leucipo defendieron que la realidad está compuesta por:
+- Agua, tierra, fuego y aire mezclados por el amor y el odio
+- Ideas eternas fuera del mundo sensible
+- Partículas indivisibles (átomos) que se mueven en el vacío
+- Números y proporciones armónicas
+E: El atomismo afirma que todo está formado por átomos, partículas indivisibles, y por el vacío en que se mueven.
+
+=== Filosofia antiga > Pré-socráticos c=1 d=dificil
+P: Os pré-socráticos também são chamados de "filósofos da natureza" porque:
+- Viviam isolados no campo
+- Buscavam explicar a physis (natureza) por princípios racionais
+- Rejeitavam qualquer estudo do cosmo
+- Escreviam apenas sobre agricultura
+E: Seu tema central era a physis: a origem e a ordem do cosmo, explicadas por princípios naturais.
+--- en
+P: The Pre-Socratics are also called "philosophers of nature" because:
+- They lived isolated in the countryside
+- They sought to explain physis (nature) through rational principles
+- They rejected any study of the cosmos
+- They wrote only about agriculture
+E: Their central theme was physis: the origin and order of the cosmos, explained by natural principles.
+--- es
+P: A los presocráticos también se les llama "filósofos de la naturaleza" porque:
+- Vivían aislados en el campo
+- Buscaban explicar la physis (naturaleza) por principios racionales
+- Rechazaban cualquier estudio del cosmos
+- Escribían solo sobre agricultura
+E: Su tema central era la physis: el origen y el orden del cosmos, explicados por principios naturales.
+
+=== Filosofia antiga > Pré-socráticos c=3 d=dificil
+P: Para Pitágoras e seus seguidores, a harmonia do cosmo podia ser compreendida por meio:
+- Das quatro raízes: água, terra, fogo e ar
+- Do ápeiron, o ilimitado
+- Da vontade dos deuses olímpicos
+- Dos números e de suas proporções
+E: Os pitagóricos viam nos números e nas proporções (como nos intervalos musicais) a estrutura da realidade.
+--- en
+P: For Pythagoras and his followers, the harmony of the cosmos could be understood through:
+- The four roots: water, earth, fire and air
+- The apeiron, the boundless
+- The will of the Olympian gods
+- Numbers and their proportions
+E: The Pythagoreans saw in numbers and proportions (as in musical intervals) the structure of reality.
+--- es
+P: Para Pitágoras y sus seguidores, la armonía del cosmos podía comprenderse mediante:
+- Las cuatro raíces: agua, tierra, fuego y aire
+- El ápeiron, lo ilimitado
+- La voluntad de los dioses olímpicos
+- Los números y sus proporciones
+E: Los pitagóricos veían en los números y las proporciones (como en los intervalos musicales) la estructura de la realidad.
+
+=== Filosofia antiga > Sócrates e os sofistas c=0 d=facil
+P: A frase "só sei que nada sei" está associada a:
+- Sócrates
+- Aristóteles
+- Tales de Mileto
+- Epicuro
+E: Sócrates reconhecia a própria ignorância como ponto de partida para buscar o saber verdadeiro.
+--- en
+P: The phrase "I know that I know nothing" is associated with:
+- Socrates
+- Aristotle
+- Thales of Miletus
+- Epicurus
+E: Socrates acknowledged his own ignorance as the starting point for seeking true knowledge.
+--- es
+P: La frase "solo sé que no sé nada" está asociada a:
+- Sócrates
+- Aristóteles
+- Tales de Mileto
+- Epicuro
+E: Sócrates reconocía su propia ignorancia como punto de partida para buscar el saber verdadero.
+
+=== Filosofia antiga > Sócrates e os sofistas c=2 d=facil
+P: O método de Sócrates, baseado em perguntas que levam o interlocutor a reconhecer contradições e "dar à luz" ideias, chama-se:
+- Dedução
+- Empirismo
+- Maiêutica
+- Dialética hegeliana
+E: A maiêutica ("arte do parto") ajuda o interlocutor a descobrir por si mesmo o conhecimento, após a ironia expor suas contradições.
+--- en
+P: Socrates' method, based on questions that lead the other person to see contradictions and "give birth" to ideas, is called:
+- Deduction
+- Empiricism
+- Maieutics
+- Hegelian dialectic
+E: Maieutics ("art of midwifery") helps the other person discover knowledge by themselves, after irony exposes their contradictions.
+--- es
+P: El método de Sócrates, basado en preguntas que llevan al interlocutor a reconocer contradicciones y "dar a luz" ideas, se llama:
+- Deducción
+- Empirismo
+- Mayéutica
+- Dialéctica hegeliana
+E: La mayéutica ("arte de partear") ayuda al interlocutor a descubrir por sí mismo el conocimiento, tras exponer la ironía sus contradicciones.
+
+=== Filosofia antiga > Sócrates e os sofistas c=1 d=medio
+P: Os sofistas, que ensinavam em Atenas mediante pagamento, eram conhecidos sobretudo por:
+- Defender que a verdade só vem da revelação divina
+- Ensinar retórica e a arte de argumentar e persuadir
+- Viver isolados da vida política
+- Estudar exclusivamente a natureza
+E: Os sofistas ensinavam oratória e argumentação aos cidadãos que queriam participar da vida política da pólis.
+--- en
+P: The Sophists, who taught in Athens for a fee, were known above all for:
+- Holding that truth comes only from divine revelation
+- Teaching rhetoric and the art of arguing and persuading
+- Living apart from political life
+- Studying nature exclusively
+E: The Sophists taught oratory and argument to citizens who wanted to take part in the political life of the polis.
+--- es
+P: Los sofistas, que enseñaban en Atenas a cambio de un pago, eran conocidos sobre todo por:
+- Defender que la verdad solo viene de la revelación divina
+- Enseñar retórica y el arte de argumentar y persuadir
+- Vivir aislados de la vida política
+- Estudiar exclusivamente la naturaleza
+E: Los sofistas enseñaban oratoria y argumentación a los ciudadanos que querían participar en la vida política de la polis.
+
+=== Filosofia antiga > Sócrates e os sofistas c=3 d=medio
+P: A frase de Protágoras "o homem é a medida de todas as coisas" expressa uma posição:
+- Dogmática, que afirma verdades absolutas
+- Mística, baseada em revelações
+- Materialista, baseada nos átomos
+- Relativista, em que a verdade depende de quem percebe e julga
+E: Para Protágoras, as coisas são para cada um como lhe aparecem; não haveria uma verdade absoluta independente do ser humano.
+--- en
+P: Protagoras' saying "man is the measure of all things" expresses a position that is:
+- Dogmatic, asserting absolute truths
+- Mystical, based on revelations
+- Materialist, based on atoms
+- Relativist, in which truth depends on who perceives and judges
+E: For Protagoras, things are to each person as they appear to them; there would be no absolute truth independent of human beings.
+--- es
+P: La frase de Protágoras "el hombre es la medida de todas las cosas" expresa una posición:
+- Dogmática, que afirma verdades absolutas
+- Mística, basada en revelaciones
+- Materialista, basada en los átomos
+- Relativista, en la que la verdad depende de quien percibe y juzga
+E: Para Protágoras, las cosas son para cada uno como le aparecen; no habría una verdad absoluta independiente del ser humano.
+
+=== Filosofia antiga > Sócrates e os sofistas c=0 d=dificil
+P: Sócrates foi condenado à morte em Atenas (399 a.C.) sob a acusação de:
+- Corromper a juventude e não reconhecer os deuses da cidade
+- Trair Atenas em favor de Esparta
+- Roubar o tesouro público
+- Escrever livros proibidos
+E: A acusação era de impiedade e de corromper os jovens; Sócrates aceitou a pena e bebeu a cicuta.
+--- en
+P: Socrates was sentenced to death in Athens (399 BC) on the charge of:
+- Corrupting the youth and not recognizing the city's gods
+- Betraying Athens in favor of Sparta
+- Stealing the public treasury
+- Writing forbidden books
+E: The charge was impiety and corrupting the young; Socrates accepted the sentence and drank the hemlock.
+--- es
+P: Sócrates fue condenado a muerte en Atenas (399 a. C.) bajo la acusación de:
+- Corromper a la juventud y no reconocer a los dioses de la ciudad
+- Traicionar a Atenas en favor de Esparta
+- Robar el tesoro público
+- Escribir libros prohibidos
+E: La acusación era de impiedad y de corromper a los jóvenes; Sócrates aceptó la pena y bebió la cicuta.
+
+=== Filosofia antiga > Sócrates e os sofistas c=2 d=dificil
+P: Uma diferença fundamental entre Sócrates e os sofistas é que Sócrates:
+- Cobrava mais caro por suas aulas
+- Defendia que a verdade é relativa a cada pessoa
+- Buscava definições universais (como a do justo) em vez de apenas vencer debates
+- Recusava-se a conversar com os cidadãos
+E: Sócrates não cobrava e buscava o conceito universal das virtudes; criticava a retórica usada apenas para persuadir.
+--- en
+P: A fundamental difference between Socrates and the Sophists is that Socrates:
+- Charged more for his lessons
+- Held that truth is relative to each person
+- Sought universal definitions (such as that of justice) instead of just winning debates
+- Refused to talk with citizens
+E: Socrates charged nothing and sought the universal concept of the virtues; he criticized rhetoric used only to persuade.
+--- es
+P: Una diferencia fundamental entre Sócrates y los sofistas es que Sócrates:
+- Cobraba más caro por sus clases
+- Defendía que la verdad es relativa a cada persona
+- Buscaba definiciones universales (como la de lo justo) en lugar de solo ganar debates
+- Se negaba a conversar con los ciudadanos
+E: Sócrates no cobraba y buscaba el concepto universal de las virtudes; criticaba la retórica usada solo para persuadir.
+
+=== Filosofia antiga > Platão c=1 d=facil
+P: Na teoria de Platão, a verdadeira realidade, eterna e imutável, está no:
+- Mundo sensível
+- Mundo das Ideias (ou Formas)
+- Mundo dos átomos
+- Mundo dos sonhos
+E: Para Platão, o mundo sensível é cópia imperfeita e mutável; as Ideias são modelos eternos, alcançados pela razão.
+--- en
+P: In Plato's theory, true reality, eternal and unchanging, lies in the:
+- Sensible world
+- World of Ideas (or Forms)
+- World of atoms
+- World of dreams
+E: For Plato, the sensible world is an imperfect, changing copy; the Ideas are eternal models, reached by reason.
+--- es
+P: En la teoría de Platón, la verdadera realidad, eterna e inmutable, está en el:
+- Mundo sensible
+- Mundo de las Ideas (o Formas)
+- Mundo de los átomos
+- Mundo de los sueños
+E: Para Platón, el mundo sensible es copia imperfecta y cambiante; las Ideas son modelos eternos, alcanzados por la razón.
+
+=== Filosofia antiga > Platão c=3 d=facil
+P: No Mito da Caverna, de Platão, as sombras projetadas na parede representam:
+- As Ideias perfeitas
+- O conhecimento filosófico
+- O Sol e o Bem
+- As aparências e opiniões do mundo sensível
+E: Os prisioneiros tomam as sombras por realidade: assim são as opiniões (doxa) baseadas nos sentidos.
+--- en
+P: In Plato's Allegory of the Cave, the shadows cast on the wall represent:
+- The perfect Ideas
+- Philosophical knowledge
+- The Sun and the Good
+- The appearances and opinions of the sensible world
+E: The prisoners take the shadows for reality: such are opinions (doxa) based on the senses.
+--- es
+P: En el Mito de la Caverna, de Platón, las sombras proyectadas en la pared representan:
+- Las Ideas perfectas
+- El conocimiento filosófico
+- El Sol y el Bien
+- Las apariencias y opiniones del mundo sensible
+E: Los prisioneros toman las sombras por realidad: así son las opiniones (doxa) basadas en los sentidos.
+
+=== Filosofia antiga > Platão c=0 d=medio
+P: Em A República, Platão defende que a cidade justa deveria ser governada por:
+- Filósofos, que conhecem o Bem
+- Guerreiros, os mais fortes
+- Comerciantes, os mais ricos
+- Todos os cidadãos por sorteio
+E: Para Platão, só quem contempla a Ideia do Bem sabe governar com justiça: o rei-filósofo.
+--- en
+P: In The Republic, Plato argues that the just city should be ruled by:
+- Philosophers, who know the Good
+- Warriors, the strongest
+- Merchants, the richest
+- All citizens chosen by lot
+E: For Plato, only those who contemplate the Idea of the Good know how to rule justly: the philosopher-king.
+--- es
+P: En La República, Platón defiende que la ciudad justa debería ser gobernada por:
+- Filósofos, que conocen el Bien
+- Guerreros, los más fuertes
+- Comerciantes, los más ricos
+- Todos los ciudadanos por sorteo
+E: Para Platón, solo quien contempla la Idea del Bien sabe gobernar con justicia: el rey filósofo.
+
+=== Filosofia antiga > Platão c=2 d=medio
+P: A teoria da reminiscência, de Platão, afirma que conhecer é:
+- Registrar as sensações como numa folha em branco
+- Criar ideias novas a partir do nada
+- Recordar o que a alma já contemplou no mundo das Ideias
+- Aceitar a opinião da maioria
+E: Para Platão, a alma já contemplou as Ideias antes de encarnar; aprender é relembrar (anamnese).
+--- en
+P: Plato's theory of recollection states that knowing is:
+- Recording sensations as on a blank slate
+- Creating new ideas out of nothing
+- Remembering what the soul already contemplated in the world of Ideas
+- Accepting the majority's opinion
+E: For Plato, the soul contemplated the Ideas before being embodied; learning is remembering (anamnesis).
+--- es
+P: La teoría de la reminiscencia, de Platón, afirma que conocer es:
+- Registrar las sensaciones como en una hoja en blanco
+- Crear ideas nuevas a partir de la nada
+- Recordar lo que el alma ya contempló en el mundo de las Ideas
+- Aceptar la opinión de la mayoría
+E: Para Platón, el alma ya contempló las Ideas antes de encarnarse; aprender es recordar (anámnesis).
+
+=== Filosofia antiga > Platão c=1 d=dificil
+P: Na divisão platônica da alma, a parte que deve governar as demais é a:
+- Concupiscível (dos desejos)
+- Racional
+- Irascível (da coragem)
+- Vegetativa
+E: Para Platão, a alma justa é aquela em que a razão governa, a parte irascível a auxilia e os desejos são moderados.
+--- en
+P: In Plato's division of the soul, the part that should govern the others is the:
+- Appetitive (of desires)
+- Rational
+- Spirited (of courage)
+- Vegetative
+E: For Plato, the just soul is one in which reason rules, the spirited part helps it and desires are moderated.
+--- es
+P: En la división platónica del alma, la parte que debe gobernar a las demás es la:
+- Concupiscible (de los deseos)
+- Racional
+- Irascible (del coraje)
+- Vegetativa
+E: Para Platón, el alma justa es aquella en que la razón gobierna, la parte irascible la auxilia y los deseos se moderan.
+
+=== Filosofia antiga > Platão c=3 d=dificil
+P: A obra Apologia de Sócrates, escrita por Platão, apresenta:
+- Um tratado sobre a física dos quatro elementos
+- As leis ideais de uma cidade imaginária
+- Um diálogo sobre o amor em um banquete
+- A defesa de Sócrates diante do tribunal que o condenou
+E: Na Apologia, Platão reconstrói o discurso de defesa de Sócrates no julgamento de 399 a.C.
+--- en
+P: The work Apology of Socrates, written by Plato, presents:
+- A treatise on the physics of the four elements
+- The ideal laws of an imaginary city
+- A dialogue about love at a banquet
+- Socrates' defense before the court that condemned him
+E: In the Apology, Plato reconstructs Socrates' defense speech at the trial of 399 BC.
+--- es
+P: La obra Apología de Sócrates, escrita por Platón, presenta:
+- Un tratado sobre la física de los cuatro elementos
+- Las leyes ideales de una ciudad imaginaria
+- Un diálogo sobre el amor en un banquete
+- La defensa de Sócrates ante el tribunal que lo condenó
+E: En la Apología, Platón reconstruye el discurso de defensa de Sócrates en el juicio del 399 a. C.
+
+=== Filosofia antiga > Aristóteles c=2 d=facil
+P: Aristóteles foi aluno de:
+- Sócrates
+- Tales
+- Platão
+- Heráclito
+E: Aristóteles estudou por cerca de 20 anos na Academia de Platão e depois fundou sua própria escola, o Liceu.
+--- en
+P: Aristotle was a student of:
+- Socrates
+- Thales
+- Plato
+- Heraclitus
+E: Aristotle studied for about 20 years at Plato's Academy and later founded his own school, the Lyceum.
+--- es
+P: Aristóteles fue alumno de:
+- Sócrates
+- Tales
+- Platón
+- Heráclito
+E: Aristóteles estudió unos 20 años en la Academia de Platón y luego fundó su propia escuela, el Liceo.
+
+=== Filosofia antiga > Aristóteles c=0 d=facil
+P: Aristóteles definiu o ser humano como um "animal político", o que significa que ele:
+- Naturalmente vive em comunidade, na pólis
+- Deve ser governado por reis
+- Nasce sem nenhuma capacidade racional
+- Vive melhor isolado da sociedade
+E: Para Aristóteles, o humano realiza sua natureza na vida em comunidade, usando a linguagem e a razão.
+--- en
+P: Aristotle defined the human being as a "political animal", meaning that humans:
+- Naturally live in community, in the polis
+- Must be ruled by kings
+- Are born with no rational capacity
+- Live better isolated from society
+E: For Aristotle, humans fulfill their nature in community life, using language and reason.
+--- es
+P: Aristóteles definió al ser humano como un "animal político", lo que significa que:
+- Vive naturalmente en comunidad, en la polis
+- Debe ser gobernado por reyes
+- Nace sin ninguna capacidad racional
+- Vive mejor aislado de la sociedad
+E: Para Aristóteles, el ser humano realiza su naturaleza en la vida en comunidad, usando el lenguaje y la razón.
+
+=== Filosofia antiga > Aristóteles c=3 d=medio
+P: Na ética de Aristóteles, a virtude é entendida como:
+- O prazer máximo em cada ação
+- A obediência cega às leis divinas
+- A renúncia a todos os desejos
+- A justa medida entre dois extremos (excesso e falta)
+E: A virtude é o meio-termo: a coragem, por exemplo, fica entre a covardia (falta) e a temeridade (excesso).
+--- en
+P: In Aristotle's ethics, virtue is understood as:
+- The maximum pleasure in each action
+- Blind obedience to divine laws
+- The renunciation of all desires
+- The right mean between two extremes (excess and deficiency)
+E: Virtue is the mean: courage, for example, lies between cowardice (deficiency) and rashness (excess).
+--- es
+P: En la ética de Aristóteles, la virtud se entiende como:
+- El placer máximo en cada acción
+- La obediencia ciega a las leyes divinas
+- La renuncia a todos los deseos
+- El justo medio entre dos extremos (exceso y defecto)
+E: La virtud es el término medio: el coraje, por ejemplo, está entre la cobardía (defecto) y la temeridad (exceso).
+
+=== Filosofia antiga > Aristóteles c=1 d=medio
+P: Para Aristóteles, a finalidade última da vida humana é a:
+- Riqueza
+- Eudaimonia (felicidade ou vida plena)
+- Fama
+- Contemplação dos deuses olímpicos
+E: A eudaimonia é o bem supremo, buscado por si mesmo, alcançado pela vida virtuosa segundo a razão.
+--- en
+P: For Aristotle, the ultimate goal of human life is:
+- Wealth
+- Eudaimonia (happiness or a flourishing life)
+- Fame
+- Contemplation of the Olympian gods
+E: Eudaimonia is the highest good, sought for its own sake, reached through a virtuous life according to reason.
+--- es
+P: Para Aristóteles, la finalidad última de la vida humana es la:
+- Riqueza
+- Eudaimonía (felicidad o vida plena)
+- Fama
+- Contemplación de los dioses olímpicos
+E: La eudaimonía es el bien supremo, buscado por sí mismo, alcanzado por la vida virtuosa según la razón.
+
+=== Filosofia antiga > Aristóteles c=0 d=dificil
+P: Na teoria das quatro causas de Aristóteles, a causa final de uma estátua é:
+- O propósito para o qual ela foi feita
+- O mármore de que é feita
+- O escultor que a produziu
+- A forma que ela tem
+E: As quatro causas são material (mármore), formal (forma), eficiente (escultor) e final (a finalidade, o "para quê").
+--- en
+P: In Aristotle's theory of the four causes, the final cause of a statue is:
+- The purpose for which it was made
+- The marble it is made of
+- The sculptor who produced it
+- The shape it has
+E: The four causes are material (marble), formal (shape), efficient (sculptor) and final (the purpose, the "what for").
+--- es
+P: En la teoría de las cuatro causas de Aristóteles, la causa final de una estatua es:
+- El propósito para el cual fue hecha
+- El mármol del que está hecha
+- El escultor que la produjo
+- La forma que tiene
+E: Las cuatro causas son material (mármol), formal (forma), eficiente (escultor) y final (la finalidad, el "para qué").
+
+=== Filosofia antiga > Aristóteles c=2 d=dificil
+P: Diferentemente de Platão, Aristóteles afirmava que a forma (essência) das coisas:
+- Existe apenas num mundo separado das Ideias
+- É uma ilusão dos sentidos
+- Existe nas próprias coisas, unida à matéria
+- Só pode ser conhecida por revelação divina
+E: Para Aristóteles, forma e matéria são inseparáveis nos seres concretos; não há um mundo das Ideias à parte.
+--- en
+P: Unlike Plato, Aristotle claimed that the form (essence) of things:
+- Exists only in a separate world of Ideas
+- Is an illusion of the senses
+- Exists in the things themselves, united with matter
+- Can only be known by divine revelation
+E: For Aristotle, form and matter are inseparable in concrete beings; there is no separate world of Ideas.
+--- es
+P: A diferencia de Platón, Aristóteles afirmaba que la forma (esencia) de las cosas:
+- Existe solo en un mundo separado de las Ideas
+- Es una ilusión de los sentidos
+- Existe en las propias cosas, unida a la materia
+- Solo puede conocerse por revelación divina
+E: Para Aristóteles, forma y materia son inseparables en los seres concretos; no hay un mundo de las Ideas aparte.
