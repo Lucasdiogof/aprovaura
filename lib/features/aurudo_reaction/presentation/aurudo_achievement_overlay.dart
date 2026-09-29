@@ -24,6 +24,8 @@ class AurudoAchievementOverlay extends StatefulWidget {
     required this.reaction,
     required this.message,
     required this.onDismissed,
+    this.subtitle,
+    this.displayDuration = visibleDuration,
     super.key,
   });
 
@@ -32,7 +34,14 @@ class AurudoAchievementOverlay extends StatefulWidget {
   /// One line, already translated: "Meta batida!", "Nível 8!".
   final String message;
 
+  /// An optional quieter second line ("Vou analisar sua redação.").
+  final String? subtitle;
+
   final VoidCallback onDismissed;
+
+  /// How long it stays before leaving on its own. Callers only shorten
+  /// it (reduced motion wants the static pose, then out of the way).
+  final Duration displayDuration;
 
   /// Long enough to read one line, short enough that nobody waits it out.
   static const visibleDuration = Duration(milliseconds: 1100);
@@ -57,7 +66,7 @@ class _AurudoAchievementOverlayState extends State<AurudoAchievementOverlay> {
   @override
   void initState() {
     super.initState();
-    _autoDismiss = Timer(AurudoAchievementOverlay.visibleDuration, _dismiss);
+    _autoDismiss = Timer(widget.displayDuration, _dismiss);
     _unlockTap = Timer(AurudoAchievementOverlay.tapUnlockDelay, () {
       if (mounted) setState(() => _canTap = true);
     });
@@ -110,9 +119,19 @@ class _AurudoAchievementOverlayState extends State<AurudoAchievementOverlay> {
                           // Fewer and quieter than a perfect result: this
                           // is a good moment, not the app's biggest one.
                           if (!reduced)
-                            const AuraParticles(
-                              style: AuraParticlesStyle.burst,
-                              count: 4,
+                            AuraParticles(
+                              // Sending an essay is a hand-off, not a win:
+                              // a few drifting sparkles, never a burst.
+                              style:
+                                  widget.reaction.type ==
+                                      AurudoReactionType.writing
+                                  ? AuraParticlesStyle.ambient
+                                  : AuraParticlesStyle.burst,
+                              count:
+                                  widget.reaction.type ==
+                                      AurudoReactionType.writing
+                                  ? 3
+                                  : 4,
                             ),
                           AurudoMascotView(
                             type: widget.reaction.type,
@@ -127,14 +146,30 @@ class _AurudoAchievementOverlayState extends State<AurudoAchievementOverlay> {
                       padding: const EdgeInsets.symmetric(
                         horizontal: AppSpacing.xxl,
                       ),
-                      child: Text(
-                        widget.message,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w800,
-                          color: colors.textPrimary,
-                        ),
+                      child: Column(
+                        children: [
+                          Text(
+                            widget.message,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800,
+                              color: colors.textPrimary,
+                            ),
+                          ),
+                          if (widget.subtitle case final subtitle?) ...[
+                            const SizedBox(height: AppSpacing.xs),
+                            Text(
+                              subtitle,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 14,
+                                height: 1.4,
+                                color: colors.textSecondary,
+                              ),
+                            ),
+                          ],
+                        ],
                       ),
                     ),
                   ],

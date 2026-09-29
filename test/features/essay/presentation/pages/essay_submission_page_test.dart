@@ -231,6 +231,11 @@ void main() {
     });
 
     testWidgets('a marked attempt shows the whole correction', (tester) async {
+      // Tall enough for the whole report: Aurudo now sits above the score,
+      // and a ListView only builds what is on screen.
+      tester.view.physicalSize = const Size(800, 2600);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
       stub(EssaySubmissionStatus.evaluated, totalScore: 900);
       await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
       await tester.pumpAndSettle();

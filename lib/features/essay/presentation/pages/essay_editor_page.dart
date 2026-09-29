@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
@@ -117,7 +118,14 @@ class _EssayEditorViewState extends State<_EssayEditorView> {
     if (!await showEssaySubmitSheet(context, strings: t)) return;
     if (!mounted) return;
 
-    final outcome = await cubit.submit();
+    // The official blocking overlay covers only the send itself -- saving
+    // the text and creating the submission. It never waits for the marking:
+    // as soon as the server has the essay, it goes away. The message is
+    // for screen readers (the overlay itself shows only the loader).
+    final outcome = await context.read<AppBlockingLoadingCubit>().run(
+      cubit.submit,
+      message: t.sendingEssay,
+    );
     if (!mounted) return;
 
     switch (outcome) {
@@ -127,7 +135,12 @@ class _EssayEditorViewState extends State<_EssayEditorView> {
         // an editor holding its text would be a lie.
         await Navigator.of(context).pushReplacement(
           MaterialPageRoute<void>(
-            builder: (_) => EssaySubmissionPage(submissionId: attempt.id),
+            // Only a send the server accepted gets here, so only it can
+            // open with Aurudo's "Deixa comigo".
+            builder: (_) => EssaySubmissionPage(
+              submissionId: attempt.id,
+              justSubmitted: true,
+            ),
           ),
         );
       case EssaySubmitOutcome.saveFailed:

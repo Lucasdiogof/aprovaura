@@ -95,6 +95,17 @@ void main() {
       expect(ledger.hasCelebratedEssayCorrection('sub-1'), isTrue);
     });
 
+    test('essay writing and correction are two separate events', () async {
+      final ledger = await ledgerFor('user-a');
+      ledger.markEssayWritingCelebrated('sub-1');
+      expect(ledger.hasCelebratedEssayWriting('sub-1'), isTrue);
+      // Having seen the send never spends the correction's reveal...
+      expect(ledger.hasCelebratedEssayCorrection('sub-1'), isFalse);
+      ledger.markEssayCorrectionCelebrated('sub-2');
+      // ...and the reverse.
+      expect(ledger.hasCelebratedEssayWriting('sub-2'), isFalse);
+    });
+
     test('old attempts are evicted once the bounded list fills up', () async {
       final ledger = await ledgerFor('user-a');
       // One past the cap: the very first one marked must be the one

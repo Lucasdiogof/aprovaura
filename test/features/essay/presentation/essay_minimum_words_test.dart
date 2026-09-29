@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:aura/core/di/injection_container.dart';
+import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme.dart';
@@ -71,7 +73,15 @@ void main() {
   });
 
   Future<void> open(WidgetTester tester, String text) async {
-    await tester.pumpApp(const EssayEditorPage(theme: _theme));
+    await tester.pumpApp(
+      const EssayEditorPage(theme: _theme),
+      // The editor sends through the app's blocking overlay.
+      providers: [
+        BlocProvider<AppBlockingLoadingCubit>(
+          create: (_) => AppBlockingLoadingCubit(),
+        ),
+      ],
+    );
     await tester.pumpAndSettle();
     if (text.isNotEmpty) {
       await tester.enterText(find.byType(TextField), text);

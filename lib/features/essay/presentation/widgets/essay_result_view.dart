@@ -14,18 +14,24 @@ class EssayResultView extends StatelessWidget {
   const EssayResultView({
     required this.evaluation,
     required this.strings,
+    this.showTotalScore = true,
     super.key,
   });
 
   final EssayEvaluation evaluation;
   final EssayStrings strings;
 
+  /// False when the score card was already shown elsewhere -- the Aurudo
+  /// scene reveals it on its own, before the rest of the report.
+  final bool showTotalScore;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        _TotalScore(evaluation: evaluation, strings: strings),
+        if (showTotalScore)
+          EssayTotalScoreCard(evaluation: evaluation, strings: strings),
         if (evaluation.insufficientText) ...[
           const SizedBox(height: AppSpacing.md),
           _Warning(message: strings.insufficientTextWarning),
@@ -76,8 +82,15 @@ class EssayResultView extends StatelessWidget {
   }
 }
 
-class _TotalScore extends StatelessWidget {
-  const _TotalScore({required this.evaluation, required this.strings});
+/// The estimated score, with the note that it is only an estimate right
+/// under the number. Read out as one sentence ("Nota estimada: 800 de
+/// 1000") rather than three loose fragments.
+class EssayTotalScoreCard extends StatelessWidget {
+  const EssayTotalScoreCard({
+    required this.evaluation,
+    required this.strings,
+    super.key,
+  });
 
   final EssayEvaluation evaluation;
   final EssayStrings strings;
@@ -95,30 +108,46 @@ class _TotalScore extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            strings.estimatedScoreLabel,
-            style: TextStyle(fontSize: 12, color: colors.textSecondary),
-          ),
-          const SizedBox(height: 2),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.baseline,
-            textBaseline: TextBaseline.alphabetic,
-            children: [
-              Text(
-                '${evaluation.totalScore}',
-                style: TextStyle(
-                  fontSize: 40,
-                  height: 1.1,
-                  fontWeight: FontWeight.w800,
-                  color: colors.primary,
-                ),
+          Semantics(
+            label: strings.estimatedScoreSemantics(
+              evaluation.totalScore,
+              EssayEvaluation.maxTotalScore,
+            ),
+            child: ExcludeSemantics(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    strings.estimatedScoreLabel,
+                    style: TextStyle(fontSize: 12, color: colors.textSecondary),
+                  ),
+                  const SizedBox(height: 2),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        '${evaluation.totalScore}',
+                        style: TextStyle(
+                          fontSize: 40,
+                          height: 1.1,
+                          fontWeight: FontWeight.w800,
+                          color: colors.primary,
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        strings.outOf(EssayEvaluation.maxTotalScore),
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: colors.textSecondary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              const SizedBox(width: 6),
-              Text(
-                strings.outOf(EssayEvaluation.maxTotalScore),
-                style: TextStyle(fontSize: 13, color: colors.textSecondary),
-              ),
-            ],
+            ),
           ),
           const SizedBox(height: AppSpacing.sm),
           // Never sold as the real thing: this sits with the number, not

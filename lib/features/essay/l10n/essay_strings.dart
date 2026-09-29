@@ -1,4 +1,5 @@
 import 'package:aura/core/l10n/app_language.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/essay_reaction_tier.dart';
 
 class EssayStrings {
   const EssayStrings(this.language);
@@ -590,5 +591,59 @@ class EssayStrings {
     AppLanguage.english => "We couldn't open the proposal now. Try again.",
     AppLanguage.spanish =>
       'No pudimos abrir la propuesta ahora. Intenta de nuevo.',
+  };
+
+  /// Read by screen readers while the essay is being sent (the overlay
+  /// itself shows only the loader).
+  String get sendingEssay => switch (language) {
+    AppLanguage.portuguese => 'Enviando redação...',
+    AppLanguage.english => 'Sending your essay...',
+    AppLanguage.spanish => 'Enviando tu redacción...',
+  };
+
+  /// Aurudo, right after the essay was accepted. A hand-off, not a win.
+  String get writingReactionTitle => switch (language) {
+    AppLanguage.portuguese => 'Deixa comigo.',
+    AppLanguage.english => 'Leave it to me.',
+    AppLanguage.spanish => 'Déjamelo a mí.',
+  };
+
+  /// No promise of how long it takes.
+  String get writingReactionSubtitle => switch (language) {
+    AppLanguage.portuguese => 'Vou analisar sua redação.',
+    AppLanguage.english => "I'll go through your essay.",
+    AppLanguage.spanish => 'Voy a analizar tu redacción.',
+  };
+
+  /// The line Aurudo opens a correction with, by score band. Never a
+  /// verdict on the person: even the lowest band is about what comes next.
+  String correctionHeadline(EssayReactionTier tier) => switch (tier) {
+    EssayReactionTier.excellent => switch (language) {
+      AppLanguage.portuguese => 'Excelente redação!',
+      AppLanguage.english => 'Excellent essay!',
+      AppLanguage.spanish => '¡Excelente redacción!',
+    },
+    EssayReactionTier.great => switch (language) {
+      AppLanguage.portuguese => 'Mandou muito bem!',
+      AppLanguage.english => 'You did really well!',
+      AppLanguage.spanish => '¡Lo hiciste muy bien!',
+    },
+    EssayReactionTier.developing => switch (language) {
+      AppLanguage.portuguese => 'Boa evolução',
+      AppLanguage.english => 'Good progress',
+      AppLanguage.spanish => 'Buena evolución',
+    },
+    EssayReactionTier.encourage => switch (language) {
+      AppLanguage.portuguese => 'Vamos evoluir juntos',
+      AppLanguage.english => "Let's improve this together",
+      AppLanguage.spanish => 'Vamos a mejorar juntos',
+    },
+  };
+
+  /// What a screen reader says for the score card, in one piece.
+  String estimatedScoreSemantics(int score, int max) => switch (language) {
+    AppLanguage.portuguese => 'Nota estimada: $score de $max',
+    AppLanguage.english => 'Estimated score: $score out of $max',
+    AppLanguage.spanish => 'Nota estimada: $score de $max',
   };
 }

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
@@ -51,6 +52,14 @@ final _longEnough = List.generate(
   EssayRules.minimumWords,
   (i) => 'palavra${i + 1}',
 ).join(' ');
+
+/// The editor sends through the app's blocking overlay, provided at the
+/// app root in production.
+List<BlocProvider<dynamic>> get _overlayProvider => [
+  BlocProvider<AppBlockingLoadingCubit>(
+    create: (_) => AppBlockingLoadingCubit(),
+  ),
+];
 
 void main() {
   late EssayRepository repository;
@@ -104,7 +113,10 @@ void main() {
 
   group(EssayEditorPage, () {
     testWidgets('opens empty when there is no draft', (tester) async {
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
 
       expect(find.byType(TextField), findsOneWidget);
@@ -121,7 +133,10 @@ void main() {
           EssayDraft(body: 'Três palavras aqui', updatedAt: DateTime(2026)),
         ),
       );
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
 
       expect(find.text('Três palavras aqui'), findsOneWidget);
@@ -129,7 +144,10 @@ void main() {
     });
 
     testWidgets('typing autosaves and reports it', (tester) async {
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
 
       await tester.enterText(find.byType(TextField), 'Primeiro parágrafo');
@@ -146,7 +164,10 @@ void main() {
         () => repository.saveDraft(any(), any()),
       ).thenAnswer((_) async => Error(ServerFailure()));
 
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), 'Texto que não salvou');
       await _settleAutosave(tester);
@@ -161,7 +182,10 @@ void main() {
         () => repository.saveDraft(any(), any()),
       ).thenAnswer((_) async => Error(ServerFailure()));
 
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), 'Texto');
       await _settleAutosave(tester);
@@ -176,7 +200,10 @@ void main() {
     });
 
     testWidgets('autosave does not move the cursor', (tester) async {
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
 
       final field = find.byType(TextField);
@@ -197,7 +224,10 @@ void main() {
     testWidgets('"Ver proposta" shows the prompt without leaving', (
       tester,
     ) async {
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.text('Ver proposta'));
@@ -211,7 +241,10 @@ void main() {
     });
 
     testWidgets('"Salvar rascunho" flushes and confirms', (tester) async {
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), 'Texto manual');
 
@@ -225,7 +258,10 @@ void main() {
     });
 
     testWidgets('deleting is only offered when a draft exists', (tester) async {
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.byIcon(Icons.more_vert));
@@ -242,7 +278,10 @@ void main() {
           EssayDraft(body: 'Texto antigo', updatedAt: DateTime(2026)),
         ),
       );
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.byIcon(Icons.more_vert));
@@ -265,7 +304,10 @@ void main() {
           EssayDraft(body: 'Texto antigo', updatedAt: DateTime(2026)),
         ),
       );
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.byIcon(Icons.more_vert));
@@ -289,7 +331,10 @@ void main() {
         () => repository.deleteDraft(any()),
       ).thenAnswer((_) async => Error(ServerFailure()));
 
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
       await tester.tap(find.byIcon(Icons.more_vert));
       await tester.pumpAndSettle();
@@ -305,7 +350,7 @@ void main() {
     });
 
     testWidgets('leaving with everything saved just leaves', (tester) async {
-      await tester.pumpApp(const _EditorHost());
+      await tester.pumpApp(const _EditorHost(), providers: _overlayProvider);
       await tester.tap(find.text('abrir'));
       await tester.pumpAndSettle();
 
@@ -317,7 +362,7 @@ void main() {
     });
 
     testWidgets('leaving with a pending change saves it first', (tester) async {
-      await tester.pumpApp(const _EditorHost());
+      await tester.pumpApp(const _EditorHost(), providers: _overlayProvider);
       await tester.tap(find.text('abrir'));
       await tester.pumpAndSettle();
 
@@ -339,7 +384,7 @@ void main() {
         () => repository.saveDraft(any(), any()),
       ).thenAnswer((_) async => Error(ServerFailure()));
 
-      await tester.pumpApp(const _EditorHost());
+      await tester.pumpApp(const _EditorHost(), providers: _overlayProvider);
       await tester.tap(find.text('abrir'));
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), 'Texto em risco');
@@ -367,7 +412,7 @@ void main() {
         () => repository.saveDraft(any(), any()),
       ).thenAnswer((_) async => Error(ServerFailure()));
 
-      await tester.pumpApp(const _EditorHost());
+      await tester.pumpApp(const _EditorHost(), providers: _overlayProvider);
       await tester.tap(find.text('abrir'));
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), 'Texto em risco');
@@ -382,7 +427,10 @@ void main() {
 
     testWidgets('before sending, says the essay goes to Google AI and links '
         'the privacy policy', (tester) async {
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), _longEnough);
       await _settleAutosave(tester);
@@ -396,7 +444,10 @@ void main() {
     });
 
     testWidgets('sending asks first and can be called off', (tester) async {
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), _longEnough);
       await _settleAutosave(tester);
@@ -420,7 +471,10 @@ void main() {
     testWidgets('confirming freezes the text and opens the attempt', (
       tester,
     ) async {
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), _longEnough);
       await _settleAutosave(tester);
@@ -443,7 +497,10 @@ void main() {
     });
 
     testWidgets('nothing written, nothing to send', (tester) async {
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
 
       final button = tester.widget<ElevatedButton>(
@@ -463,7 +520,10 @@ void main() {
             const Error(EssaySubmitFailure(EssaySubmitFailureKind.unexpected)),
       );
 
-      await tester.pumpApp(const EssayEditorPage(theme: _theme));
+      await tester.pumpApp(
+        const EssayEditorPage(theme: _theme),
+        providers: _overlayProvider,
+      );
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), _longEnough);
       await _settleAutosave(tester);

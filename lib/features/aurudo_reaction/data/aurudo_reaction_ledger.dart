@@ -25,6 +25,7 @@ class AurudoReactionLedger {
   static const _keyPrefix = 'aurudo_reaction_ledger_v1_';
   static const _maxRecentAttempts = 50;
   static const _maxRecentEssayCorrections = 50;
+  static const _maxRecentEssayWritings = 50;
   static const _maxRecentDailyGoalDates = 7;
 
   String get _key => '$_keyPrefix$userId';
@@ -132,6 +133,25 @@ class AurudoReactionLedger {
     );
   }
 
+  /// The "Deixa comigo" moment right after an essay is sent. Its own list,
+  /// never the corrections one: having seen the send must not stop the
+  /// correction from being celebrated later -- they are two events of the
+  /// same submission.
+  bool hasCelebratedEssayWriting(String submissionId) =>
+      _read().essayWritings.contains(submissionId);
+
+  void markEssayWritingCelebrated(String submissionId) {
+    final data = _read();
+    _write(
+      data.copyWith(
+        essayWritings: _bounded([
+          ...data.essayWritings,
+          submissionId,
+        ], _maxRecentEssayWritings),
+      ),
+    );
+  }
+
   static String _dateKey(DateTime date) =>
       '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
 
@@ -161,6 +181,7 @@ class _LedgerData {
     required this.lastLevelCelebrated,
     required this.streakMilestonesCelebrated,
     required this.essayCorrections,
+    required this.essayWritings,
     required this.baselineTaken,
   });
 
@@ -170,6 +191,7 @@ class _LedgerData {
       lastLevelCelebrated = null,
       streakMilestonesCelebrated = const {},
       essayCorrections = const [],
+      essayWritings = const [],
       baselineTaken = false;
 
   factory _LedgerData.fromJson(Map<String, dynamic> json) => _LedgerData(
@@ -186,6 +208,9 @@ class _LedgerData {
     essayCorrections: List<String>.from(
       json['essayCorrections'] as List? ?? const [],
     ),
+    essayWritings: List<String>.from(
+      json['essayWritings'] as List? ?? const [],
+    ),
     baselineTaken: json['baselineTaken'] as bool? ?? false,
   );
 
@@ -194,6 +219,7 @@ class _LedgerData {
   final int? lastLevelCelebrated;
   final Set<int> streakMilestonesCelebrated;
   final List<String> essayCorrections;
+  final List<String> essayWritings;
 
   /// Whether this user's standing has been recorded once without
   /// celebrating it -- see [AurudoReactionLedger.takeBaseline].
@@ -205,6 +231,7 @@ class _LedgerData {
     'lastLevelCelebrated': lastLevelCelebrated,
     'streakMilestonesCelebrated': streakMilestonesCelebrated.toList(),
     'essayCorrections': essayCorrections,
+    'essayWritings': essayWritings,
     'baselineTaken': baselineTaken,
   };
 
@@ -214,6 +241,7 @@ class _LedgerData {
     int? lastLevelCelebrated,
     Set<int>? streakMilestonesCelebrated,
     List<String>? essayCorrections,
+    List<String>? essayWritings,
     bool? baselineTaken,
   }) => _LedgerData(
     recentAttempts: recentAttempts ?? this.recentAttempts,
@@ -223,5 +251,6 @@ class _LedgerData {
     streakMilestonesCelebrated:
         streakMilestonesCelebrated ?? this.streakMilestonesCelebrated,
     essayCorrections: essayCorrections ?? this.essayCorrections,
+    essayWritings: essayWritings ?? this.essayWritings,
   );
 }

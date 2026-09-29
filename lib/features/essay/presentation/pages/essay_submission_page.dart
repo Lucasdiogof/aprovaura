@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/di/injection_container.dart';
@@ -5,6 +7,12 @@ import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
+import 'package:aura/features/aurudo_reaction/domain/aurudo_reaction_resolver.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_achievement_overlay.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_essay_reactions.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_sequence.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_stage.dart';
 import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/entities/essay_theme_summary.dart';
 import 'package:aura/features/essay/domain/repositories/essay_repository.dart';
@@ -26,45 +34,72 @@ import 'package:aura/shared/widgets/modern_app_bar.dart';
 ///
 /// While an attempt is still waiting there are no empty competency blocks
 /// to look at -- the full result screen belongs to the evaluation phase.
-class EssaySubmissionPage extends StatelessWidget {
-  const EssaySubmissionPage({required this.submissionId, super.key});
+class EssaySubmissionPage extends StatefulWidget {
+  const EssaySubmissionPage({
+    required this.submissionId,
+    this.justSubmitted = false,
+    super.key,
+  });
 
   final String submissionId;
+
+  /// Opened straight from a send the server accepted -- the only way in
+  /// that may play Aurudo's "Deixa comigo". From the history this is
+  /// false, and the moment has passed.
+  final bool justSubmitted;
+
+  /// How long "Deixa comigo" stays under reduced motion: the static pose,
+  /// then out of the way.
+  static const reducedWritingDuration = Duration(milliseconds: 500);
+
+  @override
+  State<EssaySubmissionPage> createState() => _EssaySubmissionPageState();
+}
+
+class _EssaySubmissionPageState extends State<EssaySubmissionPage> {
+  /// "Deixa comigo" is on screen. Lives here, above the cubit's states, so
+  /// the first load (a spinner for a moment) does not cut it short.
+  bool _writingVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // Once per submission: the ledger answers whether this send was
+    // already shown -- a rebuild or a second push never replays it.
+    _writingVisible =
+        widget.justSubmitted && !markEssayWritingSeen(widget.submissionId);
+  }
 
   @override
   Widget build(BuildContext context) {
     final t = EssayStrings(context.watch<LocaleCubit>().state);
+    final reduced = MediaQuery.disableAnimationsOf(context);
     return BlocProvider(
-      create: (_) => EssaySubmissionCubit(sl<EssayRepository>(), submissionId),
+      create: (_) =>
+          EssaySubmissionCubit(sl<EssayRepository>(), widget.submissionId),
       child: Scaffold(
         backgroundColor: context.colors.background,
         body: Column(
           children: [
             ModernAppBar(title: t.subjectLabel, showBackButton: true),
             Expanded(
-              child: BlocBuilder<EssaySubmissionCubit, EssaySubmissionState>(
-                builder: (context, state) => switch (state) {
-                  EssaySubmissionLoading() => Center(
-                    child: CircularProgressIndicator(
-                      color: context.colors.primary,
+              child: Stack(
+                children: [
+                  Positioned.fill(child: _body(t)),
+                  if (_writingVisible)
+                    AurudoAchievementOverlay(
+                      reaction: const AurudoReactionResolver()
+                          .resolveEssayWriting(),
+                      message: t.writingReactionTitle,
+                      subtitle: t.writingReactionSubtitle,
+                      displayDuration: reduced
+                          ? EssaySubmissionPage.reducedWritingDuration
+                          : AurudoAchievementOverlay.visibleDuration,
+                      onDismissed: () {
+                        if (mounted) setState(() => _writingVisible = false);
+                      },
                     ),
-                  ),
-                  EssaySubmissionError() => _ErrorView(strings: t),
-                  EssaySubmissionLoaded(
-                    :final submission,
-                    :final isRequesting,
-                    :final failure,
-                  ) =>
-                    _SubmissionView(
-                      submission: submission,
-                      strings: t,
-                      isRequesting: isRequesting,
-                      failure: failure,
-                      gaveUpWaiting: context
-                          .read<EssaySubmissionCubit>()
-                          .gaveUpWaiting,
-                    ),
-                },
+                ],
               ),
             ),
           ],
@@ -72,15 +107,39 @@ class EssaySubmissionPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget _body(EssayStrings t) =>
+      BlocBuilder<EssaySubmissionCubit, EssaySubmissionState>(
+        builder: (context, state) => switch (state) {
+          EssaySubmissionLoading() => Center(
+            child: CircularProgressIndicator(color: context.colors.primary),
+          ),
+          EssaySubmissionError() => _ErrorView(strings: t),
+          EssaySubmissionLoaded(
+            :final submission,
+            :final isRequesting,
+            :final failure,
+          ) =>
+            _SubmissionView(
+              submission: submission,
+              strings: t,
+              isRequesting: isRequesting,
+              failure: failure,
+              gaveUpWaiting: context.read<EssaySubmissionCubit>().gaveUpWaiting,
+              writingVisible: _writingVisible,
+            ),
+        },
+      );
 }
 
-class _SubmissionView extends StatelessWidget {
+class _SubmissionView extends StatefulWidget {
   const _SubmissionView({
     required this.submission,
     required this.strings,
     required this.isRequesting,
     required this.failure,
     required this.gaveUpWaiting,
+    required this.writingVisible,
   });
 
   final EssaySubmission submission;
@@ -88,6 +147,88 @@ class _SubmissionView extends StatelessWidget {
   final bool isRequesting;
   final EssayEvaluationFailure? failure;
   final bool gaveUpWaiting;
+
+  /// "Deixa comigo" is still up. A correction that lands meanwhile does
+  /// not start a second scene on top of it -- it opens in its final state.
+  final bool writingVisible;
+
+  @override
+  State<_SubmissionView> createState() => _SubmissionViewState();
+}
+
+class _SubmissionViewState extends State<_SubmissionView> {
+  /// Resolved once, the first time an evaluation is in hand -- on opening
+  /// an evaluated essay, or the moment polling brings one in.
+  AurudoReaction? _reaction;
+  bool _instant = false;
+
+  /// The rest of the report (competencies, feedback, the text, actions)
+  /// waits for the scene, and is not in the tree before that.
+  bool _reportVisible = false;
+  Timer? _reportTimer;
+
+  /// When the report joins the scene: with its stats beat, so the whole
+  /// screen is usable in about 1.7s instead of waiting the full 2s.
+  static final reportDelay = Duration(
+    milliseconds:
+        (AurudoReactionSequence.totalDuration.inMilliseconds *
+                AurudoReactionSequence.statsAt)
+            .round(),
+  );
+
+  EssaySubmission get submission => widget.submission;
+  EssayStrings get strings => widget.strings;
+  bool get isRequesting => widget.isRequesting;
+  EssayEvaluationFailure? get failure => widget.failure;
+  bool get gaveUpWaiting => widget.gaveUpWaiting;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _resolveCorrection();
+  }
+
+  @override
+  void didUpdateWidget(_SubmissionView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _resolveCorrection();
+  }
+
+  /// Only an evaluated essay with its evaluation reaches the reaction: a
+  /// pending, refused or failed marking never resolves one and never
+  /// spends the reveal in the ledger.
+  void _resolveCorrection() {
+    if (_reaction != null) return;
+    final evaluation = submission.evaluation;
+    if (evaluation == null ||
+        submission.status != EssaySubmissionStatus.evaluated) {
+      return;
+    }
+    final alreadySeen = markEssayCorrectionSeen(submission.id);
+    _reaction = const AurudoReactionResolver().resolveEssayCorrection(
+      evaluation.totalScore,
+    );
+    _instant =
+        alreadySeen ||
+        widget.writingVisible ||
+        MediaQuery.disableAnimationsOf(context);
+    if (_instant) {
+      _reportVisible = true;
+    } else {
+      _reportTimer = Timer(reportDelay, _showReport);
+    }
+  }
+
+  void _showReport() {
+    _reportTimer?.cancel();
+    if (mounted && !_reportVisible) setState(() => _reportVisible = true);
+  }
+
+  @override
+  void dispose() {
+    _reportTimer?.cancel();
+    super.dispose();
+  }
 
   String _failureMessage() => switch (failure) {
     EssayEvaluationFailure.dailyLimitReached => strings.evaluationDailyLimit,
@@ -145,7 +286,44 @@ class _SubmissionView extends StatelessWidget {
             expanded: true,
           ),
         ),
-        if (submission.evaluation case final evaluation?) ...[
+        if ((submission.evaluation, _reaction) case (
+          final evaluation?,
+          final reaction?,
+        )) ...[
+          const SizedBox(height: AppSpacing.lg),
+          // Aurudo opens the correction, then steps back: the score is the
+          // reveal, and the report below is the part to study.
+          AurudoReactionStage(
+            reaction: reaction,
+            instant: _instant,
+            // Same size as on the mock exam result: a report to read.
+            mascotSize: 120,
+            headline: _CorrectionHeadline(
+              text: strings.correctionHeadline(reaction.essayTier!),
+            ),
+            content: SizedBox(
+              width: double.infinity,
+              child: EssayTotalScoreCard(
+                evaluation: evaluation,
+                strings: strings,
+              ),
+            ),
+            onSequenceCompleted: _showReport,
+          ),
+          if (_reportVisible) ...[
+            const SizedBox(height: AppSpacing.lg),
+            _FadeIn(
+              instant: _instant,
+              child: EssayResultView(
+                evaluation: evaluation,
+                strings: strings,
+                showTotalScore: false,
+              ),
+            ),
+          ],
+        ] else if (submission.evaluation case final evaluation?) ...[
+          // An evaluation outside the 'evaluated' status: shown as it was,
+          // without a reaction.
           const SizedBox(height: AppSpacing.lg),
           EssayResultView(evaluation: evaluation, strings: strings),
         ],
@@ -181,37 +359,78 @@ class _SubmissionView extends StatelessWidget {
                 context.read<EssaySubmissionCubit>().requestEvaluation(),
           ),
         ],
-        const SizedBox(height: AppSpacing.xl),
-        Text(
-          strings.submittedTextHeading.toUpperCase(),
-          style: TextStyle(
-            fontSize: 11.5,
-            fontWeight: FontWeight.w800,
-            letterSpacing: 0.8,
-            color: colors.textSecondary,
+        // With a scene playing, the text and the actions wait for the
+        // report like everything else below the score.
+        if (_reaction == null || _reportVisible) ...[
+          const SizedBox(height: AppSpacing.xl),
+          Text(
+            strings.submittedTextHeading.toUpperCase(),
+            style: TextStyle(
+              fontSize: 11.5,
+              fontWeight: FontWeight.w800,
+              letterSpacing: 0.8,
+              color: colors.textSecondary,
+            ),
           ),
-        ),
-        const SizedBox(height: AppSpacing.sm),
-        SelectableText(
-          submission.body,
-          style: TextStyle(
-            fontSize: 15.5,
-            height: 1.7,
-            color: colors.textPrimary,
+          const SizedBox(height: AppSpacing.sm),
+          SelectableText(
+            submission.body,
+            style: TextStyle(
+              fontSize: 15.5,
+              height: 1.7,
+              color: colors.textPrimary,
+            ),
           ),
-        ),
-        const SizedBox(height: AppSpacing.sm),
-        Text(
-          strings.wordCount(submission.wordCount),
-          style: TextStyle(fontSize: 12, color: colors.textSecondary),
-        ),
-        if (submission.status == EssaySubmissionStatus.evaluated) ...[
-          const SizedBox(height: AppSpacing.xxl),
-          // The attempt is frozen; the way forward is another one, which
-          // never touches this one.
-          _WriteAnotherButton(themeId: submission.themeId, strings: strings),
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            strings.wordCount(submission.wordCount),
+            style: TextStyle(fontSize: 12, color: colors.textSecondary),
+          ),
+          if (submission.status == EssaySubmissionStatus.evaluated) ...[
+            const SizedBox(height: AppSpacing.xxl),
+            // The attempt is frozen; the way forward is another one, which
+            // never touches this one.
+            _WriteAnotherButton(themeId: submission.themeId, strings: strings),
+          ],
         ],
       ],
+    );
+  }
+}
+
+/// Aurudo's line for this score band, centered under him.
+class _CorrectionHeadline extends StatelessWidget {
+  const _CorrectionHeadline({required this.text});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: TextAlign.center,
+      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+        fontWeight: FontWeight.w800,
+        color: context.colors.textPrimary,
+      ),
+    );
+  }
+}
+
+/// The report joining the scene: one short fade, nothing sliding.
+class _FadeIn extends StatelessWidget {
+  const _FadeIn({required this.child, required this.instant});
+
+  final Widget child;
+  final bool instant;
+
+  @override
+  Widget build(BuildContext context) {
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: 1),
+      duration: instant ? Duration.zero : const Duration(milliseconds: 220),
+      builder: (context, value, child) => Opacity(opacity: value, child: child),
+      child: child,
     );
   }
 }
