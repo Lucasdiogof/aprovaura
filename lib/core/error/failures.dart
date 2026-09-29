@@ -24,12 +24,17 @@ class AuthFailure extends Failure {
     String? message,
     this.isInvalidCredentials = false,
     this.isEmailTaken = false,
+    this.isUsernameTaken = false,
   ]) : super(message ?? _defaultMessage());
 
   final bool isInvalidCredentials;
 
   /// Sign-up hit an email that already has an account.
   final bool isEmailTaken;
+
+  /// Sign-up was refused because someone took the username (after it was
+  /// checked). Nothing was created: the person just picks another name.
+  final bool isUsernameTaken;
 
   static String _defaultMessage() => switch (_currentLanguage()) {
     AppLanguage.portuguese => 'Falha de autenticação.',
@@ -38,7 +43,25 @@ class AuthFailure extends Failure {
   };
 
   @override
-  List<Object?> get props => [message, isInvalidCredentials, isEmailTaken];
+  List<Object?> get props => [
+    message,
+    isInvalidCredentials,
+    isEmailTaken,
+    isUsernameTaken,
+  ];
+}
+
+/// The database refused a username someone else already has (the unique
+/// index on lower(username)). Screens turn it into the username field's own
+/// "already taken" message instead of a generic error.
+class UsernameTakenFailure extends Failure {
+  UsernameTakenFailure() : super(_defaultMessage());
+
+  static String _defaultMessage() => switch (_currentLanguage()) {
+    AppLanguage.portuguese => 'Esse nome de usuário já está em uso.',
+    AppLanguage.english => 'That username is already taken.',
+    AppLanguage.spanish => 'Ese nombre de usuario ya está en uso.',
+  };
 }
 
 class ServerFailure extends Failure {

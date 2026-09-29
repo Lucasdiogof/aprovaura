@@ -12,6 +12,10 @@ abstract class ProfileRepository {
     String? username,
   });
 
+  /// Whether nobody has [username] yet (case-insensitive). Works without a
+  /// session, so sign-up can check it while the person types.
+  Future<Result<bool>> isUsernameAvailable(String username);
+
   Future<Result<void>> updateProfile({
     String? name,
     String? username,

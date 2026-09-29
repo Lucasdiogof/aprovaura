@@ -43,37 +43,56 @@ void main() {
       expect(find.text('Entrar'), findsWidgets);
     });
 
-    testWidgets(
-      'shows validation errors and does not call signIn when the form is '
-      'submitted empty',
-      (tester) async {
-        await pumpLoginPage(tester);
-
-        await tester.ensureVisible(find.text('Entrar').last);
-        await tester.tap(find.text('Entrar').last);
-        await tester.pump();
-
-        expect(find.text('Informe seu e-mail.'), findsOneWidget);
-        expect(find.text('Informe sua senha.'), findsOneWidget);
-        verifyNever(
-          () => authCubit.signIn(
-            email: any(named: 'email'),
-            password: any(named: 'password'),
-          ),
-        );
-      },
-    );
-
-    testWidgets('shows an invalid-email error for a malformed address', (
+    testWidgets('empty: no errors, and the disabled button does nothing', (
       tester,
     ) async {
       await pumpLoginPage(tester);
 
-      await tester.enterText(find.byType(TextField).first, 'not-an-email');
+      await tester.ensureVisible(find.text('Entrar').last);
       await tester.tap(find.text('Entrar').last);
       await tester.pump();
 
+      expect(find.text('Informe seu e-mail.'), findsNothing);
+      expect(find.text('Informe sua senha.'), findsNothing);
+      verifyNever(
+        () => authCubit.signIn(
+          email: any(named: 'email'),
+          password: any(named: 'password'),
+        ),
+      );
+    });
+
+    testWidgets('"done" on the keyboard with the form empty shows what is '
+        'missing', (tester) async {
+      await pumpLoginPage(tester);
+
+      await tester.showKeyboard(find.byType(TextField).last);
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pump();
+
+      expect(find.text('Informe seu e-mail.'), findsOneWidget);
+      expect(find.text('Informe sua senha.'), findsOneWidget);
+    });
+
+    testWidgets('a malformed e-mail is flagged while typing, and the flag '
+        'goes once it is fixed or erased', (tester) async {
+      await pumpLoginPage(tester);
+      final email = find.byType(TextField).first;
+
+      await tester.enterText(email, 'not-an-email');
+      await tester.pump();
       expect(find.text('Informe um e-mail válido.'), findsOneWidget);
+
+      await tester.enterText(email, 'dash@example.com');
+      await tester.pump();
+      expect(find.text('Informe um e-mail válido.'), findsNothing);
+
+      await tester.enterText(email, 'x');
+      await tester.pump();
+      await tester.enterText(email, '');
+      await tester.pump();
+      expect(find.text('Informe um e-mail válido.'), findsNothing);
+      expect(find.text('Informe seu e-mail.'), findsNothing);
     });
 
     testWidgets(
@@ -87,6 +106,7 @@ void main() {
           '  dash@example.com  ',
         );
         await tester.enterText(find.byType(TextField).last, 'senha123');
+        await tester.pump();
         await tester.ensureVisible(find.text('Entrar').last);
         await tester.tap(find.text('Entrar').last);
         await tester.pump();

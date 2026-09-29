@@ -28,6 +28,8 @@ class _FakeAuthRepository implements AuthRepository {
   Future<Result<AppUser>> signUp({
     required String email,
     required String password,
+    required String name,
+    required String username,
   }) => throw UnimplementedError();
 
   @override

@@ -26,9 +26,19 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  Future<void> signUp({required String email, required String password}) async {
+  Future<void> signUp({
+    required String email,
+    required String password,
+    required String name,
+    required String username,
+  }) async {
     emit(const AuthLoading());
-    final result = await _repository.signUp(email: email, password: password);
+    final result = await _repository.signUp(
+      email: email,
+      password: password,
+      name: name,
+      username: username,
+    );
     switch (result) {
       case Success(:final data):
         emit(AuthSuccess(data));
@@ -37,6 +47,7 @@ class AuthCubit extends Cubit<AuthState> {
           AuthError(
             failure.message,
             isEmailTaken: failure is AuthFailure && failure.isEmailTaken,
+            isUsernameTaken: failure is AuthFailure && failure.isUsernameTaken,
           ),
         );
     }

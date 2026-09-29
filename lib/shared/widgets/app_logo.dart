@@ -10,9 +10,20 @@ import 'package:flutter/material.dart';
 /// [AppLogo.mark] is the monogram on its own, for headers where the wordmark
 /// would compete with a page title.
 class AppLogo extends StatelessWidget {
-  const AppLogo.wordmark({super.key, this.maxWidth = 260}) : size = null;
+  const AppLogo.wordmark({super.key, this.maxWidth = 260})
+    : size = null,
+      textWidth = null;
 
-  const AppLogo.mark({super.key, double this.size = 56}) : maxWidth = null;
+  const AppLogo.mark({super.key, double this.size = 56})
+    : maxWidth = null,
+      textWidth = null;
+
+  /// "Aprovaura" alone, without the symbol, at exactly [width] -- for
+  /// headers that stack the symbol above the name (the auth screens).
+  const AppLogo.text({super.key, required double width})
+    : textWidth = width,
+      size = null,
+      maxWidth = null;
 
   /// Same artwork; only the "Aprov" lettering differs. The dark file is the
   /// official asset (near-white "Aprov", for dark surfaces); the light file
@@ -21,15 +32,27 @@ class AppLogo extends StatelessWidget {
   static const _logoLight = 'lib/assets/branding/aprovaura_logo_light.png';
   static const _logoDark = 'lib/assets/branding/aprovaura_logo_dark.png';
   static const _markAsset = 'lib/assets/branding/aprovaura_mark.png';
+  static const _textLight = 'lib/assets/branding/aprovaura_wordmark_light.png';
+  static const _textDark = 'lib/assets/branding/aprovaura_wordmark_dark.png';
   static const _semanticLabel = 'Aprovaura';
 
   static const _minWordmarkWidth = 160.0;
 
+  // Width / height of each file, so the widget has its final height before
+  // the image is decoded: without it, the first frame lays out at height 0
+  // and everything under the logo jumps (or an AnimatedSize around it
+  // grows) once the image arrives.
+  static const _markAspect = 512 / 398;
+  static const _textAspect = 1400 / 301;
+
   /// Upper bound for the wordmark's width; null for [AppLogo.mark].
   final double? maxWidth;
 
-  /// Width of the monogram; null for [AppLogo.wordmark].
+  /// Width of the monogram; null for the other variants.
   final double? size;
+
+  /// Width of the name alone; null for the other variants.
+  final double? textWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +61,23 @@ class AppLogo extends StatelessWidget {
       return Image.asset(
         _markAsset,
         width: size,
+        height: size / _markAspect,
         fit: BoxFit.contain,
         semanticLabel: _semanticLabel,
       );
     }
 
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final textWidth = this.textWidth;
+    if (textWidth != null) {
+      return Image.asset(
+        isDark ? _textDark : _textLight,
+        width: textWidth,
+        height: textWidth / _textAspect,
+        fit: BoxFit.contain,
+        semanticLabel: _semanticLabel,
+      );
+    }
     return LayoutBuilder(
       builder: (context, constraints) {
         final available = constraints.maxWidth.isFinite

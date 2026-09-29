@@ -37,6 +37,9 @@ class _FakeProfileRepository implements ProfileRepository {
     String? username,
   }) => throw UnimplementedError();
   @override
+  Future<Result<bool>> isUsernameAvailable(String username) =>
+      throw UnimplementedError();
+  @override
   Future<Result<void>> updateProfile({
     String? name,
     String? username,

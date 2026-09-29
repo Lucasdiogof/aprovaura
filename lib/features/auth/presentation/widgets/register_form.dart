@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/auth/l10n/auth_strings.dart';
-import 'package:aura/shared/widgets/app_button.dart';
-import 'package:aura/shared/widgets/app_text_field.dart';
-import 'package:aura/shared/widgets/password_visibility_toggle.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_field.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_layout.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_submit_button.dart';
+import 'package:aura/features/profile/presentation/cubit/username_check_state.dart';
+import 'package:aura/shared/l10n/username_strings.dart';
+import 'package:aura/shared/widgets/username_status_indicator.dart';
 
 class RegisterForm extends StatelessWidget {
   const RegisterForm({
     required this.strings,
+    required this.usernameStrings,
     required this.nameController,
     required this.nameError,
     required this.usernameController,
+    required this.usernameFocus,
+    required this.usernameError,
+    required this.usernameCheck,
     required this.emailController,
     required this.emailError,
     required this.passwordController,
@@ -22,14 +28,21 @@ class RegisterForm extends StatelessWidget {
     required this.obscureConfirmPassword,
     required this.onToggleObscureConfirmPassword,
     required this.onSubmit,
+    required this.canSubmit,
     super.key,
     this.isLoading = false,
   });
 
+  static const layout = AuthLayout.compact;
+
   final AuthStrings strings;
+  final UsernameStrings usernameStrings;
   final TextEditingController nameController;
   final String? nameError;
   final TextEditingController usernameController;
+  final FocusNode usernameFocus;
+  final String? usernameError;
+  final UsernameCheckState usernameCheck;
   final TextEditingController emailController;
   final String? emailError;
   final TextEditingController passwordController;
@@ -41,83 +54,87 @@ class RegisterForm extends StatelessWidget {
   final bool obscureConfirmPassword;
   final VoidCallback onToggleObscureConfirmPassword;
   final VoidCallback onSubmit;
+
+  /// Every field valid and the username confirmed free.
+  final bool canSubmit;
   final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
+    final gap = SizedBox(height: layout.fieldToNextLabel);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        AppTextField(
+        AuthField(
+          layout: layout,
           controller: nameController,
-          labelText: strings.nameLabel,
-          prefixIcon: Icons.person_outline_rounded,
+          label: strings.nameLabel,
+          icon: Icons.person_outline_rounded,
           hintText: strings.nameHint,
           textInputAction: TextInputAction.next,
           autofillHints: const [AutofillHints.name],
-          fillColor: colors.background,
           errorText: nameError,
         ),
-        const SizedBox(height: 14),
-        AppTextField(
+        gap,
+        AuthField(
+          layout: layout,
           controller: usernameController,
-          labelText: strings.usernameLabel,
-          prefixIcon: Icons.alternate_email_rounded,
+          focusNode: usernameFocus,
+          label: strings.usernameLabel,
+          icon: Icons.alternate_email_rounded,
           hintText: strings.usernameHint,
           textInputAction: TextInputAction.next,
-          fillColor: colors.background,
+          autofillHints: const [AutofillHints.newUsername],
+          errorText: usernameError,
+          trailing: UsernameStatusIndicator(
+            check: usernameCheck,
+            value: usernameController.text,
+            availableLabel: usernameStrings.available,
+          ),
         ),
-        const SizedBox(height: 14),
-        AppTextField(
+        gap,
+        AuthField(
+          layout: layout,
           controller: emailController,
-          labelText: strings.emailLabel,
-          prefixIcon: Icons.mail_outline_rounded,
+          label: strings.emailLabel,
+          icon: Icons.mail_outline_rounded,
           hintText: strings.emailHint,
           keyboardType: TextInputType.emailAddress,
           textInputAction: TextInputAction.next,
           autofillHints: const [AutofillHints.email],
-          fillColor: colors.background,
           errorText: emailError,
         ),
-        const SizedBox(height: 14),
-        AppTextField(
+        gap,
+        AuthField(
+          layout: layout,
           controller: passwordController,
-          labelText: strings.passwordLabel,
-          prefixIcon: Icons.lock_outline_rounded,
+          label: strings.passwordLabel,
+          icon: Icons.lock_outline_rounded,
           hintText: strings.passwordHint,
-          obscureText: obscurePassword,
+          obscured: obscurePassword,
+          onToggleObscured: onToggleObscurePassword,
           textInputAction: TextInputAction.next,
           autofillHints: const [AutofillHints.newPassword],
-          fillColor: colors.background,
-          suffixIcon: PasswordVisibilityToggle(
-            obscured: obscurePassword,
-            color: context.colors.textSecondary,
-            onPressed: onToggleObscurePassword,
-          ),
           errorText: passwordError,
         ),
-        const SizedBox(height: 14),
-        AppTextField(
+        gap,
+        AuthField(
+          layout: layout,
           controller: confirmPasswordController,
-          labelText: strings.confirmPasswordLabel,
-          prefixIcon: Icons.lock_outline_rounded,
+          label: strings.confirmPasswordLabel,
+          icon: Icons.lock_outline_rounded,
           hintText: strings.confirmPasswordHint,
-          obscureText: obscureConfirmPassword,
+          obscured: obscureConfirmPassword,
+          onToggleObscured: onToggleObscureConfirmPassword,
           textInputAction: TextInputAction.done,
-          fillColor: colors.background,
           onSubmitted: (_) => onSubmit(),
-          suffixIcon: PasswordVisibilityToggle(
-            obscured: obscureConfirmPassword,
-            color: context.colors.textSecondary,
-            onPressed: onToggleObscureConfirmPassword,
-          ),
           errorText: confirmPasswordError,
         ),
-        const SizedBox(height: 24),
-        AppButton(
+        SizedBox(height: layout.lastFieldToButton),
+        AuthSubmitButton(
+          layout: layout,
           label: strings.registerSubmitButton,
-          onPressed: onSubmit,
+          onPressed: canSubmit ? onSubmit : null,
           isLoading: isLoading,
         ),
       ],

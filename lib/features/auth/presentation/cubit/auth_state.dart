@@ -30,12 +30,21 @@ class AuthError extends AuthState {
     this.message, {
     this.isInvalidCredentials = false,
     this.isEmailTaken = false,
+    this.isUsernameTaken = false,
   });
 
   final String message;
   final bool isInvalidCredentials;
   final bool isEmailTaken;
 
+  /// Sign-up refused: the username was taken meanwhile. No account exists.
+  final bool isUsernameTaken;
+
   @override
-  List<Object?> get props => [message, isInvalidCredentials, isEmailTaken];
+  List<Object?> get props => [
+    message,
+    isInvalidCredentials,
+    isEmailTaken,
+    isUsernameTaken,
+  ];
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
@@ -54,6 +55,21 @@ class ProfileRepositoryImpl implements ProfileRepository {
   }
 
   @override
+  Future<Result<bool>> isUsernameAvailable(String username) async {
+    try {
+      final available = await _client.rpc<bool>(
+        'is_username_available',
+        params: {'p_username': username.trim()},
+      );
+      return Success(available);
+    } on PostgrestException {
+      return Error(ServerFailure());
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
   Future<Result<void>> updateProfile({
     String? name,
     String? username,
@@ -75,12 +91,20 @@ class ProfileRepositoryImpl implements ProfileRepository {
       if (patch.isEmpty) return const Success(null);
       await _client.from('profiles').update(patch).eq('id', _userId);
       return const Success(null);
-    } on PostgrestException {
+    } on PostgrestException catch (e) {
+      if (isUsernameConflict(e)) return Error(UsernameTakenFailure());
       return Error(ServerFailure());
     } catch (_) {
       return Error(UnexpectedFailure());
     }
   }
+
+  /// The unique index on lower(username) refused the write.
+  @visibleForTesting
+  static bool isUsernameConflict(PostgrestException e) =>
+      e.code == '23505' &&
+      (e.message.contains('profiles_username_lower_key') ||
+          (e.details?.toString() ?? '').contains('username'));
 
   UserProfile _toUserProfile(Map<String, dynamic> row) {
     final subjectNames = (row['interested_subjects'] as List<dynamic>? ?? [])

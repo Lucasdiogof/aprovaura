@@ -1,54 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_layout.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_palette.dart';
 import 'package:aura/shared/widgets/app_logo.dart';
 
-/// Header of the auth screens. Login gets the full horizontal logo — it is
-/// the app's front door, so the brand leads. Sign-up gets the monogram plus
-/// a page title instead: there the task, not the brand, is what the person
-/// came for, and the wordmark next to "Criar sua conta" would read as two
-/// competing headlines.
+/// The auth screens' header, the same on login and sign-up: the symbol,
+/// the "Aprovaura" wordmark under it (the light or dark official file, by
+/// theme) and a one-line subtitle.
 class AuthHeader extends StatelessWidget {
-  const AuthHeader.brand({required this.subtitle, super.key}) : title = null;
+  const AuthHeader({required this.subtitle, required this.layout, super.key});
 
-  const AuthHeader.page({
-    required this.title,
-    required this.subtitle,
-    super.key,
-  });
-
-  final String? title;
   final String subtitle;
+  final AuthLayout layout;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final textTheme = Theme.of(context).textTheme;
-    final title = this.title;
+    final palette = AuthPalette.of(context);
     return Column(
       children: [
-        if (title == null)
-          const AppLogo.wordmark(maxWidth: 196)
-        else ...[
-          const AppLogo.mark(size: 44),
-          const SizedBox(height: 14),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: textTheme.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w700,
-              color: colors.textPrimary,
-            ),
-          ),
-        ],
-        SizedBox(height: title == null ? 14 : 6),
+        SizedBox(height: layout.markTop),
+        const AppLogo.mark(size: AuthLayout.markWidth),
+        SizedBox(height: layout.markToWordmark),
+        const AppLogo.text(width: AuthLayout.wordmarkWidth),
+        SizedBox(height: layout.wordmarkToSubtitle),
         Text(
           subtitle,
           textAlign: TextAlign.center,
-          style: textTheme.bodyMedium?.copyWith(
-            color: colors.textSecondary,
-            height: 1.4,
+          style: TextStyle(
+            fontSize: AuthLayout.subtitleSize,
+            height: 1.3,
+            fontWeight: FontWeight.w400,
+            color: palette.subtitle,
           ),
         ),
+        SizedBox(height: layout.subtitleToCard),
       ],
     );
   }

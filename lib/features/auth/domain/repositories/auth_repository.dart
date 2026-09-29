@@ -7,9 +7,16 @@ abstract class AuthRepository {
     required String password,
   });
 
+  /// Creates the account and, in the same database transaction (the
+  /// `on_auth_user_created_claim_username` trigger), its profile with
+  /// [name] and [username]. If someone already has the username the whole
+  /// sign-up is refused -- no account is left behind -- and the failure is
+  /// an [AuthFailure] with `isUsernameTaken`.
   Future<Result<AppUser>> signUp({
     required String email,
     required String password,
+    required String name,
+    required String username,
   });
 
   /// Asks Supabase to email a password-recovery link. Succeeds even when no

@@ -177,9 +177,9 @@ class ProfileStrings {
   };
 
   String get usernameHint => switch (language) {
-    AppLanguage.portuguese => 'Nome de usuário (opcional)',
-    AppLanguage.english => 'Username (optional)',
-    AppLanguage.spanish => 'Nombre de usuario (opcional)',
+    AppLanguage.portuguese => 'Nome de usuário',
+    AppLanguage.english => 'Username',
+    AppLanguage.spanish => 'Nombre de usuario',
   };
 
   String get saveButtonLabel => switch (language) {

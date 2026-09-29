@@ -37,11 +37,16 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Result<AppUser>> signUp({
     required String email,
     required String password,
+    required String name,
+    required String username,
   }) async {
     try {
       final response = await _client.auth.signUp(
         email: email,
         password: password,
+        // Read by the on_auth_user_created_claim_username trigger, which
+        // writes the profile in the same transaction as the account.
+        data: {'name': name, 'username': username},
       );
       final user = response.user;
       if (user == null) return Error(AuthFailure());
@@ -50,9 +55,30 @@ class AuthRepositoryImpl implements AuthRepository {
       }
       return Success(_toAppUser(user));
     } on AuthException catch (e) {
+      // The trigger refusing the username aborts the sign-up, and Supabase
+      // Auth reports any such database error with one generic message. Ask
+      // the database again: if the name is taken now, that was the reason.
+      if (classifyAuthError(e) == AuthErrorKind.unknown &&
+          await _isUsernameTakenNow(username)) {
+        return Error(
+          AuthFailure(UsernameTakenFailure().message, false, false, true),
+        );
+      }
       return Error(_failureFrom(e));
     } catch (_) {
       return Error(UnexpectedFailure());
+    }
+  }
+
+  Future<bool> _isUsernameTakenNow(String username) async {
+    try {
+      final available = await _client.rpc<bool>(
+        'is_username_available',
+        params: {'p_username': username},
+      );
+      return !available;
+    } catch (_) {
+      return false;
     }
   }
 

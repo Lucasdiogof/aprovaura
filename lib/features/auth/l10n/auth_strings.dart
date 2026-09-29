@@ -26,15 +26,21 @@ class AuthStrings {
   };
 
   String get usernameHint => switch (language) {
-    AppLanguage.portuguese => 'Nome de usuário (opcional)',
-    AppLanguage.english => 'Username (optional)',
-    AppLanguage.spanish => 'Nombre de usuario (opcional)',
+    AppLanguage.portuguese => 'Nome de usuário',
+    AppLanguage.english => 'Username',
+    AppLanguage.spanish => 'Nombre de usuario',
   };
 
   String get usernameLabel => switch (language) {
-    AppLanguage.portuguese => 'Nome de usuário (opcional)',
-    AppLanguage.english => 'Username (optional)',
-    AppLanguage.spanish => 'Nombre de usuario (opcional)',
+    AppLanguage.portuguese => 'Nome de usuário',
+    AppLanguage.english => 'Username',
+    AppLanguage.spanish => 'Nombre de usuario',
+  };
+
+  String get passwordTooShort => switch (language) {
+    AppLanguage.portuguese => 'Use pelo menos 6 caracteres.',
+    AppLanguage.english => 'Use at least 6 characters.',
+    AppLanguage.spanish => 'Usa al menos 6 caracteres.',
   };
 
   String get emailHint => switch (language) {
@@ -123,12 +129,6 @@ class AuthStrings {
     AppLanguage.portuguese => 'Esse e-mail já tem conta',
     AppLanguage.english => 'This email already has an account',
     AppLanguage.spanish => 'Este correo ya tiene una cuenta',
-  };
-
-  String get registerHeading => switch (language) {
-    AppLanguage.portuguese => 'Criar sua conta',
-    AppLanguage.english => 'Create your account',
-    AppLanguage.spanish => 'Crea tu cuenta',
   };
 
   String get confirmPasswordHint => switch (language) {

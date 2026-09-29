@@ -45,9 +45,12 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
+  // Validated as the person types: an empty field shows nothing (unless a
+  // submit was attempted from the keyboard), a filled one shows what is
+  // wrong right away, and the message goes as soon as it is right.
   String? _emailError(bool submitted, AuthStrings t) {
     final value = _emailController.text;
-    if (value.isEmpty) {
+    if (value.trim().isEmpty) {
       return submitted ? t.emailRequired : null;
     }
     return isValidEmail(value) ? null : t.emailInvalid;
@@ -59,6 +62,10 @@ class _LoginPageState extends State<LoginPage> {
         ? null
         : t.passwordRequired;
   }
+
+  bool get _isComplete =>
+      isValidEmail(_emailController.text) &&
+      isPasswordProvided(_passwordController.text);
 
   void _submit() {
     _formCubit.markSubmitted();
@@ -107,10 +114,17 @@ class _LoginPageState extends State<LoginPage> {
           return BlocBuilder<LoginFormCubit, LoginFormState>(
             builder: (context, formState) {
               return AuthScaffold(
+                // Login is normally the app's front door: the button (and
+                // only the button -- its row is always there) shows only
+                // when something is really under it.
+                showBackButton: Navigator.of(context).canPop(),
                 children: [
-                  AuthHeader.brand(subtitle: t.signInSubtitle),
-                  const SizedBox(height: 28),
+                  AuthHeader(
+                    layout: LoginForm.layout,
+                    subtitle: t.signInSubtitle,
+                  ),
                   AuthCard(
+                    layout: LoginForm.layout,
                     child: LoginForm(
                       strings: t,
                       emailController: _emailController,
@@ -121,10 +135,11 @@ class _LoginPageState extends State<LoginPage> {
                       onToggleObscure: _formCubit.toggleObscurePassword,
                       onSubmit: _submit,
                       onForgotPassword: _forgotPassword,
+                      canSubmit: !isSigningIn && _isComplete,
                       isLoading: isSigningIn,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: LoginForm.layout.cardToPrompt),
                   AuthSwitchPrompt(
                     question: t.createAccountQuestion,
                     action: t.createAccountAction,

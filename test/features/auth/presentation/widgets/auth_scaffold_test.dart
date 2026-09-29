@@ -56,7 +56,7 @@ void main() {
       );
       await tester.pump();
 
-      expect(find.byIcon(Icons.arrow_back_rounded), findsNothing);
+      expect(find.byIcon(AuthScaffold.backIcon), findsNothing);
     });
 
     testWidgets('showBackButton pops the pushed screen', (tester) async {
@@ -81,8 +81,8 @@ void main() {
       await tester.tap(find.text('open'));
       await tester.pumpAndSettle();
 
-      expect(find.byIcon(Icons.arrow_back_rounded), findsOneWidget);
-      await tester.tap(find.byIcon(Icons.arrow_back_rounded));
+      expect(find.byIcon(AuthScaffold.backIcon), findsOneWidget);
+      await tester.tap(find.byIcon(AuthScaffold.backIcon));
       await tester.pumpAndSettle();
 
       expect(find.text('content'), findsNothing);

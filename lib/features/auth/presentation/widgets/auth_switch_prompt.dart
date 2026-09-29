@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_layout.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_palette.dart';
 
-/// "Ainda não tem uma conta? Criar conta" and its counterpart on sign-up.
-///
-/// One centred line with the action as the only emphasised word: as two
-/// separate widgets (label + `TextButton`) the pair used to sit off-centre
-/// and read as loudly as the CTA above it.
+/// "Ainda não tem uma conta? Criar conta" and its counterpart on sign-up:
+/// one centred line, with the action as the only emphasised words.
 class AuthSwitchPrompt extends StatelessWidget {
   const AuthSwitchPrompt({
     required this.question,
@@ -20,19 +18,18 @@ class AuthSwitchPrompt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
+    final palette = AuthPalette.of(context);
     return Center(
       child: TextButton(
         onPressed: onTap,
         style: TextButton.styleFrom(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+          minimumSize: Size.zero,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          // The default grey overlay draws a heavy pill behind the whole line
-          // on hover, which reads louder than the CTA above it.
-          overlayColor: colors.primary,
+          overlayColor: palette.link,
         ),
         child: Text.rich(
           TextSpan(
@@ -40,21 +37,21 @@ class AuthSwitchPrompt extends StatelessWidget {
               TextSpan(
                 text: '$question ',
                 style: TextStyle(
-                  color: colors.textSecondary,
+                  color: palette.promptText,
                   fontWeight: FontWeight.w400,
                 ),
               ),
               TextSpan(
                 text: action,
                 style: TextStyle(
-                  color: colors.primary,
+                  color: palette.link,
                   fontWeight: FontWeight.w700,
                 ),
               ),
             ],
           ),
           textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 14.5),
+          style: const TextStyle(fontSize: AuthLayout.promptSize, height: 1.2),
         ),
       ),
     );

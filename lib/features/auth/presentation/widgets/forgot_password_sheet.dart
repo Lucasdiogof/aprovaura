@@ -6,9 +6,13 @@ import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/auth/l10n/auth_strings.dart';
 import 'package:aura/features/auth/presentation/cubit/password_reset_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/password_reset_state.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_backdrop.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_field.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_layout.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_palette.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_submit_button.dart';
 import 'package:aura/shared/utils/validators.dart';
-import 'package:aura/shared/widgets/app_button.dart';
-import 'package:aura/shared/widgets/app_text_field.dart';
+import 'package:aura/shared/widgets/app_logo.dart';
 
 /// Password recovery, as a bottom sheet over the login screen rather than a
 /// route: the person is one field away from finishing what they started, so
@@ -16,7 +20,8 @@ import 'package:aura/shared/widgets/app_text_field.dart';
 ///
 /// It has two steps — the form, then the confirmation — swapped in place with
 /// an [AnimatedSize] so the sheet grows into the new content instead of
-/// jumping.
+/// jumping. Dressed like the login it opens over: the Aprovaura symbol, a
+/// touch of the same background, the same field and button.
 class ForgotPasswordSheet extends StatefulWidget {
   const ForgotPasswordSheet({required this.initialEmail, super.key});
 
@@ -51,16 +56,26 @@ class _ForgotPasswordSheetState extends State<ForgotPasswordSheet> {
 
   @override
   void dispose() {
-    _emailController.dispose();
+    _emailController
+      ..removeListener(_onEmailChanged)
+      ..dispose();
     super.dispose();
   }
 
+  // Validated as the person types, like the login under it.
   String? _emailError(AuthStrings t) {
-    if (!_submitted) return null;
     final value = _emailController.text.trim();
-    if (value.isEmpty) return t.emailRequired;
+    if (value.isEmpty) return _submitted ? t.emailRequired : null;
     return isValidEmail(value) ? null : t.emailInvalid;
   }
+
+  @override
+  void initState() {
+    super.initState();
+    _emailController.addListener(_onEmailChanged);
+  }
+
+  void _onEmailChanged() => setState(() {});
 
   void _submit() {
     setState(() => _submitted = true);
@@ -73,13 +88,7 @@ class _ForgotPasswordSheetState extends State<ForgotPasswordSheet> {
   @override
   Widget build(BuildContext context) {
     final t = AuthStrings(context.watch<LocaleCubit>().state);
-    final colors = context.colors;
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: colors.surfaceElevated,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
-      ),
+    return AuthSheetBackdrop(
       child: SafeArea(
         top: false,
         child: Padding(
@@ -110,6 +119,7 @@ class _ForgotPasswordSheetState extends State<ForgotPasswordSheet> {
                                 ? state.errorMessage
                                 : null,
                             isSending: state is PasswordResetSending,
+                            canSubmit: isValidEmail(_emailController.text),
                             onSubmit: _submit,
                           ),
                   ),
@@ -130,6 +140,7 @@ class _Form extends StatelessWidget {
     required this.errorText,
     required this.serverError,
     required this.isSending,
+    required this.canSubmit,
     required this.onSubmit,
   });
 
@@ -138,18 +149,18 @@ class _Form extends StatelessWidget {
   final String? errorText;
   final String? serverError;
   final bool isSending;
+  final bool canSubmit;
   final VoidCallback onSubmit;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
     return Column(
       key: const ValueKey('form'),
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         _SheetHeader(
-          icon: Icons.lock_reset_rounded,
+          leading: const AppLogo.mark(size: 84),
           title: strings.forgotPasswordTitle,
           description: strings.forgotPasswordDescription,
         ),
@@ -158,21 +169,23 @@ class _Form extends StatelessWidget {
           _ErrorBanner(message: serverError!),
           const SizedBox(height: 14),
         ],
-        AppTextField(
+        AuthField(
+          layout: AuthLayout.regular,
           controller: controller,
+          label: strings.emailLabel,
           hintText: strings.emailHint,
-          prefixIcon: Icons.mail_outline_rounded,
+          icon: Icons.mail_outline_rounded,
           keyboardType: TextInputType.emailAddress,
           textInputAction: TextInputAction.done,
           autofillHints: const [AutofillHints.email],
-          fillColor: colors.background,
           errorText: errorText,
           onSubmitted: (_) => onSubmit(),
         ),
-        const SizedBox(height: 20),
-        AppButton(
+        const SizedBox(height: 22),
+        AuthSubmitButton(
+          layout: AuthLayout.regular,
           label: strings.forgotPasswordSubmit,
-          onPressed: onSubmit,
+          onPressed: canSubmit ? onSubmit : null,
           isLoading: isSending,
         ),
       ],
@@ -188,14 +201,14 @@ class _Confirmation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
+    final palette = AuthPalette.of(context);
     return Column(
       key: const ValueKey('confirmation'),
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         _SheetHeader(
-          icon: Icons.mark_email_read_rounded,
+          leading: const _SentBadge(),
           title: strings.forgotPasswordSentTitle,
           description: strings.forgotPasswordSentDescription,
         ),
@@ -206,11 +219,12 @@ class _Confirmation extends StatelessWidget {
           style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w600,
-            color: colors.textPrimary,
+            color: palette.label,
           ),
         ),
         const SizedBox(height: 24),
-        AppButton(
+        AuthSubmitButton(
+          layout: AuthLayout.regular,
           label: strings.closeAction,
           onPressed: () => Navigator.of(context).pop(),
         ),
@@ -221,42 +235,32 @@ class _Confirmation extends StatelessWidget {
   }
 }
 
-/// Icon in a tinted circle, title, support text — the same shape the app's
-/// info sheets already use, so every sheet opens onto a familiar layout.
+/// The symbol (or, once sent, the envelope badge), title, support text.
 class _SheetHeader extends StatelessWidget {
   const _SheetHeader({
-    required this.icon,
+    required this.leading,
     required this.title,
     required this.description,
   });
 
-  final IconData icon;
+  final Widget leading;
   final String title;
   final String description;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
+    final palette = AuthPalette.of(context);
     final textTheme = Theme.of(context).textTheme;
     return Column(
       children: [
-        const SizedBox(height: 12),
-        Container(
-          width: 64,
-          height: 64,
-          decoration: BoxDecoration(
-            color: colors.primary.withValues(alpha: 0.1),
-            shape: BoxShape.circle,
-            border: Border.all(color: colors.primary.withValues(alpha: 0.16)),
-          ),
-          child: Icon(icon, color: colors.primary, size: 30),
-        ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 4),
+        leading,
+        const SizedBox(height: 16),
         Text(
           title,
           textAlign: TextAlign.center,
           style: textTheme.titleLarge?.copyWith(
-            color: colors.textPrimary,
+            color: palette.label,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -265,11 +269,47 @@ class _SheetHeader extends StatelessWidget {
           description,
           textAlign: TextAlign.center,
           style: textTheme.bodyMedium?.copyWith(
-            color: colors.textSecondary,
+            color: palette.subtitle,
             height: 1.4,
           ),
         ),
       ],
+    );
+  }
+}
+
+/// "Link sent": the envelope in the gradient of the main button, so the
+/// second step still belongs to the sheet without repeating the logo.
+class _SentBadge extends StatelessWidget {
+  const _SentBadge();
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = AuthPalette.of(context);
+    return Container(
+      width: 64,
+      height: 64,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: palette.buttonGradient,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: palette.buttonShadow,
+            blurRadius: 18,
+            spreadRadius: -4,
+            offset: const Offset(0, 6),
+          ),
+        ],
+      ),
+      child: const Icon(
+        Icons.mark_email_read_rounded,
+        color: Colors.white,
+        size: 30,
+      ),
     );
   }
 }
@@ -372,7 +412,7 @@ class _SheetGrabber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
+    final palette = AuthPalette.of(context);
     return SizedBox(
       height: 28,
       child: Stack(
@@ -382,7 +422,7 @@ class _SheetGrabber extends StatelessWidget {
             width: 42,
             height: 4,
             decoration: BoxDecoration(
-              color: colors.border,
+              color: palette.fieldBorder,
               borderRadius: BorderRadius.circular(100),
             ),
           ),
@@ -391,11 +431,7 @@ class _SheetGrabber extends StatelessWidget {
             child: IconButton(
               onPressed: onClose,
               visualDensity: VisualDensity.compact,
-              icon: Icon(
-                Icons.close_rounded,
-                size: 20,
-                color: colors.textSecondary,
-              ),
+              icon: Icon(Icons.close_rounded, size: 20, color: palette.icon),
             ),
           ),
         ],

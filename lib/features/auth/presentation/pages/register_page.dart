@@ -1,12 +1,8 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aura/core/di/injection_container.dart';
-import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
-import 'package:aura/features/auth/domain/entities/app_user.dart';
 import 'package:aura/features/auth/l10n/auth_strings.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_state.dart';
@@ -17,6 +13,9 @@ import 'package:aura/features/auth/presentation/widgets/auth_header.dart';
 import 'package:aura/features/auth/presentation/widgets/auth_scaffold.dart';
 import 'package:aura/features/auth/presentation/widgets/register_form.dart';
 import 'package:aura/features/profile/domain/repositories/profile_repository.dart';
+import 'package:aura/features/profile/presentation/cubit/username_check_cubit.dart';
+import 'package:aura/features/profile/presentation/cubit/username_check_state.dart';
+import 'package:aura/shared/l10n/username_strings.dart';
 import 'package:aura/shared/utils/validators.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 
@@ -33,99 +32,105 @@ class _RegisterPageState extends State<RegisterPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  final _usernameFocus = FocusNode();
   final _formCubit = RegisterFormCubit();
+  final _usernameCheck = UsernameCheckCubit(
+    isAvailable: (username) =>
+        sl<ProfileRepository>().isUsernameAvailable(username),
+  );
 
   @override
   void initState() {
     super.initState();
-    _nameController.addListener(_formCubit.notifyFieldChanged);
-    _emailController.addListener(_formCubit.notifyFieldChanged);
-    _passwordController.addListener(_formCubit.notifyFieldChanged);
-    _confirmPasswordController.addListener(_formCubit.notifyFieldChanged);
+    for (final controller in _fields) {
+      controller.addListener(_formCubit.notifyFieldChanged);
+    }
+    _usernameController.addListener(_onUsernameChanged);
   }
+
+  List<TextEditingController> get _fields => [
+    _nameController,
+    _usernameController,
+    _emailController,
+    _passwordController,
+    _confirmPasswordController,
+  ];
+
+  void _onUsernameChanged() => _usernameCheck.changed(_usernameController.text);
 
   @override
   void dispose() {
-    _nameController.removeListener(_formCubit.notifyFieldChanged);
-    _emailController.removeListener(_formCubit.notifyFieldChanged);
-    _passwordController.removeListener(_formCubit.notifyFieldChanged);
-    _confirmPasswordController.removeListener(_formCubit.notifyFieldChanged);
-    _nameController.dispose();
-    _usernameController.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
-    _confirmPasswordController.dispose();
+    _usernameController.removeListener(_onUsernameChanged);
+    for (final controller in _fields) {
+      controller
+        ..removeListener(_formCubit.notifyFieldChanged)
+        ..dispose();
+    }
+    _usernameFocus.dispose();
     _formCubit.close();
+    _usernameCheck.close();
     super.dispose();
   }
 
-  String? _nameError(bool submitted, AuthStrings t) {
-    if (!submitted) return null;
-    return isNameProvided(_nameController.text) ? null : t.nameRequired;
+  // Validated as the person types: an empty field shows nothing (unless a
+  // submit was attempted from the keyboard), a filled one shows what is
+  // wrong right away, and the message goes as soon as it is right.
+
+  String? _nameError(RegisterFormState form, AuthStrings t) {
+    if (isNameProvided(_nameController.text)) return null;
+    return form.submitted ? t.nameRequired : null;
   }
 
-  String? _emailError(bool submitted, AuthStrings t) {
+  String? _emailError(RegisterFormState form, AuthStrings t) {
     final value = _emailController.text;
-    if (value.isEmpty) {
-      return submitted ? t.emailRequired : null;
-    }
+    if (value.trim().isEmpty) return form.submitted ? t.emailRequired : null;
     return isValidEmail(value) ? null : t.emailInvalid;
   }
 
-  String? _passwordError(bool submitted, AuthStrings t) {
-    if (!submitted) return null;
-    return isPasswordProvided(_passwordController.text)
-        ? null
-        : t.passwordRequired;
+  String? _passwordError(RegisterFormState form, AuthStrings t) {
+    final value = _passwordController.text;
+    if (value.isEmpty) return form.submitted ? t.passwordRequired : null;
+    return isValidNewPassword(value) ? null : t.passwordTooShort;
   }
 
-  String? _confirmPasswordError(bool submitted, AuthStrings t) {
-    if (!submitted) return null;
+  String? _confirmPasswordError(RegisterFormState form, AuthStrings t) {
     final value = _confirmPasswordController.text;
-    if (value.isEmpty) return t.confirmPasswordRequired;
+    if (value.isEmpty) {
+      return form.submitted ? t.confirmPasswordRequired : null;
+    }
     return doPasswordsMatch(_passwordController.text, value)
         ? null
         : t.passwordsDoNotMatch;
   }
 
-  void _submit() {
-    // Busy from the first tap until the page leaves for onboarding: after
-    // AuthSuccess the profile is still being saved, and a second tap there
-    // used to fire another sign-up ("User already registered") while the
-    // first one carried on to onboarding.
-    if (_isBusy(context.read<AuthCubit>().state)) return;
-    _formCubit.markSubmitted();
-    final name = _nameController.text.trim();
-    final email = _emailController.text.trim();
+  /// Everything filled in, well-formed, and the username confirmed free by
+  /// the database -- the only state in which "Criar conta" is enabled.
+  bool _isComplete() {
     final password = _passwordController.text;
-    final confirmPassword = _confirmPasswordController.text;
-    if (!isNameProvided(name) ||
-        !isValidEmail(email) ||
-        !isPasswordProvided(password) ||
-        !doPasswordsMatch(password, confirmPassword)) {
-      return;
-    }
-    context.read<AuthCubit>().signUp(email: email, password: password);
+    return isNameProvided(_nameController.text) &&
+        _usernameCheck.state.confirms(_usernameController.text) &&
+        isValidEmail(_emailController.text) &&
+        isValidNewPassword(password) &&
+        doPasswordsMatch(password, _confirmPasswordController.text);
+  }
+
+  void _submit() {
+    // Busy from the first tap until the page leaves for onboarding, so a
+    // second tap can never fire another sign-up.
+    if (_isBusy(context.read<AuthCubit>().state)) return;
+    // "Done" on the keyboard can get here with the form incomplete: then
+    // it just reveals what is still missing.
+    _formCubit.markSubmitted();
+    if (!_isComplete()) return;
+    context.read<AuthCubit>().signUp(
+      email: _emailController.text.trim(),
+      password: _passwordController.text,
+      name: _nameController.text.trim(),
+      username: _usernameController.text.trim(),
+    );
   }
 
   bool _isBusy(AuthState state) => state is AuthLoading || state is AuthSuccess;
-
-  Future<void> _onSignedUp(BuildContext context, AppUser user) async {
-    final name = _nameController.text.trim();
-    final username = _usernameController.text.trim();
-    final profiles = sl<ProfileRepository>();
-    Future<Result<void>> create() => profiles.createProfile(
-      id: user.id,
-      name: name,
-      username: username.isEmpty ? null : username,
-    );
-    // The account already exists at this point, so there is no going back
-    // to the form: one retry covers a dropped request, and onboarding's own
-    // save surfaces anything that is still wrong after that.
-    if (await create() is Error) await create();
-    if (!context.mounted) return;
-    context.go('/onboarding');
-  }
 
   void _goToSignIn() {
     if (context.canPop()) {
@@ -137,14 +142,27 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    final t = AuthStrings(context.watch<LocaleCubit>().state);
-    return BlocProvider.value(
-      value: _formCubit,
+    final language = context.watch<LocaleCubit>().state;
+    final t = AuthStrings(language);
+    final u = UsernameStrings(language);
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider.value(value: _formCubit),
+        BlocProvider.value(value: _usernameCheck),
+      ],
       child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           switch (state) {
-            case AuthSuccess(:final user):
-              unawaited(_onSignedUp(context, user));
+            // The account and its profile (name + username) were created
+            // together, in one database transaction.
+            case AuthSuccess():
+              context.go('/onboarding');
+            // Someone took the username between the check and the sign-up.
+            // Nothing was created (the transaction was refused): the field
+            // says so and the person picks another name, right here.
+            case AuthError(isUsernameTaken: true):
+              _usernameCheck.markTaken(_usernameController.text);
+              _usernameFocus.requestFocus();
             case AuthError(:final message, :final isEmailTaken):
               if (isEmailTaken) {
                 AppInfoBottomSheet.showError(
@@ -165,42 +183,54 @@ class _RegisterPageState extends State<RegisterPage> {
         builder: (context, authState) {
           final isSubmitting = _isBusy(authState);
           return BlocBuilder<RegisterFormCubit, RegisterFormState>(
-            builder: (context, formState) {
-              return AuthScaffold(
-                showBackButton: true,
-                children: [
-                  AuthHeader.page(
-                    title: t.registerHeading,
-                    subtitle: t.registerSubtitle,
-                  ),
-                  const SizedBox(height: 28),
-                  AuthCard(
-                    child: RegisterForm(
-                      strings: t,
-                      nameController: _nameController,
-                      nameError: _nameError(formState.submitted, t),
-                      usernameController: _usernameController,
-                      emailController: _emailController,
-                      emailError: _emailError(formState.submitted, t),
-                      passwordController: _passwordController,
-                      passwordError: _passwordError(formState.submitted, t),
-                      confirmPasswordController: _confirmPasswordController,
-                      confirmPasswordError: _confirmPasswordError(
-                        formState.submitted,
-                        t,
+            builder: (context, formState) =>
+                BlocBuilder<UsernameCheckCubit, UsernameCheckState>(
+                  builder: (context, usernameState) => AuthScaffold(
+                    showBackButton: true,
+                    children: [
+                      AuthHeader(
+                        layout: RegisterForm.layout,
+                        subtitle: t.registerSubtitle,
                       ),
-                      obscurePassword: formState.obscurePassword,
-                      onToggleObscurePassword: _formCubit.toggleObscurePassword,
-                      obscureConfirmPassword: formState.obscureConfirmPassword,
-                      onToggleObscureConfirmPassword:
-                          _formCubit.toggleObscureConfirmPassword,
-                      onSubmit: _submit,
-                      isLoading: isSubmitting,
-                    ),
+                      AuthCard(
+                        layout: RegisterForm.layout,
+                        child: RegisterForm(
+                          strings: t,
+                          usernameStrings: u,
+                          nameController: _nameController,
+                          nameError: _nameError(formState, t),
+                          usernameController: _usernameController,
+                          usernameFocus: _usernameFocus,
+                          usernameError: u.errorFor(
+                            _usernameController.text,
+                            usernameState,
+                            submitted: formState.submitted,
+                          ),
+                          usernameCheck: usernameState,
+                          emailController: _emailController,
+                          emailError: _emailError(formState, t),
+                          passwordController: _passwordController,
+                          passwordError: _passwordError(formState, t),
+                          confirmPasswordController: _confirmPasswordController,
+                          confirmPasswordError: _confirmPasswordError(
+                            formState,
+                            t,
+                          ),
+                          obscurePassword: formState.obscurePassword,
+                          onToggleObscurePassword:
+                              _formCubit.toggleObscurePassword,
+                          obscureConfirmPassword:
+                              formState.obscureConfirmPassword,
+                          onToggleObscureConfirmPassword:
+                              _formCubit.toggleObscureConfirmPassword,
+                          onSubmit: _submit,
+                          canSubmit: !isSubmitting && _isComplete(),
+                          isLoading: isSubmitting,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              );
-            },
+                ),
           );
         },
       ),

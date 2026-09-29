@@ -112,12 +112,18 @@ void main() {
             () => repository.signUp(
               email: any(named: 'email'),
               password: any(named: 'password'),
+              name: any(named: 'name'),
+              username: any(named: 'username'),
             ),
           ).thenAnswer((_) async => const Success(user));
           return AuthCubit(repository);
         },
-        act: (cubit) =>
-            cubit.signUp(email: 'dash@example.com', password: '123456'),
+        act: (cubit) => cubit.signUp(
+          email: 'dash@example.com',
+          password: '123456',
+          name: 'Dash',
+          username: 'dash',
+        ),
         expect: () => [const AuthLoading(), const AuthSuccess(user)],
       );
 
@@ -129,15 +135,48 @@ void main() {
             () => repository.signUp(
               email: any(named: 'email'),
               password: any(named: 'password'),
+              name: any(named: 'name'),
+              username: any(named: 'username'),
             ),
           ).thenAnswer((_) async => Error(ServerFailure('Email taken')));
           return AuthCubit(repository);
         },
-        act: (cubit) =>
-            cubit.signUp(email: 'dash@example.com', password: '123456'),
+        act: (cubit) => cubit.signUp(
+          email: 'dash@example.com',
+          password: '123456',
+          name: 'Dash',
+          username: 'dash',
+        ),
         expect: () => [const AuthLoading(), const AuthError('Email taken')],
       );
     });
+
+    blocTest<AuthCubit, AuthState>(
+      'a username taken meanwhile comes out as isUsernameTaken',
+      build: () {
+        when(
+          () => repository.signUp(
+            email: any(named: 'email'),
+            password: any(named: 'password'),
+            name: any(named: 'name'),
+            username: any(named: 'username'),
+          ),
+        ).thenAnswer(
+          (_) async => Error(AuthFailure('em uso', false, false, true)),
+        );
+        return AuthCubit(repository);
+      },
+      act: (cubit) => cubit.signUp(
+        email: 'dash@example.com',
+        password: '123456',
+        name: 'Dash',
+        username: 'dash',
+      ),
+      expect: () => [
+        const AuthLoading(),
+        const AuthError('em uso', isUsernameTaken: true),
+      ],
+    );
 
     group('signOut', () {
       test('calls repository.signOut', () async {

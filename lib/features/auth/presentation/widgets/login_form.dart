@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/auth/l10n/auth_strings.dart';
-import 'package:aura/shared/widgets/app_button.dart';
-import 'package:aura/shared/widgets/app_text_field.dart';
-import 'package:aura/shared/widgets/password_visibility_toggle.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_field.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_layout.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_palette.dart';
+import 'package:aura/features/auth/presentation/widgets/auth_submit_button.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -16,9 +16,12 @@ class LoginForm extends StatelessWidget {
     required this.onToggleObscure,
     required this.onSubmit,
     required this.onForgotPassword,
+    required this.canSubmit,
     super.key,
     this.isLoading = false,
   });
+
+  static const layout = AuthLayout.regular;
 
   final AuthStrings strings;
   final TextEditingController emailController;
@@ -29,64 +32,70 @@ class LoginForm extends StatelessWidget {
   final VoidCallback onToggleObscure;
   final VoidCallback onSubmit;
   final VoidCallback onForgotPassword;
+
+  /// A valid e-mail and a password typed in.
+  final bool canSubmit;
   final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
+    final palette = AuthPalette.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        AppTextField(
+        AuthField(
+          layout: layout,
           controller: emailController,
-          labelText: strings.emailLabel,
-          prefixIcon: Icons.mail_outline_rounded,
+          label: strings.emailLabel,
+          icon: Icons.mail_outline_rounded,
           hintText: strings.emailHint,
           keyboardType: TextInputType.emailAddress,
           textInputAction: TextInputAction.next,
           autofillHints: const [AutofillHints.email],
-          fillColor: colors.background,
           errorText: emailError,
         ),
-        const SizedBox(height: 14),
-        AppTextField(
+        SizedBox(height: layout.fieldToNextLabel),
+        AuthField(
+          layout: layout,
           controller: passwordController,
-          labelText: strings.passwordLabel,
-          prefixIcon: Icons.lock_outline_rounded,
+          label: strings.passwordLabel,
+          icon: Icons.lock_outline_rounded,
           hintText: strings.passwordHint,
-          obscureText: obscurePassword,
+          obscured: obscurePassword,
+          onToggleObscured: onToggleObscure,
           textInputAction: TextInputAction.done,
           autofillHints: const [AutofillHints.password],
-          fillColor: colors.background,
           onSubmitted: (_) => onSubmit(),
-          suffixIcon: PasswordVisibilityToggle(
-            obscured: obscurePassword,
-            color: context.colors.textSecondary,
-            onPressed: onToggleObscure,
-          ),
           errorText: passwordError,
         ),
-        const SizedBox(height: 4),
+        const SizedBox(height: AuthLayout.fieldToForgot),
         Align(
           alignment: Alignment.centerRight,
-          child: TextButton(
-            onPressed: onForgotPassword,
-            style: TextButton.styleFrom(
-              minimumSize: Size.zero,
-              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              textStyle: const TextStyle(
-                fontSize: 13.5,
-                fontWeight: FontWeight.w600,
+          child: InkWell(
+            onTap: onForgotPassword,
+            borderRadius: BorderRadius.circular(6),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: AuthLayout.forgotTapPadding,
+              ),
+              child: Text(
+                strings.forgotPasswordLabel,
+                style: TextStyle(
+                  fontSize: AuthLayout.forgotSize,
+                  height: 1.2,
+                  color: palette.link,
+                  decoration: TextDecoration.underline,
+                  decorationColor: palette.link,
+                ),
               ),
             ),
-            child: Text(strings.forgotPasswordLabel),
           ),
         ),
-        const SizedBox(height: 20),
-        AppButton(
+        const SizedBox(height: AuthLayout.forgotToButton),
+        AuthSubmitButton(
+          layout: layout,
           label: strings.signInButton,
-          onPressed: onSubmit,
+          onPressed: canSubmit ? onSubmit : null,
           isLoading: isLoading,
         ),
       ],
