@@ -150,6 +150,7 @@ class _AurudoReactionStageState extends State<AurudoReactionStage>
                               ),
                             AurudoMascotView(
                               type: widget.reaction.type,
+                              essayTier: widget.reaction.essayTier,
                               size: widget.mascotSize,
                             ),
                           ],

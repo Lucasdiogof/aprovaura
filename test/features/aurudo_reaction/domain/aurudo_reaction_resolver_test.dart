@@ -3,6 +3,7 @@ import 'package:aura/features/aurudo_reaction/domain/aurudo_reaction_resolver.da
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_activity_outcome.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_secondary_achievement.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/essay_reaction_tier.dart';
 import 'package:aura/features/home/domain/entities/daily_goal.dart';
 import 'package:aura/features/streak/domain/entities/streak.dart';
 import 'package:aura/features/xp/domain/entities/user_xp.dart';
@@ -178,11 +179,86 @@ void main() {
       expect(resolver.resolveEssayWriting().type, AurudoReactionType.writing);
     });
 
-    test('resolveEssayCorrection is always correctionReady', () {
-      expect(
-        resolver.resolveEssayCorrection().type,
-        AurudoReactionType.correctionReady,
+    group('resolveEssayCorrection', () {
+      test('is always correctionReady, whatever the score', () {
+        for (final score in [0, 250, 500, 750, 900, 1000]) {
+          expect(
+            resolver.resolveEssayCorrection(score).type,
+            AurudoReactionType.correctionReady,
+          );
+        }
+      });
+
+      test(
+        '1000 is excellent -- left prepared for a future special reaction',
+        () {
+          expect(
+            resolver.resolveEssayCorrection(1000).essayTier,
+            EssayReactionTier.excellent,
+          );
+        },
       );
+
+      test('920 is excellent', () {
+        expect(
+          resolver.resolveEssayCorrection(920).essayTier,
+          EssayReactionTier.excellent,
+        );
+      });
+
+      test('800 is great', () {
+        expect(
+          resolver.resolveEssayCorrection(800).essayTier,
+          EssayReactionTier.great,
+        );
+      });
+
+      test('600 is developing', () {
+        expect(
+          resolver.resolveEssayCorrection(600).essayTier,
+          EssayReactionTier.developing,
+        );
+      });
+
+      test('400 is encourage', () {
+        expect(
+          resolver.resolveEssayCorrection(400).essayTier,
+          EssayReactionTier.encourage,
+        );
+      });
+
+      test('899/900 is the great/excellent boundary', () {
+        expect(
+          resolver.resolveEssayCorrection(899).essayTier,
+          EssayReactionTier.great,
+        );
+        expect(
+          resolver.resolveEssayCorrection(900).essayTier,
+          EssayReactionTier.excellent,
+        );
+      });
+
+      test('699/700 is the developing/great boundary', () {
+        expect(
+          resolver.resolveEssayCorrection(699).essayTier,
+          EssayReactionTier.developing,
+        );
+        expect(
+          resolver.resolveEssayCorrection(700).essayTier,
+          EssayReactionTier.great,
+        );
+      });
+
+      test('499/500 is the encourage/developing boundary', () {
+        expect(
+          resolver.resolveEssayCorrection(499).essayTier,
+          EssayReactionTier.encourage,
+        );
+        expect(
+          resolver.resolveEssayCorrection(500).essayTier,
+          EssayReactionTier.developing,
+        );
+      });
     });
   });
 }

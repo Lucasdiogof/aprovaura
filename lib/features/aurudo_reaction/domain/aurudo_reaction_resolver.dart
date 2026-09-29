@@ -2,6 +2,7 @@ import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_activity_ou
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_secondary_achievement.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/essay_reaction_tier.dart';
 import 'package:aura/features/home/domain/entities/daily_goal.dart';
 import 'package:aura/features/questions/presentation/quiz_result_tier.dart';
 import 'package:aura/features/streak/domain/entities/streak.dart';
@@ -100,11 +101,14 @@ class AurudoReactionResolver {
   AurudoReaction resolveEssayWriting() =>
       const AurudoReaction(type: AurudoReactionType.writing);
 
-  /// Opening an essay's evaluation for the first time. The score only
-  /// picks which expression the mascot wears in the view layer (Phase 2)
-  /// -- the reaction type is the same regardless of the grade.
-  AurudoReaction resolveEssayCorrection() =>
-      const AurudoReaction(type: AurudoReactionType.correctionReady);
+  /// Opening an essay's evaluation for the first time. The reaction type
+  /// is always `correctionReady` regardless of the grade -- only the
+  /// [EssayReactionTier] the score falls into changes, which the view
+  /// layer uses to pick the mascot's pose.
+  AurudoReaction resolveEssayCorrection(int score) => AurudoReaction(
+    type: AurudoReactionType.correctionReady,
+    essayTier: EssayReactionTier.fromScore(score),
+  );
 
   int? _leveledUpTo(UserXp? before, UserXp? after) {
     if (before == null || after == null) return null;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/essay_reaction_tier.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_mascot_view.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 
@@ -95,6 +96,70 @@ void main() {
         ),
         findsOneWidget,
       );
+    });
+
+    group('correctionReady picks its pose from the essay tier', () {
+      test('excellent and great both celebrate', () {
+        for (final tier in [
+          EssayReactionTier.excellent,
+          EssayReactionTier.great,
+        ]) {
+          expect(
+            aurudoPoseSequence(
+              AurudoReactionType.correctionReady,
+              essayTier: tier,
+            ),
+            [AurudoPose.celebrating],
+            reason: tier.name,
+          );
+        }
+      });
+
+      test('developing is neutral', () {
+        expect(
+          aurudoPoseSequence(
+            AurudoReactionType.correctionReady,
+            essayTier: EssayReactionTier.developing,
+          ),
+          [AurudoPose.neutral],
+        );
+      });
+
+      test('encourage is studying, never frustrated', () {
+        expect(
+          aurudoPoseSequence(
+            AurudoReactionType.correctionReady,
+            essayTier: EssayReactionTier.encourage,
+          ),
+          [AurudoPose.studying],
+        );
+      });
+
+      test('a missing tier falls back to neutral, not a guess', () {
+        expect(aurudoPoseSequence(AurudoReactionType.correctionReady), [
+          AurudoPose.neutral,
+        ]);
+      });
+
+      testWidgets('reduced motion shows the right tier pose immediately', (
+        tester,
+      ) async {
+        await tester.pumpApp(
+          const MediaQuery(
+            data: MediaQueryData(disableAnimations: true),
+            child: AurudoMascotView(
+              type: AurudoReactionType.correctionReady,
+              essayTier: EssayReactionTier.encourage,
+            ),
+          ),
+        );
+        expect(
+          find.byWidgetPredicate(
+            (w) => w is AurudoIllustration && w.pose == AurudoPose.studying,
+          ),
+          findsOneWidget,
+        );
+      });
     });
   });
 }
