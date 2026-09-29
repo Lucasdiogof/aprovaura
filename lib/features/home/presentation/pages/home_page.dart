@@ -36,10 +36,14 @@ class HomePage extends StatelessWidget {
     final language = context.watch<LocaleCubit>().state;
     final t = HomeStrings(language);
     final profileState = context.watch<ProfileCubit>().state;
-    final displayName = _displayName(
-      profileState.profile?.name ?? '',
-      profileState.authUser.email,
-    );
+    // Blank while the profile is still loading: falling back to the email
+    // right away flashed "Appleteste" before the real "Apple" arrived.
+    final displayName = profileState.profile == null && profileState.loading
+        ? ''
+        : _displayName(
+            profileState.profile?.name ?? '',
+            profileState.authUser.email,
+          );
     final streakState = context.watch<StreakCubit>().state;
     final xpState = context.watch<XpCubit>().state;
     final streakDays = switch (streakState) {
@@ -87,7 +91,14 @@ class HomePage extends StatelessWidget {
                 const SizedBox(height: AppSpacing.lg),
                 DailyGoalCard(strings: t, goal: dailyGoal),
                 const SizedBox(height: AppSpacing.sm),
-                StreakCard(strings: t, streakDays: streakDays),
+                StreakCard(
+                  strings: t,
+                  streakDays: streakDays,
+                  activeToday: switch (streakState) {
+                    StreakLoaded(:final streak) => streak.isActiveToday(),
+                    _ => false,
+                  },
+                ),
                 const SizedBox(height: AppSpacing.xxl),
                 Text(
                   t.homeActionsHeading,

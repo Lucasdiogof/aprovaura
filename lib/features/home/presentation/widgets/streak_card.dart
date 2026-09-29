@@ -7,11 +7,16 @@ class StreakCard extends StatelessWidget {
   const StreakCard({
     required this.strings,
     required this.streakDays,
+    this.activeToday = false,
     super.key,
   });
 
   final HomeStrings strings;
   final int streakDays;
+
+  /// Today already counts: the nudge to "do an activity today" would be
+  /// wrong, so it becomes a see-you-tomorrow instead.
+  final bool activeToday;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +58,9 @@ class StreakCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  strings.streakSubtitle,
+                  activeToday
+                      ? strings.streakDoneTodaySubtitle
+                      : strings.streakSubtitle,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

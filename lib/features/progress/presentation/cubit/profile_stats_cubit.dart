@@ -26,4 +26,12 @@ class ProfileStatsCubit extends Cubit<ProfileStatsState> {
         emit(const ProfileStatsError());
     }
   }
+
+  /// Re-reads the numbers without going back to the loading state, so the
+  /// row doesn't flicker; a failed refresh keeps what is on screen.
+  Future<void> refresh() async {
+    final result = await _repository.getProfileStats();
+    if (isClosed) return;
+    if (result case Success(:final data)) emit(ProfileStatsLoaded(data));
+  }
 }

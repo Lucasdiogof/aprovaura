@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aura/core/di/injection_container.dart';
+import 'package:aura/core/router/app_route_observer.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
@@ -37,9 +38,43 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => ProfileStatsCubit(sl<ProgressRepository>()),
-      child: const _ProfileBody(),
+      child: const _StatsRefresher(child: _ProfileBody()),
     );
   }
+}
+
+/// Profile lives in the shell's IndexedStack, so it is built once, right
+/// after sign-in, and its stats would stay at that first read ("0
+/// questões") for the whole session. Every activity is a route pushed on
+/// top of the shell; coming back from one re-reads the numbers.
+class _StatsRefresher extends StatefulWidget {
+  const _StatsRefresher({required this.child});
+
+  final Widget child;
+
+  @override
+  State<_StatsRefresher> createState() => _StatsRefresherState();
+}
+
+class _StatsRefresherState extends State<_StatsRefresher> with RouteAware {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route is PageRoute<void>) appRouteObserver.subscribe(this, route);
+  }
+
+  @override
+  void didPopNext() => context.read<ProfileStatsCubit>().refresh();
+
+  @override
+  void dispose() {
+    appRouteObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.child;
 }
 
 class _ProfileBody extends StatelessWidget {

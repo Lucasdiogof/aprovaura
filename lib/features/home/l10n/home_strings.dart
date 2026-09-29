@@ -60,6 +60,12 @@ class HomeStrings {
       '¡Completa una actividad hoy para mantener tu racha!',
   };
 
+  String get streakDoneTodaySubtitle => switch (language) {
+    AppLanguage.portuguese => 'Você já estudou hoje. Volte amanhã!',
+    AppLanguage.english => 'You already studied today. Come back tomorrow!',
+    AppLanguage.spanish => 'Ya estudiaste hoy. ¡Vuelve mañana!',
+  };
+
   String get chooseSubjectHeading => switch (language) {
     AppLanguage.portuguese => 'Escolha uma matéria',
     AppLanguage.english => 'Choose a subject',

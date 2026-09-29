@@ -95,6 +95,7 @@ class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
       correctIndex: order.indexOf(question.correctIndex),
       explanation: question.explanation,
       difficulty: question.difficulty,
+      subject: question.subject,
     );
   }
 

@@ -100,6 +100,34 @@ void main() {
       expect(cubit.state, const MultipleChoiceError('boom'));
     });
 
+    test(
+      'shuffling keeps the subject, so quick practice can label it',
+      () async {
+        when(
+          () => questionRepository.getQuestions(
+            any(),
+            difficulty: any(named: 'difficulty'),
+          ),
+        ).thenAnswer(
+          (_) async => const Success([
+            Question(
+              id: 'q9',
+              prompt: 'Quanto é 2 + 2?',
+              options: ['4', '3', '5', '22'],
+              correctIndex: 0,
+              subject: 'matematica',
+            ),
+          ]),
+        );
+        final cubit = buildCubit();
+
+        await pumpEventQueue();
+
+        final state = cubit.state as MultipleChoicePlaying;
+        expect(state.questions.single.subject, 'matematica');
+      },
+    );
+
     test('settles on $MultipleChoicePlaying with shuffled options that keep '
         'the correct answer text intact', () async {
       when(

@@ -34,7 +34,10 @@ class DailyGoalCard extends StatelessWidget {
                 size: 18,
               ),
               const SizedBox(width: AppSpacing.sm),
-              Flexible(
+              // Expanded, not Flexible + Spacer: those two split the free
+              // space in half, which cut the title to "Meta de h..." as soon
+              // as the "Meta batida!" badge showed up.
+              Expanded(
                 child: Text(
                   strings.dailyGoalTitle,
                   maxLines: 1,
@@ -46,7 +49,6 @@ class DailyGoalCard extends StatelessWidget {
                   ),
                 ),
               ),
-              const Spacer(),
               if (goal.isComplete)
                 Row(
                   children: [

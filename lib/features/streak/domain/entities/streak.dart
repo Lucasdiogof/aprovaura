@@ -26,6 +26,20 @@ class Streak extends Equatable {
 
   bool get hasUnseenBreak => streakBreakVersion > seenStreakBreakVersion;
 
+  /// Whether today's activity is already counted. The server dates the
+  /// streak in America/Sao_Paulo (UTC-3, no daylight saving since 2019),
+  /// so "today" is taken in that same zone, not the device's.
+  bool isActiveToday({DateTime? now}) {
+    final last = lastActivityDate;
+    if (last == null) return false;
+    final today = (now ?? DateTime.now()).toUtc().subtract(
+      const Duration(hours: 3),
+    );
+    return last.year == today.year &&
+        last.month == today.month &&
+        last.day == today.day;
+  }
+
   Streak copyWith({int? seenStreakBreakVersion}) => Streak(
     currentStreak: currentStreak,
     longestStreak: longestStreak,
