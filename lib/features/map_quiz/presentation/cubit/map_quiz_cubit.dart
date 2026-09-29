@@ -22,7 +22,7 @@ class MapQuizCubit extends Cubit<MapQuizState> {
     this.interactionType = MapInteractionType.polygon,
     this.backgroundMapId,
     this.attemptIdGenerator = generateAttemptId,
-    this.boardBuilder = _buildBoardInBackground,
+    this.boardBuilder = buildMapBoardInBackground,
   }) : super(const MapQuizLoading()) {
     load();
   }
@@ -162,5 +162,8 @@ class MapQuizCubit extends Cubit<MapQuizState> {
   }
 }
 
-Future<MapBoard> _buildBoardInBackground(MapBoardInput input) =>
+/// Walks every vertex once (37k on the world map), so it runs off the UI
+/// thread. Public because MapQuizPage forwards it as the default for its
+/// own test seam.
+Future<MapBoard> buildMapBoardInBackground(MapBoardInput input) =>
     compute(buildMapBoard, input);

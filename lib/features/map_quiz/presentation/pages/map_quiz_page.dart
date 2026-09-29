@@ -1,8 +1,17 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/core/utils/id_generator.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
+import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_secondary_achievement.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_achievement_badge.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_activity_completion.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_stage.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_interaction_type.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_prompt_mode.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_board.dart';
@@ -14,13 +23,11 @@ import 'package:aura/features/map_quiz/presentation/cubit/map_quiz_state.dart';
 import 'package:aura/features/map_quiz/presentation/widgets/map_quiz_board.dart';
 import 'package:aura/features/map_quiz/presentation/widgets/map_quiz_header.dart';
 import 'package:aura/features/progress/domain/repositories/progress_repository.dart';
-import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/questions/presentation/quiz_result_tier.dart';
 import 'package:aura/features/xp/domain/entities/user_xp.dart';
 import 'package:aura/shared/widgets/aura/aura_badge.dart';
-import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
-import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/shared/widgets/app_button.dart';
+import 'package:aura/shared/widgets/app_loading_indicator.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
 class MapQuizPage extends StatelessWidget {
@@ -31,6 +38,8 @@ class MapQuizPage extends StatelessWidget {
     required this.title,
     this.promptMode = MapPromptMode.name,
     this.backgroundMapId,
+    this.attemptIdGenerator,
+    this.boardBuilder,
     super.key,
   });
 
@@ -44,6 +53,12 @@ class MapQuizPage extends StatelessWidget {
   // strait lines or scattered points, unlike filled country polygons.
   final String? backgroundMapId;
 
+  // Test seams, both forwarded straight to MapQuizCubit: a deterministic
+  // attempt id to assert on, and a board builder that stays on the test's
+  // own thread instead of going through compute(). Null in the app.
+  final String Function()? attemptIdGenerator;
+  final Future<MapBoard> Function(MapBoardInput)? boardBuilder;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -54,6 +69,8 @@ class MapQuizPage extends StatelessWidget {
         catalogNodeId: catalogNodeId,
         interactionType: interactionType,
         backgroundMapId: backgroundMapId,
+        attemptIdGenerator: attemptIdGenerator ?? generateAttemptId,
+        boardBuilder: boardBuilder ?? buildMapBoardInBackground,
       ),
       child: _MapQuizView(mapId: mapId, title: title, promptMode: promptMode),
     );
@@ -76,6 +93,28 @@ class _MapQuizView extends StatefulWidget {
 }
 
 class _MapQuizViewState extends State<_MapQuizView> {
+  // Read while the map is still being played, before finishing it can move
+  // any of these numbers -- that diff is how the Aurudo Reaction System
+  // tells a level, streak or daily goal earned by THIS map from one that
+  // had already happened.
+  AurudoRewardsSnapshot? _before;
+  bool _snapshotTaken = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_snapshotTaken) return;
+    _snapshotTaken = true;
+    _before = AurudoRewardsSnapshot.fromCubits(context);
+    unawaited(_loadDailyGoalBefore());
+  }
+
+  Future<void> _loadDailyGoalBefore() async {
+    final goal = await AurudoRewardsSnapshot.readDailyGoal();
+    if (!mounted || goal == null) return;
+    setState(() => _before = _before?.withDailyGoal(goal));
+  }
+
   @override
   Widget build(BuildContext context) {
     final language = context.watch<LocaleCubit>().state;
@@ -101,18 +140,6 @@ class _MapQuizViewState extends State<_MapQuizView> {
                     }
                   });
                 }
-                if (state is MapQuizFinished) {
-                  context.read<StreakCubit>().registerActivityCompletion();
-                  // Map quiz isn't part of this phase's "+10 per correct
-                  // answer" rework (it wasn't in scope, and a big map can
-                  // have far more than 10 regions) -- correctCount: 1
-                  // keeps its old flat +10-per-completed-map amount while
-                  // still going through the new idempotent award path.
-                  context.read<XpCubit>().awardQuizXp(
-                    attemptId: state.attemptId,
-                    correctCount: _awardedCorrectCount,
-                  );
-                }
               },
               builder: (context, state) => switch (state) {
                 MapQuizLoading() => Center(
@@ -124,11 +151,20 @@ class _MapQuizViewState extends State<_MapQuizView> {
                   strings: t,
                   message: message,
                 ),
-                MapQuizFinished(:final correctCount, :final totalCount) =>
+                MapQuizFinished(
+                  :final correctCount,
+                  :final totalCount,
+                  :final attemptId,
+                ) =>
                   _FinishedView(
+                    // Keyed by attempt so a retry builds a fresh state
+                    // instead of reusing the finished one.
+                    key: ValueKey(attemptId),
                     strings: t,
                     correctCount: correctCount,
                     totalCount: totalCount,
+                    attemptId: attemptId,
+                    before: _before,
                   ),
                 MapQuizPlaying(
                   :final board,
@@ -235,71 +271,235 @@ class _PlayingView extends StatelessWidget {
 /// correct count of one.
 const _awardedCorrectCount = 1;
 
-class _FinishedView extends StatelessWidget {
+/// The finished map, presented through the Aurudo Reaction System -- the
+/// same components and the same resolver the quiz deck uses, so a perfect
+/// map celebrates exactly like a perfect deck.
+///
+/// Order matters: the map's rewards are granted and awaited first (same
+/// calls as before, no longer fire-and-forget), only then is the reaction
+/// resolved from the before/after numbers, and only then does the scene
+/// start. An attempt already celebrated opens straight in its final state.
+///
+/// Nothing of the map itself is still mounted here: this widget replaces
+/// the board entirely, so no camera, zoom or repaint runs behind the
+/// reaction.
+class _FinishedView extends StatefulWidget {
   const _FinishedView({
     required this.strings,
     required this.correctCount,
     required this.totalCount,
+    required this.attemptId,
+    required this.before,
+    super.key,
   });
 
   final MapQuizStrings strings;
   final int correctCount;
   final int totalCount;
+  final String attemptId;
+  final AurudoRewardsSnapshot? before;
 
-  AurudoPose get _pose => switch (QuizResultTier.fromFraction(
-    totalCount == 0 ? 0 : correctCount / totalCount,
-  )) {
-    QuizResultTier.excellent => AurudoPose.farmingAura,
-    QuizResultTier.good => AurudoPose.celebrating,
-    QuizResultTier.developing => AurudoPose.studying,
-    QuizResultTier.zero => AurudoPose.thinking,
-  };
+  @override
+  State<_FinishedView> createState() => _FinishedViewState();
+}
+
+class _FinishedViewState extends State<_FinishedView> {
+  /// A beat between the last answer and the celebration, so the result
+  /// does not snap into place the instant the final region is tapped.
+  static const _transition = Duration(milliseconds: 200);
+
+  AurudoReaction? _reaction;
+  bool _instant = false;
+  Timer? _transitionTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_resolve());
+  }
+
+  @override
+  void dispose() {
+    // Leaving during the beat before the scene: nothing is waiting for it
+    // any more.
+    _transitionTimer?.cancel();
+    super.dispose();
+  }
+
+  Future<void> _resolve() async {
+    final reaction = await awardAndResolveReaction(
+      context: context,
+      before: widget.before,
+      attemptId: widget.attemptId,
+      correctCount: widget.correctCount,
+      totalAnswered: widget.totalCount,
+      // The map has always granted a flat amount per finished map rather
+      // than per region (a world map has dozens), and this phase does not
+      // change that.
+      awardedCorrectCount: _awardedCorrectCount,
+    );
+    if (!mounted) return;
+    final alreadySeen = markReactionSeen(widget.attemptId);
+    if (alreadySeen) {
+      // Already celebrated once: this is the result being opened again,
+      // and it goes straight to its final state.
+      _show(reaction, instant: true);
+      return;
+    }
+    _transitionTimer = Timer(_transition, () => _show(reaction));
+  }
+
+  void _show(AurudoReaction reaction, {bool instant = false}) {
+    if (!mounted) return;
+    setState(() {
+      _reaction = reaction;
+      _instant = instant;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Scrollable like the multiple-choice result: with the mascot and the
-    // Aura badge this column no longer fits a short screen at large text
-    // sizes.
+    final reaction = _reaction;
+    if (reaction == null) {
+      return const Center(child: AppLoadingIndicator());
+    }
+
+    final strings = widget.strings;
+    final tier = QuizResultTier.fromFraction(
+      widget.totalCount == 0 ? 0 : widget.correctCount / widget.totalCount,
+    );
+
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(32),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AurudoIllustration(pose: _pose, size: 136),
-            const SizedBox(height: 16),
-            Text(
-              strings.finishedTitle,
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 20,
-                color: context.colors.textPrimary,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              strings.finishedScore(correctCount, totalCount),
-              textAlign: TextAlign.center,
-              style: TextStyle(color: context.colors.textSecondary),
-            ),
-            const SizedBox(height: 16),
-            // The map quiz has always granted Aura on completion; until now
-            // it was the only finished screen that never said so.
-            const AuraBadge(
-              amount: UserXp.auraPerCorrectAnswer * _awardedCorrectCount,
-            ),
-            const SizedBox(height: 24),
-            AppButton(
-              label: strings.retryButton,
-              onPressed: () => context.read<MapQuizCubit>().load(),
-            ),
-            const SizedBox(height: 12),
-            TextButton(
-              onPressed: () => Navigator.of(context).maybePop(),
-              child: Text(strings.backButton),
-            ),
-          ],
+      padding: const EdgeInsets.symmetric(vertical: 24),
+      child: AurudoReactionStage(
+        reaction: reaction,
+        instant: _instant,
+        headline: _FinishedHeadline(
+          strings: strings,
+          type: reaction.type,
+          tier: tier,
         ),
+        content: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                strings.finishedScore(widget.correctCount, widget.totalCount),
+                textAlign: TextAlign.center,
+                style: TextStyle(color: context.colors.textSecondary),
+              ),
+              const SizedBox(height: 16),
+              const AuraBadge(
+                amount: UserXp.auraPerCorrectAnswer * _awardedCorrectCount,
+              ),
+            ],
+          ),
+        ),
+        stats: reaction.secondary.isEmpty
+            ? null
+            : _SecondaryBadgesRow(
+                achievements: reaction.secondary,
+                strings: strings,
+              ),
+        cta: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              AppButton(
+                label: strings.retryButton,
+                onPressed: () => context.read<MapQuizCubit>().load(),
+              ),
+              const SizedBox(height: 12),
+              TextButton(
+                onPressed: () => Navigator.of(context).maybePop(),
+                child: Text(strings.backButton),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _FinishedHeadline extends StatelessWidget {
+  const _FinishedHeadline({
+    required this.strings,
+    required this.type,
+    required this.tier,
+  });
+
+  final MapQuizStrings strings;
+  final AurudoReactionType type;
+  final QuizResultTier tier;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            strings.reactionHeadline(type, tier),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.w800,
+              fontSize: 24,
+              color: context.colors.textPrimary,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            strings.finishedSubtitle(tier),
+            textAlign: TextAlign.center,
+            style: TextStyle(color: context.colors.textSecondary),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Achievements that landed on this same map. Perfect stays the main
+/// reaction, so these are always badges next to it, never a scene.
+class _SecondaryBadgesRow extends StatelessWidget {
+  const _SecondaryBadgesRow({
+    required this.achievements,
+    required this.strings,
+  });
+
+  final List<AurudoSecondaryAchievement> achievements;
+  final MapQuizStrings strings;
+
+  String _labelFor(AurudoSecondaryAchievement achievement) =>
+      switch (achievement.type) {
+        AurudoSecondaryAchievementType.levelUp => strings.levelUpBadge(
+          achievement.value ?? 0,
+        ),
+        AurudoSecondaryAchievementType.streakMilestone =>
+          strings.streakMilestoneBadge(achievement.value ?? 0),
+        AurudoSecondaryAchievementType.dailyGoalComplete =>
+          strings.dailyGoalBadge,
+      };
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        spacing: 8,
+        runSpacing: 8,
+        children: [
+          for (final achievement in achievements)
+            AurudoAchievementBadge(
+              achievement: achievement,
+              label: _labelFor(achievement),
+            ),
+        ],
       ),
     );
   }

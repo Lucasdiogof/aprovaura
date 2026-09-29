@@ -8,13 +8,11 @@ import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
-import 'package:aura/features/aurudo_reaction/data/current_aurudo_reaction_ledger.dart';
-import 'package:aura/features/aurudo_reaction/domain/aurudo_reaction_resolver.dart';
-import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_activity_outcome.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_secondary_achievement.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_achievement_badge.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_activity_completion.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_stage.dart';
 import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
 import 'package:aura/features/home/domain/entities/daily_goal.dart';
@@ -91,9 +89,7 @@ class _MultipleChoiceViewState extends State<MultipleChoiceView> {
   // this session*, never because of one that already happened earlier.
   // Null when awardsRewards is false: a session that grants no rewards has
   // nothing to diff.
-  UserXp? _xpBefore;
-  Streak? _streakBefore;
-  DailyGoal? _dailyGoalBefore;
+  AurudoRewardsSnapshot? _before;
   bool _snapshotTaken = false;
 
   @override
@@ -101,21 +97,14 @@ class _MultipleChoiceViewState extends State<MultipleChoiceView> {
     super.didChangeDependencies();
     if (_snapshotTaken || !widget.awardsRewards) return;
     _snapshotTaken = true;
-    if (context.read<XpCubit>().state case XpLoaded(:final xp)) {
-      _xpBefore = xp;
-    }
-    if (context.read<StreakCubit>().state case StreakLoaded(:final streak)) {
-      _streakBefore = streak;
-    }
+    _before = AurudoRewardsSnapshot.fromCubits(context);
     unawaited(_loadDailyGoalBefore());
   }
 
   Future<void> _loadDailyGoalBefore() async {
-    final result = await sl<DailyGoalRepository>().getTodayAnsweredCount();
-    if (!mounted) return;
-    if (result case Success(:final data)) {
-      setState(() => _dailyGoalBefore = DailyGoal(answered: data));
-    }
+    final goal = await AurudoRewardsSnapshot.readDailyGoal();
+    if (!mounted || goal == null) return;
+    setState(() => _before = _before?.withDailyGoal(goal));
   }
 
   @override
@@ -174,9 +163,7 @@ class _MultipleChoiceViewState extends State<MultipleChoiceView> {
                       attemptId: attemptId,
                       awardsRewards: widget.awardsRewards,
                       isCorrectionMode: widget.isCorrectionMode,
-                      xpBefore: _xpBefore,
-                      streakBefore: _streakBefore,
-                      dailyGoalBefore: _dailyGoalBefore,
+                      before: _before,
                     ),
                   MultipleChoicePlaying() => _QuestionView(
                     strings: t,
@@ -390,9 +377,7 @@ class _FinishedView extends StatefulWidget {
     required this.attemptId,
     required this.awardsRewards,
     required this.isCorrectionMode,
-    required this.xpBefore,
-    required this.streakBefore,
-    required this.dailyGoalBefore,
+    required this.before,
     super.key,
   });
 
@@ -402,9 +387,10 @@ class _FinishedView extends StatefulWidget {
   final String attemptId;
   final bool awardsRewards;
   final bool isCorrectionMode;
-  final UserXp? xpBefore;
-  final Streak? streakBefore;
-  final DailyGoal? dailyGoalBefore;
+
+  /// Null when this session grants nothing, so there is no achievement to
+  /// diff for -- see [awardAndResolveReaction].
+  final AurudoRewardsSnapshot? before;
 
   @override
   State<_FinishedView> createState() => _FinishedViewState();
@@ -417,73 +403,22 @@ class _FinishedViewState extends State<_FinishedView> {
   @override
   void initState() {
     super.initState();
-    if (widget.awardsRewards) {
-      _resolveWithRewards();
-    } else {
-      _finishResolving(
-        const AurudoReactionResolver().resolveActivity(
-          AurudoActivityOutcome(
-            correctCount: widget.correctCount,
-            totalAnswered: widget.totalCount,
-          ),
-        ),
-      );
-    }
+    unawaited(_resolve());
   }
 
-  Future<void> _resolveWithRewards() async {
-    final xpCubit = context.read<XpCubit>();
-    final streakCubit = context.read<StreakCubit>();
-    final dailyGoalRepository = sl<DailyGoalRepository>();
-
-    await Future.wait([
-      streakCubit.registerActivityCompletion(),
-      xpCubit.awardQuizXp(
-        attemptId: widget.attemptId,
-        correctCount: widget.correctCount,
-      ),
-    ]);
-    if (!mounted) return;
-
-    UserXp? xpAfter;
-    if (xpCubit.state case XpLoaded(:final xp)) xpAfter = xp;
-    Streak? streakAfter;
-    if (streakCubit.state case StreakLoaded(:final streak)) {
-      streakAfter = streak;
-    }
-    DailyGoal? dailyGoalAfter;
-    final dailyGoalResult = await dailyGoalRepository.getTodayAnsweredCount();
-    if (dailyGoalResult case Success(:final data)) {
-      dailyGoalAfter = DailyGoal(answered: data);
-    }
-    if (!mounted) return;
-
-    _finishResolving(
-      const AurudoReactionResolver().resolveActivity(
-        AurudoActivityOutcome(
-          correctCount: widget.correctCount,
-          totalAnswered: widget.totalCount,
-          xpBefore: widget.xpBefore,
-          xpAfter: xpAfter,
-          streakBefore: widget.streakBefore,
-          streakAfter: streakAfter,
-          dailyGoalBefore: widget.dailyGoalBefore,
-          dailyGoalAfter: dailyGoalAfter,
-        ),
-      ),
+  Future<void> _resolve() async {
+    final reaction = await awardAndResolveReaction(
+      context: context,
+      before: widget.awardsRewards ? widget.before : null,
+      attemptId: widget.attemptId,
+      correctCount: widget.correctCount,
+      totalAnswered: widget.totalCount,
     );
-  }
-
-  void _finishResolving(AurudoReaction reaction) {
-    final ledger = currentAurudoReactionLedger();
-    final alreadyCelebrated =
-        ledger?.hasCelebratedAttempt(widget.attemptId) ?? false;
-    if (!alreadyCelebrated) {
-      ledger?.markAttemptCelebrated(widget.attemptId);
-    }
+    if (!mounted) return;
+    final alreadySeen = markReactionSeen(widget.attemptId);
     setState(() {
       _reaction = reaction;
-      _instant = alreadyCelebrated;
+      _instant = alreadySeen;
     });
   }
 
