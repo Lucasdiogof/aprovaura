@@ -422,22 +422,21 @@ P: A maratona olímpica tem uma distância oficial de aproximadamente:
 - 21 quilômetros
 - 30 quilômetros
 - 42 quilômetros
-E: A maratona tem 42,195 km, distância fixada oficialmente a partir dos Jogos Olímpicos de 1908.
+E: A maratona mede 42,195 km. Essa distância foi usada nos Jogos de Londres, em 1908, e padronizada internacionalmente em 1921.
 --- en
 P: The Olympic marathon covers an official distance of about:
 - 10 kilometres
 - 21 kilometres
 - 30 kilometres
 - 42 kilometres
-E: The marathon is 42.195 km, a distance officially fixed from the 1908 Olympic Games onwards.
+E: The marathon is 42.195 km. That distance was used at the 1908 London Games and standardised internationally in 1921.
 --- es
 P: El maratón olímpico tiene una distancia oficial de aproximadamente:
 - 10 kilómetros
 - 21 kilómetros
 - 30 kilómetros
 - 42 kilómetros
-E: El maratón tiene 42,195 km, distancia fijada oficialmente a partir de los Juegos Olímpicos de 1908.
-
+E: El maratón mide 42,195 km. Esa distancia se usó en los Juegos de Londres de 1908 y se estandarizó internacionalmente en 1921.
 === Esportes individuais > Atletismo c=0 d=medio
 P: Nas provas de revezamento 4x100 m, a passagem do bastão deve ocorrer:
 - Dentro de uma zona demarcada na pista

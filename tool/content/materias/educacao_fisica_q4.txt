@@ -307,27 +307,26 @@ P: En el goalball, modalidad paralímpica, los atletas:
 E: Todos los atletas usan antifaz para igualar las condiciones y localizan el balón por el sonido de los cascabeles, lo que exige silencio del público.
 
 === Esporte, sociedade e mídia > Esporte paralímpico e inclusão c=0 d=medio
-P: A classificação funcional no esporte paralímpico serve para:
-- Agrupar atletas por nível de comprometimento, garantindo disputas equilibradas
+P: A classificação esportiva no movimento paralímpico serve principalmente para:
+- Reduzir o impacto da deficiência elegível sobre o resultado, agrupando atletas por critérios próprios de cada modalidade
 - Definir o país que sediará os Jogos
 - Escolher os técnicos das seleções
 - Determinar o valor das premiações
-E: A classificação funcional reúne atletas com grau semelhante de comprometimento, para que o resultado dependa do treino e não da deficiência.
+E: A classificação busca minimizar o quanto a deficiência elegível pesa no resultado; os critérios mudam conforme o que cada modalidade exige.
 --- en
-P: Functional classification in Paralympic sport serves to:
-- Group athletes by level of impairment, ensuring balanced contests
+P: Classification in the Paralympic movement mainly serves to:
+- Reduce how much eligible impairment affects the result, grouping athletes by criteria specific to each sport
 - Decide which country will host the Games
 - Choose the national team coaches
 - Set the value of prize money
-E: Functional classification groups athletes with a similar degree of impairment, so results depend on training rather than on the impairment.
+E: Classification aims to minimise how much eligible impairment weighs on the result; the criteria change with what each sport demands.
 --- es
-P: La clasificación funcional en el deporte paralímpico sirve para:
-- Agrupar atletas por nivel de compromiso, garantizando disputas equilibradas
+P: La clasificación deportiva en el movimiento paralímpico sirve principalmente para:
+- Reducir el impacto de la discapacidad elegible sobre el resultado, agrupando atletas por criterios propios de cada modalidad
 - Definir el país que será sede de los Juegos
 - Elegir a los entrenadores de las selecciones
 - Determinar el valor de los premios
-E: La clasificación funcional reúne a atletas con grado semejante de compromiso, para que el resultado dependa del entrenamiento y no de la discapacidad.
-
+E: La clasificación busca minimizar cuánto pesa la discapacidad elegible en el resultado; los criterios cambian según lo que exige cada modalidad.
 === Esporte, sociedade e mídia > Esporte paralímpico e inclusão c=1 d=medio
 P: Na Educação Física escolar, a inclusão de alunos com deficiência exige principalmente:
 - Dispensar esses alunos das aulas práticas
@@ -615,27 +614,26 @@ P: El concepto de ocio, en los estudios del área, no se reduce al "tiempo libre
 E: El ocio se entiende como vivencia cultural elegida en el tiempo disponible, lo que lo distingue del simple intervalo entre jornadas.
 
 === Educação Física, lazer e políticas > Lazer, políticas públicas e direito ao esporte c=2 d=dificil
-P: Políticas públicas de esporte e lazer costumam ser classificadas em três dimensões: esporte de rendimento, esporte educacional e:
-- Esporte televisionado
-- Esporte profissional internacional
-- Esporte de participação, voltado ao lazer e à saúde da população
-- Esporte eletrônico
-E: A legislação brasileira distingue rendimento, educacional e participação, este último voltado à prática voluntária com fins de lazer e bem-estar.
+P: Segundo a Lei Geral do Esporte (Lei nº 14.597/2023), a prática esportiva no Brasil é organizada em três níveis:
+- Esporte educacional, esporte de participação e esporte de rendimento
+- Esporte escolar, esporte universitário e esporte profissional
+- Formação esportiva, excelência esportiva e esporte para toda a vida
+- Esporte recreativo, esporte olímpico e esporte paralímpico
+E: A Lei Geral do Esporte organiza a prática esportiva em formação esportiva, excelência esportiva e esporte para toda a vida, substituindo a divisão anterior da Lei Pelé.
 --- en
-P: Public sport and leisure policies are usually classified into three dimensions: high-performance sport, educational sport and:
-- Televised sport
-- International professional sport
-- Participation sport, aimed at the population's leisure and health
-- Electronic sport
-E: Brazilian legislation distinguishes performance, educational and participation sport, the latter aimed at voluntary practice for leisure and wellbeing.
+P: Under Brazil's General Sports Law (Law 14,597/2023), sporting practice is organised into three levels:
+- Educational sport, participation sport and performance sport
+- School sport, university sport and professional sport
+- Sports development, sporting excellence and sport for life
+- Recreational sport, Olympic sport and Paralympic sport
+E: The General Sports Law organises sporting practice into sports development, sporting excellence and sport for life, replacing the earlier division set by the Pelé Law.
 --- es
-P: Las políticas públicas de deporte y ocio suelen clasificarse en tres dimensiones: deporte de rendimiento, deporte educativo y:
-- Deporte televisado
-- Deporte profesional internacional
-- Deporte de participación, orientado al ocio y la salud de la población
-- Deporte electrónico
-E: La legislación brasileña distingue rendimiento, educativo y participación, este último orientado a la práctica voluntaria con fines de ocio y bienestar.
-
+P: Según la Ley General del Deporte (Ley n.º 14.597/2023), la práctica deportiva en Brasil se organiza en tres niveles:
+- Deporte educativo, deporte de participación y deporte de rendimiento
+- Deporte escolar, deporte universitario y deporte profesional
+- Formación deportiva, excelencia deportiva y deporte para toda la vida
+- Deporte recreativo, deporte olímpico y deporte paralímpico
+E: La Ley General del Deporte organiza la práctica deportiva en formación deportiva, excelencia deportiva y deporte para toda la vida, sustituyendo la división anterior de la Ley Pelé.
 === Educação Física, lazer e políticas > Lazer, políticas públicas e direito ao esporte c=3 d=dificil
 P: A ideia de "barreiras ao lazer" ajuda a explicar por que parte da população não usufrui desse direito. São exemplos dessas barreiras:
 - A existência de parques públicos na cidade

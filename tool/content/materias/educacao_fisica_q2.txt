@@ -21,27 +21,26 @@ P: ¿Cuál de estos es un aparato de la gimnasia artística masculina?
 E: Las anillas son uno de los seis aparatos masculinos; la barra de equilibrio es de la gimnasia artística femenina, y la cinta y las mazas son de la gimnasia rítmica.
 
 === Esportes individuais > Ginástica c=3 d=facil
-P: A ginástica rítmica se caracteriza pelo uso de:
+P: A ginástica rítmica se caracteriza, entre outros aspectos, pelo uso de:
 - Apenas o peso do próprio corpo
 - Bicicletas ergométricas
 - Barras paralelas e cavalo com alças
 - Aparelhos manuais como bola, arco, fita, corda e maças
-E: Na ginástica rítmica o atleta combina movimentos corporais com o manejo de cinco aparelhos manuais.
+E: Na ginástica rítmica o atleta combina movimentos corporais com o manejo de aparelhos manuais: arco, bola, maças, fita e corda.
 --- en
-P: Rhythmic gymnastics is characterised by the use of:
+P: Rhythmic gymnastics is characterised, among other things, by the use of:
 - Only the athlete's own body weight
 - Exercise bikes
 - Parallel bars and pommel horse
 - Hand apparatus such as ball, hoop, ribbon, rope and clubs
-E: In rhythmic gymnastics the athlete combines body movements with handling five hand apparatus.
+E: In rhythmic gymnastics the athlete combines body movements with handling hand apparatus: hoop, ball, clubs, ribbon and rope.
 --- es
-P: La gimnasia rítmica se caracteriza por el uso de:
+P: La gimnasia rítmica se caracteriza, entre otros aspectos, por el uso de:
 - Solo el peso del propio cuerpo
 - Bicicletas estáticas
 - Barras paralelas y caballo con arcos
 - Aparatos manuales como pelota, aro, cinta, cuerda y mazas
-E: En la gimnasia rítmica el atleta combina movimientos corporales con el manejo de cinco aparatos manuales.
-
+E: En la gimnasia rítmica el atleta combina movimientos corporales con el manejo de aparatos manuales: aro, pelota, mazas, cinta y cuerda.
 === Esportes individuais > Ginástica c=0 d=medio
 P: A ginástica geral, praticada em escolas e grupos comunitários, difere da ginástica competitiva porque:
 - Não tem caráter competitivo e valoriza a participação coletiva
