@@ -220,23 +220,23 @@ E: Cuando el equipo recupera el saque, todos giran una posición en sentido hora
 
 === Esportes coletivos > Voleibol c=2 d=dificil
 P: A leitura de jogo do levantador no voleibol consiste principalmente em:
-- Escolher o atacante com base na formação do bloqueio adversário
 - Definir quem vai sacar no próximo rodízio
 - Marcar os pontos na súmula da partida
+- Escolher o atacante com base na formação do bloqueio adversário
 - Escolher o uniforme da equipe
 E: O levantador observa como o bloqueio adversário se organiza e distribui a bola para o atacante com a situação mais favorável.
 --- en
 P: A setter's game reading in volleyball consists mainly of:
-- Choosing the attacker based on how the opposing block is set up
 - Deciding who will serve in the next rotation
 - Recording the points on the match sheet
+- Choosing the attacker based on how the opposing block is set up
 - Choosing the team's kit
 E: The setter watches how the opposing block organises itself and feeds the attacker facing the most favourable situation.
 --- es
 P: La lectura de juego del colocador en el voleibol consiste principalmente en:
-- Elegir al atacante según la formación del bloqueo rival
 - Definir quién sacará en la próxima rotación
 - Anotar los puntos en el acta del partido
+- Elegir al atacante según la formación del bloqueo rival
 - Elegir el uniforme del equipo
 E: El colocador observa cómo se organiza el bloqueo rival y distribuye el balón al atacante que está en la situación más favorable.
 

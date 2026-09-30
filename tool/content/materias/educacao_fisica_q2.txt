@@ -220,22 +220,22 @@ E: Sin aumento progresivo de la carga el organismo se adapta al estímulo y la e
 
 === Corpo, movimento e saúde > Capacidades físicas c=0 d=dificil
 P: O princípio da individualidade biológica justifica que:
-- Pessoas com a mesma idade respondem de forma idêntica ao mesmo treino
 - Um mesmo programa de treino produz respostas diferentes em pessoas diferentes
+- Pessoas com a mesma idade respondem de forma idêntica ao mesmo treino
 - Só atletas podem melhorar o condicionamento físico
 - A carga de treino deve ser copiada de atletas profissionais
 E: Fatores genéticos, histórico de treino e condições de saúde fazem com que o mesmo estímulo gere adaptações distintas em cada pessoa.
 --- en
 P: The principle of biological individuality justifies that:
-- People of the same age respond identically to the same training
 - The same training programme produces different responses in different people
+- People of the same age respond identically to the same training
 - Only athletes can improve their fitness
 - Training loads should be copied from professional athletes
 E: Genetics, training history and health conditions mean the same stimulus produces different adaptations in each person.
 --- es
 P: El principio de individualidad biológica justifica que:
-- Las personas de la misma edad responden de forma idéntica al mismo entrenamiento
 - Un mismo programa de entrenamiento produce respuestas diferentes en personas diferentes
+- Las personas de la misma edad responden de forma idéntica al mismo entrenamiento
 - Solo los atletas pueden mejorar su condición física
 - La carga de entrenamiento debe copiarse de los atletas profesionales
 E: La genética, el historial de entrenamiento y las condiciones de salud hacen que el mismo estímulo genere adaptaciones distintas en cada persona.
@@ -484,44 +484,44 @@ E: Beber agua en exceso en pruebas largas puede diluir el sodio de la sangre; po
 
 === Corpo, movimento e saúde > Alimentação, hidratação e atividade física c=0 d=dificil
 P: A janela de recuperação após o exercício intenso refere-se ao período em que:
-- Nenhum alimento deve ser ingerido
 - A reposição de carboidratos e proteínas favorece a recuperação muscular e do glicogênio
+- Nenhum alimento deve ser ingerido
 - O corpo elimina toda a gordura acumulada
 - O treino deve ser repetido imediatamente
 E: Nas horas seguintes ao esforço, a ressíntese de glicogênio e a recuperação do tecido muscular são favorecidas pela ingestão adequada de nutrientes.
 --- en
 P: The recovery window after intense exercise refers to the period in which:
-- No food should be eaten
 - Taking in carbohydrate and protein supports muscle and glycogen recovery
+- No food should be eaten
 - The body burns off all stored fat
 - Training must be repeated immediately
 E: In the hours after effort, glycogen resynthesis and muscle tissue recovery are supported by adequate nutrient intake.
 --- es
 P: La ventana de recuperación tras el ejercicio intenso se refiere al periodo en el que:
-- No debe ingerirse ningún alimento
 - La reposición de carbohidratos y proteínas favorece la recuperación muscular y del glucógeno
+- No debe ingerirse ningún alimento
 - El cuerpo elimina toda la grasa acumulada
 - El entrenamiento debe repetirse de inmediato
 E: En las horas siguientes al esfuerzo, la resíntesis de glucógeno y la recuperación del tejido muscular se ven favorecidas por una ingesta adecuada de nutrientes.
 
 === Corpo, movimento e saúde > Alimentação, hidratação e atividade física c=1 d=dificil
 P: A vigorexia, transtorno associado à imagem corporal, caracteriza-se por:
-- Preocupação excessiva em parecer insuficientemente musculoso, mesmo com corpo desenvolvido
 - Recusa completa de qualquer atividade física
+- Preocupação excessiva em parecer insuficientemente musculoso, mesmo com corpo desenvolvido
 - Perda total de apetite por motivos hormonais
 - Necessidade de dormir mais de doze horas por dia
 E: Na vigorexia a pessoa percebe o próprio corpo como pequeno ou fraco e mantém treinos e dietas extremas, com prejuízo à saúde.
 --- en
 P: Muscle dysmorphia, a body-image disorder, is characterised by:
-- Excessive concern with looking insufficiently muscular, even with a developed body
 - Complete refusal of any physical activity
+- Excessive concern with looking insufficiently muscular, even with a developed body
 - Total loss of appetite for hormonal reasons
 - Needing more than twelve hours of sleep a day
 E: In muscle dysmorphia the person perceives their own body as small or weak and keeps up extreme training and diets, harming their health.
 --- es
 P: La vigorexia, trastorno asociado a la imagen corporal, se caracteriza por:
-- Preocupación excesiva por parecer insuficientemente musculoso, incluso con un cuerpo desarrollado
 - Rechazo completo de cualquier actividad física
+- Preocupación excesiva por parecer insuficientemente musculoso, incluso con un cuerpo desarrollado
 - Pérdida total del apetito por motivos hormonales
 - Necesidad de dormir más de doce horas al día
 E: En la vigorexia la persona percibe su propio cuerpo como pequeño o débil y mantiene entrenamientos y dietas extremas, con perjuicio para su salud.

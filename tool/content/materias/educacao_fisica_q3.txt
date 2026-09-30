@@ -528,22 +528,22 @@ E: En los juegos cooperativos la meta es común y nadie queda excluido, desplaza
 
 === Jogos e brincadeiras populares > Jogos indígenas e de matriz africana c=0 d=facil
 P: Os Jogos dos Povos Indígenas, realizados no Brasil, têm como característica central:
-- A disputa por medalhas entre países
 - A valorização das práticas corporais tradicionais e do encontro entre etnias
+- A disputa por medalhas entre países
 - A exclusão de modalidades tradicionais
 - A participação apenas de atletas profissionais
 E: O evento reúne diferentes etnias em torno de práticas tradicionais, com ênfase no encontro cultural mais do que na classificação.
 --- en
 P: The Indigenous Peoples' Games, held in Brazil, have as their central feature:
-- A dispute for medals between countries
 - Valuing traditional bodily practices and the meeting between ethnic groups
+- A dispute for medals between countries
 - The exclusion of traditional modalities
 - Participation by professional athletes only
 E: The event brings different ethnic groups together around traditional practices, emphasising cultural encounter more than ranking.
 --- es
 P: Los Juegos de los Pueblos Indígenas, realizados en Brasil, tienen como característica central:
-- La disputa por medallas entre países
 - La valoración de las prácticas corporales tradicionales y del encuentro entre etnias
+- La disputa por medallas entre países
 - La exclusión de modalidades tradicionales
 - La participación solo de atletas profesionales
 E: El evento reúne a diferentes etnias en torno a prácticas tradicionales, con énfasis en el encuentro cultural más que en la clasificación.

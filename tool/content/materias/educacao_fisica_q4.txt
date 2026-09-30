@@ -220,22 +220,22 @@ E: Los críticos señalan que estadios costosos pueden convertirse en "elefantes
 
 === Esporte, sociedade e mídia > Megaeventos esportivos c=0 d=dificil
 P: A remoção de comunidades para obras de megaeventos é criticada por especialistas porque:
-- Reduz o número de turistas na cidade
 - Atinge o direito à moradia de populações vulneráveis em nome de um evento temporário
+- Reduz o número de turistas na cidade
 - Impede a construção de arenas modernas
 - Aumenta o custo dos ingressos
 E: Estudos sobre Copas e Olimpíadas registram remoções que deslocam moradores de baixa renda, afetando moradia, trabalho e vínculos comunitários.
 --- en
 P: The removal of communities for mega-event construction is criticised by specialists because:
-- It reduces the number of tourists in the city
 - It affects the housing rights of vulnerable people in the name of a temporary event
+- It reduces the number of tourists in the city
 - It prevents modern arenas from being built
 - It raises ticket prices
 E: Studies of World Cups and Olympics record removals that displace low-income residents, affecting housing, work and community ties.
 --- es
 P: La remoción de comunidades para obras de megaeventos es criticada por los especialistas porque:
-- Reduce el número de turistas en la ciudad
 - Afecta el derecho a la vivienda de poblaciones vulnerables en nombre de un evento temporal
+- Reduce el número de turistas en la ciudad
 - Impide la construcción de arenas modernas
 - Aumenta el costo de las entradas
 E: Estudios sobre Mundiales y Olimpiadas registran remociones que desplazan a residentes de bajos ingresos, afectando vivienda, trabajo y vínculos comunitarios.
@@ -374,24 +374,24 @@ E: El capacitismo reduce a la persona con discapacidad a su limitación o a la n
 
 === Esporte, sociedade e mídia > Esporte paralímpico e inclusão c=3 d=dificil
 P: O futebol de 5, modalidade paralímpica para atletas com deficiência visual, caracteriza-se por:
-- Ser disputado com bola sonora, e o goleiro pode ser vidente
 - Usar duas bolas simultaneamente
 - Permitir que qualquer jogador enxergue normalmente
 - Ser jogado exclusivamente em quadra coberta e sem goleiro
+- Ser disputado com bola sonora, e o goleiro pode ser vidente
 E: No futebol de 5 a bola tem guizos, os jogadores de linha usam venda e o goleiro, vidente, orienta a equipe junto com o chamador.
 --- en
 P: Football 5-a-side, the Paralympic modality for athletes with visual impairment, is characterised by:
-- Being played with a sound ball, with a sighted goalkeeper allowed
 - Using two balls at the same time
 - Allowing any player to see normally
 - Being played only indoors and without a goalkeeper
+- Being played with a sound ball, with a sighted goalkeeper allowed
 E: In football 5-a-side the ball has bells, outfield players wear eyeshades and the goalkeeper, who is sighted, guides the team along with the caller.
 --- es
 P: El fútbol 5, modalidad paralímpica para atletas con discapacidad visual, se caracteriza por:
-- Disputarse con balón sonoro, y el portero puede ser vidente
 - Usar dos balones simultáneamente
 - Permitir que cualquier jugador vea normalmente
 - Jugarse exclusivamente en pista cubierta y sin portero
+- Disputarse con balón sonoro, y el portero puede ser vidente
 E: En el fútbol 5 el balón lleva cascabeles, los jugadores de campo usan antifaz y el portero, vidente, orienta al equipo junto con el llamador.
 
 === Educação Física, lazer e políticas > História da Educação Física no Brasil c=0 d=facil
