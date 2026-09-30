@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:aura/shared/widgets/aura/aurudo_idle.dart';
 
 /// Aurudo, the Aprovaura mascot (the official robot/astronaut), in one of
 /// his official poses -- see lib/assets/mascot/.
@@ -29,9 +30,10 @@ enum AurudoPose {
 }
 
 /// Aurudo at a given size, with a short, subtle entrance (fade + slight
-/// scale, 350ms) that is skipped entirely when the platform asks for
-/// reduced motion. Decorative by default: the text next to him carries the
-/// meaning, so screen readers skip the image.
+/// scale, 350ms) and, after it, the [AurudoIdle] drift that keeps him from
+/// sitting there as a dead sticker. Both are skipped entirely when the
+/// platform asks for reduced motion. Decorative by default: the text next
+/// to him carries the meaning, so screen readers skip the image.
 ///
 /// Use sparingly -- empty states, results, onboarding -- and never while a
 /// question is on screen.
@@ -65,14 +67,17 @@ class AurudoIllustration extends StatelessWidget {
     );
     final reduceMotion = MediaQuery.maybeDisableAnimationsOf(context) ?? false;
     if (!animate || reduceMotion) return image;
-    return TweenAnimationBuilder<double>(
-      tween: Tween(begin: 0, end: 1),
-      duration: _entrance,
-      curve: Curves.easeOutCubic,
-      child: image,
-      builder: (context, t, child) => Opacity(
-        opacity: t,
-        child: Transform.scale(scale: 0.92 + 0.08 * t, child: child),
+    return AurudoIdle(
+      size: size,
+      child: TweenAnimationBuilder<double>(
+        tween: Tween(begin: 0, end: 1),
+        duration: _entrance,
+        curve: Curves.easeOutCubic,
+        child: image,
+        builder: (context, t, child) => Opacity(
+          opacity: t,
+          child: Transform.scale(scale: 0.92 + 0.08 * t, child: child),
+        ),
       ),
     );
   }
