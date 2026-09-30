@@ -114,21 +114,21 @@ P: Na Nova Zelândia, além do inglês, qual língua indígena tem status oficia
 - Espanhol
 - Havaiano
 - Māori
-E: O te reo Māori é língua oficial da Nova Zelândia. Desde agosto de 2026, o inglês também tem esse status expresso em lei, e a Língua de Sinais da Nova Zelândia é igualmente oficial.
+E: O te reo Māori é uma língua indígena oficial da Nova Zelândia. A Língua de Sinais da Nova Zelândia também é oficial; desde 7 de agosto de 2026, o inglês passou a ter reconhecimento legal expresso como língua oficial.
 --- en
 P: In New Zealand, besides English, which Indigenous language has official status?
 - French
 - Spanish
 - Hawaiian
 - Māori
-E: Te reo Māori is an official language of New Zealand. Since August 2026 English has also had that status set out in law, and New Zealand Sign Language is official as well.
+E: Te reo Māori is an Indigenous official language of New Zealand. New Zealand Sign Language is also official; since August 7, 2026, English has had explicit statutory recognition as an official language as well.
 --- es
 P: En Nueva Zelanda, además del inglés, ¿qué lengua indígena tiene estatus oficial?
 - Francés
 - Español
 - Hawaiano
 - Māori
-E: El te reo māori es lengua oficial de Nueva Zelanda. Desde agosto de 2026, el inglés también tiene ese estatus fijado por ley, y la Lengua de Señas de Nueva Zelanda es igualmente oficial.
+E: El te reo Māori es una lengua indígena oficial de Nueva Zelanda. La lengua de señas de Nueva Zelanda también es oficial; desde el 7 de agosto de 2026, el inglés cuenta además con reconocimiento legal expreso como lengua oficial.
 
 === Cultura e linguagem funcional > Linguagem funcional do dia a dia c=0 d=facil
 P: Leia o diálogo: "Excuse me, could you tell me how to get to the train station?" "Sure, go straight and turn left at the bank." O que a primeira pessoa está fazendo?
