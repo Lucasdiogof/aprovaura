@@ -314,9 +314,6 @@ class _QuestionView extends StatelessWidget {
                   const SizedBox(height: 20),
                   QuizFeedback(
                     isCorrect: wasCorrect,
-                    title: wasCorrect
-                        ? strings.correctFeedbackTitle
-                        : strings.incorrectFeedbackTitle,
                     explanation: question.explanation,
                   ),
                 ],

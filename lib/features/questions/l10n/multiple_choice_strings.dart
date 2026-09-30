@@ -13,18 +13,6 @@ class MultipleChoiceStrings {
     AppLanguage.spanish => 'Pregunta $current de $total',
   };
 
-  String get correctFeedbackTitle => switch (language) {
-    AppLanguage.portuguese => 'Muito bem!',
-    AppLanguage.english => 'Well done!',
-    AppLanguage.spanish => '¡Muy bien!',
-  };
-
-  String get incorrectFeedbackTitle => switch (language) {
-    AppLanguage.portuguese => 'Não foi dessa vez',
-    AppLanguage.english => 'Not quite',
-    AppLanguage.spanish => 'No fue esta vez',
-  };
-
   String get nextButton => switch (language) {
     AppLanguage.portuguese => 'Próxima',
     AppLanguage.english => 'Next',

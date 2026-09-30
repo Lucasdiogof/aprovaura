@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:aura/core/theme/app_colors.dart';
 
+/// The card shown under the options once the question is answered.
+///
+/// It carries only the explanation. The icon and the "Muito bem!" /
+/// "Não foi dessa vez" headline were dropped: the answered options already
+/// say, in green and red, whether the person got it right, so the headline
+/// repeated that and pushed the one thing worth reading further down.
+///
+/// The tint stays, since it is what ties the card to the answer above it;
+/// with no explanation to show there is nothing left to render.
 class QuizFeedback extends StatelessWidget {
-  const QuizFeedback({
-    required this.isCorrect,
-    required this.title,
-    super.key,
-    this.explanation,
-  });
+  const QuizFeedback({required this.isCorrect, super.key, this.explanation});
 
   final bool isCorrect;
-  final String title;
   final String? explanation;
 
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    final explanation = this.explanation;
+    if (explanation == null || explanation.trim().isEmpty) {
+      return const SizedBox.shrink();
+    }
     final color = isCorrect ? colors.success : colors.error;
 
     return Container(
@@ -26,53 +33,13 @@ class QuizFeedback extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: color.withValues(alpha: 0.25)),
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 40,
-            height: 40,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.15),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(
-              isCorrect
-                  ? Icons.celebration_rounded
-                  : Icons.info_outline_rounded,
-              color: color,
-              size: 22,
-            ),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    color: color,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 16,
-                  ),
-                ),
-                if (explanation != null) ...[
-                  const SizedBox(height: 4),
-                  Text(
-                    explanation!,
-                    style: TextStyle(
-                      color: colors.textPrimary,
-                      fontSize: 14,
-                      height: 1.4,
-                    ),
-                  ),
-                ],
-              ],
-            ),
-          ),
-        ],
+      child: Text(
+        explanation,
+        style: TextStyle(
+          color: colors.textPrimary,
+          fontSize: 14,
+          height: 1.4,
+        ),
       ),
     );
   }
