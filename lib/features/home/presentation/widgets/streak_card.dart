@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/home/l10n/home_strings.dart';
+import 'package:aura/features/home/presentation/widgets/streak_flame.dart';
 
 class StreakCard extends StatelessWidget {
   const StreakCard({
@@ -38,11 +39,9 @@ class StreakCard extends StatelessWidget {
               color: context.colors.surface,
               shape: BoxShape.circle,
             ),
-            child: const Icon(
-              Icons.local_fire_department,
-              color: Color(0xFFE8763D),
-              size: 22,
-            ),
+            alignment: Alignment.center,
+            // A dead streak gets a still flame: nothing to celebrate yet.
+            child: StreakFlame(alive: streakDays > 0),
           ),
           const SizedBox(width: AppSpacing.md),
           Expanded(
