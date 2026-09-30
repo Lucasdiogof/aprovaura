@@ -466,21 +466,21 @@ P: O termo "uberização" do trabalho descreve:
 - A volta ao trabalho servil do feudalismo
 - A redução da jornada com salário garantido
 - A estatização das empresas de transporte
-E: Na uberização, o trabalhador assume custos e riscos, e a plataforma controla preços e distribuição de tarefas.
+E: Na uberização, a plataforma controla preços e a distribuição de tarefas por algoritmos, e o trabalhador assume custos e riscos. O enquadramento jurídico desse vínculo varia conforme a legislação e as decisões judiciais.
 --- en
 P: The term "Uberization" of work describes:
 - Work relations mediated by digital platforms, with workers lacking formal employment and with fewer rights
 - A return to feudal servile labor
 - Shorter hours with guaranteed pay
 - The nationalization of transport companies
-E: In Uberization, the worker bears costs and risks, while the platform controls prices and task distribution.
+E: In Uberization, the platform controls prices and task distribution through algorithms, while the worker bears costs and risks. The legal classification of this relationship varies with legislation and court rulings.
 --- es
 P: El término "uberización" del trabajo describe:
 - Relaciones de trabajo mediadas por plataformas digitales, con trabajadores sin vínculo laboral y con menos derechos
 - La vuelta al trabajo servil del feudalismo
 - La reducción de la jornada con salario garantizado
 - La estatización de las empresas de transporte
-E: En la uberización, el trabajador asume costos y riesgos, y la plataforma controla precios y reparto de tareas.
+E: En la uberización, la plataforma controla precios y el reparto de tareas mediante algoritmos, y el trabajador asume costos y riesgos. El encuadre jurídico de ese vínculo varía según la legislación y las decisiones judiciales.
 
 === Trabalho e sociedade > Trabalho e modos de produção c=3 d=dificil
 P: O "exército industrial de reserva", conceito de Marx, refere-se:

@@ -158,21 +158,21 @@ P: No Brasil, as cotas raciais em universidades públicas são um exemplo de:
 - Censura
 - Privatização do ensino
 - Ação afirmativa
-E: Ações afirmativas buscam reduzir desigualdades históricas, ampliando o acesso de grupos discriminados.
+E: Ações afirmativas buscam reduzir desigualdades históricas, ampliando o acesso de grupos discriminados. No ensino federal, a base é a Lei de Cotas (Lei 12.711/2012), atualizada pela Lei 14.723/2023.
 --- en
 P: In Brazil, racial quotas at public universities are an example of:
 - Exclusion policy
 - Censorship
 - Privatization of education
 - Affirmative action
-E: Affirmative actions seek to reduce historical inequalities by widening access for groups that face discrimination.
+E: Affirmative actions seek to reduce historical inequalities by widening access for groups that face discrimination. In Brazil's federal education system, the legal basis is the Quota Law (Law 12,711/2012), updated by Law 14,723/2023.
 --- es
 P: En Brasil, las cuotas raciales en universidades públicas son un ejemplo de:
 - Política de exclusión
 - Censura
 - Privatización de la enseñanza
 - Acción afirmativa
-E: Las acciones afirmativas buscan reducir desigualdades históricas, ampliando el acceso de grupos discriminados.
+E: Las acciones afirmativas buscan reducir desigualdades históricas, ampliando el acceso de grupos discriminados. En la enseñanza federal brasileña, la base es la Ley de Cuotas (Ley 12.711/2012), actualizada por la Ley 14.723/2023.
 
 === Desigualdades sociais > Desigualdade racial c=2 d=medio
 P: O "mito da democracia racial" no Brasil é a ideia de que:

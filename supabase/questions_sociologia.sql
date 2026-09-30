@@ -1,7 +1,8 @@
 -- New questions for sociologia: 120 questions, each already
 -- with its en/es translation (240 translation rows).
 --
--- ids are deterministic (uuid5 of the pt-BR prompt), so running this twice
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
 -- inserts nothing new: questions use on conflict do nothing, translations
 -- on conflict do update. The translation join refuses any row whose option
 -- count differs from the original (correct_index is positional).
@@ -216,7 +217,7 @@ from (values
   ('5c5c2a48-da77-5b2b-977c-cfdc6c5d5f08', '3fc29b35-d45e-5054-bea8-ca78cc04fd68',
    'O termo "uberização" do trabalho descreve:',
    array['Relações de trabalho mediadas por plataformas digitais, com trabalhadores sem vínculo empregatício e direitos reduzidos', 'A volta ao trabalho servil do feudalismo', 'A redução da jornada com salário garantido', 'A estatização das empresas de transporte'], 0,
-   'Na uberização, o trabalhador assume custos e riscos, e a plataforma controla preços e distribuição de tarefas.', 151, 'medio'),
+   'Na uberização, a plataforma controla preços e a distribuição de tarefas por algoritmos, e o trabalhador assume custos e riscos. O enquadramento jurídico desse vínculo varia conforme a legislação e as decisões judiciais.', 151, 'medio'),
   ('dc61f551-d476-5b88-bd7f-3e8938f133d1', '3fc29b35-d45e-5054-bea8-ca78cc04fd68',
    'O "exército industrial de reserva", conceito de Marx, refere-se:',
    array['Às tropas militares que protegem as fábricas', 'Aos trabalhadores com os salários mais altos', 'Aos aposentados da indústria', 'Ao contingente de desempregados que pressiona os salários para baixo'], 3,
@@ -280,7 +281,7 @@ from (values
   ('57464758-cf9a-543c-9d8d-bbb7fdd86644', '212fb8f1-cbfb-5238-bdf1-d3b58a0a6275',
    'No Brasil, as cotas raciais em universidades públicas são um exemplo de:',
    array['Política de exclusão', 'Censura', 'Privatização do ensino', 'Ação afirmativa'], 3,
-   'Ações afirmativas buscam reduzir desigualdades históricas, ampliando o acesso de grupos discriminados.', 167, 'facil'),
+   'Ações afirmativas buscam reduzir desigualdades históricas, ampliando o acesso de grupos discriminados. No ensino federal, a base é a Lei de Cotas (Lei 12.711/2012), atualizada pela Lei 14.723/2023.', 167, 'facil'),
   ('7746aacb-5fa5-528e-99a3-7623e250a5d6', '212fb8f1-cbfb-5238-bdf1-d3b58a0a6275',
    'O "mito da democracia racial" no Brasil é a ideia de que:',
    array['O país sempre teve leis racistas explícitas', 'Os brasileiros nunca se misturaram', 'A miscigenação teria produzido uma convivência harmoniosa, sem racismo, o que esconde desigualdades reais', 'A escravidão nunca existiu no país'], 2,
@@ -907,11 +908,11 @@ from (values
   ('5c5c2a48-da77-5b2b-977c-cfdc6c5d5f08', 'en',
    'The term "Uberization" of work describes:',
    array['Work relations mediated by digital platforms, with workers lacking formal employment and with fewer rights', 'A return to feudal servile labor', 'Shorter hours with guaranteed pay', 'The nationalization of transport companies'],
-   'In Uberization, the worker bears costs and risks, while the platform controls prices and task distribution.'),
+   'In Uberization, the platform controls prices and task distribution through algorithms, while the worker bears costs and risks. The legal classification of this relationship varies with legislation and court rulings.'),
   ('5c5c2a48-da77-5b2b-977c-cfdc6c5d5f08', 'es',
    'El término "uberización" del trabajo describe:',
    array['Relaciones de trabajo mediadas por plataformas digitales, con trabajadores sin vínculo laboral y con menos derechos', 'La vuelta al trabajo servil del feudalismo', 'La reducción de la jornada con salario garantizado', 'La estatización de las empresas de transporte'],
-   'En la uberización, el trabajador asume costos y riesgos, y la plataforma controla precios y reparto de tareas.'),
+   'En la uberización, la plataforma controla precios y el reparto de tareas mediante algoritmos, y el trabajador asume costos y riesgos. El encuadre jurídico de ese vínculo varía según la legislación y las decisiones judiciales.'),
   ('dc61f551-d476-5b88-bd7f-3e8938f133d1', 'en',
    'The "industrial reserve army", a concept by Marx, refers:',
    array['To the military troops that protect factories', 'To the workers with the highest wages', 'To retired industrial workers', 'To the pool of unemployed people that pushes wages down'],
@@ -1035,11 +1036,11 @@ from (values
   ('57464758-cf9a-543c-9d8d-bbb7fdd86644', 'en',
    'In Brazil, racial quotas at public universities are an example of:',
    array['Exclusion policy', 'Censorship', 'Privatization of education', 'Affirmative action'],
-   'Affirmative actions seek to reduce historical inequalities by widening access for groups that face discrimination.'),
+   'Affirmative actions seek to reduce historical inequalities by widening access for groups that face discrimination. In Brazil''s federal education system, the legal basis is the Quota Law (Law 12,711/2012), updated by Law 14,723/2023.'),
   ('57464758-cf9a-543c-9d8d-bbb7fdd86644', 'es',
    'En Brasil, las cuotas raciales en universidades públicas son un ejemplo de:',
    array['Política de exclusión', 'Censura', 'Privatización de la enseñanza', 'Acción afirmativa'],
-   'Las acciones afirmativas buscan reducir desigualdades históricas, ampliando el acceso de grupos discriminados.'),
+   'Las acciones afirmativas buscan reducir desigualdades históricas, ampliando el acceso de grupos discriminados. En la enseñanza federal brasileña, la base es la Ley de Cuotas (Ley 12.711/2012), actualizada por la Ley 14.723/2023.'),
   ('7746aacb-5fa5-528e-99a3-7623e250a5d6', 'en',
    'The "myth of racial democracy" in Brazil is the idea that:',
    array['The country always had explicit racist laws', 'Brazilians never mixed', 'Racial mixing would have produced harmonious coexistence without racism, which hides real inequalities', 'Slavery never existed in the country'],
