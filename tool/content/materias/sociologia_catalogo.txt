@@ -1,0 +1,91 @@
+== Introdução à sociologia | O surgimento da sociologia e o olhar sociológico | 🔎
+en: Introduction to sociology | The rise of sociology and the sociological perspective
+es: Introducción a la sociología | El surgimiento de la sociología y la mirada sociológica
+-- Surgimento da sociologia
+en: The rise of sociology
+es: Surgimiento de la sociología
+-- Senso comum e imaginação sociológica
+en: Common sense and the sociological imagination
+es: Sentido común e imaginación sociológica
+
+== Clássicos da sociologia | Durkheim, Weber e Marx | 📚
+en: Classical sociology | Durkheim, Weber and Marx
+es: Clásicos de la sociología | Durkheim, Weber y Marx
+-- Émile Durkheim
+en: Émile Durkheim
+es: Émile Durkheim
+-- Max Weber
+en: Max Weber
+es: Max Weber
+-- Karl Marx
+en: Karl Marx
+es: Karl Marx
+
+== Cultura e sociedade | Cultura, socialização, instituições e mídia | 🎭
+en: Culture and society | Culture, socialization, institutions and media
+es: Cultura y sociedad | Cultura, socialización, instituciones y medios
+-- Cultura e etnocentrismo
+en: Culture and ethnocentrism
+es: Cultura y etnocentrismo
+-- Socialização e instituições
+en: Socialization and institutions
+es: Socialización e instituciones
+-- Indústria cultural e mídia
+en: Culture industry and media
+es: Industria cultural y medios
+
+== Trabalho e sociedade | Trabalho, produção e transformações do mundo do trabalho | 🏭
+en: Work and society | Work, production and changes in the world of work
+es: Trabajo y sociedad | Trabajo, producción y transformaciones del mundo laboral
+-- Trabalho e modos de produção
+en: Work and modes of production
+es: Trabajo y modos de producción
+-- Taylorismo, fordismo e toyotismo
+en: Taylorism, Fordism and Toyotism
+es: Taylorismo, fordismo y toyotismo
+
+== Desigualdades sociais | Classes, raça e gênero | 📊
+en: Social inequalities | Class, race and gender
+es: Desigualdades sociales | Clases, raza y género
+-- Classes e estratificação
+en: Class and stratification
+es: Clases y estratificación
+-- Desigualdade racial
+en: Racial inequality
+es: Desigualdad racial
+-- Gênero e desigualdade
+en: Gender and inequality
+es: Género y desigualdad
+
+== Poder, Estado e política | Estado, poder e democracia | 🗳️
+en: Power, the State and politics | The State, power and democracy
+es: Poder, Estado y política | Estado, poder y democracia
+-- Estado e poder
+en: The State and power
+es: Estado y poder
+-- Democracia e participação
+en: Democracy and participation
+es: Democracia y participación
+
+== Cidadania e movimentos sociais | Direitos, cidadania e ação coletiva | ✊
+en: Citizenship and social movements | Rights, citizenship and collective action
+es: Ciudadanía y movimientos sociales | Derechos, ciudadanía y acción colectiva
+-- Cidadania e direitos
+en: Citizenship and rights
+es: Ciudadanía y derechos
+-- Movimentos sociais
+en: Social movements
+es: Movimientos sociales
+
+== Sociedade contemporânea | Globalização, consumo e pensamento social brasileiro | 🌐
+en: Contemporary society | Globalization, consumption and Brazilian social thought
+es: Sociedad contemporánea | Globalización, consumo y pensamiento social brasileño
+-- Globalização
+en: Globalization
+es: Globalización
+-- Consumo e sociedade em rede
+en: Consumption and the network society
+es: Consumo y sociedad red
+-- Pensamento social brasileiro
+en: Brazilian social thought
+es: Pensamiento social brasileño

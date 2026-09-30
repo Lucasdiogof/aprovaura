@@ -1,0 +1,659 @@
+=== Introdução à sociologia > Surgimento da sociologia c=1 d=facil
+P: A sociologia surgiu como ciência no século XIX, num contexto marcado principalmente:
+- Pelo fim do Império Romano
+- Pelas transformações da Revolução Industrial e da Revolução Francesa
+- Pela descoberta da América
+- Pela Guerra Fria
+E: A industrialização, a urbanização e as mudanças políticas geraram problemas sociais novos que pediam explicação científica.
+--- en
+P: Sociology emerged as a science in the 19th century, in a context marked mainly:
+- By the end of the Roman Empire
+- By the changes of the Industrial Revolution and the French Revolution
+- By the discovery of America
+- By the Cold War
+E: Industrialization, urbanization and political change created new social problems that called for scientific explanation.
+--- es
+P: La sociología surgió como ciencia en el siglo XIX, en un contexto marcado principalmente:
+- Por el fin del Imperio romano
+- Por las transformaciones de la Revolución Industrial y de la Revolución Francesa
+- Por el descubrimiento de América
+- Por la Guerra Fría
+E: La industrialización, la urbanización y los cambios políticos generaron nuevos problemas sociales que pedían una explicación científica.
+
+=== Introdução à sociologia > Surgimento da sociologia c=3 d=facil
+P: O termo "sociologia" foi criado por:
+- Karl Marx
+- Max Weber
+- Émile Durkheim
+- Auguste Comte
+E: Auguste Comte cunhou o termo e propôs estudar a sociedade com os métodos das ciências naturais (positivismo).
+--- en
+P: The term "sociology" was coined by:
+- Karl Marx
+- Max Weber
+- Émile Durkheim
+- Auguste Comte
+E: Auguste Comte coined the term and proposed studying society with the methods of the natural sciences (positivism).
+--- es
+P: El término "sociología" fue creado por:
+- Karl Marx
+- Max Weber
+- Émile Durkheim
+- Auguste Comte
+E: Auguste Comte acuñó el término y propuso estudiar la sociedad con los métodos de las ciencias naturales (positivismo).
+
+=== Introdução à sociologia > Surgimento da sociologia c=0 d=medio
+P: O positivismo de Auguste Comte defendia que a sociedade deveria ser estudada:
+- Com métodos científicos de observação, como os das ciências naturais
+- Apenas por meio da fé religiosa
+- Somente pela intuição dos artistas
+- Sem nenhuma preocupação com fatos observáveis
+E: Comte via na ciência positiva o estágio mais avançado do conhecimento; o lema "Ordem e Progresso" da bandeira brasileira vem do positivismo.
+--- en
+P: Auguste Comte's positivism argued that society should be studied:
+- With scientific methods of observation, like those of the natural sciences
+- Only through religious faith
+- Only through artists' intuition
+- With no concern for observable facts
+E: Comte saw positive science as the most advanced stage of knowledge; the Brazilian flag's motto "Order and Progress" comes from positivism.
+--- es
+P: El positivismo de Auguste Comte defendía que la sociedad debía estudiarse:
+- Con métodos científicos de observación, como los de las ciencias naturales
+- Solo mediante la fe religiosa
+- Únicamente por la intuición de los artistas
+- Sin ninguna preocupación por los hechos observables
+E: Comte veía en la ciencia positiva el estadio más avanzado del conocimiento; el lema "Orden y Progreso" de la bandera brasileña viene del positivismo.
+
+=== Introdução à sociologia > Surgimento da sociologia c=2 d=medio
+P: A "lei dos três estados", de Comte, descreve a evolução do pensamento humano nesta ordem:
+- Científico, teológico e metafísico
+- Metafísico, científico e teológico
+- Teológico, metafísico e positivo (científico)
+- Positivo, teológico e metafísico
+E: Para Comte, a humanidade passa das explicações pelos deuses às abstrações metafísicas e, por fim, à ciência.
+--- en
+P: Comte's "law of three stages" describes the development of human thought in this order:
+- Scientific, theological and metaphysical
+- Metaphysical, scientific and theological
+- Theological, metaphysical and positive (scientific)
+- Positive, theological and metaphysical
+E: For Comte, humanity moves from explanations by gods to metaphysical abstractions and, finally, to science.
+--- es
+P: La "ley de los tres estadios", de Comte, describe la evolución del pensamiento humano en este orden:
+- Científico, teológico y metafísico
+- Metafísico, científico y teológico
+- Teológico, metafísico y positivo (científico)
+- Positivo, teológico y metafísico
+E: Para Comte, la humanidad pasa de las explicaciones por los dioses a las abstracciones metafísicas y, por último, a la ciencia.
+
+=== Introdução à sociologia > Surgimento da sociologia c=1 d=dificil
+P: Um fator que tornou necessária uma "ciência da sociedade" no século XIX foi:
+- A estabilidade total das comunidades rurais
+- A chamada "questão social": pobreza urbana, condições de trabalho e conflitos de classe
+- O fim de todas as desigualdades
+- A volta ao modo de produção feudal
+E: As cidades industriais concentraram miséria e conflitos que desafiavam a ordem tradicional e exigiam novas explicações.
+--- en
+P: A factor that made a "science of society" necessary in the 19th century was:
+- The total stability of rural communities
+- The so-called "social question": urban poverty, working conditions and class conflict
+- The end of all inequalities
+- The return to the feudal mode of production
+E: Industrial cities concentrated poverty and conflict that challenged the traditional order and demanded new explanations.
+--- es
+P: Un factor que hizo necesaria una "ciencia de la sociedad" en el siglo XIX fue:
+- La estabilidad total de las comunidades rurales
+- La llamada "cuestión social": pobreza urbana, condiciones de trabajo y conflictos de clase
+- El fin de todas las desigualdades
+- El regreso al modo de producción feudal
+E: Las ciudades industriales concentraron miseria y conflictos que desafiaban el orden tradicional y exigían nuevas explicaciones.
+
+=== Introdução à sociologia > Surgimento da sociologia c=3 d=dificil
+P: As ciências sociais, tal como organizadas hoje no ensino, reúnem principalmente:
+- Física, química e biologia
+- Matemática, estatística e lógica
+- História, geografia e filosofia
+- Sociologia, antropologia e ciência política
+E: As três disciplinas estudam, com focos diferentes, a sociedade, a cultura e o poder.
+--- en
+P: The social sciences, as organized in teaching today, mainly bring together:
+- Physics, chemistry and biology
+- Mathematics, statistics and logic
+- History, geography and philosophy
+- Sociology, anthropology and political science
+E: The three disciplines study, with different focuses, society, culture and power.
+--- es
+P: Las ciencias sociales, tal como se organizan hoy en la enseñanza, reúnen principalmente:
+- Física, química y biología
+- Matemáticas, estadística y lógica
+- Historia, geografía y filosofía
+- Sociología, antropología y ciencia política
+E: Las tres disciplinas estudian, con enfoques distintos, la sociedad, la cultura y el poder.
+
+=== Introdução à sociologia > Senso comum e imaginação sociológica c=0 d=facil
+P: Olhar sociologicamente para um fato do dia a dia significa:
+- Relacioná-lo a estruturas e processos sociais mais amplos
+- Explicá-lo apenas pela vontade individual
+- Aceitá-lo como natural e imutável
+- Julgá-lo sempre de forma negativa
+E: A sociologia desnaturaliza o cotidiano, mostrando como fatores sociais influenciam escolhas e comportamentos.
+--- en
+P: Looking sociologically at an everyday fact means:
+- Relating it to broader social structures and processes
+- Explaining it only by individual will
+- Accepting it as natural and unchangeable
+- Always judging it negatively
+E: Sociology denaturalizes daily life, showing how social factors shape choices and behavior.
+--- es
+P: Mirar sociológicamente un hecho cotidiano significa:
+- Relacionarlo con estructuras y procesos sociales más amplios
+- Explicarlo solo por la voluntad individual
+- Aceptarlo como natural e inmutable
+- Juzgarlo siempre de forma negativa
+E: La sociología desnaturaliza lo cotidiano, mostrando cómo los factores sociales influyen en las elecciones y comportamientos.
+
+=== Introdução à sociologia > Senso comum e imaginação sociológica c=2 d=facil
+P: "Desnaturalizar" um fenômeno social, como a desigualdade, significa:
+- Mostrar que ele é fruto da biologia
+- Ignorar sua existência
+- Mostrar que ele foi construído historicamente e pode mudar
+- Afirmar que sempre existiu da mesma forma
+E: O que parece "natural" costuma ser resultado de processos históricos e relações sociais.
+--- en
+P: To "denaturalize" a social phenomenon, such as inequality, means:
+- Showing that it comes from biology
+- Ignoring that it exists
+- Showing that it was built historically and can change
+- Claiming that it has always existed in the same form
+E: What seems "natural" is usually the result of historical processes and social relations.
+--- es
+P: "Desnaturalizar" un fenómeno social, como la desigualdad, significa:
+- Mostrar que es fruto de la biología
+- Ignorar su existencia
+- Mostrar que fue construido históricamente y puede cambiar
+- Afirmar que siempre existió de la misma forma
+E: Lo que parece "natural" suele ser el resultado de procesos históricos y relaciones sociales.
+
+=== Introdução à sociologia > Senso comum e imaginação sociológica c=3 d=medio
+P: O conceito de "imaginação sociológica", de C. Wright Mills, é a capacidade de:
+- Inventar histórias sobre a sociedade
+- Prever o futuro com exatidão
+- Julgar moralmente as pessoas
+- Relacionar problemas pessoais a questões públicas e à estrutura social
+E: Mills mostra que o desemprego de uma pessoa, por exemplo, liga-se à economia e à história da sociedade.
+--- en
+P: C. Wright Mills' concept of the "sociological imagination" is the ability to:
+- Invent stories about society
+- Predict the future accurately
+- Judge people morally
+- Connect personal troubles to public issues and social structure
+E: Mills shows that one person's unemployment, for example, is linked to the economy and history of society.
+--- es
+P: El concepto de "imaginación sociológica", de C. Wright Mills, es la capacidad de:
+- Inventar historias sobre la sociedad
+- Predecir el futuro con exactitud
+- Juzgar moralmente a las personas
+- Relacionar los problemas personales con cuestiones públicas y con la estructura social
+E: Mills muestra que el desempleo de una persona, por ejemplo, está ligado a la economía y la historia de la sociedad.
+
+=== Introdução à sociologia > Senso comum e imaginação sociológica c=1 d=medio
+P: Uma diferença entre o conhecimento sociológico e o senso comum é que a sociologia:
+- Aceita as explicações tradicionais sem questionar
+- Usa conceitos, métodos e dados para testar explicações
+- Baseia-se apenas em experiências pessoais
+- Evita qualquer generalização
+E: A sociologia sistematiza a observação com teorias e pesquisa, enquanto o senso comum generaliza a partir da experiência imediata.
+--- en
+P: One difference between sociological knowledge and common sense is that sociology:
+- Accepts traditional explanations without question
+- Uses concepts, methods and data to test explanations
+- Relies only on personal experiences
+- Avoids any generalization
+E: Sociology systematizes observation with theory and research, while common sense generalizes from immediate experience.
+--- es
+P: Una diferencia entre el conocimiento sociológico y el sentido común es que la sociología:
+- Acepta las explicaciones tradicionales sin cuestionarlas
+- Usa conceptos, métodos y datos para poner a prueba las explicaciones
+- Se basa solo en experiencias personales
+- Evita cualquier generalización
+E: La sociología sistematiza la observación con teoría e investigación, mientras que el sentido común generaliza a partir de la experiencia inmediata.
+
+=== Introdução à sociologia > Senso comum e imaginação sociológica c=0 d=dificil
+P: Ao estudar a sociedade de que faz parte, o sociólogo enfrenta o desafio do "estranhamento", que consiste em:
+- Tomar distância do familiar para enxergá-lo como algo a ser explicado
+- Evitar qualquer contato com as pessoas pesquisadas
+- Estudar apenas sociedades estrangeiras
+- Rejeitar toda teoria prévia
+E: Estranhar o familiar permite questionar o que parece óbvio no próprio cotidiano.
+--- en
+P: When studying the society they belong to, the sociologist faces the challenge of "estrangement", which consists in:
+- Stepping back from the familiar to see it as something to be explained
+- Avoiding any contact with the people studied
+- Studying only foreign societies
+- Rejecting all prior theory
+E: Making the familiar strange makes it possible to question what seems obvious in one's own daily life.
+--- es
+P: Al estudiar la sociedad de la que forma parte, el sociólogo enfrenta el desafío del "extrañamiento", que consiste en:
+- Tomar distancia de lo familiar para verlo como algo que debe explicarse
+- Evitar cualquier contacto con las personas investigadas
+- Estudiar solo sociedades extranjeras
+- Rechazar toda teoría previa
+E: Extrañar lo familiar permite cuestionar lo que parece obvio en la propia vida cotidiana.
+
+=== Introdução à sociologia > Senso comum e imaginação sociológica c=2 d=dificil
+P: Numa pesquisa sociológica, os métodos quantitativos se caracterizam por:
+- Entrevistas longas e abertas com poucas pessoas
+- Observação participante sem registros numéricos
+- Uso de questionários e dados estatísticos com muitos casos
+- Análise apenas de obras de arte
+E: Métodos quantitativos medem e comparam frequências; os qualitativos aprofundam sentidos e experiências.
+--- en
+P: In sociological research, quantitative methods are characterized by:
+- Long, open interviews with a few people
+- Participant observation without numerical records
+- Use of questionnaires and statistical data with many cases
+- Analysis of works of art only
+E: Quantitative methods measure and compare frequencies; qualitative methods explore meanings and experiences in depth.
+--- es
+P: En una investigación sociológica, los métodos cuantitativos se caracterizan por:
+- Entrevistas largas y abiertas con pocas personas
+- Observación participante sin registros numéricos
+- Uso de cuestionarios y datos estadísticos con muchos casos
+- Análisis solo de obras de arte
+E: Los métodos cuantitativos miden y comparan frecuencias; los cualitativos profundizan en sentidos y experiencias.
+
+=== Clássicos da sociologia > Émile Durkheim c=3 d=facil
+P: Para Émile Durkheim, o objeto de estudo da sociologia são os:
+- Sentimentos individuais
+- Sonhos e desejos
+- Modos de produção
+- Fatos sociais
+E: Fatos sociais são maneiras de agir, pensar e sentir exteriores ao indivíduo e que exercem coerção sobre ele.
+--- en
+P: For Émile Durkheim, the object of study of sociology is:
+- Individual feelings
+- Dreams and desires
+- Modes of production
+- Social facts
+E: Social facts are ways of acting, thinking and feeling that are external to the individual and exert coercion on them.
+--- es
+P: Para Émile Durkheim, el objeto de estudio de la sociología son los:
+- Sentimientos individuales
+- Sueños y deseos
+- Modos de producción
+- Hechos sociales
+E: Los hechos sociales son maneras de actuar, pensar y sentir exteriores al individuo y que ejercen coerción sobre él.
+
+=== Clássicos da sociologia > Émile Durkheim c=1 d=facil
+P: As três características do fato social, segundo Durkheim, são:
+- Individualidade, liberdade e espontaneidade
+- Exterioridade, coercitividade e generalidade
+- Racionalidade, eficiência e burocracia
+- Conflito, luta e revolução
+E: O fato social existe fora do indivíduo, impõe-se a ele e é comum ao grupo.
+--- en
+P: The three features of the social fact, according to Durkheim, are:
+- Individuality, freedom and spontaneity
+- Externality, coerciveness and generality
+- Rationality, efficiency and bureaucracy
+- Conflict, struggle and revolution
+E: The social fact exists outside the individual, imposes itself on them and is common to the group.
+--- es
+P: Las tres características del hecho social, según Durkheim, son:
+- Individualidad, libertad y espontaneidad
+- Exterioridad, coercitividad y generalidad
+- Racionalidad, eficiencia y burocracia
+- Conflicto, lucha y revolución
+E: El hecho social existe fuera del individuo, se le impone y es común al grupo.
+
+=== Clássicos da sociologia > Émile Durkheim c=0 d=medio
+P: Durkheim distingue dois tipos de solidariedade. A solidariedade orgânica, típica das sociedades modernas, baseia-se:
+- Na divisão do trabalho e na interdependência entre funções diferentes
+- Na semelhança entre todos os membros
+- Na força militar do Estado
+- Na ausência de regras sociais
+E: Nas sociedades complexas, as pessoas se unem por dependerem umas das outras; nas simples, a solidariedade mecânica vem da semelhança.
+--- en
+P: Durkheim distinguishes two types of solidarity. Organic solidarity, typical of modern societies, is based:
+- On the division of labor and interdependence between different functions
+- On similarity among all members
+- On the military force of the State
+- On the absence of social rules
+E: In complex societies, people are bound by depending on one another; in simple ones, mechanical solidarity comes from similarity.
+--- es
+P: Durkheim distingue dos tipos de solidaridad. La solidaridad orgánica, típica de las sociedades modernas, se basa:
+- En la división del trabajo y la interdependencia entre funciones diferentes
+- En la semejanza entre todos los miembros
+- En la fuerza militar del Estado
+- En la ausencia de reglas sociales
+E: En las sociedades complejas, las personas se unen porque dependen unas de otras; en las simples, la solidaridad mecánica proviene de la semejanza.
+
+=== Clássicos da sociologia > Émile Durkheim c=2 d=medio
+P: Para Durkheim, a anomia é uma situação em que:
+- O Estado controla todos os aspectos da vida
+- Todos seguem rigorosamente as mesmas regras
+- As normas sociais se enfraquecem e deixam de orientar os indivíduos
+- A religião domina a política
+E: A anomia é a ausência ou o enfraquecimento das regras, comum em períodos de mudança rápida.
+--- en
+P: For Durkheim, anomie is a situation in which:
+- The State controls every aspect of life
+- Everyone strictly follows the same rules
+- Social norms weaken and stop guiding individuals
+- Religion dominates politics
+E: Anomie is the absence or weakening of rules, common in periods of rapid change.
+--- es
+P: Para Durkheim, la anomia es una situación en la que:
+- El Estado controla todos los aspectos de la vida
+- Todos siguen rigurosamente las mismas reglas
+- Las normas sociales se debilitan y dejan de orientar a los individuos
+- La religión domina la política
+E: La anomia es la ausencia o el debilitamiento de las reglas, común en periodos de cambio rápido.
+
+=== Clássicos da sociologia > Émile Durkheim c=1 d=dificil
+P: Em O Suicídio, Durkheim mostrou que as taxas de suicídio:
+- Dependem apenas de fatores psicológicos individuais
+- Variam conforme o grau de integração e regulação dos grupos sociais
+- São iguais em todas as sociedades e épocas
+- Não podem ser estudadas cientificamente
+E: Ao comparar dados de grupos, Durkheim mostrou que até um ato íntimo tem causas sociais.
+--- en
+P: In Suicide, Durkheim showed that suicide rates:
+- Depend only on individual psychological factors
+- Vary according to the degree of integration and regulation of social groups
+- Are the same in all societies and periods
+- Cannot be studied scientifically
+E: By comparing group data, Durkheim showed that even an intimate act has social causes.
+--- es
+P: En El suicidio, Durkheim mostró que las tasas de suicidio:
+- Dependen solo de factores psicológicos individuales
+- Varían según el grado de integración y regulación de los grupos sociales
+- Son iguales en todas las sociedades y épocas
+- No pueden estudiarse científicamente
+E: Al comparar datos de grupos, Durkheim mostró que incluso un acto íntimo tiene causas sociales.
+
+=== Clássicos da sociologia > Émile Durkheim c=3 d=dificil
+P: Para Durkheim, o fato social deve ser tratado "como coisa", o que significa:
+- Que as pessoas são objetos sem vontade
+- Que só as coisas materiais interessam à sociologia
+- Que a sociedade não existe de fato
+- Estudá-lo de forma objetiva, com distanciamento das pré-noções do pesquisador
+E: A regra metodológica pede objetividade: observar os fatos sociais de fora, como se observam as coisas da natureza.
+--- en
+P: For Durkheim, the social fact must be treated "as a thing", which means:
+- That people are objects without will
+- That only material things matter to sociology
+- That society does not really exist
+- Studying it objectively, at a distance from the researcher's preconceptions
+E: The methodological rule demands objectivity: observing social facts from outside, as one observes things in nature.
+--- es
+P: Para Durkheim, el hecho social debe tratarse "como cosa", lo que significa:
+- Que las personas son objetos sin voluntad
+- Que solo las cosas materiales interesan a la sociología
+- Que la sociedad no existe realmente
+- Estudiarlo de forma objetiva, con distancia de las prenociones del investigador
+E: La regla metodológica pide objetividad: observar los hechos sociales desde fuera, como se observan las cosas de la naturaleza.
+
+=== Clássicos da sociologia > Max Weber c=2 d=facil
+P: Para Max Weber, a sociologia deve compreender a:
+- Luta de classes
+- Coerção dos fatos sociais
+- Ação social, isto é, a ação orientada pelo comportamento dos outros e dotada de sentido
+- Evolução biológica
+E: A sociologia compreensiva de Weber busca entender o sentido que os indivíduos atribuem às suas ações.
+--- en
+P: For Max Weber, sociology must understand:
+- Class struggle
+- The coercion of social facts
+- Social action, that is, meaningful action oriented to the behavior of others
+- Biological evolution
+E: Weber's interpretive sociology seeks to understand the meaning individuals give to their actions.
+--- es
+P: Para Max Weber, la sociología debe comprender la:
+- Lucha de clases
+- Coerción de los hechos sociales
+- Acción social, es decir, la acción orientada por el comportamiento de los demás y dotada de sentido
+- Evolución biológica
+E: La sociología comprensiva de Weber busca entender el sentido que los individuos atribuyen a sus acciones.
+
+=== Clássicos da sociologia > Max Weber c=0 d=facil
+P: Em A Ética Protestante e o Espírito do Capitalismo, Weber relaciona o desenvolvimento do capitalismo:
+- A valores religiosos protestantes, como a disciplina e a valorização do trabalho
+- Apenas às invenções técnicas
+- Ao fim de todas as religiões
+- À vitória da classe operária
+E: Weber mostrou que a ética calvinista favoreceu uma conduta metódica e poupadora que se afinava com o capitalismo.
+--- en
+P: In The Protestant Ethic and the Spirit of Capitalism, Weber relates the development of capitalism:
+- To Protestant religious values, such as discipline and the valuing of work
+- Only to technical inventions
+- To the end of all religions
+- To the victory of the working class
+E: Weber showed that the Calvinist ethic encouraged a methodical, thrifty conduct in tune with capitalism.
+--- es
+P: En La ética protestante y el espíritu del capitalismo, Weber relaciona el desarrollo del capitalismo:
+- Con valores religiosos protestantes, como la disciplina y la valoración del trabajo
+- Solo con los inventos técnicos
+- Con el fin de todas las religiones
+- Con la victoria de la clase obrera
+E: Weber mostró que la ética calvinista favoreció una conducta metódica y ahorradora que se ajustaba al capitalismo.
+
+=== Clássicos da sociologia > Max Weber c=3 d=medio
+P: Weber distinguiu três tipos puros de dominação legítima:
+- Econômica, militar e religiosa
+- Feudal, capitalista e socialista
+- Direta, indireta e representativa
+- Tradicional, carismática e racional-legal
+E: A autoridade pode se apoiar na tradição, no carisma de um líder ou em regras impessoais e legais.
+--- en
+P: Weber distinguished three pure types of legitimate domination:
+- Economic, military and religious
+- Feudal, capitalist and socialist
+- Direct, indirect and representative
+- Traditional, charismatic and rational-legal
+E: Authority can rest on tradition, on a leader's charisma or on impersonal legal rules.
+--- es
+P: Weber distinguió tres tipos puros de dominación legítima:
+- Económica, militar y religiosa
+- Feudal, capitalista y socialista
+- Directa, indirecta y representativa
+- Tradicional, carismática y racional-legal
+E: La autoridad puede apoyarse en la tradición, en el carisma de un líder o en reglas impersonales y legales.
+
+=== Clássicos da sociologia > Max Weber c=1 d=medio
+P: A burocracia, segundo Weber, é característica da dominação:
+- Carismática
+- Racional-legal
+- Tradicional
+- Religiosa
+E: A burocracia funciona com regras impessoais, hierarquia e funcionários especializados, típicos do Estado moderno.
+--- en
+P: Bureaucracy, according to Weber, is characteristic of domination that is:
+- Charismatic
+- Rational-legal
+- Traditional
+- Religious
+E: Bureaucracy works with impersonal rules, hierarchy and specialized officials, typical of the modern State.
+--- es
+P: La burocracia, según Weber, es característica de la dominación:
+- Carismática
+- Racional-legal
+- Tradicional
+- Religiosa
+E: La burocracia funciona con reglas impersonales, jerarquía y funcionarios especializados, típicos del Estado moderno.
+
+=== Clássicos da sociologia > Max Weber c=2 d=dificil
+P: O "desencantamento do mundo", em Weber, refere-se:
+- Ao aumento das crenças mágicas na modernidade
+- Ao fim da ciência e da técnica
+- À perda da explicação mágico-religiosa em favor da racionalização e do cálculo
+- À tristeza causada pelas guerras
+E: Com a racionalização, o mundo passa a ser explicado pela ciência e controlado pela técnica, não pela magia.
+--- en
+P: The "disenchantment of the world", in Weber, refers:
+- To the growth of magical beliefs in modernity
+- To the end of science and technology
+- To the loss of magical-religious explanation in favor of rationalization and calculation
+- To the sadness caused by wars
+E: With rationalization, the world comes to be explained by science and controlled by technology, not by magic.
+--- es
+P: El "desencantamiento del mundo", en Weber, se refiere:
+- Al aumento de las creencias mágicas en la modernidad
+- Al fin de la ciencia y la técnica
+- A la pérdida de la explicación mágico-religiosa en favor de la racionalización y el cálculo
+- A la tristeza causada por las guerras
+E: Con la racionalización, el mundo pasa a explicarse por la ciencia y a controlarse por la técnica, no por la magia.
+
+=== Clássicos da sociologia > Max Weber c=0 d=dificil
+P: O "tipo ideal" de Weber é:
+- Um instrumento conceitual que exagera traços de um fenômeno para compará-lo com a realidade
+- O modelo de sociedade perfeita que devemos seguir
+- Uma descrição exata e completa de um caso real
+- Uma lei universal da história
+E: O tipo ideal não é um dever-ser; é uma construção analítica que ajuda a comparar casos concretos.
+--- en
+P: Weber's "ideal type" is:
+- A conceptual tool that exaggerates features of a phenomenon to compare it with reality
+- The model of a perfect society we should follow
+- An exact and complete description of a real case
+- A universal law of history
+E: The ideal type is not an "ought"; it is an analytical construction that helps compare concrete cases.
+--- es
+P: El "tipo ideal" de Weber es:
+- Un instrumento conceptual que exagera rasgos de un fenómeno para compararlo con la realidad
+- El modelo de sociedad perfecta que debemos seguir
+- Una descripción exacta y completa de un caso real
+- Una ley universal de la historia
+E: El tipo ideal no es un deber ser; es una construcción analítica que ayuda a comparar casos concretos.
+
+=== Clássicos da sociologia > Karl Marx c=1 d=facil
+P: Para Karl Marx, a história de todas as sociedades até hoje é a história:
+- Dos grandes líderes
+- Da luta de classes
+- Das religiões
+- Das invenções técnicas
+E: A frase abre o Manifesto Comunista (1848), de Marx e Engels.
+--- en
+P: For Karl Marx, the history of all societies so far is the history:
+- Of great leaders
+- Of class struggle
+- Of religions
+- Of technical inventions
+E: The phrase opens the Communist Manifesto (1848), by Marx and Engels.
+--- es
+P: Para Karl Marx, la historia de todas las sociedades hasta hoy es la historia:
+- De los grandes líderes
+- De la lucha de clases
+- De las religiones
+- De los inventos técnicos
+E: La frase abre el Manifiesto comunista (1848), de Marx y Engels.
+
+=== Clássicos da sociologia > Karl Marx c=3 d=facil
+P: No capitalismo, segundo Marx, as duas classes fundamentais são:
+- Nobreza e clero
+- Senhores e escravos
+- Patrícios e plebeus
+- Burguesia (donos dos meios de produção) e proletariado (trabalhadores)
+E: A burguesia possui os meios de produção; o proletariado vende sua força de trabalho em troca de salário.
+--- en
+P: Under capitalism, according to Marx, the two fundamental classes are:
+- Nobility and clergy
+- Masters and slaves
+- Patricians and plebeians
+- The bourgeoisie (owners of the means of production) and the proletariat (workers)
+E: The bourgeoisie owns the means of production; the proletariat sells its labor power in exchange for wages.
+--- es
+P: En el capitalismo, según Marx, las dos clases fundamentales son:
+- Nobleza y clero
+- Señores y esclavos
+- Patricios y plebeyos
+- Burguesía (dueños de los medios de producción) y proletariado (trabajadores)
+E: La burguesía posee los medios de producción; el proletariado vende su fuerza de trabajo a cambio de un salario.
+
+=== Clássicos da sociologia > Karl Marx c=2 d=medio
+P: A mais-valia, conceito central de Marx, é:
+- O lucro obtido com a venda de terras
+- O imposto cobrado pelo Estado
+- O valor produzido pelo trabalhador além do que recebe como salário, apropriado pelo capitalista
+- O salário mínimo definido por lei
+E: O trabalhador produz mais valor do que o equivalente ao seu salário; essa diferença é a fonte do lucro capitalista.
+--- en
+P: Surplus value, a central concept in Marx, is:
+- The profit made from selling land
+- The tax charged by the State
+- The value produced by the worker beyond what they receive as wages, appropriated by the capitalist
+- The minimum wage set by law
+E: The worker produces more value than the equivalent of their wage; this difference is the source of capitalist profit.
+--- es
+P: La plusvalía, concepto central de Marx, es:
+- El beneficio obtenido con la venta de tierras
+- El impuesto cobrado por el Estado
+- El valor producido por el trabajador por encima de lo que recibe como salario, apropiado por el capitalista
+- El salario mínimo fijado por ley
+E: El trabajador produce más valor que el equivalente a su salario; esa diferencia es la fuente del beneficio capitalista.
+
+=== Clássicos da sociologia > Karl Marx c=0 d=medio
+P: Para Marx, a alienação do trabalhador na produção capitalista significa que ele:
+- Não se reconhece no produto do seu trabalho nem controla o processo produtivo
+- Recebe salários muito altos
+- É dono da fábrica onde trabalha
+- Trabalha apenas por prazer
+E: O trabalhador produz algo que não lhe pertence e sobre o qual não decide; o trabalho se torna estranho a ele.
+--- en
+P: For Marx, the worker's alienation in capitalist production means that they:
+- Do not recognize themselves in the product of their work or control the production process
+- Receive very high wages
+- Own the factory where they work
+- Work only for pleasure
+E: The worker produces something that does not belong to them and about which they do not decide; work becomes foreign to them.
+--- es
+P: Para Marx, la alienación del trabajador en la producción capitalista significa que:
+- No se reconoce en el producto de su trabajo ni controla el proceso productivo
+- Recibe salarios muy altos
+- Es dueño de la fábrica donde trabaja
+- Trabaja solo por placer
+E: El trabajador produce algo que no le pertenece y sobre lo que no decide; el trabajo se le vuelve ajeno.
+
+=== Clássicos da sociologia > Karl Marx c=3 d=dificil
+P: O materialismo histórico, de Marx, afirma que:
+- As ideias determinam sozinhas o curso da história
+- A história é guiada pela vontade divina
+- As sociedades nunca mudam
+- As condições materiais de produção são a base sobre a qual se organizam a política, o direito e as ideias
+E: A base econômica (infraestrutura) condiciona a superestrutura jurídica, política e ideológica.
+--- en
+P: Marx's historical materialism states that:
+- Ideas alone determine the course of history
+- History is guided by divine will
+- Societies never change
+- The material conditions of production are the base on which politics, law and ideas are organized
+E: The economic base (infrastructure) conditions the legal, political and ideological superstructure.
+--- es
+P: El materialismo histórico, de Marx, afirma que:
+- Las ideas determinan por sí solas el curso de la historia
+- La historia está guiada por la voluntad divina
+- Las sociedades nunca cambian
+- Las condiciones materiales de producción son la base sobre la que se organizan la política, el derecho y las ideas
+E: La base económica (infraestructura) condiciona la superestructura jurídica, política e ideológica.
+
+=== Clássicos da sociologia > Karl Marx c=1 d=dificil
+P: O conceito de "fetichismo da mercadoria", em Marx, descreve o fato de que:
+- As mercadorias são objetos religiosos
+- As relações sociais entre pessoas aparecem como relações entre coisas (mercadorias e preços)
+- O consumo sempre traz felicidade
+- O valor das mercadorias vem da natureza
+E: No mercado, o trabalho humano que produz as mercadorias fica oculto; parece que as coisas têm valor por si mesmas.
+--- en
+P: The concept of "commodity fetishism", in Marx, describes the fact that:
+- Commodities are religious objects
+- Social relations between people appear as relations between things (commodities and prices)
+- Consumption always brings happiness
+- The value of commodities comes from nature
+E: In the market, the human labor that produces commodities is hidden; things seem to have value in themselves.
+--- es
+P: El concepto de "fetichismo de la mercancía", en Marx, describe el hecho de que:
+- Las mercancías son objetos religiosos
+- Las relaciones sociales entre personas aparecen como relaciones entre cosas (mercancías y precios)
+- El consumo siempre trae felicidad
+- El valor de las mercancías proviene de la naturaleza
+E: En el mercado, el trabajo humano que produce las mercancías queda oculto; parece que las cosas tienen valor por sí mismas.

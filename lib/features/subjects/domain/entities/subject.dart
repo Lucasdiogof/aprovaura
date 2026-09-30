@@ -10,6 +10,7 @@ enum Subject {
   fisica,
   quimica,
   filosofia,
+  sociologia,
   atualidades,
 
   /// Not a question bank: the essay feature (themes, writing, AI marking).
@@ -30,6 +31,7 @@ enum Subject {
     Subject.fisica => Icons.bolt_outlined,
     Subject.quimica => Icons.science_outlined,
     Subject.filosofia => Icons.psychology_outlined,
+    Subject.sociologia => Icons.groups_outlined,
     Subject.atualidades => Icons.newspaper_outlined,
     Subject.redacao => Icons.edit_note_rounded,
   };
@@ -43,6 +45,7 @@ enum Subject {
     Subject.fisica => const Color(0xFF4C7CD1),
     Subject.quimica => const Color(0xFF9C6FE0),
     Subject.filosofia => const Color(0xFFC77B4A),
+    Subject.sociologia => const Color(0xFF3FA7B5),
     Subject.atualidades => const Color(0xFF6B7B8C),
     // The brand violet: Redação is its own thing, not a subject accent.
     Subject.redacao => const Color(0xFF8B5CF6),
@@ -88,6 +91,11 @@ enum Subject {
       AppLanguage.portuguese => 'Filosofia',
       AppLanguage.english => 'Philosophy',
       AppLanguage.spanish => 'Filosofía',
+    },
+    Subject.sociologia => switch (language) {
+      AppLanguage.portuguese => 'Sociologia',
+      AppLanguage.english => 'Sociology',
+      AppLanguage.spanish => 'Sociología',
     },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese => 'Atualidades',
@@ -148,6 +156,13 @@ enum Subject {
       AppLanguage.english => 'Great thinkers, ethics, politics and knowledge.',
       AppLanguage.spanish =>
         'Grandes pensadores, ética, política y conocimiento.',
+    },
+    Subject.sociologia => switch (language) {
+      AppLanguage.portuguese =>
+        'Sociedade, cultura, trabalho, poder e desigualdades.',
+      AppLanguage.english => 'Society, culture, work, power and inequality.',
+      AppLanguage.spanish =>
+        'Sociedad, cultura, trabajo, poder y desigualdades.',
     },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese =>

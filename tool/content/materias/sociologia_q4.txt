@@ -1,0 +1,659 @@
+=== Cidadania e movimentos sociais > Cidadania e direitos c=1 d=facil
+P: Ser cidadão, no sentido moderno, significa:
+- Morar numa cidade grande
+- Ter direitos e deveres civis, políticos e sociais garantidos
+- Pertencer à nobreza
+- Ter um emprego público
+E: A cidadania envolve o acesso a direitos (como votar, ter liberdade e saúde) e a participação na vida pública.
+--- en
+P: Being a citizen, in the modern sense, means:
+- Living in a big city
+- Having guaranteed civil, political and social rights and duties
+- Belonging to the nobility
+- Having a public-sector job
+E: Citizenship involves access to rights (such as voting, freedom and health) and participation in public life.
+--- es
+P: Ser ciudadano, en el sentido moderno, significa:
+- Vivir en una gran ciudad
+- Tener derechos y deberes civiles, políticos y sociales garantizados
+- Pertenecer a la nobleza
+- Tener un empleo público
+E: La ciudadanía implica el acceso a derechos (como votar, tener libertad y salud) y la participación en la vida pública.
+
+=== Cidadania e movimentos sociais > Cidadania e direitos c=3 d=facil
+P: A Constituição brasileira de 1988 ficou conhecida como:
+- Constituição Imperial
+- Constituição Polaca
+- Carta do Estado Novo
+- Constituição Cidadã
+E: Promulgada após a ditadura, ampliou direitos sociais e garantias individuais, como o SUS e o voto facultativo aos 16 anos.
+--- en
+P: Brazil's 1988 Constitution became known as the:
+- Imperial Constitution
+- "Polish" Constitution
+- Estado Novo Charter
+- Citizen Constitution
+E: Enacted after the dictatorship, it expanded social rights and individual guarantees, such as the SUS health system and optional voting at 16.
+--- es
+P: La Constitución brasileña de 1988 se hizo conocida como:
+- Constitución Imperial
+- Constitución "Polaca"
+- Carta del Estado Novo
+- Constitución Ciudadana
+E: Promulgada tras la dictadura, amplió derechos sociales y garantías individuales, como el sistema de salud SUS y el voto facultativo a los 16 años.
+
+=== Cidadania e movimentos sociais > Cidadania e direitos c=2 d=medio
+P: Segundo T. H. Marshall, na Inglaterra os direitos foram conquistados nesta ordem:
+- Sociais, políticos e civis
+- Políticos, sociais e civis
+- Civis, políticos e sociais
+- Todos ao mesmo tempo
+E: Primeiro vieram os direitos civis (século XVIII), depois os políticos (XIX) e, por fim, os sociais (XX).
+--- en
+P: According to T. H. Marshall, in England rights were won in this order:
+- Social, political and civil
+- Political, social and civil
+- Civil, political and social
+- All at the same time
+E: First came civil rights (18th century), then political rights (19th) and, finally, social rights (20th).
+--- es
+P: Según T. H. Marshall, en Inglaterra los derechos se conquistaron en este orden:
+- Sociales, políticos y civiles
+- Políticos, sociales y civiles
+- Civiles, políticos y sociales
+- Todos al mismo tiempo
+E: Primero llegaron los derechos civiles (siglo XVIII), después los políticos (XIX) y, por último, los sociales (XX).
+
+=== Cidadania e movimentos sociais > Cidadania e direitos c=0 d=medio
+P: O historiador José Murilo de Carvalho afirma que, no Brasil, a sequência de conquista dos direitos:
+- Foi diferente da inglesa: os direitos sociais vieram antes, em período de restrição dos direitos políticos
+- Foi idêntica à da Inglaterra
+- Começou pelos direitos políticos plenos no Império
+- Nunca incluiu direitos sociais
+E: Na Era Vargas, direitos trabalhistas foram concedidos num regime autoritário, invertendo a ordem descrita por Marshall.
+--- en
+P: The historian José Murilo de Carvalho states that, in Brazil, the sequence in which rights were won:
+- Was different from England's: social rights came first, in a period when political rights were restricted
+- Was identical to England's
+- Began with full political rights under the Empire
+- Never included social rights
+E: In the Vargas Era, labor rights were granted under an authoritarian regime, reversing the order described by Marshall.
+--- es
+P: El historiador José Murilo de Carvalho afirma que, en Brasil, la secuencia de conquista de los derechos:
+- Fue diferente de la inglesa: los derechos sociales llegaron antes, en un periodo de restricción de los derechos políticos
+- Fue idéntica a la de Inglaterra
+- Comenzó por los derechos políticos plenos en el Imperio
+- Nunca incluyó derechos sociales
+E: En la Era Vargas, los derechos laborales se concedieron bajo un régimen autoritario, invirtiendo el orden descrito por Marshall.
+
+=== Cidadania e movimentos sociais > Cidadania e direitos c=3 d=dificil
+P: A Declaração Universal dos Direitos Humanos foi adotada pela ONU em 1948, principalmente em resposta:
+- À Revolução Industrial
+- À independência dos Estados Unidos
+- À queda do Muro de Berlim
+- Às atrocidades da Segunda Guerra Mundial, como o Holocausto
+E: O documento afirma direitos inerentes a todo ser humano, independentemente de nacionalidade, raça, sexo ou religião.
+--- en
+P: The Universal Declaration of Human Rights was adopted by the UN in 1948, mainly in response:
+- To the Industrial Revolution
+- To the independence of the United States
+- To the fall of the Berlin Wall
+- To the atrocities of World War II, such as the Holocaust
+E: The document affirms rights inherent to every human being, regardless of nationality, race, sex or religion.
+--- es
+P: La Declaración Universal de los Derechos Humanos fue adoptada por la ONU en 1948, principalmente en respuesta:
+- A la Revolución Industrial
+- A la independencia de Estados Unidos
+- A la caída del Muro de Berlín
+- A las atrocidades de la Segunda Guerra Mundial, como el Holocausto
+E: El documento afirma derechos inherentes a todo ser humano, independientemente de nacionalidad, raza, sexo o religión.
+
+=== Cidadania e movimentos sociais > Cidadania e direitos c=1 d=dificil
+P: A ideia de "cidadania regulada", aplicada ao Brasil da Era Vargas, significa que os direitos sociais:
+- Eram garantidos igualmente a toda a população
+- Dependiam da inserção em profissões reconhecidas pelo Estado, com carteira de trabalho
+- Eram concedidos apenas a estrangeiros
+- Não existiam no período
+E: Wanderley Guilherme dos Santos mostrou que trabalhadores informais e rurais ficaram fora dessa proteção.
+--- en
+P: The idea of "regulated citizenship", applied to Brazil in the Vargas Era, means that social rights:
+- Were guaranteed equally to the whole population
+- Depended on being in occupations recognized by the State, with a work card
+- Were granted only to foreigners
+- Did not exist in that period
+E: Wanderley Guilherme dos Santos showed that informal and rural workers were left out of this protection.
+--- es
+P: La idea de "ciudadanía regulada", aplicada al Brasil de la Era Vargas, significa que los derechos sociales:
+- Estaban garantizados por igual a toda la población
+- Dependían de la inserción en profesiones reconocidas por el Estado, con libreta de trabajo
+- Se concedían solo a los extranjeros
+- No existían en ese periodo
+E: Wanderley Guilherme dos Santos mostró que los trabajadores informales y rurales quedaron fuera de esa protección.
+
+=== Cidadania e movimentos sociais > Movimentos sociais c=0 d=facil
+P: Movimentos sociais são:
+- Ações coletivas organizadas que buscam mudanças sociais ou a defesa de direitos
+- Deslocamentos de população entre cidades
+- Partidos políticos no governo
+- Empresas que atuam no mercado financeiro
+E: Exemplos são os movimentos operário, feminista, negro, ambientalista e pela terra.
+--- en
+P: Social movements are:
+- Organized collective actions that seek social change or the defense of rights
+- Population movements between cities
+- Political parties in government
+- Companies operating in the financial market
+E: Examples are the labor, feminist, Black, environmental and land movements.
+--- es
+P: Los movimientos sociales son:
+- Acciones colectivas organizadas que buscan cambios sociales o la defensa de derechos
+- Desplazamientos de población entre ciudades
+- Partidos políticos en el gobierno
+- Empresas que actúan en el mercado financiero
+E: Ejemplos son los movimientos obrero, feminista, negro, ambientalista y por la tierra.
+
+=== Cidadania e movimentos sociais > Movimentos sociais c=2 d=facil
+P: O movimento "Diretas Já" (1983-1984), no Brasil, reivindicava:
+- O fim da escravidão
+- A volta da monarquia
+- Eleições diretas para presidente da República
+- A independência do Brasil
+E: O movimento reuniu multidões contra a ditadura militar; a emenda foi rejeitada, mas acelerou a redemocratização.
+--- en
+P: The "Diretas Já" movement (1983-1984), in Brazil, demanded:
+- The end of slavery
+- The return of the monarchy
+- Direct elections for president
+- Brazil's independence
+E: The movement brought crowds together against the military dictatorship; the amendment was rejected, but it sped up redemocratization.
+--- es
+P: El movimiento "Diretas Já" (1983-1984), en Brasil, reivindicaba:
+- El fin de la esclavitud
+- El regreso de la monarquía
+- Elecciones directas para presidente de la República
+- La independencia de Brasil
+E: El movimiento reunió multitudes contra la dictadura militar; la enmienda fue rechazada, pero aceleró la redemocratización.
+
+=== Cidadania e movimentos sociais > Movimentos sociais c=3 d=medio
+P: O MST (Movimento dos Trabalhadores Rurais Sem Terra) tem como principal bandeira:
+- A privatização das terras públicas
+- O fim da agricultura no país
+- A redução dos impostos urbanos
+- A reforma agrária e o acesso à terra para quem nela trabalha
+E: O MST questiona a concentração fundiária, uma das marcas da desigualdade no campo brasileiro.
+--- en
+P: The MST (Landless Rural Workers' Movement) has as its main cause:
+- The privatization of public land
+- The end of agriculture in the country
+- The reduction of urban taxes
+- Land reform and access to land for those who work it
+E: The MST challenges land concentration, one of the marks of inequality in Brazil's countryside.
+--- es
+P: El MST (Movimiento de los Trabajadores Rurales Sin Tierra) tiene como principal bandera:
+- La privatización de las tierras públicas
+- El fin de la agricultura en el país
+- La reducción de los impuestos urbanos
+- La reforma agraria y el acceso a la tierra para quien la trabaja
+E: El MST cuestiona la concentración de la tierra, una de las marcas de la desigualdad en el campo brasileño.
+
+=== Cidadania e movimentos sociais > Movimentos sociais c=1 d=medio
+P: Os chamados "novos movimentos sociais", surgidos a partir dos anos 1960-1970, diferenciam-se do movimento operário clássico por:
+- Defenderem apenas salários maiores
+- Pautarem questões como identidade, gênero, meio ambiente e direitos civis
+- Recusarem qualquer ação coletiva
+- Existirem apenas dentro das fábricas
+E: Além da classe, eles mobilizam temas culturais e de reconhecimento, como os movimentos feminista, negro, LGBT e ecológico.
+--- en
+P: The so-called "new social movements", which emerged from the 1960s-1970s on, differ from the classic labor movement by:
+- Defending only higher wages
+- Raising issues such as identity, gender, the environment and civil rights
+- Refusing any collective action
+- Existing only inside factories
+E: Beyond class, they mobilize cultural and recognition issues, such as the feminist, Black, LGBT and environmental movements.
+--- es
+P: Los llamados "nuevos movimientos sociales", surgidos a partir de los años 1960-1970, se diferencian del movimiento obrero clásico por:
+- Defender solo salarios más altos
+- Plantear cuestiones como identidad, género, medio ambiente y derechos civiles
+- Rechazar cualquier acción colectiva
+- Existir solo dentro de las fábricas
+E: Además de la clase, movilizan temas culturales y de reconocimiento, como los movimientos feminista, negro, LGBT y ecologista.
+
+=== Cidadania e movimentos sociais > Movimentos sociais c=2 d=dificil
+P: As Jornadas de Junho de 2013, no Brasil, começaram com protestos contra:
+- A Copa do Mundo de 1950
+- O impeachment de Collor
+- O aumento das tarifas do transporte público e se ampliaram para outras pautas
+- A criação do Plano Real
+E: Iniciados pelo Movimento Passe Livre, os protestos se espalharam pelo país com reivindicações diversas.
+--- en
+P: The June 2013 protests in Brazil began as protests against:
+- The 1950 World Cup
+- Collor's impeachment
+- Rising public transport fares, and then broadened to other demands
+- The creation of the Real Plan
+E: Started by the Free Fare Movement, the protests spread across the country with diverse demands.
+--- es
+P: Las Jornadas de Junio de 2013, en Brasil, comenzaron con protestas contra:
+- El Mundial de 1950
+- El impeachment de Collor
+- El aumento de las tarifas del transporte público, y luego se ampliaron a otras demandas
+- La creación del Plan Real
+E: Iniciadas por el Movimiento Pase Libre, las protestas se extendieron por el país con reivindicaciones diversas.
+
+=== Cidadania e movimentos sociais > Movimentos sociais c=0 d=dificil
+P: O papel das redes sociais digitais em movimentos recentes, como a Primavera Árabe, é destacado porque elas:
+- Facilitam a convocação rápida e a difusão de informações sem depender das mídias tradicionais
+- Impedem qualquer mobilização nas ruas
+- Substituem completamente a ação presencial
+- Só servem para entretenimento
+E: As redes ajudaram a organizar protestos e a divulgar informações, embora também sirvam à vigilância e à desinformação.
+--- en
+P: The role of digital social networks in recent movements, such as the Arab Spring, is highlighted because they:
+- Make quick calls to action and the spread of information easier, without depending on traditional media
+- Prevent any street mobilization
+- Completely replace in-person action
+- Serve only for entertainment
+E: Networks helped organize protests and spread information, although they also serve surveillance and disinformation.
+--- es
+P: El papel de las redes sociales digitales en movimientos recientes, como la Primavera Árabe, se destaca porque:
+- Facilitan la convocatoria rápida y la difusión de información sin depender de los medios tradicionales
+- Impiden cualquier movilización en las calles
+- Sustituyen por completo la acción presencial
+- Solo sirven para el entretenimiento
+E: Las redes ayudaron a organizar protestas y a difundir información, aunque también sirven para la vigilancia y la desinformación.
+
+=== Sociedade contemporânea > Globalização c=1 d=facil
+P: A globalização é o processo de:
+- Isolamento econômico dos países
+- Intensificação das trocas econômicas, culturais e de informações em escala mundial
+- Fim do comércio internacional
+- Volta ao modo de vida rural
+E: Com transportes e tecnologias de comunicação, mercadorias, capitais, pessoas e ideias circulam mais rapidamente.
+--- en
+P: Globalization is the process of:
+- The economic isolation of countries
+- Intensifying economic, cultural and information exchanges on a global scale
+- The end of international trade
+- A return to rural life
+E: With transport and communication technologies, goods, capital, people and ideas circulate faster.
+--- es
+P: La globalización es el proceso de:
+- Aislamiento económico de los países
+- Intensificación de los intercambios económicos, culturales y de información a escala mundial
+- Fin del comercio internacional
+- Regreso al modo de vida rural
+E: Con los transportes y las tecnologías de comunicación, mercancías, capitales, personas e ideas circulan más rápidamente.
+
+=== Sociedade contemporânea > Globalização c=3 d=facil
+P: Uma crítica comum à globalização é que ela:
+- Acabou com todas as desigualdades
+- Impede o uso da internet
+- Elimina o comércio entre países
+- Pode aprofundar desigualdades entre países e regiões e ameaçar culturas locais
+E: Os benefícios da globalização se distribuem de forma desigual, e a padronização cultural pode enfraquecer tradições locais.
+--- en
+P: A common criticism of globalization is that it:
+- Ended all inequalities
+- Prevents the use of the internet
+- Eliminates trade between countries
+- Can deepen inequalities between countries and regions and threaten local cultures
+E: The benefits of globalization are unevenly distributed, and cultural standardization can weaken local traditions.
+--- es
+P: Una crítica común a la globalización es que:
+- Acabó con todas las desigualdades
+- Impide el uso de internet
+- Elimina el comercio entre países
+- Puede profundizar las desigualdades entre países y regiones y amenazar las culturas locales
+E: Los beneficios de la globalización se distribuyen de forma desigual, y la estandarización cultural puede debilitar tradiciones locales.
+
+=== Sociedade contemporânea > Globalização c=2 d=medio
+P: O conceito de "aldeia global", de Marshall McLuhan, refere-se à ideia de que:
+- O mundo voltaria a ser rural
+- As cidades seriam abandonadas
+- Os meios de comunicação aproximariam as pessoas do mundo inteiro, como numa aldeia
+- Cada país viveria isolado
+E: McLuhan previu que a mídia eletrônica encurtaria distâncias e conectaria a humanidade.
+--- en
+P: Marshall McLuhan's concept of the "global village" refers to the idea that:
+- The world would become rural again
+- Cities would be abandoned
+- The media would bring people all over the world closer, as in a village
+- Each country would live in isolation
+E: McLuhan predicted that electronic media would shorten distances and connect humanity.
+--- es
+P: El concepto de "aldea global", de Marshall McLuhan, se refiere a la idea de que:
+- El mundo volvería a ser rural
+- Las ciudades serían abandonadas
+- Los medios de comunicación acercarían a las personas del mundo entero, como en una aldea
+- Cada país viviría aislado
+E: McLuhan previó que los medios electrónicos acortarían distancias y conectarían a la humanidad.
+
+=== Sociedade contemporânea > Globalização c=0 d=dificil
+P: Zygmunt Bauman descreveu a sociedade atual como "modernidade líquida" porque nela:
+- Relações, identidades e instituições se tornam fluidas, instáveis e passageiras
+- As tradições se tornaram mais rígidas que nunca
+- Não há mais consumo
+- Todas as relações são duradouras e sólidas
+E: Para Bauman, vínculos de trabalho, amor e comunidade ficaram frágeis e sujeitos a mudanças constantes.
+--- en
+P: Zygmunt Bauman described today's society as "liquid modernity" because in it:
+- Relationships, identities and institutions become fluid, unstable and fleeting
+- Traditions have become more rigid than ever
+- There is no more consumption
+- All relationships are lasting and solid
+E: For Bauman, ties of work, love and community have become fragile and subject to constant change.
+--- es
+P: Zygmunt Bauman describió la sociedad actual como "modernidad líquida" porque en ella:
+- Las relaciones, identidades e instituciones se vuelven fluidas, inestables y pasajeras
+- Las tradiciones se volvieron más rígidas que nunca
+- Ya no hay consumo
+- Todas las relaciones son duraderas y sólidas
+E: Para Bauman, los vínculos de trabajo, amor y comunidad se volvieron frágiles y sujetos a cambios constantes.
+
+=== Sociedade contemporânea > Globalização c=3 d=medio
+P: A atuação de empresas transnacionais é uma marca da globalização porque elas:
+- Produzem e vendem apenas no país de origem
+- São sempre empresas estatais
+- Evitam qualquer comércio exterior
+- Distribuem produção, vendas e investimentos por vários países em busca de custos menores e mercados
+E: Transnacionais espalham etapas da produção pelo mundo, aproveitando mão de obra barata, incentivos fiscais e mercados consumidores.
+--- en
+P: The activity of transnational corporations is a mark of globalization because they:
+- Produce and sell only in their home country
+- Are always state-owned companies
+- Avoid any foreign trade
+- Spread production, sales and investment across several countries seeking lower costs and markets
+E: Transnationals scatter stages of production around the world, taking advantage of cheap labor, tax incentives and consumer markets.
+--- es
+P: La actuación de las empresas transnacionales es una marca de la globalización porque:
+- Producen y venden solo en su país de origen
+- Son siempre empresas estatales
+- Evitan cualquier comercio exterior
+- Distribuyen producción, ventas e inversiones por varios países en busca de menores costos y de mercados
+E: Las transnacionales reparten etapas de la producción por el mundo, aprovechando mano de obra barata, incentivos fiscales y mercados consumidores.
+
+=== Sociedade contemporânea > Globalização c=0 d=dificil
+P: O conceito de "glocalização" descreve:
+- A adaptação de produtos e ideias globais às culturas e aos gostos locais
+- O fim completo das culturas locais
+- A proibição de produtos estrangeiros
+- O isolamento de cada país em sua própria cultura
+E: O global e o local se misturam: redes internacionais adaptam cardápios, campanhas e produtos a cada lugar.
+--- en
+P: The concept of "glocalization" describes:
+- The adaptation of global products and ideas to local cultures and tastes
+- The complete end of local cultures
+- The ban on foreign products
+- Each country's isolation within its own culture
+E: The global and the local blend: international chains adapt menus, campaigns and products to each place.
+--- es
+P: El concepto de "glocalización" describe:
+- La adaptación de productos e ideas globales a las culturas y gustos locales
+- El fin completo de las culturas locales
+- La prohibición de productos extranjeros
+- El aislamiento de cada país en su propia cultura
+E: Lo global y lo local se mezclan: las cadenas internacionales adaptan menús, campañas y productos a cada lugar.
+
+=== Sociedade contemporânea > Consumo e sociedade em rede c=1 d=facil
+P: O consumismo pode ser definido como:
+- O consumo apenas do necessário para sobreviver
+- A tendência a consumir em excesso, associando o consumo a status e identidade
+- A recusa total de comprar produtos
+- A produção de alimentos para o próprio sustento
+E: No consumismo, comprar vira forma de pertencimento e distinção social, além de gerar impactos ambientais.
+--- en
+P: Consumerism can be defined as:
+- Consuming only what is needed to survive
+- The tendency to consume excessively, linking consumption to status and identity
+- The total refusal to buy products
+- Producing food for one's own subsistence
+E: In consumerism, buying becomes a form of belonging and social distinction, and also causes environmental impacts.
+--- es
+P: El consumismo puede definirse como:
+- El consumo solo de lo necesario para sobrevivir
+- La tendencia a consumir en exceso, asociando el consumo al estatus y la identidad
+- El rechazo total a comprar productos
+- La producción de alimentos para el propio sustento
+E: En el consumismo, comprar se vuelve una forma de pertenencia y distinción social, además de generar impactos ambientales.
+
+=== Sociedade contemporânea > Consumo e sociedade em rede c=3 d=facil
+P: A "obsolescência programada" é a prática de:
+- Consertar produtos antigos
+- Doar produtos usados
+- Reciclar embalagens
+- Fabricar produtos com vida útil reduzida de propósito, para estimular novas compras
+E: A prática aumenta o consumo e o descarte, com impactos econômicos e ambientais.
+--- en
+P: "Planned obsolescence" is the practice of:
+- Repairing old products
+- Donating used products
+- Recycling packaging
+- Deliberately making products with a shorter lifespan to encourage new purchases
+E: The practice increases consumption and waste, with economic and environmental impacts.
+--- es
+P: La "obsolescencia programada" es la práctica de:
+- Reparar productos viejos
+- Donar productos usados
+- Reciclar envases
+- Fabricar productos con vida útil reducida a propósito para estimular nuevas compras
+E: La práctica aumenta el consumo y el desecho, con impactos económicos y ambientales.
+
+=== Sociedade contemporânea > Consumo e sociedade em rede c=2 d=medio
+P: Manuel Castells chamou de "sociedade em rede" a sociedade em que:
+- Os pescadores dominam a economia
+- Não existe comunicação a distância
+- As principais atividades econômicas, sociais e culturais se organizam em redes de informação digitais
+- As pessoas vivem isoladas, sem tecnologia
+E: Para Castells, as tecnologias de informação reorganizaram o trabalho, o poder e as relações sociais.
+--- en
+P: Manuel Castells called "network society" the society in which:
+- Fishermen dominate the economy
+- There is no long-distance communication
+- The main economic, social and cultural activities are organized in digital information networks
+- People live in isolation, without technology
+E: For Castells, information technologies reorganized work, power and social relations.
+--- es
+P: Manuel Castells llamó "sociedad red" a la sociedad en la que:
+- Los pescadores dominan la economía
+- No existe comunicación a distancia
+- Las principales actividades económicas, sociales y culturales se organizan en redes digitales de información
+- Las personas viven aisladas, sin tecnología
+E: Para Castells, las tecnologías de la información reorganizaron el trabajo, el poder y las relaciones sociales.
+
+=== Sociedade contemporânea > Consumo e sociedade em rede c=3 d=medio
+P: A exclusão digital refere-se:
+- À proibição de usar celulares em escolas
+- Ao excesso de tempo nas redes sociais
+- Ao fim dos computadores
+- À desigualdade no acesso e no uso das tecnologias digitais e da internet
+E: Falta de conexão, de equipamentos ou de habilidades digitais limita o acesso a educação, trabalho e serviços.
+--- en
+P: The digital divide refers:
+- To banning cell phones in schools
+- To spending too much time on social media
+- To the end of computers
+- To inequality in access to and use of digital technologies and the internet
+E: Lack of connection, devices or digital skills limits access to education, work and services.
+--- es
+P: La exclusión digital se refiere:
+- A la prohibición de usar celulares en las escuelas
+- Al exceso de tiempo en las redes sociales
+- Al fin de las computadoras
+- A la desigualdad en el acceso y el uso de las tecnologías digitales y de internet
+E: La falta de conexión, de equipos o de habilidades digitales limita el acceso a la educación, el trabajo y los servicios.
+
+=== Sociedade contemporânea > Consumo e sociedade em rede c=1 d=dificil
+P: Jean Baudrillard afirmou que, na sociedade de consumo, os objetos são consumidos principalmente como:
+- Ferramentas de sobrevivência
+- Signos, que comunicam status e diferença social
+- Obras de arte únicas
+- Bens sem nenhum significado
+E: Para Baudrillard, consumir é manipular signos: compramos o que o objeto significa socialmente.
+--- en
+P: Jean Baudrillard stated that, in consumer society, objects are consumed mainly as:
+- Survival tools
+- Signs that communicate status and social difference
+- Unique works of art
+- Goods with no meaning at all
+E: For Baudrillard, consuming is manipulating signs: we buy what the object means socially.
+--- es
+P: Jean Baudrillard afirmó que, en la sociedad de consumo, los objetos se consumen principalmente como:
+- Herramientas de supervivencia
+- Signos que comunican estatus y diferencia social
+- Obras de arte únicas
+- Bienes sin ningún significado
+E: Para Baudrillard, consumir es manipular signos: compramos lo que el objeto significa socialmente.
+
+=== Sociedade contemporânea > Consumo e sociedade em rede c=0 d=dificil
+P: O "capitalismo de vigilância", expressão de Shoshana Zuboff, descreve um modelo em que empresas:
+- Coletam e analisam dados pessoais dos usuários para prever e influenciar comportamentos, gerando lucro
+- Vigiam apenas suas próprias fábricas
+- Trabalham para a polícia de forma gratuita
+- Proíbem o uso de dados pessoais
+E: Plataformas digitais transformam a experiência humana em dados, usados para publicidade e previsão de comportamento.
+--- en
+P: "Surveillance capitalism", an expression by Shoshana Zuboff, describes a model in which companies:
+- Collect and analyze users' personal data to predict and influence behavior, generating profit
+- Watch only their own factories
+- Work for the police for free
+- Ban the use of personal data
+E: Digital platforms turn human experience into data, used for advertising and behavior prediction.
+--- es
+P: El "capitalismo de vigilancia", expresión de Shoshana Zuboff, describe un modelo en el que las empresas:
+- Recogen y analizan datos personales de los usuarios para predecir e influir en comportamientos, generando beneficios
+- Vigilan solo sus propias fábricas
+- Trabajan gratis para la policía
+- Prohíben el uso de datos personales
+E: Las plataformas digitales convierten la experiencia humana en datos, usados para publicidad y predicción de comportamientos.
+
+=== Sociedade contemporânea > Pensamento social brasileiro c=2 d=facil
+P: Em Casa-Grande & Senzala (1933), Gilberto Freyre analisou:
+- A industrialização de São Paulo
+- A ditadura militar
+- A formação da sociedade brasileira a partir das relações no engenho colonial entre senhores e escravizados
+- A imigração japonesa
+E: Freyre destacou a miscigenação na formação do Brasil, mas sua visão foi criticada por suavizar a violência da escravidão.
+--- en
+P: In The Masters and the Slaves (Casa-Grande & Senzala, 1933), Gilberto Freyre analyzed:
+- The industrialization of São Paulo
+- The military dictatorship
+- The formation of Brazilian society through relations between masters and enslaved people on the colonial sugar mill
+- Japanese immigration
+E: Freyre highlighted racial mixing in Brazil's formation, but his view was criticized for softening the violence of slavery.
+--- es
+P: En Casa-Grande & Senzala (1933), Gilberto Freyre analizó:
+- La industrialización de São Paulo
+- La dictadura militar
+- La formación de la sociedad brasileña a partir de las relaciones en el ingenio colonial entre señores y esclavizados
+- La inmigración japonesa
+E: Freyre destacó el mestizaje en la formación de Brasil, pero su visión fue criticada por suavizar la violencia de la esclavitud.
+
+=== Sociedade contemporânea > Pensamento social brasileiro c=0 d=facil
+P: O conceito de "homem cordial" foi apresentado por:
+- Sérgio Buarque de Holanda, em Raízes do Brasil
+- Karl Marx, em O Capital
+- Émile Durkheim, em O Suicídio
+- Max Weber, em Economia e Sociedade
+E: Em Raízes do Brasil (1936), Sérgio Buarque discute a dificuldade de separar o público do privado na cultura brasileira.
+--- en
+P: The concept of the "cordial man" was presented by:
+- Sérgio Buarque de Holanda, in Roots of Brazil
+- Karl Marx, in Capital
+- Émile Durkheim, in Suicide
+- Max Weber, in Economy and Society
+E: In Roots of Brazil (1936), Sérgio Buarque discusses how hard it is to separate the public from the private in Brazilian culture.
+--- es
+P: El concepto de "hombre cordial" fue presentado por:
+- Sérgio Buarque de Holanda, en Raíces del Brasil
+- Karl Marx, en El Capital
+- Émile Durkheim, en El suicidio
+- Max Weber, en Economía y sociedad
+E: En Raíces del Brasil (1936), Sérgio Buarque analiza la dificultad de separar lo público de lo privado en la cultura brasileña.
+
+=== Sociedade contemporânea > Pensamento social brasileiro c=1 d=medio
+P: O "homem cordial" de Sérgio Buarque de Holanda não significa alguém simplesmente gentil, mas alguém que:
+- Segue rigorosamente regras impessoais
+- Age movido pela emoção e pelas relações pessoais, inclusive no trato da coisa pública
+- Evita qualquer contato com os outros
+- Defende o Estado burocrático
+E: "Cordial" vem de cor (coração): a cordialidade dificulta a impessoalidade que o Estado moderno exige.
+--- en
+P: Sérgio Buarque de Holanda's "cordial man" does not mean someone who is simply kind, but someone who:
+- Strictly follows impersonal rules
+- Acts driven by emotion and personal ties, including in public affairs
+- Avoids any contact with others
+- Supports the bureaucratic State
+E: "Cordial" comes from cor (heart): cordiality hinders the impersonality the modern State requires.
+--- es
+P: El "hombre cordial" de Sérgio Buarque de Holanda no significa alguien simplemente amable, sino alguien que:
+- Sigue rigurosamente reglas impersonales
+- Actúa movido por la emoción y las relaciones personales, incluso en el trato de la cosa pública
+- Evita cualquier contacto con los demás
+- Defiende el Estado burocrático
+E: "Cordial" viene de cor (corazón): la cordialidad dificulta la impersonalidad que exige el Estado moderno.
+
+=== Sociedade contemporânea > Pensamento social brasileiro c=3 d=medio
+P: Florestan Fernandes, em A Integração do Negro na Sociedade de Classes, mostrou que, após a abolição:
+- A população negra foi plenamente integrada ao mercado de trabalho
+- O racismo desapareceu no Brasil
+- Os ex-escravizados receberam terras do Estado
+- A população negra foi deixada à margem, sem políticas de integração, o que perpetuou desigualdades
+E: A abolição sem reparação ou inclusão manteve a população negra em posições subalternas na sociedade de classes.
+--- en
+P: Florestan Fernandes, in The Negro in Brazilian Society (A Integração do Negro na Sociedade de Classes), showed that, after abolition:
+- The Black population was fully integrated into the labor market
+- Racism disappeared in Brazil
+- Formerly enslaved people received land from the State
+- The Black population was left on the margins, with no integration policies, which perpetuated inequalities
+E: Abolition without reparation or inclusion kept the Black population in subordinate positions in class society.
+--- es
+P: Florestan Fernandes, en La integración del negro en la sociedad de clases, mostró que, después de la abolición:
+- La población negra fue plenamente integrada al mercado de trabajo
+- El racismo desapareció en Brasil
+- Los exesclavizados recibieron tierras del Estado
+- La población negra quedó al margen, sin políticas de integración, lo que perpetuó las desigualdades
+E: La abolición sin reparación ni inclusión mantuvo a la población negra en posiciones subalternas en la sociedad de clases.
+
+=== Sociedade contemporânea > Pensamento social brasileiro c=1 d=dificil
+P: Em O Povo Brasileiro, Darcy Ribeiro descreve a formação do Brasil como:
+- Um processo pacífico, sem conflitos
+- Resultado do encontro, marcado por violência, de indígenas, africanos e europeus, gerando um povo novo
+- Obra exclusiva dos colonizadores portugueses
+- Uma sociedade sem mistura cultural
+E: Darcy Ribeiro vê o brasileiro como um povo novo, forjado pela mistura e pela opressão de matrizes indígenas, africanas e europeias.
+--- en
+P: In The Brazilian People, Darcy Ribeiro describes Brazil's formation as:
+- A peaceful process, without conflicts
+- The result of the violent encounter of Indigenous, African and European peoples, creating a new people
+- The exclusive work of Portuguese colonizers
+- A society without cultural mixing
+E: Darcy Ribeiro sees Brazilians as a new people, forged by the mixing and oppression of Indigenous, African and European roots.
+--- es
+P: En El pueblo brasileño, Darcy Ribeiro describe la formación de Brasil como:
+- Un proceso pacífico, sin conflictos
+- Resultado del encuentro, marcado por la violencia, de indígenas, africanos y europeos, que generó un pueblo nuevo
+- Obra exclusiva de los colonizadores portugueses
+- Una sociedad sin mezcla cultural
+E: Darcy Ribeiro ve al brasileño como un pueblo nuevo, forjado por la mezcla y la opresión de raíces indígenas, africanas y europeas.
+
+=== Sociedade contemporânea > Pensamento social brasileiro c=2 d=dificil
+P: O conceito de "patrimonialismo", usado por Raymundo Faoro em Os Donos do Poder, descreve:
+- A defesa do patrimônio histórico nacional
+- A separação rigorosa entre bens públicos e privados
+- O uso do Estado como se fosse propriedade privada de um grupo dirigente (o "estamento burocrático")
+- A organização dos trabalhadores em sindicatos
+E: Faoro, inspirado em Weber, vê na herança portuguesa um Estado apropriado por uma elite que confunde público e privado.
+--- en
+P: The concept of "patrimonialism", used by Raymundo Faoro in Os Donos do Poder, describes:
+- The protection of national historical heritage
+- The strict separation between public and private property
+- The use of the State as if it were the private property of a ruling group (the "bureaucratic estate")
+- The organization of workers into unions
+E: Faoro, inspired by Weber, sees in the Portuguese heritage a State appropriated by an elite that confuses public and private.
+--- es
+P: El concepto de "patrimonialismo", usado por Raymundo Faoro en Los dueños del poder, describe:
+- La defensa del patrimonio histórico nacional
+- La separación rigurosa entre bienes públicos y privados
+- El uso del Estado como si fuera propiedad privada de un grupo dirigente (el "estamento burocrático")
+- La organización de los trabajadores en sindicatos
+E: Faoro, inspirado en Weber, ve en la herencia portuguesa un Estado apropiado por una élite que confunde lo público y lo privado.

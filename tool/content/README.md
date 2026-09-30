@@ -86,13 +86,14 @@ es: <tópico es>
 
 ```bash
 python tool/content/gen_subject_catalog.py filosofia tool/content/materias/filosofia_catalogo.txt supabase/catalog_seed_filosofia.sql <dir>
-cat tool/content/materias/filosofia_q*.txt > <dir>/all.txt
+# um arquivo por vez, com linha em branco entre eles (sem isso, o fim de um cola no começo do outro)
+for f in tool/content/materias/filosofia_q*.txt; do cat "$f"; echo; done > <dir>/all.txt
 python tool/content/gen_new_questions.py <dir> filosofia <dir>/all.txt supabase/questions_filosofia.sql
 ```
 
 Nas questões, o cabeçalho aceita o nível: `=== <área> > <tópico> c=<0..3> d=facil|medio|dificil`
 (sem `d=`, fica `dificil`). Padrão das matérias novas: 6 questões por tópico, 2 de cada nível,
-gabarito equilibrado entre as letras. Depois de rodar os dois SQL, rode o checkup
+gabarito equilibrado entre as letras. Confira a contagem por tópico que o gerador imprime: todo tópico com 6. Depois de rodar os dois SQL, rode o checkup
 (`supabase/check_<materia>.sql`) e só então acrescente a matéria ao enum `Subject` no app:
 sem conteúdo, ela viraria um card vazio no Praticar.
 

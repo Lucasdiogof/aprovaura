@@ -1,0 +1,659 @@
+=== Desigualdades sociais > Classes e estratificação c=2 d=facil
+P: Estratificação social é:
+- A divisão do território em estados
+- O estudo das camadas de rochas
+- A organização da sociedade em camadas hierárquicas com acesso desigual a recursos e prestígio
+- A igualdade completa entre todos os membros
+E: Castas, estamentos e classes são formas históricas de estratificação.
+--- en
+P: Social stratification is:
+- The division of a territory into states
+- The study of rock layers
+- The organization of society into hierarchical layers with unequal access to resources and prestige
+- Complete equality among all members
+E: Castes, estates and classes are historical forms of stratification.
+--- es
+P: La estratificación social es:
+- La división del territorio en estados
+- El estudio de las capas de rocas
+- La organización de la sociedad en capas jerárquicas con acceso desigual a recursos y prestigio
+- La igualdad completa entre todos los miembros
+E: Castas, estamentos y clases son formas históricas de estratificación.
+
+=== Desigualdades sociais > Classes e estratificação c=0 d=facil
+P: No sistema de castas, como o tradicional da Índia, a mobilidade social é:
+- Praticamente inexistente, pois a posição é definida pelo nascimento
+- Muito alta, pois depende só do esforço
+- Definida pelo voto
+- Igual à das sociedades de classes
+E: Nas castas, a posição é hereditária e reforçada por regras religiosas, como a proibição de casamentos entre castas.
+--- en
+P: In a caste system, like India's traditional one, social mobility is:
+- Practically nonexistent, since position is defined by birth
+- Very high, since it depends only on effort
+- Decided by voting
+- The same as in class societies
+E: In castes, position is hereditary and reinforced by religious rules, such as the ban on marriages between castes.
+--- es
+P: En el sistema de castas, como el tradicional de la India, la movilidad social es:
+- Prácticamente inexistente, pues la posición se define por el nacimiento
+- Muy alta, pues depende solo del esfuerzo
+- Definida por el voto
+- Igual a la de las sociedades de clases
+E: En las castas, la posición es hereditaria y reforzada por reglas religiosas, como la prohibición de casarse entre castas.
+
+=== Desigualdades sociais > Classes e estratificação c=1 d=medio
+P: Mobilidade social ascendente ocorre quando uma pessoa ou grupo:
+- Muda de cidade sem mudar de posição social
+- Passa para uma posição social mais alta, como pela escolaridade ou renda
+- Perde renda e prestígio
+- Permanece sempre na mesma camada social
+E: A mobilidade pode ser ascendente ou descendente, e intergeracional (entre pais e filhos) ou intrageracional.
+--- en
+P: Upward social mobility happens when a person or group:
+- Moves to another city without changing social position
+- Moves to a higher social position, for example through education or income
+- Loses income and prestige
+- Always stays in the same social layer
+E: Mobility can be upward or downward, and intergenerational (between parents and children) or intragenerational.
+--- es
+P: La movilidad social ascendente ocurre cuando una persona o grupo:
+- Cambia de ciudad sin cambiar de posición social
+- Pasa a una posición social más alta, por ejemplo por la escolaridad o los ingresos
+- Pierde ingresos y prestigio
+- Permanece siempre en la misma capa social
+E: La movilidad puede ser ascendente o descendente, e intergeneracional (entre padres e hijos) o intrageneracional.
+
+=== Desigualdades sociais > Classes e estratificação c=3 d=medio
+P: O índice de Gini é usado para medir:
+- A taxa de natalidade
+- O nível de alfabetização
+- O crescimento do PIB
+- A desigualdade na distribuição de renda
+E: O Gini vai de 0 (igualdade total) a 1 (desigualdade máxima); o Brasil está entre os países mais desiguais do mundo.
+--- en
+P: The Gini index is used to measure:
+- The birth rate
+- The literacy level
+- GDP growth
+- Inequality in income distribution
+E: The Gini index ranges from 0 (total equality) to 1 (maximum inequality); Brazil is among the most unequal countries in the world.
+--- es
+P: El índice de Gini se usa para medir:
+- La tasa de natalidad
+- El nivel de alfabetización
+- El crecimiento del PIB
+- La desigualdad en la distribución del ingreso
+E: El Gini va de 0 (igualdad total) a 1 (desigualdad máxima); Brasil está entre los países más desiguales del mundo.
+
+=== Desigualdades sociais > Classes e estratificação c=2 d=dificil
+P: Weber ampliou a análise da estratificação ao considerar, além da classe econômica:
+- Apenas a religião
+- Somente a idade
+- O status (prestígio social) e o partido (poder político)
+- Apenas a localização geográfica
+E: Para Weber, a posição social tem dimensões econômica (classe), de honra/prestígio (status) e de poder (partido).
+--- en
+P: Weber broadened the analysis of stratification by considering, besides economic class:
+- Religion only
+- Age only
+- Status (social prestige) and party (political power)
+- Geographic location only
+E: For Weber, social position has economic (class), honor/prestige (status) and power (party) dimensions.
+--- es
+P: Weber amplió el análisis de la estratificación al considerar, además de la clase económica:
+- Solo la religión
+- Solo la edad
+- El estatus (prestigio social) y el partido (poder político)
+- Solo la ubicación geográfica
+E: Para Weber, la posición social tiene dimensiones económica (clase), de honor/prestigio (estatus) y de poder (partido).
+
+=== Desigualdades sociais > Classes e estratificação c=0 d=dificil
+P: A ideia de meritocracia é criticada por sociólogos quando ela:
+- Ignora que as pessoas partem de condições desiguais de oportunidade
+- Valoriza o esforço pessoal
+- Defende concursos públicos
+- Reconhece talentos
+E: Se as condições de partida (renda, escola, rede de contatos) são desiguais, os resultados não refletem só o mérito.
+--- en
+P: The idea of meritocracy is criticized by sociologists when it:
+- Ignores that people start from unequal conditions of opportunity
+- Values personal effort
+- Supports public service exams
+- Recognizes talents
+E: If starting conditions (income, school, networks) are unequal, results do not reflect merit alone.
+--- es
+P: La idea de meritocracia es criticada por sociólogos cuando:
+- Ignora que las personas parten de condiciones desiguales de oportunidad
+- Valora el esfuerzo personal
+- Defiende los concursos públicos
+- Reconoce talentos
+E: Si las condiciones de partida (ingresos, escuela, red de contactos) son desiguales, los resultados no reflejan solo el mérito.
+
+=== Desigualdades sociais > Desigualdade racial c=1 d=facil
+P: O racismo estrutural é aquele que:
+- Existe apenas em atitudes individuais isoladas
+- Está enraizado no funcionamento das instituições e na organização da sociedade
+- Desapareceu com a abolição da escravidão
+- Só ocorre em outros países
+E: O racismo estrutural se reproduz por práticas institucionais, econômicas e culturais, mesmo sem intenção individual explícita.
+--- en
+P: Structural racism is the kind that:
+- Exists only in isolated individual attitudes
+- Is rooted in how institutions work and in how society is organized
+- Disappeared with the abolition of slavery
+- Only occurs in other countries
+E: Structural racism is reproduced through institutional, economic and cultural practices, even without explicit individual intent.
+--- es
+P: El racismo estructural es aquel que:
+- Existe solo en actitudes individuales aisladas
+- Está arraigado en el funcionamiento de las instituciones y en la organización de la sociedad
+- Desapareció con la abolición de la esclavitud
+- Solo ocurre en otros países
+E: El racismo estructural se reproduce mediante prácticas institucionales, económicas y culturales, incluso sin intención individual explícita.
+
+=== Desigualdades sociais > Desigualdade racial c=3 d=facil
+P: No Brasil, as cotas raciais em universidades públicas são um exemplo de:
+- Política de exclusão
+- Censura
+- Privatização do ensino
+- Ação afirmativa
+E: Ações afirmativas buscam reduzir desigualdades históricas, ampliando o acesso de grupos discriminados.
+--- en
+P: In Brazil, racial quotas at public universities are an example of:
+- Exclusion policy
+- Censorship
+- Privatization of education
+- Affirmative action
+E: Affirmative actions seek to reduce historical inequalities by widening access for groups that face discrimination.
+--- es
+P: En Brasil, las cuotas raciales en universidades públicas son un ejemplo de:
+- Política de exclusión
+- Censura
+- Privatización de la enseñanza
+- Acción afirmativa
+E: Las acciones afirmativas buscan reducir desigualdades históricas, ampliando el acceso de grupos discriminados.
+
+=== Desigualdades sociais > Desigualdade racial c=2 d=medio
+P: O "mito da democracia racial" no Brasil é a ideia de que:
+- O país sempre teve leis racistas explícitas
+- Os brasileiros nunca se misturaram
+- A miscigenação teria produzido uma convivência harmoniosa, sem racismo, o que esconde desigualdades reais
+- A escravidão nunca existiu no país
+E: Florestan Fernandes, entre outros, mostrou que essa ideia mascarava a discriminação e a desigualdade racial.
+--- en
+P: The "myth of racial democracy" in Brazil is the idea that:
+- The country always had explicit racist laws
+- Brazilians never mixed
+- Racial mixing would have produced harmonious coexistence without racism, which hides real inequalities
+- Slavery never existed in the country
+E: Florestan Fernandes, among others, showed that this idea masked discrimination and racial inequality.
+--- es
+P: El "mito de la democracia racial" en Brasil es la idea de que:
+- El país siempre tuvo leyes racistas explícitas
+- Los brasileños nunca se mezclaron
+- El mestizaje habría producido una convivencia armoniosa, sin racismo, lo que oculta desigualdades reales
+- La esclavitud nunca existió en el país
+E: Florestan Fernandes, entre otros, mostró que esa idea enmascaraba la discriminación y la desigualdad racial.
+
+=== Desigualdades sociais > Desigualdade racial c=0 d=medio
+P: Qual diferença existe entre preconceito e discriminação?
+- Preconceito é um julgamento prévio negativo; discriminação é a ação que trata alguém de forma desigual por isso
+- São sinônimos exatos
+- Discriminação é apenas uma opinião, e preconceito é uma lei
+- Preconceito só existe contra estrangeiros
+E: O preconceito está no campo das ideias; a discriminação é o ato que nega direitos ou oportunidades.
+--- en
+P: What is the difference between prejudice and discrimination?
+- Prejudice is a negative prejudgment; discrimination is the act of treating someone unequally because of it
+- They are exact synonyms
+- Discrimination is only an opinion, and prejudice is a law
+- Prejudice only exists against foreigners
+E: Prejudice lies in the realm of ideas; discrimination is the act that denies rights or opportunities.
+--- es
+P: ¿Qué diferencia hay entre prejuicio y discriminación?
+- El prejuicio es un juicio previo negativo; la discriminación es la acción que trata a alguien de forma desigual por ello
+- Son sinónimos exactos
+- La discriminación es solo una opinión, y el prejuicio es una ley
+- El prejuicio solo existe contra los extranjeros
+E: El prejuicio está en el campo de las ideas; la discriminación es el acto que niega derechos u oportunidades.
+
+=== Desigualdades sociais > Desigualdade racial c=3 d=dificil
+P: A Lei 10.639/2003, no Brasil, tornou obrigatório nas escolas o ensino:
+- De língua espanhola
+- De educação financeira
+- De programação de computadores
+- De história e cultura afro-brasileira
+E: A lei alterou a LDB para valorizar a contribuição dos povos africanos e afro-brasileiros na formação do país.
+--- en
+P: Law 10,639/2003, in Brazil, made it compulsory in schools to teach:
+- The Spanish language
+- Financial education
+- Computer programming
+- Afro-Brazilian history and culture
+E: The law amended the national education law to value the contribution of African and Afro-Brazilian peoples to the country's formation.
+--- es
+P: La Ley 10.639/2003, en Brasil, hizo obligatoria en las escuelas la enseñanza:
+- De lengua española
+- De educación financiera
+- De programación de computadoras
+- De historia y cultura afrobrasileña
+E: La ley modificó la ley de educación para valorar la contribución de los pueblos africanos y afrobrasileños a la formación del país.
+
+=== Desigualdades sociais > Desigualdade racial c=1 d=dificil
+P: Dados como a maior proporção de pessoas negras entre as vítimas de homicídio e entre os mais pobres no Brasil são interpretados pela sociologia como:
+- Coincidências estatísticas sem explicação social
+- Expressões de desigualdades raciais históricas e estruturais
+- Resultado de diferenças biológicas
+- Fenômenos que não podem ser estudados
+E: Esses indicadores refletem a herança da escravidão e a exclusão que persistiu após a abolição.
+--- en
+P: Data such as the higher proportion of Black people among homicide victims and among the poorest in Brazil are interpreted by sociology as:
+- Statistical coincidences with no social explanation
+- Expressions of historical and structural racial inequalities
+- The result of biological differences
+- Phenomena that cannot be studied
+E: These indicators reflect the legacy of slavery and the exclusion that persisted after abolition.
+--- es
+P: Datos como la mayor proporción de personas negras entre las víctimas de homicidio y entre los más pobres en Brasil son interpretados por la sociología como:
+- Coincidencias estadísticas sin explicación social
+- Expresiones de desigualdades raciales históricas y estructurales
+- Resultado de diferencias biológicas
+- Fenómenos que no pueden estudiarse
+E: Esos indicadores reflejan la herencia de la esclavitud y la exclusión que persistió después de la abolición.
+
+=== Desigualdades sociais > Gênero e desigualdade c=0 d=facil
+P: Em sociologia, "gênero" se refere principalmente:
+- Aos papéis, expectativas e relações construídos socialmente sobre o masculino e o feminino
+- Apenas às diferenças biológicas entre os corpos
+- Aos estilos de música
+- À classificação dos seres vivos
+E: O conceito distingue o que é social e cultural do que é biológico, mostrando que os papéis de gênero variam.
+--- en
+P: In sociology, "gender" mainly refers:
+- To the socially constructed roles, expectations and relations about the masculine and the feminine
+- Only to biological differences between bodies
+- To music styles
+- To the classification of living beings
+E: The concept separates what is social and cultural from what is biological, showing that gender roles vary.
+--- es
+P: En sociología, "género" se refiere principalmente:
+- A los papeles, expectativas y relaciones construidos socialmente sobre lo masculino y lo femenino
+- Solo a las diferencias biológicas entre los cuerpos
+- A los estilos de música
+- A la clasificación de los seres vivos
+E: El concepto distingue lo social y cultural de lo biológico, mostrando que los papeles de género varían.
+
+=== Desigualdades sociais > Gênero e desigualdade c=2 d=facil
+P: A "dupla jornada" é uma expressão usada para descrever a situação de muitas mulheres que:
+- Trabalham em dois empregos iguais
+- Estudam de manhã e à noite
+- Somam o trabalho remunerado ao trabalho doméstico e de cuidado não pago
+- Viajam duas vezes por dia
+E: O trabalho doméstico e de cuidado recai de forma desigual sobre as mulheres, mesmo quando trabalham fora.
+--- en
+P: "Double shift" is an expression used to describe the situation of many women who:
+- Work at two identical jobs
+- Study in the morning and at night
+- Add unpaid domestic and care work to their paid work
+- Travel twice a day
+E: Domestic and care work falls unequally on women, even when they work outside the home.
+--- es
+P: La "doble jornada" es una expresión usada para describir la situación de muchas mujeres que:
+- Trabajan en dos empleos iguales
+- Estudian por la mañana y por la noche
+- Suman el trabajo remunerado al trabajo doméstico y de cuidados no pagado
+- Viajan dos veces al día
+E: El trabajo doméstico y de cuidados recae de forma desigual sobre las mujeres, incluso cuando trabajan fuera de casa.
+
+=== Desigualdades sociais > Gênero e desigualdade c=1 d=medio
+P: A diferença salarial entre homens e mulheres que exercem funções semelhantes é um exemplo de:
+- Mobilidade social ascendente
+- Desigualdade de gênero no mercado de trabalho
+- Divisão natural do trabalho
+- Ação afirmativa
+E: Mesmo com escolaridade igual ou maior, mulheres tendem a receber menos e a ocupar menos cargos de chefia.
+--- en
+P: The pay gap between men and women doing similar jobs is an example of:
+- Upward social mobility
+- Gender inequality in the labor market
+- A natural division of labor
+- Affirmative action
+E: Even with equal or higher schooling, women tend to earn less and hold fewer management positions.
+--- es
+P: La diferencia salarial entre hombres y mujeres que ejercen funciones similares es un ejemplo de:
+- Movilidad social ascendente
+- Desigualdad de género en el mercado de trabajo
+- División natural del trabajo
+- Acción afirmativa
+E: Aun con igual o mayor escolaridad, las mujeres tienden a ganar menos y a ocupar menos cargos de dirección.
+
+=== Desigualdades sociais > Gênero e desigualdade c=3 d=medio
+P: A Lei Maria da Penha (Lei 11.340/2006) foi criada no Brasil para:
+- Regular o trabalho doméstico remunerado
+- Garantir cotas em partidos políticos
+- Instituir a licença-paternidade
+- Coibir e prevenir a violência doméstica e familiar contra a mulher
+E: A lei criou mecanismos como as medidas protetivas de urgência para mulheres em situação de violência.
+--- en
+P: The Maria da Penha Law (Law 11,340/2006) was created in Brazil to:
+- Regulate paid domestic work
+- Guarantee quotas in political parties
+- Establish paternity leave
+- Curb and prevent domestic and family violence against women
+E: The law created mechanisms such as emergency protective orders for women facing violence.
+--- es
+P: La Ley Maria da Penha (Ley 11.340/2006) fue creada en Brasil para:
+- Regular el trabajo doméstico remunerado
+- Garantizar cuotas en los partidos políticos
+- Instituir la licencia por paternidad
+- Reprimir y prevenir la violencia doméstica y familiar contra la mujer
+E: La ley creó mecanismos como las medidas de protección urgentes para mujeres en situación de violencia.
+
+=== Desigualdades sociais > Gênero e desigualdade c=2 d=dificil
+P: O conceito de interseccionalidade, formulado por Kimberlé Crenshaw, propõe que:
+- Cada forma de desigualdade deve ser estudada isoladamente
+- Só a classe social explica as desigualdades
+- Opressões como as de gênero, raça e classe se cruzam e produzem experiências específicas de desigualdade
+- As desigualdades de gênero já foram superadas
+E: Uma mulher negra e pobre, por exemplo, enfrenta desigualdades que não se explicam somando cada fator separadamente.
+--- en
+P: The concept of intersectionality, formulated by Kimberlé Crenshaw, proposes that:
+- Each form of inequality should be studied in isolation
+- Only social class explains inequality
+- Oppressions such as gender, race and class intersect and produce specific experiences of inequality
+- Gender inequalities have already been overcome
+E: A poor Black woman, for example, faces inequalities that cannot be explained by adding each factor separately.
+--- es
+P: El concepto de interseccionalidad, formulado por Kimberlé Crenshaw, propone que:
+- Cada forma de desigualdad debe estudiarse de forma aislada
+- Solo la clase social explica las desigualdades
+- Opresiones como las de género, raza y clase se cruzan y producen experiencias específicas de desigualdad
+- Las desigualdades de género ya se superaron
+E: Una mujer negra y pobre, por ejemplo, enfrenta desigualdades que no se explican sumando cada factor por separado.
+
+=== Desigualdades sociais > Gênero e desigualdade c=0 d=dificil
+P: A ideia de "patriarcado", usada por estudos de gênero, designa:
+- Um sistema social em que os homens concentram poder e autoridade sobre as mulheres
+- Uma forma de governo exclusivamente religiosa
+- A herança de terras entre irmãos
+- O respeito aos mais velhos
+E: O patriarcado se manifesta na família, no trabalho, na política e na cultura, sustentando hierarquias de gênero.
+--- en
+P: The idea of "patriarchy", used in gender studies, means:
+- A social system in which men hold power and authority over women
+- An exclusively religious form of government
+- The inheritance of land among siblings
+- Respect for elders
+E: Patriarchy shows up in the family, work, politics and culture, sustaining gender hierarchies.
+--- es
+P: La idea de "patriarcado", usada en los estudios de género, designa:
+- Un sistema social en el que los hombres concentran poder y autoridad sobre las mujeres
+- Una forma de gobierno exclusivamente religiosa
+- La herencia de tierras entre hermanos
+- El respeto a los mayores
+E: El patriarcado se manifiesta en la familia, el trabajo, la política y la cultura, sosteniendo jerarquías de género.
+
+=== Poder, Estado e política > Estado e poder c=3 d=facil
+P: Para Max Weber, o Estado moderno se define por deter:
+- O controle de todas as empresas
+- A autoridade religiosa suprema
+- A propriedade de todas as terras
+- O monopólio do uso legítimo da força física em um território
+E: Só o Estado pode usar a força de modo legítimo, dentro de regras legais, em seu território.
+--- en
+P: For Max Weber, the modern State is defined by holding:
+- Control of all companies
+- Supreme religious authority
+- Ownership of all land
+- The monopoly on the legitimate use of physical force within a territory
+E: Only the State may use force legitimately, within legal rules, in its territory.
+--- es
+P: Para Max Weber, el Estado moderno se define por poseer:
+- El control de todas las empresas
+- La autoridad religiosa suprema
+- La propiedad de todas las tierras
+- El monopolio del uso legítimo de la fuerza física en un territorio
+E: Solo el Estado puede usar la fuerza de modo legítimo, dentro de reglas legales, en su territorio.
+
+=== Poder, Estado e política > Estado e poder c=1 d=facil
+P: A separação dos poderes em Executivo, Legislativo e Judiciário foi sistematizada por:
+- Thomas Hobbes
+- Montesquieu
+- Karl Marx
+- Auguste Comte
+E: Em O Espírito das Leis, Montesquieu defende que o poder deve limitar o poder, evitando o despotismo.
+--- en
+P: The separation of powers into Executive, Legislative and Judiciary was systematized by:
+- Thomas Hobbes
+- Montesquieu
+- Karl Marx
+- Auguste Comte
+E: In The Spirit of the Laws, Montesquieu argues that power must check power, preventing despotism.
+--- es
+P: La separación de poderes en Ejecutivo, Legislativo y Judicial fue sistematizada por:
+- Thomas Hobbes
+- Montesquieu
+- Karl Marx
+- Auguste Comte
+E: En El espíritu de las leyes, Montesquieu defiende que el poder debe limitar al poder, evitando el despotismo.
+
+=== Poder, Estado e política > Estado e poder c=2 d=medio
+P: O Estado de bem-estar social (Welfare State) caracteriza-se por:
+- Ausência de qualquer intervenção na economia
+- Governo exclusivamente militar
+- Garantia pública de direitos sociais, como saúde, educação e previdência
+- Fim da cobrança de impostos
+E: Consolidado na Europa após 1945, o Welfare State ampliou serviços públicos e proteção social.
+--- en
+P: The welfare state is characterized by:
+- No intervention in the economy at all
+- An exclusively military government
+- Public guarantee of social rights, such as health, education and pensions
+- The end of taxation
+E: Consolidated in Europe after 1945, the welfare state expanded public services and social protection.
+--- es
+P: El Estado de bienestar (Welfare State) se caracteriza por:
+- La ausencia de cualquier intervención en la economía
+- Un gobierno exclusivamente militar
+- La garantía pública de derechos sociales, como salud, educación y previsión social
+- El fin del cobro de impuestos
+E: Consolidado en Europa después de 1945, el Welfare State amplió los servicios públicos y la protección social.
+
+=== Poder, Estado e política > Estado e poder c=0 d=medio
+P: O neoliberalismo, que ganhou força a partir dos anos 1980, defende:
+- Menor intervenção do Estado na economia, privatizações e abertura de mercados
+- Estatização de todas as empresas
+- Aumento dos gastos públicos sem limites
+- Fim do comércio internacional
+E: Governos como os de Thatcher e Reagan aplicaram políticas de redução do Estado e desregulamentação.
+--- en
+P: Neoliberalism, which gained strength from the 1980s on, advocates:
+- Less State intervention in the economy, privatization and open markets
+- Nationalization of all companies
+- Unlimited growth in public spending
+- The end of international trade
+E: Governments such as Thatcher's and Reagan's applied policies of shrinking the State and deregulation.
+--- es
+P: El neoliberalismo, que ganó fuerza a partir de los años 1980, defiende:
+- Menor intervención del Estado en la economía, privatizaciones y apertura de mercados
+- La estatización de todas las empresas
+- El aumento ilimitado del gasto público
+- El fin del comercio internacional
+E: Gobiernos como los de Thatcher y Reagan aplicaron políticas de reducción del Estado y desregulación.
+
+=== Poder, Estado e política > Estado e poder c=3 d=dificil
+P: Para Michel Foucault, o poder:
+- Está concentrado apenas no Estado e no governante
+- Não existe nas relações cotidianas
+- Pertence só a quem tem riqueza
+- Está disperso em relações e instituições, como escolas, prisões e hospitais, produzindo disciplina
+E: Foucault analisa o "poder disciplinar", que vigia e normaliza corpos e comportamentos em várias instituições.
+--- en
+P: For Michel Foucault, power:
+- Is concentrated only in the State and the ruler
+- Does not exist in everyday relations
+- Belongs only to the wealthy
+- Is spread across relations and institutions, such as schools, prisons and hospitals, producing discipline
+E: Foucault analyzes "disciplinary power", which watches and normalizes bodies and behavior in various institutions.
+--- es
+P: Para Michel Foucault, el poder:
+- Está concentrado solo en el Estado y en el gobernante
+- No existe en las relaciones cotidianas
+- Pertenece solo a quien tiene riqueza
+- Está disperso en relaciones e instituciones, como escuelas, cárceles y hospitales, produciendo disciplina
+E: Foucault analiza el "poder disciplinario", que vigila y normaliza cuerpos y comportamientos en varias instituciones.
+
+=== Poder, Estado e política > Estado e poder c=1 d=dificil
+P: O conceito de "hegemonia", de Antonio Gramsci, explica que a dominação de uma classe se mantém:
+- Somente pela força militar
+- Também pelo consenso, difundido pela cultura, escola, mídia e religião
+- Apenas pela propriedade da terra
+- Sem nenhuma relação com as ideias
+E: Para Gramsci, a classe dirigente conquista a adesão dos dominados por meio de valores tidos como "senso comum".
+--- en
+P: Antonio Gramsci's concept of "hegemony" explains that a class's domination is maintained:
+- Only by military force
+- Also by consent, spread through culture, school, media and religion
+- Only through land ownership
+- With no relation to ideas
+E: For Gramsci, the ruling class wins the adherence of the dominated through values taken as "common sense".
+--- es
+P: El concepto de "hegemonía", de Antonio Gramsci, explica que la dominación de una clase se mantiene:
+- Solo por la fuerza militar
+- También por el consenso, difundido por la cultura, la escuela, los medios y la religión
+- Solo por la propiedad de la tierra
+- Sin ninguna relación con las ideas
+E: Para Gramsci, la clase dirigente conquista la adhesión de los dominados mediante valores tenidos por "sentido común".
+
+=== Poder, Estado e política > Democracia e participação c=0 d=facil
+P: Na democracia representativa, os cidadãos:
+- Elegem representantes para tomar decisões em seu nome
+- Decidem todas as leis diretamente em assembleias
+- Não participam de eleições
+- Obedecem a um rei hereditário
+E: O Brasil é uma democracia representativa, com mecanismos de participação direta como plebiscito e referendo.
+--- en
+P: In representative democracy, citizens:
+- Elect representatives to make decisions on their behalf
+- Decide every law directly in assemblies
+- Do not take part in elections
+- Obey a hereditary king
+E: Brazil is a representative democracy, with direct participation mechanisms such as plebiscites and referendums.
+--- es
+P: En la democracia representativa, los ciudadanos:
+- Eligen representantes para que tomen decisiones en su nombre
+- Deciden todas las leyes directamente en asambleas
+- No participan en elecciones
+- Obedecen a un rey hereditario
+E: Brasil es una democracia representativa, con mecanismos de participación directa como el plebiscito y el referéndum.
+
+=== Poder, Estado e política > Democracia e participação c=2 d=facil
+P: A democracia na Atenas antiga era direta, mas excluía da participação:
+- Os homens adultos nascidos em Atenas
+- Os filósofos
+- Mulheres, escravizados e estrangeiros
+- Os comerciantes atenienses
+E: Só homens adultos, livres e filhos de atenienses eram cidadãos com direito de votar na assembleia.
+--- en
+P: Democracy in ancient Athens was direct, but excluded from participation:
+- Adult men born in Athens
+- Philosophers
+- Women, enslaved people and foreigners
+- Athenian merchants
+E: Only free adult men born to Athenian parents were citizens entitled to vote in the assembly.
+--- es
+P: La democracia en la Atenas antigua era directa, pero excluía de la participación a:
+- Los hombres adultos nacidos en Atenas
+- Los filósofos
+- Las mujeres, los esclavizados y los extranjeros
+- Los comerciantes atenienses
+E: Solo los hombres adultos, libres e hijos de atenienses eran ciudadanos con derecho a votar en la asamblea.
+
+=== Poder, Estado e política > Democracia e participação c=3 d=medio
+P: O plebiscito e o referendo diferem porque:
+- O plebiscito é feito só por políticos
+- O referendo elege o presidente
+- Os dois são proibidos no Brasil
+- No plebiscito a população é consultada antes da decisão; no referendo, confirma ou rejeita algo já aprovado
+E: Em 1993 houve plebiscito sobre forma e sistema de governo; em 2005, referendo sobre a venda de armas.
+--- en
+P: Plebiscites and referendums differ because:
+- A plebiscite is held only by politicians
+- A referendum elects the president
+- Both are banned in Brazil
+- In a plebiscite people are consulted before the decision; in a referendum they confirm or reject something already approved
+E: In 1993 there was a plebiscite on the form and system of government; in 2005, a referendum on the sale of firearms.
+--- es
+P: El plebiscito y el referéndum se diferencian porque:
+- El plebiscito lo hacen solo los políticos
+- El referéndum elige al presidente
+- Ambos están prohibidos en Brasil
+- En el plebiscito se consulta a la población antes de la decisión; en el referéndum, esta confirma o rechaza algo ya aprobado
+E: En 1993 hubo un plebiscito sobre la forma y el sistema de gobierno; en 2005, un referéndum sobre la venta de armas.
+
+=== Poder, Estado e política > Democracia e participação c=1 d=medio
+P: Conselhos de políticas públicas (de saúde, educação etc.) e o orçamento participativo são exemplos de:
+- Censura estatal
+- Participação social direta na gestão pública
+- Privatização dos serviços
+- Dominação carismática
+E: Esses espaços permitem que cidadãos e entidades influenciem e fiscalizem decisões do poder público.
+--- en
+P: Public policy councils (health, education etc.) and participatory budgeting are examples of:
+- State censorship
+- Direct social participation in public management
+- Privatization of services
+- Charismatic domination
+E: These spaces allow citizens and organizations to influence and oversee government decisions.
+--- es
+P: Los consejos de políticas públicas (de salud, educación, etc.) y el presupuesto participativo son ejemplos de:
+- Censura estatal
+- Participación social directa en la gestión pública
+- Privatización de los servicios
+- Dominación carismática
+E: Esos espacios permiten que ciudadanos y entidades influyan en las decisiones del poder público y las fiscalicen.
+
+=== Poder, Estado e política > Democracia e participação c=2 d=dificil
+P: O totalitarismo, analisado por Hannah Arendt, caracteriza-se por:
+- Pluralismo partidário e imprensa livre
+- Alternância regular no poder
+- Controle total da vida pública e privada, partido único, propaganda e terror
+- Descentralização do poder entre regiões
+E: Em Origens do Totalitarismo, Arendt estuda o nazismo e o stalinismo como formas inéditas de dominação total.
+--- en
+P: Totalitarianism, analyzed by Hannah Arendt, is characterized by:
+- Party pluralism and a free press
+- Regular alternation in power
+- Total control of public and private life, a single party, propaganda and terror
+- Decentralization of power among regions
+E: In The Origins of Totalitarianism, Arendt studies Nazism and Stalinism as unprecedented forms of total domination.
+--- es
+P: El totalitarismo, analizado por Hannah Arendt, se caracteriza por:
+- Pluralismo partidario y prensa libre
+- Alternancia regular en el poder
+- Control total de la vida pública y privada, partido único, propaganda y terror
+- Descentralización del poder entre regiones
+E: En Los orígenes del totalitarismo, Arendt estudia el nazismo y el estalinismo como formas inéditas de dominación total.
+
+=== Poder, Estado e política > Democracia e participação c=0 d=dificil
+P: A expressão "tirania da maioria", discutida por Alexis de Tocqueville e John Stuart Mill, alerta para o risco de:
+- Maiorias oprimirem minorias e restringirem liberdades individuais
+- Minorias governarem sem eleições
+- A democracia acabar por falta de votos
+- O Judiciário controlar o Legislativo
+E: Por isso as democracias incluem direitos fundamentais que nenhuma maioria pode suprimir.
+--- en
+P: The expression "tyranny of the majority", discussed by Alexis de Tocqueville and John Stuart Mill, warns of the risk of:
+- Majorities oppressing minorities and restricting individual freedoms
+- Minorities governing without elections
+- Democracy ending for lack of votes
+- The Judiciary controlling the Legislature
+E: That is why democracies include fundamental rights that no majority can abolish.
+--- es
+P: La expresión "tiranía de la mayoría", discutida por Alexis de Tocqueville y John Stuart Mill, advierte del riesgo de que:
+- Las mayorías opriman a las minorías y restrinjan las libertades individuales
+- Las minorías gobiernen sin elecciones
+- La democracia termine por falta de votos
+- El Poder Judicial controle al Legislativo
+E: Por eso las democracias incluyen derechos fundamentales que ninguna mayoría puede suprimir.

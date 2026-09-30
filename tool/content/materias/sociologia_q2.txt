@@ -1,0 +1,659 @@
+=== Cultura e sociedade > Cultura e etnocentrismo c=0 d=facil
+P: Em sentido antropológico, "cultura" é:
+- Todo o conjunto de costumes, crenças, valores, saberes e práticas de um grupo
+- Apenas as artes eruditas, como ópera e pintura
+- O nível de escolaridade de uma pessoa
+- A produção agrícola de um país
+E: Para a antropologia, todos os povos têm cultura: é o modo de vida aprendido e compartilhado.
+--- en
+P: In the anthropological sense, "culture" is:
+- The whole set of customs, beliefs, values, knowledge and practices of a group
+- Only fine arts, such as opera and painting
+- A person's level of schooling
+- A country's agricultural output
+E: For anthropology, all peoples have culture: it is the learned and shared way of life.
+--- es
+P: En sentido antropológico, "cultura" es:
+- Todo el conjunto de costumbres, creencias, valores, saberes y prácticas de un grupo
+- Solo las artes cultas, como la ópera y la pintura
+- El nivel de escolaridad de una persona
+- La producción agrícola de un país
+E: Para la antropología, todos los pueblos tienen cultura: es el modo de vida aprendido y compartido.
+
+=== Cultura e sociedade > Cultura e etnocentrismo c=2 d=facil
+P: Etnocentrismo é a atitude de:
+- Valorizar igualmente todas as culturas
+- Estudar cientificamente outras sociedades
+- Julgar outras culturas a partir dos valores da própria, considerada superior
+- Viver em outro país
+E: O etnocentrismo toma a própria cultura como medida de tudo, levando a preconceitos contra o diferente.
+--- en
+P: Ethnocentrism is the attitude of:
+- Valuing all cultures equally
+- Studying other societies scientifically
+- Judging other cultures by the values of one's own, seen as superior
+- Living in another country
+E: Ethnocentrism takes one's own culture as the measure of everything, leading to prejudice against what is different.
+--- es
+P: El etnocentrismo es la actitud de:
+- Valorar por igual todas las culturas
+- Estudiar científicamente otras sociedades
+- Juzgar otras culturas a partir de los valores de la propia, considerada superior
+- Vivir en otro país
+E: El etnocentrismo toma la propia cultura como medida de todo, lo que lleva a prejuicios contra lo diferente.
+
+=== Cultura e sociedade > Cultura e etnocentrismo c=1 d=medio
+P: O relativismo cultural, como princípio de pesquisa, propõe:
+- Que nenhuma cultura deve ser estudada
+- Compreender cada cultura a partir de seus próprios valores e contexto
+- Classificar as culturas em superiores e inferiores
+- Impor a cultura ocidental a todos os povos
+E: A antropologia busca entender práticas no seu contexto, evitando julgá-las pelos padrões de quem observa.
+--- en
+P: Cultural relativism, as a research principle, proposes:
+- That no culture should be studied
+- Understanding each culture by its own values and context
+- Classifying cultures as superior and inferior
+- Imposing Western culture on all peoples
+E: Anthropology seeks to understand practices in context, avoiding judging them by the observer's standards.
+--- es
+P: El relativismo cultural, como principio de investigación, propone:
+- Que ninguna cultura debe estudiarse
+- Comprender cada cultura a partir de sus propios valores y contexto
+- Clasificar las culturas en superiores e inferiores
+- Imponer la cultura occidental a todos los pueblos
+E: La antropología busca entender las prácticas en su contexto, evitando juzgarlas con los patrones de quien observa.
+
+=== Cultura e sociedade > Cultura e etnocentrismo c=3 d=medio
+P: O processo de adaptação ao modo de vida dominante, em que um grupo perde traços da própria cultura, é chamado de:
+- Aculturação resistente
+- Etnocentrismo
+- Contracultura
+- Assimilação
+E: Na assimilação, o grupo minoritário incorpora a cultura dominante e abandona parte de suas tradições.
+--- en
+P: The process of adapting to the dominant way of life, in which a group loses features of its own culture, is called:
+- Resistant acculturation
+- Ethnocentrism
+- Counterculture
+- Assimilation
+E: In assimilation, the minority group adopts the dominant culture and gives up part of its traditions.
+--- es
+P: El proceso de adaptación al modo de vida dominante, en el que un grupo pierde rasgos de su propia cultura, se llama:
+- Aculturación resistente
+- Etnocentrismo
+- Contracultura
+- Asimilación
+E: En la asimilación, el grupo minoritario incorpora la cultura dominante y abandona parte de sus tradiciones.
+
+=== Cultura e sociedade > Cultura e etnocentrismo c=0 d=dificil
+P: O antropólogo Franz Boas foi importante por:
+- Criticar o determinismo racial e defender que as diferenças culturais são históricas, não biológicas
+- Defender a superioridade das raças europeias
+- Criar a teoria da luta de classes
+- Fundar o positivismo
+E: Boas combateu o racismo científico e mostrou que a cultura é aprendida, não herdada biologicamente.
+--- en
+P: The anthropologist Franz Boas was important for:
+- Criticizing racial determinism and arguing that cultural differences are historical, not biological
+- Defending the superiority of European races
+- Creating the theory of class struggle
+- Founding positivism
+E: Boas fought scientific racism and showed that culture is learned, not biologically inherited.
+--- es
+P: El antropólogo Franz Boas fue importante por:
+- Criticar el determinismo racial y defender que las diferencias culturales son históricas, no biológicas
+- Defender la superioridad de las razas europeas
+- Crear la teoría de la lucha de clases
+- Fundar el positivismo
+E: Boas combatió el racismo científico y mostró que la cultura se aprende, no se hereda biológicamente.
+
+=== Cultura e sociedade > Cultura e etnocentrismo c=2 d=dificil
+P: O conceito de "contracultura", associado a movimentos dos anos 1960, refere-se a:
+- A cultura oficial ensinada nas escolas
+- A mistura de culturas em um país
+- Grupos que contestam valores e normas dominantes, propondo outros modos de vida
+- A perda total de cultura por um povo
+E: Movimentos como o hippie questionaram o consumismo, a guerra e os costumes tradicionais.
+--- en
+P: The concept of "counterculture", associated with 1960s movements, refers to:
+- The official culture taught at school
+- The mixing of cultures in a country
+- Groups that challenge dominant values and norms, proposing other ways of life
+- A people's total loss of culture
+E: Movements such as the hippies questioned consumerism, war and traditional customs.
+--- es
+P: El concepto de "contracultura", asociado a movimientos de los años 1960, se refiere a:
+- La cultura oficial enseñada en las escuelas
+- La mezcla de culturas en un país
+- Grupos que cuestionan los valores y normas dominantes, proponiendo otros modos de vida
+- La pérdida total de cultura de un pueblo
+E: Movimientos como el hippie cuestionaron el consumismo, la guerra y las costumbres tradicionales.
+
+=== Cultura e sociedade > Socialização e instituições c=3 d=facil
+P: Socialização é o processo pelo qual o indivíduo:
+- Se isola da sociedade
+- Nasce com todos os valores definidos
+- Troca de país
+- Aprende normas, valores e comportamentos do seu grupo
+E: Pela socialização, a pessoa interioriza a cultura e aprende a viver em sociedade.
+--- en
+P: Socialization is the process through which the individual:
+- Isolates themselves from society
+- Is born with all values already defined
+- Moves to another country
+- Learns the norms, values and behaviors of their group
+E: Through socialization, a person internalizes culture and learns to live in society.
+--- es
+P: La socialización es el proceso por el cual el individuo:
+- Se aísla de la sociedad
+- Nace con todos los valores definidos
+- Cambia de país
+- Aprende normas, valores y comportamientos de su grupo
+E: Mediante la socialización, la persona interioriza la cultura y aprende a vivir en sociedad.
+
+=== Cultura e sociedade > Socialização e instituições c=1 d=facil
+P: A socialização primária acontece principalmente:
+- No ambiente de trabalho
+- Na família, nos primeiros anos de vida
+- Nas redes sociais
+- No serviço militar
+E: A família é o primeiro agente socializador; escola, trabalho e mídia atuam na socialização secundária.
+--- en
+P: Primary socialization takes place mainly:
+- In the workplace
+- In the family, in the first years of life
+- On social media
+- In military service
+E: The family is the first agent of socialization; school, work and media act in secondary socialization.
+--- es
+P: La socialización primaria ocurre principalmente:
+- En el ambiente de trabajo
+- En la familia, en los primeros años de vida
+- En las redes sociales
+- En el servicio militar
+E: La familia es el primer agente socializador; la escuela, el trabajo y los medios actúan en la socialización secundaria.
+
+=== Cultura e sociedade > Socialização e instituições c=0 d=medio
+P: Em sociologia, "instituição social" designa:
+- Um conjunto duradouro de normas e práticas que organiza aspectos da vida social, como família, escola e Estado
+- Qualquer prédio público
+- Apenas as empresas privadas
+- Um grupo de amigos
+E: Instituições são padrões estáveis que regulam comportamentos e cumprem funções na sociedade.
+--- en
+P: In sociology, "social institution" means:
+- A lasting set of norms and practices that organizes areas of social life, such as family, school and the State
+- Any public building
+- Only private companies
+- A group of friends
+E: Institutions are stable patterns that regulate behavior and fulfill functions in society.
+--- es
+P: En sociología, "institución social" designa:
+- Un conjunto duradero de normas y prácticas que organiza aspectos de la vida social, como la familia, la escuela y el Estado
+- Cualquier edificio público
+- Solo las empresas privadas
+- Un grupo de amigos
+E: Las instituciones son patrones estables que regulan comportamientos y cumplen funciones en la sociedad.
+
+=== Cultura e sociedade > Socialização e instituições c=2 d=medio
+P: Para Pierre Bourdieu, o "capital cultural" ajuda a explicar:
+- A distribuição das chuvas
+- A inflação de preços
+- Por que filhos de famílias mais escolarizadas tendem a ter mais sucesso escolar
+- A origem das religiões
+E: Saberes, gostos e diplomas herdados da família dão vantagens na escola, que tende a reproduzir desigualdades.
+--- en
+P: For Pierre Bourdieu, "cultural capital" helps explain:
+- The distribution of rainfall
+- Price inflation
+- Why children of more educated families tend to do better at school
+- The origin of religions
+E: Knowledge, tastes and diplomas inherited from the family give advantages at school, which tends to reproduce inequalities.
+--- es
+P: Para Pierre Bourdieu, el "capital cultural" ayuda a explicar:
+- La distribución de las lluvias
+- La inflación de precios
+- Por qué los hijos de familias más escolarizadas tienden a tener más éxito escolar
+- El origen de las religiones
+E: Saberes, gustos y diplomas heredados de la familia dan ventajas en la escuela, que tiende a reproducir desigualdades.
+
+=== Cultura e sociedade > Socialização e instituições c=3 d=dificil
+P: Erving Goffman chamou de "instituições totais" lugares como prisões e manicômios, que:
+- Não possuem regras
+- Funcionam apenas durante o dia
+- São abertos a qualquer visitante
+- Controlam todos os aspectos da vida dos internos, isolados do mundo exterior
+E: Nas instituições totais, dormir, comer e trabalhar ocorrem no mesmo lugar, sob uma única autoridade.
+--- en
+P: Erving Goffman called places such as prisons and asylums "total institutions", which:
+- Have no rules
+- Work only during the day
+- Are open to any visitor
+- Control every aspect of the inmates' lives, cut off from the outside world
+E: In total institutions, sleeping, eating and working happen in the same place, under a single authority.
+--- es
+P: Erving Goffman llamó "instituciones totales" a lugares como cárceles y manicomios, que:
+- No tienen reglas
+- Funcionan solo durante el día
+- Están abiertos a cualquier visitante
+- Controlan todos los aspectos de la vida de los internos, aislados del mundo exterior
+E: En las instituciones totales, dormir, comer y trabajar ocurren en el mismo lugar, bajo una única autoridad.
+
+=== Cultura e sociedade > Socialização e instituições c=1 d=dificil
+P: Para Bourdieu, o habitus é:
+- Um conjunto de leis escritas pelo Estado
+- Um sistema de disposições incorporadas, formado pela trajetória social, que orienta gostos e práticas
+- Um hábito individual sem relação com a sociedade
+- A roupa usada por religiosos
+E: O habitus faz com que escolhas "naturais" reflitam a posição social em que a pessoa foi formada.
+--- en
+P: For Bourdieu, habitus is:
+- A set of laws written by the State
+- A system of embodied dispositions, formed by one's social path, that guides tastes and practices
+- An individual habit unrelated to society
+- The clothing worn by religious people
+E: Habitus makes "natural" choices reflect the social position in which a person was formed.
+--- es
+P: Para Bourdieu, el habitus es:
+- Un conjunto de leyes escritas por el Estado
+- Un sistema de disposiciones incorporadas, formado por la trayectoria social, que orienta gustos y prácticas
+- Un hábito individual sin relación con la sociedad
+- La ropa usada por los religiosos
+E: El habitus hace que elecciones "naturales" reflejen la posición social en la que la persona se formó.
+
+=== Cultura e sociedade > Indústria cultural e mídia c=2 d=facil
+P: A expressão "indústria cultural" foi criada por:
+- Durkheim e Comte
+- Weber e Marx
+- Adorno e Horkheimer
+- Bourdieu e Goffman
+E: Os frankfurtianos Adorno e Horkheimer criticaram a produção de cultura como mercadoria em série.
+--- en
+P: The expression "culture industry" was coined by:
+- Durkheim and Comte
+- Weber and Marx
+- Adorno and Horkheimer
+- Bourdieu and Goffman
+E: The Frankfurt School thinkers Adorno and Horkheimer criticized the mass production of culture as a commodity.
+--- es
+P: La expresión "industria cultural" fue creada por:
+- Durkheim y Comte
+- Weber y Marx
+- Adorno y Horkheimer
+- Bourdieu y Goffman
+E: Los frankfurtianos Adorno y Horkheimer criticaron la producción de cultura como mercancía en serie.
+
+=== Cultura e sociedade > Indústria cultural e mídia c=0 d=facil
+P: Uma crítica frequente aos meios de comunicação de massa é que eles podem:
+- Padronizar gostos e difundir estereótipos
+- Eliminar todas as notícias
+- Impedir o consumo de produtos
+- Tornar todas as pessoas especialistas
+E: A mídia influencia opiniões e comportamentos, podendo homogeneizar gostos e reforçar estereótipos.
+--- en
+P: A frequent criticism of mass media is that they can:
+- Standardize tastes and spread stereotypes
+- Eliminate all news
+- Prevent the consumption of products
+- Make everyone an expert
+E: Media influence opinions and behavior, and can homogenize tastes and reinforce stereotypes.
+--- es
+P: Una crítica frecuente a los medios de comunicación de masas es que pueden:
+- Estandarizar gustos y difundir estereotipos
+- Eliminar todas las noticias
+- Impedir el consumo de productos
+- Volver especialistas a todas las personas
+E: Los medios influyen en opiniones y comportamientos, y pueden homogeneizar gustos y reforzar estereotipos.
+
+=== Cultura e sociedade > Indústria cultural e mídia c=3 d=medio
+P: A cultura de massa, segundo os críticos da indústria cultural, tende a:
+- Estimular sempre o pensamento crítico
+- Ser produzida artesanalmente por cada comunidade
+- Recusar qualquer lucro
+- Oferecer entretenimento padronizado que favorece a passividade e o conformismo
+E: Para Adorno e Horkheimer, a diversão em série ocupa o tempo livre e reforça a ordem existente.
+--- en
+P: Mass culture, according to critics of the culture industry, tends to:
+- Always stimulate critical thinking
+- Be handmade by each community
+- Refuse any profit
+- Offer standardized entertainment that encourages passivity and conformity
+E: For Adorno and Horkheimer, mass-produced entertainment fills free time and reinforces the existing order.
+--- es
+P: La cultura de masas, según los críticos de la industria cultural, tiende a:
+- Estimular siempre el pensamiento crítico
+- Ser producida artesanalmente por cada comunidad
+- Rechazar cualquier beneficio económico
+- Ofrecer entretenimiento estandarizado que favorece la pasividad y el conformismo
+E: Para Adorno y Horkheimer, la diversión en serie ocupa el tiempo libre y refuerza el orden existente.
+
+=== Cultura e sociedade > Indústria cultural e mídia c=1 d=medio
+P: As chamadas "bolhas" ou câmaras de eco nas redes sociais ocorrem quando:
+- Todos têm acesso às mesmas informações
+- Algoritmos e escolhas pessoais expõem as pessoas principalmente a opiniões parecidas com as suas
+- As redes são desligadas pelo governo
+- Só jornalistas podem publicar
+E: A filtragem personalizada reduz o contato com visões diferentes e pode acirrar a polarização.
+--- en
+P: So-called "bubbles" or echo chambers on social media happen when:
+- Everyone has access to the same information
+- Algorithms and personal choices expose people mainly to opinions similar to their own
+- Networks are shut down by the government
+- Only journalists can post
+E: Personalized filtering reduces contact with different views and can deepen polarization.
+--- es
+P: Las llamadas "burbujas" o cámaras de eco en las redes sociales ocurren cuando:
+- Todos tienen acceso a la misma información
+- Los algoritmos y las elecciones personales exponen a las personas principalmente a opiniones parecidas a las suyas
+- El gobierno desconecta las redes
+- Solo los periodistas pueden publicar
+E: El filtrado personalizado reduce el contacto con visiones diferentes y puede agudizar la polarización.
+
+=== Cultura e sociedade > Indústria cultural e mídia c=0 d=dificil
+P: As fake news são um problema social, e não apenas individual, porque:
+- Circulam em redes, afetam a formação da opinião pública e podem prejudicar decisões coletivas, como eleições e saúde
+- Só enganam pessoas sem escolaridade
+- Sempre são desmentidas imediatamente
+- Não têm nenhuma relação com a política
+E: A desinformação se espalha em escala e influencia comportamentos coletivos, como a vacinação e o voto.
+--- en
+P: Fake news is a social problem, not just an individual one, because it:
+- Circulates through networks, affects the shaping of public opinion and can harm collective decisions, such as elections and health
+- Only fools people with no schooling
+- Is always debunked immediately
+- Has nothing to do with politics
+E: Disinformation spreads at scale and influences collective behavior, such as vaccination and voting.
+--- es
+P: Las fake news son un problema social, y no solo individual, porque:
+- Circulan en redes, afectan la formación de la opinión pública y pueden perjudicar decisiones colectivas, como elecciones y salud
+- Solo engañan a personas sin escolaridad
+- Siempre se desmienten de inmediato
+- No tienen ninguna relación con la política
+E: La desinformación se propaga a gran escala e influye en comportamientos colectivos, como la vacunación y el voto.
+
+=== Cultura e sociedade > Indústria cultural e mídia c=2 d=dificil
+P: A ideia de "sociedade do espetáculo", de Guy Debord, sustenta que:
+- O teatro é a arte mais importante
+- A sociedade deve abolir as imagens
+- As relações sociais passam a ser mediadas por imagens e pela aparência
+- Os espetáculos esportivos devem ser proibidos
+E: Para Debord, a vida vivida se converte em representação; aparecer vale mais do que ser.
+--- en
+P: Guy Debord's idea of the "society of the spectacle" holds that:
+- Theater is the most important art
+- Society must abolish images
+- Social relations come to be mediated by images and appearances
+- Sporting events must be banned
+E: For Debord, lived life turns into representation; appearing matters more than being.
+--- es
+P: La idea de "sociedad del espectáculo", de Guy Debord, sostiene que:
+- El teatro es el arte más importante
+- La sociedad debe abolir las imágenes
+- Las relaciones sociales pasan a estar mediadas por imágenes y por la apariencia
+- Los espectáculos deportivos deben prohibirse
+E: Para Debord, la vida vivida se convierte en representación; aparentar vale más que ser.
+
+=== Trabalho e sociedade > Trabalho e modos de produção c=1 d=facil
+P: A divisão social do trabalho refere-se:
+- À proibição de trabalhar em feriados
+- À distribuição de tarefas e funções diferentes entre as pessoas e grupos de uma sociedade
+- Ao pagamento igual para todos
+- Ao fim do trabalho manual
+E: Em sociedades complexas, cada um se especializa em uma atividade, o que cria interdependência.
+--- en
+P: The social division of labor refers:
+- To the ban on working on holidays
+- To the distribution of different tasks and roles among people and groups in a society
+- To equal pay for everyone
+- To the end of manual work
+E: In complex societies, each person specializes in one activity, which creates interdependence.
+--- es
+P: La división social del trabajo se refiere:
+- A la prohibición de trabajar en feriados
+- A la distribución de tareas y funciones diferentes entre las personas y grupos de una sociedad
+- Al pago igual para todos
+- Al fin del trabajo manual
+E: En sociedades complejas, cada uno se especializa en una actividad, lo que genera interdependencia.
+
+=== Trabalho e sociedade > Trabalho e modos de produção c=3 d=facil
+P: No feudalismo, a relação de trabalho predominante era a:
+- Assalariada
+- Escravista industrial
+- Autônoma digital
+- Servidão, em que o servo trabalhava a terra do senhor e lhe devia obrigações
+E: O servo ficava preso à terra e pagava tributos como a corveia e a talha ao senhor feudal.
+--- en
+P: Under feudalism, the predominant labor relation was:
+- Wage labor
+- Industrial slavery
+- Digital self-employment
+- Serfdom, in which the serf worked the lord's land and owed him obligations
+E: The serf was bound to the land and paid dues such as corvée and taille to the feudal lord.
+--- es
+P: En el feudalismo, la relación de trabajo predominante era la:
+- Asalariada
+- Esclavista industrial
+- Autónoma digital
+- Servidumbre, en la que el siervo trabajaba la tierra del señor y le debía obligaciones
+E: El siervo estaba atado a la tierra y pagaba tributos como la corvea y la talla al señor feudal.
+
+=== Trabalho e sociedade > Trabalho e modos de produção c=2 d=medio
+P: Uma marca do trabalho no capitalismo é:
+- O trabalho escravo como regra
+- A ausência de mercado
+- O trabalho assalariado, em que o trabalhador vende sua força de trabalho
+- A produção apenas para consumo próprio
+E: No capitalismo, a força de trabalho vira mercadoria, comprada pelo capitalista em troca de salário.
+--- en
+P: A mark of work under capitalism is:
+- Slave labor as the rule
+- The absence of a market
+- Wage labor, in which the worker sells their labor power
+- Production only for one's own consumption
+E: Under capitalism, labor power becomes a commodity, bought by the capitalist in exchange for wages.
+--- es
+P: Una marca del trabajo en el capitalismo es:
+- El trabajo esclavo como regla
+- La ausencia de mercado
+- El trabajo asalariado, en el que el trabajador vende su fuerza de trabajo
+- La producción solo para el consumo propio
+E: En el capitalismo, la fuerza de trabajo se convierte en mercancía, comprada por el capitalista a cambio de un salario.
+
+=== Trabalho e sociedade > Trabalho e modos de produção c=0 d=medio
+P: O termo "uberização" do trabalho descreve:
+- Relações de trabalho mediadas por plataformas digitais, com trabalhadores sem vínculo empregatício e direitos reduzidos
+- A volta ao trabalho servil do feudalismo
+- A redução da jornada com salário garantido
+- A estatização das empresas de transporte
+E: Na uberização, o trabalhador assume custos e riscos, e a plataforma controla preços e distribuição de tarefas.
+--- en
+P: The term "Uberization" of work describes:
+- Work relations mediated by digital platforms, with workers lacking formal employment and with fewer rights
+- A return to feudal servile labor
+- Shorter hours with guaranteed pay
+- The nationalization of transport companies
+E: In Uberization, the worker bears costs and risks, while the platform controls prices and task distribution.
+--- es
+P: El término "uberización" del trabajo describe:
+- Relaciones de trabajo mediadas por plataformas digitales, con trabajadores sin vínculo laboral y con menos derechos
+- La vuelta al trabajo servil del feudalismo
+- La reducción de la jornada con salario garantizado
+- La estatización de las empresas de transporte
+E: En la uberización, el trabajador asume costos y riesgos, y la plataforma controla precios y reparto de tareas.
+
+=== Trabalho e sociedade > Trabalho e modos de produção c=3 d=dificil
+P: O "exército industrial de reserva", conceito de Marx, refere-se:
+- Às tropas militares que protegem as fábricas
+- Aos trabalhadores com os salários mais altos
+- Aos aposentados da indústria
+- Ao contingente de desempregados que pressiona os salários para baixo
+E: A existência de muitos desempregados enfraquece o poder de negociação dos que estão trabalhando.
+--- en
+P: The "industrial reserve army", a concept by Marx, refers:
+- To the military troops that protect factories
+- To the workers with the highest wages
+- To retired industrial workers
+- To the pool of unemployed people that pushes wages down
+E: The existence of many unemployed people weakens the bargaining power of those who are working.
+--- es
+P: El "ejército industrial de reserva", concepto de Marx, se refiere:
+- A las tropas militares que protegen las fábricas
+- A los trabajadores con los salarios más altos
+- A los jubilados de la industria
+- Al contingente de desempleados que presiona los salarios a la baja
+E: La existencia de muchos desempleados debilita el poder de negociación de quienes están trabajando.
+
+=== Trabalho e sociedade > Trabalho e modos de produção c=1 d=dificil
+P: A reestruturação produtiva e a flexibilização do trabalho, a partir dos anos 1970-1980, trouxeram como tendência:
+- O fim de todos os empregos industriais
+- Aumento da terceirização, contratos temporários e precarização de direitos
+- Garantia de emprego vitalício para todos
+- Redução da tecnologia nas empresas
+E: Com a globalização e o neoliberalismo, cresceram formas de trabalho mais instáveis e menos protegidas.
+--- en
+P: Productive restructuring and labor flexibilization, from the 1970s-1980s on, brought as a trend:
+- The end of all industrial jobs
+- More outsourcing, temporary contracts and erosion of rights
+- Guaranteed lifelong employment for everyone
+- Less technology in companies
+E: With globalization and neoliberalism, more unstable and less protected forms of work grew.
+--- es
+P: La reestructuración productiva y la flexibilización laboral, a partir de los años 1970-1980, trajeron como tendencia:
+- El fin de todos los empleos industriales
+- Aumento de la tercerización, contratos temporales y precarización de derechos
+- Garantía de empleo vitalicio para todos
+- Reducción de la tecnología en las empresas
+E: Con la globalización y el neoliberalismo, crecieron formas de trabajo más inestables y menos protegidas.
+
+=== Trabalho e sociedade > Taylorismo, fordismo e toyotismo c=0 d=facil
+P: O fordismo, criado por Henry Ford, ficou marcado pela:
+- Linha de montagem e produção em massa padronizada
+- Produção artesanal sob encomenda
+- Produção apenas quando há demanda (just in time)
+- Proibição do uso de máquinas
+E: A esteira da linha de montagem permitiu produzir em grande escala e barateou produtos como o carro Modelo T.
+--- en
+P: Fordism, created by Henry Ford, was marked by:
+- The assembly line and standardized mass production
+- Custom handmade production
+- Producing only when there is demand (just in time)
+- A ban on using machines
+E: The moving assembly line allowed large-scale production and made products like the Model T car cheaper.
+--- es
+P: El fordismo, creado por Henry Ford, se caracterizó por:
+- La línea de montaje y la producción en masa estandarizada
+- La producción artesanal por encargo
+- La producción solo cuando hay demanda (just in time)
+- La prohibición del uso de máquinas
+E: La cinta de la línea de montaje permitió producir a gran escala y abarató productos como el automóvil Modelo T.
+
+=== Trabalho e sociedade > Taylorismo, fordismo e toyotismo c=2 d=facil
+P: O taylorismo, de Frederick Taylor, buscava aumentar a produtividade por meio:
+- Da autonomia total do trabalhador
+- Do trabalho em pequenas oficinas familiares
+- Da divisão das tarefas em movimentos simples, cronometrados e controlados
+- Da produção sem nenhum planejamento
+E: A "administração científica" separou planejamento e execução e controlou tempos e movimentos.
+--- en
+P: Taylorism, by Frederick Taylor, sought to raise productivity through:
+- Workers' total autonomy
+- Work in small family workshops
+- Breaking tasks into simple, timed and controlled movements
+- Production with no planning at all
+E: "Scientific management" separated planning from execution and controlled times and movements.
+--- es
+P: El taylorismo, de Frederick Taylor, buscaba aumentar la productividad mediante:
+- La autonomía total del trabajador
+- El trabajo en pequeños talleres familiares
+- La división de las tareas en movimientos simples, cronometrados y controlados
+- La producción sin ninguna planificación
+E: La "administración científica" separó planificación y ejecución y controló tiempos y movimientos.
+
+=== Trabalho e sociedade > Taylorismo, fordismo e toyotismo c=3 d=medio
+P: O toyotismo, surgido no Japão, diferencia-se do fordismo por:
+- Produzir em grandes estoques, sem considerar a demanda
+- Exigir trabalhadores que façam uma única tarefa repetitiva
+- Eliminar o uso de tecnologia
+- Produzir conforme a demanda (just in time), com estoques mínimos e trabalhador polivalente
+E: O toyotismo busca flexibilidade: produção enxuta, controle de qualidade e trabalhadores que exercem várias funções.
+--- en
+P: Toyotism, which emerged in Japan, differs from Fordism by:
+- Producing large stocks, regardless of demand
+- Requiring workers to do a single repetitive task
+- Eliminating the use of technology
+- Producing according to demand (just in time), with minimal stocks and multi-skilled workers
+E: Toyotism seeks flexibility: lean production, quality control and workers who perform several functions.
+--- es
+P: El toyotismo, surgido en Japón, se diferencia del fordismo por:
+- Producir grandes existencias, sin considerar la demanda
+- Exigir trabajadores que hagan una única tarea repetitiva
+- Eliminar el uso de tecnología
+- Producir según la demanda (just in time), con existencias mínimas y trabajador polivalente
+E: El toyotismo busca flexibilidad: producción ajustada, control de calidad y trabajadores que ejercen varias funciones.
+
+=== Trabalho e sociedade > Taylorismo, fordismo e toyotismo c=1 d=medio
+P: O filme Tempos Modernos (1936), de Charlie Chaplin, é frequentemente usado para criticar:
+- A vida no campo medieval
+- A repetição e a alienação do trabalho na linha de montagem
+- O trabalho por aplicativo
+- A escravidão no Brasil colonial
+E: Carlitos, apertando parafusos sem parar, simboliza o trabalhador reduzido a peça da máquina.
+--- en
+P: The film Modern Times (1936), by Charlie Chaplin, is often used to criticize:
+- Life in the medieval countryside
+- The repetition and alienation of assembly-line work
+- App-based work
+- Slavery in colonial Brazil
+E: The Tramp, tightening bolts nonstop, symbolizes the worker reduced to a cog in the machine.
+--- es
+P: La película Tiempos modernos (1936), de Charles Chaplin, se usa con frecuencia para criticar:
+- La vida en el campo medieval
+- La repetición y la alienación del trabajo en la línea de montaje
+- El trabajo por aplicación
+- La esclavitud en el Brasil colonial
+E: Charlot, apretando tornillos sin parar, simboliza al trabajador reducido a pieza de la máquina.
+
+=== Trabalho e sociedade > Taylorismo, fordismo e toyotismo c=2 d=dificil
+P: O modelo fordista, no pós-Segunda Guerra, esteve associado ao Estado de bem-estar social porque:
+- Eliminou o consumo de massa
+- Dispensou qualquer direito trabalhista
+- Combinava produção em massa com salários e direitos que sustentavam o consumo de massa
+- Proibia a organização sindical
+E: O chamado "compromisso fordista" ligou produtividade, salários maiores e políticas sociais, sobretudo nos países centrais.
+--- en
+P: The Fordist model, after World War II, was associated with the welfare state because it:
+- Eliminated mass consumption
+- Did away with all labor rights
+- Combined mass production with wages and rights that sustained mass consumption
+- Banned union organizing
+E: The so-called "Fordist compromise" linked productivity, higher wages and social policies, especially in core countries.
+--- es
+P: El modelo fordista, en la posguerra de la Segunda Guerra Mundial, estuvo asociado al Estado de bienestar porque:
+- Eliminó el consumo de masas
+- Prescindió de cualquier derecho laboral
+- Combinaba producción en masa con salarios y derechos que sostenían el consumo de masas
+- Prohibía la organización sindical
+E: El llamado "compromiso fordista" unió productividad, salarios más altos y políticas sociales, sobre todo en los países centrales.
+
+=== Trabalho e sociedade > Taylorismo, fordismo e toyotismo c=0 d=dificil
+P: Uma crítica comum ao toyotismo é que a polivalência e as metas de qualidade podem:
+- Intensificar o ritmo de trabalho e aumentar o controle sobre o trabalhador
+- Acabar com qualquer forma de controle
+- Garantir estabilidade vitalícia a todos
+- Reduzir a produtividade das empresas
+E: Com equipes enxutas e metas constantes, cresce a cobrança por desempenho e o desgaste dos trabalhadores.
+--- en
+P: A common criticism of Toyotism is that multi-skilling and quality targets can:
+- Intensify the pace of work and increase control over workers
+- End every form of control
+- Guarantee lifelong stability to everyone
+- Reduce companies' productivity
+E: With lean teams and constant targets, pressure for performance and worker strain increase.
+--- es
+P: Una crítica común al toyotismo es que la polivalencia y las metas de calidad pueden:
+- Intensificar el ritmo de trabajo y aumentar el control sobre el trabajador
+- Acabar con cualquier forma de control
+- Garantizar estabilidad vitalicia a todos
+- Reducir la productividad de las empresas
+E: Con equipos reducidos y metas constantes, aumentan la exigencia de rendimiento y el desgaste de los trabajadores.
