@@ -1,0 +1,91 @@
+== Estratégias de leitura | Skimming, scanning e localização da ideia central | 🔎
+en: Reading strategies | Skimming, scanning and finding the main idea
+es: Estrategias de lectura | Skimming, scanning y localización de la idea central
+-- Skimming e scanning
+en: Skimming and scanning
+es: Skimming y scanning
+-- Identificando a ideia central
+en: Identifying the main idea
+es: Identificando la idea central
+
+== Vocabulário em contexto | Cognatos, falsos cognatos e dedução de sentido | 📖
+en: Vocabulary in context | Cognates, false friends and guessing meaning
+es: Vocabulario en contexto | Cognados, falsos cognados y deducción de sentido
+-- Cognatos e falsos cognatos
+en: Cognates and false friends
+es: Cognados y falsos cognados
+-- Deduzindo sentido pelo contexto
+en: Guessing meaning from context
+es: Deduciendo el sentido por el contexto
+-- Sinônimos e antônimos
+en: Synonyms and antonyms
+es: Sinónimos y antónimos
+
+== Gramática e estrutura da frase | Tempos verbais, modais e comparativos | 🧩
+en: Grammar and sentence structure | Verb tenses, modals and comparatives
+es: Gramática y estructura de la frase | Tiempos verbales, modales y comparativos
+-- Tempos verbais
+en: Verb tenses
+es: Tiempos verbales
+-- Verbos modais
+en: Modal verbs
+es: Verbos modales
+-- Comparativo e superlativo
+en: Comparatives and superlatives
+es: Comparativo y superlativo
+
+== Gêneros textuais | Anúncios, quadrinhos e notícias em inglês | 📰
+en: Text genres | Advertisements, comics and news in English
+es: Géneros textuales | Anuncios, historietas y noticias en inglés
+-- Anúncios e infográficos
+en: Advertisements and infographics
+es: Anuncios e infografías
+-- Quadrinhos e tirinhas
+en: Comics and cartoons
+es: Historietas y viñetas
+-- Notícias e textos jornalísticos
+en: News and journalistic texts
+es: Noticias y textos periodísticos
+
+== Coesão e coerência | Conectores e referências pronominais | 🔗
+en: Cohesion and coherence | Connectors and pronoun reference
+es: Cohesión y coherencia | Conectores y referencias pronominales
+-- Conectores e conjunções
+en: Connectors and linking words
+es: Conectores y conjunciones
+-- Referência pronominal
+en: Pronoun reference
+es: Referencia pronominal
+
+== Expressões idiomáticas | Idioms e phrasal verbs do cotidiano | 💬
+en: Idiomatic expressions | Everyday idioms and phrasal verbs
+es: Expresiones idiomáticas | Idioms y phrasal verbs cotidianos
+-- Idioms comuns
+en: Common idioms
+es: Idioms comunes
+-- Phrasal verbs
+en: Phrasal verbs
+es: Phrasal verbs
+
+== Cultura e linguagem funcional | Países de língua inglesa e situações do dia a dia | 🌍
+en: Culture and functional language | English-speaking countries and everyday situations
+es: Cultura y lenguaje funcional | Países de habla inglesa y situaciones cotidianas
+-- Países de língua inglesa
+en: English-speaking countries
+es: Países de habla inglesa
+-- Linguagem funcional do dia a dia
+en: Everyday functional language
+es: Lenguaje funcional cotidiano
+
+== Interpretação de textos | Trechos literários, informativos e de opinião | 📚
+en: Text interpretation | Literary, informative and opinion excerpts
+es: Interpretación de textos | Fragmentos literarios, informativos y de opinión
+-- Trechos literários
+en: Literary excerpts
+es: Fragmentos literarios
+-- Textos informativos e científicos
+en: Informative and scientific texts
+es: Textos informativos y científicos
+-- Textos de opinião e argumentativos
+en: Opinion and argumentative texts
+es: Textos de opinión y argumentativos

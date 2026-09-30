@@ -1,0 +1,659 @@
+=== Gêneros textuais > Notícias e textos jornalísticos c=0 d=facil
+P: Leia a manchete: "Local school wins national science fair for the third year in a row." O que a manchete informa?
+- Uma escola local venceu a feira nacional de ciências pelo terceiro ano seguido
+- Uma escola perdeu a feira de ciências
+- A feira de ciências foi cancelada
+- A escola vai construir um novo laboratório
+E: A manchete diz diretamente "wins national science fair for the third year in a row".
+--- en
+P: Read the headline: "Local school wins national science fair for the third year in a row." What does the headline report?
+- A local school won the national science fair for the third year in a row
+- A school lost the science fair
+- The science fair was canceled
+- The school will build a new lab
+E: The headline directly says "wins national science fair for the third year in a row".
+--- es
+P: Lee el titular: "Local school wins national science fair for the third year in a row." ¿Qué informa el titular?
+- Una escuela local ganó la feria nacional de ciencias por tercer año consecutivo
+- Una escuela perdió la feria de ciencias
+- La feria de ciencias fue cancelada
+- La escuela va a construir un nuevo laboratorio
+E: El titular dice directamente "wins national science fair for the third year in a row".
+
+=== Gêneros textuais > Notícias e textos jornalísticos c=1 d=facil
+P: Leia a manchete: "Heavy rain expected this weekend; city opens shelters for flood risk areas." Segundo a manchete, o que a cidade está fazendo por causa da previsão de chuva forte?
+- Fechando as escolas
+- Abrindo abrigos para áreas de risco de enchente
+- Cancelando o fim de semana de eventos
+- Construindo novas represas
+E: A manchete diz "city opens shelters for flood risk areas".
+--- en
+P: Read the headline: "Heavy rain expected this weekend; city opens shelters for flood risk areas." According to the headline, what is the city doing because of the heavy rain forecast?
+- Closing schools
+- Opening shelters for flood risk areas
+- Canceling weekend events
+- Building new dams
+E: The headline says "city opens shelters for flood risk areas".
+--- es
+P: Lee el titular: "Heavy rain expected this weekend; city opens shelters for flood risk areas." Según el titular, ¿qué está haciendo la ciudad por la previsión de lluvia fuerte?
+- Cerrando las escuelas
+- Abriendo refugios para zonas de riesgo de inundación
+- Cancelando los eventos del fin de semana
+- Construyendo nuevas represas
+E: El titular dice "city opens shelters for flood risk areas".
+
+=== Gêneros textuais > Notícias e textos jornalísticos c=2 d=medio
+P: Leia: "Public transport fares will increase by 8% starting next month, the city announced Monday, citing rising fuel costs." Segundo o texto, por que as tarifas do transporte público vão aumentar?
+- Por causa de uma greve
+- Por decisão dos motoristas
+- Por causa do aumento no custo do combustível
+- Por falta de passageiros
+E: O texto cita "rising fuel costs" como motivo do aumento.
+--- en
+P: Read: "Public transport fares will increase by 8% starting next month, the city announced Monday, citing rising fuel costs." According to the text, why will public transport fares increase?
+- Because of a strike
+- Because of a decision by the drivers
+- Because of rising fuel costs
+- Because of a lack of passengers
+E: The text cites "rising fuel costs" as the reason for the increase.
+--- es
+P: Lee: "Public transport fares will increase by 8% starting next month, the city announced Monday, citing rising fuel costs." Según el texto, ¿por qué van a aumentar las tarifas del transporte público?
+- Por una huelga
+- Por decisión de los conductores
+- Por el aumento en el costo del combustible
+- Por falta de pasajeros
+E: El texto cita "rising fuel costs" como motivo del aumento.
+
+=== Gêneros textuais > Notícias e textos jornalísticos c=3 d=medio
+P: No mesmo texto "Public transport fares will increase by 8% starting next month, the city announced Monday, citing rising fuel costs.", quando o aumento passa a valer?
+- Imediatamente
+- Só no ano que vem
+- Depois de uma votação
+- A partir do mês que vem
+E: O texto diz "starting next month".
+--- en
+P: In the same text "Public transport fares will increase by 8% starting next month, the city announced Monday, citing rising fuel costs.", when does the increase take effect?
+- Immediately
+- Only next year
+- After a vote
+- Starting next month
+E: The text says "starting next month".
+--- es
+P: En el mismo texto "Public transport fares will increase by 8% starting next month, the city announced Monday, citing rising fuel costs.", ¿cuándo entra en vigor el aumento?
+- Inmediatamente
+- Solo el año que viene
+- Después de una votación
+- A partir del próximo mes
+E: El texto dice "starting next month".
+
+=== Gêneros textuais > Notícias e textos jornalísticos c=0 d=dificil
+P: Leia: "Experts warn that the new policy, while well-intentioned, could unintentionally raise costs for small businesses." Qual é o tom do texto em relação à nova política?
+- Alerta sobre um possível efeito colateral negativo, apesar da boa intenção
+- Elogio total, sem ressalvas
+- Crítica de que a política foi mal-intencionada
+- Indiferença total ao assunto
+E: "While well-intentioned, could unintentionally raise costs" mostra um alerta sobre efeito colateral, sem negar a boa intenção.
+--- en
+P: Read: "Experts warn that the new policy, while well-intentioned, could unintentionally raise costs for small businesses." What is the tone of the text toward the new policy?
+- A warning about a possible negative side effect, despite the good intention
+- Total praise, with no reservations
+- Criticism that the policy was ill-intentioned
+- Complete indifference to the topic
+E: "While well-intentioned, could unintentionally raise costs" shows a warning about a side effect, without denying the good intention.
+--- es
+P: Lee: "Experts warn that the new policy, while well-intentioned, could unintentionally raise costs for small businesses." ¿Cuál es el tono del texto respecto a la nueva política?
+- Una advertencia sobre un posible efecto colateral negativo, pese a la buena intención
+- Un elogio total, sin objeciones
+- Una crítica de que la política fue mal intencionada
+- Indiferencia total al tema
+E: "While well-intentioned, could unintentionally raise costs" muestra una advertencia sobre un efecto colateral, sin negar la buena intención.
+
+=== Gêneros textuais > Notícias e textos jornalísticos c=1 d=dificil
+P: Leia: "The mayor's office declined to comment on the allegations, but sources close to the investigation say charges may be filed within weeks." O que se pode inferir sobre a posição da prefeitura no texto?
+- A prefeitura confirmou publicamente as acusações
+- A prefeitura não quis se pronunciar oficialmente sobre as acusações
+- A prefeitura negou totalmente as acusações
+- A prefeitura pediu desculpas publicamente
+E: "Declined to comment" indica que a prefeitura optou por não se pronunciar oficialmente.
+--- en
+P: Read: "The mayor's office declined to comment on the allegations, but sources close to the investigation say charges may be filed within weeks." What can be inferred about the mayor's office position in the text?
+- The mayor's office publicly confirmed the allegations
+- The mayor's office chose not to make an official statement about the allegations
+- The mayor's office completely denied the allegations
+- The mayor's office publicly apologized
+E: "Declined to comment" indicates the mayor's office chose not to make an official statement.
+--- es
+P: Lee: "The mayor's office declined to comment on the allegations, but sources close to the investigation say charges may be filed within weeks." ¿Qué se puede inferir sobre la postura de la alcaldía en el texto?
+- La alcaldía confirmó públicamente las acusaciones
+- La alcaldía optó por no pronunciarse oficialmente sobre las acusaciones
+- La alcaldía negó totalmente las acusaciones
+- La alcaldía se disculpó públicamente
+E: "Declined to comment" indica que la alcaldía optó por no pronunciarse oficialmente.
+
+=== Coesão e coerência > Conectores e conjunções c=2 d=facil
+P: Complete: "I was tired, ___ I kept working." (contraste)
+- so
+- because
+- but
+- and
+E: "But" expressa contraste/oposição entre as duas ideias.
+--- en
+P: Complete: "I was tired, ___ I kept working." (contrast)
+- so
+- because
+- but
+- and
+E: "But" expresses contrast/opposition between the two ideas.
+--- es
+P: Completa: "I was tired, ___ I kept working." (contraste)
+- @
+- @
+- @
+- @
+E: "But" expresa contraste/oposición entre las dos ideas.
+
+=== Coesão e coerência > Conectores e conjunções c=3 d=facil
+P: Complete: "She studied hard, ___ she passed the exam." (consequência)
+- although
+- but
+- however
+- so
+E: "So" introduz uma consequência da ação anterior.
+--- en
+P: Complete: "She studied hard, ___ she passed the exam." (consequence)
+- although
+- but
+- however
+- so
+E: "So" introduces a consequence of the previous action.
+--- es
+P: Completa: "She studied hard, ___ she passed the exam." (consecuencia)
+- @
+- @
+- @
+- @
+E: "So" introduce una consecuencia de la acción anterior.
+
+=== Coesão e coerência > Conectores e conjunções c=0 d=medio
+P: Complete: "___ it was raining, they went for a walk." (concessão)
+- Although
+- Because
+- So
+- If
+E: "Although" introduz uma ideia de concessão/contraste (mesmo chovendo, saíram para caminhar).
+--- en
+P: Complete: "___ it was raining, they went for a walk." (concession)
+- Although
+- Because
+- So
+- If
+E: "Although" introduces a concession/contrast idea (even though it was raining, they went out).
+--- es
+P: Completa: "___ it was raining, they went for a walk." (concesión)
+- @
+- @
+- @
+- @
+E: "Although" introduce una idea de concesión/contraste (aunque llovía, salieron a caminar).
+
+=== Coesão e coerência > Conectores e conjunções c=1 d=medio
+P: Complete: "He missed the bus ___ he woke up late." (causa)
+- so
+- because
+- although
+- but
+E: "Because" introduz a causa do fato (perdeu o ônibus por ter acordado tarde).
+--- en
+P: Complete: "He missed the bus ___ he woke up late." (cause)
+- so
+- because
+- although
+- but
+E: "Because" introduces the cause of the fact.
+--- es
+P: Completa: "He missed the bus ___ he woke up late." (causa)
+- @
+- @
+- @
+- @
+E: "Because" introduce la causa del hecho (perdió el autobús por despertarse tarde).
+
+=== Coesão e coerência > Conectores e conjunções c=2 d=dificil
+P: Complete: "The report was accurate; ___, it was released too late to help." (contraste entre orações)
+- therefore
+- because
+- however
+- so that
+E: "However" é usado para introduzir uma ideia de contraste entre duas orações independentes.
+--- en
+P: Complete: "The report was accurate; ___, it was released too late to help." (contrast between clauses)
+- therefore
+- because
+- however
+- so that
+E: "However" is used to introduce a contrast between two independent clauses.
+--- es
+P: Completa: "The report was accurate; ___, it was released too late to help." (contraste entre oraciones)
+- @
+- @
+- @
+- @
+E: "However" se usa para introducir una idea de contraste entre dos oraciones independientes.
+
+=== Coesão e coerência > Conectores e conjunções c=3 d=dificil
+P: Complete: "You should bring an umbrella ___ it rains later." (condição/precaução)
+- because
+- although
+- however
+- in case
+E: "In case" expressa precaução para uma possibilidade futura.
+--- en
+P: Complete: "You should bring an umbrella ___ it rains later." (condition/precaution)
+- because
+- although
+- however
+- in case
+E: "In case" expresses precaution for a future possibility.
+--- es
+P: Completa: "You should bring an umbrella ___ it rains later." (condición/precaución)
+- @
+- @
+- @
+- @
+E: "In case" expresa precaución para una posibilidad futura.
+
+=== Coesão e coerência > Referência pronominal c=0 d=facil
+P: Leia: "Maria bought a new laptop. She uses it every day for work." A quem o pronome "She" se refere?
+- Maria
+- O laptop
+- O trabalho
+- Um colega de Maria
+E: "She" retoma o sujeito "Maria", mencionado na primeira frase.
+--- en
+P: Read: "Maria bought a new laptop. She uses it every day for work." Who does "She" refer to?
+- Maria
+- The laptop
+- The job
+- A colleague of Maria's
+E: "She" refers back to the subject "Maria", mentioned in the first sentence.
+--- es
+P: Lee: "Maria bought a new laptop. She uses it every day for work." ¿A quién se refiere "She"?
+- Maria
+- El laptop
+- El trabajo
+- Un colega de Maria
+E: "She" retoma al sujeto "Maria", mencionado en la primera frase.
+
+=== Coesão e coerência > Referência pronominal c=1 d=facil
+P: No mesmo texto "Maria bought a new laptop. She uses it every day for work.", a que o pronome "it" se refere?
+- Maria
+- O laptop
+- O trabalho
+- O dia
+E: "It" retoma "a new laptop", objeto mencionado antes.
+--- en
+P: In the same text "Maria bought a new laptop. She uses it every day for work.", what does "it" refer to?
+- Maria
+- The laptop
+- The job
+- The day
+E: "It" refers back to "a new laptop", mentioned before.
+--- es
+P: En el mismo texto "Maria bought a new laptop. She uses it every day for work.", ¿a qué se refiere "it"?
+- Maria
+- El laptop
+- El trabajo
+- El día
+E: "It" retoma "a new laptop", mencionado antes.
+
+=== Coesão e coerência > Referência pronominal c=2 d=medio
+P: Leia: "The teacher gave the students a difficult test, but they managed to finish it on time." A quem se refere "they"?
+- A professora
+- O teste
+- Os alunos
+- O horário
+E: "They" retoma "the students", sujeito da segunda oração.
+--- en
+P: Read: "The teacher gave the students a difficult test, but they managed to finish it on time." Who does "they" refer to?
+- The teacher
+- The test
+- The students
+- The schedule
+E: "They" refers back to "the students", subject of the second clause.
+--- es
+P: Lee: "The teacher gave the students a difficult test, but they managed to finish it on time." ¿A quién se refiere "they"?
+- La profesora
+- El examen
+- Los alumnos
+- El horario
+E: "They" retoma "the students", sujeto de la segunda oración.
+
+=== Coesão e coerência > Referência pronominal c=3 d=medio
+P: No mesmo texto "The teacher gave the students a difficult test, but they managed to finish it on time.", a que se refere "it" em "finish it on time"?
+- A professora
+- Os alunos
+- O horário
+- O teste
+E: "It" retoma "a difficult test", mencionado antes.
+--- en
+P: In the same text "The teacher gave the students a difficult test, but they managed to finish it on time.", what does "it" refer to in "finish it on time"?
+- The teacher
+- The students
+- The schedule
+- The test
+E: "It" refers back to "a difficult test", mentioned before.
+--- es
+P: En el mismo texto "The teacher gave the students a difficult test, but they managed to finish it on time.", ¿a qué se refiere "it" en "finish it on time"?
+- La profesora
+- Los alumnos
+- El horario
+- El examen
+E: "It" retoma "a difficult test", mencionado antes.
+
+=== Coesão e coerência > Referência pronominal c=0 d=dificil
+P: Leia: "Although the company lost money last year, this didn't stop it from investing in new technology." A que se refere "this" na frase?
+- O fato de a empresa ter perdido dinheiro no ano anterior
+- A nova tecnologia
+- O investimento
+- Um funcionário específico
+E: "This" retoma toda a ideia anterior (a empresa ter perdido dinheiro), não apenas uma palavra.
+--- en
+P: Read: "Although the company lost money last year, this didn't stop it from investing in new technology." What does "this" refer to?
+- The fact that the company lost money the previous year
+- The new technology
+- The investment
+- A specific employee
+E: "This" refers back to the whole previous idea (the company having lost money), not just one word.
+--- es
+P: Lee: "Although the company lost money last year, this didn't stop it from investing in new technology." ¿A qué se refiere "this" en la frase?
+- El hecho de que la empresa perdió dinero el año anterior
+- La nueva tecnología
+- La inversión
+- Un empleado específico
+E: "This" retoma toda la idea anterior (que la empresa perdió dinero), no solo una palabra.
+
+=== Coesão e coerência > Referência pronominal c=1 d=dificil
+P: Leia: "The scientists published their findings, which surprised many researchers in the field." A que se refere "which"?
+- Os cientistas
+- O fato de terem publicado as descobertas
+- Os pesquisadores da área
+- O campo de pesquisa
+E: "Which", nesse uso, retoma toda a oração anterior (a publicação das descobertas), e não apenas um substantivo.
+--- en
+P: Read: "The scientists published their findings, which surprised many researchers in the field." What does "which" refer to?
+- The scientists
+- The fact that they published their findings
+- The researchers in the field
+- The field of research
+E: "Which" here refers back to the whole previous clause (the publishing of the findings), not just a noun.
+--- es
+P: Lee: "The scientists published their findings, which surprised many researchers in the field." ¿A qué se refiere "which"?
+- Los científicos
+- El hecho de que publicaron los hallazgos
+- Los investigadores del área
+- El campo de investigación
+E: "Which", en este uso, retoma toda la oración anterior (la publicación de los hallazgos), no solo un sustantivo.
+
+=== Expressões idiomáticas > Idioms comuns c=2 d=facil
+P: Leia: "It's raining cats and dogs outside!" O que a expressão "raining cats and dogs" significa?
+- Está chovendo animais
+- Está fazendo sol
+- Está chovendo muito forte
+- Vai nevar
+E: "Raining cats and dogs" é uma expressão idiomática que significa "chovendo muito forte/torrencialmente".
+--- en
+P: Read: "It's raining cats and dogs outside!" What does the idiom "raining cats and dogs" mean?
+- It's raining animals
+- It's sunny
+- It's raining very heavily
+- It's going to snow
+E: "Raining cats and dogs" is an idiom meaning "raining very heavily/hard".
+--- es
+P: Lee: "It's raining cats and dogs outside!" ¿Qué significa la expresión "raining cats and dogs"?
+- Están lloviendo animales
+- Hace sol
+- Está lloviendo muy fuerte
+- Va a nevar
+E: "Raining cats and dogs" es una expresión idiomática que significa "lloviendo muy fuerte/torrencialmente".
+
+=== Expressões idiomáticas > Idioms comuns c=3 d=facil
+P: Leia: "Don't worry, it's a piece of cake!" O que "a piece of cake" significa nesse contexto?
+- Uma sobremesa deliciosa
+- Uma tarefa perigosa
+- Uma festa de aniversário
+- Algo muito fácil de fazer
+E: "A piece of cake" é uma expressão que significa "algo muito fácil".
+--- en
+P: Read: "Don't worry, it's a piece of cake!" What does "a piece of cake" mean in this context?
+- A delicious dessert
+- A dangerous task
+- A birthday party
+- Something very easy to do
+E: "A piece of cake" is an idiom meaning "something very easy".
+--- es
+P: Lee: "Don't worry, it's a piece of cake!" ¿Qué significa "a piece of cake" en este contexto?
+- Un postre delicioso
+- Una tarea peligrosa
+- Una fiesta de cumpleaños
+- Algo muy fácil de hacer
+E: "A piece of cake" es una expresión que significa "algo muy fácil".
+
+=== Expressões idiomáticas > Idioms comuns c=0 d=medio
+P: Leia: "I think we should let the cat out of the bag now." O que "let the cat out of the bag" significa?
+- Revelar um segredo
+- Comprar um animal de estimação
+- Sair de casa
+- Terminar um projeto
+E: "Let the cat out of the bag" significa "revelar um segredo" (geralmente sem querer).
+--- en
+P: Read: "I think we should let the cat out of the bag now." What does "let the cat out of the bag" mean?
+- To reveal a secret
+- To buy a pet
+- To leave the house
+- To finish a project
+E: "Let the cat out of the bag" means to reveal a secret (usually unintentionally).
+--- es
+P: Lee: "I think we should let the cat out of the bag now." ¿Qué significa "let the cat out of the bag"?
+- Revelar un secreto
+- Comprar una mascota
+- Salir de casa
+- Terminar un proyecto
+E: "Let the cat out of the bag" significa "revelar un secreto" (generalmente sin querer).
+
+=== Expressões idiomáticas > Idioms comuns c=1 d=medio
+P: Leia: "After the argument, they decided to break the ice with a joke." O que "break the ice" significa?
+- Quebrar objetos
+- Aliviar uma situação tensa ou desconfortável
+- Terminar uma amizade
+- Sair no frio
+E: "Break the ice" significa aliviar uma situação socialmente tensa ou desconfortável, geralmente no início de uma conversa.
+--- en
+P: Read: "After the argument, they decided to break the ice with a joke." What does "break the ice" mean?
+- To break objects
+- To ease a tense or awkward situation
+- To end a friendship
+- To go out in the cold
+E: "Break the ice" means to ease a socially tense or awkward situation, usually at the start of a conversation.
+--- es
+P: Lee: "After the argument, they decided to break the ice with a joke." ¿Qué significa "break the ice"?
+- Romper objetos
+- Aliviar una situación tensa o incómoda
+- Terminar una amistad
+- Salir al frío
+E: "Break the ice" significa aliviar una situación socialmente tensa o incómoda, generalmente al inicio de una conversación.
+
+=== Expressões idiomáticas > Idioms comuns c=2 d=dificil
+P: Leia: "He's been under the weather since Monday, so he stayed home." O que "under the weather" significa?
+- Viajando
+- Muito animado
+- Se sentindo mal/doente
+- Trabalhando ao ar livre
+E: "Under the weather" é uma expressão idiomática que significa "se sentindo mal ou levemente doente".
+--- en
+P: Read: "He's been under the weather since Monday, so he stayed home." What does "under the weather" mean?
+- Traveling
+- Very excited
+- Feeling unwell / sick
+- Working outdoors
+E: "Under the weather" is an idiom meaning feeling unwell or slightly sick.
+--- es
+P: Lee: "He's been under the weather since Monday, so he stayed home." ¿Qué significa "under the weather"?
+- Viajando
+- Muy animado
+- Sintiéndose mal/enfermo
+- Trabajando al aire libre
+E: "Under the weather" es una expresión idiomática que significa "sintiéndose mal o levemente enfermo".
+
+=== Expressões idiomáticas > Idioms comuns c=3 d=dificil
+P: Leia: "I have a lot on my plate this month, so I can't take on new projects." O que "a lot on my plate" significa?
+- Muita comida para comer
+- Um prato cheio literalmente
+- Poucas responsabilidades
+- Muitas tarefas e responsabilidades
+E: "A lot on my plate" é uma expressão idiomática que significa "muitas tarefas/responsabilidades no momento".
+--- en
+P: Read: "I have a lot on my plate this month, so I can't take on new projects." What does "a lot on my plate" mean?
+- A lot of food to eat
+- A full plate literally
+- Few responsibilities
+- Many tasks and responsibilities
+E: "A lot on my plate" is an idiom meaning many tasks/responsibilities at the moment.
+--- es
+P: Lee: "I have a lot on my plate this month, so I can't take on new projects." ¿Qué significa "a lot on my plate"?
+- Mucha comida para comer
+- Un plato lleno literalmente
+- Pocas responsabilidades
+- Muchas tareas y responsabilidades
+E: "A lot on my plate" es una expresión idiomática que significa "muchas tareas/responsabilidades en el momento".
+
+=== Expressões idiomáticas > Phrasal verbs c=0 d=facil
+P: Complete: "Please ___ the TV before you go to bed." (desligar)
+- turn off
+- turn on
+- turn up
+- turn down
+E: "Turn off" significa "desligar".
+--- en
+P: Complete: "Please ___ the TV before you go to bed."
+- turn off
+- turn on
+- turn up
+- turn down
+E: "Turn off" means to switch off.
+--- es
+P: Completa: "Please ___ the TV before you go to bed." (apagar)
+- @
+- @
+- @
+- @
+E: "Turn off" significa "apagar/desconectar".
+
+=== Expressões idiomáticas > Phrasal verbs c=1 d=facil
+P: Complete: "Can you ___ the volume? I can barely hear it." (aumentar)
+- turn off
+- turn up
+- turn down
+- turn into
+E: "Turn up" significa "aumentar (o volume)".
+--- en
+P: Complete: "Can you ___ the volume? I can barely hear it."
+- turn off
+- turn up
+- turn down
+- turn into
+E: "Turn up" means to increase (the volume).
+--- es
+P: Completa: "Can you ___ the volume? I can barely hear it." (subir)
+- @
+- @
+- @
+- @
+E: "Turn up" significa "subir (el volumen)".
+
+=== Expressões idiomáticas > Phrasal verbs c=2 d=medio
+P: Complete: "She had to ___ the job offer because of the low salary." (recusar)
+- take up
+- look up
+- turn down
+- give up
+E: "Turn down" significa "recusar".
+--- en
+P: Complete: "She had to ___ the job offer because of the low salary."
+- take up
+- look up
+- turn down
+- give up
+E: "Turn down" means to refuse/decline.
+--- es
+P: Completa: "She had to ___ the job offer because of the low salary." (rechazar)
+- @
+- @
+- @
+- @
+E: "Turn down" significa "rechazar".
+
+=== Expressões idiomáticas > Phrasal verbs c=3 d=medio
+P: Complete: "He decided to ___ smoking after the doctor's warning." (desistir de)
+- look up
+- turn down
+- take up
+- give up
+E: "Give up" significa "desistir de/parar de".
+--- en
+P: Complete: "He decided to ___ smoking after the doctor's warning."
+- look up
+- turn down
+- take up
+- give up
+E: "Give up" means to quit/stop.
+--- es
+P: Completa: "He decided to ___ smoking after the doctor's warning." (dejar de)
+- @
+- @
+- @
+- @
+E: "Give up" significa "dejar de/renunciar a".
+
+=== Expressões idiomáticas > Phrasal verbs c=0 d=dificil
+P: Complete: "The meeting was ___ due to the storm." (adiada)
+- put off
+- put on
+- put up
+- put out
+E: "Put off" significa "adiar".
+--- en
+P: Complete: "The meeting was ___ due to the storm."
+- put off
+- put on
+- put up
+- put out
+E: "Put off" means to postpone.
+--- es
+P: Completa: "The meeting was ___ due to the storm." (aplazada)
+- @
+- @
+- @
+- @
+E: "Put off" significa "aplazar/posponer".
+
+=== Expressões idiomáticas > Phrasal verbs c=1 d=dificil
+P: Complete: "I need to ___ this word in the dictionary." (procurar)
+- give up
+- look up
+- turn up
+- take off
+E: "Look up" significa "procurar (uma informação)", como em um dicionário.
+--- en
+P: Complete: "I need to ___ this word in the dictionary."
+- give up
+- look up
+- turn up
+- take off
+E: "Look up" means to search for (information), as in a dictionary.
+--- es
+P: Completa: "I need to ___ this word in the dictionary." (buscar)
+- @
+- @
+- @
+- @
+E: "Look up" significa "buscar (una información)", como en un diccionario.

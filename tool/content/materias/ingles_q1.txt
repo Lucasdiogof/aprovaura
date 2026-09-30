@@ -1,0 +1,659 @@
+=== Estratégias de leitura > Skimming e scanning c=0 d=facil
+P: Leia o aviso: "Library hours: Monday to Friday, 8 a.m. to 6 p.m. Closed on weekends." Fazendo scanning (busca rápida por uma informação específica), a que horas a biblioteca fecha às sextas-feiras?
+- Às 18h
+- Às 8h
+- Aos sábados
+- Não abre
+E: O aviso diz "8 a.m. to 6 p.m.", ou seja, a biblioteca fecha às 18h de segunda a sexta.
+--- en
+P: Read the notice: "Library hours: Monday to Friday, 8 a.m. to 6 p.m. Closed on weekends." Scanning for a specific detail, what time does the library close on Fridays?
+- 6 p.m.
+- 8 a.m.
+- On weekends
+- It doesn't open
+E: The notice says "8 a.m. to 6 p.m.", so the library closes at 6 p.m. Monday through Friday.
+--- es
+P: Lee el aviso: "Library hours: Monday to Friday, 8 a.m. to 6 p.m. Closed on weekends." Haciendo scanning (búsqueda rápida de un dato específico), ¿a qué hora cierra la biblioteca los viernes?
+- A las 18h
+- A las 8h
+- Los fines de semana
+- No abre
+E: El aviso dice "8 a.m. to 6 p.m.", es decir, la biblioteca cierra a las 18h de lunes a viernes.
+
+=== Estratégias de leitura > Skimming e scanning c=1 d=facil
+P: Fazendo skimming (leitura rápida para captar a ideia geral) do texto "Tips for a healthy morning: drink water, eat fruit, and take a short walk before work.", qual é o assunto geral do texto?
+- Receitas de bolo
+- Hábitos saudáveis de manhã
+- Horário de trabalho
+- Esportes de inverno
+E: O texto lista ações (beber água, comer fruta, caminhar) associadas a uma manhã saudável.
+--- en
+P: Skimming the text "Tips for a healthy morning: drink water, eat fruit, and take a short walk before work." to get the general idea, what is the text about?
+- Cake recipes
+- Healthy morning habits
+- Work schedules
+- Winter sports
+E: The text lists actions (drinking water, eating fruit, walking) linked to a healthy morning.
+--- es
+P: Haciendo skimming (lectura rápida para captar la idea general) del texto "Tips for a healthy morning: drink water, eat fruit, and take a short walk before work.", ¿cuál es el tema general del texto?
+- Recetas de pastel
+- Hábitos saludables por la mañana
+- Horario de trabajo
+- Deportes de invierno
+E: El texto enumera acciones (beber agua, comer fruta, caminar) relacionadas con una mañana saludable.
+
+=== Estratégias de leitura > Skimming e scanning c=2 d=medio
+P: No cartaz "SUMMER SALE! 50% off shoes. This weekend only. Downtown store.", ao fazer scanning por uma informação específica, qual é o desconto anunciado?
+- 10%
+- 25%
+- 50%
+- 75%
+E: O cartaz informa diretamente "50% off shoes".
+--- en
+P: In the poster "SUMMER SALE! 50% off shoes. This weekend only. Downtown store.", scanning for a specific detail, what discount is being advertised?
+- 10%
+- 25%
+- 50%
+- 75%
+E: The poster states directly "50% off shoes".
+--- es
+P: En el cartel "SUMMER SALE! 50% off shoes. This weekend only. Downtown store.", haciendo scanning de un dato específico, ¿qué descuento se anuncia?
+- 10%
+- 25%
+- 50%
+- 75%
+E: El cartel indica directamente "50% off shoes".
+
+=== Estratégias de leitura > Skimming e scanning c=3 d=medio
+P: No mesmo cartaz "SUMMER SALE! 50% off shoes. This weekend only. Downtown store.", em qual loja a promoção acontece?
+- Em qualquer loja da rede
+- Somente on-line
+- Na loja do shopping
+- Na loja do centro
+E: "Downtown store" significa "loja do centro (da cidade)".
+--- en
+P: In the same poster "SUMMER SALE! 50% off shoes. This weekend only. Downtown store.", which store is having the sale?
+- Any store in the chain
+- Online only
+- The mall store
+- The downtown store
+E: "Downtown store" means the store located in the city center.
+--- es
+P: En el mismo cartel "SUMMER SALE! 50% off shoes. This weekend only. Downtown store.", ¿en qué tienda ocurre la promoción?
+- En cualquier tienda de la cadena
+- Solo en línea
+- En la tienda del centro comercial
+- En la tienda del centro (downtown)
+E: "Downtown store" significa la tienda ubicada en el centro de la ciudad.
+
+=== Estratégias de leitura > Skimming e scanning c=0 d=dificil
+P: Leia o e-mail: "Reminder: the team meeting moved from Tuesday to Thursday, same time, same room." Fazendo scanning, para qual dia a reunião foi remarcada?
+- Quinta-feira
+- Terça-feira
+- Sexta-feira
+- Não foi remarcada
+E: O e-mail diz que a reunião "moved from Tuesday to Thursday", ou seja, foi remarcada para quinta-feira.
+--- en
+P: Read the email: "Reminder: the team meeting moved from Tuesday to Thursday, same time, same room." Scanning the text, which day was the meeting rescheduled to?
+- Thursday
+- Tuesday
+- Friday
+- It wasn't rescheduled
+E: The email says the meeting "moved from Tuesday to Thursday", so it was rescheduled to Thursday.
+--- es
+P: Lee el correo: "Reminder: the team meeting moved from Tuesday to Thursday, same time, same room." Haciendo scanning, ¿para qué día se reprogramó la reunión?
+- Jueves
+- Martes
+- Viernes
+- No se reprogramó
+E: El correo dice que la reunión "moved from Tuesday to Thursday", es decir, se reprogramó para el jueves.
+
+=== Estratégias de leitura > Skimming e scanning c=1 d=dificil
+P: Fazendo skimming do texto "New study shows that short walks after meals can help control blood sugar levels, researchers say.", qual é a ideia central?
+- Caminhadas curtas após as refeições podem ajudar a controlar o açúcar no sangue
+- Pesquisadores recomendam dietas sem açúcar
+- Caminhar é melhor que correr
+- O estudo foi feito com crianças
+E: O texto afirma que caminhadas curtas após refeições "can help control blood sugar levels" segundo pesquisadores.
+--- en
+P: Skimming the text "New study shows that short walks after meals can help control blood sugar levels, researchers say.", what is the main idea?
+- Short walks after meals may help control blood sugar levels
+- Researchers recommend sugar-free diets
+- Walking is better than running
+- The study was done with children
+E: The text states that short walks after meals "can help control blood sugar levels", according to researchers.
+--- es
+P: Haciendo skimming del texto "New study shows that short walks after meals can help control blood sugar levels, researchers say.", ¿cuál es la idea central?
+- Las caminatas cortas después de las comidas pueden ayudar a controlar el azúcar en la sangre
+- Los investigadores recomiendan dietas sin azúcar
+- Caminar es mejor que correr
+- El estudio se hizo con niños
+E: El texto afirma que caminatas cortas después de las comidas "can help control blood sugar levels", según investigadores.
+
+=== Estratégias de leitura > Identificando a ideia central c=2 d=facil
+P: Leia: "Pets bring companionship, reduce stress, and teach children responsibility." Qual é a ideia central do texto?
+- Pets são caros de manter
+- Pets só servem para crianças
+- Pets trazem companhia, reduzem o estresse e ensinam responsabilidade
+- Pets precisam de veterinário toda semana
+E: O texto resume os benefícios de ter um animal de estimação: companhia, menos estresse e responsabilidade.
+--- en
+P: Read: "Pets bring companionship, reduce stress, and teach children responsibility." What is the main idea of the text?
+- Pets are expensive to keep
+- Pets are only good for children
+- Pets bring companionship, reduce stress, and teach responsibility
+- Pets need a vet every week
+E: The text summarizes the benefits of having a pet: companionship, less stress, and responsibility.
+--- es
+P: Lee: "Pets bring companionship, reduce stress, and teach children responsibility." ¿Cuál es la idea central del texto?
+- Las mascotas son caras de mantener
+- Las mascotas solo sirven para los niños
+- Las mascotas brindan compañía, reducen el estrés y enseñan responsabilidad
+- Las mascotas necesitan veterinario cada semana
+E: El texto resume los beneficios de tener una mascota: compañía, menos estrés y responsabilidad.
+
+=== Estratégias de leitura > Identificando a ideia central c=3 d=facil
+P: Leia: "Recycling paper, glass, and plastic reduces waste and saves natural resources." Qual é a ideia central?
+- Reciclar é caro
+- Só o plástico deve ser reciclado
+- Reciclagem aumenta o lixo
+- Reciclar papel, vidro e plástico reduz o lixo e economiza recursos naturais
+E: O texto afirma diretamente que reciclar esses materiais "reduces waste and saves natural resources".
+--- en
+P: Read: "Recycling paper, glass, and plastic reduces waste and saves natural resources." What is the main idea?
+- Recycling is expensive
+- Only plastic should be recycled
+- Recycling increases waste
+- Recycling paper, glass, and plastic reduces waste and saves natural resources
+E: The text directly states that recycling these materials "reduces waste and saves natural resources".
+--- es
+P: Lee: "Recycling paper, glass, and plastic reduces waste and saves natural resources." ¿Cuál es la idea central?
+- Reciclar es caro
+- Solo el plástico debe reciclarse
+- Reciclar aumenta la basura
+- Reciclar papel, vidrio y plástico reduce la basura y ahorra recursos naturales
+E: El texto afirma directamente que reciclar esos materiales "reduces waste and saves natural resources".
+
+=== Estratégias de leitura > Identificando a ideia central c=0 d=medio
+P: Leia: "Although the movie received mixed reviews, it became one of the year's biggest box office hits." Qual é a ideia central?
+- O filme dividiu a crítica, mas fez sucesso de bilheteria
+- O filme foi elogiado por unanimidade
+- O filme fracassou nas bilheterias
+- O filme não teve nenhuma crítica
+E: "Mixed reviews" indica opiniões divididas; "biggest box office hits" indica grande sucesso de bilheteria.
+--- en
+P: Read: "Although the movie received mixed reviews, it became one of the year's biggest box office hits." What is the main idea?
+- The movie divided critics but was a box office success
+- The movie was praised unanimously
+- The movie failed at the box office
+- The movie received no reviews
+E: "Mixed reviews" means divided opinions; "biggest box office hits" means great box-office success.
+--- es
+P: Lee: "Although the movie received mixed reviews, it became one of the year's biggest box office hits." ¿Cuál es la idea central?
+- La película dividió a la crítica, pero tuvo éxito de taquilla
+- La película fue elogiada por unanimidad
+- La película fracasó en taquilla
+- La película no tuvo ninguna crítica
+E: "Mixed reviews" indica opiniones divididas; "biggest box office hits" indica gran éxito de taquilla.
+
+=== Estratégias de leitura > Identificando a ideia central c=1 d=medio
+P: Leia: "Despite the rain, thousands of fans stayed until the last song of the concert." Qual é a ideia central?
+- O show foi cancelado por causa da chuva
+- Os fãs permaneceram até o fim do show mesmo com chuva
+- Poucos fãs foram ao show
+- O show aconteceu em um dia de sol
+E: "Despite the rain... stayed until the last song" mostra que os fãs ficaram até o fim mesmo com chuva.
+--- en
+P: Read: "Despite the rain, thousands of fans stayed until the last song of the concert." What is the main idea?
+- The concert was canceled because of the rain
+- Fans stayed until the end of the concert despite the rain
+- Few fans attended the concert
+- The concert happened on a sunny day
+E: "Despite the rain... stayed until the last song" shows fans stayed until the end despite the rain.
+--- es
+P: Lee: "Despite the rain, thousands of fans stayed until the last song of the concert." ¿Cuál es la idea central?
+- El concierto fue cancelado por la lluvia
+- Los fans se quedaron hasta el final del concierto a pesar de la lluvia
+- Pocos fans asistieron al concierto
+- El concierto ocurrió en un día soleado
+E: "Despite the rain... stayed until the last song" muestra que los fans se quedaron hasta el final pese a la lluvia.
+
+=== Estratégias de leitura > Identificando a ideia central c=2 d=dificil
+P: Leia: "While technology has made communication faster, some argue it has made relationships more superficial." Qual é a ideia central?
+- A tecnologia só trouxe benefícios para as relações
+- A comunicação ficou mais lenta com a tecnologia
+- A tecnologia acelerou a comunicação, mas pode ter tornado as relações mais superficiais
+- A tecnologia não afeta as relações humanas
+E: O texto contrasta o ganho de velocidade ("faster") com uma possível perda de profundidade ("more superficial").
+--- en
+P: Read: "While technology has made communication faster, some argue it has made relationships more superficial." What is the main idea?
+- Technology has only brought benefits to relationships
+- Communication has become slower with technology
+- Technology sped up communication, but may have made relationships more superficial
+- Technology doesn't affect human relationships
+E: The text contrasts the gain in speed ("faster") with a possible loss of depth ("more superficial").
+--- es
+P: Lee: "While technology has made communication faster, some argue it has made relationships more superficial." ¿Cuál es la idea central?
+- La tecnología solo trajo beneficios a las relaciones
+- La comunicación se volvió más lenta con la tecnología
+- La tecnología aceleró la comunicación, pero pudo haber vuelto las relaciones más superficiales
+- La tecnología no afecta las relaciones humanas
+E: El texto contrasta la ganancia de velocidad ("faster") con una posible pérdida de profundidad ("more superficial").
+
+=== Estratégias de leitura > Identificando a ideia central c=3 d=dificil
+P: Leia: "The company's profits grew this year, yet several employees were laid off to cut costs." Qual é a ideia central?
+- A empresa faliu este ano
+- Os lucros caíram e por isso houve demissões
+- Não houve nenhuma demissão na empresa
+- Os lucros cresceram, mas houve demissões para reduzir custos
+E: O texto usa "yet" (contudo) para mostrar contraste: lucro cresceu, mesmo assim houve demissões.
+--- en
+P: Read: "The company's profits grew this year, yet several employees were laid off to cut costs." What is the main idea?
+- The company went bankrupt this year
+- Profits fell, which caused layoffs
+- There were no layoffs at the company
+- Profits grew, but there were layoffs to cut costs
+E: The text uses "yet" to show contrast: profits grew, even so there were layoffs.
+--- es
+P: Lee: "The company's profits grew this year, yet several employees were laid off to cut costs." ¿Cuál es la idea central?
+- La empresa quebró este año
+- Las ganancias cayeron y por eso hubo despidos
+- No hubo ningún despido en la empresa
+- Las ganancias crecieron, pero hubo despidos para reducir costos
+E: El texto usa "yet" (sin embargo) para mostrar contraste: las ganancias crecieron, aun así hubo despidos.
+
+=== Vocabulário em contexto > Cognatos e falsos cognatos c=0 d=facil
+P: Em inglês, a palavra "actually" é um falso cognato. O que ela realmente significa?
+- Na verdade / de fato
+- Atualmente
+- Realmente feio
+- Eventualmente
+E: "Actually" significa "na verdade", não "atualmente" (que em inglês é "currently" ou "nowadays").
+--- en
+P: In English, the word "actually" is a false cognate (a "falso cognato"). What does it really mean?
+- In fact / really
+- Currently, nowadays
+- Really ugly
+- Eventually
+E: "Actually" means "in fact/really", not "currently".
+--- es
+P: En inglés, la palabra "actually" es un falso cognado. ¿Qué significa realmente?
+- En realidad / de hecho
+- Actualmente
+- Realmente feo
+- Eventualmente
+E: "Actually" significa "en realidad/de hecho", no "actualmente" (que en inglés es "currently" o "nowadays").
+
+=== Vocabulário em contexto > Cognatos e falsos cognatos c=1 d=facil
+P: A palavra em inglês "pretend" é um falso cognato. O que ela significa?
+- Pretender (ter intenção de)
+- Fingir
+- Pretender um cargo
+- Presentear
+E: "Pretend" significa "fingir", e não "pretender" (que em inglês é "intend" ou "plan to").
+--- en
+P: The English word "pretend" is a false cognate. What does it mean?
+- To intend to
+- To fake / act as if
+- To apply for a position
+- To give a gift
+E: "Pretend" means "to fake/act as if", not "to intend" (which in English is "intend" or "plan to").
+--- es
+P: La palabra en inglés "pretend" es un falso cognado. ¿Qué significa?
+- Pretender (tener la intención de)
+- Fingir
+- Postularse a un cargo
+- Regalar
+E: "Pretend" significa "fingir", no "pretender" (que en inglés es "intend" o "plan to").
+
+=== Vocabulário em contexto > Cognatos e falsos cognatos c=2 d=medio
+P: A palavra "library" em inglês é um falso cognato de "livraria". O que "library" realmente significa?
+- Loja de livros
+- Papelaria
+- Biblioteca
+- Editora
+E: "Library" significa "biblioteca"; "livraria" (loja de livros) em inglês é "bookstore".
+--- en
+P: The word "library" is a false cognate of the Portuguese "livraria" (bookstore). What does "library" actually mean?
+- Bookstore
+- Stationery shop
+- Library
+- Publishing house
+E: "Library" means a place to borrow books; a shop that sells books is a "bookstore".
+--- es
+P: La palabra "library" en inglés es un falso cognado de "librería" en español. ¿Qué significa realmente "library"?
+- Tienda de libros
+- Papelería
+- Biblioteca
+- Editorial
+E: "Library" significa "biblioteca"; una tienda que vende libros en inglés es "bookstore".
+
+=== Vocabulário em contexto > Cognatos e falsos cognatos c=3 d=medio
+P: A palavra "parents" em inglês costuma ser confundida com "parentes". O que "parents" realmente significa?
+- Parentes em geral
+- Primos
+- Avós
+- Pais (mãe e pai)
+E: "Parents" significa "pais" (mãe e pai); "parentes" em geral é "relatives".
+--- en
+P: The word "parents" is often confused with the Portuguese "parentes" (relatives). What does "parents" actually mean?
+- Relatives in general
+- Cousins
+- Grandparents
+- Mother and father
+E: "Parents" means "mother and father"; "relatives" in general is the word "relatives".
+--- es
+P: La palabra "parents" en inglés suele confundirse con "parientes" en español. ¿Qué significa realmente "parents"?
+- Parientes en general
+- Primos
+- Abuelos
+- Padres (madre y padre)
+E: "Parents" significa "padres" (madre y padre); "parientes" en general es "relatives".
+
+=== Vocabulário em contexto > Cognatos e falsos cognatos c=0 d=dificil
+P: "Eventually" em inglês é um falso cognato de "eventualmente". O que "eventually" realmente significa?
+- Finalmente, no final
+- Eventualmente, às vezes
+- Imediatamente
+- Nunca
+E: "Eventually" significa "finalmente/no final das contas"; "eventualmente" (às vezes) em inglês é "occasionally" ou "sometimes".
+--- en
+P: "Eventually" is a false cognate of the Portuguese "eventualmente" (occasionally). What does "eventually" actually mean?
+- In the end, finally
+- Occasionally, sometimes
+- Immediately
+- Never
+E: "Eventually" means "in the end/finally"; "occasionally" is the word for "eventualmente".
+--- es
+P: "Eventually" en inglés es un falso cognado de "eventualmente" en español. ¿Qué significa realmente "eventually"?
+- Finalmente, al final
+- Eventualmente, a veces
+- Inmediatamente
+- Nunca
+E: "Eventually" significa "finalmente/al final"; "eventualmente" (a veces) en inglés es "occasionally" o "sometimes".
+
+=== Vocabulário em contexto > Cognatos e falsos cognatos c=1 d=dificil
+P: Em uma porta, a placa diz "PUSH". Um brasileiro pode confundir com "puxe", mas o que "push" realmente manda fazer?
+- Puxar a porta
+- Empurrar a porta
+- Bater na porta
+- Não tocar a porta
+E: "Push" significa "empurre"; "puxe" em inglês é "pull" — um clássico falso cognato em placas de portas.
+--- en
+P: On a door, a sign says "PUSH". Some Portuguese speakers confuse it with "puxe" (pull), but what does "push" actually tell you to do?
+- Pull the door
+- Push the door
+- Knock on the door
+- Do not touch the door
+E: "Push" means to push forward; "pull" is the word for "puxe" — a classic false-cognate mix-up on door signs.
+--- es
+P: En una puerta, un cartel dice "PUSH". Algunos hispanohablantes lo confunden con "puje" o "jale", pero ¿qué manda hacer realmente "push"?
+- Jalar la puerta
+- Empujar la puerta
+- Tocar la puerta
+- No tocar la puerta
+E: "Push" significa "empuje"; "jale/tire" en inglés es "pull" — una confusión clásica en las puertas.
+
+=== Vocabulário em contexto > Deduzindo sentido pelo contexto c=2 d=facil
+P: Leia: "The kitten was so tiny that it fit in the palm of my hand." Pelo contexto, "tiny" significa:
+- Feroz
+- Barulhento
+- Muito pequeno
+- Machucado
+E: O contexto ("fit in the palm of my hand") indica algo muito pequeno.
+--- en
+P: Read: "The kitten was so tiny that it fit in the palm of my hand." From context, "tiny" means:
+- Fierce
+- Noisy
+- Very small
+- Injured
+E: The context ("fit in the palm of my hand") indicates something very small.
+--- es
+P: Lee: "The kitten was so tiny that it fit in the palm of my hand." Por el contexto, "tiny" significa:
+- Feroz
+- Ruidoso
+- Muy pequeño
+- Lastimado
+E: El contexto ("fit in the palm of my hand") indica algo muy pequeño.
+
+=== Vocabulário em contexto > Deduzindo sentido pelo contexto c=3 d=facil
+P: Leia: "After the long hike, the students were exhausted and fell asleep immediately." Pelo contexto, "exhausted" significa:
+- Animados
+- Com fome
+- Machucados
+- Muito cansados
+E: "Fell asleep immediately" após uma longa caminhada indica que estavam muito cansados.
+--- en
+P: Read: "After the long hike, the students were exhausted and fell asleep immediately." From context, "exhausted" means:
+- Excited
+- Hungry
+- Injured
+- Very tired
+E: "Fell asleep immediately" after a long hike indicates they were very tired.
+--- es
+P: Lee: "After the long hike, the students were exhausted and fell asleep immediately." Por el contexto, "exhausted" significa:
+- Animados
+- Con hambre
+- Lastimados
+- Muy cansados
+E: "Fell asleep immediately" después de una larga caminata indica que estaban muy cansados.
+
+=== Vocabulário em contexto > Deduzindo sentido pelo contexto c=0 d=medio
+P: Leia: "The instructions were so ambiguous that half the class understood them differently." Pelo contexto, "ambiguous" significa:
+- Que permite mais de uma interpretação
+- Muito claras e diretas
+- Escritas em outro idioma
+- Curtas demais
+E: O fato de a turma ter entendido "differently" mostra que as instruções permitiam mais de uma interpretação.
+--- en
+P: Read: "The instructions were so ambiguous that half the class understood them differently." From context, "ambiguous" means:
+- Open to more than one interpretation
+- Very clear and direct
+- Written in another language
+- Too short
+E: The fact that the class understood them "differently" shows the instructions allowed more than one interpretation.
+--- es
+P: Lee: "The instructions were so ambiguous that half the class understood them differently." Por el contexto, "ambiguous" significa:
+- Que permite más de una interpretación
+- Muy claras y directas
+- Escritas en otro idioma
+- Demasiado cortas
+E: El hecho de que la clase las entendiera "differently" muestra que las instrucciones permitían más de una interpretación.
+
+=== Vocabulário em contexto > Deduzindo sentido pelo contexto c=1 d=medio
+P: Leia: "She was so frugal that she saved half of every paycheck for years." Pelo contexto, "frugal" significa:
+- Generosa, gastava sem se importar
+- Econômica, evitava gastos desnecessários
+- Desorganizada com o dinheiro
+- Endividada
+E: Guardar metade de cada salário por anos indica alguém econômico(a), que evita gastos desnecessários.
+--- en
+P: Read: "She was so frugal that she saved half of every paycheck for years." From context, "frugal" means:
+- Generous, spent without worrying
+- Thrifty, avoided unnecessary spending
+- Careless with money
+- In debt
+E: Saving half of every paycheck for years indicates someone thrifty, who avoids unnecessary spending.
+--- es
+P: Lee: "She was so frugal that she saved half of every paycheck for years." Por el contexto, "frugal" significa:
+- Generosa, gastaba sin preocuparse
+- Económica, evitaba gastos innecesarios
+- Desorganizada con el dinero
+- Endeudada
+E: Ahorrar la mitad de cada sueldo durante años indica a alguien económico(a), que evita gastos innecesarios.
+
+=== Vocabulário em contexto > Deduzindo sentido pelo contexto c=2 d=dificil
+P: Leia: "The negotiations were tedious, dragging on for hours without any real progress." Pelo contexto, "tedious" significa:
+- Emocionantes
+- Curtas e objetivas
+- Cansativas e demoradas
+- Secretas
+E: "Dragging on for hours without progress" indica algo cansativo e demorado.
+--- en
+P: Read: "The negotiations were tedious, dragging on for hours without any real progress." From context, "tedious" means:
+- Exciting
+- Short and to the point
+- Tiresome and long
+- Secret
+E: "Dragging on for hours without progress" indicates something tiresome and long.
+--- es
+P: Lee: "The negotiations were tedious, dragging on for hours without any real progress." Por el contexto, "tedious" significa:
+- Emocionantes
+- Cortas y directas
+- Cansadas y largas
+- Secretas
+E: "Dragging on for hours without progress" indica algo cansado y largo.
+
+=== Vocabulário em contexto > Deduzindo sentido pelo contexto c=3 d=dificil
+P: Leia: "Despite the manager's blunt feedback, the team appreciated knowing exactly where they stood." Pelo contexto, "blunt" significa:
+- Gentil e indireto
+- Escrito, não falado
+- Confuso
+- Direto e sem rodeios
+E: "Knowing exactly where they stood" após um feedback "blunt" indica que o feedback foi direto, sem rodeios.
+--- en
+P: Read: "Despite the manager's blunt feedback, the team appreciated knowing exactly where they stood." From context, "blunt" means:
+- Kind and indirect
+- Written, not spoken
+- Confusing
+- Direct and straightforward
+E: "Knowing exactly where they stood" after "blunt" feedback indicates the feedback was direct and straightforward.
+--- es
+P: Lee: "Despite the manager's blunt feedback, the team appreciated knowing exactly where they stood." Por el contexto, "blunt" significa:
+- Amable e indirecto
+- Escrito, no hablado
+- Confuso
+- Directo y sin rodeos
+E: "Knowing exactly where they stood" después de un feedback "blunt" indica que fue directo y sin rodeos.
+
+=== Vocabulário em contexto > Sinônimos e antônimos c=0 d=facil
+P: Qual palavra é sinônimo de "happy" em inglês?
+- Glad
+- Angry
+- Tired
+- Sad
+E: "Glad" e "happy" são sinônimos, ambos significam "feliz/contente".
+--- en
+P: Which word is a synonym of "happy"?
+- Glad
+- Angry
+- Tired
+- Sad
+E: "Glad" and "happy" are synonyms; both mean feeling pleased or content.
+--- es
+P: ¿Qué palabra es sinónimo de "happy" en inglés?
+- Glad
+- Angry
+- Tired
+- Sad
+E: "Glad" y "happy" son sinónimos; ambos significan "feliz/contento".
+
+=== Vocabulário em contexto > Sinônimos e antônimos c=1 d=facil
+P: Qual palavra é antônimo de "difficult" em inglês?
+- Hard
+- Easy
+- Complex
+- Tough
+E: "Easy" é o oposto de "difficult".
+--- en
+P: Which word is an antonym of "difficult"?
+- Hard
+- Easy
+- Complex
+- Tough
+E: "Easy" is the opposite of "difficult".
+--- es
+P: ¿Qué palabra es antónimo de "difficult" en inglés?
+- Hard
+- Easy
+- Complex
+- Tough
+E: "Easy" es lo opuesto de "difficult".
+
+=== Vocabulário em contexto > Sinônimos e antônimos c=2 d=medio
+P: Leia: "The ceremony will commence at noon." Qual é o sinônimo de "commence" nessa frase?
+- End
+- Continue
+- Begin
+- Cancel
+E: "Commence" significa "começar", sinônimo de "begin".
+--- en
+P: Read: "The ceremony will commence at noon." What is a synonym for "commence" in this sentence?
+- End
+- Continue
+- Begin
+- Cancel
+E: "Commence" means "to begin/start", a synonym of "begin".
+--- es
+P: Lee: "The ceremony will commence at noon." ¿Cuál es el sinónimo de "commence" en esta frase?
+- End
+- Continue
+- Begin
+- Cancel
+E: "Commence" significa "comenzar", sinónimo de "begin".
+
+=== Vocabulário em contexto > Sinônimos e antônimos c=3 d=medio
+P: Leia: "Unlike his generous brother, Tom never shares anything." Qual palavra descreve Tom, o antônimo de "generous"?
+- Kind
+- Wealthy
+- Friendly
+- Stingy
+E: "Never shares anything" indica o oposto de generoso: "stingy" (mesquinho, avarento).
+--- en
+P: Read: "Unlike his generous brother, Tom never shares anything." Which word describes Tom, the antonym of "generous"?
+- Kind
+- Wealthy
+- Friendly
+- Stingy
+E: "Never shares anything" indicates the opposite of generous: "stingy".
+--- es
+P: Lee: "Unlike his generous brother, Tom never shares anything." ¿Qué palabra describe a Tom, el antónimo de "generous"?
+- Kind
+- Wealthy
+- Friendly
+- Stingy
+E: "Never shares anything" indica lo opuesto de generoso: "stingy" (tacaño).
+
+=== Vocabulário em contexto > Sinônimos e antônimos c=0 d=dificil
+P: Leia: "She was reluctant to accept the job offer at first." Qual é o sinônimo de "reluctant" nessa frase?
+- Unwilling
+- Eager
+- Confident
+- Grateful
+E: "Reluctant" significa "relutante/hesitante", sinônimo de "unwilling" (não disposto).
+--- en
+P: Read: "She was reluctant to accept the job offer at first." What is a synonym for "reluctant" in this sentence?
+- Unwilling
+- Eager
+- Confident
+- Grateful
+E: "Reluctant" means hesitant or unwilling, a synonym of "unwilling".
+--- es
+P: Lee: "She was reluctant to accept the job offer at first." ¿Cuál es el sinónimo de "reluctant" en esta frase?
+- Unwilling
+- Eager
+- Confident
+- Grateful
+E: "Reluctant" significa "reacio/vacilante", sinónimo de "unwilling" (no dispuesto).
+
+=== Vocabulário em contexto > Sinônimos e antônimos c=1 d=dificil
+P: Leia: "Water was abundant in the region until the drought began." Qual palavra é o antônimo de "abundant" nessa frase?
+- Plentiful
+- Scarce
+- Clean
+- Fresh
+E: Com a seca ("drought"), a água deixou de ser abundante e passou a ser "scarce" (escassa), o oposto de "abundant".
+--- en
+P: Read: "Water was abundant in the region until the drought began." Which word is the antonym of "abundant" in this sentence?
+- Plentiful
+- Scarce
+- Clean
+- Fresh
+E: With the drought, water stopped being abundant and became "scarce", the opposite of "abundant".
+--- es
+P: Lee: "Water was abundant in the region until the drought began." ¿Qué palabra es el antónimo de "abundant" en esta frase?
+- Plentiful
+- Scarce
+- Clean
+- Fresh
+E: Con la sequía, el agua dejó de ser abundante y pasó a ser "scarce" (escasa), lo opuesto de "abundant".

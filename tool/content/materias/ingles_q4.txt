@@ -1,0 +1,659 @@
+=== Cultura e linguagem funcional > Países de língua inglesa c=2 d=facil
+P: Qual destes países tem o inglês como um dos idiomas oficiais?
+- França
+- México
+- Austrália
+- Argentina
+E: A Austrália tem o inglês como idioma oficial (de fato).
+--- en
+P: Which of these countries has English as one of its official languages?
+- France
+- Mexico
+- Australia
+- Argentina
+E: Australia has English as its (de facto) official language.
+--- es
+P: ¿Cuál de estos países tiene el inglés como uno de sus idiomas oficiales?
+- Francia
+- México
+- Australia
+- Argentina
+E: Australia tiene el inglés como idioma oficial (de facto).
+
+=== Cultura e linguagem funcional > Países de língua inglesa c=3 d=facil
+P: A capital do Reino Unido, onde se fala inglês, é:
+- Dublin
+- Edimburgo
+- Manchester
+- Londres
+E: Londres é a capital do Reino Unido.
+--- en
+P: The capital of the United Kingdom, where English is spoken, is:
+- Dublin
+- Edinburgh
+- Manchester
+- London
+E: London is the capital of the United Kingdom.
+--- es
+P: La capital del Reino Unido, donde se habla inglés, es:
+- Dublín
+- Edimburgo
+- Mánchester
+- Londres
+E: Londres es la capital del Reino Unido.
+
+=== Cultura e linguagem funcional > Países de língua inglesa c=0 d=medio
+P: Qual destes países é conhecido por ter o inglês e o francês como idiomas oficiais?
+- Canadá
+- Nova Zelândia
+- Jamaica
+- África do Sul
+E: O Canadá tem inglês e francês como idiomas oficiais em nível federal.
+--- en
+P: Which of these countries is known for having both English and French as official languages?
+- Canada
+- New Zealand
+- Jamaica
+- South Africa
+E: Canada has English and French as official languages at the federal level.
+--- es
+P: ¿Cuál de estos países es conocido por tener el inglés y el francés como idiomas oficiales?
+- Canadá
+- Nueva Zelanda
+- Jamaica
+- Sudáfrica
+E: Canadá tiene el inglés y el francés como idiomas oficiales a nivel federal.
+
+=== Cultura e linguagem funcional > Países de língua inglesa c=1 d=medio
+P: A Irlanda, país de língua inglesa, tem como capital:
+- Belfast
+- Dublin
+- Cork
+- Galway
+E: Dublin é a capital da República da Irlanda.
+--- en
+P: Ireland, an English-speaking country, has as its capital:
+- Belfast
+- Dublin
+- Cork
+- Galway
+E: Dublin is the capital of the Republic of Ireland.
+--- es
+P: Irlanda, país de habla inglesa, tiene como capital:
+- Belfast
+- Dublín
+- Cork
+- Galway
+E: Dublín es la capital de la República de Irlanda.
+
+=== Cultura e linguagem funcional > Países de língua inglesa c=2 d=dificil
+P: Qual destes é considerado um dos países com maior número de falantes de inglês como segunda língua, devido à sua história colonial?
+- Portugal
+- Brasil
+- Índia
+- Chile
+E: A Índia tem o inglês amplamente usado como segunda língua devido ao seu histórico como colônia britânica.
+--- en
+P: Which of these is considered one of the countries with the largest number of English speakers as a second language, due to its colonial history?
+- Portugal
+- Brazil
+- India
+- Chile
+E: India has widespread use of English as a second language due to its history as a British colony.
+--- es
+P: ¿Cuál de estos países se considera uno de los que tiene más hablantes de inglés como segunda lengua, debido a su historia colonial?
+- Portugal
+- Brasil
+- India
+- Chile
+E: India tiene un uso amplio del inglés como segunda lengua debido a su historia como colonia británica.
+
+=== Cultura e linguagem funcional > Países de língua inglesa c=3 d=dificil
+P: A Nova Zelândia, país de língua inglesa no Pacífico Sul, reconhece oficialmente, além do inglês, qual outro idioma?
+- Francês
+- Espanhol
+- Havaiano
+- Māori
+E: O Māori é uma língua oficial da Nova Zelândia, reconhecida ao lado do inglês.
+--- en
+P: New Zealand, an English-speaking country in the South Pacific, officially recognizes which other language besides English?
+- French
+- Spanish
+- Hawaiian
+- Māori
+E: Māori is an official language of New Zealand, recognized alongside English.
+--- es
+P: Nueva Zelanda, país de habla inglesa en el Pacífico Sur, reconoce oficialmente, además del inglés, ¿qué otro idioma?
+- Francés
+- Español
+- Hawaiano
+- Māori
+E: El māori es un idioma oficial de Nueva Zelanda, reconocido junto al inglés.
+
+=== Cultura e linguagem funcional > Linguagem funcional do dia a dia c=0 d=facil
+P: Leia o diálogo: "Excuse me, could you tell me how to get to the train station?" "Sure, go straight and turn left at the bank." O que a primeira pessoa está fazendo?
+- Pedindo informação sobre como chegar a um lugar
+- Reclamando de um atraso
+- Pedindo desculpas por um erro
+- Convidando alguém para sair
+E: "Could you tell me how to get to..." é uma forma educada de pedir informações sobre um trajeto.
+--- en
+P: Read the dialogue: "Excuse me, could you tell me how to get to the train station?" "Sure, go straight and turn left at the bank." What is the first person doing?
+- Asking for directions to a place
+- Complaining about a delay
+- Apologizing for a mistake
+- Inviting someone out
+E: "Could you tell me how to get to..." is a polite way to ask for directions.
+--- es
+P: Lee el diálogo: "Excuse me, could you tell me how to get to the train station?" "Sure, go straight and turn left at the bank." ¿Qué está haciendo la primera persona?
+- Pidiendo indicaciones para llegar a un lugar
+- Quejándose de un retraso
+- Disculpándose por un error
+- Invitando a alguien a salir
+E: "Could you tell me how to get to..." es una forma educada de pedir indicaciones sobre un trayecto.
+
+=== Cultura e linguagem funcional > Linguagem funcional do dia a dia c=1 d=facil
+P: Leia o diálogo em um restaurante: "Are you ready to order?" "Yes, I'll have the grilled chicken, please." Qual é o contexto dessa conversa?
+- Uma entrevista de emprego
+- Um pedido de comida em um restaurante
+- Uma consulta médica
+- Uma aula de culinária
+E: "Are you ready to order?" é uma pergunta típica de garçom em um restaurante.
+--- en
+P: Read the dialogue in a restaurant: "Are you ready to order?" "Yes, I'll have the grilled chicken, please." What is the context of this conversation?
+- A job interview
+- Ordering food at a restaurant
+- A medical appointment
+- A cooking class
+E: "Are you ready to order?" is a typical question a waiter asks at a restaurant.
+--- es
+P: Lee el diálogo en un restaurante: "Are you ready to order?" "Yes, I'll have the grilled chicken, please." ¿Cuál es el contexto de esta conversación?
+- Una entrevista de trabajo
+- Un pedido de comida en un restaurante
+- Una consulta médica
+- Una clase de cocina
+E: "Are you ready to order?" es una pregunta típica de un mesero en un restaurante.
+
+=== Cultura e linguagem funcional > Linguagem funcional do dia a dia c=2 d=medio
+P: Leia: "I'm sorry, I won't be able to make it to the meeting tomorrow. Something came up." O que a pessoa está fazendo?
+- Confirmando presença em uma reunião
+- Cancelando/avisando que não poderá comparecer a uma reunião
+- Marcando uma nova reunião
+- Elogiando uma reunião passada
+E: "I won't be able to make it" significa "não vou conseguir comparecer", indicando um cancelamento.
+--- en
+P: Read: "I'm sorry, I won't be able to make it to the meeting tomorrow. Something came up." What is the person doing?
+- Confirming attendance at a meeting
+- Canceling/letting someone know they can't attend a meeting
+- Scheduling a new meeting
+- Praising a past meeting
+E: "I won't be able to make it" means they can't attend, indicating a cancellation.
+--- es
+P: Lee: "I'm sorry, I won't be able to make it to the meeting tomorrow. Something came up." ¿Qué está haciendo la persona?
+- Confirmando su asistencia a una reunión
+- Cancelando/avisando que no podrá asistir a una reunión
+- Programando una nueva reunión
+- Elogiando una reunión pasada
+E: "I won't be able to make it" significa "no podré asistir", indicando una cancelación.
+
+=== Cultura e linguagem funcional > Linguagem funcional do dia a dia c=3 d=medio
+P: Leia: "Could you keep it down, please? I'm trying to study." O que a pessoa está pedindo?
+- Para que abaixem o volume/façam menos barulho
+- Para que aumentem o volume da música
+- Para que a ajudem a estudar
+- Para que saiam da sala
+E: "Keep it down" é uma expressão que pede para diminuir o barulho/volume.
+--- en
+P: Read: "Could you keep it down, please? I'm trying to study." What is the person asking for?
+- To lower the volume/make less noise
+- To turn up the music
+- To help them study
+- To leave the room
+E: "Keep it down" is an expression asking someone to lower the noise/volume.
+--- es
+P: Lee: "Could you keep it down, please? I'm trying to study." ¿Qué está pidiendo la persona?
+- Que bajen el volumen/hagan menos ruido
+- Que suban el volumen de la música
+- Que la ayuden a estudiar
+- Que salgan de la habitación
+E: "Keep it down" es una expresión que pide bajar el ruido/volumen.
+
+=== Cultura e linguagem funcional > Linguagem funcional do dia a dia c=0 d=dificil
+P: Leia o diálogo por telefone: "Hi, I'm calling to reschedule my appointment for next week, if possible." "Sure, let me check the calendar." O que a pessoa que ligou quer fazer?
+- Remarcar um compromisso para a semana seguinte
+- Cancelar definitivamente um compromisso
+- Marcar um compromisso pela primeira vez
+- Reclamar de um atendimento
+E: "Calling to reschedule my appointment" significa "ligando para remarcar meu compromisso".
+--- en
+P: Read the phone dialogue: "Hi, I'm calling to reschedule my appointment for next week, if possible." "Sure, let me check the calendar." What does the caller want to do?
+- Reschedule an appointment for next week
+- Permanently cancel an appointment
+- Book an appointment for the first time
+- Complain about a service
+E: "Calling to reschedule my appointment" means calling to move the appointment to a new time.
+--- es
+P: Lee el diálogo por teléfono: "Hi, I'm calling to reschedule my appointment for next week, if possible." "Sure, let me check the calendar." ¿Qué quiere hacer quien llama?
+- Reprogramar una cita para la próxima semana
+- Cancelar definitivamente una cita
+- Reservar una cita por primera vez
+- Quejarse de un servicio
+E: "Calling to reschedule my appointment" significa "llamando para reprogramar mi cita".
+
+=== Cultura e linguagem funcional > Linguagem funcional do dia a dia c=1 d=dificil
+P: Leia: "I really appreciate your help, but I think I can manage this one on my own, thanks." O que a pessoa está comunicando de forma educada?
+- Que aceita toda a ajuda oferecida
+- Que está recusando gentilmente uma ajuda oferecida
+- Que está furiosa com quem ofereceu ajuda
+- Que precisa de mais ajuda ainda
+E: A frase agradece a oferta, mas recusa educadamente com "I think I can manage this one on my own".
+--- en
+P: Read: "I really appreciate your help, but I think I can manage this one on my own, thanks." What is the person politely communicating?
+- That they accept all the help offered
+- That they are gently declining help that was offered
+- That they are furious with whoever offered help
+- That they need even more help
+E: The sentence thanks the offer but politely declines with "I think I can manage this one on my own".
+--- es
+P: Lee: "I really appreciate your help, but I think I can manage this one on my own, thanks." ¿Qué está comunicando la persona de forma educada?
+- Que acepta toda la ayuda ofrecida
+- Que está rechazando amablemente una ayuda ofrecida
+- Que está furiosa con quien ofreció ayuda
+- Que necesita aún más ayuda
+E: La frase agradece la oferta, pero rechaza cortésmente con "I think I can manage this one on my own".
+
+=== Interpretação de textos > Trechos literários c=2 d=facil
+P: Leia o trecho: "The old house stood silent at the end of the road, its windows dark, as if it were waiting for someone who would never return." Qual é o tom predominante do trecho?
+- Alegre e animado
+- Cômico
+- Melancólico e misterioso
+- Neutro e informativo
+E: Palavras como "silent", "dark" e "waiting for someone who would never return" criam um tom melancólico e misterioso.
+--- en
+P: Read the excerpt: "The old house stood silent at the end of the road, its windows dark, as if it were waiting for someone who would never return." What is the predominant tone of the excerpt?
+- Cheerful and lively
+- Comic
+- Melancholic and mysterious
+- Neutral and informative
+E: Words like "silent", "dark" and "waiting for someone who would never return" create a melancholic, mysterious tone.
+--- es
+P: Lee el fragmento: "The old house stood silent at the end of the road, its windows dark, as if it were waiting for someone who would never return." ¿Cuál es el tono predominante del fragmento?
+- Alegre y animado
+- Cómico
+- Melancólico y misterioso
+- Neutro e informativo
+E: Palabras como "silent", "dark" y "waiting for someone who would never return" crean un tono melancólico y misterioso.
+
+=== Interpretação de textos > Trechos literários c=3 d=facil
+P: No mesmo trecho "The old house stood silent at the end of the road, its windows dark, as if it were waiting for someone who would never return.", o que a expressão "as if it were waiting" sugere sobre a casa?
+- A casa está sendo vendida
+- A casa foi recentemente reformada
+- A casa está cheia de visitantes
+- A casa é descrita como se tivesse um sentimento de espera
+E: A personificação "as if it were waiting" atribui à casa um sentimento humano de espera.
+--- en
+P: In the same excerpt "The old house stood silent at the end of the road, its windows dark, as if it were waiting for someone who would never return.", what does the phrase "as if it were waiting" suggest about the house?
+- The house is being sold
+- The house was recently renovated
+- The house is full of visitors
+- The house is described as if it had a feeling of waiting
+E: The personification "as if it were waiting" gives the house a human feeling of waiting.
+--- es
+P: En el mismo fragmento "The old house stood silent at the end of the road, its windows dark, as if it were waiting for someone who would never return.", ¿qué sugiere la expresión "as if it were waiting" sobre la casa?
+- La casa está en venta
+- La casa fue renovada recientemente
+- La casa está llena de visitantes
+- La casa se describe como si tuviera un sentimiento de espera
+E: La personificación "as if it were waiting" le atribuye a la casa un sentimiento humano de espera.
+
+=== Interpretação de textos > Trechos literários c=0 d=medio
+P: Leia: "She walked through the forest, each step quieter than the last, as though the trees themselves were listening." Que recurso literário aparece em "as though the trees themselves were listening"?
+- Personificação (dar às árvores uma qualidade humana, ouvir)
+- Rima
+- Comparação com um animal
+- Uma lista de instruções
+E: Atribuir a capacidade de "ouvir" às árvores é um exemplo de personificação.
+--- en
+P: Read: "She walked through the forest, each step quieter than the last, as though the trees themselves were listening." Which literary device appears in "as though the trees themselves were listening"?
+- Personification (giving the trees a human quality, listening)
+- Rhyme
+- A comparison to an animal
+- A list of instructions
+E: Giving trees the ability to "listen" is an example of personification.
+--- es
+P: Lee: "She walked through the forest, each step quieter than the last, as though the trees themselves were listening." ¿Qué recurso literario aparece en "as though the trees themselves were listening"?
+- Personificación (darle a los árboles una cualidad humana, escuchar)
+- Rima
+- Una comparación con un animal
+- Una lista de instrucciones
+E: Atribuirles a los árboles la capacidad de "escuchar" es un ejemplo de personificación.
+
+=== Interpretação de textos > Trechos literários c=1 d=medio
+P: No mesmo trecho "She walked through the forest, each step quieter than the last, as though the trees themselves were listening.", o que a frase "each step quieter than the last" sugere sobre a personagem?
+- Ela está correndo apressada
+- Ela está se movendo com cada vez mais cautela/silêncio
+- Ela está cantando alto
+- Ela está perdida e gritando
+E: "Each step quieter than the last" indica que ela caminha ficando cada vez mais silenciosa/cautelosa.
+--- en
+P: In the same excerpt "She walked through the forest, each step quieter than the last, as though the trees themselves were listening.", what does the phrase "each step quieter than the last" suggest about the character?
+- She is running in a hurry
+- She is moving with increasing caution/quietness
+- She is singing loudly
+- She is lost and shouting
+E: "Each step quieter than the last" indicates she is walking, becoming more and more quiet/cautious.
+--- es
+P: En el mismo fragmento "She walked through the forest, each step quieter than the last, as though the trees themselves were listening.", ¿qué sugiere "each step quieter than the last" sobre el personaje?
+- Está corriendo apresurada
+- Se está moviendo con cada vez más cautela/silencio
+- Está cantando fuerte
+- Está perdida y gritando
+E: "Each step quieter than the last" indica que camina volviéndose cada vez más silenciosa/cautelosa.
+
+=== Interpretação de textos > Trechos literários c=2 d=dificil
+P: Leia: "He smiled, but it was the kind of smile that never reached his eyes." O que essa descrição sugere sobre o sorriso do personagem?
+- Era um sorriso genuíno e feliz
+- Ele estava rindo alto
+- Era um sorriso falso ou forçado
+- Ele não sabia sorrir
+E: A expressão "never reached his eyes" é uma forma literária comum de indicar que um sorriso não é sincero.
+--- en
+P: Read: "He smiled, but it was the kind of smile that never reached his eyes." What does this description suggest about the character's smile?
+- It was a genuine, happy smile
+- He was laughing loudly
+- It was a fake or forced smile
+- He didn't know how to smile
+E: The phrase "never reached his eyes" is a common literary way of indicating an insincere smile.
+--- es
+P: Lee: "He smiled, but it was the kind of smile that never reached his eyes." ¿Qué sugiere esta descripción sobre la sonrisa del personaje?
+- Era una sonrisa genuina y feliz
+- Estaba riendo fuerte
+- Era una sonrisa falsa o forzada
+- No sabía sonreír
+E: La expresión "never reached his eyes" es una forma literaria común de indicar que una sonrisa no es sincera.
+
+=== Interpretação de textos > Trechos literários c=3 d=dificil
+P: No mesmo trecho "He smiled, but it was the kind of smile that never reached his eyes.", esse tipo de descrição indireta (mostrar em vez de dizer diretamente) é um exemplo de qual técnica narrativa?
+- Narração em primeira pessoa
+- Diálogo direto
+- Descrição puramente física, sem intenção emocional
+- "Show, don't tell" (mostrar em vez de simplesmente afirmar um sentimento)
+E: Descrever um detalhe físico (o sorriso não alcançar os olhos) para sugerir uma emoção é um exemplo clássico de "show, don't tell".
+--- en
+P: In the same excerpt "He smiled, but it was the kind of smile that never reached his eyes.", this kind of indirect description (showing rather than saying directly) is an example of which narrative technique?
+- First-person narration
+- Direct dialogue
+- Purely physical description, with no emotional intent
+- "Show, don't tell" (showing instead of simply stating a feeling)
+E: Describing a physical detail (the smile not reaching the eyes) to suggest an emotion is a classic example of "show, don't tell".
+--- es
+P: En el mismo fragmento "He smiled, but it was the kind of smile that never reached his eyes.", este tipo de descripción indirecta (mostrar en vez de decir directamente) es un ejemplo de qué técnica narrativa?
+- Narración en primera persona
+- Diálogo directo
+- Descripción puramente física, sin intención emocional
+- "Show, don't tell" (mostrar en vez de simplemente afirmar un sentimiento)
+E: Describir un detalle físico (que la sonrisa no llegue a los ojos) para sugerir una emoción es un ejemplo clásico de "show, don't tell".
+
+=== Interpretação de textos > Textos informativos e científicos c=0 d=facil
+P: Leia: "Bees play a key role in pollination, helping around 75% of the world's flowering plants reproduce." Segundo o texto, qual é o papel das abelhas?
+- Ajudar na polinização de grande parte das plantas com flores
+- Produzir apenas mel
+- Destruir plantações
+- Viver exclusivamente em florestas tropicais
+E: O texto afirma que as abelhas ajudam "around 75% of the world's flowering plants" a se reproduzirem, ou seja, atuam na polinização.
+--- en
+P: Read: "Bees play a key role in pollination, helping around 75% of the world's flowering plants reproduce." According to the text, what is the role of bees?
+- Helping most of the world's flowering plants reproduce
+- Producing only honey
+- Destroying crops
+- Living exclusively in tropical forests
+E: The text states that bees help "around 75% of the world's flowering plants" reproduce, meaning they act in pollination.
+--- es
+P: Lee: "Bees play a key role in pollination, helping around 75% of the world's flowering plants reproduce." Según el texto, ¿cuál es el papel de las abejas?
+- Ayudar a que gran parte de las plantas con flores se reproduzcan
+- Producir solo miel
+- Destruir cultivos
+- Vivir exclusivamente en bosques tropicales
+E: El texto afirma que las abejas ayudan a "around 75% of the world's flowering plants" a reproducirse, es decir, actúan en la polinización.
+
+=== Interpretação de textos > Textos informativos e científicos c=1 d=facil
+P: Leia: "Drinking enough water helps the body regulate temperature and keeps organs functioning properly." Segundo o texto, beber água suficiente ajuda a:
+- Aumentar a temperatura do corpo
+- Regular a temperatura corporal e manter os órgãos funcionando bem
+- Substituir a alimentação
+- Evitar exercícios físicos
+E: O texto diz que a água ajuda a "regulate temperature" e "keeps organs functioning properly".
+--- en
+P: Read: "Drinking enough water helps the body regulate temperature and keeps organs functioning properly." According to the text, drinking enough water helps:
+- Increase body temperature
+- Regulate body temperature and keep organs functioning well
+- Replace food
+- Avoid physical exercise
+E: The text says water helps "regulate temperature" and "keeps organs functioning properly".
+--- es
+P: Lee: "Drinking enough water helps the body regulate temperature and keeps organs functioning properly." Según el texto, beber suficiente agua ayuda a:
+- Aumentar la temperatura corporal
+- Regular la temperatura corporal y mantener los órganos funcionando bien
+- Reemplazar la alimentación
+- Evitar el ejercicio físico
+E: El texto dice que el agua ayuda a "regulate temperature" y "keeps organs functioning properly".
+
+=== Interpretação de textos > Textos informativos e científicos c=2 d=medio
+P: Leia: "A recent study found that students who read for pleasure for at least 20 minutes a day scored higher on vocabulary tests than those who didn't." Qual é a conclusão sugerida pelo estudo?
+- Ler por prazer não tem relação com vocabulário
+- Estudantes que leem menos têm vocabulário melhor
+- Ler por prazer diariamente está associado a um vocabulário melhor
+- Testes de vocabulário não são confiáveis
+E: O estudo relaciona diretamente a leitura diária por prazer a notas mais altas em testes de vocabulário.
+--- en
+P: Read: "A recent study found that students who read for pleasure for at least 20 minutes a day scored higher on vocabulary tests than those who didn't." What conclusion does the study suggest?
+- Reading for pleasure has no relation to vocabulary
+- Students who read less have better vocabulary
+- Reading for pleasure daily is associated with better vocabulary
+- Vocabulary tests are not reliable
+E: The study directly links daily reading for pleasure to higher scores on vocabulary tests.
+--- es
+P: Lee: "A recent study found that students who read for pleasure for at least 20 minutes a day scored higher on vocabulary tests than those who didn't." ¿Cuál es la conclusión sugerida por el estudio?
+- Leer por placer no se relaciona con el vocabulario
+- Los estudiantes que leen menos tienen mejor vocabulario
+- Leer por placer diariamente se asocia con un mejor vocabulario
+- Los tests de vocabulario no son confiables
+E: El estudio relaciona directamente la lectura diaria por placer con puntuaciones más altas en tests de vocabulario.
+
+=== Interpretação de textos > Textos informativos e científicos c=3 d=medio
+P: No mesmo texto "A recent study found that students who read for pleasure for at least 20 minutes a day scored higher on vocabulary tests than those who didn't.", qual foi o critério de tempo mencionado no estudo?
+- Pelo menos 2 horas por dia
+- Pelo menos 1 hora por semana
+- Qualquer tempo, sem mínimo definido
+- Pelo menos 20 minutos por dia
+E: O texto especifica "at least 20 minutes a day".
+--- en
+P: In the same text "A recent study found that students who read for pleasure for at least 20 minutes a day scored higher on vocabulary tests than those who didn't.", what time criterion was mentioned in the study?
+- At least 2 hours a day
+- At least 1 hour a week
+- Any amount of time, no minimum
+- At least 20 minutes a day
+E: The text specifies "at least 20 minutes a day".
+--- es
+P: En el mismo texto "A recent study found that students who read for pleasure for at least 20 minutes a day scored higher on vocabulary tests than those who didn't.", ¿cuál fue el criterio de tiempo mencionado en el estudio?
+- Al menos 2 horas al día
+- Al menos 1 hora a la semana
+- Cualquier tiempo, sin mínimo definido
+- Al menos 20 minutos al día
+E: El texto especifica "at least 20 minutes a day".
+
+=== Interpretação de textos > Textos informativos e científicos c=0 d=dificil
+P: Leia: "While solar panels reduce dependence on fossil fuels, their production requires significant amounts of energy and raw materials, according to researchers." Qual é a ideia central do texto?
+- Painéis solares reduzem o uso de combustíveis fósseis, mas sua produção também tem custos energéticos e de matéria-prima
+- Painéis solares não têm nenhum benefício ambiental
+- A produção de painéis solares não usa nenhum recurso natural
+- Combustíveis fósseis são sempre mais eficientes que energia solar
+E: O texto apresenta um benefício (menos dependência de combustíveis fósseis) e uma ressalva (produção exige energia e matéria-prima).
+--- en
+P: Read: "While solar panels reduce dependence on fossil fuels, their production requires significant amounts of energy and raw materials, according to researchers." What is the main idea of the text?
+- Solar panels reduce fossil fuel use, but their production also has energy and raw-material costs
+- Solar panels have no environmental benefit at all
+- Producing solar panels uses no natural resources
+- Fossil fuels are always more efficient than solar energy
+E: The text presents a benefit (less dependence on fossil fuels) and a caveat (production requires energy and raw materials).
+--- es
+P: Lee: "While solar panels reduce dependence on fossil fuels, their production requires significant amounts of energy and raw materials, according to researchers." ¿Cuál es la idea central del texto?
+- Los paneles solares reducen el uso de combustibles fósiles, pero su producción también tiene costos de energía y materia prima
+- Los paneles solares no tienen ningún beneficio ambiental
+- La producción de paneles solares no usa ningún recurso natural
+- Los combustibles fósiles siempre son más eficientes que la energía solar
+E: El texto presenta un beneficio (menos dependencia de combustibles fósiles) y una salvedad (la producción requiere energía y materia prima).
+
+=== Interpretação de textos > Textos informativos e científicos c=1 d=dificil
+P: No mesmo texto "While solar panels reduce dependence on fossil fuels, their production requires significant amounts of energy and raw materials, according to researchers.", a expressão "according to researchers" indica que a informação vem de:
+- Uma opinião pessoal do autor do texto
+- Uma fonte de pesquisa/especialistas
+- Um anúncio publicitário
+- Uma lenda popular
+E: "According to researchers" atribui a informação a pesquisadores, indicando uma fonte especializada.
+--- en
+P: In the same text "While solar panels reduce dependence on fossil fuels, their production requires significant amounts of energy and raw materials, according to researchers.", the phrase "according to researchers" indicates that the information comes from:
+- A personal opinion of the text's author
+- A research source/experts
+- An advertisement
+- A popular legend
+E: "According to researchers" attributes the information to researchers, indicating a specialized source.
+--- es
+P: En el mismo texto "While solar panels reduce dependence on fossil fuels, their production requires significant amounts of energy and raw materials, according to researchers.", la expresión "according to researchers" indica que la información proviene de:
+- Una opinión personal del autor del texto
+- Una fuente de investigación/expertos
+- Un anuncio publicitario
+- Una leyenda popular
+E: "According to researchers" atribuye la información a investigadores, indicando una fuente especializada.
+
+=== Interpretação de textos > Textos de opinião e argumentativos c=2 d=facil
+P: Leia: "In my opinion, schools should teach financial literacy, because many young adults struggle to manage money after graduation." Qual é a opinião defendida pelo autor?
+- Escolas não devem ensinar sobre dinheiro
+- Jovens não têm dificuldade financeira
+- Escolas deveriam ensinar educação financeira
+- O ensino de matemática já é suficiente
+E: O autor defende diretamente que "schools should teach financial literacy".
+--- en
+P: Read: "In my opinion, schools should teach financial literacy, because many young adults struggle to manage money after graduation." What opinion does the author defend?
+- Schools should not teach about money
+- Young people have no financial difficulty
+- Schools should teach financial literacy
+- Teaching math is already enough
+E: The author directly argues that "schools should teach financial literacy".
+--- es
+P: Lee: "In my opinion, schools should teach financial literacy, because many young adults struggle to manage money after graduation." ¿Qué opinión defiende el autor?
+- Las escuelas no deben enseñar sobre dinero
+- Los jóvenes no tienen dificultades financieras
+- Las escuelas deberían enseñar educación financiera
+- Enseñar matemáticas ya es suficiente
+E: El autor defiende directamente que "schools should teach financial literacy".
+
+=== Interpretação de textos > Textos de opinião e argumentativos c=3 d=facil
+P: No mesmo texto "In my opinion, schools should teach financial literacy, because many young adults struggle to manage money after graduation.", qual é o argumento usado para justificar essa opinião?
+- O governo exige essa disciplina
+- Todos os países já ensinam isso
+- É uma matéria fácil de ensinar
+- Muitos jovens têm dificuldade em administrar dinheiro depois de formados
+E: O autor justifica com "many young adults struggle to manage money after graduation".
+--- en
+P: In the same text "In my opinion, schools should teach financial literacy, because many young adults struggle to manage money after graduation.", what argument is used to justify this opinion?
+- The government requires this subject
+- All countries already teach this
+- It's an easy subject to teach
+- Many young people struggle to manage money after graduating
+E: The author justifies it with "many young adults struggle to manage money after graduation".
+--- es
+P: En el mismo texto "In my opinion, schools should teach financial literacy, because many young adults struggle to manage money after graduation.", ¿qué argumento se usa para justificar esa opinión?
+- El gobierno exige esa materia
+- Todos los países ya enseñan esto
+- Es una materia fácil de enseñar
+- Muchos jóvenes tienen dificultad para administrar el dinero después de graduarse
+E: El autor lo justifica con "many young adults struggle to manage money after graduation".
+
+=== Interpretação de textos > Textos de opinião e argumentativos c=0 d=medio
+P: Leia: "Some argue that remote work increases productivity, while others believe it weakens team collaboration. Both views have some truth to them." Como o autor se posiciona diante das duas visões apresentadas?
+- Reconhece que ambas as visões têm algum fundamento
+- Concorda apenas com a primeira visão
+- Concorda apenas com a segunda visão
+- Rejeita completamente as duas visões
+E: O texto conclui que "both views have some truth to them", mostrando uma posição equilibrada.
+--- en
+P: Read: "Some argue that remote work increases productivity, while others believe it weakens team collaboration. Both views have some truth to them." How does the author position themselves regarding the two views presented?
+- Acknowledges that both views have some merit
+- Agrees only with the first view
+- Agrees only with the second view
+- Completely rejects both views
+E: The text concludes that "both views have some truth to them", showing a balanced position.
+--- es
+P: Lee: "Some argue that remote work increases productivity, while others believe it weakens team collaboration. Both views have some truth to them." ¿Cómo se posiciona el autor frente a las dos visiones presentadas?
+- Reconoce que ambas visiones tienen algo de razón
+- Está de acuerdo solo con la primera visión
+- Está de acuerdo solo con la segunda visión
+- Rechaza completamente ambas visiones
+E: El texto concluye que "both views have some truth to them", mostrando una postura equilibrada.
+
+=== Interpretação de textos > Textos de opinião e argumentativos c=1 d=medio
+P: No mesmo texto "Some argue that remote work increases productivity, while others believe it weakens team collaboration. Both views have some truth to them.", qual é o principal argumento contra o trabalho remoto mencionado?
+- Custo mais alto para a empresa
+- Enfraquecimento da colaboração em equipe
+- Falta de internet em casa
+- Redução da produtividade individual
+E: O texto diz que "others believe it weakens team collaboration".
+--- en
+P: In the same text "Some argue that remote work increases productivity, while others believe it weakens team collaboration. Both views have some truth to them.", what is the main argument against remote work mentioned in the text?
+- Higher cost for the company
+- Weakening of team collaboration
+- Lack of internet at home
+- Reduced individual productivity
+E: The text says "others believe it weakens team collaboration".
+--- es
+P: En el mismo texto "Some argue that remote work increases productivity, while others believe it weakens team collaboration. Both views have some truth to them.", ¿cuál es el principal argumento en contra del trabajo remoto mencionado en el texto?
+- Costo más alto para la empresa
+- Debilitamiento de la colaboración en equipo
+- Falta de internet en casa
+- Reducción de la productividad individual
+E: El texto dice que "others believe it weakens team collaboration".
+
+=== Interpretação de textos > Textos de opinião e argumentativos c=2 d=dificil
+P: Leia: "Banning single-use plastics might seem like a simple solution, but without proper alternatives, it could create new problems instead of solving the original one." Qual é o argumento central do autor sobre banir plásticos descartáveis?
+- É uma solução perfeita e sem nenhum risco
+- Não deveria ser discutido
+- Pode gerar novos problemas se não houver alternativas adequadas
+- Já foi implementado com sucesso em todos os países
+E: O autor pondera que, "without proper alternatives", a proibição "could create new problems".
+--- en
+P: Read: "Banning single-use plastics might seem like a simple solution, but without proper alternatives, it could create new problems instead of solving the original one." What is the author's central argument about banning single-use plastics?
+- It's a perfect solution with no risk at all
+- It shouldn't be discussed
+- It could create new problems if there are no proper alternatives
+- It has already been successfully implemented in every country
+E: The author considers that, "without proper alternatives", the ban "could create new problems".
+--- es
+P: Lee: "Banning single-use plastics might seem like a simple solution, but without proper alternatives, it could create new problems instead of solving the original one." ¿Cuál es el argumento central del autor sobre prohibir los plásticos desechables?
+- Es una solución perfecta y sin ningún riesgo
+- No debería discutirse
+- Puede generar nuevos problemas si no hay alternativas adecuadas
+- Ya se implementó con éxito en todos los países
+E: El autor considera que, "without proper alternatives", la prohibición "could create new problems".
+
+=== Interpretação de textos > Textos de opinião e argumentativos c=3 d=dificil
+P: No mesmo texto "Banning single-use plastics might seem like a simple solution, but without proper alternatives, it could create new problems instead of solving the original one.", a expressão "might seem like a simple solution, but..." indica que o autor está:
+- Concordando totalmente com a ideia sem ressalvas
+- Apresentando um fato histórico
+- Descrevendo um processo científico
+- Reconhecendo a ideia inicial, mas em seguida apresentando uma ressalva/contra-argumento
+E: A estrutura "might seem..., but" é típica de textos argumentativos para introduzir uma ressalva após reconhecer um ponto de vista.
+--- en
+P: In the same text "Banning single-use plastics might seem like a simple solution, but without proper alternatives, it could create new problems instead of solving the original one.", the phrase "might seem like a simple solution, but..." indicates that the author is:
+- Fully agreeing with the idea, with no reservations
+- Presenting a historical fact
+- Describing a scientific process
+- Acknowledging the initial idea, then presenting a caveat/counter-argument
+E: The structure "might seem..., but" is typical of argumentative texts, used to introduce a caveat after acknowledging a viewpoint.
+--- es
+P: En el mismo texto "Banning single-use plastics might seem like a simple solution, but without proper alternatives, it could create new problems instead of solving the original one.", la expresión "might seem like a simple solution, but..." indica que el autor está:
+- De acuerdo total con la idea, sin objeciones
+- Presentando un hecho histórico
+- Describiendo un proceso científico
+- Reconociendo la idea inicial, pero luego presentando una objeción/contraargumento
+E: La estructura "might seem..., but" es típica de los textos argumentativos, usada para introducir una objeción después de reconocer un punto de vista.

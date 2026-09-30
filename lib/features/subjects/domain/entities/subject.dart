@@ -12,6 +12,7 @@ enum Subject {
   filosofia,
   sociologia,
   literatura,
+  ingles,
   atualidades,
 
   /// Not a question bank: the essay feature (themes, writing, AI marking).
@@ -34,6 +35,7 @@ enum Subject {
     Subject.filosofia => Icons.psychology_outlined,
     Subject.sociologia => Icons.groups_outlined,
     Subject.literatura => Icons.auto_stories_outlined,
+    Subject.ingles => Icons.translate_outlined,
     Subject.atualidades => Icons.newspaper_outlined,
     Subject.redacao => Icons.edit_note_rounded,
   };
@@ -49,6 +51,7 @@ enum Subject {
     Subject.filosofia => const Color(0xFFC77B4A),
     Subject.sociologia => const Color(0xFF3FA7B5),
     Subject.literatura => const Color(0xFFB5577E),
+    Subject.ingles => const Color(0xFF2E86C1),
     Subject.atualidades => const Color(0xFF6B7B8C),
     // The brand violet: Redação is its own thing, not a subject accent.
     Subject.redacao => const Color(0xFF8B5CF6),
@@ -104,6 +107,11 @@ enum Subject {
       AppLanguage.portuguese => 'Literatura',
       AppLanguage.english => 'Literature',
       AppLanguage.spanish => 'Literatura',
+    },
+    Subject.ingles => switch (language) {
+      AppLanguage.portuguese => 'Inglês',
+      AppLanguage.english => 'English',
+      AppLanguage.spanish => 'Inglés',
     },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese => 'Atualidades',
@@ -176,6 +184,11 @@ enum Subject {
       AppLanguage.portuguese => 'Escolas literárias, autores e obras.',
       AppLanguage.english => 'Literary movements, authors and works.',
       AppLanguage.spanish => 'Escuelas literarias, autores y obras.',
+    },
+    Subject.ingles => switch (language) {
+      AppLanguage.portuguese => 'Leitura, gramática e vocabulário em inglês.',
+      AppLanguage.english => 'Reading, grammar and vocabulary in English.',
+      AppLanguage.spanish => 'Lectura, gramática y vocabulario en inglés.',
     },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese =>

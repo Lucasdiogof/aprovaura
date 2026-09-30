@@ -1,0 +1,659 @@
+=== Gramática e estrutura da frase > Tempos verbais c=2 d=facil
+P: Complete a frase: "She usually ___ to work by bus." (Simple Present)
+- go
+- went
+- goes
+- going
+E: Sujeito "she" (3ª pessoa do singular) no Simple Present exige "-s": "goes".
+--- en
+P: Complete the sentence: "She usually ___ to work by bus." (Simple Present)
+- go
+- went
+- goes
+- going
+E: The subject "she" (3rd person singular) in Simple Present requires "-s": "goes".
+--- es
+P: Completa la frase: "She usually ___ to work by bus." (Simple Present)
+- @
+- @
+- @
+- @
+E: El sujeto "she" (3ª persona del singular) en Simple Present exige "-s": "goes".
+
+=== Gramática e estrutura da frase > Tempos verbais c=3 d=facil
+P: Complete: "Look! The kids ___ in the pool right now." (Present Continuous)
+- swim
+- swam
+- swims
+- swimming
+E: "Right now" indica uma ação em andamento; o Present Continuous usa verbo + "-ing": "swimming".
+--- en
+P: Complete: "Look! The kids ___ in the pool right now." (Present Continuous)
+- swim
+- swam
+- swims
+- swimming
+E: "Right now" indicates an action in progress; Present Continuous uses verb + "-ing": "swimming".
+--- es
+P: Completa: "Look! The kids ___ in the pool right now." (Present Continuous)
+- @
+- @
+- @
+- @
+E: "Right now" indica una acción en curso; el Present Continuous usa verbo + "-ing": "swimming".
+
+=== Gramática e estrutura da frase > Tempos verbais c=0 d=medio
+P: Complete: "They ___ to Portugal last summer." (Simple Past)
+- traveled
+- travel
+- traveling
+- travels
+E: "Last summer" indica passado; o verbo regular no Simple Past recebe "-ed": "traveled".
+--- en
+P: Complete: "They ___ to Portugal last summer." (Simple Past)
+- traveled
+- travel
+- traveling
+- travels
+E: "Last summer" indicates the past; the regular verb in Simple Past takes "-ed": "traveled".
+--- es
+P: Completa: "They ___ to Portugal last summer." (Simple Past)
+- @
+- @
+- @
+- @
+E: "Last summer" indica pasado; el verbo regular en Simple Past recibe "-ed": "traveled".
+
+=== Gramática e estrutura da frase > Tempos verbais c=1 d=medio
+P: Complete: "I ___ never been to Japan." (Present Perfect)
+- was
+- have
+- has
+- did
+E: O sujeito "I" com o Present Perfect usa "have": "I have never been...".
+--- en
+P: Complete: "I ___ never been to Japan." (Present Perfect)
+- was
+- have
+- has
+- did
+E: The subject "I" with the Present Perfect uses "have": "I have never been...".
+--- es
+P: Completa: "I ___ never been to Japan." (Present Perfect)
+- @
+- @
+- @
+- @
+E: El sujeto "I" con el Present Perfect usa "have": "I have never been...".
+
+=== Gramática e estrutura da frase > Tempos verbais c=2 d=dificil
+P: Complete, considerando um plano já decidido: "We ___ to move to a new house next month."
+- will
+- move
+- are going
+- moved
+E: "Are going to" expressa um plano já decidido, diferente de "will" (decisão espontânea).
+--- en
+P: Complete, considering a plan that has already been decided: "We ___ to move to a new house next month."
+- will
+- move
+- are going
+- moved
+E: "Are going to" expresses a plan already decided, unlike "will" (a spontaneous decision).
+--- es
+P: Completa, considerando un plan ya decidido: "We ___ to move to a new house next month."
+- @
+- @
+- @
+- @
+E: "Are going to" expresa un plan ya decidido, a diferencia de "will" (decisión espontánea).
+
+=== Gramática e estrutura da frase > Tempos verbais c=3 d=dificil
+P: Complete: "By the time she arrived, the movie ___ already."
+- starts
+- has started
+- started
+- had started
+E: A ação (o filme começar) ocorreu antes de outra ação passada (ela chegar): Past Perfect, "had started".
+--- en
+P: Complete: "By the time she arrived, the movie ___ already."
+- starts
+- has started
+- started
+- had started
+E: The action (the movie starting) happened before another past action (her arriving): Past Perfect, "had started".
+--- es
+P: Completa: "By the time she arrived, the movie ___ already."
+- @
+- @
+- @
+- @
+E: La acción (que la película empezara) ocurrió antes de otra acción pasada (que ella llegara): Past Perfect, "had started".
+
+=== Gramática e estrutura da frase > Verbos modais c=0 d=facil
+P: Complete: "She ___ speak three languages." (habilidade)
+- can
+- must
+- should
+- would
+E: "Can" expressa habilidade/capacidade.
+--- en
+P: Complete: "She ___ speak three languages." (ability)
+- can
+- must
+- should
+- would
+E: "Can" expresses ability.
+--- es
+P: Completa: "She ___ speak three languages." (habilidad)
+- @
+- @
+- @
+- @
+E: "Can" expresa habilidad/capacidad.
+
+=== Gramática e estrutura da frase > Verbos modais c=1 d=facil
+P: Complete: "All passengers ___ wear a seatbelt." (obrigação)
+- can
+- must
+- might
+- would
+E: "Must" expressa obrigação.
+--- en
+P: Complete: "All passengers ___ wear a seatbelt." (obligation)
+- can
+- must
+- might
+- would
+E: "Must" expresses obligation.
+--- es
+P: Completa: "All passengers ___ wear a seatbelt." (obligación)
+- @
+- @
+- @
+- @
+E: "Must" expresa obligación.
+
+=== Gramática e estrutura da frase > Verbos modais c=2 d=medio
+P: Complete: "You look tired. You ___ get some rest." (conselho)
+- must
+- can
+- should
+- will
+E: "Should" é usado para dar conselhos.
+--- en
+P: Complete: "You look tired. You ___ get some rest." (advice)
+- must
+- can
+- should
+- will
+E: "Should" is used to give advice.
+--- es
+P: Completa: "You look tired. You ___ get some rest." (consejo)
+- @
+- @
+- @
+- @
+E: "Should" se usa para dar consejos.
+
+=== Gramática e estrutura da frase > Verbos modais c=3 d=medio
+P: Complete: "It's cloudy, it ___ rain later." (possibilidade)
+- must
+- should
+- can
+- might
+E: "Might" expressa possibilidade (não certeza).
+--- en
+P: Complete: "It's cloudy, it ___ rain later." (possibility)
+- must
+- should
+- can
+- might
+E: "Might" expresses possibility (not certainty).
+--- es
+P: Completa: "It's cloudy, it ___ rain later." (posibilidad)
+- @
+- @
+- @
+- @
+E: "Might" expresa posibilidad (no certeza).
+
+=== Gramática e estrutura da frase > Verbos modais c=0 d=dificil
+P: Complete, expressando dedução sobre o passado: "He ___ have finished the report; he was on vacation all week."
+- couldn't
+- shouldn't
+- mustn't
+- wouldn't
+E: "Couldn't have" expressa dedução negativa sobre o passado (era impossível ele ter feito).
+--- en
+P: Complete, expressing a deduction about the past: "He ___ have finished the report; he was on vacation all week."
+- couldn't
+- shouldn't
+- mustn't
+- wouldn't
+E: "Couldn't have" expresses a negative deduction about the past (it was impossible for him to have done it).
+--- es
+P: Completa, expresando una deducción sobre el pasado: "He ___ have finished the report; he was on vacation all week."
+- @
+- @
+- @
+- @
+E: "Couldn't have" expresa una deducción negativa sobre el pasado (era imposible que él lo hubiera hecho).
+
+=== Gramática e estrutura da frase > Verbos modais c=1 d=dificil
+P: Complete, com sentido de aviso/urgência: "You ___ hurry, or you'll miss the flight."
+- could
+- had better
+- may
+- used to
+E: "Had better" é usado como aviso urgente, quase uma ameaça leve de consequência ruim.
+--- en
+P: Complete, with a sense of warning/urgency: "You ___ hurry, or you'll miss the flight."
+- could
+- had better
+- may
+- used to
+E: "Had better" is used as an urgent warning, almost implying a bad consequence.
+--- es
+P: Completa, con sentido de advertencia/urgencia: "You ___ hurry, or you'll miss the flight."
+- @
+- @
+- @
+- @
+E: "Had better" se usa como advertencia urgente, casi implicando una consecuencia mala.
+
+=== Gramática e estrutura da frase > Comparativo e superlativo c=2 d=facil
+P: Complete: "My brother is ___ than me." (comparativo de "tall")
+- tall
+- tallest
+- taller
+- more tall
+E: Adjetivos curtos formam o comparativo com "-er": "taller".
+--- en
+P: Complete: "My brother is ___ than me." (comparative of "tall")
+- tall
+- tallest
+- taller
+- more tall
+E: Short adjectives form the comparative with "-er": "taller".
+--- es
+P: Completa: "My brother is ___ than me." (comparativo de "tall")
+- @
+- @
+- @
+- @
+E: Los adjetivos cortos forman el comparativo con "-er": "taller".
+
+=== Gramática e estrutura da frase > Comparativo e superlativo c=3 d=facil
+P: Complete: "This is ___ pizza I've ever had." (superlativo de "good")
+- gooder
+- more good
+- better
+- the best
+E: "Good" tem forma irregular: comparativo "better", superlativo "the best".
+--- en
+P: Complete: "This is ___ pizza I've ever had." (superlative of "good")
+- gooder
+- more good
+- better
+- the best
+E: "Good" has an irregular form: comparative "better", superlative "the best".
+--- es
+P: Completa: "This is ___ pizza I've ever had." (superlativo de "good")
+- @
+- @
+- @
+- @
+E: "Good" tiene forma irregular: comparativo "better", superlativo "the best".
+
+=== Gramática e estrutura da frase > Comparativo e superlativo c=0 d=medio
+P: Complete: "This phone is ___ than that one." (comparativo de "expensive")
+- more expensive
+- expensiver
+- expensivest
+- most expensive
+E: Adjetivos longos (3+ sílabas) formam o comparativo com "more": "more expensive".
+--- en
+P: Complete: "This phone is ___ than that one." (comparative of "expensive")
+- more expensive
+- expensiver
+- expensivest
+- most expensive
+E: Long adjectives (3+ syllables) form the comparative with "more": "more expensive".
+--- es
+P: Completa: "This phone is ___ than that one." (comparativo de "expensive")
+- @
+- @
+- @
+- @
+E: Los adjetivos largos (3+ sílabas) forman el comparativo con "more": "more expensive".
+
+=== Gramática e estrutura da frase > Comparativo e superlativo c=1 d=medio
+P: Complete: "That was ___ movie of the festival." (superlativo de "interesting")
+- interestingest
+- the most interesting
+- more interesting
+- interestinger
+E: Adjetivos longos formam o superlativo com "the most": "the most interesting".
+--- en
+P: Complete: "That was ___ movie of the festival." (superlative of "interesting")
+- interestingest
+- the most interesting
+- more interesting
+- interestinger
+E: Long adjectives form the superlative with "the most": "the most interesting".
+--- es
+P: Completa: "That was ___ movie of the festival." (superlativo de "interesting")
+- @
+- @
+- @
+- @
+E: Los adjetivos largos forman el superlativo con "the most": "the most interesting".
+
+=== Gramática e estrutura da frase > Comparativo e superlativo c=2 d=dificil
+P: Complete: "The traffic today is ___ than yesterday." (comparativo de "bad")
+- badder
+- more bad
+- worse
+- worst
+E: "Bad" é irregular: comparativo "worse", superlativo "the worst".
+--- en
+P: Complete: "The traffic today is ___ than yesterday." (comparative of "bad")
+- badder
+- more bad
+- worse
+- worst
+E: "Bad" is irregular: comparative "worse", superlative "the worst".
+--- es
+P: Completa: "The traffic today is ___ than yesterday." (comparativo de "bad")
+- @
+- @
+- @
+- @
+E: "Bad" es irregular: comparativo "worse", superlativo "the worst".
+
+=== Gramática e estrutura da frase > Comparativo e superlativo c=3 d=dificil
+P: Complete, expressando igualdade: "This test wasn't ___ the last one."
+- more difficult than
+- the most difficult
+- difficulter than
+- as difficult as
+E: "As + adjetivo + as" expressa igualdade/comparação de mesmo nível: "as difficult as".
+--- en
+P: Complete, expressing equality: "This test wasn't ___ the last one."
+- more difficult than
+- the most difficult
+- difficulter than
+- as difficult as
+E: "As + adjective + as" expresses equality/same-level comparison: "as difficult as".
+--- es
+P: Completa, expresando igualdad: "This test wasn't ___ the last one."
+- @
+- @
+- @
+- @
+E: "As + adjetivo + as" expresa igualdad/comparación del mismo nivel: "as difficult as".
+
+=== Gêneros textuais > Anúncios e infográficos c=0 d=facil
+P: Leia o anúncio: "NEW GYM OPENING! First month free. Sign up before June 30th." O anúncio oferece:
+- Um mês grátis para quem se inscrever até 30 de junho
+- Desconto de 30% para sempre
+- Aulas particulares grátis
+- Uma academia fechando
+E: O anúncio diz "First month free. Sign up before June 30th" — um mês grátis com prazo até 30 de junho.
+--- en
+P: Read the ad: "NEW GYM OPENING! First month free. Sign up before June 30th." The ad offers:
+- A free month for those who sign up by June 30th
+- A permanent 30% discount
+- Free private lessons
+- A gym that is closing
+E: The ad says "First month free. Sign up before June 30th" — a free month with a deadline of June 30th.
+--- es
+P: Lee el anuncio: "NEW GYM OPENING! First month free. Sign up before June 30th." El anuncio ofrece:
+- Un mes gratis para quien se inscriba antes del 30 de junio
+- Descuento del 30% para siempre
+- Clases particulares gratis
+- Un gimnasio que está cerrando
+E: El anuncio dice "First month free. Sign up before June 30th" — un mes gratis con plazo hasta el 30 de junio.
+
+=== Gêneros textuais > Anúncios e infográficos c=1 d=facil
+P: Leia o infográfico: "Recycle right: paper in blue, plastic in red, glass in green." Segundo o infográfico, o papel deve ser descartado em qual cor de lixeira?
+- Vermelha
+- Azul
+- Verde
+- Amarela
+E: O texto diz "paper in blue", ou seja, papel na lixeira azul.
+--- en
+P: Read the infographic: "Recycle right: paper in blue, plastic in red, glass in green." According to the infographic, which color bin should paper go in?
+- Red
+- Blue
+- Green
+- Yellow
+E: The text says "paper in blue", so paper goes in the blue bin.
+--- es
+P: Lee la infografía: "Recycle right: paper in blue, plastic in red, glass in green." Según la infografía, ¿en qué color de contenedor debe ir el papel?
+- Rojo
+- Azul
+- Verde
+- Amarillo
+E: El texto dice "paper in blue", es decir, el papel va en el contenedor azul.
+
+=== Gêneros textuais > Anúncios e infográficos c=2 d=medio
+P: Leia o anúncio: "Feeling stressed? Try our new relaxation app. Free for the first 7 days, then $4.99/month." Qual é o público-alvo mais provável desse anúncio?
+- Atletas profissionais
+- Crianças em idade escolar
+- Pessoas que buscam reduzir o estresse
+- Empresas de tecnologia
+E: O anúncio se dirige a quem está "feeling stressed" (sentindo-se estressado), oferecendo um app de relaxamento.
+--- en
+P: Read the ad: "Feeling stressed? Try our new relaxation app. Free for the first 7 days, then $4.99/month." Who is the most likely target audience for this ad?
+- Professional athletes
+- School-age children
+- People looking to reduce stress
+- Technology companies
+E: The ad addresses people "feeling stressed", offering a relaxation app.
+--- es
+P: Lee el anuncio: "Feeling stressed? Try our new relaxation app. Free for the first 7 days, then $4.99/month." ¿Cuál es el público objetivo más probable de este anuncio?
+- Atletas profesionales
+- Niños en edad escolar
+- Personas que buscan reducir el estrés
+- Empresas de tecnología
+E: El anuncio se dirige a quienes están "feeling stressed", ofreciendo una app de relajación.
+
+=== Gêneros textuais > Anúncios e infográficos c=3 d=medio
+P: No mesmo anúncio "Feeling stressed? Try our new relaxation app. Free for the first 7 days, then $4.99/month.", depois de quanto tempo o app passa a ser pago?
+- Imediatamente
+- Após 30 dias
+- Nunca, é sempre grátis
+- Após 7 dias
+E: O texto diz "Free for the first 7 days", ou seja, torna-se pago após 7 dias.
+--- en
+P: In the same ad "Feeling stressed? Try our new relaxation app. Free for the first 7 days, then $4.99/month.", after how long does the app become paid?
+- Immediately
+- After 30 days
+- Never, it's always free
+- After 7 days
+E: The text says "Free for the first 7 days", so it becomes paid after 7 days.
+--- es
+P: En el mismo anuncio "Feeling stressed? Try our new relaxation app. Free for the first 7 days, then $4.99/month.", ¿después de cuánto tiempo la app pasa a ser paga?
+- Inmediatamente
+- Después de 30 días
+- Nunca, siempre es gratis
+- Después de 7 días
+E: El texto dice "Free for the first 7 days", es decir, se vuelve paga después de 7 días.
+
+=== Gêneros textuais > Anúncios e infográficos c=0 d=dificil
+P: Leia o infográfico: "Screen time and sleep: teens who use phones after 10 p.m. sleep 40 minutes less, on average." Qual conclusão o infográfico sugere?
+- O uso do celular após as 22h está associado a menos sono entre adolescentes
+- Adolescentes dormem mais quando usam o celular à noite
+- O horário de uso do celular não afeta o sono
+- Todos os adolescentes dormem exatamente 8 horas
+E: O texto associa diretamente o uso do celular após as 22h a uma redução média de 40 minutos de sono.
+--- en
+P: Read the infographic: "Screen time and sleep: teens who use phones after 10 p.m. sleep 40 minutes less, on average." What conclusion does the infographic suggest?
+- Using the phone after 10 p.m. is associated with less sleep among teens
+- Teens sleep more when they use the phone at night
+- The time of phone use doesn't affect sleep
+- All teens sleep exactly 8 hours
+E: The text directly links phone use after 10 p.m. to a 40-minute average reduction in sleep.
+--- es
+P: Lee la infografía: "Screen time and sleep: teens who use phones after 10 p.m. sleep 40 minutes less, on average." ¿Qué conclusión sugiere la infografía?
+- El uso del celular después de las 22h se asocia con menos sueño entre adolescentes
+- Los adolescentes duermen más cuando usan el celular de noche
+- El horario de uso del celular no afecta el sueño
+- Todos los adolescentes duermen exactamente 8 horas
+E: El texto asocia directamente el uso del celular después de las 22h con una reducción promedio de 40 minutos de sueño.
+
+=== Gêneros textuais > Anúncios e infográficos c=1 d=dificil
+P: Leia o anúncio: "Limited offer: buy one, get one 50% off. Valid on selected items only, while supplies last." O que a expressão "while supplies last" indica?
+- A oferta não tem limite de estoque
+- A oferta acaba quando o estoque terminar
+- A oferta vale só para quem chegar primeiro no horário de abertura
+- O produto está fora de estoque
+E: "While supplies last" significa "enquanto durar o estoque", indicando que a oferta é limitada à disponibilidade dos produtos.
+--- en
+P: Read the ad: "Limited offer: buy one, get one 50% off. Valid on selected items only, while supplies last." What does the expression "while supplies last" indicate?
+- The offer has no stock limit
+- The offer ends when stock runs out
+- The offer is only for people who arrive first at opening time
+- The product is out of stock
+E: "While supplies last" means the offer is limited to how much stock is available.
+--- es
+P: Lee el anuncio: "Limited offer: buy one, get one 50% off. Valid on selected items only, while supplies last." ¿Qué indica la expresión "while supplies last"?
+- La oferta no tiene límite de stock
+- La oferta termina cuando se acabe el stock
+- La oferta es solo para quien llegue primero a la apertura
+- El producto está agotado
+E: "While supplies last" significa "mientras dure el stock", indicando que la oferta está limitada a la disponibilidad del producto.
+
+=== Gêneros textuais > Quadrinhos e tirinhas c=2 d=facil
+P: Em uma tirinha, o personagem diz: "I finally finished my homework... said no student ever." O humor da tirinha vem do fato de que a frase:
+- É uma citação famosa
+- É sempre verdadeira
+- É irônica, pois sugere que ninguém diz isso de verdade
+- Não tem relação com estudantes
+E: "Said no student ever" é uma expressão usada para indicar ironia: sugere que a frase anterior nunca é dita de verdade.
+--- en
+P: In a comic strip, the character says: "I finally finished my homework... said no student ever." The humor of the strip comes from the fact that the sentence:
+- Is a famous quote
+- Is always true
+- Is ironic, suggesting no one really says that
+- Has nothing to do with students
+E: "Said no student ever" is an expression used to indicate irony: it suggests the previous sentence is never really said.
+--- es
+P: En una tira cómica, el personaje dice: "I finally finished my homework... said no student ever." El humor de la tira viene del hecho de que la frase:
+- Es una cita famosa
+- Siempre es verdadera
+- Es irónica, pues sugiere que nadie dice eso de verdad
+- No tiene relación con estudiantes
+E: "Said no student ever" es una expresión que indica ironía: sugiere que la frase anterior nunca se dice de verdad.
+
+=== Gêneros textuais > Quadrinhos e tirinhas c=3 d=facil
+P: Em uma tirinha de duas cenas, um gato pensa "Today I will be a good cat" e, na cena seguinte, aparece derrubando um vaso. O humor está no contraste entre:
+- Dois gatos diferentes
+- O tamanho do vaso
+- O horário das cenas
+- A intenção do gato e o que ele realmente faz
+E: O humor típico de tirinhas de animais vem do contraste entre a intenção declarada e a ação seguinte.
+--- en
+P: In a two-panel comic strip, a cat thinks "Today I will be a good cat" and, in the next panel, is shown knocking over a vase. The humor is in the contrast between:
+- Two different cats
+- The size of the vase
+- The time of the scenes
+- The cat's intention and what it actually does
+E: The typical humor in animal comic strips comes from the contrast between the stated intention and the following action.
+--- es
+P: En una tira de dos viñetas, un gato piensa "Today I will be a good cat" y, en la siguiente viñeta, aparece tirando un florero. El humor está en el contraste entre:
+- Dos gatos diferentes
+- El tamaño del florero
+- El horario de las escenas
+- La intención del gato y lo que realmente hace
+E: El humor típico de las tiras de animales viene del contraste entre la intención declarada y la acción siguiente.
+
+=== Gêneros textuais > Quadrinhos e tirinhas c=0 d=medio
+P: Em uma tirinha, o balão de fala de um personagem diz apenas "..." enquanto ele olha para a tela quebrada do celular. Esse recurso (balão só com reticências) geralmente indica:
+- Silêncio, choque ou falta de reação imediata
+- Que o personagem está gritando
+- Que o personagem está cantando
+- Um erro de impressão da tirinha
+E: Balões com apenas reticências são um recurso visual comum para indicar silêncio ou choque, sem precisar de palavras.
+--- en
+P: In a comic strip, a character's speech bubble shows only "..." while they look at their cracked phone screen. This device (a bubble with only ellipsis) usually indicates:
+- Silence, shock, or lack of an immediate reaction
+- That the character is shouting
+- That the character is singing
+- A printing error in the strip
+E: Speech bubbles with only ellipsis are a common visual device to show silence or shock without needing words.
+--- es
+P: En una tira cómica, el globo de diálogo de un personaje muestra solo "..." mientras mira la pantalla rota de su celular. Este recurso (globo solo con puntos suspensivos) suele indicar:
+- Silencio, shock o falta de reacción inmediata
+- Que el personaje está gritando
+- Que el personaje está cantando
+- Un error de impresión de la tira
+E: Los globos con solo puntos suspensivos son un recurso visual común para indicar silencio o shock sin necesidad de palabras.
+
+=== Gêneros textuais > Quadrinhos e tirinhas c=1 d=medio
+P: Em uma tirinha de humor sobre trabalho remoto, um personagem diz: "I'm not late, my chair is just far from the camera." O efeito cômico vem de:
+- Uma explicação verdadeira e razoável
+- Uma desculpa criativa para esconder que está atrasado
+- Um elogio à tecnologia
+- Uma crítica direta ao chefe
+E: A fala é uma desculpa engraçada e pouco convincente, criando humor por tentar disfarçar o atraso.
+--- en
+P: In a comic strip poking fun at remote work, a character says: "I'm not late, my chair is just far from the camera." The comic effect comes from:
+- A true and reasonable explanation
+- A creative excuse to hide that he's late
+- A compliment to technology
+- A direct criticism of the boss
+E: The line is a funny, unconvincing excuse, creating humor by trying to disguise being late.
+--- es
+P: En una tira cómica sobre el trabajo remoto, un personaje dice: "I'm not late, my chair is just far from the camera." El efecto cómico viene de:
+- Una explicación verdadera y razonable
+- Una excusa creativa para esconder que llega tarde
+- Un elogio a la tecnología
+- Una crítica directa al jefe
+E: La frase es una excusa graciosa y poco convincente, que genera humor al intentar disfrazar el retraso.
+
+=== Gêneros textuais > Quadrinhos e tirinhas c=2 d=dificil
+P: Em uma tirinha, dois personagens debatem sobre tecnologia. Um diz: "Robots will take all our jobs." O outro responde: "Well, someone still has to unplug them." O humor da resposta está em:
+- Concordar totalmente com a primeira fala
+- Ignorar completamente o assunto
+- Rebater com uma ironia leve, sugerindo que sempre haverá alguma tarefa humana
+- Criticar diretamente os robôs
+E: A resposta usa humor irônico para relativizar o medo de que robôs substituam totalmente o trabalho humano.
+--- en
+P: In a comic strip, two characters debate technology. One says: "Robots will take all our jobs." The other replies: "Well, someone still has to unplug them." The humor in the reply lies in:
+- Fully agreeing with the first statement
+- Completely ignoring the topic
+- Pushing back with mild irony, suggesting there will always be some human task
+- Directly criticizing robots
+E: The reply uses ironic humor to downplay the fear that robots will fully replace human work.
+--- es
+P: En una tira cómica, dos personajes debaten sobre tecnología. Uno dice: "Robots will take all our jobs." El otro responde: "Well, someone still has to unplug them." El humor de la respuesta está en:
+- Estar totalmente de acuerdo con la primera frase
+- Ignorar por completo el tema
+- Responder con una ironía leve, sugiriendo que siempre habrá alguna tarea humana
+- Criticar directamente a los robots
+E: La respuesta usa humor irónico para relativizar el miedo de que los robots reemplacen completamente el trabajo humano.
+
+=== Gêneros textuais > Quadrinhos e tirinhas c=3 d=dificil
+P: Em uma tirinha satírica, uma manchete fictícia diz: "Man Finally Cleans Room, Archaeologists Called In." O exagero (hipérbole) nessa piada sugere que:
+- O quarto foi realmente escavado por arqueólogos
+- O homem é arqueólogo de profissão
+- A notícia é totalmente verdadeira
+- O quarto estava extremamente bagunçado havia muito tempo
+E: Chamar arqueólogos para limpar um quarto é um exagero cômico que sugere que o cômodo estava muito bagunçado havia muito tempo.
+--- en
+P: In a satirical comic strip, a fictional headline says: "Man Finally Cleans Room, Archaeologists Called In." The exaggeration (hyperbole) in this joke suggests that:
+- The room was really excavated by archaeologists
+- The man is an archaeologist by profession
+- The news is completely true
+- The room had been extremely messy for a very long time
+E: Calling in archaeologists to clean a room is a comic exaggeration suggesting the room had been very messy for a long time.
+--- es
+P: En una tira satírica, un titular ficticio dice: "Man Finally Cleans Room, Archaeologists Called In." La exageración (hipérbole) en esta broma sugiere que:
+- El cuarto realmente fue excavado por arqueólogos
+- El hombre es arqueólogo de profesión
+- La noticia es completamente verdadera
+- El cuarto estaba extremadamente desordenado desde hacía mucho tiempo
+E: Llamar a arqueólogos para limpiar un cuarto es una exageración cómica que sugiere que el cuarto estaba muy desordenado desde hacía mucho tiempo.
