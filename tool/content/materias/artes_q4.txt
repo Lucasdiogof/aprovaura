@@ -1,0 +1,659 @@
+=== Cinema e audiovisual > Linguagem cinematográfica c=2 d=facil
+P: O que é um "plano", na linguagem cinematográfica?
+- Um roteiro completo do filme
+- A trilha sonora de uma cena
+- A unidade básica de filmagem, definida pelo enquadramento da câmera
+- O orçamento total da produção
+E: O plano é a unidade básica de filmagem, definida pelo enquadramento da câmera.
+--- en
+P: What is a "shot", in film language?
+- A complete script of the movie
+- The soundtrack of a scene
+- The basic filming unit, defined by the camera framing
+- The total production budget
+E: A shot is the basic filming unit, defined by the camera framing.
+--- es
+P: ¿Qué es un "plano", en el lenguaje cinematográfico?
+- Un guion completo de la película
+- La banda sonora de una escena
+- La unidad básica de filmación, definida por el encuadre de la cámara
+- El presupuesto total de la producción
+E: El plano es la unidad básica de filmación, definida por el encuadre de la cámara.
+
+=== Cinema e audiovisual > Linguagem cinematográfica c=3 d=facil
+P: O que caracteriza um "close-up" (primeiro plano)?
+- Uma cena filmada de muito longe
+- Um enquadramento amplo que mostra toda a paisagem
+- Uma cena filmada exclusivamente à noite
+- Um enquadramento próximo, geralmente focado no rosto de um personagem
+E: O close-up é um enquadramento próximo, geralmente focado no rosto de um personagem.
+--- en
+P: What characterizes a "close-up"?
+- A scene filmed from very far away
+- A wide framing that shows the whole landscape
+- A scene filmed exclusively at night
+- A close framing, usually focused on a character's face
+E: A close-up is a close framing, usually focused on a character's face.
+--- es
+P: ¿Qué caracteriza a un "primer plano" (close-up)?
+- Una escena filmada desde muy lejos
+- Un encuadre amplio que muestra todo el paisaje
+- Una escena filmada exclusivamente de noche
+- Un encuadre cercano, generalmente enfocado en el rostro de un personaje
+E: El primer plano es un encuadre cercano, generalmente enfocado en el rostro de un personaje.
+
+=== Cinema e audiovisual > Linguagem cinematográfica c=0 d=medio
+P: O que é montagem, em cinema?
+- A escolha do elenco antes das filmagens
+- A criação do roteiro original
+- A escolha das roupas dos personagens
+- O processo de selecionar e organizar os planos filmados para construir a narrativa
+E: A montagem é o processo de selecionar e organizar os planos filmados para construir a narrativa.
+--- en
+P: What is editing, in film?
+- Choosing the cast before filming
+- Creating the original script
+- Choosing the characters' clothes
+- The process of selecting and arranging filmed shots to build the narrative
+E: Editing is the process of selecting and arranging filmed shots to build the narrative.
+--- es
+P: ¿Qué es el montaje, en el cine?
+- La elección del elenco antes de las filmaciones
+- La creación del guion original
+- La elección de la ropa de los personajes
+- El proceso de seleccionar y organizar los planos filmados para construir la narrativa
+E: El montaje es el proceso de seleccionar y organizar los planos filmados para construir la narrativa.
+
+=== Cinema e audiovisual > Linguagem cinematográfica c=1 d=medio
+P: O uso de música e efeitos sonoros em um filme é chamado de:
+- Figurino
+- Trilha sonora e sonoplastia
+- Storyboard
+- Direção de arte
+E: O uso de música e efeitos sonoros em um filme é chamado de trilha sonora e sonoplastia.
+--- en
+P: The use of music and sound effects in a film is called:
+- Costume design
+- Soundtrack and sound design
+- Storyboard
+- Art direction
+E: The use of music and sound effects in a film is called soundtrack and sound design.
+--- es
+P: El uso de música y efectos sonoros en una película se llama:
+- Vestuario
+- Banda sonora y diseño de sonido
+- Storyboard
+- Dirección de arte
+E: El uso de música y efectos sonoros en una película se llama banda sonora y diseño de sonido.
+
+=== Cinema e audiovisual > Linguagem cinematográfica c=2 d=dificil
+P: O plano-sequência, técnica cinematográfica, se caracteriza por:
+- Uma sequência de cortes rápidos e fragmentados
+- A ausência total de câmera em movimento
+- Uma cena longa e contínua, filmada sem cortes de montagem
+- Um filme composto inteiramente por still frames
+E: O plano-sequência é uma cena longa e contínua, filmada sem cortes de montagem.
+--- en
+P: The long take, a film technique, is characterized by:
+- A sequence of quick, fragmented cuts
+- The total absence of camera movement
+- A long, continuous scene filmed without editing cuts
+- A film composed entirely of still frames
+E: A long take is a long, continuous scene filmed without editing cuts.
+--- es
+P: El plano secuencia, técnica cinematográfica, se caracteriza por:
+- Una secuencia de cortes rápidos y fragmentados
+- La ausencia total de movimiento de cámara
+- Una escena larga y continua, filmada sin cortes de montaje
+- Una película compuesta enteramente de fotogramas fijos
+E: El plano secuencia es una escena larga y continua, filmada sin cortes de montaje.
+
+=== Cinema e audiovisual > Linguagem cinematográfica c=3 d=dificil
+P: A narrativa não linear, usada em diversos filmes, se caracteriza por:
+- Apresentar a história estritamente em ordem cronológica
+- Eliminar completamente qualquer tipo de enredo
+- Ser usada exclusivamente em documentários
+- Alterar a ordem cronológica dos eventos, usando flashbacks ou saltos temporais
+E: A narrativa não linear altera a ordem cronológica dos eventos, usando flashbacks ou saltos temporais.
+--- en
+P: Non-linear narrative, used in various films, is characterized by:
+- Presenting the story strictly in chronological order
+- Completely eliminating any kind of plot
+- Being used exclusively in documentaries
+- Changing the chronological order of events, using flashbacks or time jumps
+E: Non-linear narrative changes the chronological order of events, using flashbacks or time jumps.
+--- es
+P: La narrativa no lineal, usada en diversas películas, se caracteriza por:
+- Presentar la historia estrictamente en orden cronológico
+- Eliminar completamente cualquier tipo de trama
+- Ser usada exclusivamente en documentales
+- Alterar el orden cronológico de los eventos, usando flashbacks o saltos temporales
+E: La narrativa no lineal altera el orden cronológico de los eventos, usando flashbacks o saltos temporales.
+
+=== Cinema e audiovisual > Cinema brasileiro c=0 d=facil
+P: O Cinema Novo, movimento brasileiro das décadas de 1960 e 1970, é associado a qual diretor?
+- Glauber Rocha
+- Alfred Hitchcock
+- Akira Kurosawa
+- Federico Fellini
+E: O Cinema Novo é associado ao diretor brasileiro Glauber Rocha.
+--- en
+P: Cinema Novo, a Brazilian movement of the 1960s and 1970s, is associated with which director?
+- Glauber Rocha
+- Alfred Hitchcock
+- Akira Kurosawa
+- Federico Fellini
+E: Cinema Novo is associated with Brazilian director Glauber Rocha.
+--- es
+P: El Cinema Novo, movimiento brasileño de las décadas de 1960 y 1970, ¿se asocia a qué director?
+- Glauber Rocha
+- Alfred Hitchcock
+- Akira Kurosawa
+- Federico Fellini
+E: El Cinema Novo se asocia al director brasileño Glauber Rocha.
+
+=== Cinema e audiovisual > Cinema brasileiro c=1 d=facil
+P: O filme "Cidade de Deus" (2002), aclamado internacionalmente, retrata:
+- A vida na zona rural do interior do Brasil
+- A rotina de uma comunidade no Rio de Janeiro marcada pela violência urbana
+- Um período histórico do Brasil colonial
+- Uma história de ficção científica futurista
+E: "Cidade de Deus" retrata a rotina de uma comunidade no Rio de Janeiro marcada pela violência urbana.
+--- en
+P: The film "City of God" (2002), internationally acclaimed, portrays:
+- Life in rural inland Brazil
+- The routine of a community in Rio de Janeiro marked by urban violence
+- A historical period of colonial Brazil
+- A futuristic science fiction story
+E: "City of God" portrays the routine of a community in Rio de Janeiro marked by urban violence.
+--- es
+P: La película "Ciudad de Dios" (2002), aclamada internacionalmente, retrata:
+- La vida en la zona rural del interior de Brasil
+- La rutina de una comunidad en Río de Janeiro marcada por la violencia urbana
+- Un período histórico del Brasil colonial
+- Una historia de ciencia ficción futurista
+E: "Ciudad de Dios" retrata la rutina de una comunidad en Río de Janeiro marcada por la violencia urbana.
+
+=== Cinema e audiovisual > Cinema brasileiro c=2 d=medio
+P: O Cinema Novo tinha como uma de suas propostas centrais:
+- Produzir apenas filmes de grande orçamento voltados ao público internacional
+- Evitar qualquer crítica social
+- Retratar de forma crítica as desigualdades sociais brasileiras, com recursos muitas vezes limitados
+- Copiar fielmente o modelo de Hollywood
+E: O Cinema Novo propunha retratar de forma crítica as desigualdades sociais brasileiras, com recursos muitas vezes limitados.
+--- en
+P: One of the central proposals of Cinema Novo was:
+- Producing only big-budget films aimed at the international audience
+- Avoiding any social criticism
+- Critically portraying Brazilian social inequalities, often with limited resources
+- Faithfully copying the Hollywood model
+E: Cinema Novo proposed critically portraying Brazilian social inequalities, often with limited resources.
+--- es
+P: El Cinema Novo tenía como una de sus propuestas centrales:
+- Producir solo películas de gran presupuesto orientadas al público internacional
+- Evitar cualquier crítica social
+- Retratar de forma crítica las desigualdades sociales brasileñas, con recursos muchas veces limitados
+- Copiar fielmente el modelo de Hollywood
+E: El Cinema Novo proponía retratar de forma crítica las desigualdades sociales brasileñas, con recursos muchas veces limitados.
+
+=== Cinema e audiovisual > Cinema brasileiro c=3 d=medio
+P: A retomada do cinema brasileiro, nos anos 1990, após um período de crise no setor, foi impulsionada por:
+- O fim de qualquer incentivo estatal
+- A proibição de produções nacionais
+- Exclusivamente investimentos estrangeiros
+- Novas leis de incentivo e financiamento à produção audiovisual
+E: A retomada do cinema brasileiro nos anos 1990 foi impulsionada por novas leis de incentivo e financiamento.
+--- en
+P: The revival of Brazilian cinema in the 1990s, after a period of crisis in the sector, was driven by:
+- The end of any state incentive
+- The prohibition of national productions
+- Exclusively foreign investments
+- New laws for incentive and funding of audiovisual production
+E: The revival of Brazilian cinema in the 1990s was driven by new incentive and funding laws.
+--- es
+P: La reactivación del cine brasileño, en los años 1990, tras un período de crisis en el sector, fue impulsada por:
+- El fin de cualquier incentivo estatal
+- La prohibición de producciones nacionales
+- Exclusivamente inversiones extranjeras
+- Nuevas leyes de incentivo y financiación a la producción audiovisual
+E: La reactivación del cine brasileño en los años 1990 fue impulsada por nuevas leyes de incentivo y financiación.
+
+=== Cinema e audiovisual > Cinema brasileiro c=0 d=dificil
+P: O documentário é um gênero importante na história do cinema brasileiro. Ele se caracteriza por:
+- Buscar retratar aspectos da realidade, ainda que com um ponto de vista e escolhas narrativas
+- Ser sempre uma obra de ficção pura
+- Não ter nenhum compromisso com fatos reais
+- Ser um gênero restrito exclusivamente à animação
+E: O documentário busca retratar aspectos da realidade, ainda que com um ponto de vista e escolhas narrativas.
+--- en
+P: The documentary is an important genre in the history of Brazilian cinema. It is characterized by:
+- Seeking to portray aspects of reality, even with a point of view and narrative choices
+- Always being a work of pure fiction
+- Having no commitment to real facts at all
+- Being a genre restricted exclusively to animation
+E: The documentary seeks to portray aspects of reality, even with a point of view and narrative choices.
+--- es
+P: El documental es un género importante en la historia del cine brasileño. Se caracteriza por:
+- Buscar retratar aspectos de la realidad, aunque con un punto de vista y decisiones narrativas
+- Ser siempre una obra de ficción pura
+- No tener ningún compromiso con hechos reales
+- Ser un género restringido exclusivamente a la animación
+E: El documental busca retratar aspectos de la realidad, aunque con un punto de vista y decisiones narrativas.
+
+=== Cinema e audiovisual > Cinema brasileiro c=1 d=dificil
+P: Filmes brasileiros que já receberam indicações ao Oscar, como "Central do Brasil" e "Ainda Estou Aqui", mostram:
+- Que o cinema brasileiro nunca teve reconhecimento internacional
+- Que o cinema nacional tem alcançado reconhecimento e relevância internacional
+- Que apenas filmes de Hollywood recebem indicações ao Oscar
+- Que o cinema brasileiro é restrito apenas ao mercado interno
+E: Essas indicações mostram que o cinema nacional tem alcançado reconhecimento e relevância internacional.
+--- en
+P: Brazilian films that have received Oscar nominations, such as "Central Station" and "I'm Still Here", show:
+- That Brazilian cinema has never had international recognition
+- That national cinema has achieved international recognition and relevance
+- That only Hollywood films receive Oscar nominations
+- That Brazilian cinema is restricted only to the domestic market
+E: These nominations show that national cinema has achieved international recognition and relevance.
+--- es
+P: Películas brasileñas que ya recibieron nominaciones al Óscar, como "Estación Central" y "Aún Estoy Aquí", muestran:
+- Que el cine brasileño nunca tuvo reconocimiento internacional
+- Que el cine nacional ha alcanzado reconocimiento y relevancia internacional
+- Que solo las películas de Hollywood reciben nominaciones al Óscar
+- Que el cine brasileño está restringido solo al mercado interno
+E: Esas nominaciones muestran que el cine nacional ha alcanzado reconocimiento y relevancia internacional.
+
+=== Arte e sociedade > Arte engajada e política c=2 d=facil
+P: O que caracteriza uma "arte engajada"?
+- Uma arte totalmente neutra, sem qualquer posicionamento
+- Uma arte restrita a temas decorativos
+- Uma arte que expressa posicionamentos sociais, políticos ou críticos
+- Uma arte que aborda exclusivamente temas religiosos
+E: A arte engajada expressa posicionamentos sociais, políticos ou críticos.
+--- en
+P: What characterizes "engaged art"?
+- A totally neutral art, with no stance at all
+- An art restricted to decorative themes
+- An art that expresses social, political or critical positions
+- An art that exclusively addresses religious themes
+E: Engaged art expresses social, political or critical positions.
+--- es
+P: ¿Qué caracteriza a un "arte comprometido"?
+- Un arte totalmente neutral, sin ninguna postura
+- Un arte restringido a temas decorativos
+- Un arte que expresa posturas sociales, políticas o críticas
+- Un arte que aborda exclusivamente temas religiosos
+E: El arte comprometido expresa posturas sociales, políticas o críticas.
+
+=== Arte e sociedade > Arte engajada e política c=3 d=facil
+P: A obra "Guernica", de Pablo Picasso, é um exemplo de arte engajada porque:
+- Retrata exclusivamente uma paisagem tranquila
+- Celebra uma vitória militar
+- Não tem nenhuma relação com eventos históricos
+- Denuncia os horrores da guerra, especificamente o bombardeio de uma cidade espanhola
+E: "Guernica" denuncia os horrores da guerra, especificamente o bombardeio de uma cidade espanhola.
+--- en
+P: Pablo Picasso's "Guernica" is an example of engaged art because it:
+- Exclusively depicts a peaceful landscape
+- Celebrates a military victory
+- Has no relation to historical events at all
+- Denounces the horrors of war, specifically the bombing of a Spanish town
+E: "Guernica" denounces the horrors of war, specifically the bombing of a Spanish town.
+--- es
+P: La obra "Guernica", de Pablo Picasso, es un ejemplo de arte comprometido porque:
+- Retrata exclusivamente un paisaje tranquilo
+- Celebra una victoria militar
+- No tiene ninguna relación con hechos históricos
+- Denuncia los horrores de la guerra, específicamente el bombardeo de una ciudad española
+E: "Guernica" denuncia los horrores de la guerra, específicamente el bombardeo de una ciudad española.
+
+=== Arte e sociedade > Arte engajada e política c=0 d=medio
+P: A música de protesto, gênero que ganhou força no Brasil durante a ditadura militar, tinha como característica:
+- Evitar qualquer crítica ao governo
+- Ser produzida exclusivamente fora do Brasil
+- Ser um gênero puramente instrumental sem letras
+- Usar metáforas e letras para criticar a censura e o regime autoritário
+E: A música de protesto usava metáforas e letras para criticar a censura e o regime autoritário.
+--- en
+P: Protest music, a genre that gained strength in Brazil during the military dictatorship, was characterized by:
+- Avoiding any criticism of the government
+- Being produced exclusively outside Brazil
+- Being a purely instrumental genre with no lyrics
+- Using metaphors and lyrics to criticize censorship and the authoritarian regime
+E: Protest music used metaphors and lyrics to criticize censorship and the authoritarian regime.
+--- es
+P: La música de protesta, género que cobró fuerza en Brasil durante la dictadura militar, se caracterizaba por:
+- Evitar cualquier crítica al gobierno
+- Ser producida exclusivamente fuera de Brasil
+- Ser un género puramente instrumental sin letras
+- Usar metáforas y letras para criticar la censura y el régimen autoritario
+E: La música de protesta usaba metáforas y letras para criticar la censura y el régimen autoritario.
+
+=== Arte e sociedade > Arte engajada e política c=1 d=medio
+P: O muralismo mexicano, movimento artístico do início do século XX, é conhecido por:
+- Ser restrito a pequenas telas em galerias privadas
+- Retratar cenas históricas e sociais em grandes murais públicos, com forte conteúdo político
+- Evitar qualquer tema social
+- Ser um movimento exclusivamente abstrato sem figuras
+E: O muralismo mexicano é conhecido por retratar cenas históricas e sociais em grandes murais públicos, com forte conteúdo político.
+--- en
+P: Mexican muralism, an artistic movement from the early 20th century, is known for:
+- Being restricted to small canvases in private galleries
+- Portraying historical and social scenes in large public murals, with strong political content
+- Avoiding any social theme
+- Being an exclusively abstract movement with no figures
+E: Mexican muralism is known for portraying historical and social scenes in large public murals, with strong political content.
+--- es
+P: El muralismo mexicano, movimiento artístico de principios del siglo XX, es conocido por:
+- Estar restringido a pequeños lienzos en galerías privadas
+- Retratar escenas históricas y sociales en grandes murales públicos, con fuerte contenido político
+- Evitar cualquier tema social
+- Ser un movimiento exclusivamente abstracto sin figuras
+E: El muralismo mexicano es conocido por retratar escenas históricas y sociales en grandes murales públicos, con fuerte contenido político.
+
+=== Arte e sociedade > Arte engajada e política c=2 d=dificil
+P: A arte engajada frequentemente busca:
+- Apenas entreter, sem qualquer intenção crítica
+- Evitar qualquer relação com a realidade social
+- Sensibilizar e mobilizar o público em torno de causas sociais ou políticas
+- Ser produzida exclusivamente para fins comerciais
+E: A arte engajada frequentemente busca sensibilizar e mobilizar o público em torno de causas sociais ou políticas.
+--- en
+P: Engaged art often seeks to:
+- Only entertain, with no critical intention at all
+- Avoid any relation to social reality
+- Raise awareness and mobilize the public around social or political causes
+- Be produced exclusively for commercial purposes
+E: Engaged art often seeks to raise awareness and mobilize the public around social or political causes.
+--- es
+P: El arte comprometido frecuentemente busca:
+- Solo entretener, sin ninguna intención crítica
+- Evitar cualquier relación con la realidad social
+- Sensibilizar y movilizar al público en torno a causas sociales o políticas
+- Ser producido exclusivamente con fines comerciales
+E: El arte comprometido frecuentemente busca sensibilizar y movilizar al público en torno a causas sociales o políticas.
+
+=== Arte e sociedade > Arte engajada e política c=3 d=dificil
+P: Durante a ditadura militar brasileira, diversos artistas enfrentaram censura. Isso mostra que a arte engajada pode:
+- Ser sempre bem recebida por regimes autoritários
+- Não ter nenhuma consequência para os artistas
+- Ser exclusivamente aceita por qualquer governo
+- Entrar em conflito direto com interesses de poder estabelecidos
+E: A censura enfrentada por artistas mostra que a arte engajada pode entrar em conflito com interesses de poder estabelecidos.
+--- en
+P: During the Brazilian military dictatorship, several artists faced censorship. This shows that engaged art can:
+- Always be well received by authoritarian regimes
+- Have no consequences for artists at all
+- Be exclusively accepted by any government
+- Come into direct conflict with established power interests
+E: The censorship faced by artists shows that engaged art can conflict with established power interests.
+--- es
+P: Durante la dictadura militar brasileña, varios artistas enfrentaron censura. Esto muestra que el arte comprometido puede:
+- Ser siempre bien recibido por regímenes autoritarios
+- No tener ninguna consecuencia para los artistas
+- Ser exclusivamente aceptado por cualquier gobierno
+- Entrar en conflicto directo con intereses de poder establecidos
+E: La censura enfrentada por artistas muestra que el arte comprometido puede entrar en conflicto con intereses de poder establecidos.
+
+=== Arte e sociedade > Indústria cultural c=0 d=facil
+P: O termo "indústria cultural" se refere a:
+- Apenas a produção artesanal individual
+- Exclusivamente obras de arte únicas em museus
+- Um conceito exclusivo da música clássica europeia
+- A produção e distribuição em massa de bens culturais, como filmes, música e programas de TV
+E: A indústria cultural se refere à produção e distribuição em massa de bens culturais.
+--- en
+P: The term "cultural industry" refers to:
+- Only individual craft production
+- Exclusively unique works of art in museums
+- A concept exclusive to European classical music
+- The mass production and distribution of cultural goods, such as films, music and TV shows
+E: The cultural industry refers to the mass production and distribution of cultural goods.
+--- es
+P: El término "industria cultural" se refiere a:
+- Solo la producción artesanal individual
+- Exclusivamente obras de arte únicas en museos
+- Un concepto exclusivo de la música clásica europea
+- La producción y distribución masiva de bienes culturales, como películas, música y programas de televisión
+E: La industria cultural se refiere a la producción y distribución masiva de bienes culturales.
+
+=== Arte e sociedade > Indústria cultural c=1 d=facil
+P: Um exemplo típico de produto da indústria cultural contemporânea é:
+- Uma pintura rupestre pré-histórica
+- Uma escultura única exposta em um museu
+- Um manuscrito medieval original
+- Uma série de streaming produzida para um grande público
+E: Uma série de streaming produzida para um grande público é um exemplo típico de produto da indústria cultural.
+--- en
+P: A typical example of a contemporary cultural industry product is:
+- A prehistoric cave painting
+- A unique sculpture displayed in a museum
+- An original medieval manuscript
+- A streaming series produced for a large audience
+E: A streaming series produced for a large audience is a typical example of a cultural industry product.
+--- es
+P: Un ejemplo típico de producto de la industria cultural contemporánea es:
+- Una pintura rupestre prehistórica
+- Una escultura única expuesta en un museo
+- Un manuscrito medieval original
+- Una serie de streaming producida para un gran público
+E: Una serie de streaming producida para un gran público es un ejemplo típico de producto de la industria cultural.
+
+=== Arte e sociedade > Indústria cultural c=2 d=medio
+P: Uma crítica frequentemente associada à indústria cultural é que ela pode:
+- Eliminar completamente qualquer forma de entretenimento
+- Aumentar automaticamente a qualidade artística de toda produção
+- Padronizar produtos culturais visando principalmente ao lucro, podendo reduzir a diversidade
+- Impedir totalmente o acesso da população à cultura
+E: Uma crítica comum é que a indústria cultural pode padronizar produtos visando ao lucro, reduzindo a diversidade.
+--- en
+P: A criticism often associated with the cultural industry is that it can:
+- Completely eliminate any form of entertainment
+- Automatically increase the artistic quality of all production
+- Standardize cultural products mainly aiming at profit, potentially reducing diversity
+- Totally prevent the population's access to culture
+E: A common criticism is that the cultural industry can standardize products aiming at profit, reducing diversity.
+--- es
+P: Una crítica frecuentemente asociada a la industria cultural es que ella puede:
+- Eliminar completamente cualquier forma de entretenimiento
+- Aumentar automáticamente la calidad artística de toda la producción
+- Estandarizar productos culturales orientados principalmente al lucro, pudiendo reducir la diversidad
+- Impedir totalmente el acceso de la población a la cultura
+E: Una crítica común es que la industria cultural puede estandarizar productos orientados al lucro, reduciendo la diversidad.
+
+=== Arte e sociedade > Indústria cultural c=3 d=medio
+P: As plataformas de streaming, parte importante da indústria cultural atual, transformaram o consumo de:
+- Apenas livros impressos
+- Apenas artesanato local
+- Apenas pinturas em museus
+- Filmes, séries e música, tornando-o mais imediato e personalizado
+E: As plataformas de streaming transformaram o consumo de filmes, séries e música, tornando-o mais imediato e personalizado.
+--- en
+P: Streaming platforms, an important part of today's cultural industry, transformed the consumption of:
+- Only printed books
+- Only local craftsmanship
+- Only museum paintings
+- Movies, series and music, making it more immediate and personalized
+E: Streaming platforms transformed the consumption of movies, series and music, making it more immediate and personalized.
+--- es
+P: Las plataformas de streaming, parte importante de la industria cultural actual, transformaron el consumo de:
+- Solo libros impresos
+- Solo artesanía local
+- Solo pinturas en museos
+- Películas, series y música, haciéndolo más inmediato y personalizado
+E: Las plataformas de streaming transformaron el consumo de películas, series y música, haciéndolo más inmediato y personalizado.
+
+=== Arte e sociedade > Indústria cultural c=0 d=dificil
+P: A globalização da indústria cultural pode gerar, entre outros efeitos:
+- O fim total da produção cultural local
+- A eliminação de qualquer intercâmbio cultural
+- A garantia automática de valorização das culturas locais
+- A circulação mais ampla de produtos culturais, mas também riscos de homogeneização cultural
+E: A globalização pode gerar circulação mais ampla de produtos culturais, mas também riscos de homogeneização cultural.
+--- en
+P: The globalization of the cultural industry can generate, among other effects:
+- The total end of local cultural production
+- The elimination of any cultural exchange
+- The automatic guarantee of valuing local cultures
+- Wider circulation of cultural products, but also risks of cultural homogenization
+E: Globalization can generate wider circulation of cultural products, but also risks of cultural homogenization.
+--- es
+P: La globalización de la industria cultural puede generar, entre otros efectos:
+- El fin total de la producción cultural local
+- La eliminación de cualquier intercambio cultural
+- La garantía automática de valoración de las culturas locales
+- Una circulación más amplia de productos culturales, pero también riesgos de homogeneización cultural
+E: La globalización puede generar una circulación más amplia de productos culturales, pero también riesgos de homogeneización cultural.
+
+=== Arte e sociedade > Indústria cultural c=1 d=dificil
+P: A relação entre indústria cultural e identidade cultural local é frequentemente discutida porque:
+- Não existe nenhuma tensão entre elas
+- A indústria cultural sempre fortalece automaticamente as culturas locais
+- Elas nunca se relacionam de forma alguma
+- Grandes produções globais podem coexistir e, por vezes, competir com expressões culturais locais
+E: Grandes produções globais podem coexistir e, por vezes, competir com expressões culturais locais.
+--- en
+P: The relationship between the cultural industry and local cultural identity is often discussed because:
+- There is no tension between them at all
+- The cultural industry always automatically strengthens local cultures
+- They never relate to each other in any way
+- Large global productions can coexist and sometimes compete with local cultural expressions
+E: Large global productions can coexist and sometimes compete with local cultural expressions.
+--- es
+P: La relación entre la industria cultural y la identidad cultural local se discute frecuentemente porque:
+- No existe ninguna tensión entre ellas
+- La industria cultural siempre fortalece automáticamente las culturas locales
+- Nunca se relacionan de ninguna forma
+- Las grandes producciones globales pueden coexistir y, a veces, competir con expresiones culturales locales
+E: Las grandes producciones globales pueden coexistir y, a veces, competir con expresiones culturales locales.
+
+=== Arte e sociedade > Arte digital e novas mídias c=2 d=facil
+P: A arte digital, que utiliza tecnologias como computadores e softwares, é um exemplo de:
+- Uma técnica exclusiva do Renascimento
+- Um estilo restrito à pintura em tela
+- Uma linguagem artística contemporânea que emprega recursos tecnológicos
+- Uma prática proibida por museus
+E: A arte digital é uma linguagem artística contemporânea que emprega recursos tecnológicos.
+--- en
+P: Digital art, which uses technologies such as computers and software, is an example of:
+- A technique exclusive to the Renaissance
+- A style restricted to painting on canvas
+- A contemporary artistic language that employs technological resources
+- A practice forbidden by museums
+E: Digital art is a contemporary artistic language that employs technological resources.
+--- es
+P: El arte digital, que utiliza tecnologías como computadoras y software, es un ejemplo de:
+- Una técnica exclusiva del Renacimiento
+- Un estilo restringido a la pintura sobre lienzo
+- Un lenguaje artístico contemporáneo que emplea recursos tecnológicos
+- Una práctica prohibida por los museos
+E: El arte digital es un lenguaje artístico contemporáneo que emplea recursos tecnológicos.
+
+=== Arte e sociedade > Arte digital e novas mídias c=3 d=facil
+P: A arte generativa, criada com o auxílio de algoritmos e softwares, é um exemplo de:
+- Escultura clássica em bronze
+- Pintura a óleo tradicional
+- Gravura em madeira
+- Arte digital contemporânea
+E: A arte generativa, criada com algoritmos e softwares, é um exemplo de arte digital contemporânea.
+--- en
+P: Generative art, created with the help of algorithms and software, is an example of:
+- Classical bronze sculpture
+- Traditional oil painting
+- Woodcut printmaking
+- Contemporary digital art
+E: Generative art, created with algorithms and software, is an example of contemporary digital art.
+--- es
+P: El arte generativo, creado con la ayuda de algoritmos y software, es un ejemplo de:
+- Escultura clásica en bronce
+- Pintura al óleo tradicional
+- Grabado en madera
+- Arte digital contemporáneo
+E: El arte generativo, creado con algoritmos y software, es un ejemplo de arte digital contemporáneo.
+
+=== Arte e sociedade > Arte digital e novas mídias c=0 d=medio
+P: As instalações com realidade virtual (VR), cada vez mais presentes em exposições de arte, permitem:
+- Uma experiência imersiva, em que o espectador interage com ambientes simulados
+- Apenas a observação passiva e distante de uma obra fixa
+- Exclusivamente a leitura de textos sobre a obra
+- A eliminação total de qualquer interação
+E: Instalações com realidade virtual permitem uma experiência imersiva, em que o espectador interage com ambientes simulados.
+--- en
+P: Virtual reality (VR) installations, increasingly present in art exhibitions, allow:
+- An immersive experience, in which the viewer interacts with simulated environments
+- Only passive, distant observation of a fixed work
+- Exclusively reading texts about the work
+- The total elimination of any interaction
+E: Virtual reality installations allow an immersive experience, in which the viewer interacts with simulated environments.
+--- es
+P: Las instalaciones con realidad virtual (VR), cada vez más presentes en exposiciones de arte, permiten:
+- Una experiencia inmersiva, en la que el espectador interactúa con ambientes simulados
+- Solo la observación pasiva y distante de una obra fija
+- Exclusivamente la lectura de textos sobre la obra
+- La eliminación total de cualquier interacción
+E: Las instalaciones con realidad virtual permiten una experiencia inmersiva, en la que el espectador interactúa con ambientes simulados.
+
+=== Arte e sociedade > Arte digital e novas mídias c=1 d=medio
+P: A "net art", vertente da arte digital, se caracteriza por:
+- Ser produzida exclusivamente em telas de tinta a óleo
+- Ser criada e/ou distribuída utilizando a internet como meio ou suporte
+- Não ter nenhuma relação com tecnologia
+- Ser restrita a museus físicos, sem qualquer presença online
+E: A net art é criada e/ou distribuída utilizando a internet como meio ou suporte.
+--- en
+P: "Net art", a branch of digital art, is characterized by:
+- Being produced exclusively on oil-painted canvases
+- Being created and/or distributed using the internet as its medium or support
+- Having no relation to technology at all
+- Being restricted to physical museums, with no online presence
+E: Net art is created and/or distributed using the internet as its medium or support.
+--- es
+P: El "net art", vertiente del arte digital, se caracteriza por:
+- Ser producido exclusivamente en lienzos pintados al óleo
+- Ser creado y/o distribuido utilizando internet como medio o soporte
+- No tener ninguna relación con la tecnología
+- Estar restringido a museos físicos, sin ninguna presencia en línea
+E: El net art se crea y/o distribuye utilizando internet como medio o soporte.
+
+=== Arte e sociedade > Arte digital e novas mídias c=2 d=dificil
+P: A arte digital tem levantado debates sobre autoria e originalidade, especialmente com o uso de:
+- Técnicas exclusivamente manuais e artesanais
+- Materiais tradicionais como mármore e bronze
+- Técnicas restritas ao século XV
+- Inteligência artificial na geração de imagens e obras
+E: A arte digital tem levantado debates sobre autoria e originalidade, especialmente com o uso de inteligência artificial.
+--- en
+P: Digital art has raised debates about authorship and originality, especially with the use of:
+- Exclusively manual, handmade techniques
+- Traditional materials such as marble and bronze
+- Techniques restricted to the 15th century
+- Artificial intelligence in generating images and works
+E: Digital art has raised debates about authorship and originality, especially with the use of artificial intelligence.
+--- es
+P: El arte digital ha generado debates sobre autoría y originalidad, especialmente con el uso de:
+- Técnicas exclusivamente manuales y artesanales
+- Materiales tradicionales como el mármol y el bronce
+- Técnicas restringidas al siglo XV
+- Inteligencia artificial en la generación de imágenes y obras
+E: El arte digital ha generado debates sobre autoría y originalidad, especialmente con el uso de inteligencia artificial.
+
+=== Arte e sociedade > Arte digital e novas mídias c=3 d=dificil
+P: As novas mídias ampliaram o acesso à produção e circulação artística porque:
+- Restringiram a arte apenas a especialistas
+- Eliminaram completamente os museus tradicionais
+- Tornaram a arte inacessível para a maioria das pessoas
+- Permitiram que mais pessoas criassem, compartilhassem e acessassem obras fora dos circuitos tradicionais
+E: As novas mídias permitiram que mais pessoas criassem, compartilhassem e acessassem obras fora dos circuitos tradicionais.
+--- en
+P: New media expanded access to artistic production and circulation because they:
+- Restricted art only to specialists
+- Completely eliminated traditional museums
+- Made art inaccessible to most people
+- Allowed more people to create, share and access works outside traditional circuits
+E: New media allowed more people to create, share and access works outside traditional circuits.
+--- es
+P: Los nuevos medios ampliaron el acceso a la producción y circulación artística porque:
+- Restringieron el arte solo a especialistas
+- Eliminaron completamente los museos tradicionales
+- Hicieron el arte inaccesible para la mayoría de las personas
+- Permitieron que más personas crearan, compartieran y accedieran a obras fuera de los circuitos tradicionales
+E: Los nuevos medios permitieron que más personas crearan, compartieran y accedieran a obras fuera de los circuitos tradicionales.

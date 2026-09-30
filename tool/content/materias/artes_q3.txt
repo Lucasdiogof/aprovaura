@@ -1,0 +1,659 @@
+=== Arquitetura e patrimônio > Arquitetura brasileira c=0 d=facil
+P: Oscar Niemeyer, um dos arquitetos brasileiros mais conhecidos internacionalmente, é famoso por projetar edifícios em:
+- Brasília
+- Roma
+- Paris
+- Londres
+E: Oscar Niemeyer é famoso por projetar diversos edifícios icônicos de Brasília.
+--- en
+P: Oscar Niemeyer, one of the most internationally known Brazilian architects, is famous for designing buildings in:
+- Brasília
+- Rome
+- Paris
+- London
+E: Oscar Niemeyer is famous for designing several iconic buildings in Brasília.
+--- es
+P: Oscar Niemeyer, uno de los arquitectos brasileños más conocidos internacionalmente, es famoso por proyectar edificios en:
+- Brasilia
+- Roma
+- París
+- Londres
+E: Oscar Niemeyer es famoso por proyectar varios edificios icónicos de Brasilia.
+
+=== Arquitetura e patrimônio > Arquitetura brasileira c=1 d=facil
+P: Qual característica é frequentemente associada à arquitetura de Oscar Niemeyer?
+- Formas retas e angulosas exclusivamente
+- Uso de curvas e formas orgânicas em concreto
+- Ausência total de concreto
+- Estilo gótico medieval
+E: A arquitetura de Niemeyer é frequentemente associada ao uso de curvas e formas orgânicas em concreto.
+--- en
+P: Which characteristic is often associated with Oscar Niemeyer's architecture?
+- Exclusively straight, angular forms
+- Use of curves and organic forms in concrete
+- Total absence of concrete
+- Medieval Gothic style
+E: Niemeyer's architecture is often associated with the use of curves and organic forms in concrete.
+--- es
+P: ¿Qué característica se asocia frecuentemente con la arquitectura de Oscar Niemeyer?
+- Formas rectas y angulosas exclusivamente
+- Uso de curvas y formas orgánicas en concreto
+- Ausencia total de concreto
+- Estilo gótico medieval
+E: La arquitectura de Niemeyer se asocia frecuentemente con el uso de curvas y formas orgánicas en concreto.
+
+=== Arquitetura e patrimônio > Arquitetura brasileira c=2 d=medio
+P: A arquitetura colonial brasileira, dos séculos XVI a XVIII, refletia principalmente:
+- Influências modernistas do século XX
+- Técnicas de arquitetura digital
+- Influências europeias adaptadas ao clima e materiais locais
+- Um estilo exclusivamente indígena sem influência externa
+E: A arquitetura colonial brasileira refletia influências europeias adaptadas ao clima e materiais locais.
+--- en
+P: Brazilian colonial architecture, from the 16th to the 18th centuries, mainly reflected:
+- 20th-century modernist influences
+- Digital architecture techniques
+- European influences adapted to local climate and materials
+- An exclusively Indigenous style with no external influence
+E: Brazilian colonial architecture reflected European influences adapted to local climate and materials.
+--- es
+P: La arquitectura colonial brasileña, de los siglos XVI a XVIII, reflejaba principalmente:
+- Influencias modernistas del siglo XX
+- Técnicas de arquitectura digital
+- Influencias europeas adaptadas al clima y a los materiales locales
+- Un estilo exclusivamente indígena sin influencia externa
+E: La arquitectura colonial brasileña reflejaba influencias europeas adaptadas al clima y a los materiales locales.
+
+=== Arquitetura e patrimônio > Arquitetura brasileira c=3 d=medio
+P: Brasília, capital planejada inaugurada em 1960, foi projetada com participação de Niemeyer e de qual urbanista?
+- Le Corbusier
+- Antoni Gaudí
+- Frank Lloyd Wright
+- Lúcio Costa
+E: Brasília foi projetada com participação de Niemeyer e do urbanista Lúcio Costa, autor do plano piloto.
+--- en
+P: Brasília, the planned capital inaugurated in 1960, was designed with the participation of Niemeyer and which urban planner?
+- Le Corbusier
+- Antoni Gaudí
+- Frank Lloyd Wright
+- Lúcio Costa
+E: Brasília was designed with the participation of Niemeyer and urban planner Lúcio Costa, author of the pilot plan.
+--- es
+P: Brasilia, la capital planificada inaugurada en 1960, ¿fue proyectada con la participación de Niemeyer y de qué urbanista?
+- Le Corbusier
+- Antoni Gaudí
+- Frank Lloyd Wright
+- Lúcio Costa
+E: Brasilia fue proyectada con la participación de Niemeyer y del urbanista Lúcio Costa, autor del plan piloto.
+
+=== Arquitetura e patrimônio > Arquitetura brasileira c=0 d=dificil
+P: A arquitetura modernista brasileira, da qual Niemeyer é um expoente, busca articular:
+- Funcionalidade, novos materiais (como o concreto armado) e uma linguagem própria brasileira
+- Exclusivamente ornamentos barrocos
+- Apenas materiais medievais como pedra maciça
+- A repetição exata de modelos europeus antigos
+E: A arquitetura modernista brasileira articula funcionalidade, novos materiais como o concreto armado e uma linguagem própria brasileira.
+--- en
+P: Brazilian modernist architecture, of which Niemeyer is an exponent, seeks to combine:
+- Functionality, new materials (such as reinforced concrete) and a distinctly Brazilian language
+- Exclusively Baroque ornaments
+- Only medieval materials such as solid stone
+- The exact repetition of old European models
+E: Brazilian modernist architecture combines functionality, new materials such as reinforced concrete, and a distinctly Brazilian language.
+--- es
+P: La arquitectura modernista brasileña, de la cual Niemeyer es un exponente, busca articular:
+- Funcionalidad, nuevos materiales (como el concreto armado) y un lenguaje propio brasileño
+- Exclusivamente ornamentos barrocos
+- Solo materiales medievales como piedra maciza
+- La repetición exacta de modelos europeos antiguos
+E: La arquitectura modernista brasileña articula funcionalidad, nuevos materiales como el concreto armado y un lenguaje propio brasileño.
+
+=== Arquitetura e patrimônio > Arquitetura brasileira c=1 d=dificil
+P: O patrimônio arquitetônico das cidades históricas mineiras, como Ouro Preto, está ligado principalmente a qual período?
+- À industrialização do século XX
+- Ao período colonial e ao ciclo do ouro
+- Ao período pós-Segunda Guerra Mundial
+- Exclusivamente ao século XXI
+E: O patrimônio arquitetônico de Ouro Preto está ligado ao período colonial e ao ciclo do ouro.
+--- en
+P: The architectural heritage of historic cities in Minas Gerais, such as Ouro Preto, is mainly linked to which period?
+- 20th-century industrialization
+- The colonial period and the gold cycle
+- The post-World War II period
+- Exclusively the 21st century
+E: The architectural heritage of Ouro Preto is linked to the colonial period and the gold cycle.
+--- es
+P: El patrimonio arquitectónico de las ciudades históricas de Minas Gerais, como Ouro Preto, ¿está ligado principalmente a qué período?
+- A la industrialización del siglo XX
+- Al período colonial y al ciclo del oro
+- Al período posterior a la Segunda Guerra Mundial
+- Exclusivamente al siglo XXI
+E: El patrimonio arquitectónico de Ouro Preto está ligado al período colonial y al ciclo del oro.
+
+=== Arquitetura e patrimônio > Patrimônio cultural e preservação c=2 d=facil
+P: O que se entende por patrimônio cultural?
+- Apenas bens financeiros de uma família
+- Apenas terrenos rurais
+- Bens materiais e imateriais com valor histórico, artístico ou cultural para uma comunidade
+- Um conjunto de regras de trânsito
+E: Patrimônio cultural são bens materiais e imateriais com valor histórico, artístico ou cultural para uma comunidade.
+--- en
+P: What is meant by cultural heritage?
+- Only a family's financial assets
+- Only rural land
+- Material and immaterial assets with historical, artistic or cultural value to a community
+- A set of traffic rules
+E: Cultural heritage refers to material and immaterial assets with historical, artistic or cultural value to a community.
+--- es
+P: ¿Qué se entiende por patrimonio cultural?
+- Solo bienes financieros de una familia
+- Solo terrenos rurales
+- Bienes materiales e inmateriales con valor histórico, artístico o cultural para una comunidad
+- Un conjunto de reglas de tránsito
+E: El patrimonio cultural son bienes materiales e inmateriales con valor histórico, artístico o cultural para una comunidad.
+
+=== Arquitetura e patrimônio > Patrimônio cultural e preservação c=3 d=facil
+P: Qual órgão brasileiro é responsável pela preservação do patrimônio histórico e artístico nacional?
+- IBGE
+- Ministério da Fazenda
+- Banco Central
+- IPHAN
+E: O IPHAN (Instituto do Patrimônio Histórico e Artístico Nacional) é o órgão responsável por essa preservação.
+--- en
+P: Which Brazilian agency is responsible for preserving national historical and artistic heritage?
+- IBGE
+- Ministry of Finance
+- Central Bank
+- IPHAN
+E: IPHAN (National Historical and Artistic Heritage Institute) is the agency responsible for this preservation.
+--- es
+P: ¿Qué organismo brasileño es responsable de la preservación del patrimonio histórico y artístico nacional?
+- IBGE
+- Ministerio de Hacienda
+- Banco Central
+- IPHAN
+E: El IPHAN (Instituto del Patrimonio Histórico y Artístico Nacional) es el organismo responsable de esa preservación.
+
+=== Arquitetura e patrimônio > Patrimônio cultural e preservação c=0 d=medio
+P: O que caracteriza um "patrimônio imaterial", diferente do patrimônio material?
+- Manifestações culturais como saberes, festas e tradições orais, sem existência física fixa
+- Apenas edifícios e monumentos
+- Apenas obras de arte em museus
+- Apenas documentos escritos antigos
+E: O patrimônio imaterial abrange manifestações culturais como saberes, festas e tradições orais, sem existência física fixa.
+--- en
+P: What characterizes "intangible heritage", as distinct from tangible heritage?
+- Cultural manifestations such as knowledge, festivals and oral traditions, with no fixed physical existence
+- Only buildings and monuments
+- Only works of art in museums
+- Only old written documents
+E: Intangible heritage covers cultural manifestations such as knowledge, festivals and oral traditions, with no fixed physical existence.
+--- es
+P: ¿Qué caracteriza al "patrimonio inmaterial", a diferencia del patrimonio material?
+- Manifestaciones culturales como saberes, fiestas y tradiciones orales, sin existencia física fija
+- Solo edificios y monumentos
+- Solo obras de arte en museos
+- Solo documentos escritos antiguos
+E: El patrimonio inmaterial abarca manifestaciones culturales como saberes, fiestas y tradiciones orales, sin existencia física fija.
+
+=== Arquitetura e patrimônio > Patrimônio cultural e preservação c=1 d=medio
+P: A UNESCO reconhece determinados locais e práticas como patrimônio mundial. Isso tem como objetivo principal:
+- Restringir o acesso da população local a esses locais
+- Incentivar a preservação e valorização de bens de importância cultural universal
+- Proibir qualquer uso turístico
+- Transformar os locais exclusivamente em propriedade privada
+E: O reconhecimento da UNESCO busca incentivar a preservação e valorização de bens de importância cultural universal.
+--- en
+P: UNESCO recognizes certain sites and practices as world heritage. This mainly aims to:
+- Restrict local population's access to these sites
+- Encourage the preservation and valuing of assets of universal cultural importance
+- Prohibit any tourist use
+- Turn the sites exclusively into private property
+E: UNESCO's recognition aims to encourage the preservation and valuing of assets of universal cultural importance.
+--- es
+P: La UNESCO reconoce determinados lugares y prácticas como patrimonio mundial. Esto tiene como objetivo principal:
+- Restringir el acceso de la población local a esos lugares
+- Incentivar la preservación y valoración de bienes de importancia cultural universal
+- Prohibir cualquier uso turístico
+- Transformar los lugares exclusivamente en propiedad privada
+E: El reconocimiento de la UNESCO busca incentivar la preservación y valoración de bienes de importancia cultural universal.
+
+=== Arquitetura e patrimônio > Patrimônio cultural e preservação c=2 d=dificil
+P: A gentrificação de áreas históricas pode representar um desafio para a preservação do patrimônio porque:
+- Aumenta automaticamente a preservação sem custos
+- Não tem nenhuma relação com o patrimônio cultural
+- Pode expulsar moradores tradicionais e descaracterizar o uso social do espaço
+- Garante que a população tradicional permaneça no local
+E: A gentrificação pode expulsar moradores tradicionais e descaracterizar o uso social do espaço histórico.
+--- en
+P: The gentrification of historic areas can pose a challenge to heritage preservation because:
+- It automatically increases preservation at no cost
+- It has no relation whatsoever to cultural heritage
+- It can displace traditional residents and change the social use of the space
+- It guarantees that the traditional population remains in place
+E: Gentrification can displace traditional residents and change the social use of the historic space.
+--- es
+P: La gentrificación de áreas históricas puede representar un desafío para la preservación del patrimonio porque:
+- Aumenta automáticamente la preservación sin costos
+- No tiene ninguna relación con el patrimonio cultural
+- Puede expulsar a los residentes tradicionales y descaracterizar el uso social del espacio
+- Garantiza que la población tradicional permanezca en el lugar
+E: La gentrificación puede expulsar a los residentes tradicionales y descaracterizar el uso social del espacio histórico.
+
+=== Arquitetura e patrimônio > Patrimônio cultural e preservação c=3 d=dificil
+P: O tombamento de um bem cultural no Brasil tem como principal efeito jurídico:
+- Permitir a venda irrestrita do bem sem qualquer regra
+- Autorizar a demolição do bem quando o proprietário desejar
+- Eliminar qualquer valor histórico do bem
+- Restringir modificações e demolições, protegendo legalmente o bem
+E: O tombamento restringe modificações e demolições, protegendo legalmente o bem cultural.
+--- en
+P: Listing (tombamento) a cultural asset in Brazil has as its main legal effect:
+- Allowing the unrestricted sale of the asset with no rules
+- Authorizing the demolition of the asset whenever the owner wishes
+- Eliminating any historical value of the asset
+- Restricting modifications and demolitions, legally protecting the asset
+E: Heritage listing restricts modifications and demolitions, legally protecting the cultural asset.
+--- es
+P: El tombamento (declaración de bien protegido) de un bien cultural en Brasil tiene como principal efecto jurídico:
+- Permitir la venta irrestricta del bien sin ninguna regla
+- Autorizar la demolición del bien cuando el propietario lo desee
+- Eliminar cualquier valor histórico del bien
+- Restringir modificaciones y demoliciones, protegiendo legalmente el bien
+E: El tombamento restringe modificaciones y demoliciones, protegiendo legalmente el bien cultural.
+
+=== Cultura popular e folclore > Festas e tradições populares c=0 d=facil
+P: O Carnaval, uma das maiores festas populares do Brasil, é caracterizado por:
+- Desfiles, música, dança e fantasias, com forte presença das escolas de samba
+- Uma celebração silenciosa e sem música
+- Ser restrito apenas a um único estado brasileiro
+- Ocorrer apenas em ambientes fechados e privados
+E: O Carnaval é caracterizado por desfiles, música, dança e fantasias, com forte presença das escolas de samba.
+--- en
+P: Carnival, one of the biggest popular festivals in Brazil, is characterized by:
+- Parades, music, dance and costumes, with a strong presence of samba schools
+- A silent celebration with no music
+- Being restricted to a single Brazilian state
+- Taking place only in closed, private settings
+E: Carnival is characterized by parades, music, dance and costumes, with a strong presence of samba schools.
+--- es
+P: El Carnaval, una de las mayores fiestas populares de Brasil, se caracteriza por:
+- Desfiles, música, danza y disfraces, con fuerte presencia de las escolas de samba
+- Una celebración silenciosa y sin música
+- Estar restringido a un único estado brasileño
+- Ocurrir solo en ambientes cerrados y privados
+E: El Carnaval se caracteriza por desfiles, música, danza y disfraces, con fuerte presencia de las escolas de samba.
+
+=== Cultura popular e folclore > Festas e tradições populares c=1 d=facil
+P: O Bumba Meu Boi, manifestação popular típica do Norte e Nordeste do Brasil, envolve:
+- Apenas competições esportivas
+- Música, dança e teatro popular em torno da figura de um boi
+- Exclusivamente pintura em tela
+- Apenas rituais religiosos silenciosos
+E: O Bumba Meu Boi envolve música, dança e teatro popular em torno da figura de um boi.
+--- en
+P: Bumba Meu Boi, a popular manifestation typical of North and Northeast Brazil, involves:
+- Only sports competitions
+- Music, dance and popular theater centered on the figure of an ox
+- Exclusively painting on canvas
+- Only silent religious rituals
+E: Bumba Meu Boi involves music, dance and popular theater centered on the figure of an ox.
+--- es
+P: El Bumba Meu Boi, manifestación popular típica del Norte y Noreste de Brasil, involucra:
+- Solo competiciones deportivas
+- Música, danza y teatro popular en torno a la figura de un buey
+- Exclusivamente pintura sobre lienzo
+- Solo rituales religiosos silenciosos
+E: El Bumba Meu Boi involucra música, danza y teatro popular en torno a la figura de un buey.
+
+=== Cultura popular e folclore > Festas e tradições populares c=2 d=medio
+P: As festas juninas, tradicionais em diversas regiões do Brasil, têm origem histórica ligada a:
+- Celebrações indígenas pré-coloniais exclusivamente
+- Tradições trazidas por imigrantes asiáticos no século XX
+- Celebrações relacionadas a santos católicos (como São João) e à cultura rural
+- Um evento criado apenas para fins comerciais recentes
+E: As festas juninas têm origem histórica ligada a celebrações relacionadas a santos católicos e à cultura rural.
+--- en
+P: The "festas juninas" (June festivals), traditional in several regions of Brazil, have historical origins linked to:
+- Exclusively pre-colonial Indigenous celebrations
+- Traditions brought by Asian immigrants in the 20th century
+- Celebrations related to Catholic saints (such as St. John) and rural culture
+- An event created only recently for commercial purposes
+E: The June festivals have historical origins linked to celebrations related to Catholic saints and rural culture.
+--- es
+P: Las fiestas de junio, tradicionales en varias regiones de Brasil, tienen origen histórico ligado a:
+- Celebraciones indígenas precoloniales exclusivamente
+- Tradiciones traídas por inmigrantes asiáticos en el siglo XX
+- Celebraciones relacionadas con santos católicos (como San Juan) y la cultura rural
+- Un evento creado solo recientemente con fines comerciales
+E: Las fiestas de junio tienen origen histórico ligado a celebraciones relacionadas con santos católicos y la cultura rural.
+
+=== Cultura popular e folclore > Festas e tradições populares c=3 d=medio
+P: O que caracteriza uma "cultura popular", em contraste com a chamada "cultura erudita"?
+- Ser produzida exclusivamente em universidades
+- Não ter nenhum tipo de valor cultural
+- Ser sempre financiada pelo governo
+- Ser produzida e transmitida de forma coletiva, muitas vezes de geração em geração, fora dos circuitos acadêmicos formais
+E: A cultura popular é produzida e transmitida de forma coletiva, de geração em geração, fora dos circuitos acadêmicos formais.
+--- en
+P: What characterizes "popular culture", in contrast to so-called "high culture"?
+- Being produced exclusively in universities
+- Having no cultural value at all
+- Always being funded by the government
+- Being produced and passed on collectively, often from generation to generation, outside formal academic circuits
+E: Popular culture is produced and passed on collectively, from generation to generation, outside formal academic circuits.
+--- es
+P: ¿Qué caracteriza a la "cultura popular", en contraste con la llamada "cultura erudita"?
+- Ser producida exclusivamente en universidades
+- No tener ningún valor cultural
+- Estar siempre financiada por el gobierno
+- Ser producida y transmitida de forma colectiva, muchas veces de generación en generación, fuera de los circuitos académicos formales
+E: La cultura popular es producida y transmitida de forma colectiva, de generación en generación, fuera de los circuitos académicos formales.
+
+=== Cultura popular e folclore > Festas e tradições populares c=0 d=dificil
+P: As festas populares brasileiras frequentemente combinam elementos de diferentes origens culturais (indígena, africana e europeia). Isso reflete:
+- O sincretismo cultural característico da formação da sociedade brasileira
+- Uma separação rígida entre culturas, sem qualquer mistura
+- A ausência total de influência africana na cultura brasileira
+- Uma tradição vinda exclusivamente da Europa
+E: Essa combinação reflete o sincretismo cultural característico da formação da sociedade brasileira.
+--- en
+P: Brazilian popular festivals often combine elements from different cultural origins (Indigenous, African and European). This reflects:
+- The cultural syncretism characteristic of the formation of Brazilian society
+- A rigid separation between cultures, with no mixing at all
+- The total absence of African influence on Brazilian culture
+- A tradition coming exclusively from Europe
+E: This combination reflects the cultural syncretism characteristic of the formation of Brazilian society.
+--- es
+P: Las fiestas populares brasileñas combinan frecuentemente elementos de diferentes orígenes culturales (indígena, africano y europeo). Esto refleja:
+- El sincretismo cultural característico de la formación de la sociedad brasileña
+- Una separación rígida entre culturas, sin ninguna mezcla
+- La ausencia total de influencia africana en la cultura brasileña
+- Una tradición proveniente exclusivamente de Europa
+E: Esta combinación refleja el sincretismo cultural característico de la formación de la sociedad brasileña.
+
+=== Cultura popular e folclore > Festas e tradições populares c=1 d=dificil
+P: O reconhecimento de festas populares como patrimônio cultural imaterial busca principalmente:
+- Proibir a realização dessas festas
+- Transformar as festas em propriedade exclusiva do Estado
+- Restringir a festa a um público pagante
+- Valorizar e apoiar a continuidade dessas manifestações culturais
+E: O reconhecimento como patrimônio imaterial busca valorizar e apoiar a continuidade dessas manifestações culturais.
+--- en
+P: The recognition of popular festivals as intangible cultural heritage mainly aims to:
+- Prohibit these festivals from taking place
+- Turn the festivals into exclusive state property
+- Restrict the festival to a paying audience
+- Value and support the continuity of these cultural manifestations
+E: Recognition as intangible heritage aims to value and support the continuity of these cultural manifestations.
+--- es
+P: El reconocimiento de fiestas populares como patrimonio cultural inmaterial busca principalmente:
+- Prohibir la realización de esas fiestas
+- Transformar las fiestas en propiedad exclusiva del Estado
+- Restringir la fiesta a un público pagante
+- Valorar y apoyar la continuidad de esas manifestaciones culturales
+E: El reconocimiento como patrimonio inmaterial busca valorar y apoyar la continuidad de esas manifestaciones culturales.
+
+=== Cultura popular e folclore > Artesanato e cultura material c=2 d=facil
+P: O que é artesanato, em linhas gerais?
+- Produção industrial em larga escala
+- Um tipo de escultura exclusivamente digital
+- Produção manual de objetos, muitas vezes ligada a tradições culturais e regionais
+- Um gênero musical brasileiro
+E: Artesanato é a produção manual de objetos, muitas vezes ligada a tradições culturais e regionais.
+--- en
+P: What is craftsmanship, broadly speaking?
+- Large-scale industrial production
+- An exclusively digital type of sculpture
+- Manual production of objects, often linked to cultural and regional traditions
+- A Brazilian musical genre
+E: Craftsmanship is the manual production of objects, often linked to cultural and regional traditions.
+--- es
+P: ¿Qué es la artesanía, en líneas generales?
+- Producción industrial a gran escala
+- Un tipo de escultura exclusivamente digital
+- Producción manual de objetos, muchas veces ligada a tradiciones culturales y regionales
+- Un género musical brasileño
+E: La artesanía es la producción manual de objetos, muchas veces ligada a tradiciones culturales y regionales.
+
+=== Cultura popular e folclore > Artesanato e cultura material c=3 d=facil
+P: A cerâmica marajoara, produzida na região do arquipélago do Marajó, é um exemplo de:
+- Um gênero cinematográfico
+- Um estilo arquitetônico europeu
+- Uma dança contemporânea
+- Artesanato tradicional brasileiro com raízes indígenas
+E: A cerâmica marajoara é um exemplo de artesanato tradicional brasileiro com raízes indígenas.
+--- en
+P: Marajoara pottery, produced in the region of the Marajó archipelago, is an example of:
+- A cinematographic genre
+- A European architectural style
+- A contemporary dance
+- Traditional Brazilian craftsmanship with Indigenous roots
+E: Marajoara pottery is an example of traditional Brazilian craftsmanship with Indigenous roots.
+--- es
+P: La cerámica marajoara, producida en la región del archipiélago de Marajó, es un ejemplo de:
+- Un género cinematográfico
+- Un estilo arquitectónico europeo
+- Una danza contemporánea
+- Artesanía tradicional brasileña con raíces indígenas
+E: La cerámica marajoara es un ejemplo de artesanía tradicional brasileña con raíces indígenas.
+
+=== Cultura popular e folclore > Artesanato e cultura material c=0 d=medio
+P: O que se entende por "cultura material" em estudos culturais?
+- Apenas ideias e crenças, sem qualquer objeto físico
+- Apenas leis e normas jurídicas
+- Exclusivamente obras digitais
+- O conjunto de objetos físicos produzidos por uma sociedade, que refletem seus valores e práticas
+E: Cultura material é o conjunto de objetos físicos produzidos por uma sociedade, refletindo seus valores e práticas.
+--- en
+P: What is meant by "material culture" in cultural studies?
+- Only ideas and beliefs, with no physical object
+- Only laws and legal norms
+- Exclusively digital works
+- The set of physical objects produced by a society, reflecting its values and practices
+E: Material culture is the set of physical objects produced by a society, reflecting its values and practices.
+--- es
+P: ¿Qué se entiende por "cultura material" en los estudios culturales?
+- Solo ideas y creencias, sin ningún objeto físico
+- Solo leyes y normas jurídicas
+- Exclusivamente obras digitales
+- El conjunto de objetos físicos producidos por una sociedad, que reflejan sus valores y prácticas
+E: La cultura material es el conjunto de objetos físicos producidos por una sociedad, reflejando sus valores y prácticas.
+
+=== Cultura popular e folclore > Artesanato e cultura material c=1 d=medio
+P: O artesanato em renda de bilro, tradicional em algumas regiões litorâneas do Nordeste, é um exemplo de:
+- Uma prática exclusivamente masculina
+- Um saber transmitido tradicionalmente, muitas vezes entre gerações de mulheres
+- Uma técnica recente sem qualquer tradição
+- Uma produção exclusivamente industrial em fábricas
+E: O artesanato em renda de bilro é um saber transmitido tradicionalmente entre gerações de mulheres.
+--- en
+P: Bobbin lace craftsmanship, traditional in some coastal regions of the Northeast, is an example of:
+- An exclusively male practice
+- A traditionally passed-down skill, often between generations of women
+- A recent technique with no tradition at all
+- A production exclusively made in factories
+E: Bobbin lace craftsmanship is a skill traditionally passed down between generations of women.
+--- es
+P: La artesanía de encaje de bolillos, tradicional en algunas regiones costeras del Noreste, es un ejemplo de:
+- Una práctica exclusivamente masculina
+- Un saber transmitido tradicionalmente, muchas veces entre generaciones de mujeres
+- Una técnica reciente sin ninguna tradición
+- Una producción exclusivamente industrial en fábricas
+E: La artesanía de encaje de bolillos es un saber transmitido tradicionalmente entre generaciones de mujeres.
+
+=== Cultura popular e folclore > Artesanato e cultura material c=2 d=dificil
+P: O artesanato indígena brasileiro, como cestaria e cerâmica, frequentemente carrega:
+- Significados apenas estéticos, sem qualquer relação cultural
+- Um valor puramente comercial, sem qualquer tradição
+- Significados simbólicos e culturais ligados a cosmologias e práticas tradicionais
+- Nenhuma relação com a identidade dos povos que o produzem
+E: O artesanato indígena carrega significados simbólicos e culturais ligados a cosmologias e práticas tradicionais.
+--- en
+P: Brazilian Indigenous craftsmanship, such as basketry and pottery, often carries:
+- Only aesthetic meanings, with no cultural relation at all
+- A purely commercial value, with no tradition
+- Symbolic and cultural meanings linked to cosmologies and traditional practices
+- No relation whatsoever to the identity of the peoples who produce it
+E: Indigenous craftsmanship carries symbolic and cultural meanings linked to cosmologies and traditional practices.
+--- es
+P: La artesanía indígena brasileña, como la cestería y la cerámica, frecuentemente lleva:
+- Solo significados estéticos, sin ninguna relación cultural
+- Un valor puramente comercial, sin ninguna tradición
+- Significados simbólicos y culturales ligados a cosmologías y prácticas tradicionales
+- Ninguna relación con la identidad de los pueblos que la producen
+E: La artesanía indígena lleva significados simbólicos y culturales ligados a cosmologías y prácticas tradicionales.
+
+=== Cultura popular e folclore > Artesanato e cultura material c=3 d=dificil
+P: A valorização do artesanato local pode ter, entre outros efeitos, o de:
+- Eliminar completamente as tradições culturais das comunidades
+- Substituir totalmente a produção industrial em todo o país
+- Impedir qualquer forma de comércio
+- Contribuir para a geração de renda e a preservação de saberes tradicionais
+E: A valorização do artesanato local pode contribuir para a geração de renda e a preservação de saberes tradicionais.
+--- en
+P: The valuing of local craftsmanship can have, among other effects:
+- Completely eliminating communities' cultural traditions
+- Totally replacing industrial production throughout the country
+- Preventing any form of commerce
+- Contributing to income generation and the preservation of traditional knowledge
+E: The valuing of local craftsmanship can contribute to income generation and the preservation of traditional knowledge.
+--- es
+P: La valoración de la artesanía local puede tener, entre otros efectos, el de:
+- Eliminar completamente las tradiciones culturales de las comunidades
+- Sustituir totalmente la producción industrial en todo el país
+- Impedir cualquier forma de comercio
+- Contribuir a la generación de ingresos y la preservación de saberes tradicionales
+E: La valoración de la artesanía local puede contribuir a la generación de ingresos y la preservación de saberes tradicionales.
+
+=== Cinema e audiovisual > História do cinema c=0 d=facil
+P: O cinema, como forma de arte e entretenimento, surgiu no final do século:
+- XIX
+- XV
+- XXI
+- XII
+E: O cinema, como forma de arte e entretenimento, surgiu no final do século XIX.
+--- en
+P: Cinema, as an art form and entertainment, emerged at the end of which century?
+- 19th
+- 15th
+- 21st
+- 12th
+E: Cinema, as an art form and entertainment, emerged at the end of the 19th century.
+--- es
+P: El cine, como forma de arte y entretenimiento, surgió a finales del siglo:
+- XIX
+- XV
+- XXI
+- XII
+E: El cine, como forma de arte y entretenimiento, surgió a finales del siglo XIX.
+
+=== Cinema e audiovisual > História do cinema c=1 d=facil
+P: Os irmãos Lumière, pioneiros do cinema, são conhecidos por:
+- Inventar a fotografia colorida
+- Produzir uma das primeiras exibições públicas de filmes
+- Criar o primeiro filme sonoro
+- Fundar o primeiro estúdio de animação digital
+E: Os irmãos Lumière são conhecidos por produzir uma das primeiras exibições públicas de filmes.
+--- en
+P: The Lumière brothers, pioneers of cinema, are known for:
+- Inventing color photography
+- Producing one of the first public film screenings
+- Creating the first sound film
+- Founding the first digital animation studio
+E: The Lumière brothers are known for producing one of the first public film screenings.
+--- es
+P: Los hermanos Lumière, pioneros del cine, son conocidos por:
+- Inventar la fotografía en color
+- Producir una de las primeras exhibiciones públicas de películas
+- Crear la primera película sonora
+- Fundar el primer estudio de animación digital
+E: Los hermanos Lumière son conocidos por producir una de las primeras exhibiciones públicas de películas.
+
+=== Cinema e audiovisual > História do cinema c=2 d=medio
+P: O cinema mudo, que predominou nas primeiras décadas do cinema, era caracterizado por:
+- Diálogos falados perfeitamente sincronizados
+- Efeitos sonoros digitais avançados
+- Ausência de som sincronizado, com uso de música ao vivo e cartelas de texto
+- Ausência total de imagem
+E: O cinema mudo era caracterizado pela ausência de som sincronizado, usando música ao vivo e cartelas de texto.
+--- en
+P: Silent cinema, which predominated in the early decades of film, was characterized by:
+- Perfectly synchronized spoken dialogue
+- Advanced digital sound effects
+- The absence of synchronized sound, with live music and text cards
+- Total absence of images
+E: Silent cinema was characterized by the absence of synchronized sound, using live music and text cards.
+--- es
+P: El cine mudo, que predominó en las primeras décadas del cine, se caracterizaba por:
+- Diálogos hablados perfectamente sincronizados
+- Efectos sonoros digitales avanzados
+- Ausencia de sonido sincronizado, con uso de música en vivo y tarjetas de texto
+- Ausencia total de imagen
+E: El cine mudo se caracterizaba por la ausencia de sonido sincronizado, usando música en vivo y tarjetas de texto.
+
+=== Cinema e audiovisual > História do cinema c=3 d=medio
+P: A introdução do som sincronizado no cinema, no final da década de 1920, é frequentemente associada ao filme:
+- Metrópolis
+- O Encouraçado Potemkin
+- Nosferatu
+- O Cantor de Jazz
+E: A introdução do som sincronizado é frequentemente associada ao filme "O Cantor de Jazz" (1927).
+--- en
+P: The introduction of synchronized sound in film, in the late 1920s, is often associated with the movie:
+- Metropolis
+- Battleship Potemkin
+- Nosferatu
+- The Jazz Singer
+E: The introduction of synchronized sound is often associated with the movie "The Jazz Singer" (1927).
+--- es
+P: La introducción del sonido sincronizado en el cine, a finales de la década de 1920, se asocia frecuentemente con la película:
+- Metrópolis
+- El acorazado Potemkin
+- Nosferatu
+- El cantor de jazz
+E: La introducción del sonido sincronizado se asocia frecuentemente con la película "El cantor de jazz" (1927).
+
+=== Cinema e audiovisual > História do cinema c=0 d=dificil
+P: O neorrealismo italiano, movimento cinematográfico do pós-guerra, é caracterizado por:
+- Retratar de forma realista as dificuldades sociais e econômicas da época, muitas vezes com atores não profissionais
+- Usar exclusivamente efeitos especiais digitais
+- Focar apenas em enredos fantásticos sem relação com a realidade
+- Ser produzido exclusivamente em estúdios de Hollywood
+E: O neorrealismo italiano retrata de forma realista as dificuldades sociais e econômicas da época, com atores não profissionais.
+--- en
+P: Italian Neorealism, a post-war cinematographic movement, is characterized by:
+- Realistically portraying the social and economic difficulties of the time, often with non-professional actors
+- Using exclusively digital special effects
+- Focusing only on fantastical plots with no relation to reality
+- Being produced exclusively in Hollywood studios
+E: Italian Neorealism realistically portrays the social and economic difficulties of the time, with non-professional actors.
+--- es
+P: El neorrealismo italiano, movimiento cinematográfico de la posguerra, se caracteriza por:
+- Retratar de forma realista las dificultades sociales y económicas de la época, muchas veces con actores no profesionales
+- Usar exclusivamente efectos especiales digitales
+- Enfocarse solo en tramas fantásticas sin relación con la realidad
+- Ser producido exclusivamente en estudios de Hollywood
+E: El neorrealismo italiano retrata de forma realista las dificultades sociales y económicas de la época, con actores no profesionales.
+
+=== Cinema e audiovisual > História do cinema c=1 d=dificil
+P: A Nouvelle Vague, movimento cinematográfico francês do final dos anos 1950 e 1960, se destacou por:
+- Manter rigidamente as convenções narrativas clássicas de Hollywood
+- Inovar na linguagem cinematográfica, com câmera mais livre e narrativas não convencionais
+- Rejeitar totalmente qualquer inovação técnica
+- Ser restrita exclusivamente a documentários
+E: A Nouvelle Vague inovou na linguagem cinematográfica, com câmera mais livre e narrativas não convencionais.
+--- en
+P: The Nouvelle Vague, a French cinematographic movement of the late 1950s and 1960s, stood out for:
+- Rigidly maintaining classical Hollywood narrative conventions
+- Innovating in film language, with freer camera work and unconventional narratives
+- Totally rejecting any technical innovation
+- Being restricted exclusively to documentaries
+E: The Nouvelle Vague innovated in film language, with freer camera work and unconventional narratives.
+--- es
+P: La Nouvelle Vague, movimiento cinematográfico francés de finales de los años 1950 y 1960, se destacó por:
+- Mantener rígidamente las convenciones narrativas clásicas de Hollywood
+- Innovar en el lenguaje cinematográfico, con una cámara más libre y narrativas no convencionales
+- Rechazar totalmente cualquier innovación técnica
+- Estar restringida exclusivamente a documentales
+E: La Nouvelle Vague innovó en el lenguaje cinematográfico, con una cámara más libre y narrativas no convencionales.

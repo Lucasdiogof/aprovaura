@@ -1,0 +1,659 @@
+=== Linguagens artísticas > Artes visuais c=0 d=facil
+P: Qual é considerada uma das principais linguagens das artes visuais?
+- Pintura
+- Culinária
+- Contabilidade
+- Programação
+E: A pintura é uma das linguagens tradicionais das artes visuais, junto com escultura, desenho e gravura.
+--- en
+P: Which of these is considered one of the main visual arts languages?
+- Painting
+- Cooking
+- Accounting
+- Programming
+E: Painting is one of the traditional visual arts languages, along with sculpture, drawing and printmaking.
+--- es
+P: ¿Cuál de estos se considera uno de los principales lenguajes de las artes visuales?
+- Pintura
+- Cocina
+- Contabilidad
+- Programación
+E: La pintura es uno de los lenguajes tradicionales de las artes visuales, junto con la escultura, el dibujo y el grabado.
+
+=== Linguagens artísticas > Artes visuais c=1 d=facil
+P: O que caracteriza a escultura como linguagem artística?
+- Uso exclusivo de sons
+- Trabalho tridimensional com volume e forma
+- Uso exclusivo de palavras escritas
+- Ausência total de forma
+E: A escultura trabalha o volume e a forma no espaço tridimensional.
+--- en
+P: What characterizes sculpture as an artistic language?
+- Exclusive use of sound
+- Three-dimensional work with volume and form
+- Exclusive use of written words
+- Total absence of form
+E: Sculpture works with volume and form in three-dimensional space.
+--- es
+P: ¿Qué caracteriza a la escultura como lenguaje artístico?
+- Uso exclusivo de sonidos
+- Trabajo tridimensional con volumen y forma
+- Uso exclusivo de palabras escritas
+- Ausencia total de forma
+E: La escultura trabaja el volumen y la forma en el espacio tridimensional.
+
+=== Linguagens artísticas > Artes visuais c=2 d=medio
+P: O que é uma instalação artística?
+- Um quadro pintado em tela
+- Uma escultura em bronze
+- Uma obra que ocupa e transforma um espaço, muitas vezes com múltiplos elementos
+- Um texto literário
+E: A instalação é uma linguagem que ocupa e transforma o espaço, frequentemente combinando vários elementos.
+--- en
+P: What is an art installation?
+- A painting on canvas
+- A bronze sculpture
+- A work that occupies and transforms a space, often with multiple elements
+- A literary text
+E: Installation art occupies and transforms space, often combining several elements.
+--- es
+P: ¿Qué es una instalación artística?
+- Un cuadro pintado sobre lienzo
+- Una escultura de bronce
+- Una obra que ocupa y transforma un espacio, muchas veces con múltiples elementos
+- Un texto literario
+E: La instalación es un lenguaje que ocupa y transforma el espacio, combinando muchas veces varios elementos.
+
+=== Linguagens artísticas > Artes visuais c=3 d=medio
+P: Qual técnica é caracterizada pelo uso de pigmento diluído em água sobre papel?
+- Óleo sobre tela
+- Escultura em mármore
+- Fotografia digital
+- Aquarela
+E: A aquarela usa pigmento diluído em água aplicado sobre papel.
+--- en
+P: Which technique is characterized by pigment diluted in water applied to paper?
+- Oil on canvas
+- Marble sculpture
+- Digital photography
+- Watercolor
+E: Watercolor uses pigment diluted in water applied to paper.
+--- es
+P: ¿Qué técnica se caracteriza por el uso de pigmento diluido en agua sobre papel?
+- Óleo sobre lienzo
+- Escultura en mármol
+- Fotografía digital
+- Acuarela
+E: La acuarela usa pigmento diluido en agua aplicado sobre papel.
+
+=== Linguagens artísticas > Artes visuais c=0 d=dificil
+P: O que diferencia a gravura das demais técnicas de artes visuais?
+- É produzida a partir de uma matriz que permite múltiplas impressões
+- É sempre feita em tempo real diante do público
+- Não pode ser reproduzida
+- É exclusivamente sonora
+E: A gravura é produzida a partir de uma matriz (madeira, metal etc.) que permite reproduzir a imagem várias vezes.
+--- en
+P: What distinguishes printmaking from other visual arts techniques?
+- It is produced from a matrix that allows multiple impressions
+- It is always made live in front of an audience
+- It cannot be reproduced
+- It is exclusively sound-based
+E: Printmaking is produced from a matrix (wood, metal, etc.) that allows the image to be reproduced multiple times.
+--- es
+P: ¿Qué diferencia al grabado de las demás técnicas de artes visuales?
+- Se produce a partir de una matriz que permite múltiples impresiones
+- Siempre se hace en tiempo real frente al público
+- No se puede reproducir
+- Es exclusivamente sonoro
+E: El grabado se produce a partir de una matriz (madera, metal, etc.) que permite reproducir la imagen varias veces.
+
+=== Linguagens artísticas > Artes visuais c=1 d=dificil
+P: Qual é uma característica central da arte conceitual?
+- A obra deve necessariamente ser figurativa
+- A ideia por trás da obra é tão ou mais importante que sua execução material
+- Só pode ser feita em pedra
+- Não pode envolver nenhum tipo de reflexão
+E: Na arte conceitual, a ideia/conceito por trás da obra tem tanta ou mais importância do que sua execução material.
+--- en
+P: What is a central characteristic of conceptual art?
+- The work must necessarily be figurative
+- The idea behind the work is as important as, or more important than, its material execution
+- It can only be made of stone
+- It cannot involve any kind of reflection
+E: In conceptual art, the idea/concept behind the work matters as much as, or more than, its material execution.
+--- es
+P: ¿Cuál es una característica central del arte conceptual?
+- La obra debe ser necesariamente figurativa
+- La idea detrás de la obra es tan importante o más que su ejecución material
+- Solo puede hacerse en piedra
+- No puede involucrar ningún tipo de reflexión
+E: En el arte conceptual, la idea/concepto detrás de la obra importa tanto o más que su ejecución material.
+
+=== Linguagens artísticas > Artes cênicas c=2 d=facil
+P: O que são artes cênicas?
+- Um gênero culinário
+- Um estilo arquitetônico
+- Formas de expressão como teatro, dança e performance, apresentadas ao vivo
+- Um tipo de escultura
+E: Artes cênicas englobam teatro, dança e performance, apresentadas ao vivo diante de um público.
+--- en
+P: What are the performing arts?
+- A culinary genre
+- An architectural style
+- Forms of expression such as theater, dance and performance, presented live
+- A type of sculpture
+E: The performing arts include theater, dance and performance, presented live in front of an audience.
+--- es
+P: ¿Qué son las artes escénicas?
+- Un género culinario
+- Un estilo arquitectónico
+- Formas de expresión como el teatro, la danza y la performance, presentadas en vivo
+- Un tipo de escultura
+E: Las artes escénicas incluyen el teatro, la danza y la performance, presentadas en vivo ante un público.
+
+=== Linguagens artísticas > Artes cênicas c=3 d=facil
+P: Qual elemento é essencial em uma peça de teatro tradicional?
+- Um quadro pintado
+- Uma escultura de mármore
+- Um livro impresso
+- Atores representando personagens diante de um público
+E: O teatro tradicional depende de atores representando personagens diante de uma audiência.
+--- en
+P: Which element is essential in a traditional theater play?
+- A painted picture
+- A marble sculpture
+- A printed book
+- Actors performing characters in front of an audience
+E: Traditional theater depends on actors performing characters in front of an audience.
+--- es
+P: ¿Qué elemento es esencial en una obra de teatro tradicional?
+- Un cuadro pintado
+- Una escultura de mármol
+- Un libro impreso
+- Actores representando personajes frente a un público
+E: El teatro tradicional depende de actores que representan personajes frente a una audiencia.
+
+=== Linguagens artísticas > Artes cênicas c=0 d=medio
+P: O que caracteriza a commedia dell'arte, tradição teatral italiana?
+- Personagens fixos (máscaras) e improvisação a partir de um roteiro-guia
+- Ausência total de atores
+- Uso exclusivo de textos escritos sem atuação
+- Peças sem nenhum tipo de personagem
+E: A commedia dell'arte usa personagens fixos (com máscaras) e improvisação sobre um roteiro-guia (canovaccio).
+--- en
+P: What characterizes commedia dell'arte, an Italian theatrical tradition?
+- Fixed stock characters (masks) and improvisation from an outline script
+- Total absence of actors
+- Exclusive use of written texts without acting
+- Plays with no characters at all
+E: Commedia dell'arte uses fixed stock characters (with masks) and improvisation on an outline script (canovaccio).
+--- es
+P: ¿Qué caracteriza a la commedia dell'arte, tradición teatral italiana?
+- Personajes fijos (máscaras) e improvisación a partir de un guion-guía
+- Ausencia total de actores
+- Uso exclusivo de textos escritos sin actuación
+- Obras sin ningún tipo de personaje
+E: La commedia dell'arte usa personajes fijos (con máscaras) e improvisación sobre un guion-guía (canovaccio).
+
+=== Linguagens artísticas > Artes cênicas c=1 d=medio
+P: O que é a dança contemporânea, em linhas gerais?
+- Apenas a repetição de passos do balé clássico
+- Uma forma de dança que rompe com padrões clássicos e explora novos movimentos e conceitos
+- Uma dança exclusivamente ritual sem elementos artísticos
+- Uma dança proibida em teatros
+E: A dança contemporânea rompe com padrões clássicos, explorando novos movimentos, conceitos e formas de expressão corporal.
+--- en
+P: What is contemporary dance, broadly speaking?
+- Just the repetition of classical ballet steps
+- A form of dance that breaks with classical patterns and explores new movements and concepts
+- An exclusively ritual dance with no artistic elements
+- A dance forbidden in theaters
+E: Contemporary dance breaks with classical patterns, exploring new movements, concepts and forms of bodily expression.
+--- es
+P: ¿Qué es la danza contemporánea, en líneas generales?
+- Solo la repetición de pasos del ballet clásico
+- Una forma de danza que rompe con patrones clásicos y explora nuevos movimientos y conceptos
+- Una danza exclusivamente ritual sin elementos artísticos
+- Una danza prohibida en los teatros
+E: La danza contemporánea rompe con patrones clásicos, explorando nuevos movimientos, conceptos y formas de expresión corporal.
+
+=== Linguagens artísticas > Artes cênicas c=2 d=dificil
+P: O que caracteriza o teatro do oprimido, criado por Augusto Boal?
+- Um gênero de comédia sem nenhuma crítica social
+- Uma técnica exclusiva de dança clássica
+- Uma prática teatral voltada à reflexão e transformação social, com participação do público
+- Um estilo de ópera italiana
+E: O teatro do oprimido, de Augusto Boal, busca a reflexão e a transformação social por meio da participação ativa do público.
+--- en
+P: What characterizes Theatre of the Oppressed, created by Augusto Boal?
+- A comedy genre with no social criticism at all
+- An exclusive classical dance technique
+- A theatrical practice aimed at social reflection and transformation, with audience participation
+- An Italian opera style
+E: Augusto Boal's Theatre of the Oppressed seeks social reflection and transformation through the audience's active participation.
+--- es
+P: ¿Qué caracteriza al teatro del oprimido, creado por Augusto Boal?
+- Un género de comedia sin ninguna crítica social
+- Una técnica exclusiva de danza clásica
+- Una práctica teatral orientada a la reflexión y transformación social, con participación del público
+- Un estilo de ópera italiana
+E: El teatro del oprimido, de Augusto Boal, busca la reflexión y la transformación social mediante la participación activa del público.
+
+=== Linguagens artísticas > Artes cênicas c=3 d=dificil
+P: Qual é uma característica da performance art como linguagem cênica?
+- É sempre roteirizada como uma peça clássica
+- Não pode envolver o público de forma alguma
+- É exclusiva de teatros fechados
+- Envolve o corpo do artista como principal meio de expressão, muitas vezes sem roteiro fixo
+E: A performance art tem o corpo do artista como principal meio de expressão, frequentemente sem um roteiro fixo.
+--- en
+P: What is a characteristic of performance art as a scenic language?
+- It is always scripted like a classical play
+- It can never involve the audience at all
+- It is exclusive to enclosed theaters
+- It involves the artist's body as the main means of expression, often without a fixed script
+E: Performance art uses the artist's body as the main means of expression, often without a fixed script.
+--- es
+P: ¿Cuál es una característica de la performance art como lenguaje escénico?
+- Siempre está guionizada como una obra clásica
+- Nunca puede involucrar al público
+- Es exclusiva de teatros cerrados
+- Involucra el cuerpo del artista como principal medio de expresión, muchas veces sin guion fijo
+E: La performance art tiene el cuerpo del artista como principal medio de expresión, muchas veces sin un guion fijo.
+
+=== Movimentos artísticos brasileiros > Barroco c=0 d=facil
+P: O Barroco, movimento artístico dos séculos XVII e XVIII, é caracterizado por:
+- Contrastes dramáticos, movimento e forte apelo emocional
+- Simplicidade extrema e ausência de ornamentos
+- Formas geométricas abstratas sem nenhuma figura
+- Uso exclusivo de cores neutras
+E: O Barroco é marcado por contrastes dramáticos, movimento e forte apelo emocional.
+--- en
+P: The Baroque, an artistic movement of the 17th and 18th centuries, is characterized by:
+- Dramatic contrasts, movement and strong emotional appeal
+- Extreme simplicity and absence of ornaments
+- Abstract geometric forms with no figures at all
+- Exclusive use of neutral colors
+E: The Baroque is marked by dramatic contrasts, movement and strong emotional appeal.
+--- es
+P: El Barroco, movimiento artístico de los siglos XVII y XVIII, se caracteriza por:
+- Contrastes dramáticos, movimiento y fuerte apelo emocional
+- Simplicidad extrema y ausencia de ornamentos
+- Formas geométricas abstractas sin ninguna figura
+- Uso exclusivo de colores neutros
+E: El Barroco se caracteriza por contrastes dramáticos, movimiento y fuerte apelo emocional.
+
+=== Movimentos artísticos brasileiros > Barroco c=1 d=facil
+P: No Brasil, o Barroco teve grande expressão principalmente em qual região, ligada ao ciclo do ouro?
+- Litoral do Rio Grande do Sul
+- Minas Gerais
+- Amazônia
+- Sertão nordestino
+E: O Barroco brasileiro teve grande expressão em Minas Gerais, região ligada ao ciclo do ouro.
+--- en
+P: In Brazil, the Baroque had major expression mainly in which region, linked to the gold cycle?
+- Coast of Rio Grande do Sul
+- Minas Gerais
+- The Amazon
+- The Northeastern backlands
+E: Brazilian Baroque had major expression in Minas Gerais, a region linked to the gold cycle.
+--- es
+P: En Brasil, ¿en qué región tuvo el Barroco mayor expresión, ligada al ciclo del oro?
+- Litoral de Rio Grande do Sul
+- Minas Gerais
+- La Amazonía
+- El sertón nororiental
+E: El Barroco brasileño tuvo gran expresión en Minas Gerais, región ligada al ciclo del oro.
+
+=== Movimentos artísticos brasileiros > Barroco c=2 d=medio
+P: Aleijadinho, importante artista do Barroco brasileiro, destacou-se principalmente em qual área?
+- Música popular
+- Cinema
+- Escultura e arquitetura religiosa
+- Fotografia
+E: Aleijadinho destacou-se na escultura e na arquitetura religiosa do Barroco mineiro.
+--- en
+P: Aleijadinho, an important artist of Brazilian Baroque, was mainly known in which area?
+- Popular music
+- Cinema
+- Sculpture and religious architecture
+- Photography
+E: Aleijadinho was known for sculpture and religious architecture in the Baroque of Minas Gerais.
+--- es
+P: Aleijadinho, importante artista del Barroco brasileño, se destacó principalmente en qué área?
+- Música popular
+- Cine
+- Escultura y arquitectura religiosa
+- Fotografía
+E: Aleijadinho se destacó en la escultura y la arquitectura religiosa del Barroco de Minas Gerais.
+
+=== Movimentos artísticos brasileiros > Barroco c=3 d=medio
+P: O que caracteriza a pintura barroca em termos de luz e sombra?
+- Ausência total de contraste
+- Uso de cores exclusivamente pastel
+- Iluminação plana e uniforme
+- Forte contraste entre luz e sombra (claro-escuro), criando dramaticidade
+E: A pintura barroca usa forte contraste entre luz e sombra (claro-escuro) para criar dramaticidade.
+--- en
+P: What characterizes Baroque painting in terms of light and shadow?
+- Total absence of contrast
+- Exclusive use of pastel colors
+- Flat and uniform lighting
+- Strong contrast between light and shadow (chiaroscuro), creating drama
+E: Baroque painting uses strong contrast between light and shadow (chiaroscuro) to create drama.
+--- es
+P: ¿Qué caracteriza a la pintura barroca en términos de luz y sombra?
+- Ausencia total de contraste
+- Uso exclusivo de colores pastel
+- Iluminación plana y uniforme
+- Fuerte contraste entre luz y sombra (claroscuro), creando dramatismo
+E: La pintura barroca usa un fuerte contraste entre luz y sombra (claroscuro) para crear dramatismo.
+
+=== Movimentos artísticos brasileiros > Barroco c=0 d=dificil
+P: Qual é uma característica arquitetônica típica das igrejas barrocas?
+- Fachadas ornamentadas, curvas e interiores ricamente decorados
+- Fachadas totalmente lisas e sem ornamentos
+- Ausência completa de elementos religiosos
+- Estruturas exclusivamente de vidro e aço
+E: As igrejas barrocas costumam ter fachadas ornamentadas, curvas e interiores ricamente decorados.
+--- en
+P: What is a typical architectural characteristic of Baroque churches?
+- Ornamented, curved façades and richly decorated interiors
+- Completely flat façades with no ornaments
+- Complete absence of religious elements
+- Structures made exclusively of glass and steel
+E: Baroque churches usually have ornamented, curved façades and richly decorated interiors.
+--- es
+P: ¿Cuál es una característica arquitectónica típica de las iglesias barrocas?
+- Fachadas ornamentadas, curvas e interiores ricamente decorados
+- Fachadas totalmente lisas y sin ornamentos
+- Ausencia completa de elementos religiosos
+- Estructuras exclusivamente de vidrio y acero
+E: Las iglesias barrocas suelen tener fachadas ornamentadas, curvas e interiores ricamente decorados.
+
+=== Movimentos artísticos brasileiros > Barroco c=1 d=dificil
+P: O Barroco no Brasil está historicamente associado a qual contexto socioeconômico?
+- A economia da pecuária no Sul
+- A economia mineradora e a Igreja Católica no período colonial
+- A economia extrativista da borracha
+- A industrialização do século XX
+E: O Barroco brasileiro está ligado historicamente à economia mineradora e à Igreja Católica no período colonial.
+--- en
+P: Brazilian Baroque is historically associated with which socioeconomic context?
+- Cattle-ranching economy in the South
+- The mining economy and the Catholic Church in the colonial period
+- The rubber extraction economy
+- 20th-century industrialization
+E: Brazilian Baroque is historically linked to the mining economy and the Catholic Church in the colonial period.
+--- es
+P: ¿A qué contexto socioeconómico está asociado históricamente el Barroco en Brasil?
+- La economía ganadera en el Sur
+- La economía minera y la Iglesia Católica en el período colonial
+- La economía extractivista del caucho
+- La industrialización del siglo XX
+E: El Barroco brasileño está ligado históricamente a la economía minera y a la Iglesia Católica en el período colonial.
+
+=== Movimentos artísticos brasileiros > Modernismo c=2 d=facil
+P: A Semana de Arte Moderna de 1922, em São Paulo, é considerada um marco de qual movimento?
+- Barroco brasileiro
+- Renascimento
+- Modernismo brasileiro
+- Impressionismo europeu
+E: A Semana de Arte Moderna de 1922 é considerada o marco inicial do Modernismo brasileiro.
+--- en
+P: The Modern Art Week of 1922, in São Paulo, is considered a landmark of which movement?
+- Brazilian Baroque
+- Renaissance
+- Brazilian Modernism
+- European Impressionism
+E: The 1922 Modern Art Week is considered the founding landmark of Brazilian Modernism.
+--- es
+P: La Semana de Arte Moderno de 1922, en São Paulo, ¿es considerada un hito de qué movimiento?
+- Barroco brasileño
+- Renacimiento
+- Modernismo brasileño
+- Impresionismo europeo
+E: La Semana de Arte Moderno de 1922 se considera el hito inicial del Modernismo brasileño.
+
+=== Movimentos artísticos brasileiros > Modernismo c=3 d=facil
+P: Qual artista brasileira é famosa por obras modernistas como "Abaporu"?
+- Anita Malfatti
+- Débora Colker
+- Cândido Portinari
+- Tarsila do Amaral
+E: Tarsila do Amaral é a autora de "Abaporu", uma das obras mais icônicas do Modernismo brasileiro.
+--- en
+P: Which Brazilian artist is famous for modernist works such as "Abaporu"?
+- Anita Malfatti
+- Débora Colker
+- Cândido Portinari
+- Tarsila do Amaral
+E: Tarsila do Amaral is the author of "Abaporu", one of the most iconic works of Brazilian Modernism.
+--- es
+P: ¿Qué artista brasileña es famosa por obras modernistas como "Abaporu"?
+- Anita Malfatti
+- Débora Colker
+- Cândido Portinari
+- Tarsila do Amaral
+E: Tarsila do Amaral es la autora de "Abaporu", una de las obras más icónicas del Modernismo brasileño.
+
+=== Movimentos artísticos brasileiros > Modernismo c=0 d=medio
+P: O Modernismo brasileiro buscava, entre outros objetivos:
+- Romper com padrões acadêmicos europeus e valorizar temas e uma linguagem nacional
+- Reproduzir fielmente o estilo neoclássico europeu
+- Evitar qualquer referência à cultura brasileira
+- Retornar às técnicas exatas do Renascimento
+E: O Modernismo buscava romper com padrões acadêmicos europeus e valorizar temas e uma linguagem nacional.
+--- en
+P: Brazilian Modernism sought, among other goals, to:
+- Break with European academic standards and value national themes and language
+- Faithfully reproduce the European neoclassical style
+- Avoid any reference to Brazilian culture
+- Return to the exact techniques of the Renaissance
+E: Modernism sought to break with European academic standards and value national themes and language.
+--- es
+P: El Modernismo brasileño buscaba, entre otros objetivos:
+- Romper con los patrones académicos europeos y valorar temas y un lenguaje nacional
+- Reproducir fielmente el estilo neoclásico europeo
+- Evitar cualquier referencia a la cultura brasileña
+- Volver a las técnicas exactas del Renacimiento
+E: El Modernismo buscaba romper con los patrones académicos europeos y valorar temas y un lenguaje nacional.
+
+=== Movimentos artísticos brasileiros > Modernismo c=1 d=medio
+P: O Movimento Antropofágico, ligado ao Modernismo, propunha:
+- A rejeição completa de qualquer influência estrangeira
+- "Devorar" referências estrangeiras e reelaborá-las de forma original e brasileira
+- A cópia exata de obras europeias
+- O fim de toda produção artística nacional
+E: O Movimento Antropofágico propunha "devorar" referências estrangeiras e reelaborá-las de forma original e brasileira.
+--- en
+P: The Anthropophagic Movement, linked to Modernism, proposed:
+- The complete rejection of any foreign influence
+- "Devouring" foreign references and reworking them in an original, Brazilian way
+- The exact copying of European works
+- The end of all national artistic production
+E: The Anthropophagic Movement proposed "devouring" foreign references and reworking them in an original, Brazilian way.
+--- es
+P: El Movimiento Antropofágico, ligado al Modernismo, proponía:
+- El rechazo completo de cualquier influencia extranjera
+- "Devorar" referencias extranjeras y reelaborarlas de forma original y brasileña
+- La copia exacta de obras europeas
+- El fin de toda producción artística nacional
+E: El Movimiento Antropofágico proponía "devorar" referencias extranjeras y reelaborarlas de forma original y brasileña.
+
+=== Movimentos artísticos brasileiros > Modernismo c=2 d=dificil
+P: Qual é uma característica formal comum nas obras modernistas brasileiras da década de 1920?
+- Detalhismo fotográfico extremo
+- Simplificação de formas e cores fortes, com temas ligados à identidade nacional
+- Ausência total de cor
+- Uso exclusivo de tons sépia
+E: As obras modernistas dos anos 1920 costumam apresentar simplificação de formas e cores fortes, com temas nacionais.
+--- en
+P: What is a common formal characteristic of Brazilian modernist works from the 1920s?
+- Extreme photographic detail
+- Simplification of forms and strong colors, with themes linked to national identity
+- Total absence of color
+- Exclusive use of sepia tones
+E: Modernist works from the 1920s usually show simplification of forms and strong colors, with national themes.
+--- es
+P: ¿Cuál es una característica formal común en las obras modernistas brasileñas de la década de 1920?
+- Detallismo fotográfico extremo
+- Simplificación de formas y colores fuertes, con temas ligados a la identidad nacional
+- Ausencia total de color
+- Uso exclusivo de tonos sepia
+E: Las obras modernistas de los años 1920 suelen presentar simplificación de formas y colores fuertes, con temas nacionales.
+
+=== Movimentos artísticos brasileiros > Modernismo c=3 d=dificil
+P: O Modernismo brasileiro teve desdobramentos além das artes visuais, alcançando também:
+- Somente a culinária
+- Somente a arquitetura militar
+- Somente o teatro de rua
+- A literatura, com autores como Mário de Andrade e Oswald de Andrade
+E: O Modernismo também impactou a literatura, com autores como Mário de Andrade e Oswald de Andrade.
+--- en
+P: Brazilian Modernism had developments beyond visual arts, also reaching:
+- Only cuisine
+- Only military architecture
+- Only street theater
+- Literature, with authors such as Mário de Andrade and Oswald de Andrade
+E: Modernism also impacted literature, with authors such as Mário de Andrade and Oswald de Andrade.
+--- es
+P: El Modernismo brasileño tuvo desarrollos más allá de las artes visuales, alcanzando también:
+- Solo la gastronomía
+- Solo la arquitectura militar
+- Solo el teatro de calle
+- La literatura, con autores como Mário de Andrade y Oswald de Andrade
+E: El Modernismo también impactó la literatura, con autores como Mário de Andrade y Oswald de Andrade.
+
+=== Movimentos artísticos brasileiros > Arte contemporânea brasileira c=0 d=facil
+P: A arte contemporânea brasileira, a partir da segunda metade do século XX, se caracteriza por:
+- Diversidade de linguagens, materiais e temas, incluindo instalações e performances
+- Uso exclusivo de técnicas do Renascimento
+- Ausência total de crítica social
+- Restrição a um único estilo fixo
+E: A arte contemporânea brasileira se caracteriza pela diversidade de linguagens, materiais e temas.
+--- en
+P: Brazilian contemporary art, from the second half of the 20th century on, is characterized by:
+- Diversity of languages, materials and themes, including installations and performances
+- Exclusive use of Renaissance techniques
+- Total absence of social criticism
+- Restriction to a single fixed style
+E: Brazilian contemporary art is characterized by a diversity of languages, materials and themes.
+--- es
+P: El arte contemporáneo brasileño, desde la segunda mitad del siglo XX, se caracteriza por:
+- Diversidad de lenguajes, materiales y temas, incluyendo instalaciones y performances
+- Uso exclusivo de técnicas del Renacimiento
+- Ausencia total de crítica social
+- Restricción a un único estilo fijo
+E: El arte contemporáneo brasileño se caracteriza por la diversidad de lenguajes, materiales y temas.
+
+=== Movimentos artísticos brasileiros > Arte contemporânea brasileira c=1 d=facil
+P: Hélio Oiticica, importante artista contemporâneo brasileiro, é conhecido por explorar:
+- Apenas pintura acadêmica tradicional
+- A relação entre corpo, cor e espaço em obras participativas
+- Exclusivamente esculturas em mármore clássico
+- Apenas retratos realistas
+E: Hélio Oiticica é conhecido por explorar a relação entre corpo, cor e espaço em obras participativas.
+--- en
+P: Hélio Oiticica, an important Brazilian contemporary artist, is known for exploring:
+- Only traditional academic painting
+- The relationship between body, color and space in participatory works
+- Exclusively classical marble sculptures
+- Only realistic portraits
+E: Hélio Oiticica is known for exploring the relationship between body, color and space in participatory works.
+--- es
+P: Hélio Oiticica, importante artista contemporáneo brasileño, es conocido por explorar:
+- Solo pintura académica tradicional
+- La relación entre cuerpo, color y espacio en obras participativas
+- Exclusivamente esculturas de mármol clásico
+- Solo retratos realistas
+E: Hélio Oiticica es conocido por explorar la relación entre cuerpo, color y espacio en obras participativas.
+
+=== Movimentos artísticos brasileiros > Arte contemporânea brasileira c=2 d=medio
+P: Lygia Clark, artista brasileira ligada ao Neoconcretismo, é conhecida por obras que:
+- Devem ser observadas apenas à distância, sem contato
+- São feitas exclusivamente em pedra
+- Convidam o espectador a interagir fisicamente com a obra
+- Retratam paisagens de forma realista
+E: Lygia Clark é conhecida por obras que convidam o espectador a interagir fisicamente com elas.
+--- en
+P: Lygia Clark, a Brazilian artist linked to Neo-Concretism, is known for works that:
+- Must be viewed only from a distance, without contact
+- Are made exclusively of stone
+- Invite the viewer to physically interact with the work
+- Realistically depict landscapes
+E: Lygia Clark is known for works that invite the viewer to physically interact with them.
+--- es
+P: Lygia Clark, artista brasileña ligada al Neoconcretismo, es conocida por obras que:
+- Deben observarse solo a distancia, sin contacto
+- Están hechas exclusivamente de piedra
+- Invitan al espectador a interactuar físicamente con la obra
+- Retratan paisajes de forma realista
+E: Lygia Clark es conocida por obras que invitan al espectador a interactuar físicamente con ellas.
+
+=== Movimentos artísticos brasileiros > Arte contemporânea brasileira c=3 d=medio
+P: O grafite, presente em muitas cidades brasileiras, é hoje reconhecido por parte da crítica como:
+- Uma linguagem exclusivamente ilegal sem valor artístico
+- Uma prática restrita a museus
+- Uma técnica extinta desde o século XIX
+- Uma forma de arte urbana contemporânea legítima
+E: O grafite é hoje reconhecido por parte da crítica como uma forma legítima de arte urbana contemporânea.
+--- en
+P: Graffiti, present in many Brazilian cities, is today recognized by part of the critics as:
+- An exclusively illegal language with no artistic value
+- A practice restricted to museums
+- A technique extinct since the 19th century
+- A legitimate form of contemporary urban art
+E: Graffiti is today recognized by part of the critics as a legitimate form of contemporary urban art.
+--- es
+P: El grafiti, presente en muchas ciudades brasileñas, hoy es reconocido por parte de la crítica como:
+- Un lenguaje exclusivamente ilegal sin valor artístico
+- Una práctica restringida a los museos
+- Una técnica extinta desde el siglo XIX
+- Una forma de arte urbano contemporáneo legítima
+E: El grafiti hoy es reconocido por parte de la crítica como una forma legítima de arte urbano contemporáneo.
+
+=== Movimentos artísticos brasileiros > Arte contemporânea brasileira c=0 d=dificil
+P: A obra de artistas contemporâneos como Adriana Varejão frequentemente aborda temas relacionados a:
+- História colonial, corpo e identidade brasileira
+- Exclusivamente paisagens naturais sem crítica
+- Apenas temas abstratos geométricos sem significado
+- Culinária regional apenas
+E: A obra de Adriana Varejão frequentemente aborda a história colonial, o corpo e a identidade brasileira.
+--- en
+P: The work of contemporary artists such as Adriana Varejão often addresses themes related to:
+- Colonial history, the body and Brazilian identity
+- Exclusively natural landscapes without any criticism
+- Only abstract geometric themes with no meaning
+- Only regional cuisine
+E: Adriana Varejão's work often addresses colonial history, the body and Brazilian identity.
+--- es
+P: La obra de artistas contemporáneos como Adriana Varejão frecuentemente aborda temas relacionados con:
+- La historia colonial, el cuerpo y la identidad brasileña
+- Exclusivamente paisajes naturales sin ninguna crítica
+- Solo temas abstractos geométricos sin significado
+- Solo gastronomía regional
+E: La obra de Adriana Varejão frecuentemente aborda la historia colonial, el cuerpo y la identidad brasileña.
+
+=== Movimentos artísticos brasileiros > Arte contemporânea brasileira c=1 d=dificil
+P: Um traço comum na arte contemporânea é:
+- A rejeição categórica de qualquer novo material
+- A hibridização de linguagens e o uso de materiais não convencionais
+- O uso restrito apenas à pintura em tela
+- A obrigatoriedade de representar figuras humanas realistas
+E: Um traço comum da arte contemporânea é a hibridização de linguagens e o uso de materiais não convencionais.
+--- en
+P: A common trait in contemporary art is:
+- The categorical rejection of any new material
+- The hybridization of languages and the use of unconventional materials
+- Restriction to painting on canvas only
+- The obligation to depict realistic human figures
+E: A common trait of contemporary art is the hybridization of languages and the use of unconventional materials.
+--- es
+P: Un rasgo común en el arte contemporáneo es:
+- El rechazo categórico de cualquier material nuevo
+- La hibridación de lenguajes y el uso de materiales no convencionales
+- El uso restringido únicamente a la pintura sobre lienzo
+- La obligatoriedad de representar figuras humanas realistas
+E: Un rasgo común del arte contemporáneo es la hibridación de lenguajes y el uso de materiales no convencionales.

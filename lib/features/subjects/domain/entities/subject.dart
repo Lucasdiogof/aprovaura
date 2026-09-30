@@ -14,6 +14,7 @@ enum Subject {
   literatura,
   ingles,
   espanhol,
+  artes,
   atualidades,
 
   /// Not a question bank: the essay feature (themes, writing, AI marking).
@@ -38,6 +39,7 @@ enum Subject {
     Subject.literatura => Icons.auto_stories_outlined,
     Subject.ingles => Icons.translate_outlined,
     Subject.espanhol => Icons.language_outlined,
+    Subject.artes => Icons.palette_outlined,
     Subject.atualidades => Icons.newspaper_outlined,
     Subject.redacao => Icons.edit_note_rounded,
   };
@@ -55,6 +57,7 @@ enum Subject {
     Subject.literatura => const Color(0xFFB5577E),
     Subject.ingles => const Color(0xFF2E86C1),
     Subject.espanhol => const Color(0xFFD1495B),
+    Subject.artes => const Color(0xFF1B998B),
     Subject.atualidades => const Color(0xFF6B7B8C),
     // The brand violet: Redação is its own thing, not a subject accent.
     Subject.redacao => const Color(0xFF8B5CF6),
@@ -120,6 +123,11 @@ enum Subject {
       AppLanguage.portuguese => 'Espanhol',
       AppLanguage.english => 'Spanish',
       AppLanguage.spanish => 'Español',
+    },
+    Subject.artes => switch (language) {
+      AppLanguage.portuguese => 'Artes',
+      AppLanguage.english => 'Arts',
+      AppLanguage.spanish => 'Artes',
     },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese => 'Atualidades',
@@ -202,6 +210,13 @@ enum Subject {
       AppLanguage.portuguese => 'Leitura, gramática e vocabulário em espanhol.',
       AppLanguage.english => 'Reading, grammar and vocabulary in Spanish.',
       AppLanguage.spanish => 'Lectura, gramática y vocabulario en español.',
+    },
+    Subject.artes => switch (language) {
+      AppLanguage.portuguese =>
+        'Movimentos artísticos, cultura e linguagem visual.',
+      AppLanguage.english => 'Artistic movements, culture and visual language.',
+      AppLanguage.spanish =>
+        'Movimientos artísticos, cultura y lenguaje visual.',
     },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese =>

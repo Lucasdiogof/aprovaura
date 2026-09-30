@@ -1,0 +1,91 @@
+== Linguagens artísticas | As diferentes formas de expressão artística | 🎨
+en: Artistic languages | The different forms of artistic expression
+es: Lenguajes artísticos | Las diferentes formas de expresión artística
+-- Artes visuais
+en: Visual arts
+es: Artes visuales
+-- Artes cênicas
+en: Performing arts
+es: Artes escénicas
+
+== Movimentos artísticos brasileiros | Barroco, Modernismo e arte contemporânea no Brasil | 🇧🇷
+en: Brazilian artistic movements | Baroque, Modernism and contemporary art in Brazil
+es: Movimientos artísticos brasileños | Barroco, Modernismo y arte contemporáneo en Brasil
+-- Barroco
+en: Baroque
+es: Barroco
+-- Modernismo
+en: Modernism
+es: Modernismo
+-- Arte contemporânea brasileira
+en: Contemporary Brazilian art
+es: Arte contemporáneo brasileño
+
+== Movimentos artísticos internacionais | Renascimento, Impressionismo e vanguardas europeias | 🖼️
+en: International artistic movements | Renaissance, Impressionism and European avant-gardes
+es: Movimientos artísticos internacionales | Renacimiento, Impresionismo y vanguardias europeas
+-- Renascimento
+en: Renaissance
+es: Renacimiento
+-- Impressionismo
+en: Impressionism
+es: Impresionismo
+-- Vanguardas europeias
+en: European avant-gardes
+es: Vanguardias europeas
+
+== Música | Elementos musicais e história da música popular brasileira | 🎵
+en: Music | Musical elements and the history of Brazilian popular music
+es: Música | Elementos musicales e historia de la música popular brasileña
+-- Elementos da música
+en: Elements of music
+es: Elementos de la música
+-- História da música popular brasileira
+en: History of Brazilian popular music
+es: Historia de la música popular brasileña
+
+== Arquitetura e patrimônio | Arquitetura brasileira e preservação do patrimônio cultural | 🏛️
+en: Architecture and heritage | Brazilian architecture and cultural heritage preservation
+es: Arquitectura y patrimonio | Arquitectura brasileña y preservación del patrimonio cultural
+-- Arquitetura brasileira
+en: Brazilian architecture
+es: Arquitectura brasileña
+-- Patrimônio cultural e preservação
+en: Cultural heritage and preservation
+es: Patrimonio cultural y preservación
+
+== Cultura popular e folclore | Festas, tradições e artesanato do povo brasileiro | 🎭
+en: Popular culture and folklore | Festivals, traditions and craftsmanship of the Brazilian people
+es: Cultura popular y folclore | Fiestas, tradiciones y artesanía del pueblo brasileño
+-- Festas e tradições populares
+en: Popular festivals and traditions
+es: Fiestas y tradiciones populares
+-- Artesanato e cultura material
+en: Crafts and material culture
+es: Artesanía y cultura material
+
+== Cinema e audiovisual | História, linguagem e cinema brasileiro | 🎬
+en: Cinema and audiovisual | History, language and Brazilian cinema
+es: Cine y audiovisual | Historia, lenguaje y cine brasileño
+-- História do cinema
+en: History of cinema
+es: Historia del cine
+-- Linguagem cinematográfica
+en: Film language
+es: Lenguaje cinematográfico
+-- Cinema brasileiro
+en: Brazilian cinema
+es: Cine brasileño
+
+== Arte e sociedade | Arte engajada, indústria cultural e novas mídias | 💻
+en: Art and society | Engaged art, cultural industry and new media
+es: Arte y sociedad | Arte comprometido, industria cultural y nuevos medios
+-- Arte engajada e política
+en: Engaged and political art
+es: Arte comprometido y político
+-- Indústria cultural
+en: Cultural industry
+es: Industria cultural
+-- Arte digital e novas mídias
+en: Digital art and new media
+es: Arte digital y nuevos medios

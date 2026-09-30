@@ -94,6 +94,8 @@ void main() {
       await tester.pumpAndSettle();
 
       await tester.scrollUntilVisible(find.text('Redação'), 300);
+      await tester.ensureVisible(find.text('Redação'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Redação'));
       await tester.pumpAndSettle();
 
@@ -241,6 +243,7 @@ void main() {
           Subject.literatura,
           Subject.ingles,
           Subject.espanhol,
+          Subject.artes,
           Subject.atualidades,
           Subject.redacao,
         ]);
