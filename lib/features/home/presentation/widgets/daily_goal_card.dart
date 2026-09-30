@@ -3,14 +3,14 @@ import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/home/domain/entities/daily_goal.dart';
 import 'package:aura/features/home/l10n/home_strings.dart';
-import 'package:aura/features/home/presentation/widgets/daily_goal_animated_border.dart';
+import 'package:aura/shared/widgets/aura/aura_animated_border.dart';
 
 /// How many questions the user has answered today versus the daily target.
 ///
 /// Two looks, both read straight from [DailyGoal.isComplete] (no rule of
 /// its own):
 /// - still to do: a band of light runs around the outline
-///   ([DailyGoalAnimatedBorder]); everything inside stays still;
+///   ([AuraAnimatedBorder]); everything inside stays still;
 /// - done: fully static, "Meta batida!", a slightly firmer border.
 ///
 /// [goal] is null while it loads: the card shows its shell but doesn't
@@ -32,7 +32,7 @@ class DailyGoalCard extends StatelessWidget {
     final reduced = MediaQuery.disableAnimationsOf(context);
     final switchDuration = reduced ? Duration.zero : _switch;
 
-    return DailyGoalAnimatedBorder(
+    return AuraAnimatedBorder(
       active: animate,
       borderRadius: AppRadius.lg,
       child: AnimatedContainer(

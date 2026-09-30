@@ -249,11 +249,14 @@ class _ProfileBody extends StatelessWidget {
                       ),
                     ),
                     if (xpState is XpLoaded) ...[
-                      const SizedBox(height: AppSpacing.sm),
+                      // The level card carries the running light, so it
+                      // gets room to breathe instead of sitting tight
+                      // against the identity card above it.
+                      const SizedBox(height: AppSpacing.lg),
                       XpLevelCard(strings: t, xp: xpState.xp),
                     ],
                     if (statsState is ProfileStatsLoaded) ...[
-                      const SizedBox(height: AppSpacing.sm),
+                      const SizedBox(height: AppSpacing.md),
                       ProfileStatsRow(
                         strings: t,
                         streakDays: streakDays,

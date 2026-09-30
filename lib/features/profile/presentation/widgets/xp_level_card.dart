@@ -3,6 +3,7 @@ import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/profile/l10n/profile_strings.dart';
 import 'package:aura/features/xp/domain/entities/user_xp.dart';
+import 'package:aura/shared/widgets/aura/aura_animated_border.dart';
 import 'package:aura/shared/widgets/aura/aura_glyph.dart';
 
 /// Level + Aura progress. Named after the backend's XP (user_xp) that
@@ -10,6 +11,10 @@ import 'package:aura/shared/widgets/aura/aura_glyph.dart';
 ///
 /// Two lines on purpose: "Nível 2" and "50 / 100 Aura para o nível 3" used
 /// to share one row and overflowed on 360px phones.
+///
+/// It wears the same running light as the daily goal card on Home: this is
+/// the card worth looking at first on Profile, and the light is what says
+/// so without adding another colour to the screen.
 class XpLevelCard extends StatelessWidget {
   const XpLevelCard({required this.strings, required this.xp, super.key});
 
@@ -19,66 +24,70 @@ class XpLevelCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    return Container(
-      padding: const EdgeInsets.all(AppSpacing.lg),
-      decoration: BoxDecoration(
-        color: colors.surface,
-        borderRadius: BorderRadius.circular(AppRadius.lg),
-        border: Border.all(color: colors.border),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                width: 40,
-                height: 40,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: colors.auraViolet.withValues(alpha: 0.14),
-                  shape: BoxShape.circle,
+    return AuraAnimatedBorder(
+      active: true,
+      borderRadius: AppRadius.lg,
+      child: Container(
+        padding: const EdgeInsets.all(AppSpacing.lg),
+        decoration: BoxDecoration(
+          color: colors.surface,
+          borderRadius: BorderRadius.circular(AppRadius.lg),
+          border: Border.all(color: colors.border),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 40,
+                  height: 40,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: colors.auraViolet.withValues(alpha: 0.14),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const AuraGlyph(size: 20),
                 ),
-                child: const AuraGlyph(size: 20),
-              ),
-              const SizedBox(width: AppSpacing.md),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      strings.levelLabel(xp.level),
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                        color: colors.textPrimary,
+                const SizedBox(width: AppSpacing.md),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        strings.levelLabel(xp.level),
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16,
+                          color: colors.textPrimary,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      strings.auraTotal(xp.totalXp),
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: colors.textSecondary,
+                      const SizedBox(height: 2),
+                      Text(
+                        strings.auraTotal(xp.totalXp),
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: colors.textSecondary,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: AppSpacing.md),
-          _AuraProgressBar(value: xp.levelProgress),
-          const SizedBox(height: AppSpacing.sm),
-          Text(
-            strings.auraToNextLevel(
-              xp.xpIntoLevel,
-              xp.xpForNextLevel,
-              xp.level + 1,
+              ],
             ),
-            style: TextStyle(fontSize: 12, color: colors.textSecondary),
-          ),
-        ],
+            const SizedBox(height: AppSpacing.md),
+            _AuraProgressBar(value: xp.levelProgress),
+            const SizedBox(height: AppSpacing.sm),
+            Text(
+              strings.auraToNextLevel(
+                xp.xpIntoLevel,
+                xp.xpForNextLevel,
+                xp.level + 1,
+              ),
+              style: TextStyle(fontSize: 12, color: colors.textSecondary),
+            ),
+          ],
+        ),
       ),
     );
   }

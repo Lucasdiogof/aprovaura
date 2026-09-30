@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:aura/core/theme/app_colors.dart';
 
 /// A short band of light running around [child]'s rounded outline while
-/// [active] -- the "still to do" cue of the daily goal card.
+/// [active].
+///
+/// It marks the one card worth looking at first on a screen: the daily
+/// goal on Home while it is still to do, the level card on Profile.
 ///
 /// Only the border moves: the controller drives a [CustomPainter] through
 /// `repaint:`, inside a [RepaintBoundary], so no frame rebuilds or
@@ -18,8 +21,8 @@ import 'package:aura/core/theme/app_colors.dart';
 /// Turning [active] off fades the light out over [fadeDuration] and then
 /// pauses the loop; turning it back on resumes it. A card that
 /// is built already inactive never animates at all.
-class DailyGoalAnimatedBorder extends StatefulWidget {
-  const DailyGoalAnimatedBorder({
+class AuraAnimatedBorder extends StatefulWidget {
+  const AuraAnimatedBorder({
     required this.active,
     required this.borderRadius,
     required this.child,
@@ -38,19 +41,19 @@ class DailyGoalAnimatedBorder extends StatefulWidget {
   static const staticPhase = 0.08;
 
   @override
-  State<DailyGoalAnimatedBorder> createState() =>
-      _DailyGoalAnimatedBorderState();
+  State<AuraAnimatedBorder> createState() =>
+      _AuraAnimatedBorderState();
 }
 
-class _DailyGoalAnimatedBorderState extends State<DailyGoalAnimatedBorder>
+class _AuraAnimatedBorderState extends State<AuraAnimatedBorder>
     with TickerProviderStateMixin {
   AnimationController? _loop;
 
-  /// 1 while [DailyGoalAnimatedBorder.active], easing to 0 after it turns
+  /// 1 while [AuraAnimatedBorder.active], easing to 0 after it turns
   /// off. The light stays painted (and moving) until this reaches 0.
   late final AnimationController _intensity = AnimationController(
     vsync: this,
-    duration: DailyGoalAnimatedBorder.fadeDuration,
+    duration: AuraAnimatedBorder.fadeDuration,
     value: widget.active ? 1 : 0,
   )..addStatusListener(_onIntensityStatus);
 
@@ -66,7 +69,7 @@ class _DailyGoalAnimatedBorderState extends State<DailyGoalAnimatedBorder>
   }
 
   @override
-  void didUpdateWidget(DailyGoalAnimatedBorder oldWidget) {
+  void didUpdateWidget(AuraAnimatedBorder oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.active == oldWidget.active) return;
     if (widget.active) {
@@ -96,7 +99,7 @@ class _DailyGoalAnimatedBorderState extends State<DailyGoalAnimatedBorder>
     }
     final loop = _loop ??= AnimationController(
       vsync: this,
-      duration: DailyGoalAnimatedBorder.loopDuration,
+      duration: AuraAnimatedBorder.loopDuration,
     );
     if (_canRun) {
       if (!loop.isAnimating) loop.repeat();
@@ -122,7 +125,7 @@ class _DailyGoalAnimatedBorderState extends State<DailyGoalAnimatedBorder>
         foregroundPainter: _RunningLightPainter(
           phase: loop == null || _reducedMotion
               ? const AlwaysStoppedAnimation<double>(
-                  DailyGoalAnimatedBorder.staticPhase,
+                  AuraAnimatedBorder.staticPhase,
                 )
               : loop,
           intensity: _intensity,
@@ -161,9 +164,12 @@ class _RunningLightPainter extends CustomPainter {
   static const strokeWidth = 1.5;
   static const _pieces = 24;
 
-  static Size? _cachedSize;
-  static double? _cachedRadius;
-  static ui.PathMetric? _cachedMetric;
+  // Per painter, not static: Home and Profile both keep a border alive
+  // behind the shell's IndexedStack, and one shared slot would be
+  // recomputed every frame as the two sizes took turns in it.
+  Size? _cachedSize;
+  double? _cachedRadius;
+  ui.PathMetric? _cachedMetric;
 
   ui.PathMetric _metricFor(Size size) {
     if (_cachedSize == size && _cachedRadius == radius) return _cachedMetric!;
