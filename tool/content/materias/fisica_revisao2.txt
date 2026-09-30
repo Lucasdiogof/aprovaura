@@ -1,23 +1,23 @@
-=== Mecânica > Dinâmica > Primeira Lei de Newton c=3 d=facil
+=== Mecânica > Dinâmica > Primeira Lei de Newton c=0 d=facil
 P: Um passageiro tende a se projetar para a frente quando um ônibus freia bruscamente. Isso é explicado pela:
+- Inércia
+- Refração
 - Indução eletromagnética
 - Lei de Coulomb
-- Refração
-- Inércia
 E: Por inércia, o corpo tende a manter seu estado de movimento enquanto o ônibus reduz a velocidade.
 --- en
 P: A passenger tends to lurch forward when a bus brakes suddenly. This is explained by:
+- Inertia
+- Refraction
 - Electromagnetic induction
 - Coulomb's law
-- Refraction
-- Inertia
 E: Because of inertia, the body tends to maintain its state of motion while the bus slows down.
 --- es
 P: Un pasajero tiende a proyectarse hacia delante cuando un autobús frena bruscamente. Esto se explica por la:
+- Inercia
+- Refracción
 - Inducción electromagnética
 - Ley de Coulomb
-- Refracción
-- Inercia
 E: Por inercia, el cuerpo tiende a mantener su estado de movimiento mientras el autobús reduce su velocidad.
 
 === Eletricidade c=0 d=medio
@@ -42,24 +42,24 @@ P: Un aparato de 1000 W permanece encendido durante 30 minutos. ¿Cuánta energ�
 - 500 kWh
 E: 1000 W = 1 kW y 30 min = 0,5 h. E = P·t = 1·0,5 = 0,5 kWh.
 
-=== Ondulatória c=1 d=dificil
+=== Ondulatória c=2 d=dificil
 P: Ao passar obliquamente do ar para o vidro, a luz reduz sua velocidade. O raio refratado tende a:
-- Afastar-se da normal
-- Aproximar-se da normal
-- Manter sempre o mesmo ângulo
 - Não entrar no vidro
+- Manter sempre o mesmo ângulo
+- Aproximar-se da normal
+- Afastar-se da normal
 E: Ao entrar em meio de maior índice de refração, a luz se desvia em direção à normal.
 --- en
 P: When light passes obliquely from air into glass, its speed decreases. The refracted ray tends to:
-- Bend away from the normal
-- Bend toward the normal
-- Always keep the same angle
 - Not enter the glass
+- Always keep the same angle
+- Bend toward the normal
+- Bend away from the normal
 E: When entering a medium with a higher refractive index, light bends toward the normal.
 --- es
 P: Al pasar oblicuamente del aire al vidrio, la luz reduce su velocidad. El rayo refractado tiende a:
-- Alejarse de la normal
-- Acercarse a la normal
-- Mantener siempre el mismo ángulo
 - No entrar en el vidrio
+- Mantener siempre el mismo ángulo
+- Acercarse a la normal
+- Alejarse de la normal
 E: Al entrar en un medio con mayor índice de refracción, la luz se desvía hacia la normal.

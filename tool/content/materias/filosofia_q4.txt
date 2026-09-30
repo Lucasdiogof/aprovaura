@@ -375,23 +375,23 @@ E: La fotografía y el cine quitan la unicidad (aura) a la obra, pero democratiz
 === Filosofia contemporânea > Escola de Frankfurt c=0 d=dificil
 P: Herbert Marcuse, em O Homem Unidimensional, critica a sociedade industrial avançada porque ela:
 - Integra os indivíduos ao consumo e reduz sua capacidade de pensar alternativas críticas
-- Impede totalmente o consumo
-- Retorna ao modo de vida feudal
-- Elimina toda forma de tecnologia
+- Mantém o consumo restrito a uma minoria e exclui a maioria do mercado
+- Reorganiza a produção industrial segundo relações típicas do feudalismo
+- Amplia a autonomia crítica porque a tecnologia elimina necessidades artificiais
 E: A abundância e o consumo criariam falsas necessidades que neutralizam a crítica e a oposição.
 --- en
 P: Herbert Marcuse, in One-Dimensional Man, criticizes advanced industrial society because it:
 - Integrates individuals into consumption and reduces their ability to imagine critical alternatives
-- Completely prevents consumption
-- Returns to the feudal way of life
-- Eliminates all forms of technology
+- Keeps consumption restricted to a minority and excludes most people from the market
+- Reorganizes industrial production according to relations typical of feudalism
+- Expands critical autonomy because technology eliminates artificial needs
 E: Abundance and consumption would create false needs that neutralize criticism and opposition.
 --- es
 P: Herbert Marcuse, en El hombre unidimensional, critica la sociedad industrial avanzada porque:
 - Integra a los individuos al consumo y reduce su capacidad de pensar alternativas críticas
-- Impide totalmente el consumo
-- Vuelve al modo de vida feudal
-- Elimina toda forma de tecnología
+- Mantiene el consumo restringido a una minoría y excluye a la mayoría del mercado
+- Reorganiza la producción industrial según relaciones típicas del feudalismo
+- Amplía la autonomía crítica porque la tecnología elimina necesidades artificiales
 E: La abundancia y el consumo crearían falsas necesidades que neutralizan la crítica y la oposición.
 
 === Lógica e conhecimento > Lógica e argumentação c=1 d=facil

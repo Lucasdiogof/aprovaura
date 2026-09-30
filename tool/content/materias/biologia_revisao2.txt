@@ -44,22 +44,22 @@ E: Los genotipos posibles son AA, Aa, Aa y aa. Solo aa expresa el fenotipo reces
 
 === Evolução c=1 d=dificil
 P: Uma população bacteriana já possui variantes resistentes e sensíveis antes do uso de um antibiótico. Após vários tratamentos, as resistentes se tornam mais frequentes porque:
-- Todas as bactérias aprendem a resistir
-- O antibiótico favorece a sobrevivência e reprodução das variantes resistentes
+- As bactérias sensíveis passam a produzir resistência após contato repetido
+- O antibiótico seleciona variantes resistentes já presentes na população
 - As bactérias escolhem alterar seus genes
 - O antibiótico produz a mesma mutação dirigida em todas
 E: A seleção natural aumenta a frequência de variantes herdáveis que sobrevivem e se reproduzem melhor no ambiente.
 --- en
 P: A bacterial population already contains resistant and sensitive variants before antibiotic use. After repeated treatments, resistant variants become more frequent because:
-- All bacteria learn to resist
-- The antibiotic favors survival and reproduction of resistant variants
+- Sensitive bacteria begin producing resistance after repeated contact
+- The antibiotic selects resistant variants already present in the population
 - Bacteria choose to alter their genes
 - The antibiotic causes the same directed mutation in all bacteria
 E: Natural selection increases the frequency of heritable variants that survive and reproduce better in that environment.
 --- es
 P: Una población bacteriana ya contiene variantes resistentes y sensibles antes del uso de un antibiótico. Tras varios tratamientos, las resistentes se vuelven más frecuentes porque:
-- Todas las bacterias aprenden a resistir
-- El antibiótico favorece la supervivencia y reproducción de las variantes resistentes
+- Las bacterias sensibles comienzan a producir resistencia tras contactos repetidos
+- El antibiótico selecciona variantes resistentes ya presentes en la población
 - Las bacterias eligen alterar sus genes
 - El antibiótico produce la misma mutación dirigida en todas
 E: La selección natural aumenta la frecuencia de variantes heredables que sobreviven y se reproducen mejor en ese ambiente.

@@ -88,22 +88,22 @@ E: Brasilia fue proyectada con la participación de Niemeyer y del urbanista Lú
 
 === Arquitetura e patrimônio > Arquitetura brasileira c=0 d=dificil
 P: A arquitetura modernista brasileira, da qual Niemeyer é um expoente, busca articular:
-- Funcionalidade, novos materiais (como o concreto armado) e uma linguagem própria brasileira
-- Exclusivamente ornamentos barrocos
+- Funcionalidade, uso de materiais modernos e linguagem arquitetônica própria
+- Ornamentação histórica inspirada em repertórios coloniais
 - Apenas materiais medievais como pedra maciça
 - A repetição exata de modelos europeus antigos
 E: A arquitetura modernista brasileira articula funcionalidade, novos materiais como o concreto armado e uma linguagem própria brasileira.
 --- en
 P: Brazilian modernist architecture, of which Niemeyer is an exponent, seeks to combine:
-- Functionality, new materials (such as reinforced concrete) and a distinctly Brazilian language
-- Exclusively Baroque ornaments
+- Functionality, modern materials, and a distinctive architectural language
+- Historical ornament inspired by colonial repertoires
 - Only medieval materials such as solid stone
 - The exact repetition of old European models
 E: Brazilian modernist architecture combines functionality, new materials such as reinforced concrete, and a distinctly Brazilian language.
 --- es
 P: La arquitectura modernista brasileña, de la cual Niemeyer es un exponente, busca articular:
-- Funcionalidad, nuevos materiales (como el concreto armado) y un lenguaje propio brasileño
-- Exclusivamente ornamentos barrocos
+- Funcionalidad, materiales modernos y un lenguaje arquitectónico propio
+- Ornamentación histórica inspirada en repertorios coloniales
 - Solo materiales medievales como piedra maciza
 - La repetición exacta de modelos europeos antiguos
 E: La arquitectura modernista brasileña articula funcionalidad, nuevos materiales como el concreto armado y un lenguaje propio brasileño.
@@ -132,24 +132,24 @@ E: El patrimonio arquitectónico de Ouro Preto está ligado al período colonial
 
 === Arquitetura e patrimônio > Patrimônio cultural e preservação c=2 d=facil
 P: O que se entende por patrimônio cultural?
-- Apenas bens financeiros de uma família
-- Apenas terrenos rurais
-- Bens materiais e imateriais com valor histórico, artístico ou cultural para uma comunidade
-- Um conjunto de regras de trânsito
+- Objetos antigos preservados principalmente por instituições públicas
+- Bens naturais sem relação com práticas ou memórias coletivas
+- Elementos materiais e imateriais de valor cultural para uma comunidade
+- Produções artísticas recentes selecionadas por seu valor de mercado
 E: Patrimônio cultural são bens materiais e imateriais com valor histórico, artístico ou cultural para uma comunidade.
 --- en
 P: What is meant by cultural heritage?
-- Only a family's financial assets
-- Only rural land
-- Material and immaterial assets with historical, artistic or cultural value to a community
-- A set of traffic rules
+- Old objects preserved mainly by public institutions
+- Natural assets unrelated to collective practices or memories
+- Tangible and intangible elements of cultural value to a community
+- Recent artworks selected for their market value
 E: Cultural heritage refers to material and immaterial assets with historical, artistic or cultural value to a community.
 --- es
 P: ¿Qué se entiende por patrimonio cultural?
-- Solo bienes financieros de una familia
-- Solo terrenos rurales
-- Bienes materiales e inmateriales con valor histórico, artístico o cultural para una comunidad
-- Un conjunto de reglas de tránsito
+- Objetos antiguos preservados principalmente por instituciones públicas
+- Bienes naturales sin relación con prácticas o memorias colectivas
+- Elementos materiales e inmateriales de valor cultural para una comunidad
+- Producciones artísticas recientes seleccionadas por su valor de mercado
 E: El patrimonio cultural son bienes materiales e inmateriales con valor histórico, artístico o cultural para una comunidad.
 
 === Arquitetura e patrimônio > Patrimônio cultural e preservação c=3 d=facil
@@ -177,23 +177,23 @@ E: El IPHAN (Instituto del Patrimonio Histórico y Artístico Nacional) es el or
 === Arquitetura e patrimônio > Patrimônio cultural e preservação c=0 d=medio
 P: O que caracteriza um "patrimônio imaterial", diferente do patrimônio material?
 - Manifestações culturais como saberes, festas e tradições orais, sem existência física fixa
-- Apenas edifícios e monumentos
-- Apenas obras de arte em museus
-- Apenas documentos escritos antigos
+- Edifícios preservados por seu valor arquitetônico e histórico
+- Objetos artísticos conservados em coleções e museus
+- Sítios arqueológicos com vestígios materiais de ocupações antigas
 E: O patrimônio imaterial abrange manifestações culturais como saberes, festas e tradições orais, sem existência física fixa.
 --- en
 P: What characterizes "intangible heritage", as distinct from tangible heritage?
 - Cultural manifestations such as knowledge, festivals and oral traditions, with no fixed physical existence
-- Only buildings and monuments
-- Only works of art in museums
-- Only old written documents
+- Buildings preserved for their architectural and historical value
+- Art objects preserved in collections and museums
+- Archaeological sites with material remains of ancient occupations
 E: Intangible heritage covers cultural manifestations such as knowledge, festivals and oral traditions, with no fixed physical existence.
 --- es
 P: ¿Qué caracteriza al "patrimonio inmaterial", a diferencia del patrimonio material?
 - Manifestaciones culturales como saberes, fiestas y tradiciones orales, sin existencia física fija
-- Solo edificios y monumentos
-- Solo obras de arte en museos
-- Solo documentos escritos antiguos
+- Edificios preservados por su valor arquitectónico e histórico
+- Objetos artísticos conservados en colecciones y museos
+- Sitios arqueológicos con vestigios materiales de ocupaciones antiguas
 E: El patrimonio inmaterial abarca manifestaciones culturales como saberes, fiestas y tradiciones orales, sin existencia física fija.
 
 === Arquitetura e patrimônio > Patrimônio cultural e preservação c=1 d=medio
@@ -286,23 +286,23 @@ E: El Carnaval se caracteriza por desfiles, música, danza y disfraces, con fuer
 
 === Cultura popular e folclore > Festas e tradições populares c=1 d=facil
 P: O Bumba Meu Boi, manifestação popular típica do Norte e Nordeste do Brasil, envolve:
-- Apenas competições esportivas
-- Música, dança e teatro popular em torno da figura de um boi
-- Exclusivamente pintura em tela
+- Competições corporais acompanhadas por música percussiva
+- Música, dança e encenação popular em torno da figura do boi
+- Pintura de temática regional apresentada em exposições coletivas
 - Apenas rituais religiosos silenciosos
 E: O Bumba Meu Boi envolve música, dança e teatro popular em torno da figura de um boi.
 --- en
 P: Bumba Meu Boi, a popular manifestation typical of North and Northeast Brazil, involves:
-- Only sports competitions
-- Music, dance and popular theater centered on the figure of an ox
-- Exclusively painting on canvas
+- Physical competitions accompanied by percussion music
+- Music, dance, and popular performance centered on the figure of the ox
+- Regional-themed painting presented in group exhibitions
 - Only silent religious rituals
 E: Bumba Meu Boi involves music, dance and popular theater centered on the figure of an ox.
 --- es
 P: El Bumba Meu Boi, manifestación popular típica del Norte y Noreste de Brasil, involucra:
-- Solo competiciones deportivas
-- Música, danza y teatro popular en torno a la figura de un buey
-- Exclusivamente pintura sobre lienzo
+- Competiciones corporales acompañadas por música de percusión
+- Música, danza y representación popular en torno a la figura del buey
+- Pintura de temática regional presentada en exposiciones colectivas
 - Solo rituales religiosos silenciosos
 E: El Bumba Meu Boi involucra música, danza y teatro popular en torno a la figura de un buey.
 
@@ -330,24 +330,24 @@ E: Las fiestas de junio tienen origen histórico ligado a celebraciones relacion
 
 === Cultura popular e folclore > Festas e tradições populares c=3 d=medio
 P: O que caracteriza uma "cultura popular", em contraste com a chamada "cultura erudita"?
-- Ser produzida exclusivamente em universidades
+- Ser produzida principalmente em instituições acadêmicas e circuitos especializados
 - Não ter nenhum tipo de valor cultural
-- Ser sempre financiada pelo governo
-- Ser produzida e transmitida de forma coletiva, muitas vezes de geração em geração, fora dos circuitos acadêmicos formais
+- Depender de financiamento institucional para alcançar circulação social
+- Ser criada e transmitida coletivamente em práticas sociais e comunitárias
 E: A cultura popular é produzida e transmitida de forma coletiva, de geração em geração, fora dos circuitos acadêmicos formais.
 --- en
 P: What characterizes "popular culture", in contrast to so-called "high culture"?
-- Being produced exclusively in universities
+- Being produced mainly in academic institutions and specialized circuits
 - Having no cultural value at all
-- Always being funded by the government
-- Being produced and passed on collectively, often from generation to generation, outside formal academic circuits
+- Depending on institutional funding to achieve social circulation
+- Being created and transmitted collectively through social and community practices
 E: Popular culture is produced and passed on collectively, from generation to generation, outside formal academic circuits.
 --- es
 P: ¿Qué caracteriza a la "cultura popular", en contraste con la llamada "cultura erudita"?
-- Ser producida exclusivamente en universidades
+- Ser producida principalmente en instituciones académicas y circuitos especializados
 - No tener ningún valor cultural
-- Estar siempre financiada por el gobierno
-- Ser producida y transmitida de forma colectiva, muchas veces de generación en generación, fuera de los circuitos académicos formales
+- Depender de financiamiento institucional para alcanzar circulación social
+- Ser creada y transmitida colectivamente en prácticas sociales y comunitarias
 E: La cultura popular es producida y transmitida de forma colectiva, de generación en generación, fuera de los circuitos académicos formales.
 
 === Cultura popular e folclore > Festas e tradições populares c=0 d=dificil
@@ -440,44 +440,44 @@ E: La cerámica marajoara es un ejemplo de artesanía tradicional brasileña con
 
 === Cultura popular e folclore > Artesanato e cultura material c=0 d=medio
 P: O que se entende por "cultura material" em estudos culturais?
-- O conjunto de objetos físicos produzidos por uma sociedade, que refletem seus valores e práticas
-- Apenas leis e normas jurídicas
+- Objetos físicos produzidos por uma sociedade e relacionados a suas práticas
+- Normas jurídicas e valores transmitidos por instituições formais
 - Exclusivamente obras digitais
 - Apenas ideias e crenças, sem qualquer objeto físico
 E: Cultura material é o conjunto de objetos físicos produzidos por uma sociedade, refletindo seus valores e práticas.
 --- en
 P: What is meant by "material culture" in cultural studies?
-- The set of physical objects produced by a society, reflecting its values and practices
-- Only laws and legal norms
+- Physical objects produced by a society and related to its practices
+- Legal norms and values transmitted by formal institutions
 - Exclusively digital works
 - Only ideas and beliefs, with no physical object
 E: Material culture is the set of physical objects produced by a society, reflecting its values and practices.
 --- es
 P: ¿Qué se entiende por "cultura material" en los estudios culturales?
-- El conjunto de objetos físicos producidos por una sociedad, que reflejan sus valores y prácticas
-- Solo leyes y normas jurídicas
+- Objetos físicos producidos por una sociedad y relacionados con sus prácticas
+- Normas jurídicas y valores transmitidos por instituciones formales
 - Exclusivamente obras digitales
 - Solo ideas y creencias, sin ningún objeto físico
 E: La cultura material es el conjunto de objetos físicos producidos por una sociedad, reflejando sus valores y prácticas.
 
 === Cultura popular e folclore > Artesanato e cultura material c=1 d=medio
 P: O artesanato em renda de bilro, tradicional em algumas regiões litorâneas do Nordeste, é um exemplo de:
-- Uma prática exclusivamente masculina
-- Um saber transmitido tradicionalmente, muitas vezes entre gerações de mulheres
+- Uma técnica historicamente ligada apenas a oficinas masculinas urbanas
+- Um saber artesanal transmitido entre gerações em comunidades tradicionais
 - Uma técnica recente sem qualquer tradição
 - Uma produção exclusivamente industrial em fábricas
 E: O artesanato em renda de bilro é um saber transmitido tradicionalmente entre gerações de mulheres.
 --- en
 P: Bobbin lace craftsmanship, traditional in some coastal regions of the Northeast, is an example of:
-- An exclusively male practice
-- A traditionally passed-down skill, often between generations of women
+- A technique historically linked only to urban male workshops
+- A craft skill passed across generations in traditional communities
 - A recent technique with no tradition at all
 - A production exclusively made in factories
 E: Bobbin lace craftsmanship is a skill traditionally passed down between generations of women.
 --- es
 P: La artesanía de encaje de bolillos, tradicional en algunas regiones costeras del Noreste, es un ejemplo de:
-- Una práctica exclusivamente masculina
-- Un saber transmitido tradicionalmente, muchas veces entre generaciones de mujeres
+- Una técnica históricamente vinculada solo a talleres masculinos urbanos
+- Un saber artesanal transmitido entre generaciones en comunidades tradicionales
 - Una técnica reciente sin ninguna tradición
 - Una producción exclusivamente industrial en fábricas
 E: La artesanía de encaje de bolillos es un saber transmitido tradicionalmente entre generaciones de mujeres.
@@ -617,43 +617,43 @@ E: La introducción del sonido sincronizado se asocia frecuentemente con la pel�
 === Cinema e audiovisual > História do cinema c=0 d=dificil
 P: O neorrealismo italiano, movimento cinematográfico do pós-guerra, é caracterizado por:
 - Retratar de forma realista as dificuldades sociais e econômicas da época, muitas vezes com atores não profissionais
-- Usar exclusivamente efeitos especiais digitais
-- Focar apenas em enredos fantásticos sem relação com a realidade
-- Ser produzido exclusivamente em estúdios de Hollywood
+- Priorizar grandes estúdios, iluminação controlada e elencos de estrelas
+- Explorar universos fantásticos para se afastar das condições do pós-guerra
+- Retomar a montagem clássica hollywoodiana como modelo estético principal
 E: O neorrealismo italiano retrata de forma realista as dificuldades sociais e econômicas da época, com atores não profissionais.
 --- en
 P: Italian Neorealism, a post-war cinematographic movement, is characterized by:
 - Realistically portraying the social and economic difficulties of the time, often with non-professional actors
-- Using exclusively digital special effects
-- Focusing only on fantastical plots with no relation to reality
-- Being produced exclusively in Hollywood studios
+- Prioritize large studios, controlled lighting, and star casts
+- Explore fantasy worlds to move away from postwar conditions
+- Return to classical Hollywood editing as its main aesthetic model
 E: Italian Neorealism realistically portrays the social and economic difficulties of the time, with non-professional actors.
 --- es
 P: El neorrealismo italiano, movimiento cinematográfico de la posguerra, se caracteriza por:
 - Retratar de forma realista las dificultades sociales y económicas de la época, muchas veces con actores no profesionales
-- Usar exclusivamente efectos especiales digitales
-- Enfocarse solo en tramas fantásticas sin relación con la realidad
-- Ser producido exclusivamente en estudios de Hollywood
+- Priorizar grandes estudios, iluminación controlada y elencos de estrellas
+- Explorar universos fantásticos para alejarse de las condiciones de posguerra
+- Retomar el montaje clásico de Hollywood como principal modelo estético
 E: El neorrealismo italiano retrata de forma realista las dificultades sociales y económicas de la época, con actores no profesionales.
 
 === Cinema e audiovisual > História do cinema c=1 d=dificil
 P: A Nouvelle Vague, movimento cinematográfico francês do final dos anos 1950 e 1960, se destacou por:
-- Manter rigidamente as convenções narrativas clássicas de Hollywood
+- Reforçar a continuidade narrativa clássica e esconder a presença da câmera
 - Inovar na linguagem cinematográfica, com câmera mais livre e narrativas não convencionais
-- Rejeitar totalmente qualquer inovação técnica
-- Ser restrita exclusivamente a documentários
+- Priorizar produções de estúdio com decupagem rígida e montagem invisível
+- Adotar como regra a narrativa linear e a ausência de experimentação formal
 E: A Nouvelle Vague inovou na linguagem cinematográfica, com câmera mais livre e narrativas não convencionais.
 --- en
 P: The Nouvelle Vague, a French cinematographic movement of the late 1950s and 1960s, stood out for:
-- Rigidly maintaining classical Hollywood narrative conventions
+- Reinforce classical narrative continuity and hide the camera's presence
 - Innovating in film language, with freer camera work and unconventional narratives
-- Totally rejecting any technical innovation
-- Being restricted exclusively to documentaries
+- Prioritize studio productions with rigid shot planning and invisible editing
+- Adopt linear narrative and the absence of formal experimentation as a rule
 E: The Nouvelle Vague innovated in film language, with freer camera work and unconventional narratives.
 --- es
 P: La Nouvelle Vague, movimiento cinematográfico francés de finales de los años 1950 y 1960, se destacó por:
-- Mantener rígidamente las convenciones narrativas clásicas de Hollywood
+- Reforzar la continuidad narrativa clásica y ocultar la presencia de la cámara
 - Innovar en el lenguaje cinematográfico, con una cámara más libre y narrativas no convencionales
-- Rechazar totalmente cualquier innovación técnica
-- Estar restringida exclusivamente a documentales
+- Priorizar producciones de estudio con planificación rígida y montaje invisible
+- Adoptar como regla la narración lineal y la ausencia de experimentación formal
 E: La Nouvelle Vague innovó en el lenguaje cinematográfico, con una cámara más libre y narrativas no convencionales.

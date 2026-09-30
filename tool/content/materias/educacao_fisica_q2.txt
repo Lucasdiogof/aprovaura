@@ -484,23 +484,23 @@ E: Beber agua en exceso en pruebas largas puede diluir el sodio de la sangre; po
 === Corpo, movimento e saúde > Alimentação, hidratação e atividade física c=0 d=dificil
 P: A janela de recuperação após o exercício intenso refere-se ao período em que:
 - A reposição de carboidratos e proteínas favorece a recuperação muscular e do glicogênio
-- Nenhum alimento deve ser ingerido
-- O corpo elimina toda a gordura acumulada
-- O treino deve ser repetido imediatamente
+- A ingestão de nutrientes deixa de influenciar a reposição de glicogênio
+- O organismo prioriza a eliminação de tecido adiposo antes de reparar músculos
+- A recuperação é mais eficiente se a mesma sessão intensa for repetida logo em seguida
 E: Nas horas seguintes ao esforço, a ressíntese de glicogênio e a recuperação do tecido muscular são favorecidas pela ingestão adequada de nutrientes.
 --- en
 P: The recovery window after intense exercise refers to the period in which:
 - Taking in carbohydrate and protein supports muscle and glycogen recovery
-- No food should be eaten
-- The body burns off all stored fat
-- Training must be repeated immediately
+- Nutrient intake no longer influences glycogen replenishment
+- The body prioritizes eliminating adipose tissue before repairing muscle
+- Recovery is more efficient if the same intense session is repeated immediately
 E: In the hours after effort, glycogen resynthesis and muscle tissue recovery are supported by adequate nutrient intake.
 --- es
 P: La ventana de recuperación tras el ejercicio intenso se refiere al periodo en el que:
 - La reposición de carbohidratos y proteínas favorece la recuperación muscular y del glucógeno
-- No debe ingerirse ningún alimento
-- El cuerpo elimina toda la grasa acumulada
-- El entrenamiento debe repetirse de inmediato
+- La ingesta de nutrientes deja de influir en la reposición de glucógeno
+- El organismo prioriza eliminar tejido adiposo antes de reparar músculos
+- La recuperación es más eficiente si se repite de inmediato la misma sesión intensa
 E: En las horas siguientes al esfuerzo, la resíntesis de glucógeno y la recuperación del tejido muscular se ven favorecidas por una ingesta adecuada de nutrientes.
 
 === Corpo, movimento e saúde > Alimentação, hidratação e atividade física c=1 d=dificil

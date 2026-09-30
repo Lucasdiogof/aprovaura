@@ -308,24 +308,24 @@ E: El racionalismo (Descartes, Spinoza, Leibniz) considera la razón la fuente d
 
 === Filosofia moderna > Racionalismo c=2 d=medio
 P: A dúvida metódica de Descartes consiste em:
-- Duvidar de tudo para sempre, sem chegar a nenhuma certeza
-- Aceitar apenas o que os sentidos mostram
+- Suspender provisoriamente juízos apenas sobre temas religiosos
+- Tomar a experiência sensível como fundamento absolutamente seguro
 - Duvidar de tudo o que possa ser posto em dúvida, para encontrar uma verdade indubitável
-- Confiar nas opiniões dos antigos
+- Reunir opiniões tradicionais e escolher a mais aceita
 E: A dúvida cartesiana é um método, não um fim: serve para chegar a uma primeira certeza segura (o cogito).
 --- en
 P: Descartes' methodical doubt consists in:
-- Doubting everything forever, without reaching any certainty
-- Accepting only what the senses show
+- Temporarily suspend judgments only on religious matters
+- Take sensory experience as an absolutely secure foundation
 - Doubting everything that can be doubted, in order to find an indubitable truth
-- Trusting the opinions of the ancients
+- Collect traditional opinions and choose the most accepted one
 E: Cartesian doubt is a method, not an end: it serves to reach a first secure certainty (the cogito).
 --- es
 P: La duda metódica de Descartes consiste en:
-- Dudar de todo para siempre, sin llegar a ninguna certeza
-- Aceptar solo lo que muestran los sentidos
+- Suspender provisionalmente los juicios solo sobre temas religiosos
+- Tomar la experiencia sensible como fundamento absolutamente seguro
 - Dudar de todo lo que pueda ponerse en duda, para encontrar una verdad indudable
-- Confiar en las opiniones de los antiguos
+- Reunir opiniones tradicionales y elegir la más aceptada
 E: La duda cartesiana es un método, no un fin: sirve para llegar a una primera certeza segura (el cogito).
 
 === Filosofia moderna > Racionalismo c=0 d=medio

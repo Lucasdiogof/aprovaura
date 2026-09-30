@@ -353,23 +353,23 @@ E: El filtrado personalizado reduce el contacto con visiones diferentes y puede 
 === Cultura e sociedade > Indústria cultural e mídia c=0 d=dificil
 P: As fake news são um problema social, e não apenas individual, porque:
 - Circulam em redes, afetam a formação da opinião pública e podem prejudicar decisões coletivas, como eleições e saúde
-- Só enganam pessoas sem escolaridade
-- Sempre são desmentidas imediatamente
-- Não têm nenhuma relação com a política
+- Dependem apenas da intenção individual de quem produz ou compartilha a mensagem
+- Têm impacto restrito às relações privadas entre usuários de uma mesma rede
+- Afetam sobretudo a reputação de plataformas, sem alterar debates públicos
 E: A desinformação se espalha em escala e influencia comportamentos coletivos, como a vacinação e o voto.
 --- en
 P: Fake news is a social problem, not just an individual one, because it:
 - Circulates through networks, affects the shaping of public opinion and can harm collective decisions, such as elections and health
-- Only fools people with no schooling
-- Is always debunked immediately
-- Has nothing to do with politics
+- Depend only on the individual intention of whoever creates or shares the message
+- Have an impact restricted to private relationships among users of the same network
+- Mainly affect platform reputations without altering public debates
 E: Disinformation spreads at scale and influences collective behavior, such as vaccination and voting.
 --- es
 P: Las fake news son un problema social, y no solo individual, porque:
 - Circulan en redes, afectan la formación de la opinión pública y pueden perjudicar decisiones colectivas, como elecciones y salud
-- Solo engañan a personas sin escolaridad
-- Siempre se desmienten de inmediato
-- No tienen ninguna relación con la política
+- Dependen solo de la intención individual de quien crea o comparte el mensaje
+- Tienen un impacto restringido a relaciones privadas entre usuarios de una misma red
+- Afectan sobre todo la reputación de las plataformas sin alterar los debates públicos
 E: La desinformación se propaga a gran escala e influye en comportamientos colectivos, como la vacunación y el voto.
 
 === Cultura e sociedade > Indústria cultural e mídia c=2 d=dificil
@@ -506,22 +506,22 @@ E: La existencia de muchos desempleados debilita el poder de negociación de qui
 
 === Trabalho e sociedade > Trabalho e modos de produção c=1 d=dificil
 P: A reestruturação produtiva e a flexibilização do trabalho, a partir dos anos 1970-1980, trouxeram como tendência:
-- O fim de todos os empregos industriais
-- Aumento da terceirização, contratos temporários e precarização de direitos
+- Redução do emprego industrial acompanhada pelo desaparecimento do setor fabril
+- Expansão da terceirização, de contratos flexíveis e de vínculos mais precários
 - Garantia de emprego vitalício para todos
 - Redução da tecnologia nas empresas
 E: Com a globalização e o neoliberalismo, cresceram formas de trabalho mais instáveis e menos protegidas.
 --- en
 P: Productive restructuring and labor flexibilization, from the 1970s-1980s on, brought as a trend:
-- The end of all industrial jobs
-- More outsourcing, temporary contracts and erosion of rights
+- A reduction in industrial employment accompanied by the disappearance of manufacturing
+- Expansion of outsourcing, flexible contracts, and more precarious employment ties
 - Guaranteed lifelong employment for everyone
 - Less technology in companies
 E: With globalization and neoliberalism, more unstable and less protected forms of work grew.
 --- es
 P: La reestructuración productiva y la flexibilización laboral, a partir de los años 1970-1980, trajeron como tendencia:
-- El fin de todos los empleos industriales
-- Aumento de la tercerización, contratos temporales y precarización de derechos
+- Reducción del empleo industrial acompañada por la desaparición del sector fabril
+- Expansión de la tercerización, contratos flexibles y vínculos laborales más precarios
 - Garantía de empleo vitalicio para todos
 - Reducción de la tecnología en las empresas
 E: Con la globalización y el neoliberalismo, crecieron formas de trabajo más inestables y menos protegidas.

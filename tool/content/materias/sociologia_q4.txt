@@ -110,24 +110,24 @@ E: El documento afirma derechos inherentes a todo ser humano, independientemente
 
 === Cidadania e movimentos sociais > Cidadania e direitos c=1 d=dificil
 P: A ideia de "cidadania regulada", aplicada ao Brasil da Era Vargas, significa que os direitos sociais:
-- Eram garantidos igualmente a toda a população
+- Eram definidos principalmente pela renda individual, independentemente da ocupação
 - Dependiam da inserção em profissões reconhecidas pelo Estado, com carteira de trabalho
-- Eram concedidos apenas a estrangeiros
-- Não existiam no período
+- Dependiam prioritariamente da residência em capitais e grandes cidades
+- Eram vinculados apenas à condição de contribuinte de impostos federais
 E: Wanderley Guilherme dos Santos mostrou que trabalhadores informais e rurais ficaram fora dessa proteção.
 --- en
 P: The idea of "regulated citizenship", applied to Brazil in the Vargas Era, means that social rights:
-- Were guaranteed equally to the whole population
+- Were defined mainly by individual income, regardless of occupation
 - Depended on being in occupations recognized by the State, with a work card
-- Were granted only to foreigners
-- Did not exist in that period
+- Depended primarily on residence in state capitals and large cities
+- Were tied only to the status of federal taxpayer
 E: Wanderley Guilherme dos Santos showed that informal and rural workers were left out of this protection.
 --- es
 P: La idea de "ciudadanía regulada", aplicada al Brasil de la Era Vargas, significa que los derechos sociales:
-- Estaban garantizados por igual a toda la población
+- Se definían principalmente por el ingreso individual, independientemente de la ocupación
 - Dependían de la inserción en profesiones reconocidas por el Estado, con libreta de trabajo
-- Se concedían solo a los extranjeros
-- No existían en ese periodo
+- Dependían prioritariamente de residir en capitales y grandes ciudades
+- Estaban vinculados únicamente a la condición de contribuyente de impuestos federales
 E: Wanderley Guilherme dos Santos mostró que los trabajadores informales y rurales quedaron fuera de esa protección.
 
 === Cidadania e movimentos sociais > Movimentos sociais c=0 d=facil
@@ -198,24 +198,24 @@ E: El MST cuestiona la concentración de la tierra, una de las marcas de la desi
 
 === Cidadania e movimentos sociais > Movimentos sociais c=1 d=medio
 P: Os chamados "novos movimentos sociais", surgidos a partir dos anos 1960-1970, diferenciam-se do movimento operário clássico por:
-- Defenderem apenas salários maiores
+- Concentrarem suas pautas principalmente em salário, jornada e condições fabris
 - Pautarem questões como identidade, gênero, meio ambiente e direitos civis
-- Recusarem qualquer ação coletiva
-- Existirem apenas dentro das fábricas
+- Atuarem prioritariamente por canais partidários e eleitorais tradicionais
+- Organizarem-se sobretudo a partir de categorias profissionais industriais
 E: Além da classe, eles mobilizam temas culturais e de reconhecimento, como os movimentos feminista, negro, LGBT e ecológico.
 --- en
 P: The so-called "new social movements", which emerged from the 1960s-1970s on, differ from the classic labor movement by:
-- Defending only higher wages
+- Focusing their agendas mainly on wages, working hours, and factory conditions
 - Raising issues such as identity, gender, the environment and civil rights
-- Refusing any collective action
-- Existing only inside factories
+- Acting primarily through traditional party and electoral channels
+- Organizing mainly around industrial occupational categories
 E: Beyond class, they mobilize cultural and recognition issues, such as the feminist, Black, LGBT and environmental movements.
 --- es
 P: Los llamados "nuevos movimientos sociales", surgidos a partir de los años 1960-1970, se diferencian del movimiento obrero clásico por:
-- Defender solo salarios más altos
+- Concentrar sus demandas principalmente en salarios, jornada y condiciones fabriles
 - Plantear cuestiones como identidad, género, medio ambiente y derechos civiles
-- Rechazar cualquier acción colectiva
-- Existir solo dentro de las fábricas
+- Actuar prioritariamente por canales partidarios y electorales tradicionales
+- Organizarse sobre todo a partir de categorías profesionales industriales
 E: Además de la clase, movilizan temas culturales y de reconocimiento, como los movimientos feminista, negro, LGBT y ecologista.
 
 === Cidadania e movimentos sociais > Movimentos sociais c=2 d=dificil
@@ -330,46 +330,46 @@ E: McLuhan previó que los medios electrónicos acortarían distancias y conecta
 
 === Sociedade contemporânea > Globalização c=0 d=dificil
 P: Zygmunt Bauman descreveu a sociedade atual como "modernidade líquida" porque nela:
-- Relações, identidades e instituições se tornam fluidas, instáveis e passageiras
-- As tradições se tornaram mais rígidas que nunca
+- Relações e instituições se tornam mais fluidas e instáveis
+- Vínculos sociais se tornam mais estáveis e previsíveis que na modernidade industrial
 - Não há mais consumo
 - Todas as relações são duradouras e sólidas
 E: Para Bauman, vínculos de trabalho, amor e comunidade ficaram frágeis e sujeitos a mudanças constantes.
 --- en
 P: Zygmunt Bauman described today's society as "liquid modernity" because in it:
-- Relationships, identities and institutions become fluid, unstable and fleeting
-- Traditions have become more rigid than ever
+- Relationships and institutions become more fluid and unstable
+- Social bonds become more stable and predictable than in industrial modernity
 - There is no more consumption
 - All relationships are lasting and solid
 E: For Bauman, ties of work, love and community have become fragile and subject to constant change.
 --- es
 P: Zygmunt Bauman describió la sociedad actual como "modernidad líquida" porque en ella:
-- Las relaciones, identidades e instituciones se vuelven fluidas, inestables y pasajeras
-- Las tradiciones se volvieron más rígidas que nunca
+- Las relaciones y las instituciones se vuelven más fluidas e inestables
+- Los vínculos sociales se vuelven más estables y previsibles que en la modernidad industrial
 - Ya no hay consumo
 - Todas las relaciones son duraderas y sólidas
 E: Para Bauman, los vínculos de trabajo, amor y comunidad se volvieron frágiles y sujetos a cambios constantes.
 
 === Sociedade contemporânea > Globalização c=3 d=medio
 P: A atuação de empresas transnacionais é uma marca da globalização porque elas:
-- Produzem e vendem apenas no país de origem
-- São sempre empresas estatais
+- Concentram produção e mercado principalmente no país onde foram fundadas
+- Operam sob propriedade estatal em todos os países onde mantêm filiais
 - Evitam qualquer comércio exterior
-- Distribuem produção, vendas e investimentos por vários países em busca de custos menores e mercados
+- Distribuem produção, vendas e investimentos entre diferentes países
 E: Transnacionais espalham etapas da produção pelo mundo, aproveitando mão de obra barata, incentivos fiscais e mercados consumidores.
 --- en
 P: The activity of transnational corporations is a mark of globalization because they:
-- Produce and sell only in their home country
-- Are always state-owned companies
+- Concentrate production and markets mainly in the country where they were founded
+- Operate under state ownership in every country where they have branches
 - Avoid any foreign trade
-- Spread production, sales and investment across several countries seeking lower costs and markets
+- Distribute production, sales, and investment across different countries
 E: Transnationals scatter stages of production around the world, taking advantage of cheap labor, tax incentives and consumer markets.
 --- es
 P: La actuación de las empresas transnacionales es una marca de la globalización porque:
-- Producen y venden solo en su país de origen
-- Son siempre empresas estatales
+- Concentran producción y mercado principalmente en el país donde fueron fundadas
+- Operan bajo propiedad estatal en todos los países donde mantienen filiales
 - Evitan cualquier comercio exterior
-- Distribuyen producción, ventas e inversiones por varios países en busca de menores costos y de mercados
+- Distribuyen producción, ventas e inversiones entre distintos países
 E: Las transnacionales reparten etapas de la producción por el mundo, aprovechando mano de obra barata, incentivos fiscales y mercados consumidores.
 
 === Sociedade contemporânea > Globalização c=0 d=dificil

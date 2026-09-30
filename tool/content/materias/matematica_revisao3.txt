@@ -1,87 +1,87 @@
 === Estatística c=0 d=dificil
 P: Os salários de cinco funcionários são R$ 2 mil, R$ 2 mil, R$ 2 mil, R$ 3 mil e R$ 20 mil. Para representar o valor típico do grupo sem forte influência do maior salário, é mais adequado usar:
 - A mediana
-- A amplitude
 - A média aritmética
 - O valor máximo
+- A amplitude
 E: A mediana é R$ 2 mil e é pouco afetada pelo valor extremo de R$ 20 mil, ao contrário da média.
 --- en
 P: Five employees earn R$ 2k, R$ 2k, R$ 2k, R$ 3k, and R$ 20k. To represent a typical value without strong influence from the highest salary, the most appropriate measure is:
 - The median
-- The range
 - The arithmetic mean
 - The maximum
+- The range
 E: The median is R$ 2k and is little affected by the R$ 20k outlier, unlike the mean.
 --- es
 P: Los salarios de cinco empleados son R$ 2 mil, R$ 2 mil, R$ 2 mil, R$ 3 mil y R$ 20 mil. Para representar un valor típico sin fuerte influencia del salario más alto, conviene usar:
 - La mediana
-- El rango
 - La media aritmética
 - El valor máximo
+- El rango
 E: La mediana es R$ 2 mil y se ve poco afectada por el valor extremo de R$ 20 mil, a diferencia de la media.
 
-=== Funções c=1 d=medio
+=== Funções c=3 d=medio
 P: Uma corrida de aplicativo cobra R$ 6 de taxa fixa mais R$ 2 por quilômetro percorrido. A função que representa o preço P para x quilômetros é:
+- P(x) = 2x
+- P(x) = 8x
 - P(x) = 6x + 2
 - P(x) = 2x + 6
-- P(x) = 8x
-- P(x) = 2x
 E: A taxa fixa soma 6 reais ao valor variável de 2 reais por quilômetro: P(x)=2x+6.
 --- en
 P: A ride-hailing trip charges a fixed R$ 6 fee plus R$ 2 per kilometer. The function representing price P for x kilometers is:
+- P(x) = 2x
+- P(x) = 8x
 - P(x) = 6x + 2
 - P(x) = 2x + 6
-- P(x) = 8x
-- P(x) = 2x
 E: The fixed fee adds R$ 6 to the variable charge of R$ 2 per kilometer: P(x)=2x+6.
 --- es
 P: Un viaje en una aplicación cobra una tarifa fija de R$ 6 más R$ 2 por kilómetro. La función que representa el precio P para x kilómetros es:
+- P(x) = 2x
+- P(x) = 8x
 - P(x) = 6x + 2
 - P(x) = 2x + 6
-- P(x) = 8x
-- P(x) = 2x
 E: La tarifa fija suma R$ 6 al costo variable de R$ 2 por kilómetro: P(x)=2x+6.
 
-=== Geometria > Geometria plana c=3 d=medio
+=== Geometria > Geometria plana c=1 d=medio
 P: Um retângulo mede 8 cm por 5 cm. Se cada dimensão for duplicada, a nova área será:
-- 80 cm²
 - 40 cm²
-- 120 cm²
 - 160 cm²
+- 80 cm²
+- 120 cm²
 E: A área original é 40 cm². Duplicar as duas dimensões multiplica a área por 4: 160 cm².
 --- en
 P: A rectangle measures 8 cm by 5 cm. If each dimension is doubled, the new area will be:
-- 80 cm²
 - 40 cm²
-- 120 cm²
 - 160 cm²
+- 80 cm²
+- 120 cm²
 E: The original area is 40 cm². Doubling both dimensions multiplies area by 4: 160 cm².
 --- es
 P: Un rectángulo mide 8 cm por 5 cm. Si se duplica cada dimensión, la nueva área será:
-- 80 cm²
 - 40 cm²
-- 120 cm²
 - 160 cm²
+- 80 cm²
+- 120 cm²
 E: El área original es 40 cm². Duplicar ambas dimensiones multiplica el área por 4: 160 cm².
 
-=== Probabilidade c=2 d=dificil
+=== Probabilidade c=0 d=dificil
 P: Dois dados honestos são lançados. Sabendo que a soma obtida foi 8, qual é a probabilidade de pelo menos um dos dados mostrar 3?
-- 1/6
-- 1/4
 - 2/5
+- 1/4
+- 1/6
 - 1/2
 E: Condicionada à soma 8, os pares ordenados possíveis são (2,6), (3,5), (4,4), (5,3) e (6,2). Dois dos cinco contêm o número 3: 2/5.
 --- en
 P: Two fair dice are rolled. Given that the sum is 8, what is the probability that at least one die shows 3?
-- 1/6
-- 1/4
 - 2/5
+- 1/4
+- 1/6
 - 1/2
 E: Given a sum of 8, the possible ordered pairs are (2,6), (3,5), (4,4), (5,3), and (6,2). Two of the five contain a 3: 2/5.
 --- es
 P: Se lanzan dos dados equilibrados. Sabiendo que la suma obtenida fue 8, ¿cuál es la probabilidad de que al menos uno muestre 3?
-- 1/6
-- 1/4
 - 2/5
+- 1/4
+- 1/6
 - 1/2
 E: Condicionada a que la suma sea 8, los pares ordenados posibles son (2,6), (3,5), (4,4), (5,3) y (6,2). Dos de los cinco contienen un 3: 2/5.

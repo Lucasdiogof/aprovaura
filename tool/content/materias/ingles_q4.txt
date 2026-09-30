@@ -397,23 +397,23 @@ E: Describir un detalle físico (que la sonrisa no llegue a los ojos) para suger
 === Interpretação de textos > Textos informativos e científicos c=0 d=facil
 P: Leia: "Bees play a key role in pollination, helping around 75% of the world's flowering plants reproduce." Segundo o texto, qual é o papel das abelhas?
 - Ajudar na polinização de grande parte das plantas com flores
-- Produzir apenas mel
-- Destruir plantações
-- Viver exclusivamente em florestas tropicais
+- Produzir alimento para a maioria das plantas com flores
+- Dispersar as sementes de cerca de 75% das plantas com flores
+- Proteger as flores contra outros insetos polinizadores
 E: O texto afirma que as abelhas ajudam "around 75% of the world's flowering plants" a se reproduzirem, ou seja, atuam na polinização.
 --- en
 P: Read: "Bees play a key role in pollination, helping around 75% of the world's flowering plants reproduce." According to the text, what is the role of bees?
 - Helping most of the world's flowering plants reproduce
-- Producing only honey
-- Destroying crops
-- Living exclusively in tropical forests
+- Provide food for most flowering plants
+- Disperse the seeds of about 75% of flowering plants
+- Protect flowers from other pollinating insects
 E: The text states that bees help "around 75% of the world's flowering plants" reproduce, meaning they act in pollination.
 --- es
 P: Lee: "Bees play a key role in pollination, helping around 75% of the world's flowering plants reproduce." Según el texto, ¿cuál es el papel de las abejas?
 - Ayudar a que gran parte de las plantas con flores se reproduzcan
-- Producir solo miel
-- Destruir cultivos
-- Vivir exclusivamente en bosques tropicales
+- Producir alimento para la mayoría de las plantas con flores
+- Dispersar las semillas de cerca del 75% de las plantas con flores
+- Proteger las flores de otros insectos polinizadores
 E: El texto afirma que las abejas ayudan a "around 75% of the world's flowering plants" a reproducirse, es decir, actúan en la polinización.
 
 === Interpretação de textos > Textos informativos e científicos c=1 d=facil
@@ -485,23 +485,23 @@ E: El texto especifica "at least 20 minutes a day".
 === Interpretação de textos > Textos informativos e científicos c=0 d=dificil
 P: Leia: "While solar panels reduce dependence on fossil fuels, their production requires significant amounts of energy and raw materials, according to researchers." Qual é a ideia central do texto?
 - Painéis solares reduzem o uso de combustíveis fósseis, mas sua produção também tem custos energéticos e de matéria-prima
-- Painéis solares não têm nenhum benefício ambiental
-- A produção de painéis solares não usa nenhum recurso natural
-- Combustíveis fósseis são sempre mais eficientes que energia solar
+- A produção de painéis solares consome mais energia do que eles geram ao longo da vida útil
+- A redução de combustíveis fósseis depende apenas da disponibilidade de matérias-primas
+- Pesquisadores consideram a energia solar ambientalmente equivalente aos combustíveis fósseis
 E: O texto apresenta um benefício (menos dependência de combustíveis fósseis) e uma ressalva (produção exige energia e matéria-prima).
 --- en
 P: Read: "While solar panels reduce dependence on fossil fuels, their production requires significant amounts of energy and raw materials, according to researchers." What is the main idea of the text?
 - Solar panels reduce fossil fuel use, but their production also has energy and raw-material costs
-- Solar panels have no environmental benefit at all
-- Producing solar panels uses no natural resources
-- Fossil fuels are always more efficient than solar energy
+- Solar-panel production consumes more energy than the panels generate over their lifetime
+- Reducing fossil-fuel use depends only on raw-material availability
+- Researchers consider solar energy environmentally equivalent to fossil fuels
 E: The text presents a benefit (less dependence on fossil fuels) and a caveat (production requires energy and raw materials).
 --- es
 P: Lee: "While solar panels reduce dependence on fossil fuels, their production requires significant amounts of energy and raw materials, according to researchers." ¿Cuál es la idea central del texto?
 - Los paneles solares reducen el uso de combustibles fósiles, pero su producción también tiene costos de energía y materia prima
-- Los paneles solares no tienen ningún beneficio ambiental
-- La producción de paneles solares no usa ningún recurso natural
-- Los combustibles fósiles siempre son más eficientes que la energía solar
+- La producción de paneles solares consume más energía de la que generan durante su vida útil
+- La reducción del uso de combustibles fósiles depende solo de la disponibilidad de materias primas
+- Los investigadores consideran la energía solar ambientalmente equivalente a los combustibles fósiles
 E: El texto presenta un beneficio (menos dependencia de combustibles fósiles) y una salvedad (la producción requiere energía y materia prima).
 
 === Interpretação de textos > Textos informativos e científicos c=1 d=dificil

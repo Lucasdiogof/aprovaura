@@ -1,87 +1,87 @@
 === Interpretação de texto > Argumentação c=1 d=dificil
 P: Leia: "A biblioteca deveria ampliar o horário aos sábados. Nos últimos três meses, mais de 40% dos empréstimos de fim de semana ocorreram na última hora antes do fechamento." A segunda frase funciona como:
-- Uma definição do conceito de biblioteca
-- Uma evidência usada para sustentar a proposta
-- Uma conclusão sem relação com a tese
 - Uma objeção à ampliação do horário
+- Uma evidência usada para sustentar a proposta
+- Uma definição do conceito de biblioteca
+- Uma conclusão sem relação com a tese
 E: O dado de uso próximo ao fechamento fornece evidência para defender a ampliação do horário.
 --- en
 P: Read the Portuguese excerpt: "A biblioteca deveria ampliar o horário aos sábados. Nos últimos três meses, mais de 40% dos empréstimos de fim de semana ocorreram na última hora antes do fechamento." The second sentence functions as:
-- A definition of the concept of library
-- Evidence used to support the proposal
-- A conclusion unrelated to the thesis
 - An objection to extending opening hours
+- Evidence used to support the proposal
+- A definition of the concept of library
+- A conclusion unrelated to the thesis
 E: The usage data near closing time provides evidence in favor of extending opening hours.
 --- es
 P: Lee el fragmento en portugués: "A biblioteca deveria ampliar o horário aos sábados. Nos últimos três meses, mais de 40% dos empréstimos de fim de semana ocorreram na última hora antes do fechamento." La segunda oración funciona como:
-- Una definición del concepto de biblioteca
-- Una evidencia utilizada para apoyar la propuesta
-- Una conclusión sin relación con la tesis
 - Una objeción a ampliar el horario
+- Una evidencia utilizada para apoyar la propuesta
+- Una definición del concepto de biblioteca
+- Una conclusión sin relación con la tesis
 E: El dato de uso cerca del cierre aporta evidencia para defender la ampliación del horario.
 
-=== Redação c=3 d=dificil
+=== Redação c=2 d=dificil
 P: Em uma redação dissertativo-argumentativa, um repertório sociocultural é produtivo quando:
 - Aparece como citação decorativa sem relação com o argumento
-- Substitui a explicação do autor do texto
 - É mencionado apenas para demonstrar erudição
 - É articulado ao argumento e ajuda a sustentar a tese
+- Substitui a explicação do autor do texto
 E: Repertório produtivo não é enfeite: ele precisa ser pertinente e integrado ao raciocínio desenvolvido.
 --- en
 P: In an argumentative essay, a piece of sociocultural repertoire is productive when it:
 - Appears as a decorative quotation unrelated to the argument
-- Replaces the writer's own explanation
 - Is mentioned only to display erudition
 - Is connected to the argument and helps support the thesis
+- Replaces the writer's own explanation
 E: Productive repertoire is not decoration: it must be relevant and integrated into the reasoning.
 --- es
 P: En una redacción argumentativa, un repertorio sociocultural es productivo cuando:
 - Aparece como una cita decorativa sin relación con el argumento
-- Sustituye la explicación del autor del texto
 - Se menciona solo para demostrar erudición
 - Se articula con el argumento y ayuda a sostener la tesis
+- Sustituye la explicación del autor del texto
 E: Un repertorio productivo no es adorno: debe ser pertinente e integrarse al razonamiento desarrollado.
 
-=== Semântica c=2 d=medio
+=== Semântica c=1 d=medio
 P: Na frase "O banco estava cheio no fim da tarde", a palavra "banco" pode gerar ambiguidade porque:
 - É sempre um verbo
-- Só possui sentido figurado
 - Tem sentidos como banco financeiro e assento
+- Só possui sentido figurado
 - Não admite variação de significado
 E: A palavra é polissêmica: o contexto precisa indicar qual de seus diferentes sentidos está sendo usado.
 --- en
 P: In the Portuguese sentence "O banco estava cheio no fim da tarde", the word "banco" may be ambiguous because:
 - It is always a verb
-- It has only a figurative meaning
 - It may mean a bank or a seat
+- It has only a figurative meaning
 - It does not allow variation in meaning
 E: The word is polysemous: context must indicate which of its different meanings is intended.
 --- es
 P: En la oración portuguesa "O banco estava cheio no fim da tarde", la palabra "banco" puede ser ambigua porque:
 - Siempre es un verbo
-- Solo tiene sentido figurado
 - Puede significar un banco financiero o un asiento
+- Solo tiene sentido figurado
 - No admite variación de significado
 E: La palabra es polisémica: el contexto debe indicar cuál de sus distintos sentidos se está utilizando.
 
-=== Sintaxe c=0 d=dificil
+=== Sintaxe c=2 d=dificil
 P: Na frase "Os alunos que entregaram o trabalho receberam feedback", a oração "que entregaram o trabalho" restringe o grupo de alunos. Por isso, ela é:
+- Oração coordenada conclusiva
+- Oração subordinada substantiva objetiva
 - Oração subordinada adjetiva restritiva
 - Oração subordinada adjetiva explicativa
-- Oração subordinada substantiva objetiva
-- Oração coordenada conclusiva
 E: Sem vírgulas e com função de delimitar quais alunos receberam feedback, a oração é adjetiva restritiva.
 --- en
 P: In the Portuguese sentence "Os alunos que entregaram o trabalho receberam feedback", the clause "que entregaram o trabalho" restricts which students are being referred to. Therefore, it is:
+- A conclusive coordinate clause
+- A noun object clause
 - A restrictive relative clause
 - A nonrestrictive relative clause
-- A noun object clause
-- A conclusive coordinate clause
 E: With no commas and with the function of delimiting which students received feedback, the clause is restrictive.
 --- es
 P: En la oración portuguesa "Os alunos que entregaram o trabalho receberam feedback", la proposición "que entregaram o trabalho" restringe el grupo de alumnos. Por eso, es:
+- Una oración coordinada conclusiva
+- Una oración subordinada sustantiva objetiva
 - Una oración subordinada adjetiva restrictiva
 - Una oración subordinada adjetiva explicativa
-- Una oración subordinada sustantiva objetiva
-- Una oración coordinada conclusiva
 E: Sin comas y con la función de delimitar qué alumnos recibieron feedback, la oración es adjetiva restrictiva.

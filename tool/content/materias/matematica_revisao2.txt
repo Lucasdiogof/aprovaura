@@ -1,43 +1,43 @@
-=== Geometria > Geometria plana c=3 d=dificil
+=== Geometria > Geometria plana c=1 d=dificil
 P: Dois triângulos semelhantes têm razão linear 3:2. Se a área do menor é 20 cm², a área do maior é:
 - 90 cm²
-- 30 cm²
-- 60 cm²
 - 45 cm²
+- 60 cm²
+- 30 cm²
 E: As áreas variam com o quadrado da razão linear: (3/2)² = 9/4; 20·9/4 = 45.
 --- en
 P: Two similar triangles have a linear ratio of 3:2. If the smaller area is 20 cm², the larger area is:
 - 90 cm²
-- 30 cm²
-- 60 cm²
 - 45 cm²
+- 60 cm²
+- 30 cm²
 E: Areas scale with the square of the linear ratio: (3/2)² = 9/4; 20·9/4 = 45.
 --- es
 P: Dos triángulos semejantes tienen razón lineal 3:2. Si el área del menor es 20 cm², el área del mayor es:
 - 90 cm²
-- 30 cm²
-- 60 cm²
 - 45 cm²
+- 60 cm²
+- 30 cm²
 E: Las áreas varían con el cuadrado de la razón lineal: (3/2)² = 9/4; 20·9/4 = 45.
 
-=== Probabilidade c=0 d=medio
+=== Probabilidade c=3 d=medio
 P: Uma moeda justa é lançada duas vezes. Qual a probabilidade de sair exatamente uma cara?
-- 1/2
-- 1/4
 - 3/4
+- 1/4
 - 1
+- 1/2
 E: Os resultados possíveis são CC, CK, KC e KK (C = cara, K = coroa). Exatamente uma cara ocorre em 2 dos 4 casos: 2/4 = 1/2.
 --- en
 P: A fair coin is tossed twice. What is the probability of getting exactly one head?
-- 1/2
-- 1/4
 - 3/4
+- 1/4
 - 1
+- 1/2
 E: Among HH, HT, TH, and TT, exactly one head occurs in 2 of 4 cases: 1/2.
 --- es
 P: Se lanza dos veces una moneda equilibrada. ¿Cuál es la probabilidad de obtener exactamente una cara?
-- 1/2
-- 1/4
 - 3/4
+- 1/4
 - 1
+- 1/2
 E: Entre CC, CX, XC y XX, exactamente una cara ocurre en 2 de 4 casos: 1/2.

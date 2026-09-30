@@ -242,23 +242,23 @@ E: Médico ficticio y latinista, Reis recomienda aceptar el destino con serenida
 
 === Literatura portuguesa > Fernando Pessoa c=3 d=dificil
 P: No poema "Autopsicografia", de Pessoa, os versos "O poeta é um fingidor. / Finge tão completamente / Que chega a fingir que é dor / A dor que deveras sente" sugerem que:
-- O poeta nunca sente nada
-- Toda poesia é mentira sem valor
-- O poeta deve narrar fatos reais com objetividade
+- O poeta deve ocultar qualquer emoção pessoal do leitor
+- A experiência pessoal é reproduzida no poema sem transformação
+- A poesia registra sentimentos como um relato documental direto
 - A poesia transforma a emoção vivida em construção artística, que não coincide com a experiência bruta
 E: Para Pessoa, o poeta "finge" ao elaborar o sentimento pela linguagem; a arte é uma recriação da emoção.
 --- en
 P: In Pessoa's poem "Autopsychography", the lines "The poet is a pretender. / He pretends so completely / That he even pretends to be pain / The pain he truly feels" suggest that:
-- The poet never feels anything
-- All poetry is worthless lies
-- The poet must narrate real events objectively
+- The poet must hide every personal emotion from the reader
+- Personal experience is reproduced in the poem without transformation
+- Poetry records feelings as a direct documentary account
 - Poetry turns lived emotion into an artistic construction that does not coincide with raw experience
 E: For Pessoa, the poet "pretends" when working feeling through language; art is a re-creation of emotion.
 --- es
 P: En el poema "Autopsicografía", de Pessoa, los versos "El poeta es un fingidor. / Finge tan completamente / Que hasta finge que es dolor / El dolor que en verdad siente" sugieren que:
-- El poeta nunca siente nada
-- Toda poesía es mentira sin valor
-- El poeta debe narrar hechos reales con objetividad
+- El poeta debe ocultar al lector toda emoción personal
+- La experiencia personal se reproduce en el poema sin transformación
+- La poesía registra los sentimientos como un relato documental directo
 - La poesía transforma la emoción vivida en construcción artística, que no coincide con la experiencia bruta
 E: Para Pessoa, el poeta "finge" al elaborar el sentimiento mediante el lenguaje; el arte es una recreación de la emoción.
 

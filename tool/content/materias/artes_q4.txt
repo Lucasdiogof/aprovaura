@@ -221,23 +221,23 @@ E: La reactivación del cine brasileño en los años 1990 fue impulsada por nuev
 === Cinema e audiovisual > Cinema brasileiro c=0 d=dificil
 P: O documentário é um gênero importante na história do cinema brasileiro. Ele se caracteriza por:
 - Buscar retratar aspectos da realidade, ainda que com um ponto de vista e escolhas narrativas
-- Ser sempre uma obra de ficção pura
-- Não ter nenhum compromisso com fatos reais
-- Ser um gênero restrito exclusivamente à animação
+- Reconstruir acontecimentos apenas com atores e roteiro ficcional
+- Registrar fatos sem qualquer seleção de enquadramento ou montagem
+- Usar animação como recurso obrigatório para explicar acontecimentos reais
 E: O documentário busca retratar aspectos da realidade, ainda que com um ponto de vista e escolhas narrativas.
 --- en
 P: The documentary is an important genre in the history of Brazilian cinema. It is characterized by:
 - Seeking to portray aspects of reality, even with a point of view and narrative choices
-- Always being a work of pure fiction
-- Having no commitment to real facts at all
-- Being a genre restricted exclusively to animation
+- Reconstruct events only with actors and a fictional script
+- Record facts without any selection of framing or editing
+- Use animation as a mandatory device to explain real events
 E: The documentary seeks to portray aspects of reality, even with a point of view and narrative choices.
 --- es
 P: El documental es un género importante en la historia del cine brasileño. Se caracteriza por:
 - Buscar retratar aspectos de la realidad, aunque con un punto de vista y decisiones narrativas
-- Ser siempre una obra de ficción pura
-- No tener ningún compromiso con hechos reales
-- Ser un género restringido exclusivamente a la animación
+- Reconstruir acontecimientos solo con actores y un guion de ficción
+- Registrar hechos sin ninguna selección de encuadre o montaje
+- Usar animación como recurso obligatorio para explicar acontecimientos reales
 E: El documental busca retratar aspectos de la realidad, aunque con un punto de vista y decisiones narrativas.
 
 === Cinema e audiovisual > Cinema brasileiro c=1 d=dificil
@@ -286,23 +286,23 @@ E: El arte comprometido expresa posturas sociales, políticas o críticas.
 
 === Arte e sociedade > Arte engajada e política c=3 d=facil
 P: A obra "Guernica", de Pablo Picasso, é um exemplo de arte engajada porque:
-- Retrata exclusivamente uma paisagem tranquila
-- Celebra uma vitória militar
-- Não tem nenhuma relação com eventos históricos
+- Representa uma cena cotidiana sem referência a conflitos políticos
+- Exalta a ação militar como símbolo de progresso nacional
+- Trata a violência de guerra como tema mitológico sem contexto histórico
 - Denuncia os horrores da guerra, especificamente o bombardeio de uma cidade espanhola
 E: "Guernica" denuncia os horrores da guerra, especificamente o bombardeio de uma cidade espanhola.
 --- en
 P: Pablo Picasso's "Guernica" is an example of engaged art because it:
-- Exclusively depicts a peaceful landscape
-- Celebrates a military victory
-- Has no relation to historical events at all
+- Depicts an everyday scene without reference to political conflict
+- Glorifies military action as a symbol of national progress
+- Treats wartime violence as a mythological theme without historical context
 - Denounces the horrors of war, specifically the bombing of a Spanish town
 E: "Guernica" denounces the horrors of war, specifically the bombing of a Spanish town.
 --- es
 P: La obra "Guernica", de Pablo Picasso, es un ejemplo de arte comprometido porque:
-- Retrata exclusivamente un paisaje tranquilo
-- Celebra una victoria militar
-- No tiene ninguna relación con hechos históricos
+- Representa una escena cotidiana sin referencia a conflictos políticos
+- Exalta la acción militar como símbolo de progreso nacional
+- Trata la violencia de guerra como un tema mitológico sin contexto histórico
 - Denuncia los horrores de la guerra, específicamente el bombardeo de una ciudad española
 E: "Guernica" denuncia los horrores de la guerra, específicamente el bombardeo de una ciudad española.
 
@@ -397,23 +397,23 @@ E: La censura enfrentada por artistas muestra que el arte comprometido puede ent
 === Arte e sociedade > Indústria cultural c=0 d=facil
 P: O termo "indústria cultural" se refere a:
 - A produção e distribuição em massa de bens culturais, como filmes, música e programas de TV
-- Exclusivamente obras de arte únicas em museus
-- Um conceito exclusivo da música clássica europeia
-- Apenas a produção artesanal individual
+- À produção de obras autorais destinadas a circulação restrita em galerias
+- À organização de instituições públicas voltadas à preservação de patrimônio
+- À criação artesanal de bens culturais em pequena escala e por encomenda
 E: A indústria cultural se refere à produção e distribuição em massa de bens culturais.
 --- en
 P: The term "cultural industry" refers to:
 - The mass production and distribution of cultural goods, such as films, music and TV shows
-- Exclusively unique works of art in museums
-- A concept exclusive to European classical music
-- Only individual craft production
+- To the production of authorial works intended for limited gallery circulation
+- To the organization of public institutions devoted to heritage preservation
+- To small-scale, commissioned craft production of cultural goods
 E: The cultural industry refers to the mass production and distribution of cultural goods.
 --- es
 P: El término "industria cultural" se refiere a:
 - La producción y distribución masiva de bienes culturales, como películas, música y programas de televisión
-- Exclusivamente obras de arte únicas en museos
-- Un concepto exclusivo de la música clásica europea
-- Solo la producción artesanal individual
+- A la producción de obras de autor destinadas a circulación restringida en galerías
+- A la organización de instituciones públicas dedicadas a preservar el patrimonio
+- A la creación artesanal de bienes culturales a pequeña escala y por encargo
 E: La industria cultural se refiere a la producción y distribución masiva de bienes culturales.
 
 === Arte e sociedade > Indústria cultural c=1 d=facil
@@ -462,24 +462,24 @@ E: Una crítica común es que la industria cultural puede estandarizar productos
 
 === Arte e sociedade > Indústria cultural c=3 d=medio
 P: As plataformas de streaming, parte importante da indústria cultural atual, transformaram o consumo de:
-- Apenas livros impressos
-- Apenas artesanato local
+- Livros digitais distribuídos por editoras em catálogos fechados
+- Peças artesanais comercializadas em plataformas de nicho
 - Apenas pinturas em museus
-- Filmes, séries e música, tornando-o mais imediato e personalizado
+- Filmes, séries e música, com acesso sob demanda e recomendações personalizadas
 E: As plataformas de streaming transformaram o consumo de filmes, séries e música, tornando-o mais imediato e personalizado.
 --- en
 P: Streaming platforms, an important part of today's cultural industry, transformed the consumption of:
-- Only printed books
-- Only local craftsmanship
+- Digital books distributed by publishers in closed catalogs
+- Craft pieces sold through niche platforms
 - Only museum paintings
-- Movies, series and music, making it more immediate and personalized
+- Films, series, and music, with on-demand access and personalized recommendations
 E: Streaming platforms transformed the consumption of movies, series and music, making it more immediate and personalized.
 --- es
 P: Las plataformas de streaming, parte importante de la industria cultural actual, transformaron el consumo de:
-- Solo libros impresos
-- Solo artesanía local
+- Libros digitales distribuidos por editoriales en catálogos cerrados
+- Piezas artesanales comercializadas en plataformas de nicho
 - Solo pinturas en museos
-- Películas, series y música, haciéndolo más inmediato y personalizado
+- Películas, series y música, con acceso bajo demanda y recomendaciones personalizadas
 E: Las plataformas de streaming transformaron el consumo de películas, series y música, haciéndolo más inmediato y personalizado.
 
 === Arte e sociedade > Indústria cultural c=0 d=dificil
@@ -506,22 +506,22 @@ E: La globalización puede generar una circulación más amplia de productos cul
 
 === Arte e sociedade > Indústria cultural c=1 d=dificil
 P: A relação entre indústria cultural e identidade cultural local é frequentemente discutida porque:
-- Não existe nenhuma tensão entre elas
-- Grandes produções globais podem coexistir e, por vezes, competir com expressões culturais locais
+- As duas circulam em mercados distintos e raramente compartilham públicos
+- Produções globais podem coexistir e competir com expressões culturais locais
 - Elas nunca se relacionam de forma alguma
 - A indústria cultural sempre fortalece automaticamente as culturas locais
 E: Grandes produções globais podem coexistir e, por vezes, competir com expressões culturais locais.
 --- en
 P: The relationship between the cultural industry and local cultural identity is often discussed because:
-- There is no tension between them at all
-- Large global productions can coexist and sometimes compete with local cultural expressions
+- The two circulate in separate markets and rarely share audiences
+- Global productions can coexist and compete with local cultural expressions
 - They never relate to each other in any way
 - The cultural industry always automatically strengthens local cultures
 E: Large global productions can coexist and sometimes compete with local cultural expressions.
 --- es
 P: La relación entre la industria cultural y la identidad cultural local se discute frecuentemente porque:
-- No existe ninguna tensión entre ellas
-- Las grandes producciones globales pueden coexistir y, a veces, competir con expresiones culturales locales
+- Ambas circulan en mercados distintos y rara vez comparten públicos
+- Las producciones globales pueden coexistir y competir con expresiones culturales locales
 - Nunca se relacionan de ninguna forma
 - La industria cultural siempre fortalece automáticamente las culturas locales
 E: Las grandes producciones globales pueden coexistir y, a veces, competir con expresiones culturales locales.

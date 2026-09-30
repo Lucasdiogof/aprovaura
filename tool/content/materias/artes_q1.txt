@@ -89,23 +89,23 @@ E: La acuarela usa pigmento diluido en agua aplicado sobre papel.
 === Linguagens artísticas > Artes visuais c=0 d=dificil
 P: O que diferencia a gravura das demais técnicas de artes visuais?
 - É produzida a partir de uma matriz que permite múltiplas impressões
-- É sempre feita em tempo real diante do público
-- Não pode ser reproduzida
-- É exclusivamente sonora
+- É construída diretamente sobre a superfície final, sem etapa intermediária
+- Produz uma única imagem porque a matriz é destruída na primeira impressão
+- Depende de projeção luminosa sobre uma superfície fotossensível
 E: A gravura é produzida a partir de uma matriz (madeira, metal etc.) que permite reproduzir a imagem várias vezes.
 --- en
 P: What distinguishes printmaking from other visual arts techniques?
 - It is produced from a matrix that allows multiple impressions
-- It is always made live in front of an audience
-- It cannot be reproduced
-- It is exclusively sound-based
+- It is created directly on the final surface, with no intermediate stage
+- It produces a single image because the matrix is destroyed in the first print
+- It depends on light projection onto a photosensitive surface
 E: Printmaking is produced from a matrix (wood, metal, etc.) that allows the image to be reproduced multiple times.
 --- es
 P: ¿Qué diferencia al grabado de las demás técnicas de artes visuales?
 - Se produce a partir de una matriz que permite múltiples impresiones
-- Siempre se hace en tiempo real frente al público
-- No se puede reproducir
-- Es exclusivamente sonoro
+- Se realiza directamente sobre la superficie final, sin etapa intermedia
+- Produce una única imagen porque la matriz se destruye en la primera impresión
+- Depende de una proyección luminosa sobre una superficie fotosensible
 E: El grabado se produce a partir de una matriz (madera, metal, etc.) que permite reproducir la imagen varias veces.
 
 === Linguagens artísticas > Artes visuais c=1 d=dificil
@@ -198,24 +198,24 @@ E: La commedia dell'arte usa personajes fijos (con máscaras) e improvisación s
 
 === Linguagens artísticas > Artes cênicas c=1 d=medio
 P: O que é a dança contemporânea, em linhas gerais?
-- Apenas a repetição de passos do balé clássico
+- Uma atualização do balé clássico que mantém seu vocabulário técnico como regra central
 - Uma forma de dança que rompe com padrões clássicos e explora novos movimentos e conceitos
-- Uma dança exclusivamente ritual sem elementos artísticos
-- Uma dança proibida em teatros
+- Uma modalidade voltada principalmente à reprodução de danças tradicionais sem alteração
+- Uma linguagem coreográfica definida por sequências fixas e padronizadas de competição
 E: A dança contemporânea rompe com padrões clássicos, explorando novos movimentos, conceitos e formas de expressão corporal.
 --- en
 P: What is contemporary dance, broadly speaking?
-- Just the repetition of classical ballet steps
+- An update of classical ballet that keeps its technical vocabulary as the central rule
 - A form of dance that breaks with classical patterns and explores new movements and concepts
-- An exclusively ritual dance with no artistic elements
-- A dance forbidden in theaters
+- A form focused mainly on reproducing traditional dances without modification
+- A choreographic language defined by fixed, standardized competition sequences
 E: Contemporary dance breaks with classical patterns, exploring new movements, concepts and forms of bodily expression.
 --- es
 P: ¿Qué es la danza contemporánea, en líneas generales?
-- Solo la repetición de pasos del ballet clásico
+- Una actualización del ballet clásico que mantiene su vocabulario técnico como regla central
 - Una forma de danza que rompe con patrones clásicos y explora nuevos movimientos y conceptos
-- Una danza exclusivamente ritual sin elementos artísticos
-- Una danza prohibida en los teatros
+- Una modalidad orientada principalmente a reproducir danzas tradicionales sin cambios
+- Un lenguaje coreográfico definido por secuencias fijas y estandarizadas de competición
 E: La danza contemporánea rompe con patrones clásicos, explorando nuevos movimientos, conceptos y formas de expresión corporal.
 
 === Linguagens artísticas > Artes cênicas c=2 d=dificil
@@ -506,22 +506,22 @@ E: Las obras modernistas de los años 1920 suelen presentar simplificación de f
 
 === Movimentos artísticos brasileiros > Modernismo c=3 d=dificil
 P: O Modernismo brasileiro teve desdobramentos além das artes visuais, alcançando também:
-- Somente a culinária
-- Somente a arquitetura militar
+- A culinária como principal linguagem de ruptura estética do movimento
+- A arquitetura militar como campo central das experiências modernistas
 - Somente o teatro de rua
 - A literatura, com autores como Mário de Andrade e Oswald de Andrade
 E: O Modernismo também impactou a literatura, com autores como Mário de Andrade e Oswald de Andrade.
 --- en
 P: Brazilian Modernism had developments beyond visual arts, also reaching:
-- Only cuisine
-- Only military architecture
+- Cuisine as the movement's main language of aesthetic rupture
+- Military architecture as the central field of Modernist experimentation
 - Only street theater
 - Literature, with authors such as Mário de Andrade and Oswald de Andrade
 E: Modernism also impacted literature, with authors such as Mário de Andrade and Oswald de Andrade.
 --- es
 P: El Modernismo brasileño tuvo desarrollos más allá de las artes visuales, alcanzando también:
-- Solo la gastronomía
-- Solo la arquitectura militar
+- La gastronomía como principal lenguaje de ruptura estética del movimiento
+- La arquitectura militar como campo central de las experiencias modernistas
 - Solo el teatro de calle
 - La literatura, con autores como Mário de Andrade y Oswald de Andrade
 E: El Modernismo también impactó la literatura, con autores como Mário de Andrade y Oswald de Andrade.
@@ -550,21 +550,21 @@ E: El arte contemporáneo brasileño se caracteriza por la diversidad de lenguaj
 
 === Movimentos artísticos brasileiros > Arte contemporânea brasileira c=1 d=facil
 P: Hélio Oiticica, importante artista contemporâneo brasileiro, é conhecido por explorar:
-- Apenas pintura acadêmica tradicional
-- A relação entre corpo, cor e espaço em obras participativas
+- Pintura acadêmica baseada em perspectiva e acabamento ilusionista
+- A relação entre corpo, cor e espaço em trabalhos participativos
 - Exclusivamente esculturas em mármore clássico
 - Apenas retratos realistas
 E: Hélio Oiticica é conhecido por explorar a relação entre corpo, cor e espaço em obras participativas.
 --- en
 P: Hélio Oiticica, an important Brazilian contemporary artist, is known for exploring:
-- Only traditional academic painting
-- The relationship between body, color and space in participatory works
+- Academic painting based on perspective and illusionistic finish
+- The relationship between body, color, and space in participatory works
 - Exclusively classical marble sculptures
 - Only realistic portraits
 E: Hélio Oiticica is known for exploring the relationship between body, color and space in participatory works.
 --- es
 P: Hélio Oiticica, importante artista contemporáneo brasileño, es conocido por explorar:
-- Solo pintura académica tradicional
+- Pintura académica basada en perspectiva y acabado ilusionista
 - La relación entre cuerpo, color y espacio en obras participativas
 - Exclusivamente esculturas de mármol clásico
 - Solo retratos realistas

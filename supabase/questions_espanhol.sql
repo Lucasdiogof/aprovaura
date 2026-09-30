@@ -1354,7 +1354,7 @@ from (values
    array['Aliteración', 'Onomatopeya', 'Símil/comparación', 'Hipérbole'],
    'La construcción "como quien..." establece una comparación explícita (símil) entre guardar el dolor y guardar una carta nunca enviada.'),
   ('71f66fb2-cc16-5bc0-9847-cd405f4e33d7', 'en',
-   'In the same excerpt "No lloró cuando se fue, ni cuando volvió...", what does the metaphor of the "letter she never plans to send" suggest about the character''s pain?',
+   'In the same excerpt "No lloró cuando se fue, ni cuando volvió...", what does the metaphor "carta que nunca piensa enviar" suggest about the character''s pain?',
    array['That it is a nonexistent, fake pain', 'That it is a pain already fully resolved', 'That it is a pain openly shared with everyone', 'That it is a pain kept inside, contained, never expressed/shared'],
    'The never-sent letter is a metaphor for something kept and never shared, suggesting that the character''s pain remains contained and unexpressed.'),
   ('71f66fb2-cc16-5bc0-9847-cd405f4e33d7', 'es',

@@ -132,24 +132,24 @@ E: El dilema contrapone el razonamiento consecuencialista (salvar más vidas) a 
 
 === Ética > Teorias éticas c=1 d=facil
 P: O utilitarismo, de Jeremy Bentham e John Stuart Mill, avalia uma ação como correta quando ela:
-- Obedece à tradição religiosa
+- Está de acordo com uma regra moral válida independentemente dos resultados
 - Produz a maior felicidade para o maior número de pessoas
-- É feita apenas por dever
-- Beneficia somente quem a pratica
+- É realizada por uma pessoa de caráter virtuoso, independentemente do efeito produzido
+- Preserva a liberdade individual mesmo quando reduz o bem-estar agregado
 E: O utilitarismo é consequencialista: julga as ações pelos resultados em termos de bem-estar geral.
 --- en
 P: Utilitarianism, by Jeremy Bentham and John Stuart Mill, considers an action right when it:
-- Obeys religious tradition
+- Conforms to a moral rule valid regardless of outcomes
 - Produces the greatest happiness for the greatest number of people
-- Is done only out of duty
-- Benefits only the person who performs it
+- Is performed by a virtuous person regardless of the effect produced
+- Preserves individual liberty even when it reduces aggregate well-being
 E: Utilitarianism is consequentialist: it judges actions by their results in terms of general well-being.
 --- es
 P: El utilitarismo, de Jeremy Bentham y John Stuart Mill, considera correcta una acción cuando:
-- Obedece a la tradición religiosa
+- Se ajusta a una regla moral válida independientemente de los resultados
 - Produce la mayor felicidad para el mayor número de personas
-- Se hace solo por deber
-- Beneficia únicamente a quien la realiza
+- Es realizada por una persona virtuosa independientemente del efecto producido
+- Preserva la libertad individual aunque reduzca el bienestar agregado
 E: El utilitarismo es consecuencialista: juzga las acciones por sus resultados en términos de bienestar general.
 
 === Ética > Teorias éticas c=3 d=facil
@@ -375,23 +375,23 @@ E: La fortuna gobierna parte de las cosas, pero la virtù puede resistir y domin
 === Filosofia política > Maquiavel e o poder c=0 d=dificil
 P: A expressão "os fins justificam os meios", atribuída popularmente a Maquiavel, é considerada uma simplificação porque:
 - Ele analisa as ações pelo objetivo de manter o Estado, e não autoriza qualquer ação para qualquer fim
-- Ele nunca tratou de política
-- Ele defendia que a moral cristã deve sempre prevalecer
-- Ele era contra qualquer governo forte
+- Sua obra trata da organização política, mas rejeita analisar conflitos de poder
+- Ele subordina toda ação política às mesmas regras da moral cristã privada
+- Ele considera a força política ilegítima em qualquer circunstância
 E: A frase não aparece literalmente na obra; Maquiavel avalia as ações do príncipe pela preservação do Estado.
 --- en
 P: The expression "the end justifies the means", popularly attributed to Machiavelli, is considered a simplification because:
 - He judges actions by the goal of preserving the State, and does not authorize any action for any end
-- He never wrote about politics
-- He argued that Christian morality must always prevail
-- He opposed any strong government
+- His work addresses political organization but rejects analyzing power conflicts
+- He subordinates every political action to the same rules as private Christian morality
+- He considers political force illegitimate under any circumstances
 E: The phrase does not appear literally in his work; Machiavelli judges the prince's actions by the preservation of the State.
 --- es
 P: La expresión "el fin justifica los medios", atribuida popularmente a Maquiavelo, se considera una simplificación porque:
 - Él analiza las acciones por el objetivo de mantener el Estado, y no autoriza cualquier acción para cualquier fin
-- Nunca trató de política
-- Defendía que la moral cristiana siempre debe prevalecer
-- Estaba en contra de cualquier gobierno fuerte
+- Su obra trata la organización política, pero rechaza analizar los conflictos de poder
+- Subordina toda acción política a las mismas reglas de la moral cristiana privada
+- Considera ilegítima la fuerza política en cualquier circunstancia
 E: La frase no aparece literalmente en su obra; Maquiavelo evalúa las acciones del príncipe por la conservación del Estado.
 
 === Filosofia política > Contratualistas c=1 d=facil

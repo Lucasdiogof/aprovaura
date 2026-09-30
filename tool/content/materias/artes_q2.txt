@@ -484,23 +484,23 @@ E: El tempo se refiere a la velocidad en que se ejecuta la música.
 
 === Música > Elementos da música c=0 d=dificil
 P: O timbre, elemento da música, permite distinguir:
-- Sons de diferentes fontes (instrumentos ou vozes), mesmo tocando a mesma nota
-- Apenas a duração de uma nota
-- Apenas o volume de uma música
+- Fontes sonoras diferentes mesmo quando executam a mesma nota
+- Notas com durações diferentes produzidas pela mesma fonte sonora
+- Variações de intensidade ao longo de uma mesma execução musical
 - Apenas o andamento de uma peça
 E: O timbre permite distinguir sons de diferentes fontes, mesmo tocando a mesma nota.
 --- en
 P: Timbre, an element of music, allows us to distinguish:
-- Sounds from different sources (instruments or voices), even playing the same note
-- Only the duration of a note
-- Only the volume of a piece of music
+- Different sound sources even when they play the same note
+- Notes of different durations produced by the same sound source
+- Changes in intensity throughout the same musical performance
 - Only the tempo of a piece
 E: Timbre allows us to distinguish sounds from different sources, even when playing the same note.
 --- es
 P: El timbre, elemento de la música, permite distinguir:
-- Sonidos de diferentes fuentes (instrumentos o voces), incluso tocando la misma nota
-- Solo la duración de una nota
-- Solo el volumen de una música
+- Fuentes sonoras diferentes incluso cuando ejecutan la misma nota
+- Notas de distinta duración producidas por la misma fuente sonora
+- Variaciones de intensidad a lo largo de una misma ejecución musical
 - Solo el tempo de una pieza
 E: El timbre permite distinguir sonidos de diferentes fuentes, incluso tocando la misma nota.
 
@@ -573,23 +573,23 @@ E: La Bossa Nova se asocia a artistas como Tom Jobim y João Gilberto.
 === Música > História da música popular brasileira c=0 d=medio
 P: O movimento da Tropicália, surgido no final dos anos 1960, se caracterizou por:
 - Misturar influências nacionais e internacionais, incluindo rock e música tradicional brasileira
-- Rejeitar totalmente qualquer influência estrangeira
-- Restringir-se apenas à música clássica europeia
-- Ser um movimento exclusivamente instrumental
+- Separar repertórios brasileiros de influências internacionais para preservar estilos puros
+- Retomar padrões da música de concerto europeia como referência principal
+- Construir uma sonoridade baseada em instrumentos acústicos e rejeição da cultura de massa
 E: A Tropicália se caracterizou por misturar influências nacionais e internacionais, incluindo rock e música tradicional brasileira.
 --- en
 P: The Tropicália movement, which emerged in the late 1960s, was characterized by:
 - Mixing national and international influences, including rock and traditional Brazilian music
-- Totally rejecting any foreign influence
-- Restricting itself only to European classical music
-- Being an exclusively instrumental movement
+- Separate Brazilian repertoires from international influences to preserve pure styles
+- Return to European concert-music standards as its main reference
+- Build a sound based on acoustic instruments and rejection of mass culture
 E: Tropicália was characterized by mixing national and international influences, including rock and traditional Brazilian music.
 --- es
 P: El movimiento de la Tropicália, surgido a finales de los años 1960, se caracterizó por:
 - Mezclar influencias nacionales e internacionales, incluyendo rock y música tradicional brasileña
-- Rechazar totalmente cualquier influencia extranjera
-- Restringirse únicamente a la música clásica europea
-- Ser un movimiento exclusivamente instrumental
+- Separar repertorios brasileños de influencias internacionales para preservar estilos puros
+- Retomar patrones de la música de concierto europea como referencia principal
+- Construir una sonoridad basada en instrumentos acústicos y rechazo de la cultura de masas
 E: La Tropicália se caracterizó por mezclar influencias nacionales e internacionales, incluyendo rock y música tradicional brasileña.
 
 === Música > História da música popular brasileira c=1 d=medio

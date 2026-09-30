@@ -380,7 +380,7 @@ P: No mesmo trecho "No lloró cuando se fue, ni cuando volvió...", o que a met�
 - Que é uma dor guardada, contida, nunca expressa/compartilhada
 E: A carta nunca enviada é uma metáfora para algo guardado e nunca compartilhado, sugerindo que a dor do personagem permanece contida e não expressa.
 --- en
-P: In the same excerpt "No lloró cuando se fue, ni cuando volvió...", what does the metaphor of the "letter she never plans to send" suggest about the character's pain?
+P: In the same excerpt "No lloró cuando se fue, ni cuando volvió...", what does the metaphor "carta que nunca piensa enviar" suggest about the character's pain?
 - That it is a nonexistent, fake pain
 - That it is a pain already fully resolved
 - That it is a pain openly shared with everyone

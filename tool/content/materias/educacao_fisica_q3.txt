@@ -88,23 +88,23 @@ E: Enfrentarse a alguien de porte semejante hace el combate más equilibrado y r
 
 === Lutas e artes marciais > Lutas de origem oriental c=0 d=dificil
 P: O princípio do "caminho suave", que dá nome ao judô, refere-se a:
-- Usar a força e o desequilíbrio do adversário a favor do próprio movimento
+- Aproveitar força e desequilíbrio do adversário para executar a técnica
 - Evitar qualquer contato físico durante o combate
-- Vencer apenas por pontos, sem projeções
+- Buscar pontuar por imobilizações, sem empregar técnicas de projeção
 - Treinar somente com movimentos lentos
 E: O ju do judô significa suavidade ou flexibilidade: em vez de opor força à força, o atleta aproveita a ação do oponente para projetá-lo.
 --- en
 P: The "gentle way" principle that gives judo its name refers to:
-- Using the opponent's force and imbalance in favour of one's own movement
+- Use the opponent's force and imbalance to execute the technique
 - Avoiding any physical contact during the bout
-- Winning only on points, without throws
+- Seek to score through holds without using throwing techniques
 - Training only with slow movements
 E: The ju in judo means gentleness or flexibility: instead of meeting force with force, the athlete uses the opponent's action to throw them.
 --- es
 P: El principio del "camino suave", que da nombre al judo, se refiere a:
-- Usar la fuerza y el desequilibrio del adversario a favor del propio movimiento
+- Aprovechar la fuerza y el desequilibrio del adversario para ejecutar la técnica
 - Evitar cualquier contacto físico durante el combate
-- Vencer solo por puntos, sin proyecciones
+- Buscar puntuar mediante inmovilizaciones sin emplear técnicas de proyección
 - Entrenar solo con movimientos lentos
 E: El ju del judo significa suavidad o flexibilidad: en lugar de oponer fuerza a fuerza, el atleta aprovecha la acción del oponente para proyectarlo.
 
@@ -220,24 +220,24 @@ E: Las danzas folclóricas se vinculan a festejos, celebraciones religiosas y ca
 
 === Danças e atividades rítmicas > Danças brasileiras c=2 d=dificil
 P: O bumba meu boi, manifestação do Maranhão e de outros estados, caracteriza-se por:
-- Ser uma dança de salão europeia adaptada
-- Reunir apenas música instrumental
+- Ser uma dança de pares com coreografia fixa de origem europeia
+- Articular música e cortejo sem representação dramática do enredo
 - Combinar teatro, dança e música em torno da morte e ressurreição do boi
-- Ser praticada exclusivamente em ambientes fechados
+- Apresentar encenação religiosa centrada em personagens bíblicos, sem dança
 E: O bumba meu boi é um auto popular que mistura dança, música e teatro, encenando a morte e a ressurreição do boi.
 --- en
 P: Bumba meu boi, an expression from Maranhão and other states, is characterised by:
-- Being an adapted European ballroom dance
-- Bringing together instrumental music only
+- Being a partnered dance with fixed choreography of European origin
+- Combining music and procession without dramatic representation of the plot
 - Combining theatre, dance and music around the death and resurrection of the ox
-- Being performed exclusively indoors
+- Presenting a religious performance centered on biblical characters, without dance
 E: Bumba meu boi is a popular pageant mixing dance, music and theatre, staging the death and resurrection of the ox.
 --- es
 P: El bumba meu boi, manifestación de Maranhão y otros estados, se caracteriza por:
-- Ser una danza de salón europea adaptada
-- Reunir solo música instrumental
+- Ser una danza de parejas con coreografía fija de origen europeo
+- Articular música y desfile sin representación dramática de la trama
 - Combinar teatro, danza y música en torno a la muerte y resurrección del buey
-- Practicarse exclusivamente en ambientes cerrados
+- Presentar una representación religiosa centrada en personajes bíblicos, sin danza
 E: El bumba meu boi es un auto popular que mezcla danza, música y teatro, escenificando la muerte y la resurrección del buey.
 
 === Danças e atividades rítmicas > Danças brasileiras c=3 d=dificil
@@ -330,23 +330,23 @@ E: La inclusión del breaking muestra cómo las manifestaciones culturales urban
 
 === Danças e atividades rítmicas > Danças urbanas e contemporâneas c=3 d=medio
 P: As batalhas (battles) das danças urbanas caracterizam-se por:
-- Coreografias idênticas repetidas por todos os participantes
-- Apresentações silenciosas, sem público
-- Julgamento exclusivamente por tempo de execução
+- Sequências coreografadas previamente, reproduzidas da mesma forma pelos oponentes
+- Apresentações individuais sem interação com o oponente ou com a música
+- Avaliação baseada principalmente na duração da apresentação
 - Improvisação e diálogo corporal entre dançarinos, avaliados por jurados ou pela plateia
 E: Nas batalhas os dançarinos se revezam improvisando, respondendo ao adversário e ao ritmo, com avaliação de jurados ou da plateia.
 --- en
 P: Battles in urban dance are characterised by:
-- Identical choreography repeated by every participant
-- Silent performances without an audience
-- Judging based solely on how long each routine lasts
+- Pre-choreographed sequences reproduced in the same way by opponents
+- Individual performances without interaction with the opponent or the music
+- Evaluation based mainly on performance duration
 - Improvisation and bodily dialogue between dancers, judged by a panel or the crowd
 E: In battles dancers take turns improvising, responding to the opponent and to the beat, judged by a panel or by the crowd.
 --- es
 P: Las batallas (battles) de las danzas urbanas se caracterizan por:
-- Coreografías idénticas repetidas por todos los participantes
-- Presentaciones silenciosas, sin público
-- Juicio exclusivamente por el tiempo de ejecución
+- Secuencias coreografiadas previamente, reproducidas de la misma manera por los oponentes
+- Presentaciones individuales sin interacción con el oponente ni con la música
+- Evaluación basada principalmente en la duración de la presentación
 - Improvisación y diálogo corporal entre bailarines, evaluados por jurados o por el público
 E: En las batallas los bailarines se turnan improvisando, respondiendo al adversario y al ritmo, con evaluación de jurados o del público.
 
@@ -484,23 +484,23 @@ E: Los juegos populares son patrimonio cultural y amplían el repertorio motor y
 
 === Jogos e brincadeiras populares > Jogos e brincadeiras do Brasil c=2 d=dificil
 P: A distinção entre jogo e esporte, na Educação Física, considera que o esporte:
-- Nunca envolve prazer ou diversão
+- Prioriza desempenho e resultado, mas também pode envolver lazer e prazer
 - É sempre praticado ao ar livre
-- Possui regras institucionalizadas, federações e sistema de competição
+- Possui regras institucionalizadas e estruturas formais de competição
 - Dispensa qualquer tipo de regra
 E: O esporte é uma forma de jogo institucionalizada: regras oficiais, entidades organizadoras e competições regulares o distinguem do jogo popular.
 --- en
 P: The distinction between game and sport, in Physical Education, holds that sport:
-- Never involves pleasure or fun
+- Prioritizes performance and results but can also involve leisure and enjoyment
 - Is always played outdoors
-- Has institutionalised rules, federations and a competition system
+- Has institutionalized rules and formal competition structures
 - Needs no rules at all
 E: Sport is an institutionalised form of play: official rules, governing bodies and regular competitions set it apart from traditional games.
 --- es
 P: La distinción entre juego y deporte, en la Educación Física, considera que el deporte:
-- Nunca implica placer o diversión
+- Prioriza rendimiento y resultado, pero también puede incluir ocio y disfrute
 - Se practica siempre al aire libre
-- Posee reglas institucionalizadas, federaciones y sistema de competición
+- Posee reglas institucionalizadas y estructuras formales de competición
 - Prescinde de cualquier tipo de regla
 E: El deporte es una forma de juego institucionalizada: reglas oficiales, entidades organizadoras y competiciones regulares lo distinguen del juego popular.
 

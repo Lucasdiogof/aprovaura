@@ -1,65 +1,65 @@
-=== História do Brasil > Brasil Colonial c=1 d=dificil
+=== História do Brasil > Brasil Colonial c=2 d=dificil
 P: Os quilombos no Brasil colonial podem ser entendidos como:
+- Fortificações erguidas pela Coroa nas fronteiras
 - Instituições criadas pela Coroa para ampliar a escravidão
 - Comunidades de resistência à escravidão, formadas sobretudo por escravizados fugidos
-- Fortificações erguidas pela Coroa nas fronteiras
 - Aldeamentos missionários organizados por jesuítas
 E: Os quilombos reuniram experiências de resistência, autonomia e organização social, com destaque histórico para Palmares.
 --- en
 P: Quilombos in colonial Brazil can be understood as:
+- Fortifications built by the Crown on the frontiers
 - Institutions created by the Crown to expand slavery
 - Communities of resistance to slavery, formed mainly by people who escaped enslavement
-- Fortifications built by the Crown on the frontiers
 - Mission villages organized by Jesuits
 E: Quilombos included diverse experiences of resistance, autonomy, and social organization, with Palmares as a major historical example.
 --- es
 P: Los quilombos en el Brasil colonial pueden entenderse como:
+- Fortificaciones levantadas por la Corona en las fronteras
 - Instituciones creadas por la Corona para ampliar la esclavitud
 - Comunidades de resistencia a la esclavitud, formadas sobre todo por esclavizados fugitivos
-- Fortificaciones levantadas por la Corona en las fronteras
 - Reducciones misioneras organizadas por jesuitas
 E: Los quilombos reunieron experiencias de resistencia, autonomía y organización social, con Palmares como ejemplo histórico destacado.
 
-=== Idade Moderna c=2 d=dificil
+=== Idade Moderna c=0 d=dificil
 P: A Revolução Gloriosa de 1688 contribuiu para:
-- Abolir o Parlamento
-- Restaurar absolutismo sem limites
 - Limitar o poder monárquico e fortalecer o Parlamento inglês
+- Restaurar absolutismo sem limites
 - Instituir a república na Inglaterra
+- Abolir o Parlamento
 E: A consolidação da monarquia constitucional ampliou a centralidade do Parlamento e limitou institucionalmente a Coroa.
 --- en
 P: The Glorious Revolution of 1688 contributed to:
-- Abolishing Parliament
-- Restoring unlimited absolutism
 - Limiting monarchical power and strengthening the English Parliament
+- Restoring unlimited absolutism
 - Establishing a republic in England
+- Abolishing Parliament
 E: The consolidation of constitutional monarchy increased Parliament's centrality and institutionally limited the Crown.
 --- es
 P: La Revolución Gloriosa de 1688 contribuyó a:
-- Abolir el Parlamento
-- Restaurar un absolutismo sin límites
 - Limitar el poder monárquico y fortalecer el Parlamento inglés
+- Restaurar un absolutismo sin límites
 - Instaurar la república en Inglaterra
+- Abolir el Parlamento
 E: La consolidación de la monarquía constitucional aumentó la centralidad del Parlamento y limitó institucionalmente a la Corona.
 
-=== Idade Contemporânea c=3 d=medio
+=== Idade Contemporânea c=0 d=medio
 P: A expressão 'Guerra Fria' indica que EUA e URSS:
+- Disputaram influência global sem guerra direta entre si
+- Mantiveram aliança permanente
 - Abandonaram a corrida tecnológica
 - Nunca participaram de conflitos indiretos
-- Mantiveram aliança permanente
-- Disputaram influência global sem guerra direta entre si
 E: A rivalidade envolveu armas, propaganda, economia, tecnologia e guerras por procuração, sem guerra direta ampla entre as superpotências.
 --- en
 P: The term 'Cold War' indicates that the US and USSR:
+- Competed for global influence without fighting each other directly
+- Maintained a permanent alliance
 - Abandoned technological competition
 - Never participated in proxy conflicts
-- Maintained a permanent alliance
-- Competed for global influence without fighting each other directly
 E: The rivalry involved weapons, propaganda, economics, technology, and proxy wars without a broad direct war between the superpowers.
 --- es
 P: La expresión 'Guerra Fría' indica que EE. UU. y la URSS:
+- Disputaron influencia global sin enfrentarse directamente
+- Mantuvieron una alianza permanente
 - Abandonaron la competencia tecnológica
 - Nunca participaron en conflictos indirectos
-- Mantuvieron una alianza permanente
-- Disputaron influencia global sin enfrentarse directamente
 E: La rivalidad involucró armas, propaganda, economía, tecnología y guerras por intermediarios, sin una guerra directa amplia entre las superpotencias.

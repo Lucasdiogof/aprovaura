@@ -417,24 +417,24 @@ E: Los militares y los métodos gimnásticos europeos, sobre todo el francés y 
 
 === Educação Física, lazer e políticas > História da Educação Física no Brasil c=1 d=facil
 P: Atualmente, a Educação Física escolar brasileira é entendida como componente curricular que trata:
-- Apenas do treinamento de atletas
+- Do aperfeiçoamento técnico voltado prioritariamente ao esporte competitivo
 - Da cultura corporal de movimento, incluindo esportes, danças, lutas, ginásticas e jogos
-- Somente da avaliação física dos alunos
-- Exclusivamente de conteúdos teóricos de anatomia
+- Da mensuração do condicionamento físico como eixo central do currículo
+- Da anatomia e fisiologia tratadas separadamente das práticas corporais
 E: A área é definida pelo estudo da cultura corporal de movimento, com esportes, jogos, danças, lutas, ginásticas e práticas corporais de aventura.
 --- en
 P: Today, Brazilian school Physical Education is understood as a curriculum component dealing with:
-- Athlete training only
+- Technical improvement aimed primarily at competitive sport
 - Bodily movement culture, including sports, dance, fighting arts, gymnastics and games
-- Only the physical assessment of students
-- Exclusively theoretical anatomy content
+- Physical-fitness measurement as the central axis of the curriculum
+- Anatomy and physiology treated separately from bodily practices
 E: The field is defined by the study of bodily movement culture, with sports, games, dance, fighting arts, gymnastics and adventure practices.
 --- es
 P: Actualmente, la Educación Física escolar brasileña se entiende como un componente curricular que trata:
-- Solo del entrenamiento de atletas
+- Del perfeccionamiento técnico orientado principalmente al deporte competitivo
 - De la cultura corporal de movimiento, incluyendo deportes, danzas, luchas, gimnasias y juegos
-- Solamente de la evaluación física de los alumnos
-- Exclusivamente de contenidos teóricos de anatomía
+- De la medición de la condición física como eje central del currículo
+- De la anatomía y fisiología tratadas por separado de las prácticas corporales
 E: El área se define por el estudio de la cultura corporal de movimiento, con deportes, juegos, danzas, luchas, gimnasias y prácticas corporales de aventura.
 
 === Educação Física, lazer e políticas > História da Educação Física no Brasil c=2 d=medio

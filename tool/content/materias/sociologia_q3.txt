@@ -88,24 +88,24 @@ E: El Gini va de 0 (igualdad total) a 1 (desigualdad máxima); Brasil está entr
 
 === Desigualdades sociais > Classes e estratificação c=2 d=dificil
 P: Weber ampliou a análise da estratificação ao considerar, além da classe econômica:
-- Apenas a religião
-- Somente a idade
+- O grau de escolaridade e a geração a que o indivíduo pertence
+- A idade e a localização residencial como dimensões centrais da estratificação
 - O status (prestígio social) e o partido (poder político)
-- Apenas a localização geográfica
+- O consumo cultural e a renda como categorias equivalentes à classe econômica
 E: Para Weber, a posição social tem dimensões econômica (classe), de honra/prestígio (status) e de poder (partido).
 --- en
 P: Weber broadened the analysis of stratification by considering, besides economic class:
-- Religion only
-- Age only
+- Educational attainment and the generation to which a person belongs
+- Age and residential location as the central dimensions of stratification
 - Status (social prestige) and party (political power)
-- Geographic location only
+- Cultural consumption and income as categories equivalent to economic class
 E: For Weber, social position has economic (class), honor/prestige (status) and power (party) dimensions.
 --- es
 P: Weber amplió el análisis de la estratificación al considerar, además de la clase económica:
-- Solo la religión
-- Solo la edad
+- El nivel educativo y la generación a la que pertenece el individuo
+- La edad y la ubicación residencial como dimensiones centrales de la estratificación
 - El estatus (prestigio social) y el partido (poder político)
-- Solo la ubicación geográfica
+- El consumo cultural y el ingreso como categorías equivalentes a la clase económica
 E: Para Weber, la posición social tiene dimensiones económica (clase), de honor/prestigio (estatus) y de poder (partido).
 
 === Desigualdades sociais > Classes e estratificação c=0 d=dificil
@@ -176,24 +176,24 @@ E: Las acciones afirmativas buscan reducir desigualdades históricas, ampliando 
 
 === Desigualdades sociais > Desigualdade racial c=2 d=medio
 P: O "mito da democracia racial" no Brasil é a ideia de que:
-- O país sempre teve leis racistas explícitas
-- Os brasileiros nunca se misturaram
+- A igualdade jurídica teria eliminado diferenças econômicas entre grupos raciais
+- A miscigenação teria impedido a formação de identidades raciais no país
 - A miscigenação teria produzido uma convivência harmoniosa, sem racismo, o que esconde desigualdades reais
-- A escravidão nunca existiu no país
+- A abolição teria produzido imediatamente igualdade de oportunidades entre brancos e negros
 E: Florestan Fernandes, entre outros, mostrou que essa ideia mascarava a discriminação e a desigualdade racial.
 --- en
 P: The "myth of racial democracy" in Brazil is the idea that:
-- The country always had explicit racist laws
-- Brazilians never mixed
+- Legal equality would have eliminated economic differences among racial groups
+- Miscegenation would have prevented the formation of racial identities in the country
 - Racial mixing would have produced harmonious coexistence without racism, which hides real inequalities
-- Slavery never existed in the country
+- Abolition would have immediately produced equal opportunities between White and Black people
 E: Florestan Fernandes, among others, showed that this idea masked discrimination and racial inequality.
 --- es
 P: El "mito de la democracia racial" en Brasil es la idea de que:
-- El país siempre tuvo leyes racistas explícitas
-- Los brasileños nunca se mezclaron
+- La igualdad jurídica habría eliminado las diferencias económicas entre grupos raciales
+- El mestizaje habría impedido la formación de identidades raciales en el país
 - El mestizaje habría producido una convivencia armoniosa, sin racismo, lo que oculta desigualdades reales
-- La esclavitud nunca existió en el país
+- La abolición habría producido de inmediato igualdad de oportunidades entre blancos y negros
 E: Florestan Fernandes, entre otros, mostró que esa idea enmascaraba la discriminación y la desigualdad racial.
 
 === Desigualdades sociais > Desigualdade racial c=0 d=medio
@@ -396,23 +396,23 @@ E: El patriarcado se manifiesta en la familia, el trabajo, la política y la cul
 
 === Poder, Estado e política > Estado e poder c=3 d=facil
 P: Para Max Weber, o Estado moderno se define por deter:
-- O controle de todas as empresas
-- A autoridade religiosa suprema
-- A propriedade de todas as terras
+- O controle direto da maior parte das empresas estratégicas
+- A autoridade para definir a doutrina religiosa da população
+- A propriedade jurídica do território e dos bens de seus habitantes
 - O monopólio do uso legítimo da força física em um território
 E: Só o Estado pode usar a força de modo legítimo, dentro de regras legais, em seu território.
 --- en
 P: For Max Weber, the modern State is defined by holding:
-- Control of all companies
-- Supreme religious authority
-- Ownership of all land
+- Direct control of most strategic companies
+- Authority to define the population's religious doctrine
+- Legal ownership of the territory and its inhabitants' property
 - The monopoly on the legitimate use of physical force within a territory
 E: Only the State may use force legitimately, within legal rules, in its territory.
 --- es
 P: Para Max Weber, el Estado moderno se define por poseer:
-- El control de todas las empresas
-- La autoridad religiosa suprema
-- La propiedad de todas las tierras
+- El control directo de la mayoría de las empresas estratégicas
+- La autoridad para definir la doctrina religiosa de la población
+- La propiedad jurídica del territorio y de los bienes de sus habitantes
 - El monopolio del uso legítimo de la fuerza física en un territorio
 E: Solo el Estado puede usar la fuerza de modo legítimo, dentro de reglas legales, en su territorio.
 
@@ -506,24 +506,24 @@ E: Foucault analiza el "poder disciplinario", que vigila y normaliza cuerpos y c
 
 === Poder, Estado e política > Estado e poder c=1 d=dificil
 P: O conceito de "hegemonia", de Antonio Gramsci, explica que a dominação de uma classe se mantém:
-- Somente pela força militar
+- Pela coerção física exercida diretamente pelo aparelho militar
 - Também pelo consenso, difundido pela cultura, escola, mídia e religião
-- Apenas pela propriedade da terra
-- Sem nenhuma relação com as ideias
+- Pelo controle econômico, sem necessidade de construir legitimidade social
+- Por acordos jurídicos entre classes, sem participação de instituições culturais
 E: Para Gramsci, a classe dirigente conquista a adesão dos dominados por meio de valores tidos como "senso comum".
 --- en
 P: Antonio Gramsci's concept of "hegemony" explains that a class's domination is maintained:
-- Only by military force
+- Through physical coercion exercised directly by the military apparatus
 - Also by consent, spread through culture, school, media and religion
-- Only through land ownership
-- With no relation to ideas
+- Through economic control, without the need to build social legitimacy
+- Through legal agreements between classes, without cultural institutions
 E: For Gramsci, the ruling class wins the adherence of the dominated through values taken as "common sense".
 --- es
 P: El concepto de "hegemonía", de Antonio Gramsci, explica que la dominación de una clase se mantiene:
-- Solo por la fuerza militar
+- Mediante la coerción física ejercida directamente por el aparato militar
 - También por el consenso, difundido por la cultura, la escuela, los medios y la religión
-- Solo por la propiedad de la tierra
-- Sin ninguna relación con las ideas
+- Mediante el control económico, sin necesidad de construir legitimidad social
+- Mediante acuerdos jurídicos entre clases, sin participación de instituciones culturales
 E: Para Gramsci, la clase dirigente conquista la adhesión de los dominados mediante valores tenidos por "sentido común".
 
 === Poder, Estado e política > Democracia e participação c=0 d=facil

@@ -1,87 +1,87 @@
-=== Brasil > Energia do Brasil c=1 d=medio
+=== Brasil > Energia do Brasil c=3 d=medio
 P: Uma vantagem operacional da complementaridade entre geração hidrelétrica, eólica e solar no sistema elétrico é:
-- Eliminar a necessidade de redes de transmissão
-- Diversificar fontes e reduzir a dependência de uma única condição natural
 - Garantir produção idêntica em todas as horas do ano
 - Tornar desnecessário o planejamento de oferta e demanda
+- Eliminar a necessidade de redes de transmissão
+- Diversificar fontes e reduzir a dependência de uma única condição natural
 E: Fontes com perfis diferentes podem se complementar, reduzindo a exposição do sistema a uma única condição hidrológica ou climática.
 --- en
 P: An operational advantage of combining hydropower, wind, and solar generation in an electricity system is:
-- Eliminating the need for transmission networks
-- Diversifying sources and reducing dependence on a single natural condition
 - Guaranteeing identical output at every hour of the year
 - Making supply-and-demand planning unnecessary
+- Eliminating the need for transmission networks
+- Diversifying sources and reducing dependence on a single natural condition
 E: Sources with different generation profiles can complement one another, reducing the system's exposure to a single hydrological or climatic condition.
 --- es
 P: Una ventaja operativa de combinar generación hidroeléctrica, eólica y solar en un sistema eléctrico es:
-- Eliminar la necesidad de redes de transmisión
-- Diversificar las fuentes y reducir la dependencia de una sola condición natural
 - Garantizar una producción idéntica en todas las horas del año
 - Hacer innecesaria la planificación de oferta y demanda
+- Eliminar la necesidad de redes de transmisión
+- Diversificar las fuentes y reducir la dependencia de una sola condición natural
 E: Fuentes con perfiles distintos pueden complementarse, reduciendo la exposición del sistema a una única condición hidrológica o climática.
 
 === Brasil > Questão ambiental do Brasil c=0 d=dificil
 P: Em uma bacia hidrográfica urbana, a substituição de solo permeável por asfalto e concreto tende a:
 - Aumentar o escoamento superficial e favorecer picos de cheia
 - Aumentar a infiltração e reduzir o volume escoado
-- Eliminar a necessidade de drenagem urbana
 - Impedir que a chuva alcance os cursos d'água
+- Eliminar a necessidade de drenagem urbana
 E: A impermeabilização reduz a infiltração, aumenta e acelera o escoamento superficial e pode intensificar enchentes.
 --- en
 P: In an urban watershed, replacing permeable soil with asphalt and concrete tends to:
 - Increase surface runoff and favor higher flood peaks
 - Increase infiltration and reduce runoff volume
-- Eliminate the need for urban drainage
 - Prevent rainfall from reaching streams
+- Eliminate the need for urban drainage
 E: Impervious surfaces reduce infiltration, increase and accelerate runoff, and can intensify flooding.
 --- es
 P: En una cuenca urbana, sustituir suelo permeable por asfalto y hormigón tiende a:
 - Aumentar la escorrentía superficial y favorecer picos de crecida
 - Aumentar la infiltración y reducir el volumen escurrido
-- Eliminar la necesidad de drenaje urbano
 - Impedir que la lluvia llegue a los cursos de agua
+- Eliminar la necesidad de drenaje urbano
 E: La impermeabilización reduce la infiltración, aumenta y acelera la escorrentía superficial y puede intensificar las inundaciones.
 
-=== Brasil > Urbanização do Brasil c=2 d=dificil
+=== Brasil > Urbanização do Brasil c=1 d=dificil
 P: Uma cidade expande sua mancha urbana para municípios vizinhos, enquanto deslocamentos diários de trabalho e estudo integram fortemente essas áreas. O fenômeno descrito aproxima-se de:
+- Desconcentração industrial
+- Conurbação e integração metropolitana
 - Êxodo rural
 - Verticalização isolada
-- Conurbação e integração metropolitana
-- Desconcentração industrial
 E: A continuidade ou forte integração entre áreas urbanizadas de municípios vizinhos caracteriza processos de conurbação e metropolização.
 --- en
 P: A city expands its urban footprint into neighboring municipalities while daily commuting for work and study strongly integrates these areas. This is closest to:
+- Industrial decentralization
+- Conurbation and metropolitan integration
 - Rural exodus
 - Isolated vertical growth
-- Conurbation and metropolitan integration
-- Industrial decentralization
 E: Continuity or strong integration between urbanized areas of neighboring municipalities characterizes conurbation and metropolitan processes.
 --- es
 P: Una ciudad expande su mancha urbana hacia municipios vecinos, mientras los desplazamientos diarios por trabajo y estudio integran fuertemente esas áreas. El fenómeno se aproxima a:
+- Desconcentración industrial
+- Conurbación e integración metropolitana
 - Éxodo rural
 - Verticalización aislada
-- Conurbación e integración metropolitana
-- Desconcentración industrial
 E: La continuidad o fuerte integración entre áreas urbanizadas de municipios vecinos caracteriza procesos de conurbación y metropolización.
 
-=== Mundo > Geopolítica e globalização c=3 d=dificil
+=== Mundo > Geopolítica e globalização c=1 d=dificil
 P: Uma empresa projeta um produto em um país, fabrica componentes em outros três e realiza a montagem final em um quarto. Esse arranjo evidencia:
-- Autarquia produtiva
-- Regionalização climática
 - Fim da divisão internacional do trabalho
 - Fragmentação internacional da produção
+- Autarquia produtiva
+- Regionalização climática
 E: A produção distribuída em diferentes países é característica das cadeias globais de valor e da fragmentação internacional da produção.
 --- en
 P: A company designs a product in one country, manufactures components in three others, and performs final assembly in a fourth. This arrangement illustrates:
-- Productive autarky
-- Climatic regionalization
 - The end of the international division of labor
 - International fragmentation of production
+- Productive autarky
+- Climatic regionalization
 E: Production distributed across different countries is characteristic of global value chains and international production fragmentation.
 --- es
 P: Una empresa diseña un producto en un país, fabrica componentes en otros tres y realiza el montaje final en un cuarto. Este arreglo evidencia:
-- Autarquía productiva
-- Regionalización climática
 - Fin de la división internacional del trabajo
 - Fragmentación internacional de la producción
+- Autarquía productiva
+- Regionalización climática
 E: La producción distribuida entre distintos países es característica de las cadenas globales de valor y de la fragmentación internacional de la producción.

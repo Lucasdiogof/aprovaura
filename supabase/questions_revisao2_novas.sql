@@ -15,6 +15,15 @@
 -- tool/content/gen_new_questions.py. Um bloco por matéria abaixo.
 
 -- ===== artes =====
+-- New questions for artes: 2 questions, each already
+-- with its en/es translation (4 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
@@ -59,6 +68,15 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== biologia =====
+-- New questions for biologia: 3 questions, each already
+-- with its en/es translation (6 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
@@ -72,7 +90,7 @@ from (values
    'Os genótipos possíveis são AA, Aa, Aa e aa. Apenas aa expressa o fenótipo recessivo: 1 em 4.', 101, 'medio'),
   ('3e83ff52-d2e2-5fcf-912c-f4b1f9a9ed3b', '18976237-e643-437e-8216-7ff0c5a09df5',
    'Uma população bacteriana já possui variantes resistentes e sensíveis antes do uso de um antibiótico. Após vários tratamentos, as resistentes se tornam mais frequentes porque:',
-   array['Todas as bactérias aprendem a resistir', 'O antibiótico favorece a sobrevivência e reprodução das variantes resistentes', 'As bactérias escolhem alterar seus genes', 'O antibiótico produz a mesma mutação dirigida em todas'], 1,
+   array['As bactérias sensíveis passam a produzir resistência após contato repetido', 'O antibiótico seleciona variantes resistentes já presentes na população', 'As bactérias escolhem alterar seus genes', 'O antibiótico produz a mesma mutação dirigida em todas'], 1,
    'A seleção natural aumenta a frequência de variantes herdáveis que sobrevivem e se reproduzem melhor no ambiente.', 102, 'dificil')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -115,6 +133,15 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== educacao_fisica =====
+-- New questions for educacao_fisica: 3 questions, each already
+-- with its en/es translation (6 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
@@ -171,6 +198,15 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== espanhol =====
+-- New questions for espanhol: 3 questions, each already
+-- with its en/es translation (6 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
@@ -227,6 +263,15 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== filosofia =====
+-- New questions for filosofia: 3 questions, each already
+-- with its en/es translation (6 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
@@ -283,12 +328,21 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== fisica =====
+-- New questions for fisica: 3 questions, each already
+-- with its en/es translation (6 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
   ('243892ae-56a2-5a54-8ff9-7bc6e169ea21', 'a5777654-961e-4813-9fed-c5d835825966',
    'Um passageiro tende a se projetar para a frente quando um ônibus freia bruscamente. Isso é explicado pela:',
-   array['Indução eletromagnética', 'Lei de Coulomb', 'Refração', 'Inércia'], 3,
+   array['Inércia', 'Refração', 'Indução eletromagnética', 'Lei de Coulomb'], 0,
    'Por inércia, o corpo tende a manter seu estado de movimento enquanto o ônibus reduz a velocidade.', 100, 'facil'),
   ('a97d8b2c-82f9-5dbf-8021-2053ff5142bc', '89939da9-3bec-40f4-826d-514c063a9351',
    'Um aparelho de 1000 W fica ligado por 30 minutos. Qual energia consome?',
@@ -296,7 +350,7 @@ from (values
    '1000 W = 1 kW e 30 min = 0,5 h. E = P·t = 1·0,5 = 0,5 kWh.', 101, 'medio'),
   ('08ec7809-3662-54db-acdd-60c3255ca975', '8f3b95a7-93f3-4d62-b383-d9b66d005f08',
    'Ao passar obliquamente do ar para o vidro, a luz reduz sua velocidade. O raio refratado tende a:',
-   array['Afastar-se da normal', 'Aproximar-se da normal', 'Manter sempre o mesmo ângulo', 'Não entrar no vidro'], 1,
+   array['Não entrar no vidro', 'Manter sempre o mesmo ângulo', 'Aproximar-se da normal', 'Afastar-se da normal'], 2,
    'Ao entrar em meio de maior índice de refração, a luz se desvia em direção à normal.', 102, 'dificil')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -339,12 +393,21 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== geografia =====
+-- New questions for geografia: 1 questions, each already
+-- with its en/es translation (2 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
   ('a27155bc-31f8-5589-9b8a-756b040e07a5', 'be84da4e-f4ab-4a4a-a406-9a05e49917d4',
    'Em um mapa de escala 1:100.000, 1 cm no mapa corresponde, no terreno, a:',
-   array['100 m', '100 km', '1 km', '10 km'], 2,
+   array['10 km', '100 km', '100 m', '1 km'], 3,
    '100.000 cm equivalem a 1.000 m, isto é, 1 km.', 100, 'medio')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -371,20 +434,29 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== historia =====
+-- New questions for historia: 3 questions, each already
+-- with its en/es translation (6 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
   ('9bbe3070-8d99-505a-aa47-bd3897f9bab3', 'ad10464d-0d11-4255-9fef-d341a0f856d6',
    'Os quilombos no Brasil colonial podem ser entendidos como:',
-   array['Instituições criadas pela Coroa para ampliar a escravidão', 'Comunidades de resistência à escravidão, formadas sobretudo por escravizados fugidos', 'Fortificações erguidas pela Coroa nas fronteiras', 'Aldeamentos missionários organizados por jesuítas'], 1,
+   array['Fortificações erguidas pela Coroa nas fronteiras', 'Instituições criadas pela Coroa para ampliar a escravidão', 'Comunidades de resistência à escravidão, formadas sobretudo por escravizados fugidos', 'Aldeamentos missionários organizados por jesuítas'], 2,
    'Os quilombos reuniram experiências de resistência, autonomia e organização social, com destaque histórico para Palmares.', 100, 'dificil'),
   ('676cf4ab-f554-507a-92c7-454058049619', 'e93f87be-ca79-4813-9a67-616320aa9a8a',
    'A Revolução Gloriosa de 1688 contribuiu para:',
-   array['Abolir o Parlamento', 'Restaurar absolutismo sem limites', 'Limitar o poder monárquico e fortalecer o Parlamento inglês', 'Instituir a república na Inglaterra'], 2,
+   array['Limitar o poder monárquico e fortalecer o Parlamento inglês', 'Restaurar absolutismo sem limites', 'Instituir a república na Inglaterra', 'Abolir o Parlamento'], 0,
    'A consolidação da monarquia constitucional ampliou a centralidade do Parlamento e limitou institucionalmente a Coroa.', 101, 'dificil'),
   ('1d70b9d5-3c49-556c-957f-1f69261f0477', '9d1627ca-eade-4dcf-83dc-a1acfcd096c8',
    'A expressão ''Guerra Fria'' indica que EUA e URSS:',
-   array['Abandonaram a corrida tecnológica', 'Nunca participaram de conflitos indiretos', 'Mantiveram aliança permanente', 'Disputaram influência global sem guerra direta entre si'], 3,
+   array['Disputaram influência global sem guerra direta entre si', 'Mantiveram aliança permanente', 'Abandonaram a corrida tecnológica', 'Nunca participaram de conflitos indiretos'], 0,
    'A rivalidade envolveu armas, propaganda, economia, tecnologia e guerras por procuração, sem guerra direta ampla entre as superpotências.', 102, 'medio')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -427,6 +499,15 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== ingles =====
+-- New questions for ingles: 3 questions, each already
+-- with its en/es translation (6 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
@@ -483,6 +564,15 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== literatura =====
+-- New questions for literatura: 2 questions, each already
+-- with its en/es translation (4 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
@@ -527,16 +617,25 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== matematica =====
+-- New questions for matematica: 2 questions, each already
+-- with its en/es translation (4 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
   ('94ae56e6-20a2-50e9-89b5-1dfe01e88217', '799c0dbd-3ee8-449b-a2e9-cc6b9ffe673c',
    'Dois triângulos semelhantes têm razão linear 3:2. Se a área do menor é 20 cm², a área do maior é:',
-   array['90 cm²', '30 cm²', '60 cm²', '45 cm²'], 3,
+   array['90 cm²', '45 cm²', '60 cm²', '30 cm²'], 1,
    'As áreas variam com o quadrado da razão linear: (3/2)² = 9/4; 20·9/4 = 45.', 100, 'dificil'),
   ('1c7c6c9c-7d58-5245-ac2a-dddbc51a8f7b', '184775e6-5bcb-4648-80d5-e7d97ee02af7',
    'Uma moeda justa é lançada duas vezes. Qual a probabilidade de sair exatamente uma cara?',
-   array['1/2', '1/4', '3/4', '1'], 0,
+   array['3/4', '1/4', '1', '1/2'], 3,
    'Os resultados possíveis são CC, CK, KC e KK (C = cara, K = coroa). Exatamente uma cara ocorre em 2 dos 4 casos: 2/4 = 1/2.', 101, 'medio')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -571,20 +670,29 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== portugues =====
+-- New questions for portugues: 3 questions, each already
+-- with its en/es translation (6 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
   ('24774102-bbb5-537c-8399-f84922830219', 'f25a58d3-8d53-4fda-abee-4ee3cb708b26',
    'A frase "Vi o professor com o telescópio" é ambígua porque:',
-   array['Não possui verbo', 'Pode significar que eu usei o telescópio ou que o professor estava com ele', 'Tem duas palavras grafadas incorretamente', 'Só admite uma interpretação'], 1,
+   array['Não possui verbo', 'Tem duas palavras grafadas incorretamente', 'Só admite uma interpretação', 'Pode significar que eu usei o telescópio ou que o professor estava com ele'], 3,
    'O trecho "com o telescópio" pode se ligar ao verbo "vi" ou ao substantivo "professor", gerando duas leituras.', 100, 'medio'),
   ('33df1bb1-42a8-5c76-a6a7-c16b88d44df8', '6328fd95-8026-4dc2-8cdc-40bcaf543628',
    'Na frase "Embora estivesse cansado, continuou estudando", a oração iniciada por "embora" expressa:',
-   array['Conclusão', 'Causa', 'Concessão', 'Finalidade'], 2,
+   array['Causa', 'Concessão', 'Finalidade', 'Conclusão'], 1,
    '"Embora" apresenta uma circunstância contrária que não impede a ação principal; a relação é concessiva.', 101, 'dificil'),
   ('8180f839-69f2-515f-a155-c7fa3d151213', '3489b617-c328-4af1-bd3d-7a84dd343f79',
    'A escolha entre uma forma mais formal e uma mais coloquial de falar depende principalmente:',
-   array['Da região onde a pessoa nasceu', 'Da idade de quem fala', 'Do domínio da norma-padrão por quem fala', 'Da situação comunicativa, dos interlocutores e do objetivo'], 3,
+   array['Da idade de quem fala', 'Da situação comunicativa, dos interlocutores e do objetivo', 'Do domínio da norma-padrão por quem fala', 'Da região onde a pessoa nasceu'], 1,
    'Adequação linguística considera contexto, finalidade e interlocutores; registros diferentes cumprem funções diferentes.', 102, 'dificil')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -627,20 +735,29 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== quimica =====
+-- New questions for quimica: 3 questions, each already
+-- with its en/es translation (6 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values
   ('d5c1e88b-e79f-5a6e-9b51-3bd72199dc50', '1694b662-d892-4687-8727-9f74c2715b11',
    'Na reação 2H₂ + O₂ → 2H₂O, misturam-se 4 mol de H₂ e 1 mol de O₂. Qual é o reagente limitante?',
-   array['O₂', 'H₂', 'H₂O', 'Nenhum'], 0,
+   array['H₂O', 'O₂', 'H₂', 'Nenhum'], 1,
    'A proporção exige 2 mol de H₂ para 1 mol de O₂. O O₂ acaba primeiro e limita a reação.', 100, 'dificil'),
   ('55e48e6f-d3d6-5fea-a58d-615221d10b0c', '2e117b4e-3e7c-492e-82dc-22b964209b9a',
    'Em um equilíbrio exotérmico, o aumento da temperatura tende a deslocar o equilíbrio:',
-   array['Sempre para os produtos', 'No sentido endotérmico', 'Sem alteração possível', 'Para o lado de maior massa molar'], 1,
+   array['Para o lado de maior massa molar', 'Sem alteração possível', 'No sentido endotérmico', 'Sempre para os produtos'], 2,
    'Pelo princípio de Le Châtelier, adicionar calor favorece o sentido que consome calor, ou seja, o endotérmico.', 101, 'dificil'),
   ('a167cc90-4bf2-5088-ac2f-1f7eeb458ab3', '2e117b4e-3e7c-492e-82dc-22b964209b9a',
    'Em uma pilha galvânica em funcionamento, ocorre:',
-   array['Oxidação nos dois eletrodos', 'Redução no ânodo e oxidação no cátodo', 'Oxidação no ânodo e redução no cátodo', 'Redução nos dois eletrodos'], 2,
+   array['Redução nos dois eletrodos', 'Oxidação no ânodo e redução no cátodo', 'Redução no ânodo e oxidação no cátodo', 'Oxidação nos dois eletrodos'], 1,
    'Em pilhas, o ânodo é o local da oxidação e o cátodo, da redução.', 102, 'medio')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -683,6 +800,15 @@ on conflict (question_id, locale) do update
       explanation = excluded.explanation;
 
 -- ===== sociologia =====
+-- New questions for sociologia: 2 questions, each already
+-- with its en/es translation (4 translation rows).
+--
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
+-- inserts nothing new: questions use on conflict do nothing, translations
+-- on conflict do update. The translation join refuses any row whose option
+-- count differs from the original (correct_index is positional).
+
 insert into questions (id, catalog_node_id, prompt, options, correct_index, explanation, order_index, difficulty)
 select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explanation, v.order_index, v.difficulty
 from (values

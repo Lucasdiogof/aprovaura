@@ -100,19 +100,19 @@ select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explana
 from (values
   ('c3232ff6-0211-5892-b4d9-5a778b3a5eed', 'ac32071e-53bb-4644-bc7e-a0dfe219e216',
    'Em um período de seca, o fechamento dos estômatos ajuda a planta a economizar água. Uma consequência imediata desse fechamento é:',
-   array['Aumento da entrada de CO₂ nas folhas', 'Redução das trocas gasosas e da perda de água por transpiração', 'Aumento do transporte de seiva elaborada pelo xilema', 'Interrupção definitiva da respiração celular'], 1,
+   array['Redução das trocas gasosas e da perda de água por transpiração', 'Aumento do transporte de seiva elaborada pelo xilema', 'Aumento da entrada de CO₂ nas folhas', 'Interrupção definitiva da respiração celular'], 0,
    'Estômatos fechados reduzem a saída de vapor d''água, mas também limitam a entrada de CO₂, criando um compromisso entre conservação de água e fotossíntese.', 100, 'dificil'),
   ('1a055826-eb82-5e53-a2e7-96ecd7736134', 'c4b861cb-2247-46b7-9b38-fe2f1295d952',
    'Em uma teia alimentar, uma espécie de ave consome insetos e frutos. Se a população de insetos cair, mas houver frutos abundantes, a ave poderá manter-se. Isso ilustra principalmente:',
-   array['Competição intraespecífica obrigatória', 'Fluxo cíclico de energia', 'Maior estabilidade proporcionada por múltiplas relações alimentares', 'Ausência de dependência entre níveis tróficos'], 2,
+   array['Fluxo cíclico de energia', 'Competição intraespecífica obrigatória', 'Maior estabilidade proporcionada por múltiplas relações alimentares', 'Ausência de dependência entre níveis tróficos'], 2,
    'Teias com rotas alimentares alternativas podem amortecer o efeito da redução de um único recurso.', 101, 'dificil'),
   ('23fdb083-48b8-5348-b72b-5ed064f3249b', '18976237-e643-437e-8216-7ff0c5a09df5',
    'Duas populações da mesma espécie ficam isoladas geograficamente por milhares de gerações. Após acumular diferenças, deixam de produzir descendentes férteis quando voltam a se encontrar. O processo descrito é um exemplo de:',
-   array['Especiação por isolamento reprodutivo após divergência', 'Aclimatação individual reversível', 'Seleção artificial dirigida por humanos', 'Sucessão ecológica primária'], 0,
+   array['Aclimatação individual reversível', 'Sucessão ecológica primária', 'Especiação por isolamento reprodutivo após divergência', 'Seleção artificial dirigida por humanos'], 2,
    'O isolamento reduz o fluxo gênico; a divergência acumulada pode originar barreiras reprodutivas e novas espécies.', 102, 'dificil'),
   ('a8182c03-a570-59e5-972f-bf5d0934c7cc', 'f60e7769-0be0-4a8e-b2e5-bb84e9163a6f',
    'Uma planta heterozigota Aa produz gametas. Segundo a Primeira Lei de Mendel, qual distribuição é esperada, desconsiderando distorções de segregação?',
-   array['100% A', '75% A e 25% a', '25% A e 75% a', '50% A e 50% a'], 3,
+   array['25% A e 75% a', '100% A', '50% A e 50% a', '75% A e 25% a'], 2,
    'Os dois alelos de um par segregam durante a formação dos gametas, de modo que um heterozigoto Aa tende a formar metade dos gametas com A e metade com a.', 103, 'medio')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -408,19 +408,19 @@ select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explana
 from (values
   ('3d6307b5-9014-50e7-9faa-12eb8d0dc1fb', '89939da9-3bec-40f4-826d-514c063a9351',
    'Duas lâmpadas ideais, de 60 W e 100 W, são projetadas para a mesma tensão de 220 V. Em funcionamento nominal, qual delas possui menor resistência elétrica?',
-   array['A de 60 W', 'A de 100 W', 'As duas têm a mesma resistência', 'Não é possível comparar usando potência e tensão'], 1,
+   array['As duas têm a mesma resistência', 'A de 60 W', 'Não é possível comparar usando potência e tensão', 'A de 100 W'], 3,
    'Para a mesma tensão, P = V²/R. Logo, maior potência corresponde a menor resistência; a lâmpada de 100 W tem menor R.', 100, 'dificil'),
   ('5f873a65-2703-5810-8560-d64e15beedee', '9df1808d-9ac5-4809-8bdb-63e12480aa97',
    'Um carrinho de 4 kg sofre força resultante horizontal de 12 N. Desprezando resistências, sua aceleração é:',
-   array['48 m/s²', '3 m/s²', '8 m/s²', '0,33 m/s²'], 1,
+   array['3 m/s²', '8 m/s²', '48 m/s²', '0,33 m/s²'], 0,
    'Pela segunda lei de Newton, a = F/m = 12/4 = 3 m/s².', 101, 'medio'),
   ('0abf2c0f-fa3b-528e-9b10-d16c6f59c266', '8f3b95a7-93f3-4d62-b383-d9b66d005f08',
    'Uma onda passa de uma corda para outra e sua frequência permanece a mesma, mas a velocidade de propagação diminui. O comprimento de onda:',
-   array['Diminui', 'Aumenta', 'Permanece necessariamente igual', 'Torna-se zero'], 0,
+   array['Permanece necessariamente igual', 'Aumenta', 'Torna-se zero', 'Diminui'], 3,
    'Como v = λf e a frequência é mantida pela fonte, uma redução da velocidade implica redução do comprimento de onda.', 102, 'medio'),
   ('89940014-424b-5725-8e3a-383e676e0e64', 'c11d5ba1-65e8-487a-96e0-38e15a64af15',
    'Durante a fusão de gelo puro a 0 °C e pressão constante, enquanto ainda coexistem gelo e água líquida, o calor fornecido é usado principalmente para:',
-   array['Aumentar continuamente a temperatura do gelo', 'Reduzir a energia interna do sistema', 'Promover a mudança de fase sem elevar a temperatura', 'Diminuir o movimento molecular da água'], 2,
+   array['Aumentar continuamente a temperatura do gelo', 'Diminuir o movimento molecular da água', 'Reduzir a energia interna do sistema', 'Promover a mudança de fase sem elevar a temperatura'], 3,
    'Durante uma mudança de fase em equilíbrio, o calor latente altera a organização/energia interna do sistema sem variar a temperatura.', 103, 'dificil')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -485,19 +485,19 @@ select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explana
 from (values
   ('a5da4018-a05a-5277-816e-0df0c9fd4f9e', '99b6637a-cdd8-4b7e-b3aa-67ab095831fc',
    'Uma vantagem operacional da complementaridade entre geração hidrelétrica, eólica e solar no sistema elétrico é:',
-   array['Eliminar a necessidade de redes de transmissão', 'Diversificar fontes e reduzir a dependência de uma única condição natural', 'Garantir produção idêntica em todas as horas do ano', 'Tornar desnecessário o planejamento de oferta e demanda'], 1,
+   array['Garantir produção idêntica em todas as horas do ano', 'Tornar desnecessário o planejamento de oferta e demanda', 'Eliminar a necessidade de redes de transmissão', 'Diversificar fontes e reduzir a dependência de uma única condição natural'], 3,
    'Fontes com perfis diferentes podem se complementar, reduzindo a exposição do sistema a uma única condição hidrológica ou climática.', 100, 'medio'),
   ('364ba991-9351-53dc-b5b5-5293d96897f4', '38591ed7-9d86-4b5e-9330-b8810e8ef782',
    'Em uma bacia hidrográfica urbana, a substituição de solo permeável por asfalto e concreto tende a:',
-   array['Aumentar o escoamento superficial e favorecer picos de cheia', 'Aumentar a infiltração e reduzir o volume escoado', 'Eliminar a necessidade de drenagem urbana', 'Impedir que a chuva alcance os cursos d''água'], 0,
+   array['Aumentar o escoamento superficial e favorecer picos de cheia', 'Aumentar a infiltração e reduzir o volume escoado', 'Impedir que a chuva alcance os cursos d''água', 'Eliminar a necessidade de drenagem urbana'], 0,
    'A impermeabilização reduz a infiltração, aumenta e acelera o escoamento superficial e pode intensificar enchentes.', 101, 'dificil'),
   ('f6acf773-eb3a-5dc4-9bba-bf1d531b1a7e', '1e13d445-2268-4d4f-abed-aeeef2db21e1',
    'Uma cidade expande sua mancha urbana para municípios vizinhos, enquanto deslocamentos diários de trabalho e estudo integram fortemente essas áreas. O fenômeno descrito aproxima-se de:',
-   array['Êxodo rural', 'Verticalização isolada', 'Conurbação e integração metropolitana', 'Desconcentração industrial'], 2,
+   array['Desconcentração industrial', 'Conurbação e integração metropolitana', 'Êxodo rural', 'Verticalização isolada'], 1,
    'A continuidade ou forte integração entre áreas urbanizadas de municípios vizinhos caracteriza processos de conurbação e metropolização.', 102, 'dificil'),
   ('70945449-85ad-5ea6-8a3f-213c9e2d8329', 'c78a7a6e-b797-4f63-bc88-df1daefe4237',
    'Uma empresa projeta um produto em um país, fabrica componentes em outros três e realiza a montagem final em um quarto. Esse arranjo evidencia:',
-   array['Autarquia produtiva', 'Regionalização climática', 'Fim da divisão internacional do trabalho', 'Fragmentação internacional da produção'], 3,
+   array['Fim da divisão internacional do trabalho', 'Fragmentação internacional da produção', 'Autarquia produtiva', 'Regionalização climática'], 1,
    'A produção distribuída em diferentes países é característica das cadeias globais de valor e da fragmentação internacional da produção.', 103, 'dificil')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -562,19 +562,19 @@ select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explana
 from (values
   ('6d4e8342-4e36-5649-8820-e71190a57bd9', 'b5a0f0a7-33bf-4676-86aa-073a0d0f5426',
    'Quando o historiador compara um decreto oficial com cartas, jornais e relatos de diferentes grupos sobre o mesmo evento, ele busca principalmente:',
-   array['Substituir fontes escritas por fontes orais', 'Encontrar uma fonte totalmente neutra', 'Eliminar divergências entre testemunhos', 'Cruzar perspectivas e avaliar criticamente evidências'], 3,
+   array['Cruzar perspectivas e avaliar criticamente evidências', 'Encontrar uma fonte totalmente neutra', 'Eliminar divergências entre testemunhos', 'Substituir fontes escritas por fontes orais'], 0,
    'Fontes têm contextos, interesses e limites; confrontá-las permite identificar convergências, divergências e silêncios.', 100, 'dificil'),
   ('34d0f676-59eb-536e-8de0-ed70dd026dfe', '43bff7ca-8f49-46a3-b757-e20105c00ad2',
    'Ao estudar sociedades africanas anteriores à colonização europeia do século XIX, é historicamente mais adequado reconhecer que:',
-   array['Existiam formações políticas, redes comerciais e culturas muito diversas no continente', 'O continente possuía uma única organização política comum', 'As sociedades africanas estavam isoladas de rotas comerciais de longa distância', 'A urbanização surgiu apenas após a colonização europeia'], 0,
+   array['O continente possuía uma única organização política comum', 'Existiam formações políticas, redes comerciais e culturas muito diversas no continente', 'A urbanização surgiu apenas após a colonização europeia', 'As sociedades africanas estavam isoladas de rotas comerciais de longa distância'], 1,
    'A história africana anterior ao colonialismo inclui impérios, reinos, cidades, redes comerciais e sociedades com grande diversidade política e cultural.', 101, 'dificil'),
   ('6fbb4def-8490-5d8d-8a28-640d96323d2e', 'ad10464d-0d11-4255-9fef-d341a0f856d6',
    'A mineração aurífera no século XVIII contribuiu para mudanças na América portuguesa, entre elas:',
-   array['A concentração populacional exclusiva no litoral açucareiro', 'A interiorização da ocupação e o crescimento de núcleos urbanos na região mineradora', 'O fim imediato da escravidão africana', 'A redução da fiscalização metropolitana sobre a circulação de ouro'], 1,
+   array['A concentração populacional exclusiva no litoral açucareiro', 'A redução da fiscalização metropolitana sobre a circulação de ouro', 'O fim imediato da escravidão africana', 'A interiorização da ocupação e o crescimento de núcleos urbanos na região mineradora'], 3,
    'A mineração deslocou parte do dinamismo econômico para o interior, estimulando caminhos, comércio e núcleos urbanos, sem eliminar a escravidão ou o controle fiscal da Coroa.', 102, 'dificil'),
   ('3bd4045e-b618-5f80-aeea-64caf7784875', '9d1627ca-eade-4dcf-83dc-a1acfcd096c8',
    'A Revolução Industrial alterou profundamente a organização do trabalho porque:',
-   array['Substituiu todas as formas artesanais de uma só vez', 'Eliminou a divisão de tarefas nas manufaturas', 'Ampliou a mecanização e a concentração de trabalhadores em fábricas', 'Tornou desnecessários investimentos em energia e infraestrutura'], 2,
+   array['Substituiu todas as formas artesanais de uma só vez', 'Tornou desnecessários investimentos em energia e infraestrutura', 'Eliminou a divisão de tarefas nas manufaturas', 'Ampliou a mecanização e a concentração de trabalhadores em fábricas'], 3,
    'A industrialização difundiu máquinas, novas fontes de energia e o sistema fabril, reorganizando ritmos, tarefas e relações de trabalho.', 103, 'medio')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -793,19 +793,19 @@ select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explana
 from (values
   ('d95757ce-98fd-54b4-abba-774f85f9abd4', '847f1a39-37fd-46ae-9005-51f6fd129221',
    'Os salários de cinco funcionários são R$ 2 mil, R$ 2 mil, R$ 2 mil, R$ 3 mil e R$ 20 mil. Para representar o valor típico do grupo sem forte influência do maior salário, é mais adequado usar:',
-   array['A mediana', 'A amplitude', 'A média aritmética', 'O valor máximo'], 0,
+   array['A mediana', 'A média aritmética', 'O valor máximo', 'A amplitude'], 0,
    'A mediana é R$ 2 mil e é pouco afetada pelo valor extremo de R$ 20 mil, ao contrário da média.', 100, 'dificil'),
   ('5c979187-784c-52bf-969c-142baaa34a5f', 'a8a0b1df-a556-4d34-ac80-99f5e750921e',
    'Uma corrida de aplicativo cobra R$ 6 de taxa fixa mais R$ 2 por quilômetro percorrido. A função que representa o preço P para x quilômetros é:',
-   array['P(x) = 6x + 2', 'P(x) = 2x + 6', 'P(x) = 8x', 'P(x) = 2x'], 1,
+   array['P(x) = 2x', 'P(x) = 8x', 'P(x) = 6x + 2', 'P(x) = 2x + 6'], 3,
    'A taxa fixa soma 6 reais ao valor variável de 2 reais por quilômetro: P(x)=2x+6.', 101, 'medio'),
   ('5f4ed3da-ee3f-5f17-bad4-e798c959c57c', '799c0dbd-3ee8-449b-a2e9-cc6b9ffe673c',
    'Um retângulo mede 8 cm por 5 cm. Se cada dimensão for duplicada, a nova área será:',
-   array['80 cm²', '40 cm²', '120 cm²', '160 cm²'], 3,
+   array['40 cm²', '160 cm²', '80 cm²', '120 cm²'], 1,
    'A área original é 40 cm². Duplicar as duas dimensões multiplica a área por 4: 160 cm².', 102, 'medio'),
   ('cd3a0b24-3e90-5111-880e-c2eaf4f0bc3d', '184775e6-5bcb-4648-80d5-e7d97ee02af7',
    'Dois dados honestos são lançados. Sabendo que a soma obtida foi 8, qual é a probabilidade de pelo menos um dos dados mostrar 3?',
-   array['1/6', '1/4', '2/5', '1/2'], 2,
+   array['2/5', '1/4', '1/6', '1/2'], 0,
    'Condicionada à soma 8, os pares ordenados possíveis são (2,6), (3,5), (4,4), (5,3) e (6,2). Dois dos cinco contêm o número 3: 2/5.', 103, 'dificil')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -870,19 +870,19 @@ select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explana
 from (values
   ('319c0472-516e-5f70-8390-8063db330345', '7715e4c7-fa79-47be-9cdf-ea20ca7b2db6',
    'Leia: "A biblioteca deveria ampliar o horário aos sábados. Nos últimos três meses, mais de 40% dos empréstimos de fim de semana ocorreram na última hora antes do fechamento." A segunda frase funciona como:',
-   array['Uma definição do conceito de biblioteca', 'Uma evidência usada para sustentar a proposta', 'Uma conclusão sem relação com a tese', 'Uma objeção à ampliação do horário'], 1,
+   array['Uma objeção à ampliação do horário', 'Uma evidência usada para sustentar a proposta', 'Uma definição do conceito de biblioteca', 'Uma conclusão sem relação com a tese'], 1,
    'O dado de uso próximo ao fechamento fornece evidência para defender a ampliação do horário.', 100, 'dificil'),
   ('0fd26357-80a0-5f2d-802d-a9af37e410b7', '3489b617-c328-4af1-bd3d-7a84dd343f79',
    'Em uma redação dissertativo-argumentativa, um repertório sociocultural é produtivo quando:',
-   array['Aparece como citação decorativa sem relação com o argumento', 'Substitui a explicação do autor do texto', 'É mencionado apenas para demonstrar erudição', 'É articulado ao argumento e ajuda a sustentar a tese'], 3,
+   array['Aparece como citação decorativa sem relação com o argumento', 'É mencionado apenas para demonstrar erudição', 'É articulado ao argumento e ajuda a sustentar a tese', 'Substitui a explicação do autor do texto'], 2,
    'Repertório produtivo não é enfeite: ele precisa ser pertinente e integrado ao raciocínio desenvolvido.', 101, 'dificil'),
   ('ab480f4f-b750-5ff7-beff-5a421686a82e', 'f25a58d3-8d53-4fda-abee-4ee3cb708b26',
    'Na frase "O banco estava cheio no fim da tarde", a palavra "banco" pode gerar ambiguidade porque:',
-   array['É sempre um verbo', 'Só possui sentido figurado', 'Tem sentidos como banco financeiro e assento', 'Não admite variação de significado'], 2,
+   array['É sempre um verbo', 'Tem sentidos como banco financeiro e assento', 'Só possui sentido figurado', 'Não admite variação de significado'], 1,
    'A palavra é polissêmica: o contexto precisa indicar qual de seus diferentes sentidos está sendo usado.', 102, 'medio'),
   ('a94ffb96-7f1a-59b2-9432-53c797d3f56c', '6328fd95-8026-4dc2-8cdc-40bcaf543628',
    'Na frase "Os alunos que entregaram o trabalho receberam feedback", a oração "que entregaram o trabalho" restringe o grupo de alunos. Por isso, ela é:',
-   array['Oração subordinada adjetiva restritiva', 'Oração subordinada adjetiva explicativa', 'Oração subordinada substantiva objetiva', 'Oração coordenada conclusiva'], 0,
+   array['Oração coordenada conclusiva', 'Oração subordinada substantiva objetiva', 'Oração subordinada adjetiva restritiva', 'Oração subordinada adjetiva explicativa'], 2,
    'Sem vírgulas e com função de delimitar quais alunos receberam feedback, a oração é adjetiva restritiva.', 103, 'dificil')
 ) as v(id, node, prompt, options, correct_index, explanation, order_index, difficulty)
 join catalog_nodes c on c.id = v.node::uuid
@@ -947,15 +947,15 @@ select v.id::uuid, v.node::uuid, v.prompt, v.options, v.correct_index, v.explana
 from (values
   ('12dee516-54ee-5006-9cee-e649153a18b8', '1694b662-d892-4687-8727-9f74c2715b11',
    'Na reação N₂ + 3H₂ → 2NH₃, quantos mol de NH₃ podem ser formados a partir de 6 mol de H₂, com N₂ em excesso?',
-   array['3 mol', '6 mol', '4 mol', '12 mol'], 2,
+   array['3 mol', '12 mol', '6 mol', '4 mol'], 3,
    'A proporção é 3 mol de H₂ para 2 mol de NH₃. Assim, 6 mol de H₂ formam 4 mol de NH₃.', 100, 'medio'),
   ('4279a99e-7fc9-5793-8a16-8e401c730090', '2e117b4e-3e7c-492e-82dc-22b964209b9a',
    'Em uma reação exotérmica, a entalpia dos produtos é menor que a dos reagentes. Portanto, o ΔH da reação é:',
-   array['Negativo', 'Positivo', 'Necessariamente zero', 'Igual à energia de ativação'], 0,
+   array['Positivo', 'Igual à energia de ativação', 'Necessariamente zero', 'Negativo'], 3,
    'Em processos exotérmicos há liberação de energia e ΔH = Hprodutos − Hreagentes < 0.', 101, 'dificil'),
   ('3b4feabb-f075-5b0c-bd10-3e5ea46db06c', '73cac530-0e0d-4775-b9c0-ae6ce4912b8c',
    'A eutrofização de lagos e reservatórios costuma ser favorecida pelo excesso de nutrientes como nitrogênio e fósforo. Uma consequência possível é:',
-   array['Aumento permanente do oxigênio dissolvido em todas as profundidades', 'Redução do crescimento de algas e cianobactérias', 'Transformação da água doce em água salgada', 'Proliferação de algas seguida de queda do oxigênio durante a decomposição'], 3,
+   array['Transformação da água doce em água salgada', 'Proliferação de algas seguida de queda do oxigênio durante a decomposição', 'Redução do crescimento de algas e cianobactérias', 'Aumento permanente do oxigênio dissolvido em todas as profundidades'], 1,
    'O excesso de nutrientes pode estimular florações; a decomposição da biomassa consome oxigênio e pode causar hipóxia.', 102, 'medio'),
   ('43923212-f624-55f0-bc21-f4f95e8b0c39', 'f41ba2d7-4462-4a77-8362-272bb8313c47',
    'Uma solução contém 10 g de sal dissolvidos em 90 g de água. Considerando a massa total da solução, a porcentagem em massa de soluto é:',
@@ -1085,4 +1085,3 @@ on conflict (question_id, locale) do update
   set prompt = excluded.prompt,
       options = excluded.options,
       explanation = excluded.explanation;
-

@@ -1,87 +1,87 @@
-=== Botânica c=1 d=dificil
+=== Botânica c=0 d=dificil
 P: Em um período de seca, o fechamento dos estômatos ajuda a planta a economizar água. Uma consequência imediata desse fechamento é:
-- Aumento da entrada de CO₂ nas folhas
 - Redução das trocas gasosas e da perda de água por transpiração
 - Aumento do transporte de seiva elaborada pelo xilema
+- Aumento da entrada de CO₂ nas folhas
 - Interrupção definitiva da respiração celular
 E: Estômatos fechados reduzem a saída de vapor d'água, mas também limitam a entrada de CO₂, criando um compromisso entre conservação de água e fotossíntese.
 --- en
 P: During drought, closing stomata helps a plant conserve water. An immediate consequence of stomatal closure is:
-- Increased CO₂ entry into leaves
 - Reduced gas exchange and water loss through transpiration
 - Increased transport of sugar-rich sap through xylem
+- Increased CO₂ entry into leaves
 - Permanent interruption of cellular respiration
 E: Closed stomata reduce water-vapor loss but also limit CO₂ entry, creating a trade-off between water conservation and photosynthesis.
 --- es
 P: Durante una sequía, el cierre de los estomas ayuda a la planta a ahorrar agua. Una consecuencia inmediata de este cierre es:
-- Aumento de la entrada de CO₂ en las hojas
 - Reducción del intercambio gaseoso y de la pérdida de agua por transpiración
 - Aumento del transporte de savia elaborada por el xilema
+- Aumento de la entrada de CO₂ en las hojas
 - Interrupción definitiva de la respiración celular
 E: Los estomas cerrados reducen la pérdida de vapor de agua, pero también limitan la entrada de CO₂, creando un compromiso entre conservar agua y realizar fotosíntesis.
 
 === Ecologia > Cadeias e teias alimentares > Teias alimentares c=2 d=dificil
 P: Em uma teia alimentar, uma espécie de ave consome insetos e frutos. Se a população de insetos cair, mas houver frutos abundantes, a ave poderá manter-se. Isso ilustra principalmente:
-- Competição intraespecífica obrigatória
 - Fluxo cíclico de energia
+- Competição intraespecífica obrigatória
 - Maior estabilidade proporcionada por múltiplas relações alimentares
 - Ausência de dependência entre níveis tróficos
 E: Teias com rotas alimentares alternativas podem amortecer o efeito da redução de um único recurso.
 --- en
 P: In a food web, a bird species eats both insects and fruit. If insect numbers fall but fruit remains abundant, the bird may persist. This mainly illustrates:
-- Mandatory intraspecific competition
 - Cyclic energy flow
+- Mandatory intraspecific competition
 - Greater stability provided by multiple feeding relationships
 - Absence of dependence among trophic levels
 E: Food webs with alternative feeding routes can buffer the effect of a decline in a single resource.
 --- es
 P: En una red alimentaria, una especie de ave consume insectos y frutos. Si disminuyen los insectos pero abundan los frutos, el ave puede mantenerse. Esto ilustra principalmente:
-- Competencia intraespecífica obligatoria
 - Flujo cíclico de energía
+- Competencia intraespecífica obligatoria
 - Mayor estabilidad proporcionada por múltiples relaciones alimentarias
 - Ausencia de dependencia entre niveles tróficos
 E: Las redes con rutas alimentarias alternativas pueden amortiguar el efecto de la reducción de un único recurso.
 
-=== Evolução c=0 d=dificil
+=== Evolução c=2 d=dificil
 P: Duas populações da mesma espécie ficam isoladas geograficamente por milhares de gerações. Após acumular diferenças, deixam de produzir descendentes férteis quando voltam a se encontrar. O processo descrito é um exemplo de:
-- Especiação por isolamento reprodutivo após divergência
 - Aclimatação individual reversível
-- Seleção artificial dirigida por humanos
 - Sucessão ecológica primária
+- Especiação por isolamento reprodutivo após divergência
+- Seleção artificial dirigida por humanos
 E: O isolamento reduz o fluxo gênico; a divergência acumulada pode originar barreiras reprodutivas e novas espécies.
 --- en
 P: Two populations of the same species remain geographically isolated for thousands of generations. After accumulating differences, they can no longer produce fertile offspring when they meet again. This is an example of:
-- Speciation through reproductive isolation after divergence
 - Reversible individual acclimation
-- Human-directed artificial selection
 - Primary ecological succession
+- Speciation through reproductive isolation after divergence
+- Human-directed artificial selection
 E: Isolation reduces gene flow; accumulated divergence can produce reproductive barriers and new species.
 --- es
 P: Dos poblaciones de la misma especie quedan aisladas geográficamente durante miles de generaciones. Tras acumular diferencias, ya no producen descendencia fértil al reencontrarse. El proceso es un ejemplo de:
-- Especiación por aislamiento reproductivo tras la divergencia
 - Aclimatación individual reversible
-- Selección artificial dirigida por humanos
 - Sucesión ecológica primaria
+- Especiación por aislamiento reproductivo tras la divergencia
+- Selección artificial dirigida por humanos
 E: El aislamiento reduce el flujo génico; la divergencia acumulada puede originar barreras reproductivas y nuevas especies.
 
-=== Genética e Biotecnologia > Leis de Mendel e padrões de herança > Primeira Lei de Mendel c=3 d=medio
+=== Genética e Biotecnologia > Leis de Mendel e padrões de herança > Primeira Lei de Mendel c=2 d=medio
 P: Uma planta heterozigota Aa produz gametas. Segundo a Primeira Lei de Mendel, qual distribuição é esperada, desconsiderando distorções de segregação?
-- 100% A
-- 75% A e 25% a
 - 25% A e 75% a
+- 100% A
 - 50% A e 50% a
+- 75% A e 25% a
 E: Os dois alelos de um par segregam durante a formação dos gametas, de modo que um heterozigoto Aa tende a formar metade dos gametas com A e metade com a.
 --- en
 P: A heterozygous Aa plant produces gametes. According to Mendel's First Law, which distribution is expected, ignoring segregation distortion?
-- 100% A
-- 75% A and 25% a
 - 25% A and 75% a
+- 100% A
 - 50% A and 50% a
+- 75% A and 25% a
 E: The two alleles of a pair segregate during gamete formation, so an Aa heterozygote tends to produce half A gametes and half a gametes.
 --- es
 P: Una planta heterocigota Aa produce gametos. Según la Primera Ley de Mendel, ¿qué distribución se espera, sin considerar distorsiones de segregación?
-- 100% A
-- 75% A y 25% a
 - 25% A y 75% a
+- 100% A
 - 50% A y 50% a
+- 75% A y 25% a
 E: Los dos alelos de un par se segregan durante la formación de gametos, por lo que un heterocigoto Aa tiende a producir la mitad con A y la mitad con a.

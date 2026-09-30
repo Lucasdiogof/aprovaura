@@ -44,22 +44,22 @@ E: Auguste Comte acuñó el término y propuso estudiar la sociedad con los mét
 
 === Introdução à sociologia > Surgimento da sociologia c=0 d=medio
 P: O positivismo de Auguste Comte defendia que a sociedade deveria ser estudada:
-- Com métodos científicos de observação, como os das ciências naturais
-- Apenas por meio da fé religiosa
+- Com métodos sistemáticos de observação inspirados nas ciências naturais
+- Por interpretações teológicas tomadas como principal forma de explicação social
 - Somente pela intuição dos artistas
 - Sem nenhuma preocupação com fatos observáveis
 E: Comte via na ciência positiva o estágio mais avançado do conhecimento; o lema "Ordem e Progresso" da bandeira brasileira vem do positivismo.
 --- en
 P: Auguste Comte's positivism argued that society should be studied:
-- With scientific methods of observation, like those of the natural sciences
-- Only through religious faith
+- With systematic observational methods inspired by the natural sciences
+- Through theological interpretations taken as the main form of social explanation
 - Only through artists' intuition
 - With no concern for observable facts
 E: Comte saw positive science as the most advanced stage of knowledge; the Brazilian flag's motto "Order and Progress" comes from positivism.
 --- es
 P: El positivismo de Auguste Comte defendía que la sociedad debía estudiarse:
-- Con métodos científicos de observación, como los de las ciencias naturales
-- Solo mediante la fe religiosa
+- Con métodos sistemáticos de observación inspirados en las ciencias naturales
+- Mediante interpretaciones teológicas tomadas como principal forma de explicación social
 - Únicamente por la intuición de los artistas
 - Sin ninguna preocupación por los hechos observables
 E: Comte veía en la ciencia positiva el estadio más avanzado del conocimiento; el lema "Orden y Progreso" de la bandera brasileña viene del positivismo.
@@ -220,23 +220,23 @@ E: La sociología sistematiza la observación con teoría e investigación, mien
 
 === Introdução à sociologia > Senso comum e imaginação sociológica c=0 d=dificil
 P: Ao estudar a sociedade de que faz parte, o sociólogo enfrenta o desafio do "estranhamento", que consiste em:
-- Tomar distância do familiar para enxergá-lo como algo a ser explicado
+- Tomar distância do familiar para transformá-lo em objeto de investigação
 - Evitar qualquer contato com as pessoas pesquisadas
-- Estudar apenas sociedades estrangeiras
+- Priorizar comparações com sociedades estrangeiras para evitar vieses locais
 - Rejeitar toda teoria prévia
 E: Estranhar o familiar permite questionar o que parece óbvio no próprio cotidiano.
 --- en
 P: When studying the society they belong to, the sociologist faces the challenge of "estrangement", which consists in:
-- Stepping back from the familiar to see it as something to be explained
+- Take distance from the familiar and turn it into an object of investigation
 - Avoiding any contact with the people studied
-- Studying only foreign societies
+- Prioritize comparisons with foreign societies to avoid local biases
 - Rejecting all prior theory
 E: Making the familiar strange makes it possible to question what seems obvious in one's own daily life.
 --- es
 P: Al estudiar la sociedad de la que forma parte, el sociólogo enfrenta el desafío del "extrañamiento", que consiste en:
-- Tomar distancia de lo familiar para verlo como algo que debe explicarse
+- Tomar distancia de lo familiar para convertirlo en objeto de investigación
 - Evitar cualquier contacto con las personas investigadas
-- Estudiar solo sociedades extranjeras
+- Priorizar comparaciones con sociedades extranjeras para evitar sesgos locales
 - Rechazar toda teoría previa
 E: Extrañar lo familiar permite cuestionar lo que parece obvio en la propia vida cotidiana.
 
@@ -419,23 +419,23 @@ E: La sociología comprensiva de Weber busca entender el sentido que los individ
 === Clássicos da sociologia > Max Weber c=0 d=facil
 P: Em A Ética Protestante e o Espírito do Capitalismo, Weber relaciona o desenvolvimento do capitalismo:
 - A valores religiosos protestantes, como a disciplina e a valorização do trabalho
-- Apenas às invenções técnicas
-- Ao fim de todas as religiões
-- À vitória da classe operária
+- À disponibilidade de recursos naturais e à expansão colonial
+- À substituição das crenças religiosas por uma cultura inteiramente secular
+- À organização política dos trabalhadores como causa principal da acumulação
 E: Weber mostrou que a ética calvinista favoreceu uma conduta metódica e poupadora que se afinava com o capitalismo.
 --- en
 P: In The Protestant Ethic and the Spirit of Capitalism, Weber relates the development of capitalism:
 - To Protestant religious values, such as discipline and the valuing of work
-- Only to technical inventions
-- To the end of all religions
-- To the victory of the working class
+- To the availability of natural resources and colonial expansion
+- To the replacement of religious beliefs by an entirely secular culture
+- To workers' political organization as the main cause of accumulation
 E: Weber showed that the Calvinist ethic encouraged a methodical, thrifty conduct in tune with capitalism.
 --- es
 P: En La ética protestante y el espíritu del capitalismo, Weber relaciona el desarrollo del capitalismo:
 - Con valores religiosos protestantes, como la disciplina y la valoración del trabajo
-- Solo con los inventos técnicos
-- Con el fin de todas las religiones
-- Con la victoria de la clase obrera
+- A la disponibilidad de recursos naturales y a la expansión colonial
+- A la sustitución de las creencias religiosas por una cultura enteramente secular
+- A la organización política de los trabajadores como causa principal de la acumulación
 E: Weber mostró que la ética calvinista favoreció una conducta metódica y ahorradora que se ajustaba al capitalismo.
 
 === Clássicos da sociologia > Max Weber c=3 d=medio
