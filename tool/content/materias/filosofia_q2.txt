@@ -64,27 +64,27 @@ P: Los escépticos, como Pirrón, recomendaban la suspensión del juicio (epojé
 - La razón prueba todo lo que existe
 E: Ante razones equivalentes, el escéptico suspende el juicio y busca así la tranquilidad.
 
-=== Helenismo e Idade Média > Escolas helenísticas c=3 d=medio
-P: Diógenes de Sínope, que vivia num barril e desprezava convenções sociais, pertencia à escola:
+=== Helenismo e Idade Média > Escolas helenísticas c=3 d=medio id=c7046610-83cf-5a9e-bd58-84c78900a0a6
+P: Diógenes de Sínope, conhecido por levar uma vida extremamente simples e por se abrigar em um grande jarro de cerâmica, pertencia à escola:
 - Estoica
 - Epicurista
 - Cética
 - Cínica
-E: Os cínicos defendiam uma vida simples, segundo a natureza, rejeitando riquezas e convenções.
+E: Os cínicos defendiam uma vida simples, segundo a natureza, rejeitando riquezas e convenções. A tradição antiga associa Diógenes a um pithos, um grande jarro de cerâmica; o "barril" é uma simplificação posterior.
 --- en
-P: Diogenes of Sinope, who lived in a barrel and scorned social conventions, belonged to the school of the:
+P: Diogenes of Sinope, known for living an extremely simple life and sheltering in a large ceramic jar, belonged to the school of the:
 - Stoics
 - Epicureans
 - Skeptics
 - Cynics
-E: The Cynics advocated a simple life according to nature, rejecting wealth and conventions.
+E: The Cynics advocated a simple life according to nature, rejecting wealth and conventions. Ancient tradition links Diogenes to a pithos, a large ceramic jar; the "barrel" is a later simplification.
 --- es
-P: Diógenes de Sinope, que vivía en un barril y despreciaba las convenciones sociales, pertenecía a la escuela:
+P: Diógenes de Sinope, conocido por llevar una vida extremadamente sencilla y por refugiarse en una gran tinaja de cerámica, pertenecía a la escuela:
 - Estoica
 - Epicúrea
 - Escéptica
 - Cínica
-E: Los cínicos defendían una vida sencilla, según la naturaleza, rechazando riquezas y convenciones.
+E: Los cínicos defendían una vida sencilla, según la naturaleza, rechazando riquezas y convenciones. La tradición antigua asocia a Diógenes con un pithos, una gran tinaja de cerámica; el "barril" es una simplificación posterior.
 
 === Helenismo e Idade Média > Escolas helenísticas c=1 d=dificil
 P: As escolas helenísticas surgiram num contexto marcado:

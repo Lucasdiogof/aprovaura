@@ -108,27 +108,27 @@ P: En El nacimiento de la tragedia, Nietzsche contrapone dos impulsos de la cult
 - Lo material y lo espiritual
 E: La tragedia griega nacería de la unión entre lo apolíneo, del orden y la forma, y lo dionisíaco, de la fuerza vital y el caos.
 
-=== Filosofia contemporânea > Nietzsche c=0 d=dificil
-P: A ideia do eterno retorno, em Nietzsche, funciona como um teste que pergunta:
+=== Filosofia contemporânea > Nietzsche c=0 d=dificil id=336986fe-0150-5c54-a6dc-c750576a6dbe
+P: Em uma interpretação frequente do eterno retorno em Nietzsche, a ideia funciona como um teste que pergunta:
 - Você desejaria viver sua vida exatamente igual, infinitas vezes?
 - Qual é o princípio de todas as coisas?
 - Como provar a existência de Deus?
 - Qual é a melhor forma de governo?
-E: Quem consegue querer o eterno retorno de sua vida a afirma plenamente, sem ressentimento.
+E: Nessa leitura, imaginar a repetição infinita da própria vida é uma prova de afirmação da existência, embora o conceito admita outras interpretações.
 --- en
-P: The idea of eternal recurrence, in Nietzsche, works as a test that asks:
+P: In a common reading of Nietzsche's eternal recurrence, the idea works as a test that asks:
 - Would you want to live your life exactly the same, infinitely many times?
 - What is the principle of all things?
 - How can God's existence be proved?
 - What is the best form of government?
-E: Whoever can will the eternal recurrence of their life affirms it fully, without resentment.
+E: On this reading, imagining your own life repeating endlessly is a test of affirming existence, although the concept admits other interpretations.
 --- es
-P: La idea del eterno retorno, en Nietzsche, funciona como una prueba que pregunta:
+P: En una interpretación frecuente del eterno retorno en Nietzsche, la idea funciona como una prueba que pregunta:
 - ¿Querrías vivir tu vida exactamente igual, infinitas veces?
 - ¿Cuál es el principio de todas las cosas?
 - ¿Cómo probar la existencia de Dios?
 - ¿Cuál es la mejor forma de gobierno?
-E: Quien puede querer el eterno retorno de su vida la afirma plenamente, sin resentimiento.
+E: En esa lectura, imaginar la repetición infinita de la propia vida es una prueba de afirmación de la existencia, aunque el concepto admite otras interpretaciones.
 
 === Filosofia contemporânea > Existencialismo c=1 d=facil
 P: Para Jean-Paul Sartre, "a existência precede a essência", o que significa que:

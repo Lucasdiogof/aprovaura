@@ -48,21 +48,21 @@ P: Para que uma ação possa ser avaliada moralmente, é pressuposto que o agent
 - Apoio da maioria
 - Conhecimento científico avançado
 - Consciência e liberdade para escolher
-E: Só se atribui responsabilidade moral a quem age com consciência e liberdade; ações forçadas ou ignorantes atenuam a culpa.
+E: Atribuir responsabilidade moral normalmente pressupõe algum grau de consciência e liberdade de escolha; coerção ou ignorância relevante podem reduzir a responsabilidade.
 --- en
 P: For an action to be morally evaluated, it is assumed that the agent has:
 - Enough wealth
 - The majority's support
 - Advanced scientific knowledge
 - Awareness and freedom to choose
-E: Moral responsibility is only attributed to those who act with awareness and freedom; forced or ignorant actions reduce blame.
+E: Attributing moral responsibility usually presupposes some degree of awareness and freedom of choice; coercion or relevant ignorance can reduce responsibility.
 --- es
 P: Para que una acción pueda evaluarse moralmente, se presupone que el agente tiene:
 - Riqueza suficiente
 - Apoyo de la mayoría
 - Conocimiento científico avanzado
 - Conciencia y libertad para elegir
-E: Solo se atribuye responsabilidad moral a quien actúa con conciencia y libertad; las acciones forzadas o ignorantes atenúan la culpa.
+E: Atribuir responsabilidad moral suele presuponer cierto grado de conciencia y libertad de elección; la coacción o una ignorancia relevante pueden reducir la responsabilidad.
 
 === Ética > Ética e moral c=1 d=medio
 P: O relativismo moral defende que:
@@ -416,27 +416,27 @@ P: Para Thomas Hobbes, en el estado de naturaleza, sin gobierno, la vida humana 
 - Regida por la propiedad privada
 E: Hobbes describe la vida sin Estado como "solitaria, pobre, desagradable, brutal y corta": el hombre es un lobo para el hombre.
 
-=== Filosofia política > Contratualistas c=3 d=facil
-P: A frase "o homem nasce bom, a sociedade o corrompe" é associada a:
+=== Filosofia política > Contratualistas c=3 d=facil id=4e032cfc-14a4-5262-a61b-fe778b8b784c
+P: A ideia de que o ser humano é bom por natureza, mas pode ser corrompido pelas relações sociais, é associada a:
 - Thomas Hobbes
 - John Locke
 - Nicolau Maquiavel
 - Jean-Jacques Rousseau
-E: Rousseau via o ser humano naturalmente bom; a propriedade e a desigualdade social o corrompem.
+E: Rousseau sustenta que os seres humanos são bons por natureza e que formas de vida social, como a propriedade e a desigualdade, podem corrompê-los. "O homem nasce bom, a sociedade o corrompe" é uma síntese de seu pensamento, não uma citação literal.
 --- en
-P: The phrase "man is born good, society corrupts him" is associated with:
+P: The idea that human beings are good by nature but can be corrupted by social relations is associated with:
 - Thomas Hobbes
 - John Locke
 - Niccolò Machiavelli
 - Jean-Jacques Rousseau
-E: Rousseau saw human beings as naturally good; property and social inequality corrupt them.
+E: Rousseau holds that human beings are good by nature and that forms of social life, such as property and inequality, can corrupt them. "Man is born good, society corrupts him" is a summary of his thought, not a literal quotation.
 --- es
-P: La frase "el hombre nace bueno, la sociedad lo corrompe" se asocia a:
+P: La idea de que el ser humano es bueno por naturaleza, pero puede ser corrompido por las relaciones sociales, se asocia a:
 - Thomas Hobbes
 - John Locke
 - Nicolás Maquiavelo
 - Jean-Jacques Rousseau
-E: Rousseau veía al ser humano naturalmente bueno; la propiedad y la desigualdad social lo corrompen.
+E: Rousseau sostiene que los seres humanos son buenos por naturaleza y que ciertas formas de vida social, como la propiedad y la desigualdad, pueden corromperlos. "El hombre nace bueno, la sociedad lo corrompe" es una síntesis de su pensamiento, no una cita literal.
 
 === Filosofia política > Contratualistas c=0 d=medio
 P: Para John Locke, os direitos naturais que o governo deve proteger são:
@@ -488,21 +488,21 @@ P: Em Leviatã, Hobbes justifica um poder soberano forte porque:
 - A propriedade é um direito absoluto anterior ao Estado
 - O povo deve participar diretamente de todas as decisões
 - Só um poder capaz de impor medo garante a paz e a segurança que os indivíduos buscam ao fazer o contrato
-E: Os indivíduos transferem seus direitos ao soberano em troca de segurança; sem ele, voltariam à guerra de todos contra todos.
+E: Para Hobbes, os indivíduos autorizam um soberano forte para sair da insegurança do estado de natureza, a guerra de todos contra todos. O direito de autoconservação, porém, não é abandonado.
 --- en
 P: In Leviathan, Hobbes justifies a strong sovereign power because:
 - The king is chosen directly by God
 - Property is an absolute right prior to the State
 - The people must take part directly in every decision
 - Only a power able to inspire fear guarantees the peace and security individuals seek when making the contract
-E: Individuals transfer their rights to the sovereign in exchange for security; without it, they would return to the war of all against all.
+E: For Hobbes, individuals authorize a strong sovereign to escape the insecurity of the state of nature, the war of all against all. The right of self-preservation, however, is not given up.
 --- es
 P: En Leviatán, Hobbes justifica un poder soberano fuerte porque:
 - El rey es elegido directamente por Dios
 - La propiedad es un derecho absoluto anterior al Estado
 - El pueblo debe participar directamente en todas las decisiones
 - Solo un poder capaz de infundir temor garantiza la paz y la seguridad que los individuos buscan al hacer el contrato
-E: Los individuos transfieren sus derechos al soberano a cambio de seguridad; sin él, volverían a la guerra de todos contra todos.
+E: Para Hobbes, los individuos autorizan a un soberano fuerte para salir de la inseguridad del estado de naturaleza, la guerra de todos contra todos. El derecho a la autoconservación, sin embargo, no se abandona.
 
 === Filosofia política > Contratualistas c=1 d=dificil
 P: O que Hobbes, Locke e Rousseau têm em comum é a ideia de que:

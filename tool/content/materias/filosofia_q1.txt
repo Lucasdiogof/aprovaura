@@ -708,21 +708,21 @@ P: Na ética de Aristóteles, a virtude é entendida como:
 - A obediência cega às leis divinas
 - A renúncia a todos os desejos
 - A justa medida entre dois extremos (excesso e falta)
-E: A virtude é o meio-termo: a coragem, por exemplo, fica entre a covardia (falta) e a temeridade (excesso).
+E: Para Aristóteles, a virtude moral é um meio-termo relativo a nós entre excesso e falta, determinado pela razão, e não uma média aritmética: a coragem fica entre a covardia e a temeridade.
 --- en
 P: In Aristotle's ethics, virtue is understood as:
 - The maximum pleasure in each action
 - Blind obedience to divine laws
 - The renunciation of all desires
 - The right mean between two extremes (excess and deficiency)
-E: Virtue is the mean: courage, for example, lies between cowardice (deficiency) and rashness (excess).
+E: For Aristotle, moral virtue is a mean relative to us between excess and deficiency, determined by reason, not an arithmetic average: courage lies between cowardice and rashness.
 --- es
 P: En la ética de Aristóteles, la virtud se entiende como:
 - El placer máximo en cada acción
 - La obediencia ciega a las leyes divinas
 - La renuncia a todos los deseos
 - El justo medio entre dos extremos (exceso y defecto)
-E: La virtud es el término medio: el coraje, por ejemplo, está entre la cobardía (defecto) y la temeridad (exceso).
+E: Para Aristóteles, la virtud moral es un término medio relativo a nosotros entre el exceso y el defecto, determinado por la razón, y no una media aritmética: el coraje está entre la cobardía y la temeridad.
 
 === Filosofia antiga > Aristóteles c=1 d=medio
 P: Para Aristóteles, a finalidade última da vida humana é a:
