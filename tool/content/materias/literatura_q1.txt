@@ -1,0 +1,791 @@
+=== Teoria literária > Gêneros literários c=1 d=facil
+P: O gênero lírico caracteriza-se principalmente por:
+- Narrar uma história com personagens e enredo
+- Expressar emoções e a subjetividade de um eu lírico
+- Ser escrito para encenação no palco
+- Apresentar argumentos científicos
+E: No lírico, predomina a expressão de sentimentos e impressões do eu lírico, geralmente em poemas.
+--- en
+P: The lyric genre is mainly characterized by:
+- Narrating a story with characters and plot
+- Expressing emotions and the subjectivity of a lyric self
+- Being written to be staged
+- Presenting scientific arguments
+E: In the lyric genre, the expression of the lyric self's feelings and impressions predominates, usually in poems.
+--- es
+P: El género lírico se caracteriza principalmente por:
+- Narrar una historia con personajes y trama
+- Expresar emociones y la subjetividad de un yo lírico
+- Estar escrito para ser representado en el escenario
+- Presentar argumentos científicos
+E: En el género lírico predomina la expresión de sentimientos e impresiones del yo lírico, generalmente en poemas.
+
+=== Teoria literária > Gêneros literários c=3 d=facil
+P: Romance, conto e crônica pertencem ao gênero:
+- Lírico
+- Dramático
+- Didático
+- Narrativo (épico)
+E: São textos que contam uma história, com narrador, personagens, tempo e espaço.
+--- en
+P: Novels, short stories and crônicas belong to the genre:
+- Lyric
+- Dramatic
+- Didactic
+- Narrative (epic)
+E: They are texts that tell a story, with a narrator, characters, time and setting.
+--- es
+P: La novela, el cuento y la crónica pertenecen al género:
+- Lírico
+- Dramático
+- Didáctico
+- Narrativo (épico)
+E: Son textos que cuentan una historia, con narrador, personajes, tiempo y espacio.
+
+=== Teoria literária > Gêneros literários c=0 d=medio
+P: No gênero dramático, a história é apresentada principalmente por meio:
+- Dos diálogos e ações das personagens, sem narrador
+- Da voz de um narrador onisciente
+- De versos que expressam só sentimentos
+- De notas de rodapé
+E: O texto teatral se realiza na encenação; as rubricas orientam cenário e movimentos.
+--- en
+P: In the dramatic genre, the story is presented mainly through:
+- The characters' dialogues and actions, without a narrator
+- The voice of an omniscient narrator
+- Verses that express only feelings
+- Footnotes
+E: The theatrical text is fulfilled on stage; stage directions guide setting and movement.
+--- es
+P: En el género dramático, la historia se presenta principalmente mediante:
+- Los diálogos y acciones de los personajes, sin narrador
+- La voz de un narrador omnisciente
+- Versos que expresan solo sentimientos
+- Notas al pie
+E: El texto teatral se realiza en la representación; las acotaciones orientan el escenario y los movimientos.
+
+=== Teoria literária > Gêneros literários c=2 d=medio
+P: A crônica, gênero muito praticado no Brasil por autores como Rubem Braga, caracteriza-se por:
+- Ser um longo poema épico
+- Narrar feitos heroicos de um povo
+- Partir de fatos do cotidiano, com linguagem leve e publicação em jornais e revistas
+- Ser escrita apenas em versos rimados
+E: A crônica comenta o dia a dia de forma pessoal, muitas vezes com humor ou lirismo.
+--- en
+P: The crônica, a genre widely practiced in Brazil by authors such as Rubem Braga, is characterized by:
+- Being a long epic poem
+- Narrating a people's heroic deeds
+- Starting from everyday events, with light language and publication in newspapers and magazines
+- Being written only in rhymed verse
+E: The crônica comments on daily life in a personal way, often with humor or lyricism.
+--- es
+P: La crónica, género muy practicado en Brasil por autores como Rubem Braga, se caracteriza por:
+- Ser un largo poema épico
+- Narrar hazañas heroicas de un pueblo
+- Partir de hechos cotidianos, con lenguaje ligero y publicación en periódicos y revistas
+- Estar escrita solo en versos rimados
+E: La crónica comenta el día a día de forma personal, muchas veces con humor o lirismo.
+
+=== Teoria literária > Gêneros literários c=1 d=dificil
+P: O narrador que conhece os pensamentos e sentimentos de todas as personagens é chamado de:
+- Narrador-personagem
+- Narrador onisciente
+- Narrador observador limitado
+- Eu lírico
+E: O narrador onisciente, em terceira pessoa, sabe tudo sobre a história e as personagens.
+--- en
+P: The narrator who knows the thoughts and feelings of all the characters is called:
+- Character narrator
+- Omniscient narrator
+- Limited observer narrator
+- Lyric self
+E: The omniscient narrator, in the third person, knows everything about the story and the characters.
+--- es
+P: El narrador que conoce los pensamientos y sentimientos de todos los personajes se llama:
+- Narrador personaje
+- Narrador omnisciente
+- Narrador observador limitado
+- Yo lírico
+E: El narrador omnisciente, en tercera persona, lo sabe todo sobre la historia y los personajes.
+
+=== Teoria literária > Gêneros literários c=3 d=dificil
+P: A epopeia, como Os Lusíadas, é um poema narrativo longo que:
+- Expressa apenas as emoções íntimas do poeta
+- É escrito para ser encenado
+- Critica os costumes com humor
+- Narra feitos grandiosos de um herói ou de um povo
+E: A epopeia celebra ações heroicas coletivas; Os Lusíadas narra as navegações portuguesas.
+--- en
+P: The epic, like The Lusiads, is a long narrative poem that:
+- Expresses only the poet's intimate emotions
+- Is written to be staged
+- Criticizes customs with humor
+- Narrates grand deeds of a hero or a people
+E: The epic celebrates collective heroic actions; The Lusiads narrates the Portuguese voyages.
+--- es
+P: La epopeya, como Os Lusíadas, es un poema narrativo largo que:
+- Expresa solo las emociones íntimas del poeta
+- Está escrito para ser representado
+- Critica las costumbres con humor
+- Narra hazañas grandiosas de un héroe o de un pueblo
+E: La epopeya celebra acciones heroicas colectivas; Os Lusíadas narra las navegaciones portuguesas.
+
+=== Teoria literária > Figuras de linguagem c=2 d=facil
+P: Em "Seus olhos são duas estrelas", há uma:
+- Hipérbole
+- Ironia
+- Metáfora
+- Onomatopeia
+E: A metáfora é uma comparação implícita, sem conectivo como "como": os olhos são tratados como estrelas.
+--- en
+P: In "Her eyes are two stars", there is a:
+- Hyperbole
+- Irony
+- Metaphor
+- Onomatopoeia
+E: A metaphor is an implicit comparison, without a connective such as "like": the eyes are treated as stars.
+--- es
+P: En "Sus ojos son dos estrellas" hay una:
+- Hipérbole
+- Ironía
+- Metáfora
+- Onomatopeya
+E: La metáfora es una comparación implícita, sin conector como "como": los ojos se tratan como estrellas.
+
+=== Teoria literária > Figuras de linguagem c=0 d=facil
+P: A frase "Já te disse um milhão de vezes!" é um exemplo de:
+- Hipérbole
+- Eufemismo
+- Metonímia
+- Antítese
+E: A hipérbole é um exagero intencional para enfatizar uma ideia.
+--- en
+P: The sentence "I've told you a million times!" is an example of:
+- Hyperbole
+- Euphemism
+- Metonymy
+- Antithesis
+E: Hyperbole is intentional exaggeration to emphasize an idea.
+--- es
+P: La frase "¡Ya te lo dije un millón de veces!" es un ejemplo de:
+- Hipérbole
+- Eufemismo
+- Metonimia
+- Antítesis
+E: La hipérbole es una exageración intencional para enfatizar una idea.
+
+=== Teoria literária > Figuras de linguagem c=3 d=medio
+P: Em "Ele partiu desta para melhor", usado para dizer que alguém morreu, ocorre:
+- Pleonasmo
+- Hipérbole
+- Antítese
+- Eufemismo
+E: O eufemismo suaviza uma ideia desagradável ou chocante.
+--- en
+P: In "He has passed away" (literally, in Portuguese, "he left this life for a better one"), used to say someone died, there is:
+- Pleonasm
+- Hyperbole
+- Antithesis
+- Euphemism
+E: A euphemism softens an unpleasant or shocking idea.
+--- es
+P: En "Pasó a mejor vida", usado para decir que alguien murió, hay:
+- Pleonasmo
+- Hipérbole
+- Antítesis
+- Eufemismo
+E: El eufemismo suaviza una idea desagradable o chocante.
+
+=== Teoria literária > Figuras de linguagem c=1 d=medio
+P: Em "Li Machado de Assis nas férias", referindo-se às obras do autor, há uma:
+- Metáfora
+- Metonímia
+- Prosopopeia
+- Catacrese
+E: Na metonímia, usa-se um termo no lugar de outro com o qual tem relação próxima: o autor pela obra.
+--- en
+P: In "I read Machado de Assis on vacation", referring to the author's works, there is a:
+- Metaphor
+- Metonymy
+- Personification
+- Catachresis
+E: In metonymy, a term is used in place of another closely related one: the author for the work.
+--- es
+P: En "Leí a Machado de Assis en vacaciones", refiriéndose a las obras del autor, hay una:
+- Metáfora
+- Metonimia
+- Prosopopeya
+- Catacresis
+E: En la metonimia se usa un término en lugar de otro con el que tiene una relación cercana: el autor por la obra.
+
+=== Teoria literária > Figuras de linguagem c=0 d=dificil
+P: No verso "É dor que desatina sem doer", de Camões, a figura que aproxima ideias contraditórias em uma única expressão é o:
+- Paradoxo
+- Pleonasmo
+- Eufemismo
+- Polissíndeto
+E: O paradoxo une ideias que parecem se excluir ("dor que não dói"), típico do soneto "Amor é fogo que arde sem se ver".
+--- en
+P: In Camões' line "It is pain that maddens without hurting", the figure that joins contradictory ideas in a single expression is:
+- Paradox
+- Pleonasm
+- Euphemism
+- Polysyndeton
+E: The paradox joins ideas that seem mutually exclusive ("pain that does not hurt"), typical of the sonnet "Love is a fire that burns unseen".
+--- es
+P: En el verso de Camões "Es dolor que enloquece sin doler", la figura que acerca ideas contradictorias en una sola expresión es la:
+- Paradoja
+- Pleonasmo
+- Eufemismo
+- Polisíndeton
+E: La paradoja une ideas que parecen excluirse ("dolor que no duele"), típica del soneto "Amor es fuego que arde sin verse".
+
+=== Teoria literária > Figuras de linguagem c=2 d=dificil
+P: Em "O vento sussurrava segredos nas janelas", a figura de linguagem predominante é a:
+- Hipérbole
+- Antítese
+- Prosopopeia (personificação)
+- Ironia
+E: Na prosopopeia, atribuem-se ações ou características humanas a seres inanimados: o vento "sussurra".
+--- en
+P: In "The wind whispered secrets at the windows", the predominant figure of speech is:
+- Hyperbole
+- Antithesis
+- Personification (prosopopoeia)
+- Irony
+E: In personification, human actions or traits are attributed to inanimate things: the wind "whispers".
+--- es
+P: En "El viento susurraba secretos en las ventanas", la figura retórica predominante es la:
+- Hipérbole
+- Antítesis
+- Prosopopeya (personificación)
+- Ironía
+E: En la prosopopeya se atribuyen acciones o rasgos humanos a seres inanimados: el viento "susurra".
+
+=== Teoria literária > Versificação c=1 d=facil
+P: O soneto é uma forma fixa composta por:
+- Três estrofes de quatro versos
+- Catorze versos, em dois quartetos e dois tercetos
+- Um número livre de versos
+- Dez versos sem rima
+E: O soneto clássico tem 14 versos: dois quartetos e dois tercetos.
+--- en
+P: The sonnet is a fixed form made up of:
+- Three stanzas of four lines
+- Fourteen lines, in two quatrains and two tercets
+- A free number of lines
+- Ten unrhymed lines
+E: The classical (Petrarchan) sonnet has 14 lines: two quatrains and two tercets.
+--- es
+P: El soneto es una forma fija compuesta por:
+- Tres estrofas de cuatro versos
+- Catorce versos, en dos cuartetos y dos tercetos
+- Un número libre de versos
+- Diez versos sin rima
+E: El soneto clásico tiene 14 versos: dos cuartetos y dos tercetos.
+
+=== Teoria literária > Versificação c=3 d=facil
+P: Versos que não seguem métrica fixa nem esquema de rimas são chamados de:
+- Versos brancos rimados
+- Redondilhas
+- Decassílabos
+- Versos livres
+E: O verso livre, muito usado pelos modernistas, dispensa métrica regular e rima.
+--- en
+P: Lines that follow no fixed meter or rhyme scheme are called:
+- Rhymed blank verse
+- Redondilhas
+- Decasyllables
+- Free verse
+E: Free verse, widely used by the Modernists, does without regular meter and rhyme.
+--- es
+P: Los versos que no siguen métrica fija ni esquema de rima se llaman:
+- Versos blancos rimados
+- Redondillas
+- Decasílabos
+- Versos libres
+E: El verso libre, muy usado por los modernistas, prescinde de métrica regular y de rima.
+
+=== Teoria literária > Versificação c=0 d=medio
+P: A redondilha maior, métrica muito comum na poesia popular em língua portuguesa, é o verso de:
+- Sete sílabas poéticas
+- Cinco sílabas poéticas
+- Dez sílabas poéticas
+- Doze sílabas poéticas
+E: A redondilha menor tem cinco sílabas; a maior, sete, como em muitas cantigas e no cordel.
+--- en
+P: The redondilha maior, a very common meter in Portuguese-language popular poetry, is the line of:
+- Seven poetic syllables
+- Five poetic syllables
+- Ten poetic syllables
+- Twelve poetic syllables
+E: The redondilha menor has five syllables; the maior, seven, as in many songs and in cordel.
+--- es
+P: La redondilla mayor, métrica muy común en la poesía popular en lengua portuguesa, es el verso de:
+- Siete sílabas poéticas
+- Cinco sílabas poéticas
+- Diez sílabas poéticas
+- Doce sílabas poéticas
+E: La redondilla menor tiene cinco sílabas; la mayor, siete, como en muchas cantigas y en el cordel.
+
+=== Teoria literária > Versificação c=2 d=medio
+P: Na contagem das sílabas poéticas (escansão), conta-se até:
+- A última sílaba escrita do verso
+- A primeira sílaba de cada palavra
+- A última sílaba tônica do verso
+- Apenas as vogais abertas
+E: A escansão para na última sílaba tônica; as átonas finais não entram na contagem.
+--- en
+P: When counting poetic syllables (scansion) in Portuguese, one counts up to:
+- The last written syllable of the line
+- The first syllable of each word
+- The last stressed syllable of the line
+- Only the open vowels
+E: Scansion stops at the last stressed syllable; final unstressed syllables are not counted.
+--- es
+P: En el cómputo de las sílabas poéticas en portugués (escansión), se cuenta hasta:
+- La última sílaba escrita del verso
+- La primera sílaba de cada palabra
+- La última sílaba tónica del verso
+- Solo las vocales abiertas
+E: La escansión en portugués termina en la última sílaba tónica; las átonas finales no se cuentan.
+
+=== Teoria literária > Versificação c=1 d=dificil
+P: O verso decassílabo, usado por Camões em Os Lusíadas, tem:
+- Doze sílabas poéticas
+- Dez sílabas poéticas
+- Sete sílabas poéticas
+- Oito sílabas poéticas
+E: O decassílabo tem dez sílabas poéticas; o alexandrino, doze.
+--- en
+P: The decasyllable, used by Camões in The Lusiads, has:
+- Twelve poetic syllables
+- Ten poetic syllables
+- Seven poetic syllables
+- Eight poetic syllables
+E: The decasyllable has ten poetic syllables; the alexandrine, twelve.
+--- es
+P: El verso decasílabo, usado por Camões en Os Lusíadas, tiene:
+- Doce sílabas poéticas
+- Diez sílabas poéticas
+- Siete sílabas poéticas
+- Ocho sílabas poéticas
+E: El decasílabo tiene diez sílabas poéticas; el alejandrino, doce.
+
+=== Teoria literária > Versificação c=3 d=dificil
+P: Rimas entre palavras de classes gramaticais diferentes (como o verbo "amar" e o substantivo "mar"), consideradas mais elaboradas, são chamadas de rimas:
+- Pobres
+- Toantes
+- Internas
+- Ricas
+E: Rimas ricas unem palavras de classes gramaticais diferentes (verbo "amar" e substantivo "mar"); rimas pobres, da mesma classe.
+--- en
+P: Rhymes between words of different grammatical classes (such as the verb "amar" and the noun "mar"), considered more elaborate, are called:
+- Poor rhymes
+- Assonant rhymes
+- Internal rhymes
+- Rich rhymes
+E: Rich rhymes join words of different grammatical classes (the verb "amar" and the noun "mar"); poor rhymes, of the same class.
+--- es
+P: Las rimas entre palabras de clases gramaticales diferentes (como el verbo "amar" y el sustantivo "mar"), consideradas más elaboradas, se llaman rimas:
+- Pobres
+- Asonantes
+- Internas
+- Ricas
+E: Las rimas ricas unen palabras de clases gramaticales diferentes (el verbo "amar" y el sustantivo "mar"); las pobres, de la misma clase.
+
+=== Era colonial > Quinhentismo c=0 d=facil
+P: A Carta de Pero Vaz de Caminha (1500) é considerada o primeiro documento do Quinhentismo porque:
+- Descreve a terra e os povos indígenas para o rei de Portugal, no momento da chegada dos portugueses
+- É o primeiro romance brasileiro
+- Foi escrita por um indígena
+- É um poema épico sobre a independência
+E: A carta é literatura de informação: registra as impressões dos portugueses sobre a nova terra.
+--- en
+P: The Letter of Pero Vaz de Caminha (1500) is considered the first document of Quinhentismo because it:
+- Describes the land and Indigenous peoples to the king of Portugal, at the moment of the Portuguese arrival
+- Is the first Brazilian novel
+- Was written by an Indigenous person
+- Is an epic poem about independence
+E: The letter is informational literature: it records the Portuguese impressions of the new land.
+--- es
+P: La Carta de Pero Vaz de Caminha (1500) se considera el primer documento del Quinientismo porque:
+- Describe la tierra y a los pueblos indígenas al rey de Portugal, en el momento de la llegada de los portugueses
+- Es la primera novela brasileña
+- Fue escrita por un indígena
+- Es un poema épico sobre la independencia
+E: La carta es literatura de información: registra las impresiones de los portugueses sobre la nueva tierra.
+
+=== Era colonial > Quinhentismo c=2 d=facil
+P: A chamada literatura de catequese, no século XVI, teve como principal autor:
+- Gregório de Matos
+- Tomás Antônio Gonzaga
+- Padre José de Anchieta
+- Castro Alves
+E: Anchieta escreveu autos, poemas e uma gramática do tupi para catequizar os indígenas.
+--- en
+P: The so-called catechetical literature of the 16th century had as its main author:
+- Gregório de Matos
+- Tomás Antônio Gonzaga
+- Father José de Anchieta
+- Castro Alves
+E: Anchieta wrote plays, poems and a grammar of Tupi to catechize Indigenous peoples.
+--- es
+P: La llamada literatura de catequesis, en el siglo XVI, tuvo como principal autor a:
+- Gregório de Matos
+- Tomás Antônio Gonzaga
+- El padre José de Anchieta
+- Castro Alves
+E: Anchieta escribió autos, poemas y una gramática del tupí para catequizar a los indígenas.
+
+=== Era colonial > Quinhentismo c=1 d=medio
+P: Os textos de informação do Quinhentismo, como os relatos de viajantes, tinham como objetivo principal:
+- Expressar sentimentos amorosos
+- Descrever a nova terra, suas riquezas e seus habitantes aos europeus
+- Criticar a Igreja Católica
+- Defender a independência do Brasil
+E: Eram registros de viagem e descrições voltados aos interesses da Coroa e dos colonizadores.
+--- en
+P: The informational texts of Quinhentismo, such as travelers' accounts, mainly aimed:
+- To express feelings of love
+- To describe the new land, its riches and inhabitants to Europeans
+- To criticize the Catholic Church
+- To defend Brazil's independence
+E: They were travel records and descriptions serving the interests of the Crown and the colonizers.
+--- es
+P: Los textos de información del Quinientismo, como los relatos de viajeros, tenían como objetivo principal:
+- Expresar sentimientos amorosos
+- Describir la nueva tierra, sus riquezas y sus habitantes a los europeos
+- Criticar a la Iglesia católica
+- Defender la independencia de Brasil
+E: Eran registros de viaje y descripciones orientados a los intereses de la Corona y de los colonizadores.
+
+=== Era colonial > Quinhentismo c=3 d=medio
+P: A visão dos indígenas presente em muitos textos quinhentistas é marcada:
+- Pelo respeito total às suas culturas
+- Pela descrição feita pelos próprios indígenas
+- Pela defesa de sua autonomia política
+- Pelo olhar eurocêntrico, que os descreve a partir dos valores europeus e da catequese
+E: Os relatos avaliavam os indígenas pelos padrões europeus e cristãos, frequentemente como povos a serem convertidos.
+--- en
+P: The view of Indigenous peoples in many 16th-century texts is marked:
+- By full respect for their cultures
+- By descriptions written by Indigenous people themselves
+- By the defense of their political autonomy
+- By a Eurocentric gaze that describes them through European values and catechesis
+E: The accounts judged Indigenous peoples by European and Christian standards, often as peoples to be converted.
+--- es
+P: La visión de los indígenas presente en muchos textos quinientistas está marcada:
+- Por el respeto total a sus culturas
+- Por descripciones hechas por los propios indígenas
+- Por la defensa de su autonomía política
+- Por una mirada eurocéntrica, que los describe desde los valores europeos y la catequesis
+E: Los relatos juzgaban a los indígenas con patrones europeos y cristianos, a menudo como pueblos que debían ser convertidos.
+
+=== Era colonial > Quinhentismo c=0 d=dificil
+P: Autores modernistas, como Oswald de Andrade, retomaram a Carta de Caminha de forma:
+- Paródica e crítica, reinterpretando o olhar do colonizador
+- Totalmente fiel, sem alterações
+- Religiosa, para catequizar leitores
+- Científica, como documento de botânica
+E: Em Pau-Brasil (1925), Oswald recorta e reescreve trechos de cronistas coloniais com ironia.
+--- en
+P: Modernist authors, such as Oswald de Andrade, took up Caminha's Letter in a way that was:
+- Parodic and critical, reinterpreting the colonizer's gaze
+- Completely faithful, without changes
+- Religious, to catechize readers
+- Scientific, as a botanical document
+E: In Pau-Brasil (1925), Oswald cuts out and rewrites passages from colonial chroniclers with irony.
+--- es
+P: Autores modernistas, como Oswald de Andrade, retomaron la Carta de Caminha de forma:
+- Paródica y crítica, reinterpretando la mirada del colonizador
+- Totalmente fiel, sin cambios
+- Religiosa, para catequizar a los lectores
+- Científica, como documento de botánica
+E: En Pau-Brasil (1925), Oswald recorta y reescribe fragmentos de cronistas coloniales con ironía.
+
+=== Era colonial > Quinhentismo c=2 d=dificil
+P: Os autos de José de Anchieta combinavam elementos do teatro medieval ibérico com:
+- A estética romântica do século XIX
+- A linguagem das redes sociais
+- Línguas e elementos da cultura indígena, com fins de catequese
+- A filosofia iluminista
+E: Anchieta escrevia em português, espanhol, latim e tupi, adaptando o teatro religioso ao público indígena.
+--- en
+P: José de Anchieta's plays (autos) combined elements of Iberian medieval theater with:
+- The 19th-century Romantic aesthetic
+- The language of social media
+- Indigenous languages and cultural elements, for catechesis
+- Enlightenment philosophy
+E: Anchieta wrote in Portuguese, Spanish, Latin and Tupi, adapting religious theater to an Indigenous audience.
+--- es
+P: Los autos de José de Anchieta combinaban elementos del teatro medieval ibérico con:
+- La estética romántica del siglo XIX
+- El lenguaje de las redes sociales
+- Lenguas y elementos de la cultura indígena, con fines de catequesis
+- La filosofía ilustrada
+E: Anchieta escribía en portugués, español, latín y tupí, adaptando el teatro religioso al público indígena.
+
+=== Era colonial > Barroco c=1 d=facil
+P: Gregório de Matos, poeta barroco baiano, ficou conhecido como "Boca do Inferno" por causa:
+- De sua poesia religiosa suave
+- De sua poesia satírica, que criticava a sociedade colonial
+- De seus romances indianistas
+- De suas crônicas de jornal
+E: Gregório satirizou governantes, clero e costumes da Bahia do século XVII.
+--- en
+P: Gregório de Matos, a Baroque poet from Bahia, became known as "Mouth of Hell" because of:
+- His gentle religious poetry
+- His satirical poetry, which criticized colonial society
+- His Indianist novels
+- His newspaper columns
+E: Gregório satirized rulers, clergy and customs of 17th-century Bahia.
+--- es
+P: Gregório de Matos, poeta barroco bahiano, se hizo conocido como "Boca del Infierno" debido a:
+- Su poesía religiosa suave
+- Su poesía satírica, que criticaba a la sociedad colonial
+- Sus novelas indianistas
+- Sus crónicas periodísticas
+E: Gregório satirizó a gobernantes, clero y costumbres de la Bahía del siglo XVII.
+
+=== Era colonial > Barroco c=3 d=facil
+P: O Barroco é marcado pela expressão de conflitos entre:
+- Ciência e tecnologia
+- Campo e cidade industrial
+- Monarquia e república
+- Fé e prazer, espírito e matéria, céu e terra
+E: O homem barroco vive a tensão entre a religiosidade da Contrarreforma e os apelos terrenos.
+--- en
+P: The Baroque is marked by the expression of conflicts between:
+- Science and technology
+- The countryside and the industrial city
+- Monarchy and republic
+- Faith and pleasure, spirit and matter, heaven and earth
+E: Baroque man lives the tension between Counter-Reformation religiosity and earthly desires.
+--- es
+P: El Barroco está marcado por la expresión de conflictos entre:
+- Ciencia y tecnología
+- Campo y ciudad industrial
+- Monarquía y república
+- Fe y placer, espíritu y materia, cielo y tierra
+E: El hombre barroco vive la tensión entre la religiosidad de la Contrarreforma y las atracciones terrenales.
+
+=== Era colonial > Barroco c=2 d=medio
+P: O Padre Antônio Vieira destacou-se no Barroco luso-brasileiro principalmente por seus:
+- Romances urbanos
+- Sonetos de amor
+- Sermões, marcados pela argumentação e pelo jogo de ideias
+- Poemas épicos
+E: Vieira é o grande nome do conceptismo, com sermões como o "Sermão da Sexagésima".
+--- en
+P: Father Antônio Vieira stood out in Luso-Brazilian Baroque mainly for his:
+- Urban novels
+- Love sonnets
+- Sermons, marked by argumentation and play of ideas
+- Epic poems
+E: Vieira is the great name of conceptismo, with sermons such as the "Sermon of Sexagesima".
+--- es
+P: El padre Antônio Vieira se destacó en el Barroco lusobrasileño principalmente por sus:
+- Novelas urbanas
+- Sonetos de amor
+- Sermones, marcados por la argumentación y el juego de ideas
+- Poemas épicos
+E: Vieira es el gran nombre del conceptismo, con sermones como el "Sermón de la Sexagésima".
+
+=== Era colonial > Barroco c=0 d=medio
+P: O cultismo (ou gongorismo) e o conceptismo são duas tendências do Barroco. O cultismo caracteriza-se:
+- Pelo jogo de palavras, com linguagem rebuscada e muitas figuras de linguagem
+- Pelo jogo de ideias e raciocínios lógicos
+- Pela linguagem simples e coloquial
+- Pela ausência de figuras de linguagem
+E: O cultismo privilegia a forma (palavras, imagens); o conceptismo, o conteúdo (ideias, argumentação).
+--- en
+P: Cultism (or Gongorism) and conceptismo are two Baroque tendencies. Cultism is characterized:
+- By wordplay, with ornate language and many figures of speech
+- By the play of ideas and logical reasoning
+- By simple, colloquial language
+- By the absence of figures of speech
+E: Cultism favors form (words, images); conceptismo, content (ideas, argumentation).
+--- es
+P: El culteranismo (o gongorismo) y el conceptismo son dos tendencias del Barroco. El culteranismo se caracteriza:
+- Por el juego de palabras, con lenguaje rebuscado y muchas figuras retóricas
+- Por el juego de ideas y los razonamientos lógicos
+- Por el lenguaje sencillo y coloquial
+- Por la ausencia de figuras retóricas
+E: El culteranismo privilegia la forma (palabras, imágenes); el conceptismo, el contenido (ideas, argumentación).
+
+=== Era colonial > Barroco c=3 d=dificil
+P: A antítese e o paradoxo são figuras muito usadas no Barroco porque:
+- Os poetas barrocos rejeitavam a religião
+- Buscavam imitar a linguagem científica
+- Eram obrigados pela censura
+- Expressam a visão dividida e conflituosa do homem barroco
+E: Ao aproximar opostos (luz e sombra, pecado e perdão), a poesia barroca traduz o dilema entre o terreno e o divino.
+--- en
+P: Antithesis and paradox are figures widely used in the Baroque because:
+- Baroque poets rejected religion
+- They sought to imitate scientific language
+- They were forced by censorship
+- They express the divided, conflicted worldview of Baroque man
+E: By bringing opposites together (light and shadow, sin and forgiveness), Baroque poetry conveys the dilemma between the earthly and the divine.
+--- es
+P: La antítesis y la paradoja son figuras muy usadas en el Barroco porque:
+- Los poetas barrocos rechazaban la religión
+- Buscaban imitar el lenguaje científico
+- Estaban obligados por la censura
+- Expresan la visión dividida y conflictiva del hombre barroco
+E: Al acercar opuestos (luz y sombra, pecado y perdón), la poesía barroca traduce el dilema entre lo terrenal y lo divino.
+
+=== Era colonial > Barroco c=1 d=dificil
+P: No "Sermão de Santo Antônio (aos Peixes)", Padre Vieira usa os peixes para:
+- Descrever a fauna marinha brasileira
+- Criticar alegoricamente os vícios dos colonos, como a exploração dos mais fracos
+- Defender a pesca comercial
+- Elogiar a nobreza portuguesa
+E: Pregando aos peixes, Vieira denuncia os homens que "se comem uns aos outros", em crítica à sociedade colonial.
+--- en
+P: In the "Sermon of Saint Anthony (to the Fish)", Father Vieira uses the fish to:
+- Describe Brazilian marine fauna
+- Allegorically criticize the colonists' vices, such as exploiting the weakest
+- Defend commercial fishing
+- Praise the Portuguese nobility
+E: Preaching to the fish, Vieira denounces the men who "eat one another", criticizing colonial society.
+--- es
+P: En el "Sermón de San Antonio (a los peces)", el padre Vieira usa los peces para:
+- Describir la fauna marina brasileña
+- Criticar alegóricamente los vicios de los colonos, como la explotación de los más débiles
+- Defender la pesca comercial
+- Elogiar a la nobleza portuguesa
+E: Predicando a los peces, Vieira denuncia a los hombres que "se comen unos a otros", en crítica a la sociedad colonial.
+
+=== Era colonial > Arcadismo c=2 d=facil
+P: O Arcadismo valorizava uma vida simples em contato com a natureza, ideia expressa pela expressão latina:
+- Carpe diem apenas
+- Memento mori
+- Fugere urbem (fugir da cidade)
+- Veni, vidi, vici
+E: Os árcades idealizam o campo e a vida pastoril, fugindo da agitação urbana.
+--- en
+P: Arcadianism valued a simple life close to nature, an idea expressed by the Latin phrase:
+- Carpe diem only
+- Memento mori
+- Fugere urbem (flee the city)
+- Veni, vidi, vici
+E: The Arcadians idealized the countryside and pastoral life, fleeing urban bustle.
+--- es
+P: El Arcadismo valoraba una vida sencilla en contacto con la naturaleza, idea expresada por la expresión latina:
+- Solo carpe diem
+- Memento mori
+- Fugere urbem (huir de la ciudad)
+- Veni, vidi, vici
+E: Los árcades idealizan el campo y la vida pastoril, huyendo de la agitación urbana.
+
+=== Era colonial > Arcadismo c=0 d=facil
+P: Marília de Dirceu, obra de Tomás Antônio Gonzaga, é um conjunto de:
+- Poemas líricos em que o pastor Dirceu se dirige à amada Marília
+- Sermões religiosos
+- Romances de aventura
+- Peças de teatro cômicas
+E: Gonzaga, poeta árcade e inconfidente, adota o disfarce pastoril do pastor Dirceu.
+--- en
+P: Marília de Dirceu, by Tomás Antônio Gonzaga, is a collection of:
+- Lyric poems in which the shepherd Dirceu addresses his beloved Marília
+- Religious sermons
+- Adventure novels
+- Comic plays
+E: Gonzaga, an Arcadian poet and member of the Minas Conspiracy, adopts the pastoral guise of the shepherd Dirceu.
+--- es
+P: Marília de Dirceu, obra de Tomás Antônio Gonzaga, es un conjunto de:
+- Poemas líricos en que el pastor Dirceu se dirige a su amada Marília
+- Sermones religiosos
+- Novelas de aventuras
+- Obras de teatro cómicas
+E: Gonzaga, poeta árcade e inconfidente, adopta el disfraz pastoril del pastor Dirceu.
+
+=== Era colonial > Arcadismo c=3 d=medio
+P: O Arcadismo, no Brasil, relaciona-se historicamente:
+- À chegada da família real em 1808
+- À Semana de Arte Moderna
+- À abolição da escravidão
+- Ao Iluminismo e à Inconfidência Mineira, da qual participaram poetas árcades
+E: Poetas como Gonzaga e Cláudio Manuel da Costa estiveram envolvidos na Inconfidência (1789), inspirada em ideias iluministas.
+--- en
+P: Arcadianism in Brazil is historically related:
+- To the arrival of the royal family in 1808
+- To the Modern Art Week
+- To the abolition of slavery
+- To the Enlightenment and the Minas Conspiracy, in which Arcadian poets took part
+E: Poets such as Gonzaga and Cláudio Manuel da Costa were involved in the Conspiracy (1789), inspired by Enlightenment ideas.
+--- es
+P: El Arcadismo, en Brasil, se relaciona históricamente:
+- Con la llegada de la familia real en 1808
+- Con la Semana de Arte Moderno
+- Con la abolición de la esclavitud
+- Con la Ilustración y la Inconfidencia Minera, en la que participaron poetas árcades
+E: Poetas como Gonzaga y Cláudio Manuel da Costa estuvieron involucrados en la Inconfidencia (1789), inspirada en ideas ilustradas.
+
+=== Era colonial > Arcadismo c=1 d=medio
+P: O lema árcade "inutilia truncat" significa:
+- Aproveite o dia
+- Cortar o inútil, isto é, buscar uma linguagem simples e sem excessos
+- Lembre-se da morte
+- Fugir da natureza
+E: Contra os exageros barrocos, o Arcadismo defende clareza e simplicidade de expressão.
+--- en
+P: The Arcadian motto "inutilia truncat" means:
+- Seize the day
+- Cut the useless, that is, seek simple language without excess
+- Remember death
+- Flee from nature
+E: Against Baroque excess, Arcadianism defends clarity and simplicity of expression.
+--- es
+P: El lema árcade "inutilia truncat" significa:
+- Aprovecha el día
+- Cortar lo inútil, es decir, buscar un lenguaje sencillo y sin excesos
+- Recuerda la muerte
+- Huir de la naturaleza
+E: Frente a los excesos barrocos, el Arcadismo defiende la claridad y la sencillez de expresión.
+
+=== Era colonial > Arcadismo c=0 d=dificil
+P: O poema épico O Uraguai (1769), de Basílio da Gama, trata:
+- Da guerra de Portugal e Espanha contra os indígenas guaranis das missões jesuíticas
+- Da Inconfidência Mineira
+- Da descoberta do ouro em Minas
+- Da independência do Brasil
+E: A obra narra a guerra guaranítica e já apresenta traços de valorização do indígena, antecipando o indianismo.
+--- en
+P: The epic poem O Uraguai (1769), by Basílio da Gama, is about:
+- The war of Portugal and Spain against the Guarani of the Jesuit missions
+- The Minas Conspiracy
+- The discovery of gold in Minas Gerais
+- Brazil's independence
+E: The work narrates the Guarani War and already shows traces of valuing the Indigenous, foreshadowing Indianism.
+--- es
+P: El poema épico O Uraguai (1769), de Basílio da Gama, trata:
+- De la guerra de Portugal y España contra los indígenas guaraníes de las misiones jesuíticas
+- De la Inconfidencia Minera
+- Del descubrimiento del oro en Minas Gerais
+- De la independencia de Brasil
+E: La obra narra la guerra guaranítica y ya presenta rasgos de valoración del indígena, anticipando el indianismo.
+
+=== Era colonial > Arcadismo c=2 d=dificil
+P: O pastoralismo árcade, em que poetas se apresentam como pastores, é considerado uma convenção porque:
+- Os autores eram de fato pastores
+- Era exigido pela Igreja
+- Os poetas, em geral homens urbanos e letrados, criavam uma idealização artificial do campo
+- Descrevia com realismo o trabalho rural
+E: A vida pastoril árcade é um disfarce literário inspirado na tradição clássica, não um retrato do campo real.
+--- en
+P: Arcadian pastoralism, in which poets present themselves as shepherds, is considered a convention because:
+- The authors really were shepherds
+- It was required by the Church
+- The poets, generally urban and educated men, created an artificial idealization of the countryside
+- It realistically described rural work
+E: Arcadian pastoral life is a literary disguise inspired by the classical tradition, not a portrait of the real countryside.
+--- es
+P: El pastoralismo árcade, en el que los poetas se presentan como pastores, se considera una convención porque:
+- Los autores eran de hecho pastores
+- Era exigido por la Iglesia
+- Los poetas, en general hombres urbanos y letrados, creaban una idealización artificial del campo
+- Describía con realismo el trabajo rural
+E: La vida pastoril árcade es un disfraz literario inspirado en la tradición clásica, no un retrato del campo real.

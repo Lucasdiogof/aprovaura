@@ -37,6 +37,7 @@ final _availability = MockExamAvailability({
   'quimica': _counts(3, 0, 0),
   'filosofia': _counts(40, 40, 40),
   'sociologia': _counts(40, 40, 40),
+  'literatura': _counts(40, 40, 40),
   'atualidades': _counts(10, 10, 10),
   'redacao': _counts(10, 10, 10),
 });
@@ -91,6 +92,7 @@ void main() {
           'quimica',
           'filosofia',
           'sociologia',
+          'literatura',
         ]);
         expect(cubit.state.subjects, isNot(contains('atualidades')));
         expect(cubit.state.subjects, isNot(contains('redacao')));

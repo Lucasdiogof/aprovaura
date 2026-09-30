@@ -1,0 +1,659 @@
+=== Romantismo > Poesia romântica c=1 d=facil
+P: A primeira geração romântica brasileira, com Gonçalves Dias, valorizou principalmente:
+- O pessimismo e a morte
+- O nacionalismo e o indianismo
+- A crítica à escravidão
+- A objetividade científica
+E: Após a independência, buscava-se uma identidade nacional, e o indígena foi idealizado como herói.
+--- en
+P: The first Brazilian Romantic generation, with Gonçalves Dias, mainly valued:
+- Pessimism and death
+- Nationalism and Indianism
+- Criticism of slavery
+- Scientific objectivity
+E: After independence, a national identity was sought, and the Indigenous person was idealized as a hero.
+--- es
+P: La primera generación romántica brasileña, con Gonçalves Dias, valoró principalmente:
+- El pesimismo y la muerte
+- El nacionalismo y el indianismo
+- La crítica a la esclavitud
+- La objetividad científica
+E: Tras la independencia, se buscaba una identidad nacional, y el indígena fue idealizado como héroe.
+
+=== Romantismo > Poesia romântica c=3 d=facil
+P: O poema "Canção do Exílio" ("Minha terra tem palmeiras / Onde canta o Sabiá") é de:
+- Castro Alves
+- Álvares de Azevedo
+- Casimiro de Abreu
+- Gonçalves Dias
+E: Escrito em Portugal, o poema exalta a pátria com saudade e se tornou um dos mais parodiados da literatura brasileira.
+--- en
+P: The poem "Canção do Exílio" ("Song of Exile": "My land has palm trees / Where the thrush sings") is by:
+- Castro Alves
+- Álvares de Azevedo
+- Casimiro de Abreu
+- Gonçalves Dias
+E: Written in Portugal, the poem praises the homeland with longing and became one of the most parodied poems in Brazilian literature.
+--- es
+P: El poema "Canção do Exílio" ("Canción del exilio": "Mi tierra tiene palmeras / donde canta el zorzal") es de:
+- Castro Alves
+- Álvares de Azevedo
+- Casimiro de Abreu
+- Gonçalves Dias
+E: Escrito en Portugal, el poema exalta la patria con nostalgia y se convirtió en uno de los más parodiados de la literatura brasileña.
+
+=== Romantismo > Poesia romântica c=0 d=medio
+P: A segunda geração romântica, chamada "ultrarromântica" ou do "mal do século", tem como principal nome:
+- Álvares de Azevedo
+- Gonçalves Dias
+- Castro Alves
+- José de Alencar
+E: Em Lira dos Vinte Anos, Álvares de Azevedo expressa tédio, melancolia, amor idealizado e obsessão pela morte.
+--- en
+P: The second Romantic generation, called "ultra-Romantic" or of the "mal du siècle", has as its main name:
+- Álvares de Azevedo
+- Gonçalves Dias
+- Castro Alves
+- José de Alencar
+E: In Lira dos Vinte Anos, Álvares de Azevedo expresses boredom, melancholy, idealized love and obsession with death.
+--- es
+P: La segunda generación romántica, llamada "ultrarromántica" o del "mal du siècle", tiene como principal nombre a:
+- Álvares de Azevedo
+- Gonçalves Dias
+- Castro Alves
+- José de Alencar
+E: En Lira dos Vinte Anos, Álvares de Azevedo expresa tedio, melancolía, amor idealizado y obsesión por la muerte.
+
+=== Romantismo > Poesia romântica c=2 d=medio
+P: Castro Alves, poeta da terceira geração romântica, ficou conhecido como "poeta dos escravos" por obras como:
+- Lira dos Vinte Anos
+- I-Juca-Pirama
+- O Navio Negreiro
+- Marília de Dirceu
+E: A poesia condoreira de Castro Alves denunciou a escravidão com tom grandioso e engajado.
+--- en
+P: Castro Alves, a poet of the third Romantic generation, became known as the "poet of the slaves" for works such as:
+- Lira dos Vinte Anos
+- I-Juca-Pirama
+- O Navio Negreiro (The Slave Ship)
+- Marília de Dirceu
+E: Castro Alves' condoreira poetry denounced slavery in a grand, committed tone.
+--- es
+P: Castro Alves, poeta de la tercera generación romántica, se hizo conocido como "poeta de los esclavos" por obras como:
+- Lira dos Vinte Anos
+- I-Juca-Pirama
+- O Navio Negreiro (El barco negrero)
+- Marília de Dirceu
+E: La poesía condoreira de Castro Alves denunció la esclavitud con tono grandioso y comprometido.
+
+=== Romantismo > Poesia romântica c=1 d=dificil
+P: A poesia condoreira recebeu esse nome porque:
+- Tratava apenas de aves brasileiras
+- Tomava o condor como símbolo de voo alto e liberdade, com retórica grandiosa e social
+- Foi escrita na Cordilheira dos Andes
+- Rejeitava temas políticos
+E: O condor simboliza a amplitude de visão; os poetas condoreiros tratavam de liberdade, abolição e república.
+--- en
+P: Condoreira poetry got its name because:
+- It dealt only with Brazilian birds
+- It took the condor as a symbol of high flight and freedom, with grand, social rhetoric
+- It was written in the Andes
+- It rejected political themes
+E: The condor symbolizes breadth of vision; the condoreiro poets dealt with freedom, abolition and the republic.
+--- es
+P: La poesía condoreira recibió ese nombre porque:
+- Trataba solo de aves brasileñas
+- Tomaba el cóndor como símbolo de vuelo alto y libertad, con retórica grandiosa y social
+- Fue escrita en la cordillera de los Andes
+- Rechazaba los temas políticos
+E: El cóndor simboliza la amplitud de visión; los poetas condoreiros trataban de la libertad, la abolición y la república.
+
+=== Romantismo > Poesia romântica c=3 d=dificil
+P: No poema "I-Juca-Pirama", de Gonçalves Dias, o guerreiro tupi prisioneiro:
+- Foge e abandona o pai
+- Converte-se ao cristianismo
+- Aceita ser escravizado pelos colonos
+- Provoca a vergonha do pai ao chorar e depois recupera a honra lutando
+E: O poema exalta valores como a honra e a bravura, idealizando o indígena como herói nacional.
+--- en
+P: In the poem "I-Juca-Pirama", by Gonçalves Dias, the captive Tupi warrior:
+- Flees and abandons his father
+- Converts to Christianity
+- Agrees to be enslaved by the colonists
+- Shames his father by weeping and then regains his honor by fighting
+E: The poem exalts values such as honor and bravery, idealizing the Indigenous person as a national hero.
+--- es
+P: En el poema "I-Juca-Pirama", de Gonçalves Dias, el guerrero tupí prisionero:
+- Huye y abandona a su padre
+- Se convierte al cristianismo
+- Acepta ser esclavizado por los colonos
+- Avergüenza a su padre al llorar y luego recupera el honor luchando
+E: El poema exalta valores como el honor y la valentía, idealizando al indígena como héroe nacional.
+
+=== Romantismo > Prosa romântica c=2 d=facil
+P: José de Alencar escreveu romances indianistas, como:
+- Dom Casmurro
+- O Cortiço
+- Iracema
+- Macunaíma
+E: Iracema (1865), a "virgem dos lábios de mel", simboliza a formação do povo brasileiro a partir do indígena e do europeu.
+--- en
+P: José de Alencar wrote Indianist novels, such as:
+- Dom Casmurro
+- O Cortiço
+- Iracema
+- Macunaíma
+E: Iracema (1865), the "virgin with honey lips", symbolizes the formation of the Brazilian people from the Indigenous and the European.
+--- es
+P: José de Alencar escribió novelas indianistas, como:
+- Dom Casmurro
+- O Cortiço
+- Iracema
+- Macunaíma
+E: Iracema (1865), la "virgen de los labios de miel", simboliza la formación del pueblo brasileño a partir del indígena y del europeo.
+
+=== Romantismo > Prosa romântica c=0 d=facil
+P: A Moreninha (1844), de Joaquim Manuel de Macedo, é considerada um dos primeiros romances românticos brasileiros e é do tipo:
+- Urbano, retratando a vida e os amores da juventude carioca
+- Indianista
+- Regionalista gaúcho
+- Histórico sobre a colonização
+E: O romance urbano retrata a sociedade burguesa do Rio de Janeiro, com enredo amoroso e final feliz.
+--- en
+P: A Moreninha (1844), by Joaquim Manuel de Macedo, is considered one of the first Brazilian Romantic novels and is of the type:
+- Urban, portraying the life and loves of young people in Rio
+- Indianist
+- Gaúcho regionalist
+- Historical, about colonization
+E: The urban novel portrays Rio's bourgeois society, with a love plot and a happy ending.
+--- es
+P: A Moreninha (1844), de Joaquim Manuel de Macedo, se considera una de las primeras novelas románticas brasileñas y es del tipo:
+- Urbano, que retrata la vida y los amores de la juventud carioca
+- Indianista
+- Regionalista gaucho
+- Histórico sobre la colonización
+E: La novela urbana retrata la sociedad burguesa de Río de Janeiro, con trama amorosa y final feliz.
+
+=== Romantismo > Prosa romântica c=3 d=medio
+P: Em Senhora, de José de Alencar, a protagonista Aurélia "compra" o marido. A obra critica:
+- O indianismo
+- A vida no sertão
+- A escravidão indígena
+- O casamento por interesse e o poder do dinheiro na sociedade burguesa
+E: Aurélia, enriquecida, casa-se com Seixas, que a havia trocado por um dote; o romance discute amor e dinheiro.
+--- en
+P: In Senhora, by José de Alencar, the protagonist Aurélia "buys" her husband. The work criticizes:
+- Indianism
+- Life in the backlands
+- Indigenous slavery
+- Marriage for money and the power of wealth in bourgeois society
+E: Aurélia, now rich, marries Seixas, who had left her for a dowry; the novel discusses love and money.
+--- es
+P: En Senhora, de José de Alencar, la protagonista Aurélia "compra" al marido. La obra critica:
+- El indianismo
+- La vida en el sertón
+- La esclavitud indígena
+- El matrimonio por interés y el poder del dinero en la sociedad burguesa
+E: Aurélia, enriquecida, se casa con Seixas, que la había dejado por una dote; la novela discute amor y dinero.
+
+=== Romantismo > Prosa romântica c=1 d=medio
+P: Os romances regionalistas românticos, como O Sertanejo (Alencar) e Inocência (Taunay), buscavam:
+- Retratar a vida urbana do Rio de Janeiro
+- Valorizar paisagens e costumes das diferentes regiões do Brasil
+- Criticar a Igreja
+- Imitar a literatura portuguesa sem alterações
+E: O regionalismo romântico ampliava o projeto nacionalista, mostrando o interior do país, ainda de forma idealizada.
+--- en
+P: Romantic regionalist novels, such as O Sertanejo (Alencar) and Inocência (Taunay), sought:
+- To portray urban life in Rio de Janeiro
+- To value the landscapes and customs of Brazil's different regions
+- To criticize the Church
+- To imitate Portuguese literature unchanged
+E: Romantic regionalism extended the nationalist project, showing the country's interior, still in an idealized way.
+--- es
+P: Las novelas regionalistas románticas, como O Sertanejo (Alencar) e Inocência (Taunay), buscaban:
+- Retratar la vida urbana de Río de Janeiro
+- Valorar paisajes y costumbres de las diferentes regiones de Brasil
+- Criticar a la Iglesia
+- Imitar la literatura portuguesa sin cambios
+E: El regionalismo romántico ampliaba el proyecto nacionalista, mostrando el interior del país, aún de forma idealizada.
+
+=== Romantismo > Prosa romântica c=2 d=dificil
+P: Memórias de um Sargento de Milícias, de Manuel Antônio de Almeida, diferencia-se de outros romances românticos por:
+- Idealizar heróis perfeitos
+- Tratar apenas da aristocracia
+- Retratar com humor as camadas populares do Rio e ter um protagonista malandro, anti-herói
+- Ser um romance indianista
+E: A obra antecipa traços realistas ao mostrar o cotidiano popular do início do século XIX, com o malandro Leonardo.
+--- en
+P: Memoirs of a Militia Sergeant, by Manuel Antônio de Almeida, differs from other Romantic novels by:
+- Idealizing perfect heroes
+- Dealing only with the aristocracy
+- Humorously portraying Rio's lower classes and having a rogue anti-hero protagonist
+- Being an Indianist novel
+E: The work anticipates realist traits by showing everyday popular life in the early 19th century, with the rogue Leonardo.
+--- es
+P: Memorias de un sargento de milicias, de Manuel Antônio de Almeida, se diferencia de otras novelas románticas por:
+- Idealizar héroes perfectos
+- Tratar solo de la aristocracia
+- Retratar con humor a las capas populares de Río y tener un protagonista pícaro, antihéroe
+- Ser una novela indianista
+E: La obra anticipa rasgos realistas al mostrar la vida cotidiana popular de inicios del siglo XIX, con el pícaro Leonardo.
+
+=== Romantismo > Prosa romântica c=0 d=dificil
+P: Úrsula (1859), de Maria Firmina dos Reis, é considerada pioneira porque:
+- Foi um dos primeiros romances abolicionistas do Brasil, escrito por uma mulher negra
+- Inaugurou o Modernismo
+- Foi o primeiro poema épico brasileiro
+- Defendia a manutenção da escravidão
+E: Maria Firmina deu voz a personagens escravizados, como Túlio e Mãe Susana, criticando a escravidão.
+--- en
+P: Úrsula (1859), by Maria Firmina dos Reis, is considered pioneering because:
+- It was one of Brazil's first abolitionist novels, written by a Black woman
+- It launched Modernism
+- It was the first Brazilian epic poem
+- It defended keeping slavery
+E: Maria Firmina gave voice to enslaved characters, such as Túlio and Mãe Susana, criticizing slavery.
+--- es
+P: Úrsula (1859), de Maria Firmina dos Reis, se considera pionera porque:
+- Fue una de las primeras novelas abolicionistas de Brasil, escrita por una mujer negra
+- Inauguró el Modernismo
+- Fue el primer poema épico brasileño
+- Defendía el mantenimiento de la esclavitud
+E: Maria Firmina dio voz a personajes esclavizados, como Túlio y Mãe Susana, criticando la esclavitud.
+
+=== Realismo e fim do século XIX > Realismo e Machado de Assis c=3 d=facil
+P: O marco inicial do Realismo no Brasil é a publicação, em 1881, de:
+- Iracema
+- O Cortiço
+- Os Sertões
+- Memórias Póstumas de Brás Cubas
+E: O romance de Machado de Assis, narrado por um "defunto autor", inaugura o Realismo brasileiro.
+--- en
+P: The starting point of Realism in Brazil is the publication, in 1881, of:
+- Iracema
+- O Cortiço
+- Os Sertões
+- The Posthumous Memoirs of Brás Cubas
+E: Machado de Assis' novel, narrated by a "deceased author", launches Brazilian Realism.
+--- es
+P: El punto de partida del Realismo en Brasil es la publicación, en 1881, de:
+- Iracema
+- O Cortiço
+- Os Sertões
+- Memorias póstumas de Blas Cubas
+E: La novela de Machado de Assis, narrada por un "difunto autor", inaugura el Realismo brasileño.
+
+=== Realismo e fim do século XIX > Realismo e Machado de Assis c=1 d=facil
+P: Em Dom Casmurro, o narrador Bentinho levanta uma dúvida que nunca é resolvida:
+- Se ele herdará a fortuna da família
+- Se Capitu o traiu com Escobar
+- Se será padre ou advogado
+- Quem matou Quincas Borba
+E: Narrado em primeira pessoa por um Bentinho ciumento, o romance deixa ao leitor a dúvida sobre a traição.
+--- en
+P: In Dom Casmurro, the narrator Bentinho raises a doubt that is never resolved:
+- Whether he will inherit the family fortune
+- Whether Capitu betrayed him with Escobar
+- Whether he will become a priest or a lawyer
+- Who killed Quincas Borba
+E: Narrated in the first person by a jealous Bentinho, the novel leaves the reader in doubt about the betrayal.
+--- es
+P: En Dom Casmurro, el narrador Bentinho plantea una duda que nunca se resuelve:
+- Si heredará la fortuna familiar
+- Si Capitu lo traicionó con Escobar
+- Si será sacerdote o abogado
+- Quién mató a Quincas Borba
+E: Narrada en primera persona por un Bentinho celoso, la novela deja al lector la duda sobre la traición.
+
+=== Realismo e fim do século XIX > Realismo e Machado de Assis c=0 d=medio
+P: Uma característica do Realismo é:
+- A análise crítica da sociedade e do comportamento humano, com personagens complexas
+- A idealização da mulher e do herói
+- A fuga da realidade para o passado medieval
+- A valorização do nacionalismo ufanista
+E: O Realismo reage ao Romantismo, retratando a sociedade burguesa de modo objetivo e crítico.
+--- en
+P: A characteristic of Realism is:
+- Critical analysis of society and human behavior, with complex characters
+- Idealization of women and heroes
+- Escape from reality into the medieval past
+- Praise of boastful nationalism
+E: Realism reacts against Romanticism, portraying bourgeois society in an objective and critical way.
+--- es
+P: Una característica del Realismo es:
+- El análisis crítico de la sociedad y del comportamiento humano, con personajes complejos
+- La idealización de la mujer y del héroe
+- La huida de la realidad hacia el pasado medieval
+- La valoración del nacionalismo patriotero
+E: El Realismo reacciona contra el Romanticismo, retratando la sociedad burguesa de modo objetivo y crítico.
+
+=== Realismo e fim do século XIX > Realismo e Machado de Assis c=2 d=medio
+P: Em Memórias Póstumas de Brás Cubas, a famosa dedicatória "ao verme que primeiro roeu as frias carnes do meu cadáver" revela:
+- Um tom religioso e solene
+- A intenção de fazer um romance indianista
+- O humor irônico e pessimista do narrador defunto
+- A defesa do cientificismo naturalista
+E: Brás Cubas, livre das convenções por estar morto, narra com ironia e desencanto sua vida medíocre.
+--- en
+P: In The Posthumous Memoirs of Brás Cubas, the famous dedication "to the worm who first gnawed on the cold flesh of my corpse" reveals:
+- A religious and solemn tone
+- The intention of writing an Indianist novel
+- The ironic, pessimistic humor of the dead narrator
+- The defense of naturalist scientism
+E: Brás Cubas, free from conventions because he is dead, narrates his mediocre life with irony and disenchantment.
+--- es
+P: En Memorias póstumas de Blas Cubas, la famosa dedicatoria "al gusano que primero royó las frías carnes de mi cadáver" revela:
+- Un tono religioso y solemne
+- La intención de hacer una novela indianista
+- El humor irónico y pesimista del narrador difunto
+- La defensa del cientificismo naturalista
+E: Blas Cubas, libre de convenciones por estar muerto, narra con ironía y desencanto su vida mediocre.
+
+=== Realismo e fim do século XIX > Realismo e Machado de Assis c=1 d=dificil
+P: A teoria do "Humanitismo", com o lema "ao vencedor, as batatas", aparece em Quincas Borba como:
+- Uma defesa séria da solidariedade humana
+- Uma paródia das filosofias cientificistas que justificavam a lei do mais forte
+- Um manual de agricultura
+- Uma crítica ao Romantismo indianista
+E: Machado satiriza o darwinismo social e o positivismo por meio da filosofia delirante de Quincas Borba.
+--- en
+P: The theory of "Humanitism", with the motto "to the victor, the potatoes", appears in Quincas Borba as:
+- A serious defense of human solidarity
+- A parody of scientistic philosophies that justified the law of the strongest
+- An agriculture manual
+- A criticism of Indianist Romanticism
+E: Machado satirizes social Darwinism and positivism through Quincas Borba's delirious philosophy.
+--- es
+P: La teoría del "Humanitismo", con el lema "al vencedor, las patatas", aparece en Quincas Borba como:
+- Una defensa seria de la solidaridad humana
+- Una parodia de las filosofías cientificistas que justificaban la ley del más fuerte
+- Un manual de agricultura
+- Una crítica al Romanticismo indianista
+E: Machado satiriza el darwinismo social y el positivismo mediante la filosofía delirante de Quincas Borba.
+
+=== Realismo e fim do século XIX > Realismo e Machado de Assis c=3 d=dificil
+P: Uma marca da narrativa machadiana madura é o narrador que:
+- Nunca se dirige ao leitor
+- Conta tudo de forma neutra e confiável
+- Evita comentários e digressões
+- Conversa com o leitor, faz digressões e é pouco confiável
+E: Brás Cubas e Bentinho interrompem a história, provocam o leitor e contam os fatos segundo seus interesses.
+--- en
+P: A mark of mature Machadian narrative is the narrator who:
+- Never addresses the reader
+- Tells everything in a neutral, reliable way
+- Avoids comments and digressions
+- Talks to the reader, digresses and is unreliable
+E: Brás Cubas and Bentinho interrupt the story, provoke the reader and tell the facts according to their interests.
+--- es
+P: Una marca de la narrativa machadiana madura es el narrador que:
+- Nunca se dirige al lector
+- Cuenta todo de forma neutral y confiable
+- Evita comentarios y digresiones
+- Conversa con el lector, hace digresiones y es poco confiable
+E: Blas Cubas y Bentinho interrumpen la historia, provocan al lector y cuentan los hechos según sus intereses.
+
+=== Realismo e fim do século XIX > Naturalismo c=0 d=facil
+P: O Cortiço (1890), de Aluísio Azevedo, é o principal romance do:
+- Naturalismo brasileiro
+- Arcadismo
+- Modernismo
+- Barroco
+E: A obra retrata a vida coletiva de um cortiço no Rio, mostrando o ambiente como força que determina as personagens.
+--- en
+P: O Cortiço (The Slum, 1890), by Aluísio Azevedo, is the main novel of:
+- Brazilian Naturalism
+- Arcadianism
+- Modernism
+- The Baroque
+E: The work portrays collective life in a Rio tenement, showing the environment as a force that determines the characters.
+--- es
+P: O Cortiço (El conventillo, 1890), de Aluísio Azevedo, es la principal novela del:
+- Naturalismo brasileño
+- Arcadismo
+- Modernismo
+- Barroco
+E: La obra retrata la vida colectiva de un conventillo en Río, mostrando el ambiente como fuerza que determina a los personajes.
+
+=== Realismo e fim do século XIX > Naturalismo c=2 d=facil
+P: O Naturalismo baseava-se em teorias científicas da época, como:
+- A psicanálise de Freud
+- A teoria da relatividade
+- O determinismo, segundo o qual meio, raça e momento histórico condicionam o comportamento
+- A física quântica
+E: Influenciado por Zola e pelo cientificismo, o Naturalismo via as personagens como produtos do meio e da hereditariedade.
+--- en
+P: Naturalism was based on scientific theories of the time, such as:
+- Freud's psychoanalysis
+- The theory of relativity
+- Determinism, according to which environment, race and historical moment condition behavior
+- Quantum physics
+E: Influenced by Zola and scientism, Naturalism saw characters as products of environment and heredity.
+--- es
+P: El Naturalismo se basaba en teorías científicas de la época, como:
+- El psicoanálisis de Freud
+- La teoría de la relatividad
+- El determinismo, según el cual el medio, la raza y el momento histórico condicionan el comportamiento
+- La física cuántica
+E: Influido por Zola y el cientificismo, el Naturalismo veía a los personajes como productos del medio y de la herencia.
+
+=== Realismo e fim do século XIX > Naturalismo c=1 d=medio
+P: No Naturalismo, é comum a zoomorfização, que consiste em:
+- Dar características humanas a objetos
+- Descrever pessoas com características e comportamentos de animais
+- Usar apenas linguagem erudita
+- Idealizar as personagens como heróis
+E: A animalização reforça a visão determinista: os instintos e o meio dominam as personagens.
+--- en
+P: In Naturalism, zoomorphism is common, which consists of:
+- Giving human traits to objects
+- Describing people with the traits and behaviors of animals
+- Using only erudite language
+- Idealizing characters as heroes
+E: Animalization reinforces the determinist view: instincts and environment dominate the characters.
+--- es
+P: En el Naturalismo es común la zoomorfización, que consiste en:
+- Dar características humanas a objetos
+- Describir personas con características y comportamientos de animales
+- Usar solo lenguaje culto
+- Idealizar a los personajes como héroes
+E: La animalización refuerza la visión determinista: los instintos y el medio dominan a los personajes.
+
+=== Realismo e fim do século XIX > Naturalismo c=3 d=medio
+P: Em O Cortiço, o português Jerônimo, ao se adaptar ao Brasil e se envolver com Rita Baiana, muda de comportamento. Isso ilustra:
+- A crítica ao indianismo
+- A defesa do livre-arbítrio absoluto
+- A idealização do trabalhador europeu
+- A ideia naturalista de que o meio transforma o indivíduo
+E: Jerônimo, antes disciplinado, "abrasileira-se": o ambiente tropical é mostrado como determinante.
+--- en
+P: In O Cortiço, the Portuguese Jerônimo changes his behavior as he adapts to Brazil and gets involved with Rita Baiana. This illustrates:
+- The criticism of Indianism
+- The defense of absolute free will
+- The idealization of the European worker
+- The naturalist idea that the environment transforms the individual
+E: Jerônimo, once disciplined, "becomes Brazilian": the tropical environment is shown as decisive.
+--- es
+P: En O Cortiço, el portugués Jerônimo, al adaptarse a Brasil e involucrarse con Rita Baiana, cambia de comportamiento. Esto ilustra:
+- La crítica al indianismo
+- La defensa del libre albedrío absoluto
+- La idealización del trabajador europeo
+- La idea naturalista de que el medio transforma al individuo
+E: Jerônimo, antes disciplinado, "se abrasileña": el ambiente tropical se muestra como determinante.
+
+=== Realismo e fim do século XIX > Naturalismo c=2 d=dificil
+P: O romance O Ateneu (1888), de Raul Pompeia, retrata:
+- A vida em um cortiço carioca
+- A guerra de Canudos
+- A experiência de um menino num internato, com crítica às instituições e à sociedade da época
+- O amor idealizado entre indígena e europeu
+E: Narrado por Sérgio, o romance mistura traços realistas, naturalistas e impressionistas ao criticar o colégio-internato.
+--- en
+P: The novel O Ateneu (1888), by Raul Pompeia, portrays:
+- Life in a Rio tenement
+- The Canudos War
+- A boy's experience in a boarding school, criticizing the institutions and society of the time
+- Idealized love between an Indigenous person and a European
+E: Narrated by Sérgio, the novel mixes realist, naturalist and impressionist traits while criticizing the boarding school.
+--- es
+P: La novela O Ateneu (1888), de Raul Pompeia, retrata:
+- La vida en un conventillo carioca
+- La guerra de Canudos
+- La experiencia de un niño en un internado, con crítica a las instituciones y a la sociedad de la época
+- El amor idealizado entre una indígena y un europeo
+E: Narrada por Sérgio, la novela mezcla rasgos realistas, naturalistas e impresionistas al criticar el colegio internado.
+
+=== Realismo e fim do século XIX > Naturalismo c=0 d=dificil
+P: A diferença entre Realismo e Naturalismo pode ser resumida assim:
+- O Naturalismo radicaliza o Realismo ao explicar o comportamento por fatores biológicos e sociais, com viés científico
+- O Naturalismo é idealista, e o Realismo, romântico
+- O Realismo trata só do campo, e o Naturalismo, só da cidade
+- Não há nenhuma diferença entre eles
+E: O Realismo foca a análise psicológica e social; o Naturalismo acrescenta o determinismo e a visão "de laboratório".
+--- en
+P: The difference between Realism and Naturalism can be summed up as follows:
+- Naturalism radicalizes Realism by explaining behavior through biological and social factors, with a scientific bias
+- Naturalism is idealist, and Realism is romantic
+- Realism deals only with the countryside, and Naturalism only with the city
+- There is no difference between them
+E: Realism focuses on psychological and social analysis; Naturalism adds determinism and a "laboratory" view.
+--- es
+P: La diferencia entre Realismo y Naturalismo puede resumirse así:
+- El Naturalismo radicaliza el Realismo al explicar el comportamiento por factores biológicos y sociales, con sesgo científico
+- El Naturalismo es idealista, y el Realismo, romántico
+- El Realismo trata solo del campo, y el Naturalismo, solo de la ciudad
+- No hay ninguna diferencia entre ellos
+E: El Realismo se centra en el análisis psicológico y social; el Naturalismo añade el determinismo y la visión "de laboratorio".
+
+=== Realismo e fim do século XIX > Parnasianismo e Simbolismo c=1 d=facil
+P: O Parnasianismo defendia a "arte pela arte", valorizando principalmente:
+- A linguagem coloquial e o verso livre
+- A perfeição formal, com métrica rigorosa e rimas ricas
+- A crítica social engajada
+- A expressão do inconsciente
+E: Poetas como Olavo Bilac buscavam o rigor da forma e temas universais, com vocabulário culto.
+--- en
+P: Parnassianism advocated "art for art's sake", mainly valuing:
+- Colloquial language and free verse
+- Formal perfection, with strict meter and rich rhymes
+- Committed social criticism
+- The expression of the unconscious
+E: Poets such as Olavo Bilac sought rigorous form and universal themes, with erudite vocabulary.
+--- es
+P: El Parnasianismo defendía el "arte por el arte", valorando principalmente:
+- El lenguaje coloquial y el verso libre
+- La perfección formal, con métrica rigurosa y rimas ricas
+- La crítica social comprometida
+- La expresión del inconsciente
+E: Poetas como Olavo Bilac buscaban el rigor de la forma y temas universales, con vocabulario culto.
+
+=== Realismo e fim do século XIX > Parnasianismo e Simbolismo c=3 d=facil
+P: O principal poeta simbolista brasileiro, autor de Broquéis (1893), é:
+- Olavo Bilac
+- Gonçalves Dias
+- Mário de Andrade
+- Cruz e Sousa
+E: Cruz e Sousa, poeta negro catarinense, é o grande nome do Simbolismo, com musicalidade e obsessão pela cor branca.
+--- en
+P: The main Brazilian Symbolist poet, author of Broquéis (1893), is:
+- Olavo Bilac
+- Gonçalves Dias
+- Mário de Andrade
+- Cruz e Sousa
+E: Cruz e Sousa, a Black poet from Santa Catarina, is the great name of Symbolism, with musicality and an obsession with the color white.
+--- es
+P: El principal poeta simbolista brasileño, autor de Broquéis (1893), es:
+- Olavo Bilac
+- Gonçalves Dias
+- Mário de Andrade
+- Cruz e Sousa
+E: Cruz e Sousa, poeta negro de Santa Catarina, es el gran nombre del Simbolismo, con musicalidad y obsesión por el color blanco.
+
+=== Realismo e fim do século XIX > Parnasianismo e Simbolismo c=2 d=medio
+P: O Simbolismo caracteriza-se por:
+- Descrições objetivas e científicas
+- Linguagem coloquial e humor
+- Musicalidade, sugestão, espiritualidade e exploração do inconsciente
+- Defesa da métrica como único valor
+E: Os simbolistas buscavam sugerir, e não descrever, usando sinestesia, aliterações e temas místicos.
+--- en
+P: Symbolism is characterized by:
+- Objective, scientific descriptions
+- Colloquial language and humor
+- Musicality, suggestion, spirituality and exploration of the unconscious
+- Defense of meter as the only value
+E: The Symbolists sought to suggest rather than describe, using synesthesia, alliteration and mystical themes.
+--- es
+P: El Simbolismo se caracteriza por:
+- Descripciones objetivas y científicas
+- Lenguaje coloquial y humor
+- Musicalidad, sugerencia, espiritualidad y exploración del inconsciente
+- Defensa de la métrica como único valor
+E: Los simbolistas buscaban sugerir, no describir, usando sinestesia, aliteraciones y temas místicos.
+
+=== Realismo e fim do século XIX > Parnasianismo e Simbolismo c=0 d=dificil
+P: Olavo Bilac, conhecido como "príncipe dos poetas", pertenceu ao Parnasianismo e é autor de:
+- "Ouvir estrelas" ("Ora (direis) ouvir estrelas!")
+- "Canção do Exílio"
+- "O Navio Negreiro"
+- "Os Sapos"
+E: O soneto "Ouvir estrelas", da série Via Láctea, é um dos mais conhecidos de Bilac; "Os Sapos" é de Manuel Bandeira, que satiriza os parnasianos.
+--- en
+P: Olavo Bilac, known as the "prince of poets", belonged to Parnassianism and wrote:
+- "Ouvir estrelas" ("Hearing the stars")
+- "Canção do Exílio"
+- "O Navio Negreiro"
+- "Os Sapos"
+E: The sonnet "Ouvir estrelas", from the Via Láctea series, is one of Bilac's best known; "Os Sapos" is by Manuel Bandeira, who satirizes the Parnassians.
+--- es
+P: Olavo Bilac, conocido como "príncipe de los poetas", perteneció al Parnasianismo y es autor de:
+- "Ouvir estrelas" ("Oír estrellas")
+- "Canção do Exílio"
+- "O Navio Negreiro"
+- "Os Sapos"
+E: El soneto "Ouvir estrelas", de la serie Via Láctea, es uno de los más conocidos de Bilac; "Os Sapos" es de Manuel Bandeira, que satiriza a los parnasianos.
+
+=== Realismo e fim do século XIX > Parnasianismo e Simbolismo c=1 d=dificil
+P: A sinestesia, recurso frequente no Simbolismo, consiste em:
+- Repetir o mesmo som consonantal
+- Misturar sensações de sentidos diferentes, como em "cheiro doce do som"
+- Exagerar uma ideia
+- Suavizar uma expressão
+E: A sinestesia cruza percepções (visão, audição, olfato, tato, paladar), reforçando o caráter sugestivo do Simbolismo.
+--- en
+P: Synesthesia, a device frequent in Symbolism, consists of:
+- Repeating the same consonant sound
+- Mixing sensations from different senses, as in "the sweet smell of the sound"
+- Exaggerating an idea
+- Softening an expression
+E: Synesthesia crosses perceptions (sight, hearing, smell, touch, taste), reinforcing Symbolism's suggestive character.
+--- es
+P: La sinestesia, recurso frecuente en el Simbolismo, consiste en:
+- Repetir el mismo sonido consonántico
+- Mezclar sensaciones de sentidos diferentes, como en "olor dulce del sonido"
+- Exagerar una idea
+- Suavizar una expresión
+E: La sinestesia cruza percepciones (vista, oído, olfato, tacto, gusto), reforzando el carácter sugestivo del Simbolismo.
+
+=== Realismo e fim do século XIX > Parnasianismo e Simbolismo c=3 d=medio
+P: O Parnasianismo, com temas como vasos gregos e figuras mitológicas, buscava inspiração principalmente:
+- Na cultura popular do sertão
+- Na vida nas fábricas
+- Nas lendas indígenas
+- Na Antiguidade clássica greco-romana
+E: O nome vem do monte Parnaso, morada das musas; os parnasianos cultivavam o ideal clássico de beleza e equilíbrio.
+--- en
+P: Parnassianism, with themes such as Greek vases and mythological figures, sought inspiration mainly:
+- In the popular culture of the backlands
+- In factory life
+- In Indigenous legends
+- In Greco-Roman classical antiquity
+E: The name comes from Mount Parnassus, home of the Muses; the Parnassians cultivated the classical ideal of beauty and balance.
+--- es
+P: El Parnasianismo, con temas como vasos griegos y figuras mitológicas, buscaba inspiración principalmente:
+- En la cultura popular del sertón
+- En la vida en las fábricas
+- En las leyendas indígenas
+- En la Antigüedad clásica grecorromana
+E: El nombre viene del monte Parnaso, morada de las musas; los parnasianos cultivaban el ideal clásico de belleza y equilibrio.

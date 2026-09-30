@@ -238,6 +238,7 @@ void main() {
           Subject.fisica,
           Subject.filosofia,
           Subject.sociologia,
+          Subject.literatura,
           Subject.atualidades,
           Subject.redacao,
         ]);

@@ -1,0 +1,91 @@
+== Teoria literária | Gêneros, figuras de linguagem e versificação | 🖋️
+en: Literary theory | Genres, figures of speech and versification
+es: Teoría literaria | Géneros, figuras retóricas y versificación
+-- Gêneros literários
+en: Literary genres
+es: Géneros literarios
+-- Figuras de linguagem
+en: Figures of speech
+es: Figuras retóricas
+-- Versificação
+en: Versification
+es: Versificación
+
+== Era colonial | Quinhentismo, Barroco e Arcadismo | ⛵
+en: Colonial era | Quinhentismo, Baroque and Arcadianism
+es: Era colonial | Quinientismo, Barroco y Arcadismo
+-- Quinhentismo
+en: Quinhentismo (16th century)
+es: Quinientismo
+-- Barroco
+en: Baroque
+es: Barroco
+-- Arcadismo
+en: Arcadianism
+es: Arcadismo
+
+== Romantismo | Poesia e prosa românticas no Brasil | 🌹
+en: Romanticism | Romantic poetry and prose in Brazil
+es: Romanticismo | Poesía y prosa románticas en Brasil
+-- Poesia romântica
+en: Romantic poetry
+es: Poesía romántica
+-- Prosa romântica
+en: Romantic prose
+es: Prosa romántica
+
+== Realismo e fim do século XIX | Realismo, Naturalismo, Parnasianismo e Simbolismo | 🔬
+en: Realism and the late 19th century | Realism, Naturalism, Parnassianism and Symbolism
+es: Realismo y fines del siglo XIX | Realismo, Naturalismo, Parnasianismo y Simbolismo
+-- Realismo e Machado de Assis
+en: Realism and Machado de Assis
+es: Realismo y Machado de Assis
+-- Naturalismo
+en: Naturalism
+es: Naturalismo
+-- Parnasianismo e Simbolismo
+en: Parnassianism and Symbolism
+es: Parnasianismo y Simbolismo
+
+== Modernismo | Pré-Modernismo, Semana de 22 e Geração de 30 | 🎨
+en: Modernism | Pre-Modernism, the 1922 Week and the Generation of 1930
+es: Modernismo | Premodernismo, Semana de 1922 y Generación del 30
+-- Pré-Modernismo
+en: Pre-Modernism
+es: Premodernismo
+-- Semana de 22 e primeira geração
+en: The 1922 Week and the first generation
+es: Semana de 1922 y primera generación
+-- Geração de 30
+en: Generation of 1930
+es: Generación del 30
+
+== Geração de 45 e contemporâneos | Rosa, Clarice, João Cabral e autores atuais | 📖
+en: Generation of 1945 and contemporaries | Rosa, Clarice, João Cabral and current authors
+es: Generación del 45 y contemporáneos | Rosa, Clarice, João Cabral y autores actuales
+-- Geração de 45
+en: Generation of 1945
+es: Generación del 45
+-- Literatura contemporânea
+en: Contemporary literature
+es: Literatura contemporánea
+
+== Literatura portuguesa | Trovadorismo, Camões e Fernando Pessoa | 🇵🇹
+en: Portuguese literature | Troubadour poetry, Camões and Fernando Pessoa
+es: Literatura portuguesa | Trovadorismo, Camões y Fernando Pessoa
+-- Trovadorismo e Classicismo
+en: Troubadour poetry and Classicism
+es: Trovadorismo y Clasicismo
+-- Fernando Pessoa
+en: Fernando Pessoa
+es: Fernando Pessoa
+
+== Vozes da literatura brasileira | Literatura afro-brasileira, indígena e popular | 🪶
+en: Voices of Brazilian literature | Afro-Brazilian, Indigenous and popular literature
+es: Voces de la literatura brasileña | Literatura afrobrasileña, indígena y popular
+-- Literatura afro-brasileira e indígena
+en: Afro-Brazilian and Indigenous literature
+es: Literatura afrobrasileña e indígena
+-- Cordel e literatura popular
+en: Cordel and popular literature
+es: Cordel y literatura popular
