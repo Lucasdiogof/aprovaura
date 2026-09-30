@@ -53,7 +53,7 @@ class _CatalogListPageState extends State<CatalogListPage> with RouteAware {
   late final _cubit = CatalogCubit(
     sl<CatalogRepository>(),
     sl<ProgressRepository>(),
-    subject: widget.subject.name,
+    subject: widget.subject.key,
     parentId: widget.parentId,
     difficulty: widget.difficulty,
   );

@@ -15,6 +15,7 @@ enum Subject {
   ingles,
   espanhol,
   artes,
+  educacaoFisica,
   atualidades,
 
   /// Not a question bank: the essay feature (themes, writing, AI marking).
@@ -24,6 +25,23 @@ enum Subject {
   redacao;
 
   /// Has catalog_nodes and questions (everything but Redação).
+  /// How this subject is written everywhere outside Dart: the
+  /// `catalog_nodes.subject` column, the RPCs, `interested_subjects`.
+  ///
+  /// It matched `name` while every subject was a single word. Educação
+  /// Física broke that — the database says `educacao_fisica`, Dart says
+  /// `educacaoFisica` — so the key is spelled out here instead of being
+  /// inferred, and callers ask for [key], never for `name`.
+  String get key => switch (this) {
+    Subject.educacaoFisica => 'educacao_fisica',
+    _ => name,
+  };
+
+  /// The subject a stored key refers to, or null for one this version
+  /// does not know (a row written by a newer build).
+  static Subject? fromKey(String key) =>
+      Subject.values.where((subject) => subject.key == key).firstOrNull;
+
   bool get hasQuestions => this != Subject.redacao;
 
   IconData get icon => switch (this) {
@@ -40,6 +58,7 @@ enum Subject {
     Subject.ingles => Icons.translate_outlined,
     Subject.espanhol => Icons.language_outlined,
     Subject.artes => Icons.palette_outlined,
+    Subject.educacaoFisica => Icons.sports_soccer_outlined,
     Subject.atualidades => Icons.newspaper_outlined,
     Subject.redacao => Icons.edit_note_rounded,
   };
@@ -58,6 +77,7 @@ enum Subject {
     Subject.ingles => const Color(0xFF2E86C1),
     Subject.espanhol => const Color(0xFFD1495B),
     Subject.artes => const Color(0xFF1B998B),
+    Subject.educacaoFisica => const Color(0xFFE67E22),
     Subject.atualidades => const Color(0xFF6B7B8C),
     // The brand violet: Redação is its own thing, not a subject accent.
     Subject.redacao => const Color(0xFF8B5CF6),
@@ -128,6 +148,11 @@ enum Subject {
       AppLanguage.portuguese => 'Artes',
       AppLanguage.english => 'Arts',
       AppLanguage.spanish => 'Artes',
+    },
+    Subject.educacaoFisica => switch (language) {
+      AppLanguage.portuguese => 'Educação Física',
+      AppLanguage.english => 'Physical Education',
+      AppLanguage.spanish => 'Educación Física',
     },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese => 'Atualidades',
@@ -217,6 +242,14 @@ enum Subject {
       AppLanguage.english => 'Artistic movements, culture and visual language.',
       AppLanguage.spanish =>
         'Movimientos artísticos, cultura y lenguaje visual.',
+    },
+    Subject.educacaoFisica => switch (language) {
+      AppLanguage.portuguese =>
+        'Esportes, corpo, saúde e cultura corporal de movimento.',
+      AppLanguage.english =>
+        'Sports, body, health and bodily movement culture.',
+      AppLanguage.spanish =>
+        'Deportes, cuerpo, salud y cultura corporal de movimiento.',
     },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese =>

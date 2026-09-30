@@ -24,7 +24,7 @@ class ErrorTopicCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final strings = ErrorReviewStrings(language);
-    final subject = Subject.values.where((s) => s.name == topic.subject);
+    final subject = Subject.values.where((s) => s.key == topic.subject);
     final accentColor = subject.isEmpty
         ? context.colors.primary
         : subject.first.accentColor;

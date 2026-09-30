@@ -1,0 +1,91 @@
+== Esportes coletivos | Futebol, voleibol, basquetebol e a lógica dos jogos de equipe | ⚽
+en: Team sports | Football, volleyball, basketball and the logic of team games
+es: Deportes colectivos | Fútbol, voleibol, baloncesto y la lógica de los juegos de equipo
+-- Futebol e futsal
+en: Football and futsal
+es: Fútbol y futsal
+-- Voleibol
+en: Volleyball
+es: Voleibol
+-- Basquetebol e handebol
+en: Basketball and handball
+es: Baloncesto y balonmano
+
+== Esportes individuais | Atletismo, natação e ginástica: desempenho e técnica | 🏃
+en: Individual sports | Athletics, swimming and gymnastics: performance and technique
+es: Deportes individuales | Atletismo, natación y gimnasia: rendimiento y técnica
+-- Atletismo
+en: Athletics
+es: Atletismo
+-- Natação e esportes aquáticos
+en: Swimming and water sports
+es: Natación y deportes acuáticos
+-- Ginástica
+en: Gymnastics
+es: Gimnasia
+
+== Corpo, movimento e saúde | Capacidades físicas, sistemas do corpo e vida ativa | ❤️
+en: Body, movement and health | Physical capacities, body systems and active living
+es: Cuerpo, movimiento y salud | Capacidades físicas, sistemas del cuerpo y vida activa
+-- Capacidades físicas
+en: Physical capacities
+es: Capacidades físicas
+-- Sistema cardiorrespiratório e exercício
+en: Cardiorespiratory system and exercise
+es: Sistema cardiorrespiratorio y ejercicio
+-- Alimentação, hidratação e atividade física
+en: Nutrition, hydration and physical activity
+es: Alimentación, hidratación y actividad física
+
+== Lutas e artes marciais | Da capoeira às lutas de origem oriental | 🥋
+en: Fighting and martial arts | From capoeira to martial arts of Eastern origin
+es: Luchas y artes marciales | De la capoeira a las luchas de origen oriental
+-- Capoeira e lutas brasileiras
+en: Capoeira and Brazilian fighting styles
+es: Capoeira y luchas brasileñas
+-- Lutas de origem oriental
+en: Martial arts of Eastern origin
+es: Luchas de origen oriental
+
+== Danças e atividades rítmicas | Danças brasileiras, urbanas e a expressão pelo movimento | 💃
+en: Dance and rhythmic activities | Brazilian dances, urban dances and expression through movement
+es: Danzas y actividades rítmicas | Danzas brasileñas, urbanas y la expresión por el movimiento
+-- Danças brasileiras
+en: Brazilian dances
+es: Danzas brasileñas
+-- Danças urbanas e contemporâneas
+en: Urban and contemporary dance
+es: Danzas urbanas y contemporáneas
+
+== Jogos e brincadeiras populares | O jogo como patrimônio cultural | 🎲
+en: Games and traditional play | Play as cultural heritage
+es: Juegos y juegos tradicionales | El juego como patrimonio cultural
+-- Jogos e brincadeiras do Brasil
+en: Brazilian games and traditional play
+es: Juegos y juegos tradicionales de Brasil
+-- Jogos indígenas e de matriz africana
+en: Indigenous and African-rooted games
+es: Juegos indígenas y de matriz africana
+
+== Esporte, sociedade e mídia | Megaeventos, mídia esportiva e inclusão | 📺
+en: Sport, society and media | Mega-events, sports media and inclusion
+es: Deporte, sociedad y medios | Megaeventos, medios deportivos e inclusión
+-- Esporte e mídia
+en: Sport and media
+es: Deporte y medios
+-- Megaeventos esportivos
+en: Sporting mega-events
+es: Megaeventos deportivos
+-- Esporte paralímpico e inclusão
+en: Paralympic sport and inclusion
+es: Deporte paralímpico e inclusión
+
+== Educação Física, lazer e políticas | História da área, lazer e direito ao esporte | 🏛️
+en: Physical Education, leisure and policy | History of the field, leisure and the right to sport
+es: Educación Física, ocio y políticas | Historia del área, ocio y derecho al deporte
+-- História da Educação Física no Brasil
+en: History of Physical Education in Brazil
+es: Historia de la Educación Física en Brasil
+-- Lazer, políticas públicas e direito ao esporte
+en: Leisure, public policy and the right to sport
+es: Ocio, políticas públicas y derecho al deporte

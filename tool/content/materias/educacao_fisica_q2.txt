@@ -1,0 +1,659 @@
+=== Esportes individuais > Ginástica c=2 d=facil
+P: Qual destes é um aparelho da ginástica artística masculina?
+- Trave de equilíbrio
+- Fita
+- Argolas
+- Maças
+E: As argolas são um dos seis aparelhos masculinos; trave é da ginástica artística feminina, e fita e maças são da ginástica rítmica.
+--- en
+P: Which of these is an apparatus in men's artistic gymnastics?
+- Balance beam
+- Ribbon
+- Rings
+- Clubs
+E: The rings are one of the six men's apparatus; the beam belongs to women's artistic gymnastics, and ribbon and clubs to rhythmic gymnastics.
+--- es
+P: ¿Cuál de estos es un aparato de la gimnasia artística masculina?
+- Barra de equilibrio
+- Cinta
+- Anillas
+- Mazas
+E: Las anillas son uno de los seis aparatos masculinos; la barra de equilibrio es de la gimnasia artística femenina, y la cinta y las mazas son de la gimnasia rítmica.
+
+=== Esportes individuais > Ginástica c=3 d=facil
+P: A ginástica rítmica se caracteriza pelo uso de:
+- Apenas o peso do próprio corpo
+- Bicicletas ergométricas
+- Barras paralelas e cavalo com alças
+- Aparelhos manuais como bola, arco, fita, corda e maças
+E: Na ginástica rítmica o atleta combina movimentos corporais com o manejo de cinco aparelhos manuais.
+--- en
+P: Rhythmic gymnastics is characterised by the use of:
+- Only the athlete's own body weight
+- Exercise bikes
+- Parallel bars and pommel horse
+- Hand apparatus such as ball, hoop, ribbon, rope and clubs
+E: In rhythmic gymnastics the athlete combines body movements with handling five hand apparatus.
+--- es
+P: La gimnasia rítmica se caracteriza por el uso de:
+- Solo el peso del propio cuerpo
+- Bicicletas estáticas
+- Barras paralelas y caballo con arcos
+- Aparatos manuales como pelota, aro, cinta, cuerda y mazas
+E: En la gimnasia rítmica el atleta combina movimientos corporales con el manejo de cinco aparatos manuales.
+
+=== Esportes individuais > Ginástica c=0 d=medio
+P: A ginástica geral, praticada em escolas e grupos comunitários, difere da ginástica competitiva porque:
+- Não tem caráter competitivo e valoriza a participação coletiva
+- Exige aparelhos oficiais homologados
+- Só pode ser praticada por atletas federados
+- Utiliza exclusivamente movimentos acrobáticos
+E: A ginástica geral, ou ginástica para todos, tem fim demonstrativo e participativo, sem disputa por classificação.
+--- en
+P: General gymnastics, practised in schools and community groups, differs from competitive gymnastics because:
+- It is non-competitive and values collective participation
+- It requires officially approved apparatus
+- Only registered athletes may take part
+- It uses acrobatic movements exclusively
+E: General gymnastics, or gymnastics for all, is demonstrative and participatory, with no ranking to dispute.
+--- es
+P: La gimnasia general, practicada en escuelas y grupos comunitarios, se diferencia de la gimnasia competitiva porque:
+- No tiene carácter competitivo y valora la participación colectiva
+- Exige aparatos oficiales homologados
+- Solo pueden practicarla atletas federados
+- Utiliza exclusivamente movimientos acrobáticos
+E: La gimnasia general, o gimnasia para todos, tiene fin demostrativo y participativo, sin disputa por clasificación.
+
+=== Esportes individuais > Ginástica c=1 d=medio
+P: Na ginástica artística, a nota de dificuldade (nota D) avalia:
+- A elegância do figurino do atleta
+- O conteúdo e o valor técnico dos elementos apresentados
+- O tempo total de apresentação
+- A popularidade do ginasta
+E: A nota D soma o valor dos elementos executados; a nota E desconta as falhas de execução.
+--- en
+P: In artistic gymnastics, the difficulty score (D score) evaluates:
+- The elegance of the athlete's outfit
+- The content and technical value of the elements performed
+- The total length of the routine
+- The gymnast's popularity
+E: The D score adds up the value of the elements performed; the E score deducts execution errors.
+--- es
+P: En la gimnasia artística, la nota de dificultad (nota D) evalúa:
+- La elegancia del maillot del atleta
+- El contenido y el valor técnico de los elementos presentados
+- El tiempo total de la presentación
+- La popularidad del gimnasta
+E: La nota D suma el valor de los elementos ejecutados; la nota E descuenta los fallos de ejecución.
+
+=== Esportes individuais > Ginástica c=2 d=dificil
+P: A ginástica sueca, criada por Per Henrik Ling no século XIX, influenciou a Educação Física escolar brasileira principalmente por:
+- Priorizar a competição entre alunos
+- Introduzir aparelhos eletrônicos nas aulas
+- Enfatizar exercícios ordenados com finalidade higiênica e postural
+- Substituir a ginástica pelo esporte de rendimento
+E: O método sueco organizava exercícios analíticos com objetivo de saúde e correção postural, marca dos primeiros programas escolares brasileiros.
+--- en
+P: Swedish gymnastics, created by Per Henrik Ling in the 19th century, influenced Brazilian school Physical Education mainly by:
+- Prioritising competition between students
+- Introducing electronic equipment into classes
+- Emphasising ordered exercises with a hygienic and postural purpose
+- Replacing gymnastics with performance sport
+E: The Swedish method organised analytical exercises aimed at health and postural correction, a hallmark of the first Brazilian school programmes.
+--- es
+P: La gimnasia sueca, creada por Per Henrik Ling en el siglo XIX, influyó en la Educación Física escolar brasileña principalmente por:
+- Priorizar la competencia entre alumnos
+- Introducir aparatos electrónicos en las clases
+- Enfatizar ejercicios ordenados con finalidad higiénica y postural
+- Sustituir la gimnasia por el deporte de rendimiento
+E: El método sueco organizaba ejercicios analíticos con objetivo de salud y corrección postural, marca de los primeros programas escolares brasileños.
+
+=== Esportes individuais > Ginástica c=3 d=dificil
+P: O trampolim acrobático é uma modalidade em que o atleta é avaliado, entre outros critérios, pelo:
+- Número de voltas completadas na pista
+- Peso do aparelho utilizado
+- Tempo de permanência no solo
+- Tempo de voo, a dificuldade e a execução dos saltos
+E: Na competição de trampolim são pontuados o tempo de voo, o grau de dificuldade da série e a qualidade técnica de cada salto.
+--- en
+P: In trampoline gymnastics the athlete is judged on criteria including:
+- The number of laps completed on a track
+- The weight of the apparatus used
+- Time spent on the ground
+- Time of flight, difficulty and execution of the jumps
+E: Trampoline competition scores time of flight, the difficulty of the routine and the technical quality of each jump.
+--- es
+P: El trampolín acrobático es una modalidad en la que el atleta se evalúa, entre otros criterios, por:
+- El número de vueltas completadas en la pista
+- El peso del aparato utilizado
+- El tiempo de permanencia en el suelo
+- El tiempo de vuelo, la dificultad y la ejecución de los saltos
+E: En la competición de trampolín se puntúan el tiempo de vuelo, el grado de dificultad de la serie y la calidad técnica de cada salto.
+
+=== Corpo, movimento e saúde > Capacidades físicas c=0 d=facil
+P: A capacidade de realizar movimentos com grande amplitude articular é chamada de:
+- Flexibilidade
+- Força máxima
+- Resistência aeróbica
+- Velocidade de reação
+E: A flexibilidade é a capacidade de mover as articulações em toda a sua amplitude possível.
+--- en
+P: The capacity to perform movements with a wide range of motion is called:
+- Flexibility
+- Maximum strength
+- Aerobic endurance
+- Reaction speed
+E: Flexibility is the capacity to move the joints through their full possible range.
+--- es
+P: La capacidad de realizar movimientos con gran amplitud articular se llama:
+- Flexibilidad
+- Fuerza máxima
+- Resistencia aeróbica
+- Velocidad de reacción
+E: La flexibilidad es la capacidad de mover las articulaciones en toda su amplitud posible.
+
+=== Corpo, movimento e saúde > Capacidades físicas c=1 d=facil
+P: Correr por 40 minutos em ritmo constante desenvolve principalmente:
+- Força máxima
+- Resistência aeróbica
+- Flexibilidade
+- Velocidade de reação
+E: Esforços contínuos e prolongados em intensidade moderada desenvolvem a resistência aeróbica.
+--- en
+P: Running for 40 minutes at a steady pace mainly develops:
+- Maximum strength
+- Aerobic endurance
+- Flexibility
+- Reaction speed
+E: Continuous, prolonged efforts at moderate intensity develop aerobic endurance.
+--- es
+P: Correr durante 40 minutos a ritmo constante desarrolla principalmente:
+- Fuerza máxima
+- Resistencia aeróbica
+- Flexibilidad
+- Velocidad de reacción
+E: Los esfuerzos continuos y prolongados a intensidad moderada desarrollan la resistencia aeróbica.
+
+=== Corpo, movimento e saúde > Capacidades físicas c=2 d=medio
+P: A diferença entre capacidades físicas condicionais e coordenativas é que as coordenativas:
+- Dependem apenas da força muscular
+- Só existem em atletas de alto rendimento
+- Dependem do controle do sistema nervoso sobre o movimento, como equilíbrio e agilidade
+- São exclusivas de esportes coletivos
+E: As capacidades coordenativas — equilíbrio, agilidade, ritmo, coordenação — dependem do controle neuromuscular, enquanto as condicionais dependem de processos energéticos.
+--- en
+P: The difference between conditional and coordinative physical capacities is that coordinative ones:
+- Depend only on muscular strength
+- Exist only in elite athletes
+- Depend on nervous control over movement, such as balance and agility
+- Are exclusive to team sports
+E: Coordinative capacities — balance, agility, rhythm, coordination — depend on neuromuscular control, while conditional ones depend on energy processes.
+--- es
+P: La diferencia entre las capacidades físicas condicionales y las coordinativas es que las coordinativas:
+- Dependen solo de la fuerza muscular
+- Solo existen en atletas de alto rendimiento
+- Dependen del control del sistema nervioso sobre el movimiento, como el equilibrio y la agilidad
+- Son exclusivas de los deportes colectivos
+E: Las capacidades coordinativas — equilibrio, agilidad, ritmo, coordinación — dependen del control neuromuscular, mientras que las condicionales dependen de procesos energéticos.
+
+=== Corpo, movimento e saúde > Capacidades físicas c=3 d=medio
+P: O princípio da sobrecarga no treinamento físico afirma que:
+- O treino deve ser sempre o mais intenso possível
+- A carga deve ser a mesma durante todo o ano
+- Qualquer exercício produz o mesmo efeito em qualquer pessoa
+- É preciso aumentar o estímulo progressivamente para que haja adaptação
+E: Sem aumento progressivo da carga, o organismo se adapta ao estímulo e a evolução cessa; o aumento precisa respeitar a recuperação.
+--- en
+P: The overload principle in physical training states that:
+- Training must always be as intense as possible
+- The load should stay the same all year round
+- Any exercise produces the same effect in anyone
+- The stimulus must increase progressively for adaptation to occur
+E: Without a progressive increase in load the body adapts to the stimulus and progress stops; the increase must respect recovery.
+--- es
+P: El principio de sobrecarga en el entrenamiento físico afirma que:
+- El entrenamiento debe ser siempre lo más intenso posible
+- La carga debe ser la misma durante todo el año
+- Cualquier ejercicio produce el mismo efecto en cualquier persona
+- Es necesario aumentar el estímulo progresivamente para que haya adaptación
+E: Sin aumento progresivo de la carga el organismo se adapta al estímulo y la evolución se detiene; el aumento debe respetar la recuperación.
+
+=== Corpo, movimento e saúde > Capacidades físicas c=0 d=dificil
+P: O princípio da individualidade biológica justifica que:
+- Pessoas com a mesma idade respondem de forma idêntica ao mesmo treino
+- Um mesmo programa de treino produz respostas diferentes em pessoas diferentes
+- Só atletas podem melhorar o condicionamento físico
+- A carga de treino deve ser copiada de atletas profissionais
+E: Fatores genéticos, histórico de treino e condições de saúde fazem com que o mesmo estímulo gere adaptações distintas em cada pessoa.
+--- en
+P: The principle of biological individuality justifies that:
+- People of the same age respond identically to the same training
+- The same training programme produces different responses in different people
+- Only athletes can improve their fitness
+- Training loads should be copied from professional athletes
+E: Genetics, training history and health conditions mean the same stimulus produces different adaptations in each person.
+--- es
+P: El principio de individualidad biológica justifica que:
+- Las personas de la misma edad responden de forma idéntica al mismo entrenamiento
+- Un mismo programa de entrenamiento produce respuestas diferentes en personas diferentes
+- Solo los atletas pueden mejorar su condición física
+- La carga de entrenamiento debe copiarse de los atletas profesionales
+E: La genética, el historial de entrenamiento y las condiciones de salud hacen que el mismo estímulo genere adaptaciones distintas en cada persona.
+
+=== Corpo, movimento e saúde > Capacidades físicas c=1 d=dificil
+P: O princípio da reversibilidade indica que:
+- Os ganhos de treino são permanentes após um ano de prática
+- As adaptações obtidas se perdem quando o estímulo é interrompido por muito tempo
+- É possível inverter a ordem dos exercícios sem efeito algum
+- O treino deve ser sempre feito na ordem inversa
+E: Interromper o treino por período prolongado leva à perda gradual das adaptações conquistadas — o chamado destreinamento.
+--- en
+P: The principle of reversibility states that:
+- Training gains become permanent after a year of practice
+- Adaptations are lost when the stimulus stops for a long time
+- Exercises can be reordered with no effect at all
+- Training must always be done in reverse order
+E: Stopping training for a long period leads to gradual loss of the adaptations gained — what is known as detraining.
+--- es
+P: El principio de reversibilidad indica que:
+- Las ganancias del entrenamiento son permanentes tras un año de práctica
+- Las adaptaciones obtenidas se pierden cuando el estímulo se interrumpe por mucho tiempo
+- Es posible invertir el orden de los ejercicios sin efecto alguno
+- El entrenamiento debe hacerse siempre en orden inverso
+E: Interrumpir el entrenamiento por un periodo prolongado lleva a la pérdida gradual de las adaptaciones conseguidas — el llamado desentrenamiento.
+
+=== Corpo, movimento e saúde > Sistema cardiorrespiratório e exercício c=2 d=facil
+P: Durante o exercício físico, a frequência cardíaca tende a:
+- Permanecer constante
+- Diminuir progressivamente
+- Aumentar para atender à maior demanda de oxigênio
+- Parar temporariamente
+E: Com maior demanda muscular por oxigênio, o coração acelera para aumentar o volume de sangue bombeado.
+--- en
+P: During physical exercise, heart rate tends to:
+- Stay constant
+- Fall progressively
+- Rise to meet the greater demand for oxygen
+- Stop temporarily
+E: With muscles demanding more oxygen, the heart speeds up to increase the volume of blood pumped.
+--- es
+P: Durante el ejercicio físico, la frecuencia cardíaca tiende a:
+- Permanecer constante
+- Disminuir progresivamente
+- Aumentar para atender la mayor demanda de oxígeno
+- Detenerse temporalmente
+E: Con mayor demanda muscular de oxígeno, el corazón se acelera para aumentar el volumen de sangre bombeado.
+
+=== Corpo, movimento e saúde > Sistema cardiorrespiratório e exercício c=3 d=facil
+P: O aquecimento antes da atividade física serve principalmente para:
+- Substituir o treino principal
+- Reduzir o consumo de água durante o exercício
+- Eliminar a necessidade de alongamento
+- Preparar músculos, articulações e sistema cardiovascular para o esforço
+E: O aquecimento eleva gradualmente a temperatura corporal e a frequência cardíaca, preparando o corpo e reduzindo o risco de lesão.
+--- en
+P: Warming up before physical activity mainly serves to:
+- Replace the main session
+- Reduce water intake during exercise
+- Remove the need for stretching
+- Prepare muscles, joints and the cardiovascular system for effort
+E: The warm-up gradually raises body temperature and heart rate, preparing the body and lowering injury risk.
+--- es
+P: El calentamiento antes de la actividad física sirve principalmente para:
+- Sustituir el entrenamiento principal
+- Reducir el consumo de agua durante el ejercicio
+- Eliminar la necesidad de estiramiento
+- Preparar músculos, articulaciones y sistema cardiovascular para el esfuerzo
+E: El calentamiento eleva gradualmente la temperatura corporal y la frecuencia cardíaca, preparando el cuerpo y reduciendo el riesgo de lesión.
+
+=== Corpo, movimento e saúde > Sistema cardiorrespiratório e exercício c=0 d=medio
+P: Uma adaptação típica do coração ao treinamento aeróbico regular é:
+- A redução da frequência cardíaca de repouso
+- O aumento permanente da pressão arterial
+- A diminuição do volume de sangue bombeado por batimento
+- A perda de elasticidade dos vasos
+E: Com o treino aeróbico o coração bombeia mais sangue por batimento, e assim precisa bater menos vezes por minuto em repouso — a bradicardia de repouso.
+--- en
+P: A typical adaptation of the heart to regular aerobic training is:
+- A lower resting heart rate
+- A permanent rise in blood pressure
+- A smaller volume of blood pumped per beat
+- Loss of elasticity in the vessels
+E: With aerobic training the heart pumps more blood per beat, so it needs fewer beats per minute at rest — resting bradycardia.
+--- es
+P: Una adaptación típica del corazón al entrenamiento aeróbico regular es:
+- La reducción de la frecuencia cardíaca en reposo
+- El aumento permanente de la presión arterial
+- La disminución del volumen de sangre bombeado por latido
+- La pérdida de elasticidad de los vasos
+E: Con el entrenamiento aeróbico el corazón bombea más sangre por latido, por lo que necesita latir menos veces por minuto en reposo — la bradicardia de reposo.
+
+=== Corpo, movimento e saúde > Sistema cardiorrespiratório e exercício c=1 d=medio
+P: A diferença entre exercício aeróbico e anaeróbico está principalmente:
+- No horário em que são praticados
+- Na predominância do uso de oxigênio para produzir energia
+- No tipo de roupa exigida
+- Na obrigatoriedade de equipamentos
+E: No exercício aeróbico a energia vem principalmente de processos que usam oxigênio; no anaeróbico, de vias que não dependem dele, em esforços curtos e intensos.
+--- en
+P: The difference between aerobic and anaerobic exercise lies mainly in:
+- The time of day they are done
+- Whether oxygen predominates in producing energy
+- The clothing required
+- Whether equipment is compulsory
+E: In aerobic exercise energy comes mainly from processes that use oxygen; in anaerobic exercise, from pathways that do not depend on it, in short and intense efforts.
+--- es
+P: La diferencia entre el ejercicio aeróbico y el anaeróbico está principalmente en:
+- El horario en que se practican
+- El predominio del uso de oxígeno para producir energía
+- El tipo de ropa exigida
+- La obligatoriedad de equipos
+E: En el ejercicio aeróbico la energía proviene principalmente de procesos que usan oxígeno; en el anaeróbico, de vías que no dependen de él, en esfuerzos cortos e intensos.
+
+=== Corpo, movimento e saúde > Sistema cardiorrespiratório e exercício c=2 d=dificil
+P: O consumo máximo de oxigênio (VO2 máx.) é um indicador de:
+- Flexibilidade articular
+- Força muscular máxima
+- Capacidade aeróbica máxima do organismo
+- Massa óssea
+E: O VO2 máx. expressa a maior quantidade de oxigênio que o organismo consegue captar e utilizar por unidade de tempo, sendo referência de aptidão aeróbica.
+--- en
+P: Maximal oxygen uptake (VO2 max) is an indicator of:
+- Joint flexibility
+- Maximum muscular strength
+- The body's maximum aerobic capacity
+- Bone mass
+E: VO2 max expresses the greatest amount of oxygen the body can take in and use per unit of time, and is the reference measure of aerobic fitness.
+--- es
+P: El consumo máximo de oxígeno (VO2 máx.) es un indicador de:
+- Flexibilidad articular
+- Fuerza muscular máxima
+- Capacidad aeróbica máxima del organismo
+- Masa ósea
+E: El VO2 máx. expresa la mayor cantidad de oxígeno que el organismo puede captar y utilizar por unidad de tiempo, y es la referencia de aptitud aeróbica.
+
+=== Corpo, movimento e saúde > Sistema cardiorrespiratório e exercício c=3 d=dificil
+P: O acúmulo de lactato no sangue durante esforços intensos está associado:
+- Ao excesso de flexibilidade
+- À falta total de oxigênio nos pulmões
+- Ao consumo de proteínas pelo músculo
+- Ao predomínio do metabolismo anaeróbico láctico
+E: Quando a intensidade ultrapassa a capacidade de produção aeróbica de energia, a via anaeróbica láctica passa a predominar e o lactato se acumula mais rápido do que é removido.
+--- en
+P: The build-up of lactate in the blood during intense effort is associated with:
+- Excess flexibility
+- A total lack of oxygen in the lungs
+- Muscle consuming protein
+- The predominance of lactic anaerobic metabolism
+E: When intensity exceeds the capacity to produce energy aerobically, the lactic anaerobic pathway takes over and lactate accumulates faster than it is removed.
+--- es
+P: La acumulación de lactato en la sangre durante esfuerzos intensos se asocia:
+- Al exceso de flexibilidad
+- A la falta total de oxígeno en los pulmones
+- Al consumo de proteínas por el músculo
+- Al predominio del metabolismo anaeróbico láctico
+E: Cuando la intensidad supera la capacidad de producir energía por vía aeróbica, predomina la vía anaeróbica láctica y el lactato se acumula más rápido de lo que se elimina.
+
+=== Corpo, movimento e saúde > Alimentação, hidratação e atividade física c=0 d=facil
+P: Durante a prática de atividade física prolongada, é recomendado:
+- Hidratar-se antes, durante e depois do exercício
+- Beber água apenas ao final da atividade
+- Evitar líquidos para não sentir peso no estômago
+- Substituir a água por refrigerante
+E: A reposição de líquidos deve ser distribuída ao longo de toda a prática, pois a sede aparece quando a desidratação já começou.
+--- en
+P: During prolonged physical activity, it is recommended to:
+- Drink fluids before, during and after exercise
+- Drink water only at the end of the activity
+- Avoid fluids so as not to feel heavy
+- Replace water with soft drinks
+E: Fluid replacement should be spread across the whole session, since thirst appears only once dehydration has begun.
+--- es
+P: Durante la práctica de actividad física prolongada, se recomienda:
+- Hidratarse antes, durante y después del ejercicio
+- Beber agua solo al final de la actividad
+- Evitar líquidos para no sentir pesadez
+- Sustituir el agua por refrescos
+E: La reposición de líquidos debe repartirse a lo largo de toda la práctica, porque la sed aparece cuando la deshidratación ya ha comenzado.
+
+=== Corpo, movimento e saúde > Alimentação, hidratação e atividade física c=1 d=facil
+P: Qual nutriente é a principal fonte de energia rápida para o exercício de alta intensidade?
+- Proteínas
+- Carboidratos
+- Vitaminas
+- Fibras
+E: Os carboidratos são a fonte energética mais rapidamente disponível, armazenados como glicogênio no músculo e no fígado.
+--- en
+P: Which nutrient is the main source of quick energy for high-intensity exercise?
+- Protein
+- Carbohydrate
+- Vitamins
+- Fibre
+E: Carbohydrate is the most readily available energy source, stored as glycogen in muscle and liver.
+--- es
+P: ¿Qué nutriente es la principal fuente de energía rápida para el ejercicio de alta intensidad?
+- Proteínas
+- Carbohidratos
+- Vitaminas
+- Fibras
+E: Los carbohidratos son la fuente energética más rápidamente disponible, almacenada como glucógeno en el músculo y el hígado.
+
+=== Corpo, movimento e saúde > Alimentação, hidratação e atividade física c=2 d=medio
+P: O uso de suplementos alimentares por praticantes de atividade física deve ser avaliado porque:
+- Suplementos substituem integralmente as refeições
+- Todo suplemento é proibido no Brasil
+- O consumo sem orientação pode ser desnecessário e trazer riscos à saúde
+- Suplementos garantem resultados independentemente do treino
+E: Suplementos complementam a alimentação em situações específicas; sem avaliação profissional podem ser inúteis, caros ou prejudiciais.
+--- en
+P: The use of dietary supplements by people who exercise should be assessed because:
+- Supplements fully replace meals
+- Every supplement is banned in Brazil
+- Taking them without guidance may be unnecessary and carry health risks
+- Supplements guarantee results regardless of training
+E: Supplements complement the diet in specific situations; without professional assessment they may be useless, costly or harmful.
+--- es
+P: El uso de suplementos alimentarios por quienes practican actividad física debe evaluarse porque:
+- Los suplementos sustituyen por completo las comidas
+- Todo suplemento está prohibido en Brasil
+- El consumo sin orientación puede ser innecesario y traer riesgos para la salud
+- Los suplementos garantizan resultados independientemente del entrenamiento
+E: Los suplementos complementan la alimentación en situaciones específicas; sin evaluación profesional pueden ser inútiles, caros o perjudiciales.
+
+=== Corpo, movimento e saúde > Alimentação, hidratação e atividade física c=3 d=medio
+P: A hiponatremia associada ao exercício, embora rara, pode ocorrer quando o praticante:
+- Consome apenas carboidratos
+- Treina em local fechado
+- Faz alongamento insuficiente
+- Ingere volume excessivo de água pura em esforços muito longos
+E: Beber água em excesso durante provas longas pode diluir o sódio do sangue; por isso, em esforços prolongados, repõe-se também eletrólitos.
+--- en
+P: Exercise-associated hyponatraemia, though rare, can occur when someone:
+- Eats only carbohydrate
+- Trains indoors
+- Stretches too little
+- Drinks an excessive volume of plain water during very long efforts
+E: Drinking too much water in long events can dilute blood sodium; that is why electrolytes are also replaced in prolonged efforts.
+--- es
+P: La hiponatremia asociada al ejercicio, aunque rara, puede ocurrir cuando la persona:
+- Consume solo carbohidratos
+- Entrena en un lugar cerrado
+- Hace un estiramiento insuficiente
+- Ingiere un volumen excesivo de agua pura en esfuerzos muy largos
+E: Beber agua en exceso en pruebas largas puede diluir el sodio de la sangre; por eso, en esfuerzos prolongados, también se reponen electrolitos.
+
+=== Corpo, movimento e saúde > Alimentação, hidratação e atividade física c=0 d=dificil
+P: A janela de recuperação após o exercício intenso refere-se ao período em que:
+- Nenhum alimento deve ser ingerido
+- A reposição de carboidratos e proteínas favorece a recuperação muscular e do glicogênio
+- O corpo elimina toda a gordura acumulada
+- O treino deve ser repetido imediatamente
+E: Nas horas seguintes ao esforço, a ressíntese de glicogênio e a recuperação do tecido muscular são favorecidas pela ingestão adequada de nutrientes.
+--- en
+P: The recovery window after intense exercise refers to the period in which:
+- No food should be eaten
+- Taking in carbohydrate and protein supports muscle and glycogen recovery
+- The body burns off all stored fat
+- Training must be repeated immediately
+E: In the hours after effort, glycogen resynthesis and muscle tissue recovery are supported by adequate nutrient intake.
+--- es
+P: La ventana de recuperación tras el ejercicio intenso se refiere al periodo en el que:
+- No debe ingerirse ningún alimento
+- La reposición de carbohidratos y proteínas favorece la recuperación muscular y del glucógeno
+- El cuerpo elimina toda la grasa acumulada
+- El entrenamiento debe repetirse de inmediato
+E: En las horas siguientes al esfuerzo, la resíntesis de glucógeno y la recuperación del tejido muscular se ven favorecidas por una ingesta adecuada de nutrientes.
+
+=== Corpo, movimento e saúde > Alimentação, hidratação e atividade física c=1 d=dificil
+P: A vigorexia, transtorno associado à imagem corporal, caracteriza-se por:
+- Preocupação excessiva em parecer insuficientemente musculoso, mesmo com corpo desenvolvido
+- Recusa completa de qualquer atividade física
+- Perda total de apetite por motivos hormonais
+- Necessidade de dormir mais de doze horas por dia
+E: Na vigorexia a pessoa percebe o próprio corpo como pequeno ou fraco e mantém treinos e dietas extremas, com prejuízo à saúde.
+--- en
+P: Muscle dysmorphia, a body-image disorder, is characterised by:
+- Excessive concern with looking insufficiently muscular, even with a developed body
+- Complete refusal of any physical activity
+- Total loss of appetite for hormonal reasons
+- Needing more than twelve hours of sleep a day
+E: In muscle dysmorphia the person perceives their own body as small or weak and keeps up extreme training and diets, harming their health.
+--- es
+P: La vigorexia, trastorno asociado a la imagen corporal, se caracteriza por:
+- Preocupación excesiva por parecer insuficientemente musculoso, incluso con un cuerpo desarrollado
+- Rechazo completo de cualquier actividad física
+- Pérdida total del apetito por motivos hormonales
+- Necesidad de dormir más de doce horas al día
+E: En la vigorexia la persona percibe su propio cuerpo como pequeño o débil y mantiene entrenamientos y dietas extremas, con perjuicio para su salud.
+
+=== Lutas e artes marciais > Capoeira e lutas brasileiras c=2 d=facil
+P: A capoeira é uma manifestação cultural que combina:
+- Apenas técnicas de defesa pessoal
+- Somente dança de salão
+- Luta, dança, música e ritual
+- Exclusivamente canto coral
+E: A capoeira une movimentos de luta, dança, musicalidade e ritual, sendo patrimônio cultural imaterial do Brasil.
+--- en
+P: Capoeira is a cultural practice that combines:
+- Self-defence techniques only
+- Ballroom dancing only
+- Fighting, dance, music and ritual
+- Choral singing only
+E: Capoeira brings together fighting movements, dance, musicality and ritual, and is recognised as Brazilian intangible cultural heritage.
+--- es
+P: La capoeira es una manifestación cultural que combina:
+- Solo técnicas de defensa personal
+- Solo baile de salón
+- Lucha, danza, música y ritual
+- Exclusivamente canto coral
+E: La capoeira une movimientos de lucha, danza, musicalidad y ritual, y es patrimonio cultural inmaterial de Brasil.
+
+=== Lutas e artes marciais > Capoeira e lutas brasileiras c=3 d=facil
+P: Qual instrumento é considerado o principal na roda de capoeira?
+- Violão
+- Sanfona
+- Trompete
+- Berimbau
+E: O berimbau comanda o ritmo da roda e define o tipo de jogo que será praticado.
+--- en
+P: Which instrument is considered the main one in a capoeira circle?
+- Guitar
+- Accordion
+- Trumpet
+- Berimbau
+E: The berimbau leads the rhythm of the roda and sets the type of game to be played.
+--- es
+P: ¿Qué instrumento se considera el principal en la rueda de capoeira?
+- Guitarra
+- Acordeón
+- Trompeta
+- Berimbau
+E: El berimbau dirige el ritmo de la rueda y define el tipo de juego que se practicará.
+
+=== Lutas e artes marciais > Capoeira e lutas brasileiras c=0 d=medio
+P: A ginga, movimento básico da capoeira, tem como função principal:
+- Manter o corpo em deslocamento constante, preparando ataque e defesa
+- Marcar pontos na competição
+- Substituir o cumprimento entre os jogadores
+- Encerrar a roda
+E: A ginga é o balanço contínuo que mantém o capoeirista em movimento, criando ritmo e possibilidades de entrada e esquiva.
+--- en
+P: The ginga, capoeira's basic movement, mainly serves to:
+- Keep the body constantly moving, preparing attack and defence
+- Score points in competition
+- Replace the greeting between players
+- End the circle
+E: The ginga is the continuous sway that keeps the capoeirista moving, creating rhythm and openings for attack and evasion.
+--- es
+P: La ginga, movimiento básico de la capoeira, tiene como función principal:
+- Mantener el cuerpo en desplazamiento constante, preparando ataque y defensa
+- Marcar puntos en la competición
+- Sustituir el saludo entre los jugadores
+- Cerrar la rueda
+E: La ginga es el balanceo continuo que mantiene al capoeirista en movimiento, creando ritmo y posibilidades de entrada y esquiva.
+
+=== Lutas e artes marciais > Capoeira e lutas brasileiras c=1 d=medio
+P: A capoeira foi criada no Brasil no contexto:
+- Da imigração japonesa no século XX
+- Da resistência de africanos escravizados e seus descendentes
+- Das academias militares do Império
+- Dos clubes esportivos da Primeira República
+E: A capoeira desenvolveu-se entre africanos escravizados e afro-brasileiros como forma de resistência cultural e corporal.
+--- en
+P: Capoeira was created in Brazil in the context of:
+- Japanese immigration in the 20th century
+- The resistance of enslaved Africans and their descendants
+- The Empire's military academies
+- The sports clubs of the First Republic
+E: Capoeira developed among enslaved Africans and Afro-Brazilians as a form of cultural and bodily resistance.
+--- es
+P: La capoeira fue creada en Brasil en el contexto:
+- De la inmigración japonesa del siglo XX
+- De la resistencia de africanos esclavizados y sus descendientes
+- De las academias militares del Imperio
+- De los clubes deportivos de la Primera República
+E: La capoeira se desarrolló entre africanos esclavizados y afrobrasileños como forma de resistencia cultural y corporal.
+
+=== Lutas e artes marciais > Capoeira e lutas brasileiras c=2 d=dificil
+P: A diferença mais citada entre a Capoeira Angola e a Capoeira Regional está:
+- No número de jogadores na roda
+- Na proibição de instrumentos na Angola
+- No ritmo e na altura do jogo, mais baixo e cadenciado na Angola
+- Na ausência de cantos na Regional
+E: A Angola, ligada a Mestre Pastinha, mantém jogo mais baixo, lento e ritualizado; a Regional, criada por Mestre Bimba, é mais rápida e acrobática.
+--- en
+P: The most cited difference between Capoeira Angola and Capoeira Regional lies in:
+- The number of players in the circle
+- Instruments being banned in Angola
+- The rhythm and height of the game, lower and more measured in Angola
+- The absence of songs in Regional
+E: Angola, linked to Mestre Pastinha, keeps a lower, slower and more ritualised game; Regional, created by Mestre Bimba, is faster and more acrobatic.
+--- es
+P: La diferencia más citada entre la Capoeira Angola y la Capoeira Regional está en:
+- El número de jugadores en la rueda
+- La prohibición de instrumentos en la Angola
+- El ritmo y la altura del juego, más bajo y pausado en la Angola
+- La ausencia de cantos en la Regional
+E: La Angola, ligada a Mestre Pastinha, mantiene un juego más bajo, lento y ritualizado; la Regional, creada por Mestre Bimba, es más rápida y acrobática.
+
+=== Lutas e artes marciais > Capoeira e lutas brasileiras c=3 d=dificil
+P: O huka-huka é uma luta tradicional praticada:
+- Por imigrantes italianos no Sul do Brasil
+- Nas academias de artes marciais japonesas
+- Em competições olímpicas desde 1920
+- Por povos indígenas do Alto Xingu, ligada a rituais como o Quarup
+E: O huka-huka é uma luta corpo a corpo de povos do Alto Xingu, praticada em contexto ritual, com destaque durante o Quarup.
+--- en
+P: Huka-huka is a traditional form of wrestling practised:
+- By Italian immigrants in southern Brazil
+- In Japanese martial arts schools
+- At the Olympic Games since 1920
+- By Indigenous peoples of the Upper Xingu, tied to rituals such as the Kuarup
+E: Huka-huka is a grappling form practised by Upper Xingu peoples in a ritual context, notably during the Kuarup.
+--- es
+P: El huka-huka es una lucha tradicional practicada:
+- Por inmigrantes italianos en el sur de Brasil
+- En las academias de artes marciales japonesas
+- En competiciones olímpicas desde 1920
+- Por pueblos indígenas del Alto Xingu, ligada a rituales como el Kuarup
+E: El huka-huka es una lucha cuerpo a cuerpo de pueblos del Alto Xingu, practicada en contexto ritual, con destaque durante el Kuarup.

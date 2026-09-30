@@ -244,6 +244,7 @@ void main() {
           Subject.ingles,
           Subject.espanhol,
           Subject.artes,
+          Subject.educacaoFisica,
           Subject.atualidades,
           Subject.redacao,
         ]);

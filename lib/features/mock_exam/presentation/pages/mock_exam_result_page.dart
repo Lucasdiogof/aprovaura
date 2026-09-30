@@ -189,7 +189,7 @@ class _ResultBodyState extends State<_ResultBody> {
   /// Subjects in the app's usual order (the server sorts alphabetically).
   List<MockExamResultLine> get _subjectsInAppOrder {
     int rank(String key) {
-      final index = Subject.values.indexWhere((s) => s.name == key);
+      final index = Subject.values.indexWhere((s) => s.key == key);
       return index < 0 ? Subject.values.length : index;
     }
 

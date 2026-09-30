@@ -1,0 +1,659 @@
+=== Esportes coletivos > Futebol e futsal c=0 d=facil
+P: Quantos jogadores de cada equipe ficam em quadra no futsal, incluindo o goleiro?
+- 5
+- 7
+- 11
+- 3
+E: O futsal é disputado com cinco jogadores por equipe em quadra, sendo um deles o goleiro.
+--- en
+P: How many players from each team are on court in futsal, including the goalkeeper?
+- 5
+- 7
+- 11
+- 3
+E: Futsal is played with five players per team on court, one of them the goalkeeper.
+--- es
+P: ¿Cuántos jugadores de cada equipo están en la cancha en el futsal, incluido el portero?
+- 5
+- 7
+- 11
+- 3
+E: El futsal se juega con cinco jugadores por equipo en la cancha, uno de ellos el portero.
+
+=== Esportes coletivos > Futebol e futsal c=1 d=facil
+P: No futebol de campo, qual é a duração regulamentar de cada tempo em partidas adultas?
+- 30 minutos
+- 45 minutos
+- 60 minutos
+- 20 minutos
+E: A partida de futebol adulto tem dois tempos de 45 minutos, com acréscimos definidos pelo árbitro.
+--- en
+P: In football, how long is each regulation half in adult matches?
+- 30 minutes
+- 45 minutes
+- 60 minutes
+- 20 minutes
+E: An adult football match has two halves of 45 minutes, plus stoppage time set by the referee.
+--- es
+P: En el fútbol, ¿cuánto dura cada tiempo reglamentario en partidos de adultos?
+- 30 minutos
+- 45 minutos
+- 60 minutos
+- 20 minutos
+E: El partido de fútbol adulto tiene dos tiempos de 45 minutos, más el tiempo añadido que fija el árbitro.
+
+=== Esportes coletivos > Futebol e futsal c=2 d=medio
+P: A regra do impedimento no futebol tem como principal função esportiva:
+- Aumentar o número de gols na partida
+- Reduzir o tempo de jogo
+- Evitar que atacantes fiquem parados perto do gol adversário esperando a bola
+- Proibir passes para trás
+E: O impedimento desestimula o jogador de se posicionar permanentemente atrás da última linha defensiva, obrigando a equipe a construir a jogada.
+--- en
+P: The offside rule in football mainly serves to:
+- Increase the number of goals in a match
+- Shorten the game
+- Stop attackers from waiting near the opponents' goal for the ball
+- Ban backward passes
+E: Offside discourages a player from camping behind the last defensive line, forcing the team to build the play.
+--- es
+P: La regla del fuera de juego en el fútbol sirve principalmente para:
+- Aumentar la cantidad de goles del partido
+- Acortar el tiempo de juego
+- Evitar que los atacantes esperen el balón cerca de la portería rival
+- Prohibir los pases hacia atrás
+E: El fuera de juego desalienta que un jugador se quede detrás de la última línea defensiva, obligando al equipo a construir la jugada.
+
+=== Esportes coletivos > Futebol e futsal c=3 d=medio
+P: Uma diferença tática importante entre futsal e futebol de campo é que, no futsal:
+- Não existe a função de goleiro
+- É proibido finalizar fora da área
+- Não há substituições durante a partida
+- O espaço reduzido exige decisões mais rápidas e maior participação de todos os jogadores
+E: A quadra menor diminui o tempo de posse e o espaço disponível, o que aumenta a frequência de decisões e a participação de cada jogador.
+--- en
+P: An important tactical difference between futsal and football is that, in futsal:
+- There is no goalkeeper role
+- Shooting from outside the area is forbidden
+- No substitutions are allowed during the match
+- The smaller space demands faster decisions and more involvement from every player
+E: The smaller court cuts down possession time and available space, which raises how often decisions are made and how much each player is involved.
+--- es
+P: Una diferencia táctica importante entre el futsal y el fútbol es que, en el futsal:
+- No existe la función de portero
+- Está prohibido rematar desde fuera del área
+- No hay sustituciones durante el partido
+- El espacio reducido exige decisiones más rápidas y mayor participación de todos los jugadores
+E: La cancha menor reduce el tiempo de posesión y el espacio disponible, lo que aumenta la frecuencia de decisiones y la participación de cada jugador.
+
+=== Esportes coletivos > Futebol e futsal c=0 d=dificil
+P: O sistema tático 4-3-3 no futebol indica a distribuição de jogadores de linha em:
+- Defensores, meio-campistas e atacantes
+- Goleiros, defensores e atacantes
+- Titulares, reservas e técnicos
+- Zagueiros, laterais e goleiros
+E: Os números descrevem os jogadores de linha por setor — quatro defensores, três meio-campistas e três atacantes —, sem contar o goleiro.
+--- en
+P: The 4-3-3 formation in football describes the distribution of outfield players as:
+- Defenders, midfielders and forwards
+- Goalkeepers, defenders and forwards
+- Starters, substitutes and coaches
+- Centre-backs, full-backs and goalkeepers
+E: The numbers describe outfield players by line — four defenders, three midfielders and three forwards — with the goalkeeper not counted.
+--- es
+P: El sistema táctico 4-3-3 en el fútbol indica la distribución de los jugadores de campo en:
+- Defensores, mediocampistas y delanteros
+- Porteros, defensores y delanteros
+- Titulares, suplentes y entrenadores
+- Centrales, laterales y porteros
+E: Los números describen a los jugadores de campo por línea — cuatro defensores, tres mediocampistas y tres delanteros —, sin contar al portero.
+
+=== Esportes coletivos > Futebol e futsal c=1 d=dificil
+P: A marcação por zona difere da marcação individual porque, na marcação por zona, cada defensor:
+- Persegue um adversário específico por toda a partida
+- É responsável por um espaço do campo e pelos adversários que entram nele
+- Só pode atuar dentro da própria área
+- Fica impedido de trocar de posição com companheiros
+E: Na marcação por zona o defensor cobre um setor do campo, assumindo quem entrar ali, enquanto na individual ele acompanha um adversário determinado.
+--- en
+P: Zonal marking differs from man-marking because, in zonal marking, each defender:
+- Follows one specific opponent for the whole match
+- Is responsible for an area of the pitch and whoever enters it
+- May only play inside their own penalty area
+- Is not allowed to swap positions with teammates
+E: In zonal marking the defender covers a sector of the pitch and takes on whoever comes into it, while in man-marking they track one particular opponent.
+--- es
+P: La marcación por zona se diferencia de la individual porque, en la marcación por zona, cada defensor:
+- Persigue a un adversario concreto durante todo el partido
+- Es responsable de un espacio del campo y de los rivales que entran en él
+- Solo puede actuar dentro de su propia área
+- Tiene prohibido cambiar de posición con sus compañeros
+E: En la marcación por zona el defensor cubre un sector del campo y asume a quien entre allí, mientras que en la individual sigue a un adversario determinado.
+
+=== Esportes coletivos > Voleibol c=2 d=facil
+P: Quantos jogadores de cada equipe ficam em quadra no voleibol?
+- 5
+- 4
+- 6
+- 11
+E: O voleibol é disputado com seis jogadores por equipe em quadra.
+--- en
+P: How many players from each team are on court in volleyball?
+- 5
+- 4
+- 6
+- 11
+E: Volleyball is played with six players per team on court.
+--- es
+P: ¿Cuántos jugadores de cada equipo están en la cancha en el voleibol?
+- 5
+- 4
+- 6
+- 11
+E: El voleibol se juega con seis jugadores por equipo en la cancha.
+
+=== Esportes coletivos > Voleibol c=3 d=facil
+P: Qual é o número máximo de toques que uma equipe pode dar na bola antes de enviá-la ao campo adversário no voleibol?
+- 1
+- 2
+- 5
+- 3
+E: Cada equipe pode dar no máximo três toques antes de devolver a bola, sem contar o bloqueio.
+--- en
+P: What is the maximum number of touches a team may take before sending the ball over the net in volleyball?
+- 1
+- 2
+- 5
+- 3
+E: Each team may take at most three touches before returning the ball, not counting the block.
+--- es
+P: ¿Cuál es el número máximo de toques que un equipo puede dar antes de enviar el balón al campo rival en el voleibol?
+- 1
+- 2
+- 5
+- 3
+E: Cada equipo puede dar como máximo tres toques antes de devolver el balón, sin contar el bloqueo.
+
+=== Esportes coletivos > Voleibol c=0 d=medio
+P: Qual é a principal função do jogador líbero no voleibol?
+- Atuar na defesa e na recepção, sem poder atacar acima da borda da rede
+- Sacar em todos os rodízios da equipe
+- Bloquear as bolas de ataque adversárias
+- Comandar as substituições da equipe
+E: O líbero é um especialista defensivo: atua no fundo da quadra, na recepção e na defesa, e não pode completar um ataque acima da borda da rede.
+--- en
+P: What is the libero's main role in volleyball?
+- Playing in defence and reception, without attacking above the top of the net
+- Serving in every rotation for the team
+- Blocking the opponents' attacks
+- Deciding the team's substitutions
+E: The libero is a defensive specialist: they play in the back court, in reception and defence, and may not complete an attack above the top of the net.
+--- es
+P: ¿Cuál es la función principal del líbero en el voleibol?
+- Actuar en la defensa y la recepción, sin poder atacar por encima del borde de la red
+- Sacar en todas las rotaciones del equipo
+- Bloquear los ataques rivales
+- Dirigir las sustituciones del equipo
+E: El líbero es un especialista defensivo: juega en el fondo de la cancha, en la recepción y la defensa, y no puede completar un ataque por encima del borde de la red.
+
+=== Esportes coletivos > Voleibol c=1 d=medio
+P: No voleibol, o rodízio obriga os jogadores a:
+- Permanecer sempre na mesma posição durante o set
+- Girar uma posição no sentido horário a cada ponto conquistado no saque adversário
+- Trocar de equipe a cada set
+- Sair da quadra após cada ponto
+E: Quando a equipe recupera o saque, todos giram uma posição no sentido horário, de modo que cada atleta passa por todas as posições.
+--- en
+P: In volleyball, the rotation requires players to:
+- Stay in the same position throughout the set
+- Move one position clockwise whenever they win the right to serve
+- Change teams at every set
+- Leave the court after each point
+E: When the team wins back the serve, everyone moves one position clockwise, so each athlete goes through every position.
+--- es
+P: En el voleibol, la rotación obliga a los jugadores a:
+- Permanecer siempre en la misma posición durante el set
+- Girar una posición en sentido horario cuando recuperan el saque
+- Cambiar de equipo en cada set
+- Salir de la cancha después de cada punto
+E: Cuando el equipo recupera el saque, todos giran una posición en sentido horario, de modo que cada atleta pasa por todas las posiciones.
+
+=== Esportes coletivos > Voleibol c=2 d=dificil
+P: A leitura de jogo do levantador no voleibol consiste principalmente em:
+- Escolher o atacante com base na formação do bloqueio adversário
+- Definir quem vai sacar no próximo rodízio
+- Marcar os pontos na súmula da partida
+- Escolher o uniforme da equipe
+E: O levantador observa como o bloqueio adversário se organiza e distribui a bola para o atacante com a situação mais favorável.
+--- en
+P: A setter's game reading in volleyball consists mainly of:
+- Choosing the attacker based on how the opposing block is set up
+- Deciding who will serve in the next rotation
+- Recording the points on the match sheet
+- Choosing the team's kit
+E: The setter watches how the opposing block organises itself and feeds the attacker facing the most favourable situation.
+--- es
+P: La lectura de juego del colocador en el voleibol consiste principalmente en:
+- Elegir al atacante según la formación del bloqueo rival
+- Definir quién sacará en la próxima rotación
+- Anotar los puntos en el acta del partido
+- Elegir el uniforme del equipo
+E: El colocador observa cómo se organiza el bloqueo rival y distribuye el balón al atacante que está en la situación más favorable.
+
+=== Esportes coletivos > Voleibol c=3 d=dificil
+P: O vôlei de praia difere do voleibol de quadra principalmente porque:
+- Usa uma rede mais alta e bola mais pesada
+- Permite quatro toques por equipe
+- Proíbe o saque por cima
+- É disputado por duplas, sem substituições e sem posições fixas de rodízio
+E: No vôlei de praia cada equipe tem dois atletas, que acumulam todas as funções, sem substituições e sem a obrigação de rodízio posicional da quadra.
+--- en
+P: Beach volleyball differs from indoor volleyball mainly because:
+- It uses a higher net and a heavier ball
+- It allows four touches per team
+- Overhand serving is forbidden
+- It is played by pairs, with no substitutions and no fixed rotation positions
+E: In beach volleyball each team has two athletes who take on every role, with no substitutions and without the indoor game's positional rotation.
+--- es
+P: El vóley playa se diferencia del voleibol de sala principalmente porque:
+- Usa una red más alta y un balón más pesado
+- Permite cuatro toques por equipo
+- Prohíbe el saque por arriba
+- Se juega por parejas, sin sustituciones y sin posiciones fijas de rotación
+E: En el vóley playa cada equipo tiene dos atletas que asumen todas las funciones, sin sustituciones y sin la rotación posicional obligatoria de la sala.
+
+=== Esportes coletivos > Basquetebol e handebol c=0 d=facil
+P: Quantos jogadores de cada equipe ficam em quadra no basquetebol?
+- 5
+- 6
+- 7
+- 11
+E: O basquetebol é disputado com cinco jogadores por equipe em quadra.
+--- en
+P: How many players from each team are on court in basketball?
+- 5
+- 6
+- 7
+- 11
+E: Basketball is played with five players per team on court.
+--- es
+P: ¿Cuántos jugadores de cada equipo están en la cancha en el baloncesto?
+- 5
+- 6
+- 7
+- 11
+E: El baloncesto se juega con cinco jugadores por equipo en la cancha.
+
+=== Esportes coletivos > Basquetebol e handebol c=1 d=facil
+P: Uma cesta convertida de dentro do garrafão, no basquetebol, vale:
+- 1 ponto
+- 2 pontos
+- 3 pontos
+- 4 pontos
+E: Arremessos convertidos dentro da linha de três pontos valem dois pontos.
+--- en
+P: A basket scored from inside the paint, in basketball, is worth:
+- 1 point
+- 2 points
+- 3 points
+- 4 points
+E: Shots made inside the three-point line are worth two points.
+--- es
+P: Una canasta convertida desde dentro de la zona, en el baloncesto, vale:
+- 1 punto
+- 2 puntos
+- 3 puntos
+- 4 puntos
+E: Los tiros convertidos dentro de la línea de tres puntos valen dos puntos.
+
+=== Esportes coletivos > Basquetebol e handebol c=2 d=medio
+P: No handebol, a área do goleiro (área de 6 metros) só pode ser pisada por jogadores de linha quando:
+- Estão de posse da bola
+- A partida está empatada
+- Eles saltam e soltam a bola antes de tocar o solo dentro da área
+- O árbitro autoriza verbalmente
+E: O jogador pode saltar sobre a área desde que a bola seja lançada antes de ele tocar o chão; pisar na área com a bola é infração.
+--- en
+P: In handball, outfield players may enter the goal area (the 6-metre area) only when:
+- They have possession of the ball
+- The match is tied
+- They jump and release the ball before landing inside the area
+- The referee gives verbal permission
+E: A player may jump over the area as long as the ball is released before they touch the ground; stepping into the area with the ball is a violation.
+--- es
+P: En el balonmano, los jugadores de campo solo pueden entrar en el área del portero (área de 6 metros) cuando:
+- Tienen la posesión del balón
+- El partido está empatado
+- Saltan y sueltan el balón antes de caer dentro del área
+- El árbitro lo autoriza verbalmente
+E: El jugador puede saltar sobre el área siempre que suelte el balón antes de tocar el suelo; pisar el área con el balón es infracción.
+
+=== Esportes coletivos > Basquetebol e handebol c=3 d=medio
+P: A infração de "andar com a bola" (progressão) no basquetebol ocorre quando o jogador:
+- Arremessa de fora do garrafão
+- Passa a bola para trás
+- Fica mais de três segundos no garrafão adversário
+- Dá mais de dois passos com a bola em mãos sem quicá-la
+E: Com a bola dominada e sem drible, o jogador só pode dar dois passos; além disso, a arbitragem marca progressão.
+--- en
+P: Travelling is called in basketball when a player:
+- Shoots from outside the paint
+- Passes the ball backwards
+- Stays more than three seconds in the opponents' paint
+- Takes more than two steps holding the ball without dribbling
+E: Holding the ball and not dribbling, a player may take only two steps; beyond that the referee calls travelling.
+--- es
+P: Los pasos (progresión ilegal) se señalan en el baloncesto cuando el jugador:
+- Tira desde fuera de la zona
+- Pasa el balón hacia atrás
+- Permanece más de tres segundos en la zona rival
+- Da más de dos pasos con el balón en las manos sin botarlo
+E: Con el balón controlado y sin bote, el jugador solo puede dar dos pasos; más que eso, el árbitro señala pasos.
+
+=== Esportes coletivos > Basquetebol e handebol c=0 d=dificil
+P: O contra-ataque, no basquetebol e no handebol, busca principalmente:
+- Chegar ao ataque antes de a defesa adversária se organizar
+- Prolongar a posse de bola até o fim do tempo
+- Forçar a arbitragem a marcar faltas
+- Manter todos os jogadores na própria quadra de defesa
+E: O contra-ataque explora a transição: a equipe avança rápido após recuperar a bola, antes de o adversário montar o sistema defensivo.
+--- en
+P: The fast break, in basketball and handball, mainly aims to:
+- Reach the attack before the opposing defence is organised
+- Keep possession until time runs out
+- Force the referees to call fouls
+- Keep every player in their own defensive half
+E: The fast break exploits the transition: the team moves forward quickly after winning the ball, before the opponents set up their defensive system.
+--- es
+P: El contraataque, en el baloncesto y el balonmano, busca principalmente:
+- Llegar al ataque antes de que la defensa rival se organice
+- Prolongar la posesión hasta que se acabe el tiempo
+- Forzar al arbitraje a señalar faltas
+- Mantener a todos los jugadores en su propia cancha de defensa
+E: El contraataque aprovecha la transición: el equipo avanza rápido tras recuperar el balón, antes de que el rival arme su sistema defensivo.
+
+=== Esportes coletivos > Basquetebol e handebol c=1 d=dificil
+P: A defesa 6x0 no handebol caracteriza-se por:
+- Deixar um jogador avançado para pressionar o armador central
+- Posicionar os seis defensores alinhados próximos à linha de 6 metros
+- Marcar individualmente cada atacante por toda a quadra
+- Usar apenas três defensores e três atacantes
+E: No 6x0 todos os defensores ficam em uma única linha junto à área, fechando o espaço central e o caminho para a área.
+--- en
+P: The 6-0 defence in handball is characterised by:
+- Pushing one player forward to press the centre back
+- Lining all six defenders up close to the 6-metre line
+- Marking each attacker individually all over the court
+- Using only three defenders and three attackers
+E: In the 6-0 every defender stays in a single line next to the area, closing the central space and the route to the goal area.
+--- es
+P: La defensa 6:0 en el balonmano se caracteriza por:
+- Adelantar a un jugador para presionar al central
+- Situar a los seis defensores alineados cerca de la línea de 6 metros
+- Marcar individualmente a cada atacante por toda la cancha
+- Usar solo tres defensores y tres atacantes
+E: En el 6:0 todos los defensores se sitúan en una sola línea junto al área, cerrando el espacio central y el camino hacia el área.
+
+=== Esportes individuais > Atletismo c=2 d=facil
+P: Qual destas provas faz parte do atletismo?
+- Salto ornamental
+- Nado sincronizado
+- Salto em distância
+- Levantamento de peso
+E: O salto em distância é uma das provas de campo do atletismo, ao lado do salto em altura, do arremesso e dos lançamentos.
+--- en
+P: Which of these events is part of athletics?
+- Diving
+- Artistic swimming
+- Long jump
+- Weightlifting
+E: The long jump is one of athletics' field events, alongside high jump, shot put and the throws.
+--- es
+P: ¿Cuál de estas pruebas forma parte del atletismo?
+- Salto ornamental
+- Natación artística
+- Salto de longitud
+- Halterofilia
+E: El salto de longitud es una de las pruebas de campo del atletismo, junto al salto de altura, el lanzamiento de peso y los lanzamientos.
+
+=== Esportes individuais > Atletismo c=3 d=facil
+P: A maratona olímpica tem uma distância oficial de aproximadamente:
+- 10 quilômetros
+- 21 quilômetros
+- 30 quilômetros
+- 42 quilômetros
+E: A maratona tem 42,195 km, distância fixada oficialmente a partir dos Jogos Olímpicos de 1908.
+--- en
+P: The Olympic marathon covers an official distance of about:
+- 10 kilometres
+- 21 kilometres
+- 30 kilometres
+- 42 kilometres
+E: The marathon is 42.195 km, a distance officially fixed from the 1908 Olympic Games onwards.
+--- es
+P: El maratón olímpico tiene una distancia oficial de aproximadamente:
+- 10 kilómetros
+- 21 kilómetros
+- 30 kilómetros
+- 42 kilómetros
+E: El maratón tiene 42,195 km, distancia fijada oficialmente a partir de los Juegos Olímpicos de 1908.
+
+=== Esportes individuais > Atletismo c=0 d=medio
+P: Nas provas de revezamento 4x100 m, a passagem do bastão deve ocorrer:
+- Dentro de uma zona demarcada na pista
+- Em qualquer ponto antes da linha de chegada
+- Somente na reta final
+- Fora da raia, para não atrapalhar os adversários
+E: A troca do bastão só é válida dentro da zona de passagem demarcada; fora dela a equipe é desclassificada.
+--- en
+P: In the 4x100 m relay, the baton must be passed:
+- Inside a marked zone on the track
+- At any point before the finish line
+- Only on the home straight
+- Outside the lane, so as not to disturb rivals
+E: The exchange is only valid inside the marked takeover zone; outside it the team is disqualified.
+--- es
+P: En las pruebas de relevo 4x100 m, la entrega del testigo debe ocurrir:
+- Dentro de una zona demarcada en la pista
+- En cualquier punto antes de la línea de meta
+- Solo en la recta final
+- Fuera de la calle, para no molestar a los rivales
+E: El cambio del testigo solo es válido dentro de la zona de entrega demarcada; fuera de ella el equipo queda descalificado.
+
+=== Esportes individuais > Atletismo c=1 d=medio
+P: Provas de velocidade como os 100 metros rasos dependem principalmente de qual capacidade física?
+- Flexibilidade
+- Potência e velocidade
+- Resistência aeróbica de longa duração
+- Equilíbrio estático
+E: O tiro de 100 metros exige produção de força em alta velocidade, ou seja, potência, com predomínio do metabolismo anaeróbico.
+--- en
+P: Sprint events such as the 100 metres depend mainly on which physical capacity?
+- Flexibility
+- Power and speed
+- Long-duration aerobic endurance
+- Static balance
+E: The 100 metres demands force produced at high speed — power — with the anaerobic system predominating.
+--- es
+P: Las pruebas de velocidad como los 100 metros lisos dependen principalmente de qué capacidad física?
+- Flexibilidad
+- Potencia y velocidad
+- Resistencia aeróbica de larga duración
+- Equilibrio estático
+E: Los 100 metros exigen producción de fuerza a alta velocidad, es decir, potencia, con predominio del metabolismo anaeróbico.
+
+=== Esportes individuais > Atletismo c=2 d=dificil
+P: A técnica Fosbury flop revolucionou qual prova do atletismo?
+- Salto em distância
+- Lançamento de dardo
+- Salto em altura
+- Marcha atlética
+E: Dick Fosbury popularizou, nos Jogos de 1968, a transposição do sarrafo de costas, que se tornou a técnica padrão do salto em altura.
+--- en
+P: The Fosbury flop revolutionised which athletics event?
+- Long jump
+- Javelin throw
+- High jump
+- Race walking
+E: At the 1968 Games Dick Fosbury popularised clearing the bar backwards, which became the standard high jump technique.
+--- es
+P: La técnica Fosbury flop revolucionó qué prueba del atletismo?
+- Salto de longitud
+- Lanzamiento de jabalina
+- Salto de altura
+- Marcha atlética
+E: En los Juegos de 1968 Dick Fosbury popularizó el paso del listón de espaldas, que se convirtió en la técnica estándar del salto de altura.
+
+=== Esportes individuais > Atletismo c=3 d=dificil
+P: A diferença essencial entre a marcha atlética e a corrida é que, na marcha:
+- É permitido correr nos últimos metros
+- Os atletas usam calçado especial obrigatório
+- A prova é disputada apenas em pista coberta
+- O atleta precisa manter contato permanente com o solo e a perna de apoio estendida
+E: O regulamento da marcha exige contato aparente e ininterrupto com o solo e a perna de apoio estendida até passar pela vertical, o que não ocorre na corrida.
+--- en
+P: The essential difference between race walking and running is that, in race walking:
+- Running is allowed over the last few metres
+- Athletes must wear special footwear
+- The event is held only indoors
+- The athlete must keep permanent contact with the ground and the supporting leg straightened
+E: The rules require apparent, uninterrupted contact with the ground and the supporting leg straightened until it passes the vertical, which does not happen in running.
+--- es
+P: La diferencia esencial entre la marcha atlética y la carrera es que, en la marcha:
+- Se permite correr en los últimos metros
+- Los atletas deben usar un calzado especial obligatorio
+- La prueba se disputa solo en pista cubierta
+- El atleta debe mantener contacto permanente con el suelo y la pierna de apoyo extendida
+E: El reglamento exige contacto aparente e ininterrumpido con el suelo y la pierna de apoyo extendida hasta pasar la vertical, lo que no ocurre en la carrera.
+
+=== Esportes individuais > Natação e esportes aquáticos c=0 d=facil
+P: Qual destes é um dos quatro estilos oficiais da natação?
+- Nado peito
+- Nado lateral
+- Nado submerso
+- Nado cachorrinho
+E: Os quatro estilos oficiais são crawl (livre), costas, peito e borboleta.
+--- en
+P: Which of these is one of swimming's four official strokes?
+- Breaststroke
+- Sidestroke
+- Underwater swimming
+- Doggy paddle
+E: The four official strokes are freestyle (front crawl), backstroke, breaststroke and butterfly.
+--- es
+P: ¿Cuál de estos es uno de los cuatro estilos oficiales de la natación?
+- Braza
+- Nado lateral
+- Nado sumergido
+- Nado perrito
+E: Los cuatro estilos oficiales son crol (libre), espalda, braza y mariposa.
+
+=== Esportes individuais > Natação e esportes aquáticos c=1 d=facil
+P: Uma piscina olímpica tem comprimento de:
+- 25 metros
+- 50 metros
+- 100 metros
+- 33 metros
+E: A piscina olímpica mede 50 metros de comprimento; a de 25 metros é chamada de piscina curta.
+--- en
+P: An Olympic swimming pool is:
+- 25 metres long
+- 50 metres long
+- 100 metres long
+- 33 metres long
+E: An Olympic pool is 50 metres long; the 25-metre pool is known as a short-course pool.
+--- es
+P: Una piscina olímpica tiene una longitud de:
+- 25 metros
+- 50 metros
+- 100 metros
+- 33 metros
+E: La piscina olímpica mide 50 metros de largo; la de 25 metros se llama piscina corta.
+
+=== Esportes individuais > Natação e esportes aquáticos c=2 d=medio
+P: A natação é frequentemente recomendada para pessoas com dores articulares porque:
+- Não exige esforço cardiovascular
+- Dispensa qualquer aprendizado técnico
+- O empuxo da água reduz o impacto sobre as articulações
+- Elimina a necessidade de aquecimento
+E: A flutuação diminui a carga que o peso corporal impõe às articulações, permitindo exercitar-se com menos impacto.
+--- en
+P: Swimming is often recommended for people with joint pain because:
+- It requires no cardiovascular effort
+- It needs no technical learning
+- The water's buoyancy reduces impact on the joints
+- It removes the need to warm up
+E: Buoyancy lowers the load body weight places on the joints, allowing exercise with less impact.
+--- es
+P: La natación se recomienda con frecuencia a personas con dolores articulares porque:
+- No exige esfuerzo cardiovascular
+- No requiere ningún aprendizaje técnico
+- El empuje del agua reduce el impacto sobre las articulaciones
+- Elimina la necesidad de calentamiento
+E: La flotación disminuye la carga que el peso corporal impone a las articulaciones, permitiendo ejercitarse con menos impacto.
+
+=== Esportes individuais > Natação e esportes aquáticos c=3 d=medio
+P: No nado medley individual, a ordem dos estilos é:
+- Livre, peito, costas e borboleta
+- Peito, borboleta, livre e costas
+- Costas, livre, borboleta e peito
+- Borboleta, costas, peito e livre
+E: A prova individual medley segue a ordem borboleta, costas, peito e livre.
+--- en
+P: In the individual medley, the order of strokes is:
+- Freestyle, breaststroke, backstroke and butterfly
+- Breaststroke, butterfly, freestyle and backstroke
+- Backstroke, freestyle, butterfly and breaststroke
+- Butterfly, backstroke, breaststroke and freestyle
+E: The individual medley follows the order butterfly, backstroke, breaststroke and freestyle.
+--- es
+P: En el estilo combinado individual, el orden de los estilos es:
+- Libre, braza, espalda y mariposa
+- Braza, mariposa, libre y espalda
+- Espalda, libre, mariposa y braza
+- Mariposa, espalda, braza y libre
+E: La prueba de estilos individual sigue el orden mariposa, espalda, braza y libre.
+
+=== Esportes individuais > Natação e esportes aquáticos c=0 d=dificil
+P: O polo aquático combina elementos de natação com características de:
+- Esportes coletivos de invasão, com passes, marcação e finalização ao gol
+- Esportes de combate individuais
+- Ginástica artística
+- Provas de resistência em mar aberto
+E: O polo aquático é um esporte coletivo de invasão jogado na água: as equipes trocam passes, marcam e finalizam ao gol adversário.
+--- en
+P: Water polo combines swimming with features of:
+- Team invasion sports, with passing, marking and shooting at goal
+- Individual combat sports
+- Artistic gymnastics
+- Open-water endurance events
+E: Water polo is a team invasion sport played in the water: teams pass, mark and shoot at the opponents' goal.
+--- es
+P: El waterpolo combina elementos de la natación con características de:
+- Los deportes colectivos de invasión, con pases, marcación y remate a portería
+- Los deportes de combate individuales
+- La gimnasia artística
+- Las pruebas de resistencia en aguas abiertas
+E: El waterpolo es un deporte colectivo de invasión jugado en el agua: los equipos se pasan el balón, marcan y rematan a la portería rival.
+
+=== Esportes individuais > Natação e esportes aquáticos c=1 d=dificil
+P: A virada olímpica, usada no nado crawl, tem como principal vantagem:
+- Permitir que o nadador respire mais vezes
+- Manter a velocidade na transição entre as voltas
+- Reduzir o número de braçadas exigidas na prova
+- Dispensar o uso da parede da piscina
+E: A virada em cambalhota aproveita o impulso na parede sem interromper o deslocamento, preservando a velocidade entre os percursos.
+--- en
+P: The flip turn, used in front crawl, mainly gives the swimmer:
+- More chances to breathe
+- Maintained speed in the transition between lengths
+- Fewer strokes required in the race
+- No need to use the pool wall
+E: The tumble turn uses the push off the wall without interrupting the swimmer's movement, preserving speed between lengths.
+--- es
+P: El viraje olímpico, usado en crol, tiene como principal ventaja:
+- Permitir que el nadador respire más veces
+- Mantener la velocidad en la transición entre largos
+- Reducir el número de brazadas exigidas en la prueba
+- Evitar el uso de la pared de la piscina
+E: El viraje de voltereta aprovecha el impulso en la pared sin interrumpir el desplazamiento, conservando la velocidad entre los largos.

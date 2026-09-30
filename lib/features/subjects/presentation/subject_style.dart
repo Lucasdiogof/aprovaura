@@ -11,7 +11,7 @@ import 'package:aura/features/subjects/domain/entities/subject.dart';
   AppLanguage language, {
   required Color fallbackColor,
 }) {
-  final matches = Subject.values.where((s) => s.name == subjectKey);
+  final matches = Subject.values.where((s) => s.key == subjectKey);
   if (matches.isEmpty) {
     return (
       icon: Icons.bookmark_rounded,

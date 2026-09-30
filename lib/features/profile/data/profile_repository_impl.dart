@@ -85,7 +85,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
         'exam_year': ?examYear,
         if (interestedSubjects != null)
           'interested_subjects': interestedSubjects
-              .map((s) => s.name)
+              .map((s) => s.key)
               .toList(growable: false),
       };
       if (patch.isEmpty) return const Success(null);
@@ -117,7 +117,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
       goal: Goal.fromName(row['goal'] as String?),
       examYear: row['exam_year'] as String?,
       interestedSubjects: subjectNames
-          .map((n) => Subject.values.where((s) => s.name == n))
+          .map((n) => Subject.values.where((s) => s.key == n))
           .where((matches) => matches.isNotEmpty)
           .map((matches) => matches.first)
           .toList(growable: false),

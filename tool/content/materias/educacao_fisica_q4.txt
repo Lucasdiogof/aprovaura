@@ -1,0 +1,659 @@
+=== Esporte, sociedade e mídia > Esporte e mídia c=2 d=facil
+P: A transmissão televisiva de partidas de futebol influenciou o esporte ao:
+- Eliminar a necessidade de árbitros
+- Reduzir o número de equipes profissionais
+- Alterar horários de jogos para atender à audiência
+- Proibir a presença de público nos estádios
+E: A busca por audiência passou a definir horários, formatos e até regras de competições, aproximando o esporte da lógica do espetáculo.
+--- en
+P: Television coverage of football matches has influenced the sport by:
+- Removing the need for referees
+- Reducing the number of professional teams
+- Changing kick-off times to suit audiences
+- Banning crowds from stadiums
+E: The pursuit of ratings came to define kick-off times, formats and even competition rules, moving sport closer to the logic of entertainment.
+--- es
+P: La transmisión televisiva de los partidos de fútbol influyó en el deporte al:
+- Eliminar la necesidad de árbitros
+- Reducir el número de equipos profesionales
+- Alterar los horarios de los partidos para atender a la audiencia
+- Prohibir la presencia de público en los estadios
+E: La búsqueda de audiencia pasó a definir horarios, formatos e incluso reglas de competición, acercando el deporte a la lógica del espectáculo.
+
+=== Esporte, sociedade e mídia > Esporte e mídia c=3 d=facil
+P: O patrocínio esportivo é uma relação em que a empresa:
+- Assume a direção técnica da equipe
+- Passa a ser proprietária dos atletas
+- Substitui as federações na organização das competições
+- Associa sua marca ao esporte em troca de visibilidade
+E: O patrocínio troca recursos financeiros por exposição de marca junto ao público do esporte.
+--- en
+P: Sports sponsorship is a relationship in which the company:
+- Takes over the team's technical management
+- Becomes the owner of the athletes
+- Replaces federations in organising competitions
+- Ties its brand to the sport in exchange for visibility
+E: Sponsorship trades financial resources for brand exposure to the sport's audience.
+--- es
+P: El patrocinio deportivo es una relación en la que la empresa:
+- Asume la dirección técnica del equipo
+- Pasa a ser propietaria de los atletas
+- Sustituye a las federaciones en la organización de las competiciones
+- Asocia su marca al deporte a cambio de visibilidad
+E: El patrocinio intercambia recursos financieros por exposición de marca ante el público del deporte.
+
+=== Esporte, sociedade e mídia > Esporte e mídia c=0 d=medio
+P: A desigualdade na cobertura midiática entre esporte masculino e feminino contribui para:
+- Menor visibilidade, menos patrocínio e menos oportunidades para as atletas
+- Aumentar o número de competições femininas
+- Igualar automaticamente os salários
+- Reduzir o interesse do público masculino
+E: Menos espaço na mídia significa menos público, menos patrocínio e menos investimento, o que realimenta a desigualdade.
+--- en
+P: Unequal media coverage between men's and women's sport contributes to:
+- Lower visibility, less sponsorship and fewer opportunities for women athletes
+- An increase in the number of women's competitions
+- Automatically equal salaries
+- A drop in interest from male audiences
+E: Less media space means smaller audiences, less sponsorship and less investment, which feeds the inequality back into itself.
+--- es
+P: La desigualdad en la cobertura mediática entre el deporte masculino y el femenino contribuye a:
+- Menor visibilidad, menos patrocinio y menos oportunidades para las atletas
+- Aumentar el número de competiciones femeninas
+- Igualar automáticamente los salarios
+- Reducir el interés del público masculino
+E: Menos espacio en los medios significa menos público, menos patrocinio y menos inversión, lo que realimenta la desigualdad.
+
+=== Esporte, sociedade e mídia > Esporte e mídia c=1 d=medio
+P: A chamada "espetacularização do esporte" refere-se ao processo em que:
+- O esporte deixa de ter regras próprias
+- A prática esportiva é organizada como produto de entretenimento e consumo
+- Apenas amadores podem competir
+- As competições passam a ocorrer sem público
+E: Na espetacularização, o esporte é moldado para gerar audiência e receita, com forte peso da mídia e do marketing.
+--- en
+P: The so-called "spectacularisation of sport" refers to the process in which:
+- Sport stops having rules of its own
+- Sporting practice is organised as an entertainment and consumer product
+- Only amateurs may compete
+- Competitions start taking place without crowds
+E: In spectacularisation, sport is shaped to generate audiences and revenue, with media and marketing weighing heavily.
+--- es
+P: La llamada "espectacularización del deporte" se refiere al proceso en el que:
+- El deporte deja de tener reglas propias
+- La práctica deportiva se organiza como producto de entretenimiento y consumo
+- Solo los aficionados pueden competir
+- Las competiciones pasan a realizarse sin público
+E: En la espectacularización, el deporte se moldea para generar audiencia e ingresos, con fuerte peso de los medios y el marketing.
+
+=== Esporte, sociedade e mídia > Esporte e mídia c=2 d=dificil
+P: A cobertura midiática que reduz a atleta mulher a comentários sobre aparência é criticada porque:
+- Aumenta demais o tempo de transmissão
+- Exige equipamentos caros de filmagem
+- Desloca o foco do desempenho esportivo e reforça estereótipos de gênero
+- Impede a realização de entrevistas
+E: Ao destacar corpo e aparência em vez de técnica e resultado, a cobertura reforça estereótipos e desvaloriza a competência esportiva.
+--- en
+P: Media coverage that reduces women athletes to comments about their appearance is criticised because:
+- It makes broadcasts too long
+- It requires expensive filming equipment
+- It shifts the focus away from performance and reinforces gender stereotypes
+- It prevents interviews from taking place
+E: By highlighting body and appearance instead of skill and results, such coverage reinforces stereotypes and devalues sporting competence.
+--- es
+P: La cobertura mediática que reduce a la atleta mujer a comentarios sobre su apariencia se critica porque:
+- Alarga demasiado el tiempo de transmisión
+- Exige equipos de filmación caros
+- Desplaza el foco del desempeño deportivo y refuerza estereotipos de género
+- Impide la realización de entrevistas
+E: Al destacar el cuerpo y la apariencia en lugar de la técnica y el resultado, la cobertura refuerza estereotipos y desvaloriza la competencia deportiva.
+
+=== Esporte, sociedade e mídia > Esporte e mídia c=3 d=dificil
+P: As redes sociais alteraram a relação entre atletas e público principalmente porque:
+- Eliminaram o interesse pelas transmissões esportivas
+- Tornaram obrigatória a presença nos estádios
+- Substituíram os treinamentos presenciais
+- Permitem que o atleta se comunique diretamente, sem a intermediação da imprensa
+E: O atleta passou a publicar sua própria narrativa, o que amplia sua autonomia e também sua exposição a pressões e ataques.
+--- en
+P: Social media has changed the relationship between athletes and the public mainly because:
+- It removed interest in sports broadcasts
+- It made attending stadiums compulsory
+- It replaced in-person training
+- It lets athletes speak directly, without the press as intermediary
+E: Athletes now publish their own narrative, which widens their autonomy and also their exposure to pressure and abuse.
+--- es
+P: Las redes sociales alteraron la relación entre atletas y público principalmente porque:
+- Eliminaron el interés por las transmisiones deportivas
+- Hicieron obligatoria la presencia en los estadios
+- Sustituyeron los entrenamientos presenciales
+- Permiten que el atleta se comunique directamente, sin la intermediación de la prensa
+E: El atleta pasó a publicar su propia narrativa, lo que amplía su autonomía y también su exposición a presiones y ataques.
+
+=== Esporte, sociedade e mídia > Megaeventos esportivos c=0 d=facil
+P: Os Jogos Olímpicos de Verão acontecem, em regra, a cada:
+- 4 anos
+- 2 anos
+- 6 anos
+- 10 anos
+E: O ciclo olímpico é de quatro anos, salvo adiamentos excepcionais, como o de Tóquio 2020 para 2021.
+--- en
+P: The Summer Olympic Games are held, as a rule, every:
+- 4 years
+- 2 years
+- 6 years
+- 10 years
+E: The Olympic cycle is four years, except for exceptional postponements such as Tokyo 2020 being held in 2021.
+--- es
+P: Los Juegos Olímpicos de Verano se celebran, por regla general, cada:
+- 4 años
+- 2 años
+- 6 años
+- 10 años
+E: El ciclo olímpico es de cuatro años, salvo aplazamientos excepcionales, como el de Tokio 2020 a 2021.
+
+=== Esporte, sociedade e mídia > Megaeventos esportivos c=1 d=facil
+P: Em que ano o Brasil sediou os Jogos Olímpicos de Verão?
+- 2007
+- 2016
+- 2014
+- 2012
+E: O Rio de Janeiro sediou os Jogos Olímpicos e Paralímpicos de 2016, os primeiros realizados na América do Sul.
+--- en
+P: In which year did Brazil host the Summer Olympic Games?
+- 2007
+- 2016
+- 2014
+- 2012
+E: Rio de Janeiro hosted the 2016 Olympic and Paralympic Games, the first held in South America.
+--- es
+P: ¿En qué año Brasil fue sede de los Juegos Olímpicos de Verano?
+- 2007
+- 2016
+- 2014
+- 2012
+E: Río de Janeiro fue sede de los Juegos Olímpicos y Paralímpicos de 2016, los primeros realizados en América del Sur.
+
+=== Esporte, sociedade e mídia > Megaeventos esportivos c=2 d=medio
+P: O chamado "legado" de um megaevento esportivo refere-se:
+- Ao número de medalhas do país-sede
+- Apenas ao lucro das empresas patrocinadoras
+- Aos efeitos duradouros em infraestrutura, economia e práticas esportivas da cidade-sede
+- À lista de recordes batidos durante a competição
+E: O legado abrange o que permanece depois do evento: instalações, transporte, hábitos esportivos e efeitos sociais e econômicos.
+--- en
+P: The so-called "legacy" of a sporting mega-event refers to:
+- The number of medals won by the host country
+- Only the profit of sponsoring companies
+- The lasting effects on the host city's infrastructure, economy and sporting practices
+- The list of records broken during the competition
+E: Legacy covers what remains after the event: venues, transport, sporting habits and social and economic effects.
+--- es
+P: El llamado "legado" de un megaevento deportivo se refiere:
+- Al número de medallas del país anfitrión
+- Solo al lucro de las empresas patrocinadoras
+- A los efectos duraderos en infraestructura, economía y prácticas deportivas de la ciudad sede
+- A la lista de récords batidos durante la competición
+E: El legado abarca lo que permanece después del evento: instalaciones, transporte, hábitos deportivos y efectos sociales y económicos.
+
+=== Esporte, sociedade e mídia > Megaeventos esportivos c=3 d=medio
+P: Uma crítica recorrente aos megaeventos esportivos em países em desenvolvimento é:
+- A ausência de competições femininas
+- A falta de transmissão internacional
+- O excesso de modalidades tradicionais
+- O alto gasto público diante de carências sociais e o risco de instalações subutilizadas
+E: Críticos apontam que estádios caros podem virar "elefantes brancos" enquanto áreas como saúde e educação seguem desassistidas.
+--- en
+P: A recurring criticism of sporting mega-events in developing countries is:
+- The absence of women's competitions
+- The lack of international broadcasting
+- Too many traditional modalities
+- High public spending amid social needs and the risk of underused venues
+E: Critics point out that costly stadiums can become "white elephants" while areas such as health and education remain underserved.
+--- es
+P: Una crítica recurrente a los megaeventos deportivos en países en desarrollo es:
+- La ausencia de competiciones femeninas
+- La falta de transmisión internacional
+- El exceso de modalidades tradicionales
+- El alto gasto público frente a carencias sociales y el riesgo de instalaciones infrautilizadas
+E: Los críticos señalan que estadios costosos pueden convertirse en "elefantes blancos" mientras áreas como salud y educación siguen desatendidas.
+
+=== Esporte, sociedade e mídia > Megaeventos esportivos c=0 d=dificil
+P: A remoção de comunidades para obras de megaeventos é criticada por especialistas porque:
+- Reduz o número de turistas na cidade
+- Atinge o direito à moradia de populações vulneráveis em nome de um evento temporário
+- Impede a construção de arenas modernas
+- Aumenta o custo dos ingressos
+E: Estudos sobre Copas e Olimpíadas registram remoções que deslocam moradores de baixa renda, afetando moradia, trabalho e vínculos comunitários.
+--- en
+P: The removal of communities for mega-event construction is criticised by specialists because:
+- It reduces the number of tourists in the city
+- It affects the housing rights of vulnerable people in the name of a temporary event
+- It prevents modern arenas from being built
+- It raises ticket prices
+E: Studies of World Cups and Olympics record removals that displace low-income residents, affecting housing, work and community ties.
+--- es
+P: La remoción de comunidades para obras de megaeventos es criticada por los especialistas porque:
+- Reduce el número de turistas en la ciudad
+- Afecta el derecho a la vivienda de poblaciones vulnerables en nombre de un evento temporal
+- Impide la construcción de arenas modernas
+- Aumenta el costo de las entradas
+E: Estudios sobre Mundiales y Olimpiadas registran remociones que desplazan a residentes de bajos ingresos, afectando vivienda, trabajo y vínculos comunitarios.
+
+=== Esporte, sociedade e mídia > Megaeventos esportivos c=1 d=dificil
+P: Os Jogos Olímpicos de Berlim, em 1936, são lembrados nos estudos sobre esporte e política porque:
+- Inauguraram a participação feminina nos Jogos
+- Foram usados como vitrine de propaganda pelo regime nazista
+- Marcaram a estreia do esporte paralímpico
+- Aboliram a distinção entre amadores e profissionais
+E: O regime nazista organizou os Jogos como demonstração de poder e superioridade racial, exemplo clássico do uso político do esporte.
+--- en
+P: The 1936 Berlin Olympic Games are remembered in studies of sport and politics because:
+- They introduced women's participation in the Games
+- They were used as a propaganda showcase by the Nazi regime
+- They marked the debut of Paralympic sport
+- They abolished the distinction between amateurs and professionals
+E: The Nazi regime staged the Games as a demonstration of power and racial superiority, a classic example of the political use of sport.
+--- es
+P: Los Juegos Olímpicos de Berlín, en 1936, son recordados en los estudios sobre deporte y política porque:
+- Inauguraron la participación femenina en los Juegos
+- Fueron usados como vitrina de propaganda por el régimen nazi
+- Marcaron el debut del deporte paralímpico
+- Abolieron la distinción entre aficionados y profesionales
+E: El régimen nazi organizó los Juegos como demostración de poder y superioridad racial, ejemplo clásico del uso político del deporte.
+
+=== Esporte, sociedade e mídia > Esporte paralímpico e inclusão c=2 d=facil
+P: Os Jogos Paralímpicos são disputados por:
+- Atletas com menos de 18 anos
+- Atletas amadores de qualquer idade
+- Atletas com deficiência, em modalidades adaptadas
+- Equipes formadas apenas por profissionais de saúde
+E: Os Jogos Paralímpicos reúnem atletas com deficiência física, visual ou intelectual, em modalidades com regras e equipamentos adaptados.
+--- en
+P: The Paralympic Games are contested by:
+- Athletes under 18
+- Amateur athletes of any age
+- Athletes with disabilities, in adapted modalities
+- Teams made up only of health professionals
+E: The Paralympic Games bring together athletes with physical, visual or intellectual impairments, in modalities with adapted rules and equipment.
+--- es
+P: Los Juegos Paralímpicos son disputados por:
+- Atletas menores de 18 años
+- Atletas aficionados de cualquier edad
+- Atletas con discapacidad, en modalidades adaptadas
+- Equipos formados solo por profesionales de la salud
+E: Los Juegos Paralímpicos reúnen a atletas con discapacidad física, visual o intelectual, en modalidades con reglas y equipos adaptados.
+
+=== Esporte, sociedade e mídia > Esporte paralímpico e inclusão c=3 d=facil
+P: No goalball, modalidade paralímpica, os atletas:
+- Jogam apenas sentados em cadeiras de rodas
+- Usam raquetes para rebater a bola
+- Disputam em piscina adaptada
+- Usam vendas nos olhos e se orientam pelo som de guizos dentro da bola
+E: Todos os atletas usam venda para igualar as condições e localizam a bola pelo som dos guizos, o que exige silêncio da plateia.
+--- en
+P: In goalball, a Paralympic sport, the athletes:
+- Play only seated in wheelchairs
+- Use rackets to hit the ball
+- Compete in an adapted pool
+- Wear eyeshades and orient themselves by the sound of bells inside the ball
+E: All athletes wear eyeshades to even out conditions and locate the ball by the sound of the bells, which is why the crowd must stay silent.
+--- es
+P: En el goalball, modalidad paralímpica, los atletas:
+- Juegan solo sentados en sillas de ruedas
+- Usan raquetas para golpear el balón
+- Compiten en una piscina adaptada
+- Usan antifaces y se orientan por el sonido de cascabeles dentro del balón
+E: Todos los atletas usan antifaz para igualar las condiciones y localizan el balón por el sonido de los cascabeles, lo que exige silencio del público.
+
+=== Esporte, sociedade e mídia > Esporte paralímpico e inclusão c=0 d=medio
+P: A classificação funcional no esporte paralímpico serve para:
+- Agrupar atletas por nível de comprometimento, garantindo disputas equilibradas
+- Definir o país que sediará os Jogos
+- Escolher os técnicos das seleções
+- Determinar o valor das premiações
+E: A classificação funcional reúne atletas com grau semelhante de comprometimento, para que o resultado dependa do treino e não da deficiência.
+--- en
+P: Functional classification in Paralympic sport serves to:
+- Group athletes by level of impairment, ensuring balanced contests
+- Decide which country will host the Games
+- Choose the national team coaches
+- Set the value of prize money
+E: Functional classification groups athletes with a similar degree of impairment, so results depend on training rather than on the impairment.
+--- es
+P: La clasificación funcional en el deporte paralímpico sirve para:
+- Agrupar atletas por nivel de compromiso, garantizando disputas equilibradas
+- Definir el país que será sede de los Juegos
+- Elegir a los entrenadores de las selecciones
+- Determinar el valor de los premios
+E: La clasificación funcional reúne a atletas con grado semejante de compromiso, para que el resultado dependa del entrenamiento y no de la discapacidad.
+
+=== Esporte, sociedade e mídia > Esporte paralímpico e inclusão c=1 d=medio
+P: Na Educação Física escolar, a inclusão de alunos com deficiência exige principalmente:
+- Dispensar esses alunos das aulas práticas
+- Adaptar atividades, materiais e regras para que todos participem
+- Criar turmas separadas por tipo de deficiência
+- Limitar a aula a atividades teóricas
+E: A inclusão se faz adaptando a atividade ao aluno — e não excluindo ou separando —, de modo que todos participem da mesma aula.
+--- en
+P: In school Physical Education, including students with disabilities mainly requires:
+- Excusing those students from practical classes
+- Adapting activities, materials and rules so everyone takes part
+- Creating separate classes by type of disability
+- Limiting the class to theory
+E: Inclusion happens by adapting the activity to the student — not by excluding or separating them — so that everyone shares the same class.
+--- es
+P: En la Educación Física escolar, la inclusión de alumnos con discapacidad exige principalmente:
+- Dispensar a esos alumnos de las clases prácticas
+- Adaptar actividades, materiales y reglas para que todos participen
+- Crear grupos separados por tipo de discapacidad
+- Limitar la clase a actividades teóricas
+E: La inclusión se hace adaptando la actividad al alumno — y no excluyendo ni separando —, de modo que todos participen de la misma clase.
+
+=== Esporte, sociedade e mídia > Esporte paralímpico e inclusão c=2 d=dificil
+P: O conceito de "capacitismo", aplicado ao esporte, refere-se:
+- À exigência de capacitação técnica dos treinadores
+- Ao sistema de classificação funcional
+- À discriminação que trata a pessoa com deficiência como incapaz ou como exemplo de superação
+- Ao número de vagas por país nos Jogos
+E: O capacitismo reduz a pessoa com deficiência à limitação ou à narrativa de "superação", em vez de reconhecê-la como atleta e sujeito de direitos.
+--- en
+P: The concept of "ableism", applied to sport, refers to:
+- The requirement that coaches be qualified
+- The functional classification system
+- Discrimination that treats disabled people as incapable or as examples of overcoming
+- The number of places per country at the Games
+E: Ableism reduces a disabled person to their limitation or to an "overcoming" narrative, instead of recognising them as an athlete and a rights-holder.
+--- es
+P: El concepto de "capacitismo", aplicado al deporte, se refiere:
+- A la exigencia de capacitación técnica de los entrenadores
+- Al sistema de clasificación funcional
+- A la discriminación que trata a la persona con discapacidad como incapaz o como ejemplo de superación
+- Al número de plazas por país en los Juegos
+E: El capacitismo reduce a la persona con discapacidad a su limitación o a la narrativa de "superación", en lugar de reconocerla como atleta y sujeto de derechos.
+
+=== Esporte, sociedade e mídia > Esporte paralímpico e inclusão c=3 d=dificil
+P: O futebol de 5, modalidade paralímpica para atletas com deficiência visual, caracteriza-se por:
+- Ser disputado com bola sonora, e o goleiro pode ser vidente
+- Usar duas bolas simultaneamente
+- Permitir que qualquer jogador enxergue normalmente
+- Ser jogado exclusivamente em quadra coberta e sem goleiro
+E: No futebol de 5 a bola tem guizos, os jogadores de linha usam venda e o goleiro, vidente, orienta a equipe junto com o chamador.
+--- en
+P: Football 5-a-side, the Paralympic modality for athletes with visual impairment, is characterised by:
+- Being played with a sound ball, with a sighted goalkeeper allowed
+- Using two balls at the same time
+- Allowing any player to see normally
+- Being played only indoors and without a goalkeeper
+E: In football 5-a-side the ball has bells, outfield players wear eyeshades and the goalkeeper, who is sighted, guides the team along with the caller.
+--- es
+P: El fútbol 5, modalidad paralímpica para atletas con discapacidad visual, se caracteriza por:
+- Disputarse con balón sonoro, y el portero puede ser vidente
+- Usar dos balones simultáneamente
+- Permitir que cualquier jugador vea normalmente
+- Jugarse exclusivamente en pista cubierta y sin portero
+E: En el fútbol 5 el balón lleva cascabeles, los jugadores de campo usan antifaz y el portero, vidente, orienta al equipo junto con el llamador.
+
+=== Educação Física, lazer e políticas > História da Educação Física no Brasil c=0 d=facil
+P: Nas primeiras décadas do século XX, a Educação Física escolar brasileira foi fortemente influenciada:
+- Pela instituição militar e por métodos ginásticos europeus
+- Pelo cinema norte-americano
+- Pelas academias de musculação
+- Pelos jogos eletrônicos
+E: Militares e métodos ginásticos europeus, sobretudo o francês e o sueco, moldaram os primeiros programas escolares.
+--- en
+P: In the first decades of the 20th century, Brazilian school Physical Education was strongly influenced by:
+- The military and European gymnastic methods
+- North American cinema
+- Weight-training gyms
+- Video games
+E: The military and European gymnastic methods, especially the French and Swedish ones, shaped the first school programmes.
+--- es
+P: En las primeras décadas del siglo XX, la Educación Física escolar brasileña fue fuertemente influenciada:
+- Por la institución militar y por métodos gimnásticos europeos
+- Por el cine norteamericano
+- Por los gimnasios de musculación
+- Por los videojuegos
+E: Los militares y los métodos gimnásticos europeos, sobre todo el francés y el sueco, moldearon los primeros programas escolares.
+
+=== Educação Física, lazer e políticas > História da Educação Física no Brasil c=1 d=facil
+P: Atualmente, a Educação Física escolar brasileira é entendida como componente curricular que trata:
+- Apenas do treinamento de atletas
+- Da cultura corporal de movimento, incluindo esportes, danças, lutas, ginásticas e jogos
+- Somente da avaliação física dos alunos
+- Exclusivamente de conteúdos teóricos de anatomia
+E: A área é definida pelo estudo da cultura corporal de movimento, com esportes, jogos, danças, lutas, ginásticas e práticas corporais de aventura.
+--- en
+P: Today, Brazilian school Physical Education is understood as a curriculum component dealing with:
+- Athlete training only
+- Bodily movement culture, including sports, dance, fighting arts, gymnastics and games
+- Only the physical assessment of students
+- Exclusively theoretical anatomy content
+E: The field is defined by the study of bodily movement culture, with sports, games, dance, fighting arts, gymnastics and adventure practices.
+--- es
+P: Actualmente, la Educación Física escolar brasileña se entiende como un componente curricular que trata:
+- Solo del entrenamiento de atletas
+- De la cultura corporal de movimiento, incluyendo deportes, danzas, luchas, gimnasias y juegos
+- Solamente de la evaluación física de los alumnos
+- Exclusivamente de contenidos teóricos de anatomía
+E: El área se define por el estudio de la cultura corporal de movimiento, con deportes, juegos, danzas, luchas, gimnasias y prácticas corporales de aventura.
+
+=== Educação Física, lazer e políticas > História da Educação Física no Brasil c=2 d=medio
+P: A tendência "esportivista" da Educação Física brasileira, forte a partir dos anos 1960 e 1970, caracterizou-se por:
+- Priorizar danças folclóricas em detrimento do esporte
+- Excluir completamente as aulas práticas
+- Organizar as aulas em torno do rendimento esportivo e da seleção de talentos
+- Eliminar o professor da sala de aula
+E: Sob a lógica esportivista, a aula se voltou ao gesto técnico e à detecção de talentos, aproximando a escola do modelo de treinamento.
+--- en
+P: The "sportivist" trend in Brazilian Physical Education, strong from the 1960s and 1970s, was characterised by:
+- Prioritising folk dances over sport
+- Removing practical classes entirely
+- Organising classes around sporting performance and talent selection
+- Removing the teacher from the classroom
+E: Under the sportivist logic the class turned to technical skill and talent spotting, bringing school close to the training model.
+--- es
+P: La tendencia "deportivista" de la Educación Física brasileña, fuerte desde los años 1960 y 1970, se caracterizó por:
+- Priorizar las danzas folclóricas en detrimento del deporte
+- Excluir por completo las clases prácticas
+- Organizar las clases en torno al rendimiento deportivo y la selección de talentos
+- Eliminar al profesor del aula
+E: Bajo la lógica deportivista la clase se volcó al gesto técnico y a la detección de talentos, acercando la escuela al modelo de entrenamiento.
+
+=== Educação Física, lazer e políticas > História da Educação Física no Brasil c=3 d=medio
+P: A Base Nacional Comum Curricular (BNCC) organiza a Educação Física a partir de unidades temáticas como:
+- Anatomia, fisiologia e biomecânica
+- Atletismo, natação e ciclismo
+- Treinamento, avaliação e recuperação
+- Brincadeiras e jogos, esportes, ginásticas, danças, lutas e práticas corporais de aventura
+E: A BNCC estrutura o componente em seis unidades temáticas que abrangem a diversidade da cultura corporal de movimento.
+--- en
+P: The Brazilian National Common Curricular Base (BNCC) organises Physical Education around thematic units such as:
+- Anatomy, physiology and biomechanics
+- Athletics, swimming and cycling
+- Training, assessment and recovery
+- Play and games, sports, gymnastics, dance, fighting arts and adventure practices
+E: The BNCC structures the subject into six thematic units covering the diversity of bodily movement culture.
+--- es
+P: La Base Nacional Común Curricular (BNCC) organiza la Educación Física a partir de unidades temáticas como:
+- Anatomía, fisiología y biomecánica
+- Atletismo, natación y ciclismo
+- Entrenamiento, evaluación y recuperación
+- Juegos, deportes, gimnasias, danzas, luchas y prácticas corporales de aventura
+E: La BNCC estructura el componente en seis unidades temáticas que abarcan la diversidad de la cultura corporal de movimiento.
+
+=== Educação Física, lazer e políticas > História da Educação Física no Brasil c=0 d=dificil
+P: O movimento renovador da Educação Física brasileira, nos anos 1980, propôs:
+- Deslocar o foco do rendimento para a formação crítica e a cultura corporal
+- Voltar ao método ginástico francês
+- Restringir a disciplina ao ensino médio
+- Transformar toda aula em treinamento de seleção escolar
+E: O movimento renovador criticou o modelo esportivista e propôs uma Educação Física voltada à formação humana e à leitura crítica da cultura corporal.
+--- en
+P: The renewal movement in Brazilian Physical Education, in the 1980s, proposed:
+- Shifting the focus from performance to critical education and bodily culture
+- Returning to the French gymnastic method
+- Restricting the subject to secondary school
+- Turning every class into school-team training
+E: The renewal movement criticised the sportivist model and proposed a Physical Education aimed at human formation and a critical reading of bodily culture.
+--- es
+P: El movimiento renovador de la Educación Física brasileña, en los años 1980, propuso:
+- Desplazar el foco del rendimiento hacia la formación crítica y la cultura corporal
+- Volver al método gimnástico francés
+- Restringir la asignatura a la enseñanza media
+- Transformar cada clase en entrenamiento de selección escolar
+E: El movimiento renovador criticó el modelo deportivista y propuso una Educación Física orientada a la formación humana y a la lectura crítica de la cultura corporal.
+
+=== Educação Física, lazer e políticas > História da Educação Física no Brasil c=1 d=dificil
+P: A crítica ao modelo de aptidão física na escola sustenta que ele:
+- Valoriza demais a história do esporte
+- Trata o desempenho físico como fim em si e pode excluir quem não atinge padrões
+- Impede a realização de testes de qualquer tipo
+- Prioriza conteúdos culturais em excesso
+E: Ao organizar a aula em torno de padrões de desempenho, o modelo tende a afastar justamente os alunos que mais precisariam participar.
+--- en
+P: The criticism of the physical fitness model at school argues that it:
+- Overvalues the history of sport
+- Treats physical performance as an end in itself and can exclude those who miss the standards
+- Prevents any kind of testing
+- Prioritises cultural content excessively
+E: By organising the class around performance standards, the model tends to drive away exactly the students who would most benefit from taking part.
+--- es
+P: La crítica al modelo de aptitud física en la escuela sostiene que este:
+- Valora demasiado la historia del deporte
+- Trata el desempeño físico como un fin en sí mismo y puede excluir a quien no alcanza los estándares
+- Impide la realización de pruebas de cualquier tipo
+- Prioriza en exceso los contenidos culturales
+E: Al organizar la clase en torno a estándares de desempeño, el modelo tiende a alejar justamente a los alumnos que más se beneficiarían de participar.
+
+=== Educação Física, lazer e políticas > Lazer, políticas públicas e direito ao esporte c=2 d=facil
+P: Na Constituição Federal de 1988, o lazer é tratado como:
+- Uma atividade proibida em horário comercial
+- Uma obrigação do trabalhador
+- Um direito social
+- Uma concessão das empresas privadas
+E: O artigo 6º da Constituição lista o lazer entre os direitos sociais, ao lado de educação, saúde, trabalho e moradia.
+--- en
+P: In Brazil's 1988 Federal Constitution, leisure is treated as:
+- An activity banned during business hours
+- An obligation of the worker
+- A social right
+- A concession granted by private companies
+E: Article 6 of the Constitution lists leisure among social rights, alongside education, health, work and housing.
+--- es
+P: En la Constitución Federal de 1988, el ocio es tratado como:
+- Una actividad prohibida en horario comercial
+- Una obligación del trabajador
+- Un derecho social
+- Una concesión de las empresas privadas
+E: El artículo 6 de la Constitución enumera el ocio entre los derechos sociales, junto a educación, salud, trabajo y vivienda.
+
+=== Educação Física, lazer e políticas > Lazer, políticas públicas e direito ao esporte c=3 d=facil
+P: Praças, parques e quadras públicas são exemplos de:
+- Equipamentos privados de alto rendimento
+- Espaços exclusivos para competições oficiais
+- Áreas destinadas apenas a atletas federados
+- Equipamentos públicos de esporte e lazer
+E: São espaços urbanos de acesso público que viabilizam a prática de esporte e lazer pela população.
+--- en
+P: Squares, parks and public courts are examples of:
+- Private high-performance facilities
+- Spaces exclusively for official competitions
+- Areas meant only for registered athletes
+- Public sport and leisure facilities
+E: They are publicly accessible urban spaces that make sport and leisure possible for the population.
+--- es
+P: Plazas, parques y canchas públicas son ejemplos de:
+- Equipamientos privados de alto rendimiento
+- Espacios exclusivos para competiciones oficiales
+- Áreas destinadas solo a atletas federados
+- Equipamientos públicos de deporte y ocio
+E: Son espacios urbanos de acceso público que viabilizan la práctica de deporte y ocio por la población.
+
+=== Educação Física, lazer e políticas > Lazer, políticas públicas e direito ao esporte c=0 d=medio
+P: A desigualdade no acesso ao esporte e ao lazer nas cidades brasileiras manifesta-se principalmente:
+- Na distribuição desigual de equipamentos entre bairros centrais e periféricos
+- Na proibição legal de esportes em áreas urbanas
+- Na ausência de modalidades esportivas no país
+- No excesso de parques em áreas periféricas
+E: Bairros periféricos costumam ter menos praças, quadras e programas públicos, o que limita o direito ao esporte e ao lazer.
+--- en
+P: Inequality in access to sport and leisure in Brazilian cities shows itself mainly in:
+- The uneven distribution of facilities between central and peripheral neighbourhoods
+- A legal ban on sport in urban areas
+- The absence of sporting modalities in the country
+- An excess of parks in peripheral areas
+E: Peripheral neighbourhoods tend to have fewer squares, courts and public programmes, which limits the right to sport and leisure.
+--- es
+P: La desigualdad en el acceso al deporte y al ocio en las ciudades brasileñas se manifiesta principalmente:
+- En la distribución desigual de equipamientos entre barrios centrales y periféricos
+- En la prohibición legal del deporte en áreas urbanas
+- En la ausencia de modalidades deportivas en el país
+- En el exceso de parques en áreas periféricas
+E: Los barrios periféricos suelen tener menos plazas, canchas y programas públicos, lo que limita el derecho al deporte y al ocio.
+
+=== Educação Física, lazer e políticas > Lazer, políticas públicas e direito ao esporte c=1 d=medio
+P: O conceito de lazer, nos estudos da área, não se reduz ao "tempo livre" porque:
+- Todo tempo livre é automaticamente lazer
+- Envolve escolha, sentido e vivência cultural, e não apenas ausência de trabalho
+- Só existe lazer durante as férias
+- Depende exclusivamente da renda familiar
+E: O lazer é entendido como vivência cultural escolhida no tempo disponível, o que o distingue do simples intervalo entre jornadas.
+--- en
+P: The concept of leisure, in the field's research, is not reduced to "free time" because:
+- All free time is automatically leisure
+- It involves choice, meaning and cultural experience, not just the absence of work
+- Leisure only exists during holidays
+- It depends exclusively on family income
+E: Leisure is understood as a cultural experience chosen within available time, which sets it apart from the mere gap between shifts.
+--- es
+P: El concepto de ocio, en los estudios del área, no se reduce al "tiempo libre" porque:
+- Todo tiempo libre es automáticamente ocio
+- Implica elección, sentido y vivencia cultural, y no solo ausencia de trabajo
+- Solo existe ocio durante las vacaciones
+- Depende exclusivamente de la renta familiar
+E: El ocio se entiende como vivencia cultural elegida en el tiempo disponible, lo que lo distingue del simple intervalo entre jornadas.
+
+=== Educação Física, lazer e políticas > Lazer, políticas públicas e direito ao esporte c=2 d=dificil
+P: Políticas públicas de esporte e lazer costumam ser classificadas em três dimensões: esporte de rendimento, esporte educacional e:
+- Esporte televisionado
+- Esporte profissional internacional
+- Esporte de participação, voltado ao lazer e à saúde da população
+- Esporte eletrônico
+E: A legislação brasileira distingue rendimento, educacional e participação, este último voltado à prática voluntária com fins de lazer e bem-estar.
+--- en
+P: Public sport and leisure policies are usually classified into three dimensions: high-performance sport, educational sport and:
+- Televised sport
+- International professional sport
+- Participation sport, aimed at the population's leisure and health
+- Electronic sport
+E: Brazilian legislation distinguishes performance, educational and participation sport, the latter aimed at voluntary practice for leisure and wellbeing.
+--- es
+P: Las políticas públicas de deporte y ocio suelen clasificarse en tres dimensiones: deporte de rendimiento, deporte educativo y:
+- Deporte televisado
+- Deporte profesional internacional
+- Deporte de participación, orientado al ocio y la salud de la población
+- Deporte electrónico
+E: La legislación brasileña distingue rendimiento, educativo y participación, este último orientado a la práctica voluntaria con fines de ocio y bienestar.
+
+=== Educação Física, lazer e políticas > Lazer, políticas públicas e direito ao esporte c=3 d=dificil
+P: A ideia de "barreiras ao lazer" ajuda a explicar por que parte da população não usufrui desse direito. São exemplos dessas barreiras:
+- A existência de parques públicos na cidade
+- A oferta de aulas gratuitas em praças
+- A presença de ciclovias em bairros centrais
+- Falta de tempo, custo do transporte, insegurança e ausência de equipamentos próximos
+E: Barreiras materiais e simbólicas — jornada longa, deslocamento caro, violência, falta de espaços — impedem que o direito ao lazer se realize.
+--- en
+P: The idea of "barriers to leisure" helps explain why part of the population does not enjoy this right. Examples of such barriers are:
+- The existence of public parks in the city
+- Free classes offered in public squares
+- Cycle lanes in central neighbourhoods
+- Lack of time, transport costs, insecurity and no facilities nearby
+E: Material and symbolic barriers — long working hours, costly travel, violence, lack of spaces — keep the right to leisure from being realised.
+--- es
+P: La idea de "barreras al ocio" ayuda a explicar por qué parte de la población no disfruta de ese derecho. Son ejemplos de esas barreras:
+- La existencia de parques públicos en la ciudad
+- La oferta de clases gratuitas en plazas
+- La presencia de ciclovías en barrios centrales
+- Falta de tiempo, costo del transporte, inseguridad y ausencia de equipamientos cercanos
+E: Barreras materiales y simbólicas — jornada larga, desplazamiento caro, violencia, falta de espacios — impiden que el derecho al ocio se realice.

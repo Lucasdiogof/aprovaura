@@ -1,0 +1,659 @@
+=== Lutas e artes marciais > Lutas de origem oriental c=0 d=facil
+P: O judô, arte marcial de origem japonesa, foi criado por:
+- Jigoro Kano
+- Bruce Lee
+- Morihei Ueshiba
+- Helio Gracie
+E: Jigoro Kano sistematizou o judô no final do século XIX a partir do jiu-jítsu tradicional.
+--- en
+P: Judo, a martial art of Japanese origin, was created by:
+- Jigoro Kano
+- Bruce Lee
+- Morihei Ueshiba
+- Helio Gracie
+E: Jigoro Kano systematised judo in the late 19th century from traditional jiu-jitsu.
+--- es
+P: El judo, arte marcial de origen japonés, fue creado por:
+- Jigoro Kano
+- Bruce Lee
+- Morihei Ueshiba
+- Helio Gracie
+E: Jigoro Kano sistematizó el judo a finales del siglo XIX a partir del jiu-jitsu tradicional.
+
+=== Lutas e artes marciais > Lutas de origem oriental c=1 d=facil
+P: O taekwondo, presente nos Jogos Olímpicos, é originário:
+- Do Japão
+- Da Coreia
+- Da China
+- Da Tailândia
+E: O taekwondo é uma arte marcial coreana, caracterizada pelo uso predominante de técnicas de perna.
+--- en
+P: Taekwondo, part of the Olympic Games, originates from:
+- Japan
+- Korea
+- China
+- Thailand
+E: Taekwondo is a Korean martial art, marked by the predominant use of kicking techniques.
+--- es
+P: El taekwondo, presente en los Juegos Olímpicos, es originario:
+- De Japón
+- De Corea
+- De China
+- De Tailandia
+E: El taekwondo es un arte marcial coreano, caracterizado por el uso predominante de técnicas de pierna.
+
+=== Lutas e artes marciais > Lutas de origem oriental c=2 d=medio
+P: No judô, o ippon corresponde a:
+- Uma advertência ao atleta
+- Um empate técnico
+- A pontuação máxima, que encerra imediatamente o combate
+- O início de cada round
+E: O ippon vale a vitória imediata, obtido por projeção perfeita, imobilização no tempo regulamentar ou desistência do adversário.
+--- en
+P: In judo, an ippon corresponds to:
+- A warning to the athlete
+- A technical draw
+- The maximum score, which ends the bout immediately
+- The start of each round
+E: An ippon means immediate victory, achieved by a perfect throw, a pin held for the required time, or the opponent's submission.
+--- es
+P: En el judo, el ippon corresponde a:
+- Una amonestación al atleta
+- Un empate técnico
+- La puntuación máxima, que finaliza el combate de inmediato
+- El inicio de cada asalto
+E: El ippon otorga la victoria inmediata, obtenida por una proyección perfecta, una inmovilización durante el tiempo reglamentario o el abandono del adversario.
+
+=== Lutas e artes marciais > Lutas de origem oriental c=3 d=medio
+P: Nas lutas, a classificação por categorias de peso existe principalmente para:
+- Facilitar a venda de ingressos
+- Reduzir o tempo dos combates
+- Permitir mais atletas por país
+- Garantir equilíbrio e segurança na disputa entre adversários
+E: Enfrentar alguém de porte semelhante torna o confronto mais equilibrado e reduz o risco de lesão.
+--- en
+P: In combat sports, weight categories exist mainly to:
+- Make ticket sales easier
+- Shorten bouts
+- Allow more athletes per country
+- Ensure balance and safety in the contest between opponents
+E: Facing someone of similar size makes the contest fairer and lowers the risk of injury.
+--- es
+P: En las luchas, la clasificación por categorías de peso existe principalmente para:
+- Facilitar la venta de entradas
+- Reducir el tiempo de los combates
+- Permitir más atletas por país
+- Garantizar equilibrio y seguridad en la disputa entre adversarios
+E: Enfrentarse a alguien de porte semejante hace el combate más equilibrado y reduce el riesgo de lesión.
+
+=== Lutas e artes marciais > Lutas de origem oriental c=0 d=dificil
+P: O princípio do "caminho suave", que dá nome ao judô, refere-se a:
+- Usar a força e o desequilíbrio do adversário a favor do próprio movimento
+- Evitar qualquer contato físico durante o combate
+- Vencer apenas por pontos, sem projeções
+- Treinar somente com movimentos lentos
+E: O ju do judô significa suavidade ou flexibilidade: em vez de opor força à força, o atleta aproveita a ação do oponente para projetá-lo.
+--- en
+P: The "gentle way" principle that gives judo its name refers to:
+- Using the opponent's force and imbalance in favour of one's own movement
+- Avoiding any physical contact during the bout
+- Winning only on points, without throws
+- Training only with slow movements
+E: The ju in judo means gentleness or flexibility: instead of meeting force with force, the athlete uses the opponent's action to throw them.
+--- es
+P: El principio del "camino suave", que da nombre al judo, se refiere a:
+- Usar la fuerza y el desequilibrio del adversario a favor del propio movimiento
+- Evitar cualquier contacto físico durante el combate
+- Vencer solo por puntos, sin proyecciones
+- Entrenar solo con movimientos lentos
+E: El ju del judo significa suavidad o flexibilidad: en lugar de oponer fuerza a fuerza, el atleta aprovecha la acción del oponente para proyectarlo.
+
+=== Lutas e artes marciais > Lutas de origem oriental c=1 d=dificil
+P: A diferença central entre lutas de projeção, como o judô, e lutas de percussão, como o boxe e o caratê, está:
+- No país de origem de cada modalidade
+- No tipo de ação predominante: desequilibrar e projetar contra golpear à distância
+- Na duração dos combates
+- Na presença ou não de arbitragem
+E: As lutas de projeção buscam desequilibrar e derrubar o oponente; as de percussão baseiam-se em golpes de mãos e pernas mantendo distância.
+--- en
+P: The central difference between grappling arts such as judo and striking arts such as boxing and karate lies in:
+- The country each modality comes from
+- The predominant action: unbalancing and throwing versus striking at a distance
+- How long the bouts last
+- Whether there is a referee
+E: Grappling arts aim to unbalance and take the opponent down; striking arts are based on blows with hands and legs while keeping distance.
+--- es
+P: La diferencia central entre las luchas de proyección, como el judo, y las de percusión, como el boxeo y el kárate, está en:
+- El país de origen de cada modalidad
+- El tipo de acción predominante: desequilibrar y proyectar frente a golpear a distancia
+- La duración de los combates
+- La presencia o no de arbitraje
+E: Las luchas de proyección buscan desequilibrar y derribar al oponente; las de percusión se basan en golpes de manos y piernas manteniendo la distancia.
+
+=== Danças e atividades rítmicas > Danças brasileiras c=2 d=facil
+P: O frevo é uma dança tradicional associada principalmente a qual estado brasileiro?
+- Rio Grande do Sul
+- Amazonas
+- Pernambuco
+- Goiás
+E: O frevo é marca do carnaval pernambucano, especialmente de Recife e Olinda.
+--- en
+P: Frevo is a traditional dance associated mainly with which Brazilian state?
+- Rio Grande do Sul
+- Amazonas
+- Pernambuco
+- Goiás
+E: Frevo is a hallmark of the Pernambuco carnival, especially in Recife and Olinda.
+--- es
+P: El frevo es una danza tradicional asociada principalmente a qué estado brasileño?
+- Rio Grande do Sul
+- Amazonas
+- Pernambuco
+- Goiás
+E: El frevo es una marca del carnaval de Pernambuco, especialmente de Recife y Olinda.
+
+=== Danças e atividades rítmicas > Danças brasileiras c=3 d=facil
+P: O samba de roda, reconhecido como patrimônio cultural imaterial, tem origem:
+- No Rio Grande do Sul
+- Em São Paulo
+- No Paraná
+- No Recôncavo Baiano
+E: O samba de roda nasceu no Recôncavo Baiano e é reconhecido pela Unesco como patrimônio cultural imaterial da humanidade.
+--- en
+P: Samba de roda, recognised as intangible cultural heritage, originates in:
+- Rio Grande do Sul
+- São Paulo
+- Paraná
+- The Recôncavo region of Bahia
+E: Samba de roda was born in the Recôncavo of Bahia and is recognised by UNESCO as intangible cultural heritage of humanity.
+--- es
+P: El samba de roda, reconocido como patrimonio cultural inmaterial, tiene su origen:
+- En Rio Grande do Sul
+- En São Paulo
+- En Paraná
+- En el Recôncavo Bahiano
+E: El samba de roda nació en el Recôncavo Bahiano y está reconocido por la Unesco como patrimonio cultural inmaterial de la humanidad.
+
+=== Danças e atividades rítmicas > Danças brasileiras c=0 d=medio
+P: O carimbó é uma manifestação cultural característica:
+- Da região Norte, especialmente do Pará
+- Do interior de Minas Gerais
+- Da fronteira com o Uruguai
+- Do sertão pernambucano
+E: O carimbó é dança e ritmo do Pará, com forte presença de tambores e influência indígena, africana e ibérica.
+--- en
+P: Carimbó is a cultural expression characteristic of:
+- The North region, especially Pará
+- The interior of Minas Gerais
+- The border with Uruguay
+- The backlands of Pernambuco
+E: Carimbó is a dance and rhythm from Pará, with strong drumming and Indigenous, African and Iberian influence.
+--- es
+P: El carimbó es una manifestación cultural característica:
+- De la región Norte, especialmente de Pará
+- Del interior de Minas Gerais
+- De la frontera con Uruguay
+- Del sertón de Pernambuco
+E: El carimbó es danza y ritmo de Pará, con fuerte presencia de tambores e influencia indígena, africana e ibérica.
+
+=== Danças e atividades rítmicas > Danças brasileiras c=1 d=medio
+P: As danças folclóricas brasileiras costumam estar associadas a:
+- Competições esportivas internacionais
+- Festas populares, ciclos religiosos e tradições regionais
+- Apresentações exclusivas em teatros
+- Programas de treinamento militar
+E: As danças folclóricas se ligam a festejos, celebrações religiosas e calendários regionais, transmitidas de geração em geração.
+--- en
+P: Brazilian folk dances are usually associated with:
+- International sporting competitions
+- Popular festivals, religious cycles and regional traditions
+- Performances exclusively in theatres
+- Military training programmes
+E: Folk dances are tied to festivities, religious celebrations and regional calendars, passed down through generations.
+--- es
+P: Las danzas folclóricas brasileñas suelen estar asociadas a:
+- Competiciones deportivas internacionales
+- Fiestas populares, ciclos religiosos y tradiciones regionales
+- Presentaciones exclusivas en teatros
+- Programas de entrenamiento militar
+E: Las danzas folclóricas se vinculan a festejos, celebraciones religiosas y calendarios regionales, transmitidas de generación en generación.
+
+=== Danças e atividades rítmicas > Danças brasileiras c=2 d=dificil
+P: O bumba meu boi, manifestação do Maranhão e de outros estados, caracteriza-se por:
+- Ser uma dança de salão europeia adaptada
+- Reunir apenas música instrumental
+- Combinar teatro, dança e música em torno da morte e ressurreição do boi
+- Ser praticada exclusivamente em ambientes fechados
+E: O bumba meu boi é um auto popular que mistura dança, música e teatro, encenando a morte e a ressurreição do boi.
+--- en
+P: Bumba meu boi, an expression from Maranhão and other states, is characterised by:
+- Being an adapted European ballroom dance
+- Bringing together instrumental music only
+- Combining theatre, dance and music around the death and resurrection of the ox
+- Being performed exclusively indoors
+E: Bumba meu boi is a popular pageant mixing dance, music and theatre, staging the death and resurrection of the ox.
+--- es
+P: El bumba meu boi, manifestación de Maranhão y otros estados, se caracteriza por:
+- Ser una danza de salón europea adaptada
+- Reunir solo música instrumental
+- Combinar teatro, danza y música en torno a la muerte y resurrección del buey
+- Practicarse exclusivamente en ambientes cerrados
+E: El bumba meu boi es un auto popular que mezcla danza, música y teatro, escenificando la muerte y la resurrección del buey.
+
+=== Danças e atividades rítmicas > Danças brasileiras c=3 d=dificil
+P: O maculelê é uma manifestação afro-brasileira que se caracteriza pelo uso de:
+- Fitas coloridas amarradas a um mastro
+- Sapatilhas de ponta
+- Máscaras de madeira que cobrem todo o corpo
+- Bastões percutidos entre os participantes durante a dança
+E: No maculelê os dançarinos batem bastões (grimas) uns nos outros em ritmo marcado por atabaques, em roda.
+--- en
+P: Maculelê is an Afro-Brazilian expression characterised by the use of:
+- Coloured ribbons tied to a pole
+- Pointe shoes
+- Wooden masks covering the whole body
+- Sticks struck between participants during the dance
+E: In maculelê the dancers strike sticks (grimas) against each other in a circle, to a rhythm set by atabaque drums.
+--- es
+P: El maculelê es una manifestación afrobrasileña que se caracteriza por el uso de:
+- Cintas de colores atadas a un mástil
+- Zapatillas de punta
+- Máscaras de madera que cubren todo el cuerpo
+- Bastones percutidos entre los participantes durante la danza
+E: En el maculelê los bailarines golpean bastones (grimas) entre sí en rueda, al ritmo marcado por atabaques.
+
+=== Danças e atividades rítmicas > Danças urbanas e contemporâneas c=0 d=facil
+P: O break, uma das danças urbanas mais conhecidas, surgiu no contexto:
+- Da cultura hip-hop, nos Estados Unidos
+- Do balé clássico russo
+- Das cortes europeias do século XVIII
+- Das festas juninas brasileiras
+E: O break nasceu nos anos 1970, nos bairros populares de Nova York, como um dos elementos da cultura hip-hop.
+--- en
+P: Breaking, one of the best-known urban dances, emerged in the context of:
+- Hip-hop culture, in the United States
+- Russian classical ballet
+- 18th-century European courts
+- Brazilian June festivals
+E: Breaking was born in the 1970s in working-class New York neighbourhoods, as one of the elements of hip-hop culture.
+--- es
+P: El break, una de las danzas urbanas más conocidas, surgió en el contexto:
+- De la cultura hip-hop, en Estados Unidos
+- Del ballet clásico ruso
+- De las cortes europeas del siglo XVIII
+- De las fiestas juninas brasileñas
+E: El break nació en los años 1970 en los barrios populares de Nueva York, como uno de los elementos de la cultura hip-hop.
+
+=== Danças e atividades rítmicas > Danças urbanas e contemporâneas c=1 d=facil
+P: A dança contemporânea caracteriza-se por:
+- Seguir rigidamente os passos codificados do balé clássico
+- Combinar linguagens e experimentar novas formas de movimento
+- Ser praticada apenas em competições
+- Exigir sempre música orquestral ao vivo
+E: A dança contemporânea rompe com a codificação rígida e mistura técnicas, temas e linguagens, valorizando a experimentação.
+--- en
+P: Contemporary dance is characterised by:
+- Strictly following the codified steps of classical ballet
+- Combining languages and experimenting with new forms of movement
+- Being performed only in competitions
+- Always requiring live orchestral music
+E: Contemporary dance breaks with rigid codification and mixes techniques, themes and languages, valuing experimentation.
+--- es
+P: La danza contemporánea se caracteriza por:
+- Seguir rígidamente los pasos codificados del ballet clásico
+- Combinar lenguajes y experimentar nuevas formas de movimiento
+- Practicarse solo en competiciones
+- Exigir siempre música orquestal en vivo
+E: La danza contemporánea rompe con la codificación rígida y mezcla técnicas, temas y lenguajes, valorando la experimentación.
+
+=== Danças e atividades rítmicas > Danças urbanas e contemporâneas c=2 d=medio
+P: A entrada do breaking nos Jogos Olímpicos de Paris 2024 evidencia:
+- O fim das danças de rua como prática cultural
+- A substituição da ginástica por danças urbanas
+- A aproximação entre práticas culturais urbanas e o esporte institucionalizado
+- A proibição das batalhas de dança fora das Olimpíadas
+E: A inclusão do breaking mostra como manifestações culturais urbanas passam a ser codificadas e absorvidas pelo esporte institucional.
+--- en
+P: Breaking's entry into the Paris 2024 Olympic Games shows:
+- The end of street dance as a cultural practice
+- Urban dance replacing gymnastics
+- Urban cultural practices moving closer to institutionalised sport
+- Dance battles being banned outside the Olympics
+E: Including breaking shows how urban cultural expressions come to be codified and absorbed by institutional sport.
+--- es
+P: La entrada del breaking en los Juegos Olímpicos de París 2024 evidencia:
+- El fin de las danzas callejeras como práctica cultural
+- La sustitución de la gimnasia por danzas urbanas
+- El acercamiento entre prácticas culturales urbanas y el deporte institucionalizado
+- La prohibición de las batallas de baile fuera de las Olimpiadas
+E: La inclusión del breaking muestra cómo las manifestaciones culturales urbanas pasan a ser codificadas y absorbidas por el deporte institucional.
+
+=== Danças e atividades rítmicas > Danças urbanas e contemporâneas c=3 d=medio
+P: As batalhas (battles) das danças urbanas caracterizam-se por:
+- Coreografias idênticas repetidas por todos os participantes
+- Apresentações silenciosas, sem público
+- Julgamento exclusivamente por tempo de execução
+- Improvisação e diálogo corporal entre dançarinos, avaliados por jurados ou pela plateia
+E: Nas batalhas os dançarinos se revezam improvisando, respondendo ao adversário e ao ritmo, com avaliação de jurados ou da plateia.
+--- en
+P: Battles in urban dance are characterised by:
+- Identical choreography repeated by every participant
+- Silent performances without an audience
+- Judging based solely on how long each routine lasts
+- Improvisation and bodily dialogue between dancers, judged by a panel or the crowd
+E: In battles dancers take turns improvising, responding to the opponent and to the beat, judged by a panel or by the crowd.
+--- es
+P: Las batallas (battles) de las danzas urbanas se caracterizan por:
+- Coreografías idénticas repetidas por todos los participantes
+- Presentaciones silenciosas, sin público
+- Juicio exclusivamente por el tiempo de ejecución
+- Improvisación y diálogo corporal entre bailarines, evaluados por jurados o por el público
+E: En las batallas los bailarines se turnan improvisando, respondiendo al adversario y al ritmo, con evaluación de jurados o del público.
+
+=== Danças e atividades rítmicas > Danças urbanas e contemporâneas c=0 d=dificil
+P: Ao tratar das danças urbanas na escola, uma abordagem culturalmente adequada é:
+- Reconhecer sua origem periférica e seu conteúdo político, além da técnica
+- Ensinar somente os passos, sem contexto histórico
+- Substituí-las por danças de salão europeias
+- Restringi-las a alunos com experiência prévia
+E: As danças urbanas carregam história, território e posicionamento social; tratá-las só como sequência de passos apaga o que elas significam.
+--- en
+P: When teaching urban dance at school, a culturally appropriate approach is to:
+- Recognise its peripheral origin and political content, alongside the technique
+- Teach only the steps, with no historical context
+- Replace it with European ballroom dance
+- Restrict it to students with prior experience
+E: Urban dance carries history, territory and social positioning; treating it as just a sequence of steps erases what it means.
+--- es
+P: Al abordar las danzas urbanas en la escuela, un enfoque culturalmente adecuado es:
+- Reconocer su origen periférico y su contenido político, además de la técnica
+- Enseñar solo los pasos, sin contexto histórico
+- Sustituirlas por danzas de salón europeas
+- Restringirlas a alumnos con experiencia previa
+E: Las danzas urbanas cargan historia, territorio y posicionamiento social; tratarlas solo como una secuencia de pasos borra lo que significan.
+
+=== Danças e atividades rítmicas > Danças urbanas e contemporâneas c=1 d=dificil
+P: A diferença entre o popping e o locking, estilos das danças urbanas, está em que o popping:
+- É dançado apenas em duplas
+- Baseia-se em contrações musculares rápidas que produzem o efeito de "estalo"
+- Exige sapatilha de ponta
+- Não utiliza música
+E: O popping trabalha contrações e relaxamentos rápidos dos músculos; o locking se define por travamentos súbitos do movimento em posições marcadas.
+--- en
+P: The difference between popping and locking, styles of urban dance, is that popping:
+- Is danced only in pairs
+- Is based on quick muscle contractions that create a "hit" effect
+- Requires pointe shoes
+- Uses no music
+E: Popping works with quick contractions and releases of the muscles; locking is defined by sudden freezes of the movement in marked positions.
+--- es
+P: La diferencia entre el popping y el locking, estilos de las danzas urbanas, está en que el popping:
+- Se baila solo en parejas
+- Se basa en contracciones musculares rápidas que producen el efecto de "golpe"
+- Exige zapatillas de punta
+- No utiliza música
+E: El popping trabaja contracciones y relajaciones rápidas de los músculos; el locking se define por bloqueos súbitos del movimiento en posiciones marcadas.
+
+=== Jogos e brincadeiras populares > Jogos e brincadeiras do Brasil c=2 d=facil
+P: A amarelinha é uma brincadeira que desenvolve principalmente:
+- A leitura de partituras
+- A capacidade de nadar
+- Equilíbrio, coordenação e noção espacial
+- A força máxima de membros superiores
+E: Saltar em um pé só, alternar apoios e respeitar as casas do desenho trabalham equilíbrio, coordenação e percepção espacial.
+--- en
+P: Hopscotch is a game that mainly develops:
+- Reading sheet music
+- The ability to swim
+- Balance, coordination and spatial awareness
+- Maximum upper-body strength
+E: Hopping on one foot, alternating supports and respecting the drawn squares work on balance, coordination and spatial perception.
+--- es
+P: La rayuela es un juego que desarrolla principalmente:
+- La lectura de partituras
+- La capacidad de nadar
+- Equilibrio, coordinación y noción espacial
+- La fuerza máxima de los miembros superiores
+E: Saltar a la pata coja, alternar apoyos y respetar las casillas del dibujo trabajan el equilibrio, la coordinación y la percepción espacial.
+
+=== Jogos e brincadeiras populares > Jogos e brincadeiras do Brasil c=3 d=facil
+P: Peteca, pião e bolinha de gude são exemplos de:
+- Esportes olímpicos de inverno
+- Danças folclóricas do Nordeste
+- Aparelhos da ginástica artística
+- Brinquedos e jogos tradicionais brasileiros
+E: São jogos e brinquedos da cultura popular brasileira, transmitidos entre gerações fora do ambiente esportivo formal.
+--- en
+P: Peteca, spinning top and marbles are examples of:
+- Olympic winter sports
+- Folk dances from the Northeast
+- Artistic gymnastics apparatus
+- Traditional Brazilian games and toys
+E: They are games and toys of Brazilian popular culture, passed between generations outside formal sport.
+--- es
+P: La peteca, el trompo y las canicas son ejemplos de:
+- Deportes olímpicos de invierno
+- Danzas folclóricas del Nordeste
+- Aparatos de la gimnasia artística
+- Juguetes y juegos tradicionales brasileños
+E: Son juegos y juguetes de la cultura popular brasileña, transmitidos entre generaciones fuera del ámbito deportivo formal.
+
+=== Jogos e brincadeiras populares > Jogos e brincadeiras do Brasil c=0 d=medio
+P: A peteca, além de brincadeira popular, tornou-se no Brasil:
+- Uma modalidade esportiva com regras e competições oficiais
+- Um instrumento musical de percussão
+- Uma dança de roda do Sul do país
+- Uma técnica de alongamento
+E: A peteca, de origem indígena, foi codificada como esporte com quadra, rede e regras próprias, com federações no Brasil.
+--- en
+P: Besides being a popular pastime, peteca has become in Brazil:
+- A sport with official rules and competitions
+- A percussion instrument
+- A circle dance from the South of the country
+- A stretching technique
+E: Peteca, of Indigenous origin, was codified as a sport with a court, a net and its own rules, and has federations in Brazil.
+--- es
+P: La peteca, además de juego popular, se convirtió en Brasil en:
+- Una modalidad deportiva con reglas y competiciones oficiales
+- Un instrumento musical de percusión
+- Una danza de rueda del sur del país
+- Una técnica de estiramiento
+E: La peteca, de origen indígena, fue codificada como deporte con cancha, red y reglas propias, y cuenta con federaciones en Brasil.
+
+=== Jogos e brincadeiras populares > Jogos e brincadeiras do Brasil c=1 d=medio
+P: Nas aulas de Educação Física, resgatar brincadeiras populares tem como valor pedagógico:
+- Preparar os alunos apenas para competições escolares
+- Preservar a cultura corporal e ampliar o repertório de movimento dos alunos
+- Substituir o ensino dos esportes coletivos
+- Reduzir a necessidade de espaço físico
+E: As brincadeiras populares são patrimônio cultural e ampliam o repertório motor e simbólico, sem depender de estrutura esportiva formal.
+--- en
+P: In Physical Education classes, reviving traditional games has the pedagogical value of:
+- Preparing students only for school competitions
+- Preserving bodily culture and widening students' movement repertoire
+- Replacing the teaching of team sports
+- Reducing the need for physical space
+E: Traditional games are cultural heritage and widen the motor and symbolic repertoire, without depending on formal sports facilities.
+--- es
+P: En las clases de Educación Física, rescatar los juegos populares tiene como valor pedagógico:
+- Preparar a los alumnos solo para competiciones escolares
+- Preservar la cultura corporal y ampliar el repertorio de movimiento de los alumnos
+- Sustituir la enseñanza de los deportes colectivos
+- Reducir la necesidad de espacio físico
+E: Los juegos populares son patrimonio cultural y amplían el repertorio motor y simbólico, sin depender de una estructura deportiva formal.
+
+=== Jogos e brincadeiras populares > Jogos e brincadeiras do Brasil c=2 d=dificil
+P: A distinção entre jogo e esporte, na Educação Física, considera que o esporte:
+- Nunca envolve prazer ou diversão
+- É sempre praticado ao ar livre
+- Possui regras institucionalizadas, federações e sistema de competição
+- Dispensa qualquer tipo de regra
+E: O esporte é uma forma de jogo institucionalizada: regras oficiais, entidades organizadoras e competições regulares o distinguem do jogo popular.
+--- en
+P: The distinction between game and sport, in Physical Education, holds that sport:
+- Never involves pleasure or fun
+- Is always played outdoors
+- Has institutionalised rules, federations and a competition system
+- Needs no rules at all
+E: Sport is an institutionalised form of play: official rules, governing bodies and regular competitions set it apart from traditional games.
+--- es
+P: La distinción entre juego y deporte, en la Educación Física, considera que el deporte:
+- Nunca implica placer o diversión
+- Se practica siempre al aire libre
+- Posee reglas institucionalizadas, federaciones y sistema de competición
+- Prescinde de cualquier tipo de regla
+E: El deporte es una forma de juego institucionalizada: reglas oficiales, entidades organizadoras y competiciones regulares lo distinguen del juego popular.
+
+=== Jogos e brincadeiras populares > Jogos e brincadeiras do Brasil c=3 d=dificil
+P: Os jogos cooperativos diferenciam-se dos competitivos porque neles:
+- Só participam alunos com bom desempenho motor
+- O resultado é decidido por sorteio
+- Não existem regras
+- O objetivo é alcançado em conjunto, sem eliminação de participantes
+E: Nos jogos cooperativos a meta é comum e ninguém é excluído, deslocando o foco da vitória sobre o outro para a construção coletiva.
+--- en
+P: Cooperative games differ from competitive ones because in them:
+- Only students with good motor skills take part
+- The outcome is decided by drawing lots
+- There are no rules
+- The goal is reached together, with no one eliminated
+E: In cooperative games the goal is shared and nobody is excluded, shifting the focus from beating others to building something together.
+--- es
+P: Los juegos cooperativos se diferencian de los competitivos porque en ellos:
+- Solo participan alumnos con buen desempeño motor
+- El resultado se decide por sorteo
+- No existen reglas
+- El objetivo se alcanza en conjunto, sin eliminación de participantes
+E: En los juegos cooperativos la meta es común y nadie queda excluido, desplazando el foco de la victoria sobre el otro hacia la construcción colectiva.
+
+=== Jogos e brincadeiras populares > Jogos indígenas e de matriz africana c=0 d=facil
+P: Os Jogos dos Povos Indígenas, realizados no Brasil, têm como característica central:
+- A disputa por medalhas entre países
+- A valorização das práticas corporais tradicionais e do encontro entre etnias
+- A exclusão de modalidades tradicionais
+- A participação apenas de atletas profissionais
+E: O evento reúne diferentes etnias em torno de práticas tradicionais, com ênfase no encontro cultural mais do que na classificação.
+--- en
+P: The Indigenous Peoples' Games, held in Brazil, have as their central feature:
+- A dispute for medals between countries
+- Valuing traditional bodily practices and the meeting between ethnic groups
+- The exclusion of traditional modalities
+- Participation by professional athletes only
+E: The event brings different ethnic groups together around traditional practices, emphasising cultural encounter more than ranking.
+--- es
+P: Los Juegos de los Pueblos Indígenas, realizados en Brasil, tienen como característica central:
+- La disputa por medallas entre países
+- La valoración de las prácticas corporales tradicionales y del encuentro entre etnias
+- La exclusión de modalidades tradicionales
+- La participación solo de atletas profesionales
+E: El evento reúne a diferentes etnias en torno a prácticas tradicionales, con énfasis en el encuentro cultural más que en la clasificación.
+
+=== Jogos e brincadeiras populares > Jogos indígenas e de matriz africana c=1 d=facil
+P: A corrida de toras, praticada por povos indígenas como os Krahô e os Xavante, consiste em:
+- Correr sozinho o maior tempo possível
+- Revezar-se carregando uma tora pesada em equipe
+- Lançar a tora o mais longe possível
+- Escalar uma tora fixada no solo
+E: Na corrida de toras as equipes se revezam carregando uma tora no ombro ao longo de um percurso, valorizando a cooperação.
+--- en
+P: The log race, practised by Indigenous peoples such as the Krahô and the Xavante, consists of:
+- Running alone for as long as possible
+- Taking turns carrying a heavy log as a team
+- Throwing the log as far as possible
+- Climbing a log fixed in the ground
+E: In the log race teams take turns carrying a log on the shoulder along a course, with cooperation at the centre.
+--- es
+P: La carrera de troncos, practicada por pueblos indígenas como los Krahô y los Xavante, consiste en:
+- Correr solo el mayor tiempo posible
+- Turnarse cargando un tronco pesado en equipo
+- Lanzar el tronco lo más lejos posible
+- Escalar un tronco fijado en el suelo
+E: En la carrera de troncos los equipos se turnan cargando un tronco al hombro a lo largo de un recorrido, valorando la cooperación.
+
+=== Jogos e brincadeiras populares > Jogos indígenas e de matriz africana c=2 d=medio
+P: Nas práticas corporais indígenas, a competição costuma estar subordinada:
+- Ao ranking nacional de cada etnia
+- Ao patrocínio de empresas
+- Ao sentido ritual, social e de fortalecimento do grupo
+- À contagem de recordes individuais
+E: Em muitas culturas indígenas a prática corporal integra rituais e a vida comunitária, e o resultado importa menos que o sentido coletivo.
+--- en
+P: In Indigenous bodily practices, competition is usually subordinate to:
+- A national ranking for each ethnic group
+- Corporate sponsorship
+- Ritual and social meaning and the strengthening of the group
+- Counting individual records
+E: In many Indigenous cultures bodily practice is part of ritual and community life, and the result matters less than its collective meaning.
+--- es
+P: En las prácticas corporales indígenas, la competición suele estar subordinada:
+- Al ranking nacional de cada etnia
+- Al patrocinio de empresas
+- Al sentido ritual, social y de fortalecimiento del grupo
+- Al recuento de récords individuales
+E: En muchas culturas indígenas la práctica corporal integra rituales y la vida comunitaria, y el resultado importa menos que el sentido colectivo.
+
+=== Jogos e brincadeiras populares > Jogos indígenas e de matriz africana c=3 d=medio
+P: A mancala, presente em diversos países africanos, é um jogo:
+- De luta corpo a corpo
+- De corrida em circuito
+- De natação em rio
+- De tabuleiro, com sementes distribuídas em cavidades
+E: A mancala é uma família de jogos de tabuleiro em que sementes ou pedras são semeadas em cavidades, exigindo cálculo e estratégia.
+--- en
+P: Mancala, played in many African countries, is a game of:
+- Hand-to-hand fighting
+- Circuit running
+- River swimming
+- Board play, with seeds distributed across hollows
+E: Mancala is a family of board games in which seeds or stones are sown into hollows, demanding calculation and strategy.
+--- es
+P: La mancala, presente en diversos países africanos, es un juego:
+- De lucha cuerpo a cuerpo
+- De carrera en circuito
+- De natación en río
+- De tablero, con semillas distribuidas en cavidades
+E: La mancala es una familia de juegos de tablero en los que se siembran semillas o piedras en cavidades, exigiendo cálculo y estrategia.
+
+=== Jogos e brincadeiras populares > Jogos indígenas e de matriz africana c=0 d=dificil
+P: Incluir jogos indígenas e de matriz africana no currículo escolar atende diretamente:
+- À legislação que torna obrigatório o ensino de história e cultura afro-brasileira e indígena
+- À exigência de aumentar o número de competições escolares
+- À padronização das aulas em todo o país
+- À substituição dos esportes por atividades recreativas
+E: As Leis 10.639/2003 e 11.645/2008 tornaram obrigatório o ensino de história e cultura afro-brasileira e indígena, o que alcança a cultura corporal.
+--- en
+P: Including Indigenous and African-rooted games in the school curriculum directly meets:
+- The legislation making the teaching of Afro-Brazilian and Indigenous history and culture compulsory
+- A requirement to increase the number of school competitions
+- The standardisation of classes across the country
+- The replacement of sport by recreational activities
+E: Laws 10,639/2003 and 11,645/2008 made teaching Afro-Brazilian and Indigenous history and culture compulsory, which reaches bodily culture too.
+--- es
+P: Incluir juegos indígenas y de matriz africana en el currículo escolar atiende directamente:
+- A la legislación que hace obligatoria la enseñanza de historia y cultura afrobrasileña e indígena
+- A la exigencia de aumentar el número de competiciones escolares
+- A la estandarización de las clases en todo el país
+- A la sustitución de los deportes por actividades recreativas
+E: Las leyes 10.639/2003 y 11.645/2008 hicieron obligatoria la enseñanza de historia y cultura afrobrasileña e indígena, lo que alcanza también a la cultura corporal.
+
+=== Jogos e brincadeiras populares > Jogos indígenas e de matriz africana c=1 d=dificil
+P: Tratar jogos tradicionais como simples "atividades folclóricas" na escola é problemático porque:
+- Torna as aulas mais longas
+- Reduz práticas vivas de povos existentes a curiosidades do passado
+- Impede o uso de materiais alternativos
+- Exige professores especializados em cada etnia
+E: Povos indígenas e comunidades de matriz africana são contemporâneos; apresentá-los apenas como folclore congela suas culturas no passado.
+--- en
+P: Treating traditional games as mere "folkloric activities" at school is problematic because:
+- It makes classes longer
+- It reduces the living practices of existing peoples to curiosities of the past
+- It prevents the use of alternative materials
+- It requires teachers specialised in each ethnic group
+E: Indigenous peoples and African-rooted communities are contemporary; presenting them only as folklore freezes their cultures in the past.
+--- es
+P: Tratar los juegos tradicionales como simples "actividades folclóricas" en la escuela es problemático porque:
+- Hace las clases más largas
+- Reduce prácticas vivas de pueblos existentes a curiosidades del pasado
+- Impide el uso de materiales alternativos
+- Exige profesores especializados en cada etnia
+E: Los pueblos indígenas y las comunidades de matriz africana son contemporáneos; presentarlos solo como folclore congela sus culturas en el pasado.

@@ -121,7 +121,7 @@ class _GroupedTopicList extends StatelessWidget {
   /// already, but grouping is stable regardless of the server's order.
   List<String> get _orderedSubjectKeys {
     int rank(String key) {
-      final index = Subject.values.indexWhere((s) => s.name == key);
+      final index = Subject.values.indexWhere((s) => s.key == key);
       return index < 0 ? Subject.values.length : index;
     }
 

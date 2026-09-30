@@ -63,8 +63,8 @@ class MockExamSetupCubit extends Cubit<MockExamSetupState> {
     for (final subject in Subject.values)
       if (subject != Subject.atualidades &&
           subject.hasQuestions &&
-          availability.countFor(subject.name, MockExamDifficulty.misto) > 0)
-        subject.name,
+          availability.countFor(subject.key, MockExamDifficulty.misto) > 0)
+        subject.key,
   ];
 
   /// Installs fresh availability and pulls every existing selection back
