@@ -1,0 +1,87 @@
+=== Filosofia antiga > Aristóteles c=0 d=medio
+P: Para Aristóteles, a virtude moral é desenvolvida principalmente por:
+- Hábito e prática de ações orientadas pela razão
+- Conhecimento inato independente da experiência
+- Obediência automática a qualquer desejo
+- Recusa de toda participação na vida da pólis
+E: Na ética aristotélica, virtudes de caráter são adquiridas pelo hábito, buscando o meio-termo adequado orientado pela razão prática.
+--- en
+P: For Aristotle, moral virtue is developed mainly through:
+- Habit and the practice of actions guided by reason
+- Innate knowledge independent of experience
+- Automatic obedience to every desire
+- Withdrawal from all participation in the polis
+E: In Aristotelian ethics, virtues of character are acquired through habit, aiming at the appropriate mean guided by practical reason.
+--- es
+P: Para Aristóteles, la virtud moral se desarrolla principalmente mediante:
+- El hábito y la práctica de acciones orientadas por la razón
+- Un conocimiento innato independiente de la experiencia
+- La obediencia automática a cualquier deseo
+- El rechazo de toda participación en la polis
+E: En la ética aristotélica, las virtudes del carácter se adquieren mediante el hábito, buscando el justo medio orientado por la razón práctica.
+
+=== Lógica e conhecimento > Lógica e argumentação c=2 d=medio
+P: Considere: 'Se o arquivo foi salvo, então existe uma cópia. Não existe uma cópia. Logo, o arquivo não foi salvo.' A forma do argumento é:
+- Afirmação do consequente
+- Negação do antecedente
+- Modus tollens
+- Generalização apressada
+E: A estrutura é: se P, então Q; não Q; logo, não P. Essa inferência válida é modus tollens.
+--- en
+P: Consider: 'If the file was saved, then a copy exists. No copy exists. Therefore, the file was not saved.' The argument has the form:
+- Affirming the consequent
+- Denying the antecedent
+- Modus tollens
+- Hasty generalization
+E: The structure is: if P, then Q; not Q; therefore not P. This valid inference is modus tollens.
+--- es
+P: Considera: 'Si el archivo fue guardado, entonces existe una copia. No existe una copia. Por lo tanto, el archivo no fue guardado.' La forma del argumento es:
+- Afirmación del consecuente
+- Negación del antecedente
+- Modus tollens
+- Generalización apresurada
+E: La estructura es: si P, entonces Q; no Q; por lo tanto, no P. Esta inferencia válida es modus tollens.
+
+=== Lógica e conhecimento > Teoria do conhecimento c=3 d=dificil
+P: Uma crença pode ser verdadeira por acaso, sem que a pessoa tenha boas razões para sustentá-la. Esse exemplo mostra que, em muitas teorias do conhecimento, verdade e crença:
+- São suficientes por si sós para garantir conhecimento
+- São irrelevantes para definir conhecimento
+- Devem ser substituídas por opinião majoritária
+- Precisam de algum tipo de justificação ou condição epistêmica adicional
+E: O exemplo explora a diferença entre acertar por sorte e saber; por isso, teorias do conhecimento costumam exigir algo além de crença verdadeira.
+--- en
+P: A belief can be true by luck even when the person has no good reason for holding it. This shows that, in many theories of knowledge, truth and belief:
+- Are sufficient by themselves to guarantee knowledge
+- Are irrelevant to defining knowledge
+- Must be replaced by majority opinion
+- Need some kind of additional justification or epistemic condition
+E: The example distinguishes being right by luck from knowing; theories of knowledge therefore often require more than true belief.
+--- es
+P: Una creencia puede ser verdadera por casualidad aunque la persona no tenga buenas razones para sostenerla. Esto muestra que, en muchas teorías del conocimiento, verdad y creencia:
+- Son suficientes por sí solas para garantizar conocimiento
+- Son irrelevantes para definir conocimiento
+- Deben ser sustituidas por la opinión mayoritaria
+- Necesitan algún tipo de justificación o condición epistémica adicional
+E: El ejemplo distingue acertar por suerte de saber; por eso, las teorías del conocimiento suelen exigir algo más que una creencia verdadera.
+
+=== Ética > Teorias éticas c=1 d=dificil
+P: Uma pessoa decide não mentir porque considera que a regra 'não mentir' deve valer independentemente de vantagens pessoais imediatas. Essa justificativa aproxima-se de uma ética:
+- Consequencialista
+- Deontológica
+- Hedonista psicológica
+- Relativista descritiva
+E: Uma ética deontológica avalia deveres e princípios que não dependem apenas das consequências particulares de cada ação.
+--- en
+P: A person decides not to lie because they believe the rule 'do not lie' should hold regardless of immediate personal advantages. This justification is closest to:
+- Consequentialism
+- Deontological ethics
+- Psychological hedonism
+- Descriptive relativism
+E: Deontological ethics evaluates duties and principles that do not depend only on the particular consequences of each action.
+--- es
+P: Una persona decide no mentir porque considera que la regla 'no mentir' debe valer independientemente de ventajas personales inmediatas. Esta justificación se aproxima a una ética:
+- Consecuencialista
+- Deontológica
+- Hedonista psicológica
+- Relativista descriptiva
+E: Una ética deontológica evalúa deberes y principios que no dependen únicamente de las consecuencias particulares de cada acción.

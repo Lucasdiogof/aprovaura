@@ -1,0 +1,87 @@
+=== Arquitetura e patrimônio > Patrimônio cultural e preservação c=2 d=medio
+P: Ao restaurar um edifício histórico, uma intervenção acrescenta uma estrutura contemporânea claramente identificável, sem imitar falsamente a parte antiga. Essa decisão busca preservar:
+- A aparência de que toda a obra foi construída na mesma época
+- A substituição integral dos materiais originais
+- A legibilidade entre partes históricas e intervenções atuais
+- A eliminação de usos contemporâneos do edifício
+E: Em conservação, distinguir o que é histórico do que foi acrescentado evita falsificações e permite compreender as diferentes camadas da obra.
+--- en
+P: When restoring a historic building, a clearly identifiable contemporary structure is added without falsely imitating the old section. This choice aims to preserve:
+- The appearance that the entire building was made at the same time
+- The complete replacement of original materials
+- The legibility between historic parts and current interventions
+- The elimination of contemporary uses of the building
+E: In conservation, distinguishing historic fabric from later additions avoids falsification and makes the building's different layers understandable.
+--- es
+P: Al restaurar un edificio histórico, se añade una estructura contemporánea claramente identificable sin imitar falsamente la parte antigua. Esta decisión busca preservar:
+- La apariencia de que todo el edificio fue construido en la misma época
+- La sustitución integral de los materiales originales
+- La legibilidad entre las partes históricas y las intervenciones actuales
+- La eliminación de usos contemporáneos del edificio
+E: En conservación, distinguir lo histórico de lo añadido evita falsificaciones y permite comprender las distintas capas de la obra.
+
+=== Arte e sociedade > Arte digital e novas mídias c=0 d=dificil
+P: Uma instalação digital altera imagens e sons conforme o público se move diante de sensores. O aspecto que melhor caracteriza essa obra é:
+- A interatividade como parte da construção da experiência estética
+- A reprodução idêntica de uma obra física preexistente
+- A ausência de participação do espectador
+- A impossibilidade de variação durante a exibição
+E: Quando sensores fazem a obra responder às ações do público, a interação deixa de ser externa e passa a compor a própria experiência artística.
+--- en
+P: A digital installation changes images and sounds as visitors move in front of sensors. The feature that best characterizes the work is:
+- Interactivity as part of the construction of the aesthetic experience
+- The identical reproduction of a preexisting physical artwork
+- The absence of audience participation
+- The impossibility of variation during display
+E: When sensors make the work respond to visitors' actions, interaction becomes part of the artwork's aesthetic experience.
+--- es
+P: Una instalación digital modifica imágenes y sonidos conforme el público se mueve frente a sensores. El aspecto que mejor caracteriza la obra es:
+- La interactividad como parte de la construcción de la experiencia estética
+- La reproducción idéntica de una obra física preexistente
+- La ausencia de participación del espectador
+- La imposibilidad de variación durante la exhibición
+E: Cuando los sensores hacen que la obra responda a las acciones del público, la interacción pasa a formar parte de la experiencia artística.
+
+=== Cinema e audiovisual > Linguagem cinematográfica c=1 d=dificil
+P: Em uma cena de suspense, a câmera mostra primeiro uma porta entreaberta e depois corta para o olhar apreensivo da personagem. A montagem cria sentido principalmente pela:
+- Profundidade de campo isolada
+- Relação entre planos sucessivos
+- Duração fixa de cada tomada
+- Neutralidade do ponto de vista
+E: A montagem associa planos consecutivos; o espectador relaciona a porta ao olhar e constrói uma expectativa narrativa.
+--- en
+P: In a suspense scene, the camera first shows a half-open door and then cuts to the character's anxious gaze. Meaning is created mainly through:
+- Isolated depth of field
+- The relationship between successive shots
+- A fixed duration for each take
+- A neutral point of view
+E: Editing links consecutive shots; viewers connect the door with the gaze and build narrative expectation.
+--- es
+P: En una escena de suspenso, la cámara muestra primero una puerta entreabierta y luego corta a la mirada inquieta del personaje. El sentido se crea principalmente por:
+- La profundidad de campo aislada
+- La relación entre planos sucesivos
+- La duración fija de cada toma
+- La neutralidad del punto de vista
+E: El montaje relaciona planos consecutivos; el espectador conecta la puerta con la mirada y construye una expectativa narrativa.
+
+=== Linguagens artísticas > Artes visuais c=3 d=medio
+P: Em uma composição visual, um elemento pequeno e muito contrastante pode atrair mais atenção que uma área grande e uniforme. Esse efeito evidencia o uso de:
+- Perspectiva atmosférica
+- Textura tátil
+- Simetria bilateral
+- Hierarquia visual
+E: A hierarquia visual organiza a atenção do observador por contraste, escala, posição, cor e outros recursos.
+--- en
+P: In a visual composition, a small highly contrasting element may attract more attention than a large uniform area. This effect demonstrates the use of:
+- Atmospheric perspective
+- Tactile texture
+- Bilateral symmetry
+- Visual hierarchy
+E: Visual hierarchy organizes the viewer's attention through contrast, scale, position, color, and other devices.
+--- es
+P: En una composición visual, un elemento pequeño y muy contrastante puede atraer más atención que una zona grande y uniforme. Este efecto evidencia el uso de:
+- Perspectiva atmosférica
+- Textura táctil
+- Simetría bilateral
+- Jerarquía visual
+E: La jerarquía visual organiza la atención del observador mediante contraste, escala, posición, color y otros recursos.

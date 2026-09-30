@@ -1,0 +1,87 @@
+=== Corpo, movimento e saúde > Alimentação, hidratação e atividade física c=2 d=dificil
+P: Durante exercício prolongado em ambiente muito quente, uma pessoa perde grande quantidade de suor. Se repuser apenas água em excesso por várias horas, sem considerar eletrólitos, qual risco pode aumentar?
+- Hiperglicemia por excesso de sódio
+- Aumento extremo da concentração de sódio no sangue
+- Hiponatremia por diluição do sódio plasmático
+- Acúmulo imediato de glicogênio muscular
+E: Em situações prolongadas com muita perda de suor, ingestão excessiva de água sem reposição adequada de eletrólitos pode diluir o sódio plasmático e favorecer hiponatremia.
+--- en
+P: During prolonged exercise in very hot conditions, a person loses a large amount of sweat. If they replace it with excessive amounts of water alone for several hours without considering electrolytes, which risk may increase?
+- Hyperglycemia from excess sodium
+- An extreme rise in blood sodium concentration
+- Hyponatremia from dilution of plasma sodium
+- Immediate buildup of muscle glycogen
+E: During prolonged heavy sweating, excessive water intake without adequate electrolyte replacement can dilute plasma sodium and contribute to hyponatremia.
+--- es
+P: Durante un ejercicio prolongado en un ambiente muy caluroso, una persona pierde mucho sudor. Si durante varias horas repone solo agua en exceso sin considerar electrolitos, ¿qué riesgo puede aumentar?
+- Hiperglucemia por exceso de sodio
+- Aumento extremo de la concentración de sodio en sangre
+- Hiponatremia por dilución del sodio plasmático
+- Acumulación inmediata de glucógeno muscular
+E: Con pérdidas prolongadas de sudor, ingerir demasiada agua sin una reposición adecuada de electrolitos puede diluir el sodio plasmático y favorecer la hiponatremia.
+
+=== Corpo, movimento e saúde > Capacidades físicas c=3 d=facil
+P: A capacidade de mudar rapidamente de direção mantendo controle do corpo é denominada:
+- Flexibilidade
+- Resistência
+- Força máxima
+- Agilidade
+E: Agilidade envolve acelerar, desacelerar e mudar de direção com controle e eficiência.
+--- en
+P: The ability to change direction quickly while maintaining body control is called:
+- Flexibility
+- Endurance
+- Maximum strength
+- Agility
+E: Agility involves accelerating, decelerating, and changing direction with control and efficiency.
+--- es
+P: La capacidad de cambiar rápidamente de dirección manteniendo el control corporal se denomina:
+- Flexibilidad
+- Resistencia
+- Fuerza máxima
+- Agilidad
+E: La agilidad implica acelerar, desacelerar y cambiar de dirección con control y eficiencia.
+
+=== Esporte, sociedade e mídia > Esporte paralímpico e inclusão c=1 d=dificil
+P: Uma transmissão esportiva apresenta o atleta paralímpico apenas como exemplo de 'superação', sem explicar técnica, estratégia ou resultado competitivo. Uma crítica possível a esse enquadramento é que ele:
+- Valoriza excessivamente a análise tática da modalidade
+- Pode reduzir o atleta à deficiência e apagar sua dimensão esportiva
+- Torna a competição mais acessível ao público especializado
+- Substitui emoção por informações estatísticas
+E: Quando a narrativa se limita à 'superação', pode reforçar estereótipos e deixar em segundo plano desempenho, técnica, treinamento e contexto esportivo.
+--- en
+P: A sports broadcast presents a Paralympic athlete only as an example of 'overcoming adversity' without discussing technique, strategy, or competitive performance. One criticism of this framing is that it:
+- Overemphasizes tactical analysis of the sport
+- Can reduce the athlete to disability and erase the sporting dimension
+- Makes the competition more accessible to specialist audiences
+- Replaces emotion with statistical information
+E: When coverage is limited to an 'overcoming' narrative, it can reinforce stereotypes and push performance, technique, training, and sporting context into the background.
+--- es
+P: Una transmisión deportiva presenta al atleta paralímpico solo como ejemplo de 'superación', sin explicar técnica, estrategia ni resultado competitivo. Una crítica posible a este enfoque es que:
+- Valora en exceso el análisis táctico de la disciplina
+- Puede reducir al atleta a la discapacidad y borrar su dimensión deportiva
+- Vuelve la competición más accesible al público especializado
+- Sustituye la emoción por información estadística
+E: Cuando la narrativa se limita a la 'superación', puede reforzar estereotipos y dejar en segundo plano rendimiento, técnica, entrenamiento y contexto deportivo.
+
+=== Esportes coletivos > Futebol e futsal c=1 d=dificil
+P: Uma equipe recupera a bola e progride rapidamente antes que o adversário reorganize sua defesa. Esse comportamento tático caracteriza:
+- Marcação por zona em bloco baixo
+- Transição ofensiva rápida
+- Posse posicional prolongada
+- Reposição lateral defensiva
+E: A transição ofensiva ocorre logo após a recuperação da posse e busca aproveitar o desequilíbrio momentâneo da defesa adversária.
+--- en
+P: A team wins the ball and advances quickly before the opponent reorganizes defensively. This tactical behavior is:
+- Low-block zonal marking
+- A quick attacking transition
+- Prolonged positional possession
+- A defensive throw-in restart
+E: An attacking transition begins immediately after regaining possession and seeks to exploit the opponent's temporary defensive imbalance.
+--- es
+P: Un equipo recupera el balón y avanza rápidamente antes de que el rival reorganice su defensa. Este comportamiento táctico caracteriza:
+- Marcaje zonal en bloque bajo
+- Una transición ofensiva rápida
+- Posesión posicional prolongada
+- Un saque lateral defensivo
+E: La transición ofensiva comienza tras recuperar la posesión y busca aprovechar el desequilibrio momentáneo de la defensa rival.

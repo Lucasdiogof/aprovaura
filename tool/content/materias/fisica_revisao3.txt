@@ -1,0 +1,87 @@
+=== Eletricidade c=1 d=dificil
+P: Duas lâmpadas ideais, de 60 W e 100 W, são projetadas para a mesma tensão de 220 V. Em funcionamento nominal, qual delas possui menor resistência elétrica?
+- A de 60 W
+- A de 100 W
+- As duas têm a mesma resistência
+- Não é possível comparar usando potência e tensão
+E: Para a mesma tensão, P = V²/R. Logo, maior potência corresponde a menor resistência; a lâmpada de 100 W tem menor R.
+--- en
+P: Two ideal lamps rated 60 W and 100 W are designed for the same 220 V supply. At their rated operating conditions, which has the lower electrical resistance?
+- The 60 W lamp
+- The 100 W lamp
+- Both have the same resistance
+- Power and voltage are insufficient for comparison
+E: At the same voltage, P = V²/R. Therefore, higher power corresponds to lower resistance; the 100 W lamp has the lower R.
+--- es
+P: Dos lámparas ideales, de 60 W y 100 W, están diseñadas para la misma tensión de 220 V. En condiciones nominales, ¿cuál tiene menor resistencia eléctrica?
+- La de 60 W
+- La de 100 W
+- Ambas tienen la misma resistencia
+- No es posible comparar usando potencia y tensión
+E: Para la misma tensión, P = V²/R. Por tanto, una mayor potencia corresponde a una menor resistencia; la lámpara de 100 W tiene menor R.
+
+=== Mecânica > Dinâmica > Segunda Lei de Newton c=1 d=medio
+P: Um carrinho de 4 kg sofre força resultante horizontal de 12 N. Desprezando resistências, sua aceleração é:
+- 48 m/s²
+- 3 m/s²
+- 8 m/s²
+- 0,33 m/s²
+E: Pela segunda lei de Newton, a = F/m = 12/4 = 3 m/s².
+--- en
+P: A 4 kg cart experiences a net horizontal force of 12 N. Neglecting resistance, its acceleration is:
+- 48 m/s²
+- 3 m/s²
+- 8 m/s²
+- 0.33 m/s²
+E: By Newton's second law, a = F/m = 12/4 = 3 m/s².
+--- es
+P: Un carrito de 4 kg recibe una fuerza horizontal resultante de 12 N. Despreciando resistencias, su aceleración es:
+- 48 m/s²
+- 3 m/s²
+- 8 m/s²
+- 0,33 m/s²
+E: Por la segunda ley de Newton, a = F/m = 12/4 = 3 m/s².
+
+=== Ondulatória c=0 d=medio
+P: Uma onda passa de uma corda para outra e sua frequência permanece a mesma, mas a velocidade de propagação diminui. O comprimento de onda:
+- Diminui
+- Aumenta
+- Permanece necessariamente igual
+- Torna-se zero
+E: Como v = λf e a frequência é mantida pela fonte, uma redução da velocidade implica redução do comprimento de onda.
+--- en
+P: A wave passes from one string to another; its frequency remains the same, but its propagation speed decreases. Its wavelength:
+- Decreases
+- Increases
+- Must remain the same
+- Becomes zero
+E: Since v = λf and the source keeps the frequency fixed, a lower speed implies a shorter wavelength.
+--- es
+P: Una onda pasa de una cuerda a otra; su frecuencia permanece igual, pero disminuye la velocidad de propagación. La longitud de onda:
+- Disminuye
+- Aumenta
+- Debe permanecer igual
+- Se vuelve cero
+E: Como v = λf y la fuente mantiene fija la frecuencia, una menor velocidad implica una menor longitud de onda.
+
+=== Termologia e Termodinâmica c=2 d=dificil
+P: Durante a fusão de gelo puro a 0 °C e pressão constante, enquanto ainda coexistem gelo e água líquida, o calor fornecido é usado principalmente para:
+- Aumentar continuamente a temperatura do gelo
+- Reduzir a energia interna do sistema
+- Promover a mudança de fase sem elevar a temperatura
+- Diminuir o movimento molecular da água
+E: Durante uma mudança de fase em equilíbrio, o calor latente altera a organização/energia interna do sistema sem variar a temperatura.
+--- en
+P: During the melting of pure ice at 0 °C and constant pressure, while ice and liquid water still coexist, the supplied heat is used mainly to:
+- Continuously increase the ice temperature
+- Reduce the system's internal energy
+- Drive the phase change without raising the temperature
+- Decrease the molecular motion of water
+E: During an equilibrium phase change, latent heat changes the system's internal organization/energy without changing its temperature.
+--- es
+P: Durante la fusión de hielo puro a 0 °C y presión constante, mientras aún coexisten hielo y agua líquida, el calor suministrado se usa principalmente para:
+- Aumentar continuamente la temperatura del hielo
+- Reducir la energía interna del sistema
+- Promover el cambio de fase sin elevar la temperatura
+- Disminuir el movimiento molecular del agua
+E: Durante un cambio de fase en equilibrio, el calor latente modifica la organización/energía interna del sistema sin cambiar su temperatura.

@@ -1,0 +1,87 @@
+=== Clássicos da sociologia > Émile Durkheim c=2 d=medio
+P: Para Durkheim, um fato social exerce coerção sobre os indivíduos e existe além de vontades particulares. Qual exemplo melhor se aproxima desse conceito?
+- A preferência pessoal por um sabor de sorvete
+- Um sonho lembrado por uma única pessoa
+- Normas jurídicas que regulam comportamentos na sociedade
+- Uma escolha feita sem referência a regras compartilhadas
+E: Leis e normas são exteriores ao indivíduo e podem exercer coerção, características centrais dos fatos sociais em Durkheim.
+--- en
+P: For Durkheim, a social fact constrains individuals and exists beyond particular wills. Which example best fits this concept?
+- A personal preference for an ice-cream flavor
+- A dream remembered by one person
+- Legal norms that regulate behavior in society
+- A choice made without reference to shared rules
+E: Laws and norms are external to individuals and can exert constraint, central features of Durkheim's social facts.
+--- es
+P: Para Durkheim, un hecho social ejerce coerción sobre los individuos y existe más allá de voluntades particulares. ¿Qué ejemplo se aproxima mejor a este concepto?
+- La preferencia personal por un sabor de helado
+- Un sueño recordado por una sola persona
+- Normas jurídicas que regulan comportamientos en la sociedad
+- Una elección hecha sin referencia a reglas compartidas
+E: Las leyes y normas son exteriores al individuo y pueden ejercer coerción, rasgos centrales de los hechos sociales en Durkheim.
+
+=== Cultura e sociedade > Indústria cultural e mídia c=0 d=dificil
+P: Quando uma plataforma recomenda conteúdos com base no histórico de cliques, curtidas e tempo de visualização, isso mostra que:
+- A curadoria algorítmica pode usar rastros de comportamento para personalizar a circulação de conteúdos
+- Todos os usuários recebem necessariamente a mesma sequência de conteúdos
+- As escolhas anteriores deixam de influenciar o que é exibido
+- A personalização ocorre sem coleta de sinais de interação
+E: Sistemas de recomendação usam sinais de comportamento para estimar relevância, o que influencia quais conteúdos ganham visibilidade para cada usuário.
+--- en
+P: When a platform recommends content using click history, likes, and watch time, this shows that:
+- Algorithmic curation can use behavioral traces to personalize content circulation
+- All users necessarily receive the same content sequence
+- Previous choices stop influencing what is displayed
+- Personalization occurs without collecting interaction signals
+E: Recommendation systems use behavioral signals to estimate relevance, influencing which content becomes visible to each user.
+--- es
+P: Cuando una plataforma recomienda contenidos según el historial de clics, 'me gusta' y tiempo de visualización, esto muestra que:
+- La curaduría algorítmica puede usar rastros de comportamiento para personalizar la circulación de contenidos
+- Todos los usuarios reciben necesariamente la misma secuencia de contenidos
+- Las elecciones anteriores dejan de influir en lo que se muestra
+- La personalización ocurre sin recopilar señales de interacción
+E: Los sistemas de recomendación usan señales de comportamiento para estimar relevancia, influyendo en qué contenidos ganan visibilidad para cada usuario.
+
+=== Desigualdades sociais > Classes e estratificação c=3 d=dificil
+P: Duas pessoas têm renda semelhante, mas uma dispõe de redes profissionais influentes e maior prestígio social. Uma análise multidimensional da estratificação destaca que:
+- A renda explica sozinha todas as posições sociais
+- Prestígio e redes não afetam oportunidades
+- Classe econômica e status são conceitos idênticos
+- Recursos econômicos, prestígio e redes geram vantagens distintas
+E: A estratificação pode envolver várias dimensões; renda, prestígio, poder e redes sociais não se distribuem de maneira idêntica.
+--- en
+P: Two people have similar incomes, but one has influential professional networks and greater social prestige. A multidimensional analysis of stratification highlights that:
+- Income alone explains every social position
+- Prestige and networks do not affect opportunities
+- Economic class and status are identical concepts
+- Economic resources, prestige, and networks create different advantages
+E: Stratification can involve several dimensions; income, prestige, power, and social networks are not distributed identically.
+--- es
+P: Dos personas tienen ingresos similares, pero una dispone de redes profesionales influyentes y mayor prestigio social. Un análisis multidimensional de la estratificación destaca que:
+- El ingreso explica por sí solo todas las posiciones sociales
+- El prestigio y las redes no afectan las oportunidades
+- Clase económica y estatus son conceptos idénticos
+- Los recursos económicos, el prestigio y las redes generan ventajas distintas
+E: La estratificación puede implicar varias dimensiones; ingreso, prestigio, poder y redes sociales no se distribuyen de manera idéntica.
+
+=== Introdução à sociologia > Senso comum e imaginação sociológica c=1 d=dificil
+P: Uma pessoa atribui o desemprego de alguém apenas à falta de esforço individual. A imaginação sociológica propõe ampliar essa análise ao considerar:
+- Traços psicológicos que explicariam a inserção profissional
+- Relações entre trajetórias pessoais e estruturas sociais
+- Decisões familiares independentes do mercado de trabalho
+- Preferências individuais como principal variável explicativa
+E: A imaginação sociológica conecta experiências pessoais a processos mais amplos, como mercado de trabalho, educação, crises e desigualdades.
+--- en
+P: A person explains someone's unemployment only as a lack of individual effort. The sociological imagination proposes broadening the analysis by considering:
+- Psychological traits that would explain labor-market participation
+- Connections between personal trajectories and social structures
+- Family decisions independent of labor-market conditions
+- Individual preferences as the main explanatory variable
+E: The sociological imagination connects personal experiences to broader processes such as labor markets, education, crises, and inequality.
+--- es
+P: Una persona atribuye el desempleo de alguien únicamente a la falta de esfuerzo individual. La imaginación sociológica propone ampliar el análisis considerando:
+- Rasgos psicológicos que explicarían la inserción laboral
+- Relaciones entre trayectorias personales y estructuras sociales
+- Decisiones familiares independientes del mercado de trabajo
+- Preferencias individuales como principal variable explicativa
+E: La imaginación sociológica conecta experiencias personales con procesos más amplios, como mercado laboral, educación, crisis y desigualdades.

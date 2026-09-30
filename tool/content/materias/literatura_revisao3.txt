@@ -1,0 +1,87 @@
+=== Modernismo > Semana de 22 e primeira geração c=0 d=dificil
+P: A busca modernista por uma linguagem mais próxima da fala cotidiana tinha, entre seus efeitos:
+- Questionar normas literárias rígidas e ampliar possibilidades expressivas
+- Eliminar qualquer trabalho formal com a linguagem
+- Imitar a sintaxe clássica portuguesa com maior rigor
+- Substituir temas brasileiros por temas exclusivamente europeus
+E: A primeira geração modernista valorizou experimentação, oralidade e ruptura com convenções acadêmicas, sem abandonar o trabalho estético.
+--- en
+P: The Modernist search for language closer to everyday speech had, among its effects:
+- Challenging rigid literary norms and expanding expressive possibilities
+- Eliminating any formal work with language
+- Imitating classical Portuguese syntax more strictly
+- Replacing Brazilian themes with exclusively European ones
+E: The first Modernist generation valued experimentation, orality, and breaks with academic conventions without abandoning aesthetic craft.
+--- es
+P: La búsqueda modernista de un lenguaje más cercano al habla cotidiana tuvo, entre sus efectos:
+- Cuestionar normas literarias rígidas y ampliar las posibilidades expresivas
+- Eliminar cualquier trabajo formal con el lenguaje
+- Imitar con mayor rigor la sintaxis clásica portuguesa
+- Sustituir temas brasileños por temas exclusivamente europeos
+E: La primera generación modernista valoró la experimentación, la oralidad y la ruptura con convenciones académicas sin abandonar el trabajo estético.
+
+=== Realismo e fim do século XIX > Realismo e Machado de Assis c=2 d=dificil
+P: Em uma narrativa, o narrador tenta justificar repetidamente suas próprias ações, mas os fatos que relata sugerem interesses e contradições. Esse recurso aproxima-se de uma característica frequente da prosa machadiana:
+- Descrição naturalista determinista
+- Nacionalismo idealizador
+- Narrador de confiabilidade questionável e uso de ironia
+- Objetividade documental sem ambiguidades
+E: Machado de Assis explora narradores cujas versões precisam ser lidas criticamente, muitas vezes por meio de ironia e contradições.
+--- en
+P: In a narrative, the narrator repeatedly tries to justify his own actions, but the facts he recounts suggest interests and contradictions. This resembles a frequent feature of Machado de Assis's prose:
+- Deterministic Naturalist description
+- Idealizing nationalism
+- A narrator of questionable reliability and the use of irony
+- Documentary objectivity without ambiguity
+E: Machado de Assis often uses narrators whose accounts require critical reading, frequently through irony and contradictions.
+--- es
+P: En una narración, el narrador intenta justificar repetidamente sus propias acciones, pero los hechos que cuenta revelan intereses y contradicciones. Esto se aproxima a una característica frecuente de la prosa de Machado de Assis:
+- Descripción naturalista determinista
+- Nacionalismo idealizador
+- Narrador de fiabilidad cuestionable y uso de la ironía
+- Objetividad documental sin ambigüedades
+E: Machado de Assis explora narradores cuyas versiones deben leerse críticamente, a menudo mediante ironía y contradicciones.
+
+=== Teoria literária > Figuras de linguagem c=1 d=medio
+P: Na frase poética "a cidade acordou tossindo fumaça", a atribuição de uma ação humana à cidade constitui:
+- Antítese
+- Personificação
+- Eufemismo
+- Pleonasmo
+E: A personificação atribui características ou ações humanas a seres não humanos ou entidades abstratas.
+--- en
+P: In the poetic sentence "the city woke up coughing smoke", attributing a human action to the city is:
+- Antithesis
+- Personification
+- Euphemism
+- Pleonasm
+E: Personification attributes human characteristics or actions to nonhuman beings or abstract entities.
+--- es
+P: En la frase poética "la ciudad despertó tosiendo humo", atribuir una acción humana a la ciudad constituye:
+- Antítesis
+- Personificación
+- Eufemismo
+- Pleonasmo
+E: La personificación atribuye características o acciones humanas a seres no humanos o entidades abstractas.
+
+=== Teoria literária > Gêneros literários c=3 d=facil
+P: Um texto estruturado principalmente por falas de personagens e indicações de cena pertence, em geral, ao gênero:
+- Lírico
+- Épico
+- Ensaístico
+- Dramático
+E: O gênero dramático é organizado para representação, com diálogos e rubricas ou indicações cênicas.
+--- en
+P: A text structured mainly through characters' dialogue and stage directions generally belongs to the:
+- Lyric genre
+- Epic genre
+- Essay genre
+- Dramatic genre
+E: Drama is organized for performance, using dialogue and stage directions.
+--- es
+P: Un texto estructurado principalmente por diálogos de personajes e indicaciones escénicas pertenece, por lo general, al género:
+- Lírico
+- Épico
+- Ensayístico
+- Dramático
+E: El género dramático se organiza para la representación, con diálogos y acotaciones escénicas.

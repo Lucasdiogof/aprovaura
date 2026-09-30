@@ -1,0 +1,87 @@
+=== Coesão e coerência > Conectores e conjunções c=1 d=medio
+P: Leia: "El informe reconoce avances; sin embargo, advierte que todavía quedan problemas por resolver." Nesse contexto, "sin embargo" introduz:
+- Uma causa
+- Um contraste
+- Uma consequência
+- Uma condição
+E: "Sin embargo" contrapõe os avanços mencionados à permanência de problemas.
+--- en
+P: Read: "El informe reconoce avances; sin embargo, advierte que todavía quedan problemas por resolver." In this context, "sin embargo" introduces:
+- A cause
+- A contrast
+- A consequence
+- A condition
+E: "Sin embargo" contrasts the progress mentioned with the fact that problems still remain.
+--- es
+P: Lee: "El informe reconoce avances; sin embargo, advierte que todavía quedan problemas por resolver." En este contexto, "sin embargo" introduce:
+- Una causa
+- Un contraste
+- Una consecuencia
+- Una condición
+E: "Sin embargo" contrapone los avances mencionados con la permanencia de problemas.
+
+=== Estratégias de leitura > Identificando a ideia central c=2 d=dificil
+P: Leia: "Cada vez más ciudades crean zonas de baja emisión. La medida no elimina el tráfico, pero busca reducir contaminantes y favorecer el transporte público." Qual é a ideia central?
+- As cidades pretendem proibir qualquer deslocamento privado
+- O transporte público é a única fonte de poluição urbana
+- Zonas de baixa emissão procuram reduzir poluentes e incentivar alternativas de transporte
+- A medida tem como objetivo aumentar o tráfego nas áreas centrais
+E: O texto apresenta finalidade e limite da medida: ela não elimina o tráfego, mas busca reduzir emissões e favorecer o transporte público.
+--- en
+P: Read: "Cada vez más ciudades crean zonas de baja emisión. La medida no elimina el tráfico, pero busca reducir contaminantes y favorecer el transporte público." What is the main idea?
+- Cities intend to ban all private travel
+- Public transport is the only source of urban pollution
+- Low-emission zones seek to reduce pollutants and encourage transport alternatives
+- The measure aims to increase traffic in central areas
+E: The text states both the purpose and the limit of the measure: it does not eliminate traffic, but seeks to reduce emissions and favor public transport.
+--- es
+P: Lee: "Cada vez más ciudades crean zonas de baja emisión. La medida no elimina el tráfico, pero busca reducir contaminantes y favorecer el transporte público." ¿Cuál es la idea central?
+- Las ciudades pretenden prohibir todo desplazamiento privado
+- El transporte público es la única fuente de contaminación urbana
+- Las zonas de bajas emisiones buscan reducir contaminantes y favorecer alternativas de transporte
+- La medida pretende aumentar el tráfico en las zonas céntricas
+E: El texto presenta la finalidad y el límite de la medida: no elimina el tráfico, pero busca reducir emisiones y favorecer el transporte público.
+
+=== Gramática e estrutura da frase > Pretérito perfeito simples e composto c=3 d=dificil
+P: Complete a frase: "Esta semana ___ tres capítulos; ayer ___ el último."
+- leí / he terminado
+- leía / terminé
+- he leído / terminaba
+- he leído / terminé
+E: Em espanhol peninsular, "esta semana" ainda inclui o presente e favorece o pretérito perfecto compuesto; "ayer" marca período concluído e favorece o pretérito indefinido.
+--- en
+P: Complete the sentence: "Esta semana ___ tres capítulos; ayer ___ el último."
+- leí / he terminado
+- leía / terminé
+- he leído / terminaba
+- he leído / terminé
+E: In Peninsular Spanish, "esta semana" still includes the present and favors the present perfect, whereas "ayer" refers to a completed period and favors the preterite.
+--- es
+P: Completa la frase: "Esta semana ___ tres capítulos; ayer ___ el último."
+- leí / he terminado
+- leía / terminé
+- he leído / terminaba
+- he leído / terminé
+E: En el español peninsular, "esta semana" aún incluye el presente y favorece el pretérito perfecto compuesto; "ayer" señala un período concluido y favorece el pretérito indefinido.
+
+=== Gêneros textuais > Notícias e textos jornalísticos c=0 d=medio
+P: Leia o título: "El ayuntamiento ampliará la red de ciclovías tras aprobar el presupuesto anual." Qual informação está explicitamente apresentada?
+- A ampliação foi vinculada à aprovação do orçamento
+- As ciclovias serão retiradas do centro
+- O orçamento foi rejeitado
+- A obra já foi totalmente concluída
+E: O título informa que a ampliação ocorrerá após a aprovação do orçamento anual; as demais afirmações não aparecem no texto.
+--- en
+P: Read the headline: "El ayuntamiento ampliará la red de ciclovías tras aprobar el presupuesto anual." Which information is explicitly stated?
+- The expansion is linked to approval of the annual budget
+- Bike lanes will be removed from downtown
+- The budget was rejected
+- The project has already been fully completed
+E: The headline states that the network will be expanded after the annual budget is approved; the other claims are not stated.
+--- es
+P: Lee el titular: "El ayuntamiento ampliará la red de ciclovías tras aprobar el presupuesto anual." ¿Qué información aparece explícitamente?
+- La ampliación está vinculada a la aprobación del presupuesto anual
+- Se retirarán las ciclovías del centro
+- El presupuesto fue rechazado
+- La obra ya está completamente terminada
+E: El titular informa que la red se ampliará tras aprobarse el presupuesto anual; las demás afirmaciones no aparecen.

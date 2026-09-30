@@ -1,0 +1,87 @@
+=== Coesão e coerência > Referência pronominal c=0 d=medio
+P: Leia: "The researchers revised the model after they found an error in its assumptions." A palavra "its" retoma:
+- O modelo
+- Os pesquisadores
+- O erro
+- A revisão
+E: O possessivo "its" refere-se a "the model": o erro estava nas suposições do modelo.
+--- en
+P: Read: "The researchers revised the model after they found an error in its assumptions." The word "its" refers to:
+- The model
+- The researchers
+- The error
+- The revision
+E: The possessive "its" refers to "the model": the error was in the model's assumptions.
+--- es
+P: Lee: "The researchers revised the model after they found an error in its assumptions." La palabra "its" se refiere a:
+- El modelo
+- Los investigadores
+- El error
+- La revisión
+E: El posesivo "its" se refiere a "the model": el error estaba en los supuestos del modelo.
+
+=== Gramática e estrutura da frase > Verbos modais c=2 d=medio
+P: Complete: "You ___ submit the form by Friday; otherwise, your application will not be considered."
+- might
+- could
+- must
+- would
+E: "Must" expressa obrigação forte, coerente com a consequência indicada pela segunda oração.
+--- en
+P: Complete: "You ___ submit the form by Friday; otherwise, your application will not be considered."
+- might
+- could
+- must
+- would
+E: "Must" expresses strong obligation, which matches the consequence stated in the second clause.
+--- es
+P: Completa: "You ___ submit the form by Friday; otherwise, your application will not be considered."
+- might
+- could
+- must
+- would
+E: "Must" expresa una obligación fuerte, coherente con la consecuencia indicada en la segunda oración.
+
+=== Gêneros textuais > Notícias e textos jornalísticos c=3 d=dificil
+P: Leia: "City officials said the new bus lanes reduced average travel time by 12% during the pilot period, but cautioned that the result may vary by route." Qual leitura é mais fiel?
+- A redução de 12% ocorreu em todas as rotas sem exceção
+- O projeto aumentou o tempo médio de viagem
+- As autoridades consideram o resultado inválido
+- O piloto mostrou redução média, mas o efeito pode variar entre rotas
+E: O texto combina um resultado médio do piloto com uma ressalva explícita sobre variação por rota.
+--- en
+P: Read: "City officials said the new bus lanes reduced average travel time by 12% during the pilot period, but cautioned that the result may vary by route." Which interpretation is most accurate?
+- The 12% reduction occurred on every route without exception
+- The project increased average travel time
+- Officials consider the result invalid
+- The pilot showed an average reduction, but the effect may vary by route
+E: The text combines an average pilot result with an explicit caution that effects may differ by route.
+--- es
+P: Lee: "City officials said the new bus lanes reduced average travel time by 12% during the pilot period, but cautioned that the result may vary by route." ¿Qué interpretación es más fiel?
+- La reducción del 12% ocurrió en todas las rutas sin excepción
+- El proyecto aumentó el tiempo medio de viaje
+- Las autoridades consideran inválido el resultado
+- El piloto mostró una reducción media, pero el efecto puede variar según la ruta
+E: El texto combina un resultado medio del piloto con una advertencia explícita de que el efecto puede variar según la ruta.
+
+=== Interpretação de textos > Trechos literários c=1 d=dificil
+P: Leia: "He folded the map again, although he already knew the route by heart." O uso de "although" sugere que:
+- Ele ainda não conhecia o caminho
+- Contraste apesar de já saber a rota
+- O mapa estava incorreto
+- Ele decidiu mudar de destino
+E: "Although" introduz contraste: mesmo conhecendo o percurso de memória, o personagem ainda manuseia o mapa.
+--- en
+P: Read: "He folded the map again, although he already knew the route by heart." The use of "although" suggests that:
+- He still did not know the route
+- Contrast despite already knowing the route
+- The map was incorrect
+- He decided to change destinations
+E: "Although" introduces contrast: even though the character knows the route by heart, he still handles the map.
+--- es
+P: Lee: "He folded the map again, although he already knew the route by heart." El uso de "although" sugiere que:
+- Todavía no conocía el camino
+- Contraste pese a conocer ya la ruta
+- El mapa era incorrecto
+- Decidió cambiar de destino
+E: "Although" introduce un contraste: aunque el personaje conoce la ruta de memoria, sigue manipulando el mapa.

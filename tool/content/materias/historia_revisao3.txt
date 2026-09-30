@@ -1,0 +1,87 @@
+=== Grandes temas históricos c=3 d=dificil
+P: Quando o historiador compara um decreto oficial com cartas, jornais e relatos de diferentes grupos sobre o mesmo evento, ele busca principalmente:
+- Substituir fontes escritas por fontes orais
+- Encontrar uma fonte totalmente neutra
+- Eliminar divergências entre testemunhos
+- Cruzar perspectivas e avaliar criticamente evidências
+E: Fontes têm contextos, interesses e limites; confrontá-las permite identificar convergências, divergências e silêncios.
+--- en
+P: When a historian compares an official decree with letters, newspapers, and accounts from different groups about the same event, the main goal is to:
+- Replace written sources with oral ones
+- Find a completely neutral source
+- Eliminate disagreements among testimonies
+- Cross-check perspectives and critically evaluate evidence
+E: Sources have contexts, interests, and limitations; comparing them helps reveal convergences, disagreements, and silences.
+--- es
+P: Cuando un historiador compara un decreto oficial con cartas, periódicos y relatos de distintos grupos sobre el mismo hecho, busca principalmente:
+- Sustituir fuentes escritas por fuentes orales
+- Encontrar una fuente totalmente neutral
+- Eliminar las divergencias entre testimonios
+- Cruzar perspectivas y evaluar críticamente las evidencias
+E: Las fuentes tienen contextos, intereses y límites; confrontarlas permite identificar coincidencias, divergencias y silencios.
+
+=== História da África c=0 d=dificil
+P: Ao estudar sociedades africanas anteriores à colonização europeia do século XIX, é historicamente mais adequado reconhecer que:
+- Existiam formações políticas, redes comerciais e culturas muito diversas no continente
+- O continente possuía uma única organização política comum
+- As sociedades africanas estavam isoladas de rotas comerciais de longa distância
+- A urbanização surgiu apenas após a colonização europeia
+E: A história africana anterior ao colonialismo inclui impérios, reinos, cidades, redes comerciais e sociedades com grande diversidade política e cultural.
+--- en
+P: When studying African societies before nineteenth-century European colonization, it is historically more accurate to recognize that:
+- The continent contained highly diverse political formations, trade networks, and cultures
+- The continent had one common political organization
+- African societies were isolated from long-distance trade routes
+- Urbanization appeared only after European colonization
+E: Precolonial African history includes empires, kingdoms, cities, trade networks, and societies with great political and cultural diversity.
+--- es
+P: Al estudiar las sociedades africanas anteriores a la colonización europea del siglo XIX, es históricamente más adecuado reconocer que:
+- Existían formaciones políticas, redes comerciales y culturas muy diversas en el continente
+- El continente poseía una única organización política común
+- Las sociedades africanas estaban aisladas de rutas comerciales de larga distancia
+- La urbanización surgió solo después de la colonización europea
+E: La historia africana precolonial incluye imperios, reinos, ciudades, redes comerciales y sociedades con gran diversidad política y cultural.
+
+=== História do Brasil > Brasil Colonial c=1 d=dificil
+P: A mineração aurífera no século XVIII contribuiu para mudanças na América portuguesa, entre elas:
+- A concentração populacional exclusiva no litoral açucareiro
+- A interiorização da ocupação e o crescimento de núcleos urbanos na região mineradora
+- O fim imediato da escravidão africana
+- A redução da fiscalização metropolitana sobre a circulação de ouro
+E: A mineração deslocou parte do dinamismo econômico para o interior, estimulando caminhos, comércio e núcleos urbanos, sem eliminar a escravidão ou o controle fiscal da Coroa.
+--- en
+P: Gold mining in the eighteenth century contributed to changes in Portuguese America, including:
+- The exclusive concentration of population in coastal sugar areas
+- The expansion of settlement inland and the growth of urban centers in mining regions
+- The immediate end of African slavery
+- Reduced metropolitan control over gold circulation
+E: Mining shifted part of economic activity inland, encouraging roads, trade, and urban centers without ending slavery or Crown taxation.
+--- es
+P: La minería aurífera del siglo XVIII contribuyó a cambios en la América portuguesa, entre ellos:
+- La concentración exclusiva de la población en el litoral azucarero
+- La expansión de la ocupación hacia el interior y el crecimiento de núcleos urbanos en la región minera
+- El fin inmediato de la esclavitud africana
+- La reducción de la fiscalización metropolitana sobre la circulación del oro
+E: La minería desplazó parte del dinamismo económico hacia el interior, estimulando caminos, comercio y núcleos urbanos sin eliminar la esclavitud ni el control fiscal de la Corona.
+
+=== Idade Contemporânea c=2 d=medio
+P: A Revolução Industrial alterou profundamente a organização do trabalho porque:
+- Substituiu todas as formas artesanais de uma só vez
+- Eliminou a divisão de tarefas nas manufaturas
+- Ampliou a mecanização e a concentração de trabalhadores em fábricas
+- Tornou desnecessários investimentos em energia e infraestrutura
+E: A industrialização difundiu máquinas, novas fontes de energia e o sistema fabril, reorganizando ritmos, tarefas e relações de trabalho.
+--- en
+P: The Industrial Revolution deeply changed the organization of work because it:
+- Replaced all craft production at once
+- Eliminated the division of labor in manufacturing
+- Expanded mechanization and concentrated workers in factories
+- Made investment in energy and infrastructure unnecessary
+E: Industrialization spread machinery, new energy sources, and the factory system, reorganizing work rhythms, tasks, and labor relations.
+--- es
+P: La Revolución Industrial transformó profundamente la organización del trabajo porque:
+- Sustituyó de una vez todas las formas artesanales
+- Eliminó la división de tareas en las manufacturas
+- Amplió la mecanización y concentró trabajadores en fábricas
+- Hizo innecesarias las inversiones en energía e infraestructura
+E: La industrialización difundió máquinas, nuevas fuentes de energía y el sistema fabril, reorganizando ritmos, tareas y relaciones laborales.

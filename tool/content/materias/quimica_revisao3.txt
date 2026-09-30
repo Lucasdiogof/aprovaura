@@ -1,0 +1,87 @@
+=== Estequiometria c=2 d=medio
+P: Na reação N₂ + 3H₂ → 2NH₃, quantos mol de NH₃ podem ser formados a partir de 6 mol de H₂, com N₂ em excesso?
+- 3 mol
+- 6 mol
+- 4 mol
+- 12 mol
+E: A proporção é 3 mol de H₂ para 2 mol de NH₃. Assim, 6 mol de H₂ formam 4 mol de NH₃.
+--- en
+P: For N₂ + 3H₂ → 2NH₃, how many moles of NH₃ can be formed from 6 mol of H₂ when N₂ is in excess?
+- 3 mol
+- 6 mol
+- 4 mol
+- 12 mol
+E: The ratio is 3 mol H₂ to 2 mol NH₃. Therefore, 6 mol H₂ forms 4 mol NH₃.
+--- es
+P: En la reacción N₂ + 3H₂ → 2NH₃, ¿cuántos mol de NH₃ pueden formarse a partir de 6 mol de H₂, con N₂ en exceso?
+- 3 mol
+- 6 mol
+- 4 mol
+- 12 mol
+E: La proporción es 3 mol de H₂ por 2 mol de NH₃. Por tanto, 6 mol de H₂ forman 4 mol de NH₃.
+
+=== Físico-Química c=0 d=dificil
+P: Em uma reação exotérmica, a entalpia dos produtos é menor que a dos reagentes. Portanto, o ΔH da reação é:
+- Negativo
+- Positivo
+- Necessariamente zero
+- Igual à energia de ativação
+E: Em processos exotérmicos há liberação de energia e ΔH = Hprodutos − Hreagentes < 0.
+--- en
+P: In an exothermic reaction, the products have lower enthalpy than the reactants. Therefore, the reaction ΔH is:
+- Negative
+- Positive
+- Necessarily zero
+- Equal to the activation energy
+E: Exothermic processes release energy, so ΔH = Hproducts − Hreactants < 0.
+--- es
+P: En una reacción exotérmica, la entalpía de los productos es menor que la de los reactivos. Por tanto, el ΔH de la reacción es:
+- Negativo
+- Positivo
+- Necesariamente cero
+- Igual a la energía de activación
+E: En los procesos exotérmicos se libera energía y ΔH = Hproductos − Hreactivos < 0.
+
+=== Química Ambiental e Cotidiano c=3 d=medio
+P: A eutrofização de lagos e reservatórios costuma ser favorecida pelo excesso de nutrientes como nitrogênio e fósforo. Uma consequência possível é:
+- Aumento permanente do oxigênio dissolvido em todas as profundidades
+- Redução do crescimento de algas e cianobactérias
+- Transformação da água doce em água salgada
+- Proliferação de algas seguida de queda do oxigênio durante a decomposição
+E: O excesso de nutrientes pode estimular florações; a decomposição da biomassa consome oxigênio e pode causar hipóxia.
+--- en
+P: Eutrophication of lakes and reservoirs is often favored by excess nutrients such as nitrogen and phosphorus. One possible consequence is:
+- A permanent increase in dissolved oxygen at all depths
+- Reduced growth of algae and cyanobacteria
+- Conversion of fresh water into salt water
+- Algal blooms followed by oxygen depletion during decomposition
+E: Excess nutrients can stimulate blooms; decomposition of the biomass consumes oxygen and may cause hypoxia.
+--- es
+P: La eutrofización de lagos y embalses suele verse favorecida por el exceso de nutrientes como nitrógeno y fósforo. Una posible consecuencia es:
+- Aumento permanente del oxígeno disuelto en todas las profundidades
+- Reducción del crecimiento de algas y cianobacterias
+- Transformación del agua dulce en agua salada
+- Proliferación de algas seguida de disminución del oxígeno durante la descomposición
+E: El exceso de nutrientes puede estimular floraciones; la descomposición de la biomasa consume oxígeno y puede causar hipoxia.
+
+=== Soluções c=1 d=dificil
+P: Uma solução contém 10 g de sal dissolvidos em 90 g de água. Considerando a massa total da solução, a porcentagem em massa de soluto é:
+- 9%
+- 10%
+- 11,1%
+- 90%
+E: A massa da solução é 10 + 90 = 100 g. Logo, a porcentagem em massa do soluto é 10/100 × 100% = 10%.
+--- en
+P: A solution contains 10 g of salt dissolved in 90 g of water. Considering the total mass of the solution, the solute mass percentage is:
+- 9%
+- 10%
+- 11.1%
+- 90%
+E: The solution mass is 10 + 90 = 100 g. Therefore, the solute mass percentage is 10/100 × 100% = 10%.
+--- es
+P: Una solución contiene 10 g de sal disueltos en 90 g de agua. Considerando la masa total de la solución, el porcentaje en masa de soluto es:
+- 9%
+- 10%
+- 11,1%
+- 90%
+E: La masa de la solución es 10 + 90 = 100 g. Por tanto, el porcentaje en masa del soluto es 10/100 × 100% = 10%.
