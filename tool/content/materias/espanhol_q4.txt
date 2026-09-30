@@ -67,22 +67,22 @@ E: Guatemala tiene el español como idioma oficial; Belize (inglés), Jamaica (i
 === Cultura e linguagem funcional > Países de língua espanhola c=1 d=medio
 P: Qual país europeu tem o espanhol como idioma oficial?
 - França
-- Itália
 - España
+- Itália
 - Alemanha
 E: A España (Espanha) é o país europeu de origem da língua espanhola.
 --- en
 P: Which European country has Spanish as an official language?
 - France
-- Italy
 - España (Spain)
+- Italy
 - Germany
 E: España (Spain) is the European country of origin of the Spanish language.
 --- es
 P: ¿Qué país europeo tiene el español como idioma oficial?
 - Francia
-- Italia
 - España
+- Italia
 - Alemania
 E: España es el país europeo de origen de la lengua española.
 
@@ -154,68 +154,68 @@ E: "¿Cuánto cuesta?" es la forma estándar de preguntar el precio de algo en e
 
 === Cultura e linguagem funcional > Linguagem funcional do dia a dia c=1 d=facil
 P: Qual expressão é usada para pedir informações em um restaurante, como "a conta, por favor"?
-- La cuenta, por favor
 - El pasaporte, por favor
+- La cuenta, por favor
 - La maleta, por favor
 - El boleto, por favor
 E: "La cuenta, por favor" é a expressão usada para pedir a conta em um restaurante.
 --- en
 P: Which expression is used to ask for something in a restaurant, like "the bill, please"?
-- La cuenta, por favor
 - El pasaporte, por favor
+- La cuenta, por favor
 - La maleta, por favor
 - El boleto, por favor
 E: "La cuenta, por favor" is the expression used to ask for the bill in a restaurant.
 --- es
 P: ¿Qué expresión se usa para pedir algo en un restaurante, como "la cuenta, por favor"?
-- La cuenta, por favor
 - El pasaporte, por favor
+- La cuenta, por favor
 - La maleta, por favor
 - El boleto, por favor
 E: "La cuenta, por favor" es la expresión que se usa para pedir la cuenta en un restaurante.
 
 === Cultura e linguagem funcional > Linguagem funcional do dia a dia c=2 d=medio
 P: Em uma farmácia na Espanha, como se pede um remédio para dor de cabeça?
-- Necesito algo para el dolor de cabeza
-- Necesito un billete de tren
 - Necesito una habitación doble
+- Necesito un billete de tren
+- Necesito algo para el dolor de cabeza
 - Necesito cambiar dinero
 E: "Necesito algo para el dolor de cabeza" é a frase adequada para pedir um remédio para dor de cabeça em uma farmácia.
 --- en
 P: At a pharmacy in Spain, how do you ask for medicine for a headache?
-- Necesito algo para el dolor de cabeza
-- Necesito un billete de tren
 - Necesito una habitación doble
+- Necesito un billete de tren
+- Necesito algo para el dolor de cabeza
 - Necesito cambiar dinero
 E: "Necesito algo para el dolor de cabeza" is the appropriate phrase to ask for headache medicine at a pharmacy.
 --- es
 P: En una farmacia en España, ¿cómo se pide un remedio para el dolor de cabeza?
-- Necesito algo para el dolor de cabeza
-- Necesito un billete de tren
 - Necesito una habitación doble
+- Necesito un billete de tren
+- Necesito algo para el dolor de cabeza
 - Necesito cambiar dinero
 E: "Necesito algo para el dolor de cabeza" es la frase adecuada para pedir un remedio para el dolor de cabeza en una farmacia.
 
 === Cultura e linguagem funcional > Linguagem funcional do dia a dia c=3 d=medio
 P: Como se pede educadamente para repetir algo que não se entendeu?
-- ¿Puede repetir, por favor?
+- ¿Puede esperar, por favor?
 - ¿Puede pagar, por favor?
 - ¿Puede firmar, por favor?
-- ¿Puede esperar, por favor?
+- ¿Puede repetir, por favor?
 E: "¿Puede repetir, por favor?" é a forma educada de pedir que algo seja repetido.
 --- en
 P: How do you politely ask someone to repeat something you didn't understand?
-- ¿Puede repetir, por favor?
+- ¿Puede esperar, por favor?
 - ¿Puede pagar, por favor?
 - ¿Puede firmar, por favor?
-- ¿Puede esperar, por favor?
+- ¿Puede repetir, por favor?
 E: "¿Puede repetir, por favor?" is the polite way to ask for something to be repeated.
 --- es
 P: ¿Cómo se pide educadamente que se repita algo que no se entendió?
-- ¿Puede repetir, por favor?
+- ¿Puede esperar, por favor?
 - ¿Puede pagar, por favor?
 - ¿Puede firmar, por favor?
-- ¿Puede esperar, por favor?
+- ¿Puede repetir, por favor?
 E: "¿Puede repetir, por favor?" es la forma educada de pedir que se repita algo.
 
 === Cultura e linguagem funcional > Linguagem funcional do dia a dia c=0 d=dificil
@@ -242,45 +242,45 @@ E: "Tengo una reserva a nombre de..." es la frase estándar para confirmar una r
 
 === Cultura e linguagem funcional > Linguagem funcional do dia a dia c=1 d=dificil
 P: Em uma situação formal de trabalho, qual é a forma mais adequada de se dirigir a um superior desconhecido?
-- Perdone, ¿podría ayudarme con esto?
 - Oye, ¿me ayudas con esto?
+- Perdone, ¿podría ayudarme con esto?
 - Hola, ¿qué onda con esto?
 - Eh, ¿me das una mano?
 E: "Perdone, ¿podría ayudarme con esto?" usa formas de cortesia formais ("usted"), adequadas para dirigir-se a um superior desconhecido.
 --- en
 P: In a formal work situation, what is the most appropriate way to address an unfamiliar superior?
-- Perdone, ¿podría ayudarme con esto?
 - Oye, ¿me ayudas con esto?
+- Perdone, ¿podría ayudarme con esto?
 - Hola, ¿qué onda con esto?
 - Eh, ¿me das una mano?
 E: "Perdone, ¿podría ayudarme con esto?" uses formal courtesy forms ("usted"), appropriate for addressing an unfamiliar superior.
 --- es
 P: En una situación formal de trabajo, ¿cuál es la forma más adecuada de dirigirse a un superior desconocido?
-- Perdone, ¿podría ayudarme con esto?
 - Oye, ¿me ayudas con esto?
+- Perdone, ¿podría ayudarme con esto?
 - Hola, ¿qué onda con esto?
 - Eh, ¿me das una mano?
 E: "Perdone, ¿podría ayudarme con esto?" usa formas de cortesía formales ("usted"), adecuadas para dirigirse a un superior desconocido.
 
 === Interpretação de textos > Trechos literários c=2 d=facil
 P: Leia: "El viejo pescador salió al mar solo, como cada mañana desde hacía muchos años." O que o trecho descreve?
-- Um pescador que sai ao mar sozinho todas as manhãs há muitos anos
-- Um pescador que nunca saiu ao mar
 - Um grupo de pescadores jovens
+- Um pescador que nunca saiu ao mar
+- Um pescador que sai ao mar sozinho todas as manhãs há muitos anos
 - Um pescador que parou de pescar
 E: O trecho descreve a rotina de um pescador velho que sai sozinho ao mar todas as manhãs.
 --- en
 P: Read: "El viejo pescador salió al mar solo, como cada mañana desde hacía muchos años." What does the excerpt describe?
-- An old fisherman who goes out to sea alone every morning for many years
-- A fisherman who never went out to sea
 - A group of young fishermen
+- A fisherman who never went out to sea
+- An old fisherman who goes out to sea alone every morning for many years
 - A fisherman who stopped fishing
 E: The excerpt describes the routine of an old fisherman who goes out to sea alone every morning.
 --- es
 P: Lee: "El viejo pescador salió al mar solo, como cada mañana desde hacía muchos años." ¿Qué describe el fragmento?
-- Un pescador viejo que sale al mar solo todas las mañanas desde hace muchos años
-- Un pescador que nunca salió al mar
 - Un grupo de pescadores jóvenes
+- Un pescador que nunca salió al mar
+- Un pescador viejo que sale al mar solo todas las mañanas desde hace muchos años
 - Un pescador que dejó de pescar
 E: El fragmento describe la rutina de un pescador viejo que sale solo al mar todas las mañanas.
 
@@ -330,68 +330,68 @@ E: La idea de "silencio" combinada con "algo la observaba" crea una sensación d
 
 === Interpretação de textos > Trechos literários c=1 d=medio
 P: No mesmo trecho "La casa estaba en silencio...", o que a expressão "en algún rincón" sugere sobre a fonte da sensação?
-- Que a fonte é incerta/não identificada, apenas em algum canto
 - Que a fonte está exatamente na porta da frente
+- Que a fonte é incerta/não identificada, apenas em algum canto
 - Que não existe nenhuma fonte
 - Que a fonte é um animal de estimação conhecido
 E: "En algún rincón" sugere um local vago e não especificado, reforçando a incerteza sobre a fonte da sensação.
 --- en
 P: In the same excerpt "La casa estaba en silencio...", what does "en algún rincón" suggest about the source of the feeling?
-- That the source is uncertain/unidentified, just somewhere in a corner
 - That the source is exactly at the front door
+- That the source is uncertain/unidentified, just somewhere in a corner
 - That there is no source at all
 - That the source is a familiar pet
 E: "En algún rincón" suggests a vague, unspecified place, reinforcing the uncertainty about the source of the feeling.
 --- es
 P: En el mismo fragmento "La casa estaba en silencio...", ¿qué sugiere la expresión "en algún rincón" sobre la fuente de la sensación?
-- Que la fuente es incierta/no identificada, solo en algún rincón
 - Que la fuente está exactamente en la puerta principal
+- Que la fuente es incierta/no identificada, solo en algún rincón
 - Que no existe ninguna fuente
 - Que la fuente es una mascota conocida
 E: "En algún rincón" sugiere un lugar vago y no especificado, reforzando la incertidumbre sobre la fuente de la sensación.
 
 === Interpretação de textos > Trechos literários c=2 d=dificil
 P: Leia: "No lloró cuando se fue, ni cuando volvió; guardó el dolor como quien guarda una carta que nunca piensa enviar." Qual figura de linguagem está presente na comparação "como quien guarda una carta que nunca piensa enviar"?
-- Símile/comparação
-- Onomatopeia
 - Aliteração
+- Onomatopeia
+- Símile/comparação
 - Hipérbole
 E: A construção "como quien..." estabelece uma comparação explícita (símile) entre guardar a dor e guardar uma carta nunca enviada.
 --- en
 P: Read: "No lloró cuando se fue, ni cuando volvió; guardó el dolor como quien guarda una carta que nunca piensa enviar." What figure of speech is present in the comparison "como quien guarda una carta que nunca piensa enviar"?
-- Simile
-- Onomatopoeia
 - Alliteration
+- Onomatopoeia
+- Simile
 - Hyperbole
 E: The construction "como quien..." establishes an explicit comparison (simile) between keeping the pain and keeping a letter never sent.
 --- es
 P: Lee: "No lloró cuando se fue, ni cuando volvió; guardó el dolor como quien guarda una carta que nunca piensa enviar." ¿Qué figura retórica está presente en la comparación "como quien guarda una carta que nunca piensa enviar"?
-- Símil/comparación
-- Onomatopeya
 - Aliteración
+- Onomatopeya
+- Símil/comparación
 - Hipérbole
 E: La construcción "como quien..." establece una comparación explícita (símil) entre guardar el dolor y guardar una carta nunca enviada.
 
 === Interpretação de textos > Trechos literários c=3 d=dificil
 P: No mesmo trecho "No lloró cuando se fue, ni cuando volvió...", o que a metáfora da "carta que nunca piensa enviar" sugere sobre a dor do personagem?
-- Que é uma dor guardada, contida, nunca expressa/compartilhada
+- Que é uma dor inexistente, fingida
 - Que é uma dor que já foi totalmente resolvida
 - Que é uma dor compartilhada abertamente com todos
-- Que é uma dor inexistente, fingida
+- Que é uma dor guardada, contida, nunca expressa/compartilhada
 E: A carta nunca enviada é uma metáfora para algo guardado e nunca compartilhado, sugerindo que a dor do personagem permanece contida e não expressa.
 --- en
 P: In the same excerpt "No lloró cuando se fue, ni cuando volvió...", what does the metaphor of the "letter she never plans to send" suggest about the character's pain?
-- That it is a pain kept inside, contained, never expressed/shared
+- That it is a nonexistent, fake pain
 - That it is a pain already fully resolved
 - That it is a pain openly shared with everyone
-- That it is a nonexistent, fake pain
+- That it is a pain kept inside, contained, never expressed/shared
 E: The never-sent letter is a metaphor for something kept and never shared, suggesting that the character's pain remains contained and unexpressed.
 --- es
 P: En el mismo fragmento "No lloró cuando se fue, ni cuando volvió...", ¿qué sugiere la metáfora de la "carta que nunca piensa enviar" sobre el dolor del personaje?
-- Que es un dolor guardado, contenido, nunca expresado/compartido
+- Que es un dolor inexistente, fingido
 - Que es un dolor ya totalmente resuelto
 - Que es un dolor compartido abiertamente con todos
-- Que es un dolor inexistente, fingido
+- Que es un dolor guardado, contenido, nunca expresado/compartido
 E: La carta nunca enviada es una metáfora de algo guardado y nunca compartido, lo que sugiere que el dolor del personaje permanece contenido y sin expresar.
 
 === Interpretação de textos > Textos informativos e científicos c=0 d=facil
@@ -418,45 +418,45 @@ E: El texto informa directamente "aproximadamente el 71%".
 
 === Interpretação de textos > Textos informativos e científicos c=1 d=facil
 P: Leia: "Las abejas son responsables de la polinización de gran parte de los cultivos que consumimos." Qual é a função das abelhas mencionada no texto?
-- Polinizar grande parte dos cultivos que consumimos
 - Produzir apenas mel
+- Polinizar grande parte dos cultivos que consumimos
 - Destruir plantações
 - Espantar outros insetos
 E: O texto afirma que as abelhas "son responsables de la polinización de gran parte de los cultivos".
 --- en
 P: Read: "Las abejas son responsables de la polinización de gran parte de los cultivos que consumimos." What function of bees is mentioned in the text?
-- Pollinating much of the crops we consume
 - Producing only honey
+- Pollinating much of the crops we consume
 - Destroying crops
 - Scaring away other insects
 E: The text states that bees "son responsables de la polinización de gran parte de los cultivos".
 --- es
 P: Lee: "Las abejas son responsables de la polinización de gran parte de los cultivos que consumimos." ¿Qué función de las abejas se menciona en el texto?
-- Polinizar gran parte de los cultivos que consumimos
 - Producir solo miel
+- Polinizar gran parte de los cultivos que consumimos
 - Destruir cultivos
 - Ahuyentar a otros insectos
 E: El texto afirma que las abejas "son responsables de la polinización de gran parte de los cultivos".
 
 === Interpretação de textos > Textos informativos e científicos c=2 d=medio
 P: Leia: "Un estudio reciente muestra que dormir menos de seis horas por noche está asociado con un mayor riesgo de problemas de memoria a largo plazo." O que o estudo associa a dormir menos de seis horas por noite?
-- Um maior risco de problemas de memória a longo prazo
-- Uma melhora na memória
 - Nenhum efeito sobre a memória
+- Uma melhora na memória
+- Um maior risco de problemas de memória a longo prazo
 - Um aumento da energia física
 E: O texto diz que dormir menos de seis horas "está asociado con un mayor riesgo de problemas de memoria a largo plazo".
 --- en
 P: Read: "Un estudio reciente muestra que dormir menos de seis horas por noche está asociado con un mayor riesgo de problemas de memoria a largo plazo." What does the study associate with sleeping less than six hours a night?
-- A higher risk of long-term memory problems
-- An improvement in memory
 - No effect on memory
+- An improvement in memory
+- A higher risk of long-term memory problems
 - An increase in physical energy
 E: The text says that sleeping less than six hours "está asociado con un mayor riesgo de problemas de memoria a largo plazo".
 --- es
 P: Lee: "Un estudio reciente muestra que dormir menos de seis horas por noche está asociado con un mayor riesgo de problemas de memoria a largo plazo." ¿Qué asocia el estudio con dormir menos de seis horas por noche?
-- Un mayor riesgo de problemas de memoria a largo plazo
-- Una mejora en la memoria
 - Ningún efecto sobre la memoria
+- Una mejora en la memoria
+- Un mayor riesgo de problemas de memoria a largo plazo
 - Un aumento de la energía física
 E: El texto dice que dormir menos de seis horas "está asociado con un mayor riesgo de problemas de memoria a largo plazo".
 
@@ -506,68 +506,68 @@ E: El texto afirma que el beneficio general del ejercicio ya se conoce, pero "lo
 
 === Interpretação de textos > Textos informativos e científicos c=1 d=dificil
 P: No mesmo texto sobre exercício e saúde cardiovascular, qual é a relação lógica estabelecida pela conjunção "aunque" no início da frase?
-- Uma concessão: reconhece um fato conhecido antes de apresentar um ponto ainda incerto
 - Uma causa direta entre exercício e debate científico
+- Uma concessão: reconhece um fato conhecido antes de apresentar um ponto ainda incerto
 - Uma negação total do benefício do exercício
 - Uma conclusão final sem ressalvas
 E: "Aunque" introduz uma concessão, reconhecendo o benefício já sabido do exercício antes de apontar o que ainda está em debate.
 --- en
 P: In the same text about exercise and cardiovascular health, what logical relationship does the conjunction "aunque" establish at the start of the sentence?
-- A concession: it acknowledges a known fact before presenting a still uncertain point
 - A direct cause between exercise and scientific debate
+- A concession: it acknowledges a known fact before presenting a still uncertain point
 - A total denial of exercise's benefit
 - A final conclusion with no reservations
 E: "Aunque" introduces a concession, acknowledging the already-known benefit of exercise before pointing out what is still debated.
 --- es
 P: En el mismo texto sobre ejercicio y salud cardiovascular, ¿qué relación lógica establece la conjunción "aunque" al inicio de la frase?
-- Una concesión: reconoce un hecho conocido antes de presentar un punto aún incierto
 - Una causa directa entre el ejercicio y el debate científico
+- Una concesión: reconoce un hecho conocido antes de presentar un punto aún incierto
 - Una negación total del beneficio del ejercicio
 - Una conclusión final sin reservas
 E: "Aunque" introduce una concesión, reconociendo el beneficio ya conocido del ejercicio antes de señalar lo que todavía está en debate.
 
 === Interpretação de textos > Textos de opinião e argumentativos c=2 d=facil
 P: Leia: "En mi opinión, las ciudades deberían invertir más en transporte público, porque esto reduce el tráfico y la contaminación." Qual é a opinião defendida pelo autor?
-- As cidades deveriam investir mais em transporte público
-- As cidades deveriam proibir carros totalmente
 - O transporte público já é suficiente
+- As cidades deveriam proibir carros totalmente
+- As cidades deveriam investir mais em transporte público
 - A poluição não está relacionada ao tráfico
 E: O autor afirma diretamente "las ciudades deberían invertir más en transporte público".
 --- en
 P: Read: "En mi opinión, las ciudades deberían invertir más en transporte público, porque esto reduce el tráfico y la contaminación." What opinion does the author defend?
-- Cities should invest more in public transportation
-- Cities should completely ban cars
 - Public transportation is already sufficient
+- Cities should completely ban cars
+- Cities should invest more in public transportation
 - Pollution is unrelated to traffic
 E: The author directly states "las ciudades deberían invertir más en transporte público".
 --- es
 P: Lee: "En mi opinión, las ciudades deberían invertir más en transporte público, porque esto reduce el tráfico y la contaminación." ¿Qué opinión defiende el autor?
-- Las ciudades deberían invertir más en transporte público
-- Las ciudades deberían prohibir los autos totalmente
 - El transporte público ya es suficiente
+- Las ciudades deberían prohibir los autos totalmente
+- Las ciudades deberían invertir más en transporte público
 - La contaminación no está relacionada con el tráfico
 E: El autor afirma directamente "las ciudades deberían invertir más en transporte público".
 
 === Interpretação de textos > Textos de opinião e argumentativos c=3 d=facil
 P: No mesmo texto sobre transporte público, qual argumento o autor usa para defender sua opinião?
-- Reduz o tráfico e a poluição
+- É uma exigência legal
 - Custa menos para o governo
 - É mais rápido que o carro em qualquer situação
-- É uma exigência legal
+- Reduz o tráfico e a poluição
 E: O autor usa "porque esto reduce el tráfico y la contaminación" como justificativa.
 --- en
 P: In the same text about public transportation, what argument does the author use to support their opinion?
-- It reduces traffic and pollution
+- It is a legal requirement
 - It costs the government less
 - It is always faster than a car
-- It is a legal requirement
+- It reduces traffic and pollution
 E: The author uses "porque esto reduce el tráfico y la contaminación" as the justification.
 --- es
 P: En el mismo texto sobre transporte público, ¿qué argumento usa el autor para defender su opinión?
-- Reduce el tráfico y la contaminación
+- Es una exigencia legal
 - Cuesta menos para el gobierno
 - Es más rápido que el auto en cualquier situación
-- Es una exigencia legal
+- Reduce el tráfico y la contaminación
 E: El autor usa "porque esto reduce el tráfico y la contaminación" como justificación.
 
 === Interpretação de textos > Textos de opinião e argumentativos c=0 d=medio
@@ -594,66 +594,66 @@ E: El autor presenta la visión común ("muchos creen que...") y la refuta con "
 
 === Interpretação de textos > Textos de opinião e argumentativos c=1 d=medio
 P: No mesmo texto sobre tecnologia e conexão, qual é a conclusão defendida pelo autor?
-- A tecnologia nos permite manter conexões que seriam impossíveis de outra forma
 - A tecnologia nos isola completamente
+- A tecnologia nos permite manter conexões que seriam impossíveis de outra forma
 - A tecnologia deveria ser abolida
 - A tecnologia não tem nenhum efeito social
 E: O autor defende que a tecnologia "nos permite mantenernos conectados con personas que, de otro modo, estarían fuera de nuestro alcance".
 --- en
 P: In the same text about technology and connection, what conclusion does the author defend?
-- Technology allows us to maintain connections that would otherwise be impossible
 - Technology completely isolates us
+- Technology allows us to maintain connections that would otherwise be impossible
 - Technology should be abolished
 - Technology has no social effect at all
 E: The author defends the idea that technology "nos permite mantenernos conectados con personas que, de otro modo, estarían fuera de nuestro alcance".
 --- es
 P: En el mismo texto sobre tecnología y conexión, ¿cuál es la conclusión que defiende el autor?
-- La tecnología nos permite mantener conexiones que de otro modo serían imposibles
 - La tecnología nos aísla por completo
+- La tecnología nos permite mantener conexiones que de otro modo serían imposibles
 - La tecnología debería abolirse
 - La tecnología no tiene ningún efecto social
 E: El autor defiende que la tecnología "nos permite mantenernos conectados con personas que, de otro modo, estarían fuera de nuestro alcance".
 
 === Interpretação de textos > Textos de opinião e argumentativos c=2 d=dificil
 P: Leia: "Se podría argumentar que prohibir cierto contenido protege a los jóvenes; sin embargo, esta medida también corre el riesgo de silenciar debates necesarios." Qual é a função da palavra "sin embargo" no texto?
-- Introduzir um contra-argumento que qualifica a ideia anterior
-- Confirmar totalmente a ideia anterior
 - Introduzir um exemplo da ideia anterior
+- Confirmar totalmente a ideia anterior
+- Introduzir um contra-argumento que qualifica a ideia anterior
 - Encerrar o texto sem mais argumentos
 E: "Sin embargo" introduz um contraponto que qualifica/limita a afirmação anterior sobre proteger os jovens.
 --- en
 P: Read: "Se podría argumentar que prohibir cierto contenido protege a los jóvenes; sin embargo, esta medida también corre el riesgo de silenciar debates necesarios." What is the function of "sin embargo" in the text?
-- To introduce a counter-argument that qualifies the previous idea
-- To fully confirm the previous idea
 - To introduce an example of the previous idea
+- To fully confirm the previous idea
+- To introduce a counter-argument that qualifies the previous idea
 - To end the text with no further argument
 E: "Sin embargo" introduces a counterpoint that qualifies/limits the previous claim about protecting young people.
 --- es
 P: Lee: "Se podría argumentar que prohibir cierto contenido protege a los jóvenes; sin embargo, esta medida también corre el riesgo de silenciar debates necesarios." ¿Cuál es la función de "sin embargo" en el texto?
-- Introducir un contraargumento que matiza la idea anterior
-- Confirmar totalmente la idea anterior
 - Introducir un ejemplo de la idea anterior
+- Confirmar totalmente la idea anterior
+- Introducir un contraargumento que matiza la idea anterior
 - Cerrar el texto sin más argumentos
 E: "Sin embargo" introduce un contrapunto que matiza/limita la afirmación anterior sobre proteger a los jóvenes.
 
 === Interpretação de textos > Textos de opinião e argumentativos c=3 d=dificil
 P: No mesmo texto sobre proibição de conteúdo, qual é o posicionamento geral do autor?
-- Reconhece o argumento a favor da proibição, mas alerta para um risco associado a ela
+- Não apresenta nenhuma posição, apenas fatos neutros
 - Defende a proibição sem ressalvas
 - Rejeita totalmente qualquer forma de proteção aos jovens
-- Não apresenta nenhuma posição, apenas fatos neutros
+- Reconhece o argumento a favor da proibição, mas alerta para um risco associado a ela
 E: O autor reconhece o argumento pró-proibição ("se podría argumentar que...") mas aponta um risco ("corre el riesgo de silenciar debates necesarios"), uma posição ponderada.
 --- en
 P: In the same text about banning content, what is the author's overall position?
-- Acknowledges the argument in favor of the ban, but warns of an associated risk
+- Presents no position at all, only neutral facts
 - Fully defends the ban with no reservations
 - Completely rejects any form of protection for young people
-- Presents no position at all, only neutral facts
+- Acknowledges the argument in favor of the ban, but warns of an associated risk
 E: The author acknowledges the pro-ban argument ("se podría argumentar que...") but points out a risk ("corre el riesgo de silenciar debates necesarios"), a balanced position.
 --- es
 P: En el mismo texto sobre la prohibición de contenido, ¿cuál es la postura general del autor?
-- Reconoce el argumento a favor de la prohibición, pero advierte sobre un riesgo asociado
+- No presenta ninguna posición, solo hechos neutrales
 - Defiende la prohibición sin reservas
 - Rechaza totalmente cualquier forma de protección para los jóvenes
-- No presenta ninguna posición, solo hechos neutrales
+- Reconoce el argumento a favor de la prohibición, pero advierte sobre un riesgo asociado
 E: El autor reconoce el argumento pro-prohibición ("se podría argumentar que...") pero señala un riesgo ("corre el riesgo de silenciar debates necesarios"), una postura equilibrada.

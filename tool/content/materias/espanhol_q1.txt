@@ -110,22 +110,22 @@ E: El correo dice que la reunión "se cambió del martes al jueves", es decir, s
 
 === Estratégias de leitura > Skimming e scanning c=1 d=dificil
 P: Fazendo skimming do texto "Un nuevo estudio muestra que caminar un poco después de las comidas puede ayudar a controlar el nivel de azúcar en la sangre, según los investigadores.", qual é a ideia central?
-- Caminhar após as refeições pode ajudar a controlar o açúcar no sangue
 - Pesquisadores recomendam dietas sem açúcar
+- Caminhar após as refeições pode ajudar a controlar o açúcar no sangue
 - Caminhar é melhor que correr
 - O estudo foi feito com crianças
 E: O texto afirma que caminhar após as refeições "puede ayudar a controlar el nivel de azúcar en la sangre".
 --- en
 P: Skimming the text "Un nuevo estudio muestra que caminar un poco después de las comidas puede ayudar a controlar el nivel de azúcar en la sangre, según los investigadores.", what is the main idea?
-- Walking after meals may help control blood sugar levels
 - Researchers recommend sugar-free diets
+- Walking after meals may help control blood sugar levels
 - Walking is better than running
 - The study was done with children
 E: The text states that walking after meals "puede ayudar a controlar el nivel de azúcar en la sangre", according to researchers.
 --- es
 P: Haciendo skimming del texto "Un nuevo estudio muestra que caminar un poco después de las comidas puede ayudar a controlar el nivel de azúcar en la sangre, según los investigadores.", ¿cuál es la idea central?
-- Caminar después de las comidas puede ayudar a controlar el azúcar en la sangre
 - Los investigadores recomiendan dietas sin azúcar
+- Caminar después de las comidas puede ayudar a controlar el azúcar en la sangre
 - Caminar es mejor que correr
 - El estudio se hizo con niños
 E: El texto afirma que caminar después de las comidas "puede ayudar a controlar el nivel de azúcar en la sangre", según investigadores.
