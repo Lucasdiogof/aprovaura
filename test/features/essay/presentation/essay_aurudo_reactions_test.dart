@@ -14,7 +14,6 @@ import 'package:aura/core/theme/app_theme.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/aurudo_reaction/data/aurudo_reaction_ledger.dart';
-import 'package:aura/features/aurudo_reaction/presentation/aurudo_achievement_overlay.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_stage.dart';
 import 'package:aura/features/essay/domain/entities/essay_attempt.dart';
 import 'package:aura/features/essay/domain/entities/essay_evaluation.dart';
@@ -124,7 +123,6 @@ void main() {
 
   Future<void> pumpPage(
     WidgetTester tester, {
-    bool justSubmitted = false,
     bool reducedMotion = false,
     ThemeData? theme,
   }) async {
@@ -138,10 +136,7 @@ void main() {
               data: MediaQuery.of(
                 context,
               ).copyWith(disableAnimations: reducedMotion),
-              child: EssaySubmissionPage(
-                submissionId: 's1',
-                justSubmitted: justSubmitted,
-              ),
+              child: const EssaySubmissionPage(submissionId: 's1'),
             ),
           ),
         ),
@@ -190,8 +185,9 @@ void main() {
       return loading;
     }
 
-    testWidgets('while the send is in flight: the blocking overlay, and no '
-        'Aurudo yet', (tester) async {
+    testWidgets('while the send is in flight: the blocking overlay', (
+      tester,
+    ) async {
       final accepted = Completer<Result<EssayAttempt>>();
       when(
         () => repository.submitDraft(
@@ -204,8 +200,6 @@ void main() {
 
       expect(loading.state.isVisible, isTrue);
       expect(loading.state.message, 'Enviando redação...');
-      expect(find.text('Deixa comigo.'), findsNothing);
-      expect(ledger().hasCelebratedEssayWriting('s1'), isFalse);
 
       accepted.complete(
         Success(
@@ -220,19 +214,11 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
 
-      // Accepted: the overlay is gone -- it never waits for the marking --
-      // and Aurudo takes over, studying, never frustrated.
+      // Accepted: the blocking overlay goes and the attempt screen takes
+      // over straight into waiting. No mascot in between -- Aurudo is out
+      // of the essay flow.
       expect(loading.state.isVisible, isFalse);
-      expect(find.text('Deixa comigo.'), findsOneWidget);
-      expect(find.text('Vou analisar sua redação.'), findsOneWidget);
-      expect(_showsPose(tester, 'studying'), isTrue);
-      expect(_showsPose(tester, 'frustrated'), isFalse);
-      expect(ledger().hasCelebratedEssayWriting('s1'), isTrue);
-
-      // Short, then the waiting state.
-      await tester.pump(AurudoAchievementOverlay.visibleDuration);
-      await tester.pump(const Duration(milliseconds: 300));
-      expect(find.text('Deixa comigo.'), findsNothing);
+      expect(_showsPose(tester, 'studying'), isFalse);
       expect(find.text('Aguardando correção'), findsOneWidget);
     });
 
@@ -260,95 +246,6 @@ void main() {
         expect(ledger().hasCelebratedEssayWriting('s1'), isFalse);
       },
     );
-  });
-
-  group('"Deixa comigo" on the attempt screen', () {
-    testWidgets(
-      'plays once per submission: a second visit does not replay it',
-      (tester) async {
-        stubSubmission(EssaySubmissionStatus.evaluating);
-        await pumpPage(tester, justSubmitted: true);
-        expect(find.text('Deixa comigo.'), findsOneWidget);
-        await tester.pump(AurudoAchievementOverlay.visibleDuration);
-        await tester.pump(const Duration(milliseconds: 300));
-
-        await tester.pumpWidget(const SizedBox());
-        await pumpPage(tester, justSubmitted: true);
-        expect(find.text('Deixa comigo.'), findsNothing);
-        expect(find.text('Corrigindo'), findsOneWidget);
-      },
-    );
-
-    testWidgets('a rebuild (theme change) does not replay it', (tester) async {
-      stubSubmission(EssaySubmissionStatus.evaluating);
-      await pumpPage(tester, justSubmitted: true);
-      await tester.pump(AurudoAchievementOverlay.visibleDuration);
-      await tester.pump(const Duration(milliseconds: 300));
-
-      await pumpPage(tester, justSubmitted: true, theme: AppTheme.dark);
-      expect(find.text('Deixa comigo.'), findsNothing);
-    });
-
-    testWidgets('opened from the history, it never plays', (tester) async {
-      stubSubmission(EssaySubmissionStatus.evaluating);
-      await pumpPage(tester);
-      expect(find.text('Deixa comigo.'), findsNothing);
-      expect(ledger().hasCelebratedEssayWriting('s1'), isFalse);
-    });
-
-    testWidgets('after it, the waiting state: no Aurudo left animating', (
-      tester,
-    ) async {
-      stubSubmission(EssaySubmissionStatus.evaluating);
-      await pumpPage(tester, justSubmitted: true);
-      await tester.pump(AurudoAchievementOverlay.visibleDuration);
-      await tester.pump(const Duration(milliseconds: 300));
-
-      expect(find.text('Corrigindo'), findsOneWidget);
-      expect(find.byType(AurudoAchievementOverlay), findsNothing);
-      expect(find.byType(AurudoReactionStage), findsNothing);
-      expect(find.byType(Image), findsNothing);
-    });
-
-    testWidgets('reduced motion: the static pose, then out of the way fast', (
-      tester,
-    ) async {
-      stubSubmission(EssaySubmissionStatus.evaluating);
-      await pumpPage(tester, justSubmitted: true, reducedMotion: true);
-      expect(find.text('Deixa comigo.'), findsOneWidget);
-      await tester.pump(EssaySubmissionPage.reducedWritingDuration);
-      await tester.pump();
-      expect(find.text('Deixa comigo.'), findsNothing);
-    });
-
-    testWidgets('writing seen does not block the correction later', (
-      tester,
-    ) async {
-      useTallScreen(tester);
-      ledger().markEssayWritingCelebrated('s1');
-      stubSubmission(EssaySubmissionStatus.evaluated, score: 800);
-      await pumpPage(tester);
-
-      // Plays (not instant): the report is still waiting on the scene.
-      expect(find.byType(AurudoReactionStage), findsOneWidget);
-      expect(find.text('COMPETÊNCIAS'), findsNothing);
-      expect(ledger().hasCelebratedEssayCorrection('s1'), isTrue);
-      await finishScene(tester);
-    });
-
-    testWidgets('a correction landing during "Deixa comigo" does not start a '
-        'second scene: it opens in its final state', (tester) async {
-      useTallScreen(tester);
-      stubSubmission(EssaySubmissionStatus.evaluated, score: 920);
-      await pumpPage(tester, justSubmitted: true);
-
-      expect(find.text('Deixa comigo.'), findsOneWidget);
-      // The report is already there under it -- no scene waiting to play.
-      expect(find.text('COMPETÊNCIAS'), findsOneWidget);
-      expect(ledger().hasCelebratedEssayCorrection('s1'), isTrue);
-      await tester.pump(AurudoAchievementOverlay.visibleDuration);
-      await tester.pump(const Duration(milliseconds: 300));
-    });
   });
 
   group('the correction arriving', () {
@@ -394,23 +291,34 @@ void main() {
     );
   });
 
-  group('score band picks the pose -- never frustrated', () {
-    for (final (score, pose, headline) in [
-      (1000, 'celebrating', 'Excelente redação!'),
-      (920, 'celebrating', 'Excelente redação!'),
-      (800, 'celebrating', 'Mandou muito bem!'),
-      (600, 'neutral', 'Boa evolução'),
-      (400, 'studying', 'Vamos evoluir juntos'),
+  // Aurudo is out of the essay flow entirely, so the score band no longer
+  // picks a pose -- it picks the headline, and nothing else on the screen
+  // reacts to it.
+  group('score band picks the headline', () {
+    for (final (score, headline) in [
+      (1000, 'Excelente redação!'),
+      (920, 'Excelente redação!'),
+      (800, 'Mandou muito bem!'),
+      (600, 'Boa evolução'),
+      (400, 'Vamos evoluir juntos'),
     ]) {
-      testWidgets('$score -> $pose, "$headline"', (tester) async {
+      testWidgets('$score -> "$headline", and no mascot', (tester) async {
         useTallScreen(tester);
         stubSubmission(EssaySubmissionStatus.evaluated, score: score);
         await pumpPage(tester);
         await finishScene(tester);
 
-        expect(_showsPose(tester, pose), isTrue);
-        expect(_showsPose(tester, 'frustrated'), isFalse);
         expect(find.text(headline), findsOneWidget);
+        for (final pose in [
+          'celebrating',
+          'neutral',
+          'studying',
+          'thinking',
+          'frustrated',
+          'farming_aura',
+        ]) {
+          expect(_showsPose(tester, pose), isFalse, reason: pose);
+        }
         // The real number, still called an estimate.
         expect(find.text('$score'), findsOneWidget);
         expect(find.text('Nota estimada'), findsOneWidget);
@@ -465,7 +373,6 @@ void main() {
       await pumpPage(tester, reducedMotion: true);
       await tester.pump(const Duration(milliseconds: 300));
 
-      expect(_showsPose(tester, 'neutral'), isTrue);
       expect(find.text('COMPETÊNCIAS'), findsOneWidget);
     });
   });

@@ -10,7 +10,6 @@ import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/aurudo_reaction/domain/aurudo_reaction_resolver.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction.dart';
-import 'package:aura/features/aurudo_reaction/presentation/aurudo_achievement_overlay.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_essay_reactions.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_sequence.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_stage.dart';
@@ -36,45 +35,18 @@ import 'package:aura/shared/widgets/modern_app_bar.dart';
 /// While an attempt is still waiting there are no empty competency blocks
 /// to look at -- the full result screen belongs to the evaluation phase.
 class EssaySubmissionPage extends StatefulWidget {
-  const EssaySubmissionPage({
-    required this.submissionId,
-    this.justSubmitted = false,
-    super.key,
-  });
+  const EssaySubmissionPage({required this.submissionId, super.key});
 
   final String submissionId;
-
-  /// Opened straight from a send the server accepted -- the only way in
-  /// that may play Aurudo's "Deixa comigo". From the history this is
-  /// false, and the moment has passed.
-  final bool justSubmitted;
-
-  /// How long "Deixa comigo" stays under reduced motion: the static pose,
-  /// then out of the way.
-  static const reducedWritingDuration = Duration(milliseconds: 500);
 
   @override
   State<EssaySubmissionPage> createState() => _EssaySubmissionPageState();
 }
 
 class _EssaySubmissionPageState extends State<EssaySubmissionPage> {
-  /// "Deixa comigo" is on screen. Lives here, above the cubit's states, so
-  /// the first load (a spinner for a moment) does not cut it short.
-  bool _writingVisible = false;
-
-  @override
-  void initState() {
-    super.initState();
-    // Once per submission: the ledger answers whether this send was
-    // already shown -- a rebuild or a second push never replays it.
-    _writingVisible =
-        widget.justSubmitted && !markEssayWritingSeen(widget.submissionId);
-  }
-
   @override
   Widget build(BuildContext context) {
     final t = EssayStrings(context.watch<LocaleCubit>().state);
-    final reduced = MediaQuery.disableAnimationsOf(context);
     return BlocProvider(
       create: (_) =>
           EssaySubmissionCubit(sl<EssayRepository>(), widget.submissionId),
@@ -83,26 +55,7 @@ class _EssaySubmissionPageState extends State<EssaySubmissionPage> {
         body: Column(
           children: [
             ModernAppBar(title: t.subjectLabel, showBackButton: true),
-            Expanded(
-              child: Stack(
-                children: [
-                  Positioned.fill(child: _body(t)),
-                  if (_writingVisible)
-                    AurudoAchievementOverlay(
-                      reaction: const AurudoReactionResolver()
-                          .resolveEssayWriting(),
-                      message: t.writingReactionTitle,
-                      subtitle: t.writingReactionSubtitle,
-                      displayDuration: reduced
-                          ? EssaySubmissionPage.reducedWritingDuration
-                          : AurudoAchievementOverlay.visibleDuration,
-                      onDismissed: () {
-                        if (mounted) setState(() => _writingVisible = false);
-                      },
-                    ),
-                ],
-              ),
-            ),
+            Expanded(child: _body(t)),
           ],
         ),
       ),
@@ -127,7 +80,6 @@ class _EssaySubmissionPageState extends State<EssaySubmissionPage> {
               isRequesting: isRequesting,
               failure: failure,
               gaveUpWaiting: context.read<EssaySubmissionCubit>().gaveUpWaiting,
-              writingVisible: _writingVisible,
             ),
         },
       );
@@ -140,7 +92,6 @@ class _SubmissionView extends StatefulWidget {
     required this.isRequesting,
     required this.failure,
     required this.gaveUpWaiting,
-    required this.writingVisible,
   });
 
   final EssaySubmission submission;
@@ -151,7 +102,6 @@ class _SubmissionView extends StatefulWidget {
 
   /// "Deixa comigo" is still up. A correction that lands meanwhile does
   /// not start a second scene on top of it -- it opens in its final state.
-  final bool writingVisible;
 
   @override
   State<_SubmissionView> createState() => _SubmissionViewState();
@@ -209,10 +159,7 @@ class _SubmissionViewState extends State<_SubmissionView> {
     _reaction = const AurudoReactionResolver().resolveEssayCorrection(
       evaluation.totalScore,
     );
-    _instant =
-        alreadySeen ||
-        widget.writingVisible ||
-        MediaQuery.disableAnimationsOf(context);
+    _instant = alreadySeen || MediaQuery.disableAnimationsOf(context);
     if (_instant) {
       _reportVisible = true;
     } else {
@@ -292,13 +239,12 @@ class _SubmissionViewState extends State<_SubmissionView> {
           final reaction?,
         )) ...[
           const SizedBox(height: AppSpacing.lg),
-          // Aurudo opens the correction, then steps back: the score is the
-          // reveal, and the report below is the part to study.
+          // The score reveals itself: Aurudo is out of the essay flow, so
+          // the scene keeps its timing and loses the character.
           AurudoReactionStage(
             reaction: reaction,
             instant: _instant,
-            // Same size as on the mock exam result: a report to read.
-            mascotSize: 120,
+            showMascot: false,
             headline: _CorrectionHeadline(
               text: strings.correctionHeadline(reaction.essayTier!),
             ),

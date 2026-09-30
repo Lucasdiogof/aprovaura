@@ -270,7 +270,14 @@ void main() {
       await tester.pumpApp(const EssaySubmissionPage(submissionId: 's1'));
       await tester.pumpAndSettle();
 
-      await tester.scrollUntilVisible(find.text('Fazer nova redação'), 300);
+      // The button is below the fold and built lazily, so it has to be
+      // scrolled to. Without the mascot the page has a second scrollable
+      // in reach, so the outer one is named explicitly.
+      await tester.scrollUntilVisible(
+        find.text('Fazer nova redação'),
+        300,
+        scrollable: find.byType(Scrollable).first,
+      );
       // scrollUntilVisible stops as soon as any sliver of the target is
       // inside the viewport -- with the default 800x600 test surface, that
       // can leave it a few pixels past the visible edge, close enough to

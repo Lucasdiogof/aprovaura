@@ -14,7 +14,6 @@ import 'package:aura/features/essay/presentation/pages/essay_theme_page.dart';
 import 'package:aura/features/essay/presentation/widgets/essay_theme_card.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/content_width.dart';
-import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
 /// The list of writing prompts. Themes come from the database -- nothing
@@ -116,8 +115,6 @@ class _EmptyView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const AurudoIllustration(pose: AurudoPose.neutral),
-            const SizedBox(height: AppSpacing.lg),
             Text(
               strings.emptyTitle,
               textAlign: TextAlign.center,
@@ -147,8 +144,6 @@ class _ErrorView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const AurudoIllustration(pose: AurudoPose.frustrated, size: 120),
-            const SizedBox(height: AppSpacing.lg),
             Text(
               strings.errorMessage,
               textAlign: TextAlign.center,

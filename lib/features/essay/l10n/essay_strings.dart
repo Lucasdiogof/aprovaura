@@ -595,19 +595,7 @@ class EssayStrings {
   };
 
   /// Aurudo, right after the essay was accepted. A hand-off, not a win.
-  String get writingReactionTitle => switch (language) {
-    AppLanguage.portuguese => 'Deixa comigo.',
-    AppLanguage.english => 'Leave it to me.',
-    AppLanguage.spanish => 'Déjamelo a mí.',
-  };
-
   /// No promise of how long it takes.
-  String get writingReactionSubtitle => switch (language) {
-    AppLanguage.portuguese => 'Vou analisar sua redação.',
-    AppLanguage.english => "I'll go through your essay.",
-    AppLanguage.spanish => 'Voy a analizar tu redacción.',
-  };
-
   /// The line Aurudo opens a correction with, by score band. Never a
   /// verdict on the person: even the lowest band is about what comes next.
   String correctionHeadline(EssayReactionTier tier) => switch (tier) {

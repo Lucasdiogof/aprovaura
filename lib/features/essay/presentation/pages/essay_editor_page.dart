@@ -136,12 +136,7 @@ class _EssayEditorViewState extends State<_EssayEditorView> {
         // an editor holding its text would be a lie.
         await Navigator.of(context).pushReplacement(
           MaterialPageRoute<void>(
-            // Only a send the server accepted gets here, so only it can
-            // open with Aurudo's "Deixa comigo".
-            builder: (_) => EssaySubmissionPage(
-              submissionId: attempt.id,
-              justSubmitted: true,
-            ),
+            builder: (_) => EssaySubmissionPage(submissionId: attempt.id),
           ),
         );
       case EssaySubmitOutcome.saveFailed:

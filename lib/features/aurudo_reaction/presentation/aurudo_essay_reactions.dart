@@ -1,22 +1,5 @@
 import 'package:aura/features/aurudo_reaction/data/current_aurudo_reaction_ledger.dart';
 
-/// Records that the "Deixa comigo" moment for [submissionId] is playing,
-/// and says whether it already had.
-///
-/// Called only once the server really accepted the essay -- the page that
-/// asks is only ever opened after a successful send -- so a send that
-/// failed never spends anything here.
-///
-/// No ledger (nobody signed in, storage not wired) means no dedupe, the
-/// same posture as `markReactionSeen`: the moment plays, nothing crashes.
-bool markEssayWritingSeen(String submissionId) {
-  final ledger = currentAurudoReactionLedger();
-  if (ledger == null) return false;
-  if (ledger.hasCelebratedEssayWriting(submissionId)) return true;
-  ledger.markEssayWritingCelebrated(submissionId);
-  return false;
-}
-
 /// Records that the correction of [submissionId] is being revealed, and
 /// says whether it already had been.
 ///

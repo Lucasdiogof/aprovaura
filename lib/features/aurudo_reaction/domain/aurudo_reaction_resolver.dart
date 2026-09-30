@@ -96,11 +96,6 @@ class AurudoReactionResolver {
     return AurudoReaction(type: type, secondary: secondary);
   }
 
-  /// Sending an essay off for correction: always the same reaction --
-  /// there is no score yet to react to.
-  AurudoReaction resolveEssayWriting() =>
-      const AurudoReaction(type: AurudoReactionType.writing);
-
   /// Opening an essay's evaluation for the first time. The reaction type
   /// is always `correctionReady` regardless of the grade -- only the
   /// [EssayReactionTier] the score falls into changes, which the view

@@ -175,10 +175,6 @@ void main() {
       );
     });
 
-    test('resolveEssayWriting is always writing', () {
-      expect(resolver.resolveEssayWriting().type, AurudoReactionType.writing);
-    });
-
     group('resolveEssayCorrection', () {
       test('is always correctionReady, whatever the score', () {
         for (final score in [0, 250, 500, 750, 900, 1000]) {

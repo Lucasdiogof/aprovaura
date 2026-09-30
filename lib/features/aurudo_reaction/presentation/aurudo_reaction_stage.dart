@@ -58,6 +58,7 @@ class AurudoReactionStage extends StatefulWidget {
     this.cta,
     this.mascotSize = 160,
     this.instant = false,
+    this.showMascot = true,
     this.onSequenceCompleted,
     super.key,
   });
@@ -68,6 +69,15 @@ class AurudoReactionStage extends StatefulWidget {
   final Widget? stats;
   final Widget? cta;
   final double mascotSize;
+
+  /// Whether Aurudo himself is part of the scene.
+  ///
+  /// Off, the timeline still runs and still reveals headline, content,
+  /// stats and cta in order -- only the character (and his particles) is
+  /// left out, and with him the space he would take. The essay flow asks
+  /// for this: the correction is a text to read, and the mascot was one
+  /// beat too many before it.
+  final bool showMascot;
 
   /// Skips the whole timeline and shows the final state from the very
   /// first frame, regardless of the platform's actual reduced-motion
@@ -144,32 +154,35 @@ class _AurudoReactionStageState extends State<AurudoReactionStage>
           return Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SizedBox(
-                width: widget.mascotSize * 1.6,
-                height: widget.mascotSize * 1.6,
-                child: t < AurudoReactionSequence.mascotAt
-                    ? null
-                    : _MascotEntrance(
-                        instant: sequence.reducedMotion,
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            if (particlesStyle != null &&
-                                !sequence.reducedMotion)
-                              AuraParticles(
-                                style: particlesStyle,
-                                count: _particlesCountFor(widget.reaction.type),
+              if (widget.showMascot)
+                SizedBox(
+                  width: widget.mascotSize * 1.6,
+                  height: widget.mascotSize * 1.6,
+                  child: t < AurudoReactionSequence.mascotAt
+                      ? null
+                      : _MascotEntrance(
+                          instant: sequence.reducedMotion,
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              if (particlesStyle != null &&
+                                  !sequence.reducedMotion)
+                                AuraParticles(
+                                  style: particlesStyle,
+                                  count: _particlesCountFor(
+                                    widget.reaction.type,
+                                  ),
+                                ),
+                              AurudoMascotView(
+                                type: widget.reaction.type,
+                                essayTier: widget.reaction.essayTier,
+                                size: widget.mascotSize,
+                                instant: sequence.reducedMotion,
                               ),
-                            AurudoMascotView(
-                              type: widget.reaction.type,
-                              essayTier: widget.reaction.essayTier,
-                              size: widget.mascotSize,
-                              instant: sequence.reducedMotion,
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-              ),
+                ),
               _Reveal(
                 visible: t >= AurudoReactionSequence.headlineAt,
                 child: widget.headline,
