@@ -1,0 +1,43 @@
+=== Cultura e sociedade > Cultura e etnocentrismo c=3 d=medio
+P: Julgar costumes de outro grupo apenas pelos padrões da própria cultura, considerando-os inferiores, é exemplo de:
+- Burocratização
+- Mobilidade social
+- Secularização
+- Etnocentrismo
+E: Etnocentrismo é usar a própria cultura como referência central para avaliar outras.
+--- en
+P: Judging another group's customs only by the standards of one's own culture and treating them as inferior is an example of:
+- Bureaucratization
+- Social mobility
+- Secularization
+- Ethnocentrism
+E: Ethnocentrism means using one's own culture as the central reference for evaluating others.
+--- es
+P: Juzgar las costumbres de otro grupo solo según los patrones de la propia cultura y considerarlas inferiores es un ejemplo de:
+- Burocratización
+- Movilidad social
+- Secularización
+- Etnocentrismo
+E: El etnocentrismo consiste en usar la propia cultura como referencia central para evaluar otras.
+
+=== Sociedade contemporânea > Consumo e sociedade em rede c=1 d=dificil
+P: Em redes sociais, sistemas de recomendação podem reforçar padrões de consumo porque:
+- Mostram a mesma sequência para todos
+- Usam sinais de comportamento para selecionar conteúdos semelhantes aos que geraram engajamento
+- Ignoram escolhas anteriores
+- Funcionam sem dados de interação
+E: Algoritmos de recomendação usam históricos e sinais de interação para estimar relevância e podem reforçar preferências observadas.
+--- en
+P: On social networks, recommendation systems can reinforce consumption patterns because they:
+- Show the same sequence to everyone
+- Use behavioral signals to select content similar to what previously generated engagement
+- Ignore previous choices
+- Operate without interaction data
+E: Recommendation algorithms use histories and interaction signals to estimate relevance and may reinforce observed preferences.
+--- es
+P: En redes sociales, los sistemas de recomendación pueden reforzar patrones de consumo porque:
+- Muestran la misma secuencia a todos
+- Usan señales de comportamiento para seleccionar contenidos similares a los que generaron interacción
+- Ignoran elecciones anteriores
+- Funcionan sin datos de interacción
+E: Los algoritmos de recomendación usan historiales y señales de interacción para estimar relevancia y pueden reforzar preferencias observadas.

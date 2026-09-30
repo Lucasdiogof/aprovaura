@@ -1,0 +1,21 @@
+=== Mundo > Linhas imaginárias c=2 d=medio
+P: Em um mapa de escala 1:100.000, 1 cm no mapa corresponde, no terreno, a:
+- 100 m
+- 100 km
+- 1 km
+- 10 km
+E: 100.000 cm equivalem a 1.000 m, isto é, 1 km.
+--- en
+P: On a map with a scale of 1:100,000, 1 cm on the map corresponds on the ground to:
+- 100 m
+- 100 km
+- 1 km
+- 10 km
+E: 100,000 cm equals 1,000 m, that is, 1 km.
+--- es
+P: En un mapa a escala 1:100.000, 1 cm en el mapa corresponde en el terreno a:
+- 100 m
+- 100 km
+- 1 km
+- 10 km
+E: 100.000 cm equivalen a 1.000 m, es decir, 1 km.

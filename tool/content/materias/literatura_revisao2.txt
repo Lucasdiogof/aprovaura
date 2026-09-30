@@ -1,0 +1,43 @@
+=== Teoria literária > Gêneros literários c=3 d=medio
+P: Um narrador que participa da história como personagem e relata os fatos em primeira pessoa é:
+- Eu lírico
+- Narrador onisciente externo
+- Autor empírico
+- Narrador-personagem
+E: O narrador-personagem pertence ao universo narrado e conta os fatos a partir de sua perspectiva.
+--- en
+P: A narrator who takes part in the story as a character and recounts events in the first person is:
+- A lyrical speaker
+- An external omniscient narrator
+- The empirical author
+- A character-narrator
+E: A character-narrator belongs to the narrated world and recounts events from their own perspective.
+--- es
+P: Un narrador que participa en la historia como personaje y relata los hechos en primera persona es:
+- Yo lírico
+- Narrador omnisciente externo
+- Autor empírico
+- Narrador personaje
+E: El narrador personaje forma parte del universo narrado y cuenta los hechos desde su propia perspectiva.
+
+=== Teoria literária > Figuras de linguagem c=1 d=medio
+P: A repetição da mesma palavra ou expressão no início de versos sucessivos é chamada de:
+- Metonímia
+- Anáfora
+- Onomatopeia
+- Eufemismo
+E: Anáfora é a repetição intencional de palavras ou expressões no início de segmentos sucessivos.
+--- en
+P: Repeating the same word or phrase at the beginning of successive lines is called:
+- Metonymy
+- Anaphora
+- Onomatopoeia
+- Euphemism
+E: Anaphora is the intentional repetition of words or phrases at the beginning of successive segments.
+--- es
+P: La repetición de la misma palabra o expresión al comienzo de versos sucesivos se llama:
+- Metonimia
+- Anáfora
+- Onomatopeya
+- Eufemismo
+E: La anáfora es la repetición intencional de palabras o expresiones al comienzo de segmentos sucesivos.

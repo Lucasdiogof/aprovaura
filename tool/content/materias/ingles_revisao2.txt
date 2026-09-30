@@ -1,0 +1,65 @@
+=== Interpretação de textos > Trechos literários c=0 d=medio
+P: Leia: "The lights were off, the door was locked, and no cars were in the parking lot." Qual é a inferência mais razoável?
+- O lugar provavelmente está fechado
+- O lugar certamente está lotado
+- Há um show acontecendo lá dentro
+- O prédio está em reforma
+E: As pistas, em conjunto (luzes apagadas, porta trancada, estacionamento vazio), sugerem que o lugar não está funcionando naquele momento.
+--- en
+P: Read: "The lights were off, the door was locked, and no cars were in the parking lot." What is the most reasonable inference?
+- The place is probably closed
+- The place is definitely crowded
+- A concert is happening inside
+- The building is being renovated
+E: The clues collectively suggest that the place is not operating at that moment.
+--- es
+P: Lee: "The lights were off, the door was locked, and no cars were in the parking lot." ¿Cuál es la inferencia más razonable?
+- El lugar probablemente está cerrado
+- El lugar está definitivamente lleno
+- Hay un concierto dentro
+- El edificio está en reformas
+E: Las pistas, en conjunto, sugieren que el lugar no está funcionando en ese momento.
+
+=== Gramática e estrutura da frase > Tempos verbais c=1 d=dificil
+P: Complete: "If she had left earlier, she ___ the train."
+- will catch
+- would have caught
+- catches
+- would catch
+E: É um third conditional: "if + past perfect" combina com "would have + past participle", para falar de algo que não aconteceu no passado.
+--- en
+P: Complete: "If she had left earlier, she ___ the train."
+- @
+- @
+- @
+- @
+E: This is a third conditional: "if + past perfect" pairs with "would have + past participle".
+--- es
+P: Completa: "If she had left earlier, she ___ the train."
+- @
+- @
+- @
+- @
+E: Es un tercer condicional: "if + past perfect" se combina con "would have + past participle".
+
+=== Expressões idiomáticas > Idioms comuns c=2 d=medio
+P: Qual opção completa a combinação usual em inglês "___ a decision" (tomar uma decisão)?
+- put
+- do
+- make
+- take up
+E: A combinação usual (collocation) é "make a decision"; em inglês não se diz "do a decision".
+--- en
+P: Which option completes the common collocation: "___ a decision"?
+- @
+- @
+- @
+- @
+E: The standard collocation is "make a decision".
+--- es
+P: ¿Qué opción completa la colocación habitual en inglés: "___ a decision"?
+- @
+- @
+- @
+- @
+E: La colocación habitual en inglés es "make a decision".

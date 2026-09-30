@@ -1,0 +1,43 @@
+=== Linguagens artísticas > Artes visuais c=0 d=medio
+P: Em uma pintura, linhas diagonais, forte contraste de luz e poses instáveis tendem a produzir qual efeito visual?
+- Sensação de movimento e tensão
+- Calma e repouso
+- Ausência de profundidade
+- Equilíbrio e simetria
+E: Diagonais e contrastes intensos conduzem o olhar e sugerem dinamismo.
+--- en
+P: In a painting, diagonal lines, strong light contrast, and unstable poses tend to create which visual effect?
+- A sense of movement and tension
+- Calm and rest
+- Lack of depth
+- Balance and symmetry
+E: Diagonals and strong contrasts guide the eye and suggest dynamism.
+--- es
+P: En una pintura, las líneas diagonales, el fuerte contraste de luz y las poses inestables tienden a producir ¿qué efecto visual?
+- Sensación de movimiento y tensión
+- Calma y reposo
+- Ausencia de profundidad
+- Equilibrio y simetría
+E: Las diagonales y los contrastes intensos guían la mirada y sugieren dinamismo.
+
+=== Arquitetura e patrimônio > Patrimônio cultural e preservação c=2 d=medio
+P: Uma celebração tradicional transmitida entre gerações, com saberes, músicas e rituais próprios, é exemplo principalmente de:
+- Patrimônio cultural material
+- Patrimônio geológico
+- Patrimônio cultural imaterial
+- Patrimônio natural
+E: Práticas, saberes, celebrações e formas de expressão transmitidas socialmente integram o patrimônio cultural imaterial.
+--- en
+P: A traditional celebration passed across generations, with its own knowledge, music, and rituals, is mainly an example of:
+- Tangible cultural heritage
+- Geological heritage
+- Intangible cultural heritage
+- Natural heritage
+E: Practices, knowledge, celebrations, and forms of expression transmitted socially are part of intangible cultural heritage.
+--- es
+P: Una celebración tradicional transmitida entre generaciones, con saberes, músicas y rituales propios, es principalmente un ejemplo de:
+- Patrimonio cultural material
+- Patrimonio geológico
+- Patrimonio cultural inmaterial
+- Patrimonio natural
+E: Las prácticas, saberes, celebraciones y formas de expresión transmitidas socialmente forman parte del patrimonio cultural inmaterial.

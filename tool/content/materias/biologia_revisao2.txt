@@ -1,0 +1,65 @@
+=== Ecologia > Cadeias e teias alimentares > Teias alimentares c=3 d=dificil
+P: A retirada de um predador de topo pode aumentar suas presas e, indiretamente, reduzir organismos consumidos por essas presas. Esse efeito é chamado de:
+- Sucessão ecológica
+- Bioacumulação
+- Competição interespecífica
+- Cascata trófica
+E: Uma cascata trófica ocorre quando uma alteração em um nível alimentar desencadeia efeitos indiretos em outros níveis.
+--- en
+P: Removing a top predator may increase its prey and indirectly reduce organisms eaten by those prey. This effect is called:
+- Ecological succession
+- Bioaccumulation
+- Interspecific competition
+- A trophic cascade
+E: A trophic cascade occurs when a change at one feeding level triggers indirect effects across other levels.
+--- es
+P: Retirar un depredador ápice puede aumentar sus presas y, de forma indirecta, reducir organismos consumidos por ellas. Este efecto se llama:
+- Sucesión ecológica
+- Bioacumulación
+- Competencia interespecífica
+- Cascada trófica
+E: Una cascada trófica ocurre cuando una alteración en un nivel alimentario desencadena efectos indirectos en otros niveles.
+
+=== Genética e Biotecnologia > Leis de Mendel e padrões de herança > Primeira Lei de Mendel c=0 d=medio
+P: Em um cruzamento Aa × Aa, com dominância completa, qual é a probabilidade de um descendente apresentar o fenótipo recessivo?
+- 25%
+- 50%
+- 75%
+- 100%
+E: Os genótipos possíveis são AA, Aa, Aa e aa. Apenas aa expressa o fenótipo recessivo: 1 em 4.
+--- en
+P: In an Aa × Aa cross with complete dominance, what is the probability that an offspring shows the recessive phenotype?
+- 25%
+- 50%
+- 75%
+- 100%
+E: The possible genotypes are AA, Aa, Aa, and aa. Only aa expresses the recessive phenotype: 1 in 4.
+--- es
+P: En un cruce Aa × Aa con dominancia completa, ¿cuál es la probabilidad de que un descendiente presente el fenotipo recesivo?
+- 25%
+- 50%
+- 75%
+- 100%
+E: Los genotipos posibles son AA, Aa, Aa y aa. Solo aa expresa el fenotipo recesivo: 1 de 4.
+
+=== Evolução c=1 d=dificil
+P: Uma população bacteriana já possui variantes resistentes e sensíveis antes do uso de um antibiótico. Após vários tratamentos, as resistentes se tornam mais frequentes porque:
+- Todas as bactérias aprendem a resistir
+- O antibiótico favorece a sobrevivência e reprodução das variantes resistentes
+- As bactérias escolhem alterar seus genes
+- O antibiótico produz a mesma mutação dirigida em todas
+E: A seleção natural aumenta a frequência de variantes herdáveis que sobrevivem e se reproduzem melhor no ambiente.
+--- en
+P: A bacterial population already contains resistant and sensitive variants before antibiotic use. After repeated treatments, resistant variants become more frequent because:
+- All bacteria learn to resist
+- The antibiotic favors survival and reproduction of resistant variants
+- Bacteria choose to alter their genes
+- The antibiotic causes the same directed mutation in all bacteria
+E: Natural selection increases the frequency of heritable variants that survive and reproduce better in that environment.
+--- es
+P: Una población bacteriana ya contiene variantes resistentes y sensibles antes del uso de un antibiótico. Tras varios tratamientos, las resistentes se vuelven más frecuentes porque:
+- Todas las bacterias aprenden a resistir
+- El antibiótico favorece la supervivencia y reproducción de las variantes resistentes
+- Las bacterias eligen alterar sus genes
+- El antibiótico produce la misma mutación dirigida en todas
+E: La selección natural aumenta la frecuencia de variantes heredables que sobreviven y se reproducen mejor en ese ambiente.

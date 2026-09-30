@@ -1,0 +1,65 @@
+=== Semântica c=1 d=medio
+P: A frase "Vi o professor com o telescópio" é ambígua porque:
+- Não possui verbo
+- Pode significar que eu usei o telescópio ou que o professor estava com ele
+- Tem duas palavras grafadas incorretamente
+- Só admite uma interpretação
+E: O trecho "com o telescópio" pode se ligar ao verbo "vi" ou ao substantivo "professor", gerando duas leituras.
+--- en
+P: The Portuguese sentence "Vi o professor com o telescópio" is ambiguous because:
+- It has no verb
+- It may mean that I used the telescope or that the teacher had it
+- It contains two misspelled words
+- It allows only one interpretation
+E: The phrase "com o telescópio" can attach to the verb "vi" or to the noun "professor", producing two readings.
+--- es
+P: La frase portuguesa "Vi o professor com o telescópio" es ambigua porque:
+- No tiene verbo
+- Puede significar que yo usé el telescopio o que el profesor lo tenía
+- Contiene dos palabras mal escritas
+- Solo admite una interpretación
+E: El sintagma "com o telescópio" puede vincularse al verbo "vi" o al sustantivo "professor", generando dos lecturas.
+
+=== Sintaxe c=2 d=dificil
+P: Na frase "Embora estivesse cansado, continuou estudando", a oração iniciada por "embora" expressa:
+- Conclusão
+- Causa
+- Concessão
+- Finalidade
+E: "Embora" apresenta uma circunstância contrária que não impede a ação principal; a relação é concessiva.
+--- en
+P: In the Portuguese sentence "Embora estivesse cansado, continuou estudando", the clause introduced by "embora" expresses:
+- Conclusion
+- Cause
+- Concession
+- Purpose
+E: "Embora" introduces a contrary circumstance that does not prevent the main action; the relation is concessive.
+--- es
+P: En la oración portuguesa "Embora estivesse cansado, continuou estudando", la subordinada introducida por "embora" expresa:
+- Conclusión
+- Causa
+- Concesión
+- Finalidad
+E: "Embora" presenta una circunstancia contraria que no impide la acción principal; la relación es concesiva.
+
+=== Redação c=3 d=dificil
+P: A escolha entre uma forma mais formal e uma mais coloquial de falar depende principalmente:
+- Da região onde a pessoa nasceu
+- Da idade de quem fala
+- Do domínio da norma-padrão por quem fala
+- Da situação comunicativa, dos interlocutores e do objetivo
+E: Adequação linguística considera contexto, finalidade e interlocutores; registros diferentes cumprem funções diferentes.
+--- en
+P: Choosing between a more formal and a more colloquial way of speaking mainly depends on:
+- The region where the speaker was born
+- The speaker's age
+- The speaker's command of the standard norm
+- The communicative situation, the interlocutors, and the purpose
+E: Linguistic appropriateness considers context, purpose, and interlocutors; different registers serve different functions.
+--- es
+P: La elección entre una forma más formal y otra más coloquial de hablar depende principalmente:
+- De la región donde nació el hablante
+- De la edad de quien habla
+- Del dominio de la norma estándar por parte de quien habla
+- De la situación comunicativa, los interlocutores y el objetivo
+E: La adecuación lingüística considera contexto, finalidad e interlocutores; distintos registros cumplen funciones diferentes.

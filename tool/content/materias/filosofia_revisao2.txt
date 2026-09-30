@@ -1,0 +1,65 @@
+=== Lógica e conhecimento > Lógica e argumentação c=0 d=medio
+P: No argumento 'Se chove, a rua molha. Chove. Logo, a rua molha', a forma lógica é:
+- Modus ponens
+- Afirmação do consequente
+- Petição de princípio
+- Falso dilema
+E: A estrutura é: se P então Q; P; portanto Q. Essa inferência válida é modus ponens.
+--- en
+P: In the argument 'If it rains, the street gets wet. It rains. Therefore, the street gets wet,' the logical form is:
+- Modus ponens
+- Affirming the consequent
+- Begging the question
+- False dilemma
+E: The structure is: if P then Q; P; therefore Q. This valid inference is modus ponens.
+--- es
+P: En el argumento 'Si llueve, la calle se moja. Llueve. Por lo tanto, la calle se moja', la forma lógica es:
+- Modus ponens
+- Afirmación del consecuente
+- Petición de principio
+- Falso dilema
+E: La estructura es: si P entonces Q; P; por lo tanto Q. Esta inferencia válida es modus ponens.
+
+=== Filosofia política > Contratualistas c=1 d=dificil
+P: Uma diferença importante entre Hobbes e Locke é que:
+- Ambos rejeitam qualquer contrato social
+- Hobbes defende soberania mais ampla, enquanto Locke enfatiza direitos individuais e limites ao governo
+- Locke defende direito divino dos reis
+- Hobbes considera desnecessário o Estado
+E: Ambos são contratualistas, mas divergem sobre direitos, estado de natureza e extensão do poder político.
+--- en
+P: An important difference between Hobbes and Locke is that:
+- Both reject any social contract
+- Hobbes supports broader sovereignty, while Locke emphasizes individual rights and limits on government
+- Locke defends divine-right monarchy
+- Hobbes considers the state unnecessary
+E: Both are contract theorists, but they differ on rights, the state of nature, and the scope of political power.
+--- es
+P: Una diferencia importante entre Hobbes y Locke es que:
+- Ambos rechazan cualquier contrato social
+- Hobbes defiende una soberanía más amplia, mientras Locke enfatiza derechos individuales y límites al gobierno
+- Locke defiende el derecho divino de los reyes
+- Hobbes considera innecesario el Estado
+E: Ambos son contractualistas, pero difieren sobre los derechos, el estado de naturaleza y el alcance del poder político.
+
+=== Lógica e conhecimento > Teoria do conhecimento c=2 d=dificil
+P: Uma hipótese científica é especialmente forte quando:
+- Explica qualquer resultado possível
+- Não pode ser confrontada com evidências
+- Produz previsões testáveis e resiste a testes rigorosos
+- É aceita apenas pela autoridade de quem a propôs
+E: Testabilidade e confronto com evidências são critérios centrais da investigação científica.
+--- en
+P: A scientific hypothesis is especially strong when it:
+- Explains every possible result
+- Cannot be confronted with evidence
+- Makes testable predictions and withstands rigorous testing
+- Is accepted only because of the authority of its author
+E: Testability and confrontation with evidence are central criteria of scientific inquiry.
+--- es
+P: Una hipótesis científica es especialmente sólida cuando:
+- Explica cualquier resultado posible
+- No puede confrontarse con evidencias
+- Produce predicciones comprobables y resiste pruebas rigurosas
+- Se acepta solo por la autoridad de quien la propuso
+E: La posibilidad de prueba y la confrontación con evidencias son criterios centrales de la investigación científica.

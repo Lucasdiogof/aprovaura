@@ -1,0 +1,65 @@
+=== Estequiometria c=0 d=dificil
+P: Na reação 2H₂ + O₂ → 2H₂O, misturam-se 4 mol de H₂ e 1 mol de O₂. Qual é o reagente limitante?
+- O₂
+- H₂
+- H₂O
+- Nenhum
+E: A proporção exige 2 mol de H₂ para 1 mol de O₂. O O₂ acaba primeiro e limita a reação.
+--- en
+P: For 2H₂ + O₂ → 2H₂O, 4 mol of H₂ are mixed with 1 mol of O₂. Which is the limiting reactant?
+- O₂
+- H₂
+- H₂O
+- Neither
+E: The ratio requires 2 mol of H₂ per 1 mol of O₂. O₂ is consumed first and limits the reaction.
+--- es
+P: En 2H₂ + O₂ → 2H₂O, se mezclan 4 mol de H₂ con 1 mol de O₂. ¿Cuál es el reactivo limitante?
+- O₂
+- H₂
+- H₂O
+- Ninguno
+E: La proporción exige 2 mol de H₂ por 1 mol de O₂. El O₂ se consume primero y limita la reacción.
+
+=== Físico-Química c=1 d=dificil
+P: Em um equilíbrio exotérmico, o aumento da temperatura tende a deslocar o equilíbrio:
+- Sempre para os produtos
+- No sentido endotérmico
+- Sem alteração possível
+- Para o lado de maior massa molar
+E: Pelo princípio de Le Châtelier, adicionar calor favorece o sentido que consome calor, ou seja, o endotérmico.
+--- en
+P: In an exothermic equilibrium, increasing temperature tends to shift equilibrium:
+- Always toward products
+- Toward the endothermic direction
+- With no possible change
+- Toward the side with greater molar mass
+E: By Le Châtelier's principle, adding heat favors the direction that consumes heat, namely the endothermic direction.
+--- es
+P: En un equilibrio exotérmico, aumentar la temperatura tiende a desplazar el equilibrio:
+- Siempre hacia los productos
+- Hacia el sentido endotérmico
+- Sin cambio posible
+- Hacia el lado de mayor masa molar
+E: Según el principio de Le Châtelier, añadir calor favorece el sentido que consume calor, es decir, el endotérmico.
+
+=== Físico-Química c=2 d=medio
+P: Em uma pilha galvânica em funcionamento, ocorre:
+- Oxidação nos dois eletrodos
+- Redução no ânodo e oxidação no cátodo
+- Oxidação no ânodo e redução no cátodo
+- Redução nos dois eletrodos
+E: Em pilhas, o ânodo é o local da oxidação e o cátodo, da redução.
+--- en
+P: In an operating galvanic cell:
+- Oxidation occurs at both electrodes
+- Reduction occurs at the anode and oxidation at the cathode
+- Oxidation occurs at the anode and reduction at the cathode
+- Reduction occurs at both electrodes
+E: In galvanic cells, oxidation occurs at the anode and reduction at the cathode.
+--- es
+P: En una pila galvánica en funcionamiento:
+- La oxidación ocurre en ambos electrodos
+- La reducción ocurre en el ánodo y la oxidación en el cátodo
+- La oxidación ocurre en el ánodo y la reducción en el cátodo
+- La reducción ocurre en ambos electrodos
+E: En las pilas, la oxidación ocurre en el ánodo y la reducción en el cátodo.

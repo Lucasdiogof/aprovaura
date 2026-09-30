@@ -1,0 +1,65 @@
+=== Corpo, movimento e saúde > Sistema cardiorrespiratório e exercício c=2 d=medio
+P: Para melhorar a resistência cardiorrespiratória com segurança em iniciantes, qual princípio é mais adequado?
+- Treinar apenas uma vez por mês
+- Começar sempre na intensidade máxima
+- Aumentar gradualmente volume e intensidade
+- Ignorar recuperação e fadiga
+E: A progressão gradual permite adaptação fisiológica e reduz risco de sobrecarga.
+--- en
+P: To improve cardiorespiratory endurance safely in beginners, which principle is most appropriate?
+- Train only once a month
+- Always start at maximum intensity
+- Gradually increase volume and intensity
+- Ignore recovery and fatigue
+E: Gradual progression allows physiological adaptation and reduces overload risk.
+--- es
+P: Para mejorar de forma segura la resistencia cardiorrespiratoria en principiantes, ¿qué principio es más adecuado?
+- Entrenar solo una vez al mes
+- Empezar siempre con intensidad máxima
+- Aumentar gradualmente el volumen y la intensidad
+- Ignorar la recuperación y la fatiga
+E: La progresión gradual permite la adaptación fisiológica y reduce el riesgo de sobrecarga.
+
+=== Esportes coletivos > Basquetebol e handebol c=3 d=medio
+P: Em esportes coletivos de invasão, criar superioridade numérica em uma zona serve principalmente para:
+- Impedir qualquer transição defensiva
+- Paralisar o jogo
+- Eliminar a necessidade de comunicação
+- Aumentar opções de passe e dificultar a marcação
+E: A superioridade numérica cria mais linhas de passe e pode facilitar progressão e finalização.
+--- en
+P: In invasion team sports, creating a numerical advantage in one area mainly serves to:
+- Prevent every defensive transition
+- Stop play
+- Eliminate the need for communication
+- Increase passing options and make defending harder
+E: A numerical advantage creates more passing lanes and can facilitate progression and finishing.
+--- es
+P: En deportes colectivos de invasión, crear superioridad numérica en una zona sirve principalmente para:
+- Impedir cualquier transición defensiva
+- Detener el juego
+- Eliminar la necesidad de comunicación
+- Aumentar las opciones de pase y dificultar la defensa
+E: La superioridad numérica crea más líneas de pase y puede facilitar la progresión y la finalización.
+
+=== Corpo, movimento e saúde > Alimentação, hidratação e atividade física c=0 d=facil
+P: Qual atitude cotidiana ajuda a reduzir o comportamento sedentário?
+- Interromper longos períodos sentado com pequenas pausas ativas
+- Compensar a semana sentado com um único treino longo no fim de semana
+- Usar o elevador em vez da escada
+- Trocar trajetos a pé por trajetos de carro
+E: Quebrar períodos prolongados sentado com movimento leve reduz o tempo sedentário acumulado.
+--- en
+P: Which everyday action helps reduce sedentary behavior?
+- Breaking up long periods of sitting with short active breaks
+- Offsetting a week of sitting with one long workout on the weekend
+- Taking the elevator instead of the stairs
+- Replacing walking trips with car trips
+E: Breaking prolonged sitting with light movement reduces accumulated sedentary time.
+--- es
+P: ¿Qué acción cotidiana ayuda a reducir el comportamiento sedentario?
+- Interrumpir largos períodos sentado con breves pausas activas
+- Compensar la semana sentado con un único entrenamiento largo el fin de semana
+- Usar el ascensor en lugar de la escalera
+- Cambiar los trayectos a pie por trayectos en coche
+E: Interrumpir períodos prolongados sentado con movimiento ligero reduce el tiempo sedentario acumulado.

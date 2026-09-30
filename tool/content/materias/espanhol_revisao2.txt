@@ -1,0 +1,65 @@
+=== Coesão e coerência > Conectores e conjunções c=1 d=medio
+P: Leia: "Aunque Marta había estudiado mucho, algunas preguntas del examen la sorprendieron." O que se pode inferir?
+- Marta não estudou
+- Marta se preparou, mas encontrou questões inesperadas
+- A prova foi cancelada
+- Marta conhecia todas as perguntas antes
+E: O conector "aunque" marca contraste entre ter estudado e ainda assim encontrar surpresas.
+--- en
+P: Read: "Aunque Marta había estudiado mucho, algunas preguntas del examen la sorprendieron." What can be inferred?
+- Marta did not study
+- Marta prepared, but encountered unexpected questions
+- The exam was canceled
+- Marta knew all questions in advance
+E: The connector "aunque" marks a contrast between studying and still encountering surprises.
+--- es
+P: Lee: "Aunque Marta había estudiado mucho, algunas preguntas del examen la sorprendieron." ¿Qué se puede inferir?
+- Marta no estudió
+- Marta se preparó, pero encontró preguntas inesperadas
+- El examen fue cancelado
+- Marta conocía todas las preguntas de antemano
+E: El conector "aunque" marca un contraste entre haber estudiado y aun así encontrar sorpresas.
+
+=== Gramática e estrutura da frase > Pretérito perfeito simples e composto c=2 d=dificil
+P: Complete: "Cuando llegué a casa, mi hermano ya ___ la cena."
+- prepara
+- preparará
+- había preparado
+- prepararía
+E: O pretérito mais-que-perfeito "había preparado" indica uma ação concluída antes de outra ação passada ("llegué").
+--- en
+P: Complete: "Cuando llegué a casa, mi hermano ya ___ la cena."
+- @
+- @
+- @
+- @
+E: The Spanish pluperfect "había preparado" expresses an action completed before another past action.
+--- es
+P: Completa: "Cuando llegué a casa, mi hermano ya ___ la cena."
+- @
+- @
+- @
+- @
+E: El pluscuamperfecto "había preparado" expresa una acción anterior a otra acción pasada.
+
+=== Vocabulário em contexto > Falsos amigos com o português c=3 d=medio
+P: Em espanhol, na frase "La carpeta está sobre la mesa", a palavra "carpeta" significa:
+- Caderno
+- Carpete
+- Carteira de dinheiro
+- Pasta ou fichário
+E: Em espanhol, "carpeta" costuma significar pasta ou fichário; "carpete" corresponde a "alfombra" ou "moqueta".
+--- en
+P: In Spanish, in the sentence "La carpeta está sobre la mesa", the word "carpeta" means:
+- Notebook
+- Carpet
+- Wallet
+- Folder or binder
+E: In Spanish, "carpeta" commonly means folder or binder; a carpet is "alfombra" or "moqueta".
+--- es
+P: La palabra "carpeta" en español a veces se confunde con "carpete" en portugués (alfombra). ¿Qué significa "carpeta" en español?
+- Cuaderno
+- Alfombra
+- Cartera
+- Objeto para guardar papeles
+E: En español, "carpeta" es el objeto para guardar papeles; lo que en portugués se llama "carpete" en español es "alfombra" o "moqueta".
