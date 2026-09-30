@@ -485,22 +485,22 @@ E: El Movimiento Antropofágico proponía "devorar" referencias extranjeras y re
 === Movimentos artísticos brasileiros > Modernismo c=2 d=dificil
 P: Qual é uma característica formal comum nas obras modernistas brasileiras da década de 1920?
 - Detalhismo fotográfico extremo
-- Simplificação de formas e cores fortes, com temas ligados à identidade nacional
 - Ausência total de cor
+- Simplificação de formas e cores fortes, com temas ligados à identidade nacional
 - Uso exclusivo de tons sépia
 E: As obras modernistas dos anos 1920 costumam apresentar simplificação de formas e cores fortes, com temas nacionais.
 --- en
 P: What is a common formal characteristic of Brazilian modernist works from the 1920s?
 - Extreme photographic detail
-- Simplification of forms and strong colors, with themes linked to national identity
 - Total absence of color
+- Simplification of forms and strong colors, with themes linked to national identity
 - Exclusive use of sepia tones
 E: Modernist works from the 1920s usually show simplification of forms and strong colors, with national themes.
 --- es
 P: ¿Cuál es una característica formal común en las obras modernistas brasileñas de la década de 1920?
 - Detallismo fotográfico extremo
-- Simplificación de formas y colores fuertes, con temas ligados a la identidad nacional
 - Ausencia total de color
+- Simplificación de formas y colores fuertes, con temas ligados a la identidad nacional
 - Uso exclusivo de tonos sepia
 E: Las obras modernistas de los años 1920 suelen presentar simplificación de formas y colores fuertes, con temas nacionales.
 

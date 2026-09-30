@@ -177,22 +177,22 @@ E: Claude Monet es conocido por su serie de pinturas de nenúfares.
 === Movimentos artísticos internacionais > Impressionismo c=2 d=medio
 P: Uma das técnicas associadas ao Impressionismo é o uso de pinceladas curtas e visíveis. Qual é o principal objetivo dessa técnica?
 - Ocultar completamente a superfície da tela
-- Capturar a sensação de luz e movimento em vez de detalhes precisos
 - Criar um efeito totalmente liso e sem textura
+- Capturar a sensação de luz e movimento em vez de detalhes precisos
 - Imitar exatamente uma fotografia
 E: As pinceladas curtas e visíveis buscam capturar a sensação de luz e movimento em vez de detalhes precisos.
 --- en
 P: One of the techniques associated with Impressionism is the use of short, visible brushstrokes. What is the main purpose of this technique?
 - To completely hide the surface of the canvas
-- To capture the sensation of light and movement rather than precise detail
 - To create a completely smooth, textureless effect
+- To capture the sensation of light and movement rather than precise detail
 - To imitate a photograph exactly
 E: Short, visible brushstrokes aim to capture the sensation of light and movement rather than precise detail.
 --- es
 P: Una de las técnicas asociadas al Impresionismo es el uso de pinceladas cortas y visibles. ¿Cuál es el principal objetivo de esta técnica?
 - Ocultar completamente la superficie del lienzo
-- Capturar la sensación de luz y movimiento en lugar de detalles precisos
 - Crear un efecto totalmente liso y sin textura
+- Capturar la sensación de luz y movimiento en lugar de detalles precisos
 - Imitar exactamente una fotografía
 E: Las pinceladas cortas y visibles buscan capturar la sensación de luz y movimiento en lugar de detalles precisos.
 
@@ -529,22 +529,22 @@ E: La dinámica se refiere a las variaciones de volumen/intensidad sonora a lo l
 === Música > História da música popular brasileira c=2 d=facil
 P: O samba, um dos gêneros mais representativos da música popular brasileira, tem origem histórica ligada a:
 - Tradições europeias medievais
-- Manifestações culturais afro-brasileiras, especialmente no Rio de Janeiro
 - Músicas eletrônicas contemporâneas
+- Manifestações culturais afro-brasileiras, especialmente no Rio de Janeiro
 - Óperas italianas clássicas
 E: O samba tem origem histórica ligada a manifestações culturais afro-brasileiras, especialmente no Rio de Janeiro.
 --- en
 P: Samba, one of the most representative genres of Brazilian popular music, has historical origins linked to:
 - Medieval European traditions
-- Afro-Brazilian cultural manifestations, especially in Rio de Janeiro
 - Contemporary electronic music
+- Afro-Brazilian cultural manifestations, especially in Rio de Janeiro
 - Classical Italian operas
 E: Samba has historical origins linked to Afro-Brazilian cultural manifestations, especially in Rio de Janeiro.
 --- es
 P: El samba, uno de los géneros más representativos de la música popular brasileña, tiene origen histórico ligado a:
 - Tradiciones europeas medievales
-- Manifestaciones culturales afrobrasileñas, especialmente en Río de Janeiro
 - Músicas electrónicas contemporáneas
+- Manifestaciones culturales afrobrasileñas, especialmente en Río de Janeiro
 - Óperas italianas clásicas
 E: El samba tiene origen histórico ligado a manifestaciones culturales afrobrasileñas, especialmente en Río de Janeiro.
 

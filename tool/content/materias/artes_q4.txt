@@ -44,24 +44,24 @@ E: El primer plano es un encuadre cercano, generalmente enfocado en el rostro de
 
 === Cinema e audiovisual > Linguagem cinematográfica c=0 d=medio
 P: O que é montagem, em cinema?
-- A escolha do elenco antes das filmagens
+- O processo de selecionar e organizar os planos filmados para construir a narrativa
 - A criação do roteiro original
 - A escolha das roupas dos personagens
-- O processo de selecionar e organizar os planos filmados para construir a narrativa
+- A escolha do elenco antes das filmagens
 E: A montagem é o processo de selecionar e organizar os planos filmados para construir a narrativa.
 --- en
 P: What is editing, in film?
-- Choosing the cast before filming
+- The process of selecting and arranging filmed shots to build the narrative
 - Creating the original script
 - Choosing the characters' clothes
-- The process of selecting and arranging filmed shots to build the narrative
+- Choosing the cast before filming
 E: Editing is the process of selecting and arranging filmed shots to build the narrative.
 --- es
 P: ¿Qué es el montaje, en el cine?
-- La elección del elenco antes de las filmaciones
+- El proceso de seleccionar y organizar los planos filmados para construir la narrativa
 - La creación del guion original
 - La elección de la ropa de los personajes
-- El proceso de seleccionar y organizar los planos filmados para construir la narrativa
+- La elección del elenco antes de las filmaciones
 E: El montaje es el proceso de seleccionar y organizar los planos filmados para construir la narrativa.
 
 === Cinema e audiovisual > Linguagem cinematográfica c=1 d=medio
@@ -308,24 +308,24 @@ E: "Guernica" denuncia los horrores de la guerra, específicamente el bombardeo 
 
 === Arte e sociedade > Arte engajada e política c=0 d=medio
 P: A música de protesto, gênero que ganhou força no Brasil durante a ditadura militar, tinha como característica:
-- Evitar qualquer crítica ao governo
+- Usar metáforas e letras para criticar a censura e o regime autoritário
 - Ser produzida exclusivamente fora do Brasil
 - Ser um gênero puramente instrumental sem letras
-- Usar metáforas e letras para criticar a censura e o regime autoritário
+- Evitar qualquer crítica ao governo
 E: A música de protesto usava metáforas e letras para criticar a censura e o regime autoritário.
 --- en
 P: Protest music, a genre that gained strength in Brazil during the military dictatorship, was characterized by:
-- Avoiding any criticism of the government
+- Using metaphors and lyrics to criticize censorship and the authoritarian regime
 - Being produced exclusively outside Brazil
 - Being a purely instrumental genre with no lyrics
-- Using metaphors and lyrics to criticize censorship and the authoritarian regime
+- Avoiding any criticism of the government
 E: Protest music used metaphors and lyrics to criticize censorship and the authoritarian regime.
 --- es
 P: La música de protesta, género que cobró fuerza en Brasil durante la dictadura militar, se caracterizaba por:
-- Evitar cualquier crítica al gobierno
+- Usar metáforas y letras para criticar la censura y el régimen autoritario
 - Ser producida exclusivamente fuera de Brasil
 - Ser un género puramente instrumental sin letras
-- Usar metáforas y letras para criticar la censura y el régimen autoritario
+- Evitar cualquier crítica al gobierno
 E: La música de protesta usaba metáforas y letras para criticar la censura y el régimen autoritario.
 
 === Arte e sociedade > Arte engajada e política c=1 d=medio
@@ -396,46 +396,46 @@ E: La censura enfrentada por artistas muestra que el arte comprometido puede ent
 
 === Arte e sociedade > Indústria cultural c=0 d=facil
 P: O termo "indústria cultural" se refere a:
-- Apenas a produção artesanal individual
+- A produção e distribuição em massa de bens culturais, como filmes, música e programas de TV
 - Exclusivamente obras de arte únicas em museus
 - Um conceito exclusivo da música clássica europeia
-- A produção e distribuição em massa de bens culturais, como filmes, música e programas de TV
+- Apenas a produção artesanal individual
 E: A indústria cultural se refere à produção e distribuição em massa de bens culturais.
 --- en
 P: The term "cultural industry" refers to:
-- Only individual craft production
+- The mass production and distribution of cultural goods, such as films, music and TV shows
 - Exclusively unique works of art in museums
 - A concept exclusive to European classical music
-- The mass production and distribution of cultural goods, such as films, music and TV shows
+- Only individual craft production
 E: The cultural industry refers to the mass production and distribution of cultural goods.
 --- es
 P: El término "industria cultural" se refiere a:
-- Solo la producción artesanal individual
+- La producción y distribución masiva de bienes culturales, como películas, música y programas de televisión
 - Exclusivamente obras de arte únicas en museos
 - Un concepto exclusivo de la música clásica europea
-- La producción y distribución masiva de bienes culturales, como películas, música y programas de televisión
+- Solo la producción artesanal individual
 E: La industria cultural se refiere a la producción y distribución masiva de bienes culturales.
 
 === Arte e sociedade > Indústria cultural c=1 d=facil
 P: Um exemplo típico de produto da indústria cultural contemporânea é:
 - Uma pintura rupestre pré-histórica
-- Uma escultura única exposta em um museu
-- Um manuscrito medieval original
 - Uma série de streaming produzida para um grande público
+- Um manuscrito medieval original
+- Uma escultura única exposta em um museu
 E: Uma série de streaming produzida para um grande público é um exemplo típico de produto da indústria cultural.
 --- en
 P: A typical example of a contemporary cultural industry product is:
 - A prehistoric cave painting
-- A unique sculpture displayed in a museum
-- An original medieval manuscript
 - A streaming series produced for a large audience
+- An original medieval manuscript
+- A unique sculpture displayed in a museum
 E: A streaming series produced for a large audience is a typical example of a cultural industry product.
 --- es
 P: Un ejemplo típico de producto de la industria cultural contemporánea es:
 - Una pintura rupestre prehistórica
-- Una escultura única expuesta en un museo
-- Un manuscrito medieval original
 - Una serie de streaming producida para un gran público
+- Un manuscrito medieval original
+- Una escultura única expuesta en un museo
 E: Una serie de streaming producida para un gran público es un ejemplo típico de producto de la industria cultural.
 
 === Arte e sociedade > Indústria cultural c=2 d=medio
@@ -484,46 +484,46 @@ E: Las plataformas de streaming transformaron el consumo de películas, series y
 
 === Arte e sociedade > Indústria cultural c=0 d=dificil
 P: A globalização da indústria cultural pode gerar, entre outros efeitos:
-- O fim total da produção cultural local
+- A circulação mais ampla de produtos culturais, mas também riscos de homogeneização cultural
 - A eliminação de qualquer intercâmbio cultural
 - A garantia automática de valorização das culturas locais
-- A circulação mais ampla de produtos culturais, mas também riscos de homogeneização cultural
+- O fim total da produção cultural local
 E: A globalização pode gerar circulação mais ampla de produtos culturais, mas também riscos de homogeneização cultural.
 --- en
 P: The globalization of the cultural industry can generate, among other effects:
-- The total end of local cultural production
+- Wider circulation of cultural products, but also risks of cultural homogenization
 - The elimination of any cultural exchange
 - The automatic guarantee of valuing local cultures
-- Wider circulation of cultural products, but also risks of cultural homogenization
+- The total end of local cultural production
 E: Globalization can generate wider circulation of cultural products, but also risks of cultural homogenization.
 --- es
 P: La globalización de la industria cultural puede generar, entre otros efectos:
-- El fin total de la producción cultural local
+- Una circulación más amplia de productos culturales, pero también riesgos de homogeneización cultural
 - La eliminación de cualquier intercambio cultural
 - La garantía automática de valoración de las culturas locales
-- Una circulación más amplia de productos culturales, pero también riesgos de homogeneización cultural
+- El fin total de la producción cultural local
 E: La globalización puede generar una circulación más amplia de productos culturales, pero también riesgos de homogeneización cultural.
 
 === Arte e sociedade > Indústria cultural c=1 d=dificil
 P: A relação entre indústria cultural e identidade cultural local é frequentemente discutida porque:
 - Não existe nenhuma tensão entre elas
-- A indústria cultural sempre fortalece automaticamente as culturas locais
-- Elas nunca se relacionam de forma alguma
 - Grandes produções globais podem coexistir e, por vezes, competir com expressões culturais locais
+- Elas nunca se relacionam de forma alguma
+- A indústria cultural sempre fortalece automaticamente as culturas locais
 E: Grandes produções globais podem coexistir e, por vezes, competir com expressões culturais locais.
 --- en
 P: The relationship between the cultural industry and local cultural identity is often discussed because:
 - There is no tension between them at all
-- The cultural industry always automatically strengthens local cultures
-- They never relate to each other in any way
 - Large global productions can coexist and sometimes compete with local cultural expressions
+- They never relate to each other in any way
+- The cultural industry always automatically strengthens local cultures
 E: Large global productions can coexist and sometimes compete with local cultural expressions.
 --- es
 P: La relación entre la industria cultural y la identidad cultural local se discute frecuentemente porque:
 - No existe ninguna tensión entre ellas
-- La industria cultural siempre fortalece automáticamente las culturas locales
-- Nunca se relacionan de ninguna forma
 - Las grandes producciones globales pueden coexistir y, a veces, competir con expresiones culturales locales
+- Nunca se relacionan de ninguna forma
+- La industria cultural siempre fortalece automáticamente las culturas locales
 E: Las grandes producciones globales pueden coexistir y, a veces, competir con expresiones culturales locales.
 
 === Arte e sociedade > Arte digital e novas mídias c=2 d=facil
@@ -618,22 +618,22 @@ E: El net art se crea y/o distribuye utilizando internet como medio o soporte.
 P: A arte digital tem levantado debates sobre autoria e originalidade, especialmente com o uso de:
 - Técnicas exclusivamente manuais e artesanais
 - Materiais tradicionais como mármore e bronze
-- Técnicas restritas ao século XV
 - Inteligência artificial na geração de imagens e obras
+- Técnicas restritas ao século XV
 E: A arte digital tem levantado debates sobre autoria e originalidade, especialmente com o uso de inteligência artificial.
 --- en
 P: Digital art has raised debates about authorship and originality, especially with the use of:
 - Exclusively manual, handmade techniques
 - Traditional materials such as marble and bronze
-- Techniques restricted to the 15th century
 - Artificial intelligence in generating images and works
+- Techniques restricted to the 15th century
 E: Digital art has raised debates about authorship and originality, especially with the use of artificial intelligence.
 --- es
 P: El arte digital ha generado debates sobre autoría y originalidad, especialmente con el uso de:
 - Técnicas exclusivamente manuales y artesanales
 - Materiales tradicionales como el mármol y el bronce
-- Técnicas restringidas al siglo XV
 - Inteligencia artificial en la generación de imágenes y obras
+- Técnicas restringidas al siglo XV
 E: El arte digital ha generado debates sobre autoría y originalidad, especialmente con el uso de inteligencia artificial.
 
 === Arte e sociedade > Arte digital e novas mídias c=3 d=dificil

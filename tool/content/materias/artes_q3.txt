@@ -375,23 +375,23 @@ E: Esta combinación refleja el sincretismo cultural característico de la forma
 === Cultura popular e folclore > Festas e tradições populares c=1 d=dificil
 P: O reconhecimento de festas populares como patrimônio cultural imaterial busca principalmente:
 - Proibir a realização dessas festas
-- Transformar as festas em propriedade exclusiva do Estado
-- Restringir a festa a um público pagante
 - Valorizar e apoiar a continuidade dessas manifestações culturais
+- Restringir a festa a um público pagante
+- Transformar as festas em propriedade exclusiva do Estado
 E: O reconhecimento como patrimônio imaterial busca valorizar e apoiar a continuidade dessas manifestações culturais.
 --- en
 P: The recognition of popular festivals as intangible cultural heritage mainly aims to:
 - Prohibit these festivals from taking place
-- Turn the festivals into exclusive state property
-- Restrict the festival to a paying audience
 - Value and support the continuity of these cultural manifestations
+- Restrict the festival to a paying audience
+- Turn the festivals into exclusive state property
 E: Recognition as intangible heritage aims to value and support the continuity of these cultural manifestations.
 --- es
 P: El reconocimiento de fiestas populares como patrimonio cultural inmaterial busca principalmente:
 - Prohibir la realización de esas fiestas
-- Transformar las fiestas en propiedad exclusiva del Estado
-- Restringir la fiesta a un público pagante
 - Valorar y apoyar la continuidad de esas manifestaciones culturales
+- Restringir la fiesta a un público pagante
+- Transformar las fiestas en propiedad exclusiva del Estado
 E: El reconocimiento como patrimonio inmaterial busca valorar y apoyar la continuidad de esas manifestaciones culturales.
 
 === Cultura popular e folclore > Artesanato e cultura material c=2 d=facil
@@ -440,24 +440,24 @@ E: La cerámica marajoara es un ejemplo de artesanía tradicional brasileña con
 
 === Cultura popular e folclore > Artesanato e cultura material c=0 d=medio
 P: O que se entende por "cultura material" em estudos culturais?
-- Apenas ideias e crenças, sem qualquer objeto físico
+- O conjunto de objetos físicos produzidos por uma sociedade, que refletem seus valores e práticas
 - Apenas leis e normas jurídicas
 - Exclusivamente obras digitais
-- O conjunto de objetos físicos produzidos por uma sociedade, que refletem seus valores e práticas
+- Apenas ideias e crenças, sem qualquer objeto físico
 E: Cultura material é o conjunto de objetos físicos produzidos por uma sociedade, refletindo seus valores e práticas.
 --- en
 P: What is meant by "material culture" in cultural studies?
-- Only ideas and beliefs, with no physical object
+- The set of physical objects produced by a society, reflecting its values and practices
 - Only laws and legal norms
 - Exclusively digital works
-- The set of physical objects produced by a society, reflecting its values and practices
+- Only ideas and beliefs, with no physical object
 E: Material culture is the set of physical objects produced by a society, reflecting its values and practices.
 --- es
 P: ¿Qué se entiende por "cultura material" en los estudios culturales?
-- Solo ideas y creencias, sin ningún objeto físico
+- El conjunto de objetos físicos producidos por una sociedad, que reflejan sus valores y prácticas
 - Solo leyes y normas jurídicas
 - Exclusivamente obras digitales
-- El conjunto de objetos físicos producidos por una sociedad, que reflejan sus valores y prácticas
+- Solo ideas y creencias, sin ningún objeto físico
 E: La cultura material es el conjunto de objetos físicos producidos por una sociedad, reflejando sus valores y prácticas.
 
 === Cultura popular e folclore > Artesanato e cultura material c=1 d=medio
