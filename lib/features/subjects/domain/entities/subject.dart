@@ -13,6 +13,7 @@ enum Subject {
   sociologia,
   literatura,
   ingles,
+  espanhol,
   atualidades,
 
   /// Not a question bank: the essay feature (themes, writing, AI marking).
@@ -36,6 +37,7 @@ enum Subject {
     Subject.sociologia => Icons.groups_outlined,
     Subject.literatura => Icons.auto_stories_outlined,
     Subject.ingles => Icons.translate_outlined,
+    Subject.espanhol => Icons.language_outlined,
     Subject.atualidades => Icons.newspaper_outlined,
     Subject.redacao => Icons.edit_note_rounded,
   };
@@ -52,6 +54,7 @@ enum Subject {
     Subject.sociologia => const Color(0xFF3FA7B5),
     Subject.literatura => const Color(0xFFB5577E),
     Subject.ingles => const Color(0xFF2E86C1),
+    Subject.espanhol => const Color(0xFFD1495B),
     Subject.atualidades => const Color(0xFF6B7B8C),
     // The brand violet: Redação is its own thing, not a subject accent.
     Subject.redacao => const Color(0xFF8B5CF6),
@@ -112,6 +115,11 @@ enum Subject {
       AppLanguage.portuguese => 'Inglês',
       AppLanguage.english => 'English',
       AppLanguage.spanish => 'Inglés',
+    },
+    Subject.espanhol => switch (language) {
+      AppLanguage.portuguese => 'Espanhol',
+      AppLanguage.english => 'Spanish',
+      AppLanguage.spanish => 'Español',
     },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese => 'Atualidades',
@@ -189,6 +197,11 @@ enum Subject {
       AppLanguage.portuguese => 'Leitura, gramática e vocabulário em inglês.',
       AppLanguage.english => 'Reading, grammar and vocabulary in English.',
       AppLanguage.spanish => 'Lectura, gramática y vocabulario en inglés.',
+    },
+    Subject.espanhol => switch (language) {
+      AppLanguage.portuguese => 'Leitura, gramática e vocabulário em espanhol.',
+      AppLanguage.english => 'Reading, grammar and vocabulary in Spanish.',
+      AppLanguage.spanish => 'Lectura, gramática y vocabulario en español.',
     },
     Subject.atualidades => switch (language) {
       AppLanguage.portuguese =>

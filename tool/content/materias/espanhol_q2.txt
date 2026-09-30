@@ -1,0 +1,659 @@
+=== Gramática e estrutura da frase > Ser e estar c=2 d=facil
+P: Complete: "Ella ___ médica." (profissão, característica permanente)
+- está
+- estás
+- es
+- son
+E: Para profissão/característica permanente, usa-se "ser": "es".
+--- en
+P: Complete: "Ella ___ médica." (profession, permanent characteristic)
+- está
+- estás
+- es
+- son
+E: For professions/permanent characteristics, Spanish uses "ser": "es".
+--- es
+P: Completa: "Ella ___ médica." (profesión, característica permanente)
+- @
+- @
+- @
+- @
+E: Para profesión/característica permanente, se usa "ser": "es".
+
+=== Gramática e estrutura da frase > Ser e estar c=3 d=facil
+P: Complete: "Los niños ___ cansados después de jugar." (estado temporário)
+- son
+- es
+- está
+- están
+E: Para estado temporário, usa-se "estar": "están" (concordando com "los niños").
+--- en
+P: Complete: "Los niños ___ cansados después de jugar." (temporary state)
+- son
+- es
+- está
+- están
+E: For a temporary state, Spanish uses "estar": "están" (agreeing with "los niños").
+--- es
+P: Completa: "Los niños ___ cansados después de jugar." (estado temporal)
+- @
+- @
+- @
+- @
+E: Para estado temporal, se usa "estar": "están" (concordando con "los niños").
+
+=== Gramática e estrutura da frase > Ser e estar c=0 d=medio
+P: Complete: "Hoy ___ lunes." (data)
+- es
+- está
+- eres
+- fue
+E: Para dias da semana/datas, usa-se "ser": "es".
+--- en
+P: Complete: "Hoy ___ lunes." (date)
+- es
+- está
+- eres
+- fue
+E: For days of the week/dates, Spanish uses "ser": "es".
+--- es
+P: Completa: "Hoy ___ lunes." (fecha)
+- @
+- @
+- @
+- @
+E: Para días de la semana/fechas, se usa "ser": "es".
+
+=== Gramática e estrutura da frase > Ser e estar c=1 d=medio
+P: Complete: "La puerta ___ abierta." (resultado de uma ação, estado)
+- es
+- está
+- son
+- eres
+E: "Estar" é usado para expressar o resultado de uma ação/estado: "está abierta".
+--- en
+P: Complete: "La puerta ___ abierta." (result of an action, state)
+- es
+- está
+- son
+- eres
+E: "Estar" is used to express the result of an action/state: "está abierta".
+--- es
+P: Completa: "La puerta ___ abierta." (resultado de una acción, estado)
+- @
+- @
+- @
+- @
+E: "Estar" se usa para expresar el resultado de una acción/estado: "está abierta".
+
+=== Gramática e estrutura da frase > Ser e estar c=2 d=dificil
+P: Complete, expressando uma impressão em um momento específico: "¡Qué guapa ___ hoy!"
+- es
+- son
+- estás
+- eres
+E: "Estar" com adjetivos pode expressar uma impressão/percepção em um momento específico: "estás" (hoje, especificamente).
+--- en
+P: Complete, expressing an impression at a specific moment: "¡Qué guapa ___ hoy!"
+- es
+- son
+- estás
+- eres
+E: "Estar" with adjectives can express an impression at a specific moment: "estás" (today, specifically).
+--- es
+P: Completa, expresando una impresión en un momento específico: "¡Qué guapa ___ hoy!"
+- @
+- @
+- @
+- @
+E: "Estar" con adjetivos puede expresar una impresión en un momento específico: "estás" (hoy, específicamente).
+
+=== Gramática e estrutura da frase > Ser e estar c=3 d=dificil
+P: Complete, indicando localização de um evento: "La boda ___ en la iglesia del pueblo."
+- está
+- son
+- estás
+- es
+E: Para localização de EVENTOS (não de lugares físicos), usa-se "ser": "es" ("la boda es en la iglesia").
+--- en
+P: Complete, indicating the location of an event: "La boda ___ en la iglesia del pueblo."
+- está
+- son
+- estás
+- es
+E: For the location of EVENTS (not physical places), Spanish uses "ser": "es" ("la boda es en la iglesia").
+--- es
+P: Completa, indicando la ubicación de un evento: "La boda ___ en la iglesia del pueblo."
+- @
+- @
+- @
+- @
+E: Para la ubicación de EVENTOS (no de lugares físicos), se usa "ser": "es" ("la boda es en la iglesia").
+
+=== Gramática e estrutura da frase > Pretérito perfeito simples e composto c=0 d=facil
+P: Complete, uma ação concluída no passado, sem conexão com o presente: "Ayer ___ al cine." (pretérito simples)
+- fui
+- he ido
+- iré
+- iba
+E: "Ayer" (ontem) pede pretérito perfeito simples: "fui".
+--- en
+P: Complete, a completed action in the past, unrelated to the present: "Ayer ___ al cine." (simple preterite)
+- fui
+- he ido
+- iré
+- iba
+E: "Ayer" (yesterday) calls for the simple preterite: "fui".
+--- es
+P: Completa, una acción concluida en el pasado, sin conexión con el presente: "Ayer ___ al cine." (pretérito simple)
+- @
+- @
+- @
+- @
+E: "Ayer" pide el pretérito perfecto simple: "fui".
+
+=== Gramática e estrutura da frase > Pretérito perfeito simples e composto c=1 d=facil
+P: Complete, uma ação passada com relevância no presente: "Esta semana ___ mucho trabajo." (pretérito composto)
+- tuve
+- he tenido
+- tendré
+- tenía
+E: "Esta semana" (período ainda não encerrado) pede pretérito perfeito composto: "he tenido".
+--- en
+P: Complete, a past action still relevant to the present: "Esta semana ___ mucho trabajo." (compound preterite)
+- tuve
+- he tenido
+- tendré
+- tenía
+E: "Esta semana" (a period not yet over) calls for the compound preterite: "he tenido".
+--- es
+P: Completa, una acción pasada con relevancia en el presente: "Esta semana ___ mucho trabajo." (pretérito compuesto)
+- @
+- @
+- @
+- @
+E: "Esta semana" (periodo aún no terminado) pide el pretérito perfecto compuesto: "he tenido".
+
+=== Gramática e estrutura da frase > Pretérito perfeito simples e composto c=2 d=medio
+P: Complete, uma experiência de vida sem tempo específico: "Nunca ___ en España."
+- estuve
+- estaba
+- he estado
+- estaré
+E: "Nunca" (experiência de vida até agora) pede pretérito perfeito composto: "he estado".
+--- en
+P: Complete, a life experience with no specific time: "Nunca ___ en España."
+- estuve
+- estaba
+- he estado
+- estaré
+E: "Nunca" (a life experience up to now) calls for the compound preterite: "he estado".
+--- es
+P: Completa, una experiencia de vida sin tiempo específico: "Nunca ___ en España."
+- @
+- @
+- @
+- @
+E: "Nunca" (experiencia de vida hasta ahora) pide el pretérito perfecto compuesto: "he estado".
+
+=== Gramática e estrutura da frase > Pretérito perfeito simples e composto c=3 d=medio
+P: Complete, com um marcador de tempo passado e encerrado: "El año pasado ___ a España."
+- he ido
+- iba
+- voy
+- fui
+E: "El año pasado" (período encerrado) pede pretérito perfeito simples: "fui".
+--- en
+P: Complete, with a finished-past time marker: "El año pasado ___ a España."
+- he ido
+- iba
+- voy
+- fui
+E: "El año pasado" (a finished period) calls for the simple preterite: "fui".
+--- es
+P: Completa, con un marcador de tiempo pasado y terminado: "El año pasado ___ a España."
+- @
+- @
+- @
+- @
+E: "El año pasado" (periodo terminado) pide el pretérito perfecto simple: "fui".
+
+=== Gramática e estrutura da frase > Pretérito perfeito simples e composto c=0 d=dificil
+P: Complete, ação concluída num momento específico e encerrado do passado: "En 2010, ella ___ a vivir a México."
+- se fue
+- se ha ido
+- se va
+- se iba
+E: Com data específica no passado ("en 2010"), usa-se pretérito perfeito simples: "se fue".
+--- en
+P: Complete, an action completed at a specific, closed moment in the past: "En 2010, ella ___ a vivir a México."
+- se fue
+- se ha ido
+- se va
+- se iba
+E: With a specific past date ("en 2010"), Spanish uses the simple preterite: "se fue".
+--- es
+P: Completa, una acción concluida en un momento específico y cerrado del pasado: "En 2010, ella ___ a vivir a México."
+- @
+- @
+- @
+- @
+E: Con una fecha específica en el pasado ("en 2010"), se usa el pretérito perfecto simple: "se fue".
+
+=== Gramática e estrutura da frase > Pretérito perfeito simples e composto c=1 d=dificil
+P: Complete, destacando o resultado atual de uma ação recente: "Todavía no ___ la tarea."
+- hice
+- he hecho
+- hago
+- hacía
+E: "Todavía no" (ainda não, com relevância no presente) pede pretérito perfeito composto: "he hecho".
+--- en
+P: Complete, highlighting the current result of a recent action: "Todavía no ___ la tarea."
+- hice
+- he hecho
+- hago
+- hacía
+E: "Todavía no" (not yet, relevant to the present) calls for the compound preterite: "he hecho".
+--- es
+P: Completa, destacando el resultado actual de una acción reciente: "Todavía no ___ la tarea."
+- @
+- @
+- @
+- @
+E: "Todavía no" (relevancia en el presente) pide el pretérito perfecto compuesto: "he hecho".
+
+=== Gramática e estrutura da frase > Comparativo e superlativo c=2 d=facil
+P: Complete: "Mi hermano es ___ que yo." (comparativo de "alto")
+- alto
+- el más alto
+- más alto
+- tan alto
+E: O comparativo de superioridade em espanhol usa "más + adjetivo + que": "más alto que".
+--- en
+P: Complete: "Mi hermano es ___ que yo." (comparative of "alto")
+- alto
+- el más alto
+- más alto
+- tan alto
+E: The comparative of superiority in Spanish uses "más + adjective + que": "más alto que".
+--- es
+P: Completa: "Mi hermano es ___ que yo." (comparativo de "alto")
+- @
+- @
+- @
+- @
+E: El comparativo de superioridad en español usa "más + adjetivo + que": "más alto que".
+
+=== Gramática e estrutura da frase > Comparativo e superlativo c=3 d=facil
+P: Complete: "Esta es ___ pizza que he comido." (superlativo de "buena")
+- más buena
+- buenísima
+- mejor
+- la mejor
+E: "Bueno" é irregular: comparativo "mejor", superlativo "la mejor".
+--- en
+P: Complete: "Esta es ___ pizza que he comido." (superlative of "buena")
+- más buena
+- buenísima
+- mejor
+- la mejor
+E: "Bueno" is irregular: comparative "mejor", superlative "la mejor".
+--- es
+P: Completa: "Esta es ___ pizza que he comido." (superlativo de "buena")
+- @
+- @
+- @
+- @
+E: "Bueno" es irregular: comparativo "mejor", superlativo "la mejor".
+
+=== Gramática e estrutura da frase > Comparativo e superlativo c=0 d=medio
+P: Complete: "Este teléfono es ___ que aquel." (comparativo de superioridade de "caro")
+- más caro
+- el más caro
+- tan caro
+- menos caro
+E: O comparativo de superioridade usa "más + adjetivo + que": "más caro que".
+--- en
+P: Complete: "Este teléfono es ___ que aquel." (comparative of superiority of "caro")
+- más caro
+- el más caro
+- tan caro
+- menos caro
+E: The comparative of superiority uses "más + adjective + que": "más caro que".
+--- es
+P: Completa: "Este teléfono es ___ que aquel." (comparativo de superioridad de "caro")
+- @
+- @
+- @
+- @
+E: El comparativo de superioridad usa "más + adjetivo + que": "más caro que".
+
+=== Gramática e estrutura da frase > Comparativo e superlativo c=1 d=medio
+P: Complete: "Esa fue ___ película del festival." (superlativo de "interesante")
+- más interesante
+- la más interesante
+- menos interesante
+- tan interesante
+E: O superlativo relativo usa "el/la más + adjetivo": "la más interesante".
+--- en
+P: Complete: "Esa fue ___ película del festival." (superlative of "interesante")
+- más interesante
+- la más interesante
+- menos interesante
+- tan interesante
+E: The relative superlative uses "el/la más + adjective": "la más interesante".
+--- es
+P: Completa: "Esa fue ___ película del festival." (superlativo de "interesante")
+- @
+- @
+- @
+- @
+E: El superlativo relativo usa "el/la más + adjetivo": "la más interesante".
+
+=== Gramática e estrutura da frase > Comparativo e superlativo c=2 d=dificil
+P: Complete: "El tráfico de hoy es ___ que el de ayer." (comparativo irregular de "malo")
+- más malo
+- malísimo
+- peor
+- el peor
+E: "Malo" é irregular: comparativo "peor", superlativo "el peor".
+--- en
+P: Complete: "El tráfico de hoy es ___ que el de ayer." (irregular comparative of "malo")
+- más malo
+- malísimo
+- peor
+- el peor
+E: "Malo" is irregular: comparative "peor", superlative "el peor".
+--- es
+P: Completa: "El tráfico de hoy es ___ que el de ayer." (comparativo irregular de "malo")
+- @
+- @
+- @
+- @
+E: "Malo" es irregular: comparativo "peor", superlativo "el peor".
+
+=== Gramática e estrutura da frase > Comparativo e superlativo c=3 d=dificil
+P: Complete, expressando igualdade: "Este examen no fue ___ el anterior."
+- más difícil que
+- el más difícil
+- más difícil
+- tan difícil como
+E: "Tan + adjetivo + como" expressa igualdade/comparação de mesmo nível.
+--- en
+P: Complete, expressing equality: "Este examen no fue ___ el anterior."
+- más difícil que
+- el más difícil
+- más difícil
+- tan difícil como
+E: "Tan + adjective + como" expresses equality/same-level comparison.
+--- es
+P: Completa, expresando igualdad: "Este examen no fue ___ el anterior."
+- @
+- @
+- @
+- @
+E: "Tan + adjetivo + como" expresa igualdad/comparación del mismo nivel.
+
+=== Gêneros textuais > Anúncios e infográficos c=0 d=facil
+P: Leia o anúncio: "¡NUEVO GIMNASIO! Primer mes gratis. Inscríbete antes del 30 de junio." O anúncio oferece:
+- Um mês grátis para quem se inscrever até 30 de junho
+- Desconto de 30% para sempre
+- Aulas particulares grátis
+- Uma academia fechando
+E: O anúncio diz "Primer mes gratis. Inscríbete antes del 30 de junio".
+--- en
+P: Read the ad: "¡NUEVO GIMNASIO! Primer mes gratis. Inscríbete antes del 30 de junio." The ad offers:
+- A free month for those who sign up by June 30th
+- A permanent 30% discount
+- Free private lessons
+- A gym that is closing
+E: The ad says "Primer mes gratis. Inscríbete antes del 30 de junio".
+--- es
+P: Lee el anuncio: "¡NUEVO GIMNASIO! Primer mes gratis. Inscríbete antes del 30 de junio." El anuncio ofrece:
+- Un mes gratis para quien se inscriba antes del 30 de junio
+- Descuento del 30% para siempre
+- Clases particulares gratis
+- Un gimnasio que está cerrando
+E: El anuncio dice "Primer mes gratis. Inscríbete antes del 30 de junio".
+
+=== Gêneros textuais > Anúncios e infográficos c=1 d=facil
+P: Leia o infográfico: "Recicla bien: el papel va en el contenedor azul, el plástico en el rojo, el vidrio en el verde." Segundo o infográfico, o papel deve ser descartado em qual cor de contêiner?
+- Vermelha
+- Azul
+- Verde
+- Amarela
+E: O texto diz "el papel va en el contenedor azul".
+--- en
+P: Read the infographic: "Recicla bien: el papel va en el contenedor azul, el plástico en el rojo, el vidrio en el verde." According to the infographic, which color bin should paper go in?
+- Red
+- Blue
+- Green
+- Yellow
+E: The text says "el papel va en el contenedor azul".
+--- es
+P: Lee la infografía: "Recicla bien: el papel va en el contenedor azul, el plástico en el rojo, el vidrio en el verde." Según la infografía, ¿en qué color de contenedor debe ir el papel?
+- Rojo
+- Azul
+- Verde
+- Amarillo
+E: El texto dice "el papel va en el contenedor azul".
+
+=== Gêneros textuais > Anúncios e infográficos c=2 d=medio
+P: Leia o anúncio: "¿Te sientes estresado? Prueba nuestra nueva app de relajación. Gratis los primeros 7 días, luego $4.99 al mes." Qual é o público-alvo mais provável desse anúncio?
+- Atletas profissionais
+- Crianças em idade escolar
+- Pessoas que buscam reduzir o estresse
+- Empresas de tecnologia
+E: O anúncio se dirige a quem "se siente estresado".
+--- en
+P: Read the ad: "¿Te sientes estresado? Prueba nuestra nueva app de relajación. Gratis los primeros 7 días, luego $4.99 al mes." Who is the most likely target audience for this ad?
+- Professional athletes
+- School-age children
+- People looking to reduce stress
+- Technology companies
+E: The ad addresses people who "se siente estresado".
+--- es
+P: Lee el anuncio: "¿Te sientes estresado? Prueba nuestra nueva app de relajación. Gratis los primeros 7 días, luego $4.99 al mes." ¿Cuál es el público objetivo más probable de este anuncio?
+- Atletas profesionales
+- Niños en edad escolar
+- Personas que buscan reducir el estrés
+- Empresas de tecnología
+E: El anuncio se dirige a quienes "se siente estresado".
+
+=== Gêneros textuais > Anúncios e infográficos c=3 d=medio
+P: No mesmo anúncio "¿Te sientes estresado? Prueba nuestra nueva app de relajación. Gratis los primeros 7 días, luego $4.99 al mes.", depois de quanto tempo o app passa a ser pago?
+- Imediatamente
+- Após 30 dias
+- Nunca, é sempre grátis
+- Após 7 dias
+E: O texto diz "gratis los primeros 7 días".
+--- en
+P: In the same ad "¿Te sientes estresado? Prueba nuestra nueva app de relajación. Gratis los primeros 7 días, luego $4.99 al mes.", after how long does the app become paid?
+- Immediately
+- After 30 days
+- Never, it's always free
+- After 7 days
+E: The text says "gratis los primeros 7 días".
+--- es
+P: En el mismo anuncio "¿Te sientes estresado? Prueba nuestra nueva app de relajación. Gratis los primeros 7 días, luego $4.99 al mes.", ¿después de cuánto tiempo la app pasa a ser paga?
+- Inmediatamente
+- Después de 30 días
+- Nunca, siempre es gratis
+- Después de 7 días
+E: El texto dice "gratis los primeros 7 días".
+
+=== Gêneros textuais > Anúncios e infográficos c=0 d=dificil
+P: Leia o infográfico: "Tiempo de pantalla y sueño: los adolescentes que usan el celular después de las 22h duermen, en promedio, 40 minutos menos." Qual conclusão o infográfico sugere?
+- O uso do celular após as 22h está associado a menos sono entre adolescentes
+- Adolescentes dormem mais quando usam o celular à noite
+- O horário de uso do celular não afeta o sono
+- Todos os adolescentes dormem exatamente 8 horas
+E: O texto associa diretamente o uso do celular após as 22h a uma redução média de 40 minutos de sono.
+--- en
+P: Read the infographic: "Tiempo de pantalla y sueño: los adolescentes que usan el celular después de las 22h duermen, en promedio, 40 minutos menos." What conclusion does the infographic suggest?
+- Using the phone after 10 p.m. is associated with less sleep among teens
+- Teens sleep more when they use the phone at night
+- The time of phone use doesn't affect sleep
+- All teens sleep exactly 8 hours
+E: The text directly links phone use after 10 p.m. to a 40-minute average reduction in sleep.
+--- es
+P: Lee la infografía: "Tiempo de pantalla y sueño: los adolescentes que usan el celular después de las 22h duermen, en promedio, 40 minutos menos." ¿Qué conclusión sugiere la infografía?
+- El uso del celular después de las 22h se asocia con menos sueño entre adolescentes
+- Los adolescentes duermen más cuando usan el celular de noche
+- El horario de uso del celular no afecta el sueño
+- Todos los adolescentes duermen exactamente 8 horas
+E: El texto asocia directamente el uso del celular después de las 22h con una reducción promedio de 40 minutos de sueño.
+
+=== Gêneros textuais > Anúncios e infográficos c=1 d=dificil
+P: Leia o anúncio: "Oferta limitada: lleva uno y el segundo con 50% de descuento. Válido solo en artículos seleccionados, hasta agotar existencias." O que a expressão "hasta agotar existencias" indica?
+- A oferta não tem limite de estoque
+- A oferta acaba quando o estoque terminar
+- A oferta vale só para quem chegar primeiro no horário de abertura
+- O produto está fora de estoque
+E: "Hasta agotar existencias" significa "enquanto durar o estoque".
+--- en
+P: Read the ad: "Oferta limitada: lleva uno y el segundo con 50% de descuento. Válido solo en artículos seleccionados, hasta agotar existencias." What does the expression "hasta agotar existencias" indicate?
+- The offer has no stock limit
+- The offer ends when stock runs out
+- The offer is only for people who arrive first at opening time
+- The product is out of stock
+E: "Hasta agotar existencias" means the offer is limited to how much stock is available.
+--- es
+P: Lee el anuncio: "Oferta limitada: lleva uno y el segundo con 50% de descuento. Válido solo en artículos seleccionados, hasta agotar existencias." ¿Qué indica la expresión "hasta agotar existencias"?
+- La oferta no tiene límite de stock
+- La oferta termina cuando se acabe el stock
+- La oferta es solo para quien llegue primero a la apertura
+- El producto está agotado
+E: "Hasta agotar existencias" significa que la oferta está limitada a la disponibilidad del producto.
+
+=== Gêneros textuais > Quadrinhos e tirinhas c=2 d=facil
+P: Em uma tirinha, o personagem diz: "Por fin terminé mi tarea... dijo ningún estudiante jamás." O humor da tirinha vem do fato de que a frase:
+- É uma citação famosa
+- É sempre verdadeira
+- É irônica, pois sugere que ninguém diz isso de verdade
+- Não tem relação com estudantes
+E: "Dijo ningún estudiante jamás" é uma expressão usada para indicar ironia.
+--- en
+P: In a comic strip, the character says: "Por fin terminé mi tarea... dijo ningún estudiante jamás." The humor of the strip comes from the fact that the sentence:
+- Is a famous quote
+- Is always true
+- Is ironic, suggesting no one really says that
+- Has nothing to do with students
+E: "Dijo ningún estudiante jamás" is an expression used to indicate irony.
+--- es
+P: En una tira cómica, el personaje dice: "Por fin terminé mi tarea... dijo ningún estudiante jamás." El humor de la tira viene del hecho de que la frase:
+- Es una cita famosa
+- Siempre es verdadera
+- Es irónica, pues sugiere que nadie dice eso de verdad
+- No tiene relación con estudiantes
+E: "Dijo ningún estudiante jamás" es una expresión que indica ironía.
+
+=== Gêneros textuais > Quadrinhos e tirinhas c=3 d=facil
+P: Em uma tirinha de duas cenas, um gato pensa "Hoy seré un buen gato" e, na cena seguinte, aparece derrubando um vaso. O humor está no contraste entre:
+- Dois gatos diferentes
+- O tamanho do vaso
+- O horário das cenas
+- A intenção do gato e o que ele realmente faz
+E: O humor vem do contraste entre a intenção declarada e a ação seguinte.
+--- en
+P: In a two-panel comic strip, a cat thinks "Hoy seré un buen gato" and, in the next panel, is shown knocking over a vase. The humor is in the contrast between:
+- Two different cats
+- The size of the vase
+- The time of the scenes
+- The cat's intention and what it actually does
+E: The humor comes from the contrast between the stated intention and the following action.
+--- es
+P: En una tira de dos viñetas, un gato piensa "Hoy seré un buen gato" y, en la siguiente viñeta, aparece tirando un florero. El humor está en el contraste entre:
+- Dos gatos diferentes
+- El tamaño del florero
+- El horario de las escenas
+- La intención del gato y lo que realmente hace
+E: El humor viene del contraste entre la intención declarada y la acción siguiente.
+
+=== Gêneros textuais > Quadrinhos e tirinhas c=0 d=medio
+P: Em uma tirinha, o balão de fala de um personagem diz apenas "..." enquanto ele olha para a tela quebrada do celular. Esse recurso geralmente indica:
+- Silêncio, choque ou falta de reação imediata
+- Que o personagem está gritando
+- Que o personagem está cantando
+- Um erro de impressão da tirinha
+E: Balões com apenas reticências indicam silêncio ou choque.
+--- en
+P: In a comic strip, a character's speech bubble shows only "..." while they look at their cracked phone screen. This device usually indicates:
+- Silence, shock, or lack of an immediate reaction
+- That the character is shouting
+- That the character is singing
+- A printing error in the strip
+E: Speech bubbles with only ellipsis indicate silence or shock.
+--- es
+P: En una tira cómica, el globo de diálogo de un personaje muestra solo "..." mientras mira la pantalla rota de su celular. Este recurso suele indicar:
+- Silencio, shock o falta de reacción inmediata
+- Que el personaje está gritando
+- Que el personaje está cantando
+- Un error de impresión de la tira
+E: Los globos con solo puntos suspensivos indican silencio o shock.
+
+=== Gêneros textuais > Quadrinhos e tirinhas c=1 d=medio
+P: Em uma tirinha de humor sobre trabalho remoto, um personagem diz: "No llego tarde, mi silla solo está lejos de la cámara." O efeito cômico vem de:
+- Uma explicação verdadeira e razoável
+- Uma desculpa criativa para esconder que está atrasado
+- Um elogio à tecnologia
+- Uma crítica direta ao chefe
+E: A fala é uma desculpa engraçada e pouco convincente.
+--- en
+P: In a comic strip poking fun at remote work, a character says: "No llego tarde, mi silla solo está lejos de la cámara." The comic effect comes from:
+- A true and reasonable explanation
+- A creative excuse to hide that he's late
+- A compliment to technology
+- A direct criticism of the boss
+E: The line is a funny, unconvincing excuse.
+--- es
+P: En una tira cómica sobre el trabajo remoto, un personaje dice: "No llego tarde, mi silla solo está lejos de la cámara." El efecto cómico viene de:
+- Una explicación verdadera y razonable
+- Una excusa creativa para esconder que llega tarde
+- Un elogio a la tecnología
+- Una crítica directa al jefe
+E: La frase es una excusa graciosa y poco convincente.
+
+=== Gêneros textuais > Quadrinhos e tirinhas c=2 d=dificil
+P: Em uma tirinha, dois personagens debatem sobre tecnologia. Um diz: "Los robots nos quitarán todos los trabajos." O outro responde: "Bueno, alguien todavía tiene que desconectarlos." O humor da resposta está em:
+- Concordar totalmente com a primeira fala
+- Ignorar completamente o assunto
+- Rebater com uma ironia leve, sugerindo que sempre haverá alguma tarefa humana
+- Criticar diretamente os robôs
+E: A resposta usa humor irônico para relativizar o medo.
+--- en
+P: In a comic strip, two characters debate technology. One says: "Los robots nos quitarán todos los trabajos." The other replies: "Bueno, alguien todavía tiene que desconectarlos." The humor in the reply lies in:
+- Fully agreeing with the first statement
+- Completely ignoring the topic
+- Pushing back with mild irony, suggesting there will always be some human task
+- Directly criticizing robots
+E: The reply uses ironic humor to downplay the fear.
+--- es
+P: En una tira cómica, dos personajes debaten sobre tecnología. Uno dice: "Los robots nos quitarán todos los trabajos." El otro responde: "Bueno, alguien todavía tiene que desconectarlos." El humor de la respuesta está en:
+- Estar totalmente de acuerdo con la primera frase
+- Ignorar por completo el tema
+- Responder con una ironía leve, sugiriendo que siempre habrá alguna tarea humana
+- Criticar directamente a los robots
+E: La respuesta usa humor irónico para relativizar el miedo.
+
+=== Gêneros textuais > Quadrinhos e tirinhas c=3 d=dificil
+P: Em uma tirinha satírica, uma manchete fictícia diz: "Hombre finalmente limpia su cuarto, llaman a arqueólogos." O exagero (hipérbole) sugere que:
+- O quarto foi realmente escavado por arqueólogos
+- O homem é arqueólogo de profissão
+- A notícia é totalmente verdadeira
+- O quarto estava extremamente bagunçado havia muito tempo
+E: Chamar arqueólogos para limpar um quarto é um exagero cômico.
+--- en
+P: In a satirical comic strip, a fictional headline says: "Hombre finalmente limpia su cuarto, llaman a arqueólogos." The exaggeration (hyperbole) in this joke suggests that:
+- The room was really excavated by archaeologists
+- The man is an archaeologist by profession
+- The news is completely true
+- The room had been extremely messy for a very long time
+E: Calling in archaeologists to clean a room is a comic exaggeration.
+--- es
+P: En una tira satírica, un titular ficticio dice: "Hombre finalmente limpia su cuarto, llaman a arqueólogos." La exageración (hipérbole) en esta broma sugiere que:
+- El cuarto realmente fue excavado por arqueólogos
+- El hombre es arqueólogo de profesión
+- La noticia es completamente verdadera
+- El cuarto estaba extremadamente desordenado desde hacía mucho tiempo
+E: Llamar a arqueólogos para limpiar un cuarto es una exageración cómica.

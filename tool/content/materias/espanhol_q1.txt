@@ -1,0 +1,659 @@
+=== Estratégias de leitura > Skimming e scanning c=0 d=facil
+P: Leia o aviso: "Horario de la biblioteca: lunes a viernes, 8 a 18 horas. Cerrado los fines de semana." Fazendo scanning, a que horas a biblioteca fecha de segunda a sexta?
+- Às 18h
+- Às 8h
+- Aos sábados
+- Não abre
+E: O aviso diz "8 a 18 horas", ou seja, a biblioteca fecha às 18h de segunda a sexta.
+--- en
+P: Read the notice: "Horario de la biblioteca: lunes a viernes, 8 a 18 horas. Cerrado los fines de semana." Scanning for a specific detail, what time does the library close Monday to Friday?
+- 6 p.m.
+- 8 a.m.
+- On weekends
+- It doesn't open
+E: The notice says "8 a 18 horas", so the library closes at 6 p.m. Monday through Friday.
+--- es
+P: Lee el aviso: "Horario de la biblioteca: lunes a viernes, 8 a 18 horas. Cerrado los fines de semana." Haciendo scanning, ¿a qué hora cierra la biblioteca de lunes a viernes?
+- A las 18h
+- A las 8h
+- Los fines de semana
+- No abre
+E: El aviso dice "8 a 18 horas", es decir, la biblioteca cierra a las 18h de lunes a viernes.
+
+=== Estratégias de leitura > Skimming e scanning c=1 d=facil
+P: Fazendo skimming do texto "Consejos para una mañana saludable: bebe agua, come fruta y camina un poco antes de trabajar.", qual é o assunto geral do texto?
+- Receitas de bolo
+- Hábitos saudáveis de manhã
+- Horário de trabalho
+- Esportes de inverno
+E: O texto lista ações (beber água, comer fruta, caminhar) associadas a uma manhã saudável.
+--- en
+P: Skimming the text "Consejos para una mañana saludable: bebe agua, come fruta y camina un poco antes de trabajar." to get the general idea, what is the text about?
+- Cake recipes
+- Healthy morning habits
+- Work schedules
+- Winter sports
+E: The text lists actions (drinking water, eating fruit, walking) linked to a healthy morning.
+--- es
+P: Haciendo skimming del texto "Consejos para una mañana saludable: bebe agua, come fruta y camina un poco antes de trabajar.", ¿cuál es el tema general del texto?
+- Recetas de pastel
+- Hábitos saludables por la mañana
+- Horario de trabajo
+- Deportes de invierno
+E: El texto enumera acciones (beber agua, comer fruta, caminar) relacionadas con una mañana saludable.
+
+=== Estratégias de leitura > Skimming e scanning c=2 d=medio
+P: No cartaz "¡LIQUIDACIÓN DE VERANO! 50% de descuento en zapatos. Solo este fin de semana. Tienda del centro.", ao fazer scanning por uma informação específica, qual é o desconto anunciado?
+- 10%
+- 25%
+- 50%
+- 75%
+E: O cartaz informa diretamente "50% de descuento".
+--- en
+P: In the poster "¡LIQUIDACIÓN DE VERANO! 50% de descuento en zapatos. Solo este fin de semana. Tienda del centro.", scanning for a specific detail, what discount is being advertised?
+- 10%
+- 25%
+- 50%
+- 75%
+E: The poster states directly "50% de descuento".
+--- es
+P: En el cartel "¡LIQUIDACIÓN DE VERANO! 50% de descuento en zapatos. Solo este fin de semana. Tienda del centro.", haciendo scanning de un dato específico, ¿qué descuento se anuncia?
+- 10%
+- 25%
+- 50%
+- 75%
+E: El cartel indica directamente "50% de descuento".
+
+=== Estratégias de leitura > Skimming e scanning c=3 d=medio
+P: No mesmo cartaz "¡LIQUIDACIÓN DE VERANO! 50% de descuento en zapatos. Solo este fin de semana. Tienda del centro.", em qual loja a promoção acontece?
+- Em qualquer loja da rede
+- Somente on-line
+- Na loja do shopping
+- Na loja do centro
+E: "Tienda del centro" significa "loja do centro (da cidade)".
+--- en
+P: In the same poster "¡LIQUIDACIÓN DE VERANO! 50% de descuento en zapatos. Solo este fin de semana. Tienda del centro.", which store is having the sale?
+- Any store in the chain
+- Online only
+- The mall store
+- The downtown store
+E: "Tienda del centro" means the store located in the city center.
+--- es
+P: En el mismo cartel "¡LIQUIDACIÓN DE VERANO! 50% de descuento en zapatos. Solo este fin de semana. Tienda del centro.", ¿en qué tienda ocurre la promoción?
+- En cualquier tienda de la cadena
+- Solo en línea
+- En la tienda del centro comercial
+- En la tienda del centro
+E: "Tienda del centro" significa la tienda ubicada en el centro de la ciudad.
+
+=== Estratégias de leitura > Skimming e scanning c=0 d=dificil
+P: Leia o e-mail: "Recordatorio: la reunión del equipo se cambió del martes al jueves, mismo horario, misma sala." Fazendo scanning, para qual dia a reunião foi remarcada?
+- Quinta-feira
+- Terça-feira
+- Sexta-feira
+- Não foi remarcada
+E: O e-mail diz "se cambió del martes al jueves", ou seja, foi remarcada para quinta-feira.
+--- en
+P: Read the email: "Recordatorio: la reunión del equipo se cambió del martes al jueves, mismo horario, misma sala." Scanning the text, which day was the meeting rescheduled to?
+- Thursday
+- Tuesday
+- Friday
+- It wasn't rescheduled
+E: The email says the meeting "se cambió del martes al jueves", so it was rescheduled to Thursday.
+--- es
+P: Lee el correo: "Recordatorio: la reunión del equipo se cambió del martes al jueves, mismo horario, misma sala." Haciendo scanning, ¿para qué día se reprogramó la reunión?
+- Jueves
+- Martes
+- Viernes
+- No se reprogramó
+E: El correo dice que la reunión "se cambió del martes al jueves", es decir, se reprogramó para el jueves.
+
+=== Estratégias de leitura > Skimming e scanning c=1 d=dificil
+P: Fazendo skimming do texto "Un nuevo estudio muestra que caminar un poco después de las comidas puede ayudar a controlar el nivel de azúcar en la sangre, según los investigadores.", qual é a ideia central?
+- Caminhar após as refeições pode ajudar a controlar o açúcar no sangue
+- Pesquisadores recomendam dietas sem açúcar
+- Caminhar é melhor que correr
+- O estudo foi feito com crianças
+E: O texto afirma que caminhar após as refeições "puede ayudar a controlar el nivel de azúcar en la sangre".
+--- en
+P: Skimming the text "Un nuevo estudio muestra que caminar un poco después de las comidas puede ayudar a controlar el nivel de azúcar en la sangre, según los investigadores.", what is the main idea?
+- Walking after meals may help control blood sugar levels
+- Researchers recommend sugar-free diets
+- Walking is better than running
+- The study was done with children
+E: The text states that walking after meals "puede ayudar a controlar el nivel de azúcar en la sangre", according to researchers.
+--- es
+P: Haciendo skimming del texto "Un nuevo estudio muestra que caminar un poco después de las comidas puede ayudar a controlar el nivel de azúcar en la sangre, según los investigadores.", ¿cuál es la idea central?
+- Caminar después de las comidas puede ayudar a controlar el azúcar en la sangre
+- Los investigadores recomiendan dietas sin azúcar
+- Caminar es mejor que correr
+- El estudio se hizo con niños
+E: El texto afirma que caminar después de las comidas "puede ayudar a controlar el nivel de azúcar en la sangre", según investigadores.
+
+=== Estratégias de leitura > Identificando a ideia central c=2 d=facil
+P: Leia: "Las mascotas brindan compañía, reducen el estrés y enseñan responsabilidad a los niños." Qual é a ideia central do texto?
+- Pets são caros de manter
+- Pets só servem para crianças
+- Pets trazem companhia, reduzem o estresse e ensinam responsabilidade
+- Pets precisam de veterinário toda semana
+E: O texto resume os benefícios de ter um animal de estimação: companhia, menos estresse e responsabilidade.
+--- en
+P: Read: "Las mascotas brindan compañía, reducen el estrés y enseñan responsabilidad a los niños." What is the main idea of the text?
+- Pets are expensive to keep
+- Pets are only good for children
+- Pets bring companionship, reduce stress, and teach responsibility
+- Pets need a vet every week
+E: The text summarizes the benefits of having a pet: companionship, less stress, and responsibility.
+--- es
+P: Lee: "Las mascotas brindan compañía, reducen el estrés y enseñan responsabilidad a los niños." ¿Cuál es la idea central del texto?
+- Las mascotas son caras de mantener
+- Las mascotas solo sirven para los niños
+- Las mascotas brindan compañía, reducen el estrés y enseñan responsabilidad
+- Las mascotas necesitan veterinario cada semana
+E: El texto resume los beneficios de tener una mascota: compañía, menos estrés y responsabilidad.
+
+=== Estratégias de leitura > Identificando a ideia central c=3 d=facil
+P: Leia: "Reciclar papel, vidrio y plástico reduce la basura y ahorra recursos naturales." Qual é a ideia central?
+- Reciclar é caro
+- Só o plástico deve ser reciclado
+- Reciclagem aumenta o lixo
+- Reciclar papel, vidro e plástico reduz o lixo e economiza recursos naturais
+E: O texto afirma diretamente esse benefício da reciclagem.
+--- en
+P: Read: "Reciclar papel, vidrio y plástico reduce la basura y ahorra recursos naturales." What is the main idea?
+- Recycling is expensive
+- Only plastic should be recycled
+- Recycling increases waste
+- Recycling paper, glass, and plastic reduces waste and saves natural resources
+E: The text directly states this benefit of recycling.
+--- es
+P: Lee: "Reciclar papel, vidrio y plástico reduce la basura y ahorra recursos naturales." ¿Cuál es la idea central?
+- Reciclar es caro
+- Solo el plástico debe reciclarse
+- Reciclar aumenta la basura
+- Reciclar papel, vidrio y plástico reduce la basura y ahorra recursos naturales
+E: El texto afirma directamente este beneficio del reciclaje.
+
+=== Estratégias de leitura > Identificando a ideia central c=0 d=medio
+P: Leia: "Aunque la película recibió críticas divididas, se convirtió en uno de los mayores éxitos de taquilla del año." Qual é a ideia central?
+- O filme dividiu a crítica, mas fez sucesso de bilheteria
+- O filme foi elogiado por unanimidade
+- O filme fracassou nas bilheterias
+- O filme não teve nenhuma crítica
+E: "Críticas divididas" e "mayores éxitos de taquilla" mostram esse contraste.
+--- en
+P: Read: "Aunque la película recibió críticas divididas, se convirtió en uno de los mayores éxitos de taquilla del año." What is the main idea?
+- The movie divided critics but was a box office success
+- The movie was praised unanimously
+- The movie failed at the box office
+- The movie received no reviews
+E: "Críticas divididas" and "mayores éxitos de taquilla" show this contrast.
+--- es
+P: Lee: "Aunque la película recibió críticas divididas, se convirtió en uno de los mayores éxitos de taquilla del año." ¿Cuál es la idea central?
+- La película dividió a la crítica, pero tuvo éxito de taquilla
+- La película fue elogiada por unanimidad
+- La película fracasó en taquilla
+- La película no tuvo ninguna crítica
+E: "Críticas divididas" y "mayores éxitos de taquilla" muestran ese contraste.
+
+=== Estratégias de leitura > Identificando a ideia central c=1 d=medio
+P: Leia: "A pesar de la lluvia, miles de fanáticos se quedaron hasta la última canción del concierto." Qual é a ideia central?
+- O show foi cancelado por causa da chuva
+- Os fãs permaneceram até o fim do show mesmo com chuva
+- Poucos fãs foram ao show
+- O show aconteceu em um dia de sol
+E: "A pesar de la lluvia... se quedaron hasta la última canción" mostra que os fãs ficaram até o fim mesmo com chuva.
+--- en
+P: Read: "A pesar de la lluvia, miles de fanáticos se quedaron hasta la última canción del concierto." What is the main idea?
+- The concert was canceled because of the rain
+- Fans stayed until the end of the concert despite the rain
+- Few fans attended the concert
+- The concert happened on a sunny day
+E: "A pesar de la lluvia... se quedaron hasta la última canción" shows fans stayed until the end despite the rain.
+--- es
+P: Lee: "A pesar de la lluvia, miles de fanáticos se quedaron hasta la última canción del concierto." ¿Cuál es la idea central?
+- El concierto fue cancelado por la lluvia
+- Los fans se quedaron hasta el final del concierto a pesar de la lluvia
+- Pocos fans asistieron al concierto
+- El concierto ocurrió en un día soleado
+E: "A pesar de la lluvia... se quedaron hasta la última canción" muestra que los fans se quedaron hasta el final pese a la lluvia.
+
+=== Estratégias de leitura > Identificando a ideia central c=2 d=dificil
+P: Leia: "Aunque la tecnología ha hecho la comunicación más rápida, algunos argumentan que ha vuelto las relaciones más superficiales." Qual é a ideia central?
+- A tecnologia só trouxe benefícios para as relações
+- A comunicação ficou mais lenta com a tecnologia
+- A tecnologia acelerou a comunicação, mas pode ter tornado as relações mais superficiais
+- A tecnologia não afeta as relações humanas
+E: O texto contrasta o ganho de velocidade com uma possível perda de profundidade.
+--- en
+P: Read: "Aunque la tecnología ha hecho la comunicación más rápida, algunos argumentan que ha vuelto las relaciones más superficiales." What is the main idea?
+- Technology has only brought benefits to relationships
+- Communication has become slower with technology
+- Technology sped up communication, but may have made relationships more superficial
+- Technology doesn't affect human relationships
+E: The text contrasts the gain in speed with a possible loss of depth.
+--- es
+P: Lee: "Aunque la tecnología ha hecho la comunicación más rápida, algunos argumentan que ha vuelto las relaciones más superficiales." ¿Cuál es la idea central?
+- La tecnología solo trajo beneficios a las relaciones
+- La comunicación se volvió más lenta con la tecnología
+- La tecnología aceleró la comunicación, pero pudo haber vuelto las relaciones más superficiales
+- La tecnología no afecta las relaciones humanas
+E: El texto contrasta la ganancia de velocidad con una posible pérdida de profundidad.
+
+=== Estratégias de leitura > Identificando a ideia central c=3 d=dificil
+P: Leia: "Las ganancias de la empresa crecieron este año, aunque varios empleados fueron despedidos para reducir costos." Qual é a ideia central?
+- A empresa faliu este ano
+- Os lucros caíram e por isso houve demissões
+- Não houve nenhuma demissão na empresa
+- Os lucros cresceram, mas houve demissões para reduzir custos
+E: O texto usa "aunque" para mostrar contraste: lucro cresceu, mesmo assim houve demissões.
+--- en
+P: Read: "Las ganancias de la empresa crecieron este año, aunque varios empleados fueron despedidos para reducir costos." What is the main idea?
+- The company went bankrupt this year
+- Profits fell, which caused layoffs
+- There were no layoffs at the company
+- Profits grew, but there were layoffs to cut costs
+E: The text uses "aunque" to show contrast: profits grew, even so there were layoffs.
+--- es
+P: Lee: "Las ganancias de la empresa crecieron este año, aunque varios empleados fueron despedidos para reducir costos." ¿Cuál es la idea central?
+- La empresa quebró este año
+- Las ganancias cayeron y por eso hubo despidos
+- No hubo ningún despido en la empresa
+- Las ganancias crecieron, pero hubo despidos para reducir costos
+E: El texto usa "aunque" para mostrar contraste: las ganancias crecieron, aun así hubo despidos.
+
+=== Vocabulário em contexto > Falsos amigos com o português c=0 d=facil
+P: Em espanhol, "apellido" é um falso amigo do português. O que significa realmente?
+- Sobrenome
+- Apelido (nome carinhoso)
+- Documento de identidade
+- Assinatura
+E: "Apellido" significa "sobrenome"; "apelido" (nome carinhoso) em espanhol é "apodo".
+--- en
+P: In Spanish, "apellido" is a false friend of the Portuguese "apelido" (nickname). What does it actually mean?
+- Surname / last name
+- Nickname
+- ID document
+- Signature
+E: "Apellido" means "surname"; "nickname" in Spanish is "apodo".
+--- es
+P: En español, "apellido" se confunde a veces con el portugués "apelido" (apodo). ¿Qué significa realmente "apellido"?
+- Nombre de familia
+- Apodo cariñoso
+- Documento de identidad
+- Firma
+E: "Apellido" significa "nombre de familia"; "apodo" es la palabra para un mote cariñoso.
+
+=== Vocabulário em contexto > Falsos amigos com o português c=1 d=facil
+P: A palavra "embarazada" em espanhol é um falso amigo clássico do português. O que significa?
+- Envergonhada
+- Grávida
+- Embaraçada (confusa)
+- Atrapalhada
+E: "Embarazada" significa "grávida"; "envergonhada" em espanhol é "avergonzada".
+--- en
+P: The Spanish word "embarazada" is a classic false friend of the Portuguese "envergonhada" (embarrassed). What does it mean?
+- Embarrassed
+- Pregnant
+- Confused
+- Clumsy
+E: "Embarazada" means "pregnant"; "embarrassed" in Spanish is "avergonzada".
+--- es
+P: La palabra "embarazada" en español a veces se confunde con "envergonhada" en portugués. ¿Qué significa "embarazada"?
+- Avergonzada
+- Encinta (esperando un bebé)
+- Confundida
+- Torpe
+E: "Embarazada" significa "encinta/esperando un bebé"; "avergonzada" es la palabra para "envergonhada".
+
+=== Vocabulário em contexto > Falsos amigos com o português c=2 d=medio
+P: A palavra "exquisito" em espanhol é um falso amigo do português. O que significa?
+- Esquisito (estranho)
+- Exigente
+- Delicioso, refinado
+- Exótico
+E: "Exquisito" significa "delicioso/refinado"; "esquisito" (estranho) em espanhol é "raro" ou "extraño".
+--- en
+P: The Spanish word "exquisito" is a false friend of the Portuguese "esquisito" (weird). What does it mean?
+- Weird / strange
+- Demanding
+- Delicious, refined
+- Exotic
+E: "Exquisito" means "delicious/refined"; "weird" in Spanish is "raro" or "extraño".
+--- es
+P: La palabra "exquisito" en español a veces se confunde con "esquisito" en portugués. ¿Qué significa "exquisito"?
+- Raro, extraño
+- Exigente
+- Delicioso, refinado
+- Exótico
+E: "Exquisito" significa "delicioso/refinado"; "raro/extraño" es la palabra para algo extraño.
+
+=== Vocabulário em contexto > Falsos amigos com o português c=3 d=medio
+P: A palavra "polvo" em espanhol é um falso amigo do português. O que significa?
+- Polvo (o animal marinho)
+- Poço
+- Polvilho
+- Pó (substância em partículas finas)
+E: "Polvo" em espanhol significa "pó" (substância); o animal "polvo" em espanhol se diz "pulpo" — uma troca clássica.
+--- en
+P: The Spanish word "polvo" is a false friend of the Portuguese "polvo" (octopus). What does it mean?
+- Octopus
+- Well (for water)
+- Starch
+- Dust / powder
+E: "Polvo" in Spanish means "dust/powder"; the animal (octopus) in Spanish is "pulpo" — a classic mix-up.
+--- es
+P: La palabra "polvo" en español a veces se confunde con el "polvo" (pulpo) en portugués. ¿Qué significa realmente "polvo" en español?
+- Pulpo (el animal marino)
+- Pozo
+- Almidón
+- Sustancia en partículas finas
+E: "Polvo" en español significa una sustancia en partículas finas; el animal (pulpo en portugués) se dice "pulpo" en español también — una confusión clásica.
+
+=== Vocabulário em contexto > Falsos amigos com o português c=0 d=dificil
+P: A palavra "largo" em espanhol é um falso amigo do português. O que significa?
+- Longo (em extensão/comprimento)
+- Largo (em largura)
+- Grande
+- Alto
+E: "Largo" em espanhol significa "longo/comprido"; "largo" (largura) em espanhol é "ancho".
+--- en
+P: The Spanish word "largo" is a false friend of the Portuguese "largo" (wide). What does it mean?
+- Long (in length)
+- Wide
+- Big
+- Tall
+E: "Largo" in Spanish means "long"; "wide" in Spanish is "ancho".
+--- es
+P: La palabra "largo" en español a veces se confunde con "largo" en portugués (que significa ancho). ¿Qué significa "largo" en español?
+- Extenso, de mucha longitud
+- Ancho
+- Grande
+- Alto
+E: "Largo" en español significa "de mucha longitud"; "ancho" es la palabra para lo que en portugués se llama "largo".
+
+=== Vocabulário em contexto > Falsos amigos com o português c=1 d=dificil
+P: A palavra "oficina" em espanhol é um falso amigo do português. O que significa?
+- Oficina mecânica
+- Escritório
+- Fábrica
+- Sala de reunião
+E: "Oficina" em espanhol significa "escritório"; "oficina mecânica" em espanhol se diz "taller".
+--- en
+P: The Spanish word "oficina" is a false friend of the Portuguese "oficina" (repair shop). What does it mean?
+- Repair shop
+- Office
+- Factory
+- Meeting room
+E: "Oficina" in Spanish means "office"; a repair shop in Spanish is "taller".
+--- es
+P: La palabra "oficina" en español a veces se confunde con "oficina" en portugués (que significa taller mecánico). ¿Qué significa "oficina" en español?
+- Taller mecánico
+- Lugar de trabajo administrativo
+- Fábrica
+- Sala de reuniones
+E: "Oficina" en español significa un lugar de trabajo administrativo; un taller mecánico se dice "taller".
+
+=== Vocabulário em contexto > Deduzindo sentido pelo contexto c=2 d=facil
+P: Leia: "El gatito era tan diminuto que cabía en la palma de mi mano." Pelo contexto, "diminuto" significa:
+- Feroz
+- Barulhento
+- Muito pequeno
+- Machucado
+E: "Cabía en la palma de mi mano" indica algo muito pequeno.
+--- en
+P: Read: "El gatito era tan diminuto que cabía en la palma de mi mano." From context, "diminuto" means:
+- Fierce
+- Noisy
+- Very small
+- Injured
+E: "Cabía en la palma de mi mano" indicates something very small.
+--- es
+P: Lee: "El gatito era tan diminuto que cabía en la palma de mi mano." Por el contexto, "diminuto" significa:
+- Feroz
+- Ruidoso
+- Muy pequeño
+- Lastimado
+E: "Cabía en la palma de mi mano" indica algo muy pequeño.
+
+=== Vocabulário em contexto > Deduzindo sentido pelo contexto c=3 d=facil
+P: Leia: "Después de la larga caminata, los estudiantes estaban agotados y se durmieron enseguida." Pelo contexto, "agotados" significa:
+- Animados
+- Com fome
+- Machucados
+- Muito cansados
+E: "Se durmieron enseguida" após uma longa caminhada indica que estavam muito cansados.
+--- en
+P: Read: "Después de la larga caminata, los estudiantes estaban agotados y se durmieron enseguida." From context, "agotados" means:
+- Excited
+- Hungry
+- Injured
+- Very tired
+E: "Se durmieron enseguida" after a long hike indicates they were very tired.
+--- es
+P: Lee: "Después de la larga caminata, los estudiantes estaban agotados y se durmieron enseguida." Por el contexto, "agotados" significa:
+- Animados
+- Con hambre
+- Lastimados
+- Muy cansados
+E: "Se durmieron enseguida" después de una larga caminata indica que estaban muy cansados.
+
+=== Vocabulário em contexto > Deduzindo sentido pelo contexto c=0 d=medio
+P: Leia: "Las instrucciones eran tan ambiguas que la mitad de la clase las entendió de forma diferente." Pelo contexto, "ambiguas" significa:
+- Que permitem mais de uma interpretação
+- Muito claras e diretas
+- Escritas em outro idioma
+- Curtas demais
+E: O fato de a turma ter entendido "de forma diferente" mostra que as instruções permitiam mais de uma interpretação.
+--- en
+P: Read: "Las instrucciones eran tan ambiguas que la mitad de la clase las entendió de forma diferente." From context, "ambiguas" means:
+- Open to more than one interpretation
+- Very clear and direct
+- Written in another language
+- Too short
+E: The fact that the class understood them "de forma diferente" shows the instructions allowed more than one interpretation.
+--- es
+P: Lee: "Las instrucciones eran tan ambiguas que la mitad de la clase las entendió de forma diferente." Por el contexto, "ambiguas" significa:
+- Que permiten más de una interpretación
+- Muy claras y directas
+- Escritas en otro idioma
+- Demasiado cortas
+E: El hecho de que la clase las entendiera "de forma diferente" muestra que las instrucciones permitían más de una interpretación.
+
+=== Vocabulário em contexto > Deduzindo sentido pelo contexto c=1 d=medio
+P: Leia: "Era tan austera que ahorraba la mitad de cada sueldo durante años." Pelo contexto, "austera" significa:
+- Generosa, gastava sem se importar
+- Econômica, evitava gastos desnecessários
+- Desorganizada com o dinheiro
+- Endividada
+E: Guardar metade de cada salário por anos indica alguém econômico(a).
+--- en
+P: Read: "Era tan austera que ahorraba la mitad de cada sueldo durante años." From context, "austera" means:
+- Generous, spent without worrying
+- Thrifty, avoided unnecessary spending
+- Careless with money
+- In debt
+E: Saving half of every paycheck for years indicates someone thrifty.
+--- es
+P: Lee: "Era tan austera que ahorraba la mitad de cada sueldo durante años." Por el contexto, "austera" significa:
+- Generosa, gastaba sin preocuparse
+- Económica, evitaba gastos innecesarios
+- Desorganizada con el dinero
+- Endeudada
+E: Ahorrar la mitad de cada sueldo durante años indica a alguien económico(a).
+
+=== Vocabulário em contexto > Deduzindo sentido pelo contexto c=2 d=dificil
+P: Leia: "Las negociaciones fueron tediosas, y se extendieron por horas sin ningún progreso real." Pelo contexto, "tediosas" significa:
+- Emocionantes
+- Curtas e objetivas
+- Cansativas e demoradas
+- Secretas
+E: "Se extendieron por horas sin progreso" indica algo cansativo e demorado.
+--- en
+P: Read: "Las negociaciones fueron tediosas, y se extendieron por horas sin ningún progreso real." From context, "tediosas" means:
+- Exciting
+- Short and to the point
+- Tiresome and long
+- Secret
+E: "Se extendieron por horas sin progreso" indicates something tiresome and long.
+--- es
+P: Lee: "Las negociaciones fueron tediosas, y se extendieron por horas sin ningún progreso real." Por el contexto, "tediosas" significa:
+- Emocionantes
+- Cortas y directas
+- Cansadas y largas
+- Secretas
+E: "Se extendieron por horas sin progreso" indica algo cansado y largo.
+
+=== Vocabulário em contexto > Deduzindo sentido pelo contexto c=3 d=dificil
+P: Leia: "A pesar del comentario tan franco del gerente, el equipo agradeció saber exactamente en qué situación estaban." Pelo contexto, "franco" significa:
+- Gentil e indireto
+- Escrito, não falado
+- Confuso
+- Direto e sem rodeios
+E: "Saber exactamente en qué situación estaban" após um comentário "franco" indica que ele foi direto.
+--- en
+P: Read: "A pesar del comentario tan franco del gerente, el equipo agradeció saber exactamente en qué situación estaban." From context, "franco" means:
+- Kind and indirect
+- Written, not spoken
+- Confusing
+- Direct and straightforward
+E: "Saber exactamente en qué situación estaban" after a "franco" comment indicates it was direct.
+--- es
+P: Lee: "A pesar del comentario tan franco del gerente, el equipo agradeció saber exactamente en qué situación estaban." Por el contexto, "franco" significa:
+- Amable e indirecto
+- Escrito, no hablado
+- Confuso
+- Directo y sin rodeos
+E: "Saber exactamente en qué situación estaban" después de un comentario "franco" indica que fue directo.
+
+=== Vocabulário em contexto > Sinônimos e antônimos c=0 d=facil
+P: Qual palavra é sinônimo de "feliz" em espanhol?
+- Contento
+- Enojado
+- Cansado
+- Triste
+E: "Contento" e "feliz" são sinônimos em espanhol.
+--- en
+P: Which word is a synonym of "feliz" (happy) in Spanish?
+- Contento
+- Enojado
+- Cansado
+- Triste
+E: "Contento" and "feliz" are synonyms in Spanish.
+--- es
+P: ¿Qué palabra es sinónimo de "feliz" en español?
+- Contento
+- Enojado
+- Cansado
+- Triste
+E: "Contento" y "feliz" son sinónimos en español.
+
+=== Vocabulário em contexto > Sinônimos e antônimos c=1 d=facil
+P: Qual palavra é antônimo de "difícil" em espanhol?
+- Duro
+- Fácil
+- Complejo
+- Complicado
+E: "Fácil" é o oposto de "difícil".
+--- en
+P: Which word is an antonym of "difícil" (difficult) in Spanish?
+- Duro
+- Fácil
+- Complejo
+- Complicado
+E: "Fácil" is the opposite of "difícil".
+--- es
+P: ¿Qué palabra es antónimo de "difícil" en español?
+- Duro
+- Fácil
+- Complejo
+- Complicado
+E: "Fácil" es lo opuesto de "difícil".
+
+=== Vocabulário em contexto > Sinônimos e antônimos c=2 d=medio
+P: Leia: "La ceremonia comenzará al mediodía." Qual é o sinônimo de "comenzará" nessa frase?
+- Terminará
+- Continuará
+- Empezará
+- Cancelará
+E: "Comenzar" e "empezar" são sinônimos.
+--- en
+P: Read: "La ceremonia comenzará al mediodía." What is a synonym for "comenzará" in this sentence?
+- Terminará
+- Continuará
+- Empezará
+- Cancelará
+E: "Comenzar" and "empezar" are synonyms.
+--- es
+P: Lee: "La ceremonia comenzará al mediodía." ¿Cuál es el sinónimo de "comenzará" en esta frase?
+- Terminará
+- Continuará
+- Empezará
+- Cancelará
+E: "Comenzar" y "empezar" son sinónimos.
+
+=== Vocabulário em contexto > Sinônimos e antônimos c=3 d=medio
+P: Leia: "A diferencia de su hermano generoso, Tomás nunca comparte nada." Qual palavra descreve Tomás, o antônimo de "generoso"?
+- Amable
+- Rico
+- Amigable
+- Tacaño
+E: "Nunca comparte nada" indica o oposto de generoso.
+--- en
+P: Read: "A diferencia de su hermano generoso, Tomás nunca comparte nada." Which word describes Tomás, the antonym of "generoso"?
+- Amable
+- Rico
+- Amigable
+- Tacaño
+E: "Nunca comparte nada" indicates the opposite of generous.
+--- es
+P: Lee: "A diferencia de su hermano generoso, Tomás nunca comparte nada." ¿Qué palabra describe a Tomás, el antónimo de "generoso"?
+- Amable
+- Rico
+- Amigable
+- Tacaño
+E: "Nunca comparte nada" indica lo opuesto de generoso.
+
+=== Vocabulário em contexto > Sinônimos e antônimos c=0 d=dificil
+P: Leia: "Al principio, ella estaba reacia a aceptar la oferta de trabajo." Qual é o sinônimo de "reacia" nessa frase?
+- Indispuesta
+- Ansiosa
+- Segura
+- Agradecida
+E: "Reacia" significa "relutante", sinônimo de "indispuesta".
+--- en
+P: Read: "Al principio, ella estaba reacia a aceptar la oferta de trabajo." What is a synonym for "reacia" in this sentence?
+- Indispuesta
+- Ansiosa
+- Segura
+- Agradecida
+E: "Reacia" means "reluctant", a synonym of "indispuesta".
+--- es
+P: Lee: "Al principio, ella estaba reacia a aceptar la oferta de trabajo." ¿Cuál es el sinónimo de "reacia" en esta frase?
+- Indispuesta
+- Ansiosa
+- Segura
+- Agradecida
+E: "Reacia" significa "poco dispuesta", sinónimo de "indispuesta".
+
+=== Vocabulário em contexto > Sinônimos e antônimos c=1 d=dificil
+P: Leia: "El agua era abundante en la región hasta que comenzó la sequía." Qual palavra é antônimo de "abundante" nessa frase?
+- Abundante
+- Escasa
+- Limpia
+- Fresca
+E: Com a seca, a água deixou de ser abundante e passou a ser "escasa", o oposto de "abundante".
+--- en
+P: Read: "El agua era abundante en la región hasta que comenzó la sequía." Which word is the antonym of "abundante" in this sentence?
+- Abundante
+- Escasa
+- Limpia
+- Fresca
+E: With the drought, water stopped being abundant and became "escasa" (scarce), the opposite of "abundante".
+--- es
+P: Lee: "El agua era abundante en la región hasta que comenzó la sequía." ¿Qué palabra es el antónimo de "abundante" en esta frase?
+- Abundante
+- Escasa
+- Limpia
+- Fresca
+E: Con la sequía, el agua dejó de ser abundante y pasó a ser "escasa", lo opuesto de "abundante".

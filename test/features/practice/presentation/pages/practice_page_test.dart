@@ -240,6 +240,7 @@ void main() {
           Subject.sociologia,
           Subject.literatura,
           Subject.ingles,
+          Subject.espanhol,
           Subject.atualidades,
           Subject.redacao,
         ]);

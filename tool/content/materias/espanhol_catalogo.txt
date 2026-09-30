@@ -1,0 +1,91 @@
+== Estratégias de leitura | Skimming, scanning e localização da ideia central | 🔎
+en: Reading strategies | Skimming, scanning and finding the main idea
+es: Estrategias de lectura | Skimming, scanning y localización de la idea central
+-- Skimming e scanning
+en: Skimming and scanning
+es: Skimming y scanning
+-- Identificando a ideia central
+en: Identifying the main idea
+es: Identificando la idea central
+
+== Vocabulário em contexto | Falsos amigos com o português e dedução de sentido | 📖
+en: Vocabulary in context | False friends with Portuguese and guessing meaning
+es: Vocabulario en contexto | Falsos amigos con el portugués y deducción de sentido
+-- Falsos amigos com o português
+en: False friends with Portuguese
+es: Falsos amigos con el portugués
+-- Deduzindo sentido pelo contexto
+en: Guessing meaning from context
+es: Deduciendo el sentido por el contexto
+-- Sinônimos e antônimos
+en: Synonyms and antonyms
+es: Sinónimos y antónimos
+
+== Gramática e estrutura da frase | Ser/estar, pretérito e comparativos | 🧩
+en: Grammar and sentence structure | Ser/estar, preterite and comparatives
+es: Gramática y estructura de la frase | Ser/estar, pretérito y comparativos
+-- Ser e estar
+en: Ser and estar
+es: Ser y estar
+-- Pretérito perfeito simples e composto
+en: Simple and compound preterite
+es: Pretérito perfecto simple y compuesto
+-- Comparativo e superlativo
+en: Comparatives and superlatives
+es: Comparativo y superlativo
+
+== Gêneros textuais | Anúncios, quadrinhos e notícias em espanhol | 📰
+en: Text genres | Advertisements, comics and news in Spanish
+es: Géneros textuales | Anuncios, historietas y noticias en español
+-- Anúncios e infográficos
+en: Advertisements and infographics
+es: Anuncios e infografías
+-- Quadrinhos e tirinhas
+en: Comics and cartoons
+es: Historietas y viñetas
+-- Notícias e textos jornalísticos
+en: News and journalistic texts
+es: Noticias y textos periodísticos
+
+== Coesão e coerência | Conectores e referências pronominais | 🔗
+en: Cohesion and coherence | Connectors and pronoun reference
+es: Cohesión y coherencia | Conectores y referencias pronominales
+-- Conectores e conjunções
+en: Connectors and linking words
+es: Conectores y conjunciones
+-- Referência pronominal
+en: Pronoun reference
+es: Referencia pronominal
+
+== Expressões idiomáticas | Modismos e perífrases verbais do cotidiano | 💬
+en: Idiomatic expressions | Everyday idioms and verbal periphrasis
+es: Expresiones idiomáticas | Modismos y perífrasis verbales cotidianos
+-- Modismos comuns
+en: Common idioms
+es: Modismos comunes
+-- Perífrases verbais
+en: Verbal periphrasis
+es: Perífrasis verbales
+
+== Cultura e linguagem funcional | Países de língua espanhola e situações do dia a dia | 🌍
+en: Culture and functional language | Spanish-speaking countries and everyday situations
+es: Cultura y lenguaje funcional | Países de habla hispana y situaciones cotidianas
+-- Países de língua espanhola
+en: Spanish-speaking countries
+es: Países de habla hispana
+-- Linguagem funcional do dia a dia
+en: Everyday functional language
+es: Lenguaje funcional cotidiano
+
+== Interpretação de textos | Trechos literários, informativos e de opinião | 📚
+en: Text interpretation | Literary, informative and opinion excerpts
+es: Interpretación de textos | Fragmentos literarios, informativos y de opinión
+-- Trechos literários
+en: Literary excerpts
+es: Fragmentos literarios
+-- Textos informativos e científicos
+en: Informative and scientific texts
+es: Textos informativos y científicos
+-- Textos de opinião e argumentativos
+en: Opinion and argumentative texts
+es: Textos de opinión y argumentativos

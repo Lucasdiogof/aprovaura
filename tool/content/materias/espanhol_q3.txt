@@ -1,0 +1,659 @@
+=== Gêneros textuais > Notícias e textos jornalísticos c=0 d=facil
+P: Leia a manchete: "Escuela local gana la feria nacional de ciencias por tercer año consecutivo." O que a manchete informa?
+- Uma escola local venceu a feira nacional de ciências pelo terceiro ano seguido
+- Uma escola perdeu a feira de ciências
+- A feira de ciências foi cancelada
+- A escola vai construir um novo laboratório
+E: A manchete diz diretamente "gana la feria nacional de ciencias por tercer año consecutivo".
+--- en
+P: Read the headline: "Escuela local gana la feria nacional de ciencias por tercer año consecutivo." What does the headline report?
+- A local school won the national science fair for the third year in a row
+- A school lost the science fair
+- The science fair was canceled
+- The school will build a new lab
+E: The headline directly says "gana la feria nacional de ciencias por tercer año consecutivo".
+--- es
+P: Lee el titular: "Escuela local gana la feria nacional de ciencias por tercer año consecutivo." ¿Qué informa el titular?
+- Una escuela local ganó la feria nacional de ciencias por tercer año consecutivo
+- Una escuela perdió la feria de ciencias
+- La feria de ciencias fue cancelada
+- La escuela va a construir un nuevo laboratorio
+E: El titular dice directamente "gana la feria nacional de ciencias por tercer año consecutivo".
+
+=== Gêneros textuais > Notícias e textos jornalísticos c=1 d=facil
+P: Leia a manchete: "Se esperan lluvias fuertes este fin de semana; la ciudad abre refugios para zonas de riesgo de inundación." Segundo a manchete, o que a cidade está fazendo por causa da previsão de chuva forte?
+- Fechando as escolas
+- Abrindo abrigos para áreas de risco de enchente
+- Cancelando o fim de semana de eventos
+- Construindo novas represas
+E: A manchete diz "la ciudad abre refugios para zonas de riesgo de inundación".
+--- en
+P: Read the headline: "Se esperan lluvias fuertes este fin de semana; la ciudad abre refugios para zonas de riesgo de inundación." According to the headline, what is the city doing because of the heavy rain forecast?
+- Closing schools
+- Opening shelters for flood risk areas
+- Canceling weekend events
+- Building new dams
+E: The headline says "la ciudad abre refugios para zonas de riesgo de inundación".
+--- es
+P: Lee el titular: "Se esperan lluvias fuertes este fin de semana; la ciudad abre refugios para zonas de riesgo de inundación." Según el titular, ¿qué está haciendo la ciudad por la previsión de lluvia fuerte?
+- Cerrando las escuelas
+- Abriendo refugios para zonas de riesgo de inundación
+- Cancelando los eventos del fin de semana
+- Construyendo nuevas represas
+E: El titular dice "la ciudad abre refugios para zonas de riesgo de inundación".
+
+=== Gêneros textuais > Notícias e textos jornalísticos c=2 d=medio
+P: Leia: "Las tarifas del transporte público subirán un 8% a partir del próximo mes, anunció la ciudad el lunes, citando el aumento en el costo del combustible." Por que as tarifas vão aumentar?
+- Por causa de uma greve
+- Por decisão dos motoristas
+- Por causa do aumento no custo do combustível
+- Por falta de passageiros
+E: O texto cita "el aumento en el costo del combustible" como motivo.
+--- en
+P: Read: "Las tarifas del transporte público subirán un 8% a partir del próximo mes, anunció la ciudad el lunes, citando el aumento en el costo del combustible." Why will the fares increase?
+- Because of a strike
+- Because of a decision by the drivers
+- Because of rising fuel costs
+- Because of a lack of passengers
+E: The text cites "el aumento en el costo del combustible" as the reason.
+--- es
+P: Lee: "Las tarifas del transporte público subirán un 8% a partir del próximo mes, anunció la ciudad el lunes, citando el aumento en el costo del combustible." ¿Por qué van a aumentar las tarifas?
+- Por una huelga
+- Por decisión de los conductores
+- Por el aumento en el costo del combustible
+- Por falta de pasajeros
+E: El texto cita "el aumento en el costo del combustible" como motivo.
+
+=== Gêneros textuais > Notícias e textos jornalísticos c=3 d=medio
+P: No mesmo texto "Las tarifas del transporte público subirán un 8% a partir del próximo mes...", quando o aumento passa a valer?
+- Imediatamente
+- Só no ano que vem
+- Depois de uma votação
+- A partir do mês que vem
+E: O texto diz "a partir del próximo mes".
+--- en
+P: In the same text "Las tarifas del transporte público subirán un 8% a partir del próximo mes...", when does the increase take effect?
+- Immediately
+- Only next year
+- After a vote
+- Starting next month
+E: The text says "a partir del próximo mes".
+--- es
+P: En el mismo texto "Las tarifas del transporte público subirán un 8% a partir del próximo mes...", ¿cuándo entra en vigor el aumento?
+- Inmediatamente
+- Solo el año que viene
+- Después de una votación
+- A partir del próximo mes
+E: El texto dice "a partir del próximo mes".
+
+=== Gêneros textuais > Notícias e textos jornalísticos c=0 d=dificil
+P: Leia: "Los expertos advierten que la nueva política, aunque bien intencionada, podría aumentar sin querer los costos para las pequeñas empresas." Qual é o tom do texto?
+- Alerta sobre um possível efeito colateral negativo, apesar da boa intenção
+- Elogio total, sem ressalvas
+- Crítica de que a política foi mal-intencionada
+- Indiferença total ao assunto
+E: "Aunque bien intencionada, podría aumentar" mostra um alerta, sem negar a boa intenção.
+--- en
+P: Read: "Los expertos advierten que la nueva política, aunque bien intencionada, podría aumentar sin querer los costos para las pequeñas empresas." What is the tone of the text?
+- A warning about a possible negative side effect, despite the good intention
+- Total praise, with no reservations
+- Criticism that the policy was ill-intentioned
+- Complete indifference to the topic
+E: "Aunque bien intencionada, podría aumentar" shows a warning, without denying the good intention.
+--- es
+P: Lee: "Los expertos advierten que la nueva política, aunque bien intencionada, podría aumentar sin querer los costos para las pequeñas empresas." ¿Cuál es el tono del texto?
+- Una advertencia sobre un posible efecto colateral negativo, pese a la buena intención
+- Un elogio total, sin objeciones
+- Una crítica de que la política fue mal intencionada
+- Indiferencia total al tema
+E: "Aunque bien intencionada, podría aumentar" muestra una advertencia, sin negar la buena intención.
+
+=== Gêneros textuais > Notícias e textos jornalísticos c=1 d=dificil
+P: Leia: "La oficina del alcalde se negó a comentar sobre las acusaciones, pero fuentes cercanas a la investigación dicen que podrían presentarse cargos en unas semanas." O que se pode inferir sobre a posição da prefeitura?
+- A prefeitura confirmou publicamente as acusações
+- A prefeitura não quis se pronunciar oficialmente sobre as acusações
+- A prefeitura negou totalmente as acusações
+- A prefeitura pediu desculpas publicamente
+E: "Se negó a comentar" indica que a prefeitura optou por não se pronunciar oficialmente.
+--- en
+P: Read: "La oficina del alcalde se negó a comentar sobre las acusaciones, pero fuentes cercanas a la investigación dicen que podrían presentarse cargos en unas semanas." What can be inferred about the mayor's office position?
+- The mayor's office publicly confirmed the allegations
+- The mayor's office chose not to make an official statement
+- The mayor's office completely denied the allegations
+- The mayor's office publicly apologized
+E: "Se negó a comentar" indicates the mayor's office chose not to make an official statement.
+--- es
+P: Lee: "La oficina del alcalde se negó a comentar sobre las acusaciones, pero fuentes cercanas a la investigación dicen que podrían presentarse cargos en unas semanas." ¿Qué se puede inferir sobre la postura de la alcaldía?
+- La alcaldía confirmó públicamente las acusaciones
+- La alcaldía optó por no pronunciarse oficialmente
+- La alcaldía negó totalmente las acusaciones
+- La alcaldía se disculpó públicamente
+E: "Se negó a comentar" indica que la alcaldía optó por no pronunciarse oficialmente.
+
+=== Coesão e coerência > Conectores e conjunções c=2 d=facil
+P: Complete: "Estaba cansada, ___ seguí trabajando." (contraste)
+- así que
+- porque
+- pero
+- y
+E: "Pero" expressa contraste/oposição entre as duas ideias.
+--- en
+P: Complete: "Estaba cansada, ___ seguí trabajando." (contrast)
+- así que
+- porque
+- pero
+- y
+E: "Pero" expresses contrast/opposition between the two ideas.
+--- es
+P: Completa: "Estaba cansada, ___ seguí trabajando." (contraste)
+- @
+- @
+- @
+- @
+E: "Pero" expresa contraste/oposición entre las dos ideas.
+
+=== Coesão e coerência > Conectores e conjunções c=3 d=facil
+P: Complete: "Estudió mucho, ___ aprobó el examen." (consequência)
+- aunque
+- pero
+- sin embargo
+- así que
+E: "Así que" introduz uma consequência da ação anterior.
+--- en
+P: Complete: "Estudió mucho, ___ aprobó el examen." (consequence)
+- aunque
+- pero
+- sin embargo
+- así que
+E: "Así que" introduces a consequence of the previous action.
+--- es
+P: Completa: "Estudió mucho, ___ aprobó el examen." (consecuencia)
+- @
+- @
+- @
+- @
+E: "Así que" introduce una consecuencia de la acción anterior.
+
+=== Coesão e coerência > Conectores e conjunções c=0 d=medio
+P: Complete: "___ llovía, salieron a caminar." (concessão)
+- Aunque
+- Porque
+- Así que
+- Si
+E: "Aunque" introduz uma ideia de concessão/contraste.
+--- en
+P: Complete: "___ llovía, salieron a caminar." (concession)
+- Aunque
+- Porque
+- Así que
+- Si
+E: "Aunque" introduces a concession/contrast idea.
+--- es
+P: Completa: "___ llovía, salieron a caminar." (concesión)
+- @
+- @
+- @
+- @
+E: "Aunque" introduce una idea de concesión/contraste.
+
+=== Coesão e coerência > Conectores e conjunções c=1 d=medio
+P: Complete: "Perdió el autobús ___ se despertó tarde." (causa)
+- así que
+- porque
+- aunque
+- pero
+E: "Porque" introduz a causa do fato.
+--- en
+P: Complete: "Perdió el autobús ___ se despertó tarde." (cause)
+- así que
+- porque
+- aunque
+- pero
+E: "Porque" introduces the cause of the fact.
+--- es
+P: Completa: "Perdió el autobús ___ se despertó tarde." (causa)
+- @
+- @
+- @
+- @
+E: "Porque" introduce la causa del hecho.
+
+=== Coesão e coerência > Conectores e conjunções c=2 d=dificil
+P: Complete: "El informe era preciso; ___, se publicó demasiado tarde para ayudar." (contraste entre orações)
+- por lo tanto
+- porque
+- sin embargo
+- para que
+E: "Sin embargo" é usado para introduzir contraste entre duas orações independentes.
+--- en
+P: Complete: "El informe era preciso; ___, se publicó demasiado tarde para ayudar." (contrast between clauses)
+- por lo tanto
+- porque
+- sin embargo
+- para que
+E: "Sin embargo" is used to introduce a contrast between two independent clauses.
+--- es
+P: Completa: "El informe era preciso; ___, se publicó demasiado tarde para ayudar." (contraste entre oraciones)
+- @
+- @
+- @
+- @
+E: "Sin embargo" se usa para introducir un contraste entre dos oraciones independientes.
+
+=== Coesão e coerência > Conectores e conjunções c=3 d=dificil
+P: Complete: "Deberías llevar un paraguas ___ llueva más tarde." (condição/precaução)
+- porque
+- aunque
+- sin embargo
+- por si acaso
+E: "Por si acaso" expressa precaução para uma possibilidade futura.
+--- en
+P: Complete: "Deberías llevar un paraguas ___ llueva más tarde." (condition/precaution)
+- porque
+- aunque
+- sin embargo
+- por si acaso
+E: "Por si acaso" expresses precaution for a future possibility.
+--- es
+P: Completa: "Deberías llevar un paraguas ___ llueva más tarde." (condición/precaución)
+- @
+- @
+- @
+- @
+E: "Por si acaso" expresa precaución para una posibilidad futura.
+
+=== Coesão e coerência > Referência pronominal c=0 d=facil
+P: Leia: "María compró una computadora nueva. La usa todos los días para el trabajo." A que se refere o pronome "La"?
+- A computadora
+- María
+- O trabalho
+- Um colega de María
+E: "La" retoma "una computadora nueva", objeto mencionado antes.
+--- en
+P: Read: "María compró una computadora nueva. La usa todos los días para el trabajo." What does the pronoun "La" refer to?
+- The computer
+- María
+- The job
+- A colleague of María's
+E: "La" refers back to "una computadora nueva", mentioned before.
+--- es
+P: Lee: "María compró una computadora nueva. La usa todos los días para el trabajo." ¿A qué se refiere el pronombre "La"?
+- La computadora
+- María
+- El trabajo
+- Un colega de María
+E: "La" retoma "una computadora nueva", mencionada antes.
+
+=== Coesão e coerência > Referência pronominal c=1 d=facil
+P: No mesmo texto "María compró una computadora nueva. La usa todos los días para el trabajo.", quem realiza a ação de usar a computadora todos os dias?
+- A computadora
+- María (sujeito implícito de "usa")
+- O trabalho
+- Um colega de María
+E: O sujeito implícito de "usa" é María, mencionada na primeira frase.
+--- en
+P: In the same text "María compró una computadora nueva. La usa todos los días para el trabajo.", who performs the action of using the computer every day?
+- The computer
+- María (implicit subject of "usa")
+- The job
+- A colleague of María's
+E: The implicit subject of "usa" is María, mentioned in the first sentence.
+--- es
+P: En el mismo texto "María compró una computadora nueva. La usa todos los días para el trabajo.", ¿quién realiza la acción de usar la computadora todos los días?
+- La computadora
+- María (sujeto implícito de "usa")
+- El trabajo
+- Un colega de María
+E: El sujeto implícito de "usa" es María, mencionada en la primera frase.
+
+=== Coesão e coerência > Referência pronominal c=2 d=medio
+P: Leia: "La profesora les dio a los estudiantes un examen difícil, pero ellos lograron terminarlo a tiempo." A quem se refere "ellos"?
+- A professora
+- O exame
+- Os alunos
+- O horário
+E: "Ellos" retoma "los estudiantes", sujeito da segunda oração.
+--- en
+P: Read: "La profesora les dio a los estudiantes un examen difícil, pero ellos lograron terminarlo a tiempo." Who does "ellos" refer to?
+- The teacher
+- The exam
+- The students
+- The schedule
+E: "Ellos" refers back to "los estudiantes", subject of the second clause.
+--- es
+P: Lee: "La profesora les dio a los estudiantes un examen difícil, pero ellos lograron terminarlo a tiempo." ¿A quién se refiere "ellos"?
+- La profesora
+- El examen
+- Los estudiantes
+- El horario
+E: "Ellos" retoma "los estudiantes", sujeto de la segunda oración.
+
+=== Coesão e coerência > Referência pronominal c=3 d=medio
+P: No mesmo texto "La profesora les dio a los estudiantes un examen difícil, pero ellos lograron terminarlo a tiempo.", a que se refere "lo" em "terminarlo"?
+- A professora
+- Os alunos
+- O horário
+- O exame
+E: "Lo" retoma "un examen difícil", mencionado antes.
+--- en
+P: In the same text "La profesora les dio a los estudiantes un examen difícil, pero ellos lograron terminarlo a tiempo.", what does "lo" refer to in "terminarlo"?
+- The teacher
+- The students
+- The schedule
+- The exam
+E: "Lo" refers back to "un examen difícil", mentioned before.
+--- es
+P: En el mismo texto "La profesora les dio a los estudiantes un examen difícil, pero ellos lograron terminarlo a tiempo.", ¿a qué se refiere "lo" en "terminarlo"?
+- La profesora
+- Los estudiantes
+- El horario
+- El examen
+E: "Lo" retoma "un examen difícil", mencionado antes.
+
+=== Coesão e coerência > Referência pronominal c=0 d=dificil
+P: Leia: "Aunque la empresa perdió dinero el año pasado, esto no le impidió invertir en nueva tecnología." A que se refere "esto"?
+- O fato de a empresa ter perdido dinheiro no ano anterior
+- A nova tecnologia
+- O investimento
+- Um funcionário específico
+E: "Esto" retoma toda a ideia anterior (a empresa ter perdido dinheiro).
+--- en
+P: Read: "Aunque la empresa perdió dinero el año pasado, esto no le impidió invertir en nueva tecnología." What does "esto" refer to?
+- The fact that the company lost money the previous year
+- The new technology
+- The investment
+- A specific employee
+E: "Esto" refers back to the whole previous idea (the company having lost money).
+--- es
+P: Lee: "Aunque la empresa perdió dinero el año pasado, esto no le impidió invertir en nueva tecnología." ¿A qué se refiere "esto"?
+- El hecho de que la empresa perdió dinero el año anterior
+- La nueva tecnología
+- La inversión
+- Un empleado específico
+E: "Esto" retoma toda la idea anterior (que la empresa perdió dinero).
+
+=== Coesão e coerência > Referência pronominal c=1 d=dificil
+P: Leia: "Los científicos publicaron sus hallazgos, lo cual sorprendió a muchos investigadores del área." A que se refere "lo cual"?
+- Os cientistas
+- O fato de terem publicado as descobertas
+- Os pesquisadores da área
+- O campo de pesquisa
+E: "Lo cual" retoma toda a oração anterior (a publicação das descobertas).
+--- en
+P: Read: "Los científicos publicaron sus hallazgos, lo cual sorprendió a muchos investigadores del área." What does "lo cual" refer to?
+- The scientists
+- The fact that they published their findings
+- The researchers in the field
+- The field of research
+E: "Lo cual" refers back to the whole previous clause (the publishing of the findings).
+--- es
+P: Lee: "Los científicos publicaron sus hallazgos, lo cual sorprendió a muchos investigadores del área." ¿A qué se refiere "lo cual"?
+- Los científicos
+- El hecho de que publicaron los hallazgos
+- Los investigadores del área
+- El campo de investigación
+E: "Lo cual" retoma toda la oración anterior (la publicación de los hallazgos).
+
+=== Expressões idiomáticas > Modismos comuns c=2 d=facil
+P: Leia: "¡Está lloviendo a cántaros afuera!" O que "llover a cántaros" significa?
+- Está chovendo animais
+- Está fazendo sol
+- Está chovendo muito forte
+- Vai nevar
+E: "Llover a cántaros" é uma expressão idiomática que significa "chovendo muito forte/torrencialmente".
+--- en
+P: Read: "¡Está lloviendo a cántaros afuera!" What does the idiom "llover a cántaros" mean?
+- It's raining animals
+- It's sunny
+- It's raining very heavily
+- It's going to snow
+E: "Llover a cántaros" is an idiom meaning "raining very heavily/hard".
+--- es
+P: Lee: "¡Está lloviendo a cántaros afuera!" ¿Qué significa la expresión "llover a cántaros"?
+- Están lloviendo animales
+- Hace sol
+- Está lloviendo muy fuerte
+- Va a nevar
+E: "Llover a cántaros" es una expresión idiomática que significa "lloviendo muy fuerte/torrencialmente".
+
+=== Expressões idiomáticas > Modismos comuns c=3 d=facil
+P: Leia: "No te preocupes, es pan comido." O que "pan comido" significa nesse contexto?
+- Uma sobremesa deliciosa
+- Uma tarefa perigosa
+- Uma festa de aniversário
+- Algo muito fácil de fazer
+E: "Pan comido" é uma expressão que significa "algo muito fácil".
+--- en
+P: Read: "No te preocupes, es pan comido." What does "pan comido" mean in this context?
+- A delicious dessert
+- A dangerous task
+- A birthday party
+- Something very easy to do
+E: "Pan comido" is an idiom meaning "something very easy".
+--- es
+P: Lee: "No te preocupes, es pan comido." ¿Qué significa "pan comido" en este contexto?
+- Un postre delicioso
+- Una tarea peligrosa
+- Una fiesta de cumpleaños
+- Algo muy fácil de hacer
+E: "Pan comido" es una expresión que significa "algo muy fácil".
+
+=== Expressões idiomáticas > Modismos comuns c=0 d=medio
+P: Leia: "Creo que deberíamos tirar de la lengua ahora." O que "tirar de la lengua" significa?
+- Fazer alguém falar/revelar algo
+- Comprar um animal de estimação
+- Sair de casa
+- Terminar um projeto
+E: "Tirar de la lengua" significa induzir alguém a falar/revelar algo que não diria espontaneamente.
+--- en
+P: Read: "Creo que deberíamos tirar de la lengua ahora." What does "tirar de la lengua" mean?
+- To get someone to talk/reveal something
+- To buy a pet
+- To leave the house
+- To finish a project
+E: "Tirar de la lengua" means to get someone to talk/reveal something they wouldn't say on their own.
+--- es
+P: Lee: "Creo que deberíamos tirar de la lengua ahora." ¿Qué significa "tirar de la lengua"?
+- Hacer que alguien hable/revele algo
+- Comprar una mascota
+- Salir de casa
+- Terminar un proyecto
+E: "Tirar de la lengua" significa inducir a alguien a hablar/revelar algo que no diría espontáneamente.
+
+=== Expressões idiomáticas > Modismos comuns c=1 d=medio
+P: Leia: "Después de la discusión, decidieron romper el hielo con una broma." O que "romper el hielo" significa?
+- Quebrar objetos
+- Aliviar uma situação tensa ou desconfortável
+- Terminar uma amizade
+- Sair no frio
+E: "Romper el hielo" significa aliviar uma situação socialmente tensa ou desconfortável.
+--- en
+P: Read: "Después de la discusión, decidieron romper el hielo con una broma." What does "romper el hielo" mean?
+- To break objects
+- To ease a tense or awkward situation
+- To end a friendship
+- To go out in the cold
+E: "Romper el hielo" means to ease a socially tense or awkward situation.
+--- es
+P: Lee: "Después de la discusión, decidieron romper el hielo con una broma." ¿Qué significa "romper el hielo"?
+- Romper objetos
+- Aliviar una situación tensa o incómoda
+- Terminar una amistad
+- Salir al frío
+E: "Romper el hielo" significa aliviar una situación socialmente tensa o incómoda.
+
+=== Expressões idiomáticas > Modismos comuns c=2 d=dificil
+P: Leia: "Ha estado pachucho desde el lunes, así que se quedó en casa." O que "estar pachucho" significa?
+- Viajando
+- Muito animado
+- Se sentindo mal/indisposto
+- Trabalhando ao ar livre
+E: "Estar pachucho" é uma expressão coloquial que significa "se sentindo mal/indisposto".
+--- en
+P: Read: "Ha estado pachucho desde el lunes, así que se quedó en casa." What does "estar pachucho" mean?
+- Traveling
+- Very excited
+- Feeling unwell / under the weather
+- Working outdoors
+E: "Estar pachucho" is a colloquial expression meaning "feeling unwell/under the weather".
+--- es
+P: Lee: "Ha estado pachucho desde el lunes, así que se quedó en casa." ¿Qué significa "estar pachucho"?
+- Viajando
+- Muy animado
+- Sintiéndose mal/indispuesto
+- Trabajando al aire libre
+E: "Estar pachucho" es una expresión coloquial que significa "sintiéndose mal/indispuesto".
+
+=== Expressões idiomáticas > Modismos comuns c=3 d=dificil
+P: Leia: "Tengo mucho en el plato este mes, así que no puedo asumir nuevos proyectos." O que "tener mucho en el plato" significa?
+- Muita comida para comer
+- Um prato cheio literalmente
+- Poucas responsabilidades
+- Muitas tarefas e responsabilidades
+E: "Tener mucho en el plato" é uma expressão idiomática que significa "muitas tarefas/responsabilidades no momento".
+--- en
+P: Read: "Tengo mucho en el plato este mes, así que no puedo asumir nuevos proyectos." What does "tener mucho en el plato" mean?
+- A lot of food to eat
+- A full plate literally
+- Few responsibilities
+- Many tasks and responsibilities
+E: "Tener mucho en el plato" is an idiom meaning many tasks/responsibilities at the moment.
+--- es
+P: Lee: "Tengo mucho en el plato este mes, así que no puedo asumir nuevos proyectos." ¿Qué significa "tener mucho en el plato"?
+- Mucha comida para comer
+- Un plato lleno literalmente
+- Pocas responsabilidades
+- Muchas tareas y responsabilidades
+E: "Tener mucho en el plato" es una expresión idiomática que significa "muchas tareas/responsabilidades en el momento".
+
+=== Expressões idiomáticas > Perífrases verbais c=0 d=facil
+P: Complete: "___ estudiar más para el examen." (obrigação pessoal)
+- Tengo que
+- Voy a
+- Acabo de
+- Suelo
+E: "Tener que + infinitivo" expressa obrigação.
+--- en
+P: Complete: "___ estudiar más para el examen." (personal obligation)
+- Tengo que
+- Voy a
+- Acabo de
+- Suelo
+E: "Tener que + infinitive" expresses obligation.
+--- es
+P: Completa: "___ estudiar más para el examen." (obligación personal)
+- @
+- @
+- @
+- @
+E: "Tener que + infinitivo" expresa obligación.
+
+=== Expressões idiomáticas > Perífrases verbais c=1 d=facil
+P: Complete: "___ viajar a México el próximo mes." (plano futuro)
+- Tengo que
+- Voy a
+- Acabo de
+- Suelo
+E: "Ir a + infinitivo" expressa um plano futuro.
+--- en
+P: Complete: "___ viajar a México el próximo mes." (future plan)
+- Tengo que
+- Voy a
+- Acabo de
+- Suelo
+E: "Ir a + infinitive" expresses a future plan.
+--- es
+P: Completa: "___ viajar a México el próximo mes." (plan futuro)
+- @
+- @
+- @
+- @
+E: "Ir a + infinitivo" expresa un plan futuro.
+
+=== Expressões idiomáticas > Perífrases verbais c=2 d=medio
+P: Complete: "___ llegar, así que la comida todavía está caliente." (ação recém-concluída)
+- Voy a
+- Suelo
+- Acabo de
+- Tengo que
+E: "Acabar de + infinitivo" expressa uma ação recém-concluída.
+--- en
+P: Complete: "___ llegar, así que la comida todavía está caliente." (a just-finished action)
+- Voy a
+- Suelo
+- Acabo de
+- Tengo que
+E: "Acabar de + infinitive" expresses an action just completed.
+--- es
+P: Completa: "___ llegar, así que la comida todavía está caliente." (acción recién concluida)
+- @
+- @
+- @
+- @
+E: "Acabar de + infinitivo" expresa una acción recién concluida.
+
+=== Expressões idiomáticas > Perífrases verbais c=3 d=medio
+P: Complete: "___ levantarme temprano los días de semana." (hábito)
+- Voy a
+- Acabo de
+- Tengo que
+- Suelo
+E: "Soler + infinitivo" expressa um hábito.
+--- en
+P: Complete: "___ levantarme temprano los días de semana." (habit)
+- Voy a
+- Acabo de
+- Tengo que
+- Suelo
+E: "Soler + infinitive" expresses a habit.
+--- es
+P: Completa: "___ levantarme temprano los días de semana." (hábito)
+- @
+- @
+- @
+- @
+E: "Soler + infinitivo" expresa un hábito.
+
+=== Expressões idiomáticas > Perífrases verbais c=0 d=dificil
+P: Complete: "___ terminando el proyecto poco a poco." (ação em progresso gradual)
+- Voy
+- Acabo
+- Suelo
+- Tengo
+E: "Ir + gerúndio" expressa uma ação que progride gradualmente: "voy terminando".
+--- en
+P: Complete: "___ terminando el proyecto poco a poco." (a gradually progressing action)
+- Voy
+- Acabo
+- Suelo
+- Tengo
+E: "Ir + gerund" expresses a gradually progressing action: "voy terminando".
+--- es
+P: Completa: "___ terminando el proyecto poco a poco." (acción en progreso gradual)
+- @
+- @
+- @
+- @
+E: "Ir + gerundio" expresa una acción que progresa gradualmente: "voy terminando".
+
+=== Expressões idiomáticas > Perífrases verbais c=1 d=dificil
+P: Complete: "___ trabajando en esta empresa desde hace diez años." (ação contínua desde o passado)
+- Voy
+- Llevo
+- Acabo
+- Suelo
+E: "Llevar + gerúndio" expressa uma ação contínua desde um ponto no passado: "llevo trabajando".
+--- en
+P: Complete: "___ trabajando en esta empresa desde hace diez años." (an action continuing since the past)
+- Voy
+- Llevo
+- Acabo
+- Suelo
+E: "Llevar + gerund" expresses an action continuing since a point in the past: "llevo trabajando".
+--- es
+P: Completa: "___ trabajando en esta empresa desde hace diez años." (acción continua desde el pasado)
+- @
+- @
+- @
+- @
+E: "Llevar + gerundio" expresa una acción continua desde un punto en el pasado: "llevo trabajando".
