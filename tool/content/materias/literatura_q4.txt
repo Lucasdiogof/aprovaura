@@ -152,27 +152,27 @@ P: Fernando Pessoa creó heterónimos, que son:
 - Traducciones de sus obras
 E: Alberto Caeiro, Ricardo Reis y Álvaro de Campos son "otros poetas" creados por Pessoa, cada uno con su obra.
 
-=== Literatura portuguesa > Fernando Pessoa c=3 d=facil
-P: Mensagem (1934), única obra em português publicada por Pessoa em vida, trata:
+=== Literatura portuguesa > Fernando Pessoa c=3 d=facil id=b5708da4-32bf-57a3-ba6c-5730faa07579
+P: Mensagem (1934), único livro em português publicado por Fernando Pessoa em vida, trata:
 - Da vida no campo, com tom pastoril
 - Da Revolução Industrial
 - Do amor na juventude
 - Da história de Portugal e de seu destino, em tom místico e patriótico
-E: O livro revisita heróis portugueses e o sebastianismo; nele está o poema "Mar Português".
+E: Mensagem revisita figuras e episódios da história portuguesa e o sebastianismo, em tom simbólico, místico e patriótico; nela está o poema "Mar Português".
 --- en
-P: Mensagem (1934), the only work in Portuguese that Pessoa published in his lifetime, deals with:
+P: Mensagem (1934), the only book in Portuguese that Fernando Pessoa published in his lifetime, deals with:
 - Country life, in a pastoral tone
 - The Industrial Revolution
 - Youthful love
 - The history of Portugal and its destiny, in a mystical and patriotic tone
-E: The book revisits Portuguese heroes and Sebastianism; it contains the poem "Portuguese Sea".
+E: Mensagem revisits figures and episodes of Portuguese history and Sebastianism, in a symbolic, mystical and patriotic tone; it contains the poem "Portuguese Sea".
 --- es
-P: Mensagem (1934), única obra en portugués publicada por Pessoa en vida, trata:
+P: Mensagem (1934), único libro en portugués publicado por Fernando Pessoa en vida, trata:
 - De la vida en el campo, en tono pastoril
 - De la Revolución Industrial
 - Del amor en la juventud
 - De la historia de Portugal y su destino, en tono místico y patriótico
-E: El libro revisita héroes portugueses y el sebastianismo; en él está el poema "Mar portugués".
+E: Mensagem revisita figuras y episodios de la historia portuguesa y el sebastianismo, en tono simbólico, místico y patriótico; en él está el poema "Mar portugués".
 
 === Literatura portuguesa > Fernando Pessoa c=0 d=medio
 P: Alberto Caeiro, o "mestre" dos heterônimos, é conhecido por:
@@ -400,21 +400,21 @@ P: A literatura de cordel recebeu esse nome porque:
 - Os folhetos eram pendurados em cordões para venda em feiras
 - Tratava só de marinheiros
 - Era proibida pela Igreja
-E: Os folhetos de cordel, com xilogravuras na capa, eram expostos em barbantes em feiras, sobretudo no Nordeste.
+E: O nome vem de Portugal, onde os folhetos eram vendidos pendurados em cordões. No Brasil, os poetas chamavam suas obras de folhetos ou romances; "literatura de cordel" se difundiu a partir de meados do século XX.
 --- en
 P: Cordel literature got its name because:
 - It was written only on guitar strings
 - The booklets were hung on strings for sale at fairs
 - It dealt only with sailors
 - It was banned by the Church
-E: Cordel booklets, with woodcuts on the cover, were displayed on strings at fairs, especially in the Northeast.
+E: The name comes from Portugal, where the booklets were sold hanging on strings. In Brazil, poets called their works folhetos or romances; "cordel literature" spread from the mid-20th century on.
 --- es
 P: La literatura de cordel recibió ese nombre porque:
 - Se escribía solo en cuerdas de guitarra
 - Los folletos se colgaban en cordeles para venderse en ferias
 - Trataba solo de marineros
 - Estaba prohibida por la Iglesia
-E: Los folletos de cordel, con xilografías en la portada, se exhibían en cordeles en las ferias, sobre todo en el Nordeste.
+E: El nombre viene de Portugal, donde los folletos se vendían colgados de cordeles. En Brasil, los poetas llamaban a sus obras folhetos o romances; "literatura de cordel" se difundió a partir de mediados del siglo XX.
 
 === Vozes da literatura brasileira > Cordel e literatura popular c=3 d=facil
 P: As capas dos folhetos de cordel costumam ser ilustradas com:
@@ -488,21 +488,21 @@ P: Em 2018, a literatura de cordel foi reconhecida pelo IPHAN como:
 - Patrimônio Cultural Imaterial do Brasil
 - Movimento parnasiano
 - Literatura exclusivamente acadêmica
-E: O registro reconhece o cordel como expressão cultural viva, ligada à oralidade e às feiras populares.
+E: Em 19 de setembro de 2018, o IPHAN inscreveu a Literatura de Cordel no Livro de Registro das Formas de Expressão, reconhecendo-a como expressão cultural viva, ligada à oralidade e às feiras.
 --- en
 P: In 2018, cordel literature was recognized by IPHAN as:
 - A banned genre
 - Intangible Cultural Heritage of Brazil
 - A Parnassian movement
 - Exclusively academic literature
-E: The registration recognizes cordel as a living cultural expression, linked to orality and popular fairs.
+E: On 19 September 2018, IPHAN entered cordel literature in its Register of Forms of Expression, recognizing it as a living cultural expression linked to orality and fairs.
 --- es
 P: En 2018, la literatura de cordel fue reconocida por el IPHAN como:
 - Género prohibido
 - Patrimonio Cultural Inmaterial de Brasil
 - Movimiento parnasiano
 - Literatura exclusivamente académica
-E: El registro reconoce el cordel como expresión cultural viva, ligada a la oralidad y a las ferias populares.
+E: El 19 de septiembre de 2018, el IPHAN inscribió la Literatura de Cordel en el Libro de Registro de las Formas de Expresión, reconociéndola como expresión cultural viva, ligada a la oralidad y a las ferias.
 
 === Vozes da literatura brasileira > Cordel e literatura popular c=2 d=dificil
 P: Patativa do Assaré, poeta popular cearense, é conhecido por:

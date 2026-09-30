@@ -224,21 +224,21 @@ P: Memórias de um Sargento de Milícias, de Manuel Antônio de Almeida, diferen
 - Tratar apenas da aristocracia
 - Retratar com humor as camadas populares do Rio e ter um protagonista malandro, anti-herói
 - Ser um romance indianista
-E: A obra antecipa traços realistas ao mostrar o cotidiano popular do início do século XIX, com o malandro Leonardo.
+E: A obra se afasta da idealização dominante no Romantismo ao retratar com humor personagens populares do Rio do início do século XIX e o anti-herói Leonardo.
 --- en
 P: Memoirs of a Militia Sergeant, by Manuel Antônio de Almeida, differs from other Romantic novels by:
 - Idealizing perfect heroes
 - Dealing only with the aristocracy
 - Humorously portraying Rio's lower classes and having a rogue anti-hero protagonist
 - Being an Indianist novel
-E: The work anticipates realist traits by showing everyday popular life in the early 19th century, with the rogue Leonardo.
+E: The work departs from the idealization dominant in Romanticism by humorously portraying ordinary people of early 19th-century Rio and the anti-hero Leonardo.
 --- es
 P: Memorias de un sargento de milicias, de Manuel Antônio de Almeida, se diferencia de otras novelas románticas por:
 - Idealizar héroes perfectos
 - Tratar solo de la aristocracia
 - Retratar con humor a las capas populares de Río y tener un protagonista pícaro, antihéroe
 - Ser una novela indianista
-E: La obra anticipa rasgos realistas al mostrar la vida cotidiana popular de inicios del siglo XIX, con el pícaro Leonardo.
+E: La obra se aparta de la idealización dominante en el Romanticismo al retratar con humor a personajes populares del Río de inicios del siglo XIX y al antihéroe Leonardo.
 
 === Romantismo > Prosa romântica c=0 d=dificil
 P: Úrsula (1859), de Maria Firmina dos Reis, é considerada pioneira porque:
@@ -394,27 +394,27 @@ P: Una marca de la narrativa machadiana madura es el narrador que:
 - Conversa con el lector, hace digresiones y es poco confiable
 E: Blas Cubas y Bentinho interrumpen la historia, provocan al lector y cuentan los hechos según sus intereses.
 
-=== Realismo e fim do século XIX > Naturalismo c=0 d=facil
-P: O Cortiço (1890), de Aluísio Azevedo, é o principal romance do:
+=== Realismo e fim do século XIX > Naturalismo c=0 d=facil id=9d205da7-631c-5141-ab0b-f169f88395eb
+P: O Cortiço (1890), de Aluísio Azevedo, é um dos principais romances do:
 - Naturalismo brasileiro
 - Arcadismo
 - Modernismo
 - Barroco
-E: A obra retrata a vida coletiva de um cortiço no Rio, mostrando o ambiente como força que determina as personagens.
+E: Obra central do Naturalismo brasileiro, retrata a vida coletiva de um cortiço carioca e mostra o meio como força que determina as personagens.
 --- en
-P: O Cortiço (The Slum, 1890), by Aluísio Azevedo, is the main novel of:
+P: O Cortiço (The Slum, 1890), by Aluísio Azevedo, is one of the main novels of:
 - Brazilian Naturalism
 - Arcadianism
 - Modernism
 - The Baroque
-E: The work portrays collective life in a Rio tenement, showing the environment as a force that determines the characters.
+E: A central work of Brazilian Naturalism, it portrays collective life in a Rio tenement and shows the environment as a force that determines the characters.
 --- es
-P: O Cortiço (El conventillo, 1890), de Aluísio Azevedo, es la principal novela del:
+P: O Cortiço (El conventillo, 1890), de Aluísio Azevedo, es una de las principales novelas del:
 - Naturalismo brasileño
 - Arcadismo
 - Modernismo
 - Barroco
-E: La obra retrata la vida colectiva de un conventillo en Río, mostrando el ambiente como fuerza que determina a los personajes.
+E: Obra central del Naturalismo brasileño, retrata la vida colectiva de un conventillo de Río y muestra el ambiente como fuerza que determina a los personajes.
 
 === Realismo e fim do século XIX > Naturalismo c=2 d=facil
 P: O Naturalismo baseava-se em teorias científicas da época, como:

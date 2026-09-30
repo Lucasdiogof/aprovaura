@@ -44,25 +44,25 @@ E: Son textos que cuentan una historia, con narrador, personajes, tiempo y espac
 
 === Teoria literária > Gêneros literários c=0 d=medio
 P: No gênero dramático, a história é apresentada principalmente por meio:
-- Dos diálogos e ações das personagens, sem narrador
+- Dos diálogos e ações das personagens, pensados para a representação
 - Da voz de um narrador onisciente
 - De versos que expressam só sentimentos
 - De notas de rodapé
-E: O texto teatral se realiza na encenação; as rubricas orientam cenário e movimentos.
+E: No gênero dramático, a ação se apresenta sobretudo pelas falas e ações das personagens, pensadas para a cena; as rubricas orientam cenário, gestos e movimentos.
 --- en
 P: In the dramatic genre, the story is presented mainly through:
-- The characters' dialogues and actions, without a narrator
+- The characters' dialogues and actions, meant to be performed
 - The voice of an omniscient narrator
 - Verses that express only feelings
 - Footnotes
-E: The theatrical text is fulfilled on stage; stage directions guide setting and movement.
+E: In the dramatic genre, the action comes mainly through what the characters say and do, meant for the stage; stage directions guide setting, gestures and movement.
 --- es
 P: En el género dramático, la historia se presenta principalmente mediante:
-- Los diálogos y acciones de los personajes, sin narrador
+- Los diálogos y acciones de los personajes, pensados para la representación
 - La voz de un narrador omnisciente
 - Versos que expresan solo sentimientos
 - Notas al pie
-E: El texto teatral se realiza en la representación; las acotaciones orientan el escenario y los movimientos.
+E: En el género dramático, la acción se presenta sobre todo por las palabras y acciones de los personajes, pensadas para la escena; las acotaciones orientan el escenario, los gestos y los movimientos.
 
 === Teoria literária > Gêneros literários c=2 d=medio
 P: A crônica, gênero muito praticado no Brasil por autores como Rubem Braga, caracteriza-se por:
