@@ -1,7 +1,8 @@
 -- New questions for espanhol: 120 questions, each already
 -- with its en/es translation (240 translation rows).
 --
--- ids are deterministic (uuid5 of the pt-BR prompt), so running this twice
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
 -- inserts nothing new: questions use on conflict do nothing, translations
 -- on conflict do update. The translation join refuses any row whose option
 -- count differs from the original (correct_index is positional).
@@ -423,7 +424,7 @@ from (values
    'O trecho descreve a rotina de um pescador velho que sai sozinho ao mar todas as manhãs.', 202, 'facil'),
   ('86b9e901-295d-5d6e-b9e6-e0ce7b2b5558', 'eebca2bc-5898-56fd-b719-42a5d22d830b',
    'No mesmo trecho "El viejo pescador salió al mar solo...", qual é o sentimento predominante transmitido?',
-   array['Solidão e rotina', 'Alegria e festa', 'Medo intenso', 'Raiva'], 3,
+   array['Raiva', 'Alegria e festa', 'Medo intenso', 'Solidão e rotina'], 3,
    'A imagem do pescador saindo sozinho, repetindo a mesma rotina há anos, transmite solidão e rotina.', 203, 'facil'),
   ('9742ae5b-154b-5e41-8ff7-6996b54e5312', 'eebca2bc-5898-56fd-b719-42a5d22d830b',
    'Leia: "La casa estaba en silencio, pero ella sentía que algo, en algún rincón, la observaba." Que efeito o trecho busca criar no leitor?',
@@ -455,7 +456,7 @@ from (values
    'O texto diz que dormir menos de seis horas "está asociado con un mayor riesgo de problemas de memoria a largo plazo".', 210, 'medio'),
   ('002f90a1-db79-56e7-a108-2d6d1433b3ba', '59fffb0a-4b6d-5f54-ac1f-db400eac0f5b',
    'No mesmo texto sobre sono e memória, qual é a relação de causa apresentada?',
-   array['Dormir pouco está associado a maior risco de problemas de memória', 'Dormir muito causa insônia', 'A memória causa sono', 'Não há nenhuma relação mencionada'], 3,
+   array['Não há nenhuma relação mencionada', 'Dormir muito causa insônia', 'A memória causa sono', 'Dormir pouco está associado a maior risco de problemas de memória'], 3,
    'O texto estabelece explicitamente essa associação entre dormir pouco e maior risco de problemas de memória.', 211, 'medio'),
   ('e4c6c759-ec6a-5ba0-9a75-7f3ed5860a5b', '59fffb0a-4b6d-5f54-ac1f-db400eac0f5b',
    'Leia: "Aunque se sabe que el ejercicio regular mejora la salud cardiovascular, los científicos aún debaten la intensidad óptima necesaria para maximizar sus beneficios." Qual é o ponto ainda em debate segundo o texto?',
@@ -1322,11 +1323,11 @@ from (values
    'El fragmento describe la rutina de un pescador viejo que sale solo al mar todas las mañanas.'),
   ('86b9e901-295d-5d6e-b9e6-e0ce7b2b5558', 'en',
    'In the same excerpt "El viejo pescador salió al mar solo...", what feeling is predominantly conveyed?',
-   array['Loneliness and routine', 'Joy and celebration', 'Intense fear', 'Anger'],
+   array['Anger', 'Joy and celebration', 'Intense fear', 'Loneliness and routine'],
    'The image of the fisherman going out alone, repeating the same routine for years, conveys loneliness and routine.'),
   ('86b9e901-295d-5d6e-b9e6-e0ce7b2b5558', 'es',
    'En el mismo fragmento "El viejo pescador salió al mar solo...", ¿qué sentimiento predomina?',
-   array['Soledad y rutina', 'Alegría y fiesta', 'Miedo intenso', 'Rabia'],
+   array['Rabia', 'Alegría y fiesta', 'Miedo intenso', 'Soledad y rutina'],
    'La imagen del pescador saliendo solo, repitiendo la misma rutina desde hace años, transmite soledad y rutina.'),
   ('9742ae5b-154b-5e41-8ff7-6996b54e5312', 'en',
    'Read: "La casa estaba en silencio, pero ella sentía que algo, en algún rincón, la observaba." What effect does the excerpt try to create in the reader?',
@@ -1386,11 +1387,11 @@ from (values
    'El texto dice que dormir menos de seis horas "está asociado con un mayor riesgo de problemas de memoria a largo plazo".'),
   ('002f90a1-db79-56e7-a108-2d6d1433b3ba', 'en',
    'In the same text about sleep and memory, what causal relationship is presented?',
-   array['Sleeping little is associated with a higher risk of memory problems', 'Sleeping too much causes insomnia', 'Memory causes sleep', 'No relationship is mentioned at all'],
+   array['No relationship is mentioned at all', 'Sleeping too much causes insomnia', 'Memory causes sleep', 'Sleeping little is associated with a higher risk of memory problems'],
    'The text explicitly establishes this association between sleeping little and a higher risk of memory problems.'),
   ('002f90a1-db79-56e7-a108-2d6d1433b3ba', 'es',
    'En el mismo texto sobre sueño y memoria, ¿qué relación causal se presenta?',
-   array['Dormir poco está asociado a un mayor riesgo de problemas de memoria', 'Dormir demasiado causa insomnio', 'La memoria causa sueño', 'No se menciona ninguna relación'],
+   array['No se menciona ninguna relación', 'Dormir demasiado causa insomnio', 'La memoria causa sueño', 'Dormir poco está asociado a un mayor riesgo de problemas de memoria'],
    'El texto establece explícitamente esta asociación entre dormir poco y un mayor riesgo de problemas de memoria.'),
   ('e4c6c759-ec6a-5ba0-9a75-7f3ed5860a5b', 'en',
    'Read: "Aunque se sabe que el ejercicio regular mejora la salud cardiovascular, los científicos aún debaten la intensidad óptima necesaria para maximizar sus beneficios." What point is still under debate according to the text?',

@@ -92,7 +92,9 @@ python tool/content/gen_new_questions.py <dir> filosofia <dir>/all.txt supabase/
 ```
 
 Nas questões, o cabeçalho aceita o nível: `=== <área> > <tópico> c=<0..3> d=facil|medio|dificil`
-(sem `d=`, fica `dificil`). Padrão das matérias novas: 6 questões por tópico, 2 de cada nível,
+(sem `d=`, fica `dificil`). Ao reescrever o enunciado pt de uma questão já publicada, acrescente
+`id=<uuid atual>` ao fim do cabeçalho: sem isso o id muda junto com o texto e o SQL regerado
+insere uma duplicata em vez de atualizar. Padrão das matérias novas: 6 questões por tópico, 2 de cada nível,
 gabarito equilibrado entre as letras. Confira a contagem por tópico que o gerador imprime: todo tópico com 6. Depois de rodar os dois SQL, rode o checkup
 (`supabase/check_<materia>.sql`) e só então acrescente a matéria ao enum `Subject` no app:
 sem conteúdo, ela viraria um card vazio no Praticar.

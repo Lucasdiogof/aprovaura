@@ -177,45 +177,45 @@ E: "Are you ready to order?" es una pregunta típica de un mesero en un restaura
 === Cultura e linguagem funcional > Linguagem funcional do dia a dia c=2 d=medio
 P: Leia: "I'm sorry, I won't be able to make it to the meeting tomorrow. Something came up." O que a pessoa está fazendo?
 - Confirmando presença em uma reunião
-- Cancelando/avisando que não poderá comparecer a uma reunião
 - Marcando uma nova reunião
+- Cancelando/avisando que não poderá comparecer a uma reunião
 - Elogiando uma reunião passada
 E: "I won't be able to make it" significa "não vou conseguir comparecer", indicando um cancelamento.
 --- en
 P: Read: "I'm sorry, I won't be able to make it to the meeting tomorrow. Something came up." What is the person doing?
 - Confirming attendance at a meeting
-- Canceling/letting someone know they can't attend a meeting
 - Scheduling a new meeting
+- Canceling/letting someone know they can't attend a meeting
 - Praising a past meeting
 E: "I won't be able to make it" means they can't attend, indicating a cancellation.
 --- es
 P: Lee: "I'm sorry, I won't be able to make it to the meeting tomorrow. Something came up." ¿Qué está haciendo la persona?
 - Confirmando su asistencia a una reunión
-- Cancelando/avisando que no podrá asistir a una reunión
 - Programando una nueva reunión
+- Cancelando/avisando que no podrá asistir a una reunión
 - Elogiando una reunión pasada
 E: "I won't be able to make it" significa "no podré asistir", indicando una cancelación.
 
 === Cultura e linguagem funcional > Linguagem funcional do dia a dia c=3 d=medio
 P: Leia: "Could you keep it down, please? I'm trying to study." O que a pessoa está pedindo?
-- Para que abaixem o volume/façam menos barulho
+- Para que saiam da sala
 - Para que aumentem o volume da música
 - Para que a ajudem a estudar
-- Para que saiam da sala
+- Para que abaixem o volume/façam menos barulho
 E: "Keep it down" é uma expressão que pede para diminuir o barulho/volume.
 --- en
 P: Read: "Could you keep it down, please? I'm trying to study." What is the person asking for?
-- To lower the volume/make less noise
+- To leave the room
 - To turn up the music
 - To help them study
-- To leave the room
+- To lower the volume/make less noise
 E: "Keep it down" is an expression asking someone to lower the noise/volume.
 --- es
 P: Lee: "Could you keep it down, please? I'm trying to study." ¿Qué está pidiendo la persona?
-- Que bajen el volumen/hagan menos ruido
+- Que salgan de la habitación
 - Que suban el volumen de la música
 - Que la ayuden a estudiar
-- Que salgan de la habitación
+- Que bajen el volumen/hagan menos ruido
 E: "Keep it down" es una expresión que pide bajar el ruido/volumen.
 
 === Cultura e linguagem funcional > Linguagem funcional do dia a dia c=0 d=dificil

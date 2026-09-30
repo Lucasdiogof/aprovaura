@@ -25,22 +25,22 @@ P: Complete: "Look! The kids ___ in the pool right now." (Present Continuous)
 - swim
 - swam
 - swims
-- swimming
-E: "Right now" indica uma ação em andamento; o Present Continuous usa verbo + "-ing": "swimming".
+- are swimming
+E: "Right now" indica uma ação em andamento; com sujeito plural, o Present Continuous é "are" + verbo com "-ing": "are swimming".
 --- en
 P: Complete: "Look! The kids ___ in the pool right now." (Present Continuous)
 - swim
 - swam
 - swims
-- swimming
-E: "Right now" indicates an action in progress; Present Continuous uses verb + "-ing": "swimming".
+- are swimming
+E: "Right now" indicates an action in progress; with a plural subject, the Present Continuous is "are" + verb + "-ing": "are swimming".
 --- es
 P: Completa: "Look! The kids ___ in the pool right now." (Present Continuous)
 - @
 - @
 - @
 - @
-E: "Right now" indica una acción en curso; el Present Continuous usa verbo + "-ing": "swimming".
+E: "Right now" indica una acción en curso; con sujeto plural, el Present Continuous es "are" + verbo con "-ing": "are swimming".
 
 === Gramática e estrutura da frase > Tempos verbais c=0 d=medio
 P: Complete: "They ___ to Portugal last summer." (Simple Past)

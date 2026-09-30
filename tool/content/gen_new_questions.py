@@ -1,7 +1,9 @@
 """Usage: gen_new_questions.py SCRATCH SUBJECT IN.txt OUT.sql
 
 IN.txt blocks:
-=== <topic path exactly as in leaves.json> c=<correct index 0..3> [d=facil|medio|dificil]
+=== <topic path exactly as in leaves.json> c=<correct index 0..3> [d=facil|medio|dificil] [id=<uuid>]
+  (id= pins the uuid of a question whose published pt prompt was reworded;
+   without it the id is the uuid5 of the prompt)
 P: pt prompt
 - option (x4)
 E: pt explanation
@@ -24,13 +26,17 @@ for n, raw in enumerate(open(src, encoding='utf-8'), 1):
         continue
     if line.startswith('=== '):
         rest = line[4:]
+        pin = None
+        if ' id=' in rest:
+            rest, pin = rest.rsplit(' id=', 1)
+            pin = str(uuid.UUID(pin))
         d = 'dificil'
         if ' d=' in rest:
             rest, d = rest.rsplit(' d=', 1)
             assert d in ('facil', 'medio', 'dificil'), (n, d)
         head, c = rest.rsplit(' c=', 1)
         assert head in by_path, (n, head)
-        cur = {'node': by_path[head]['id'], 'c': int(c), 'd': d, 'pt': {'O': []}}
+        cur = {'node': by_path[head]['id'], 'c': int(c), 'd': d, 'pin': pin, 'pt': {'O': []}}
         qs.append(cur); lang = 'pt'
     elif line.startswith('--- '):
         lang = line[4:].strip(); assert lang in ('en', 'es'), n
@@ -55,7 +61,7 @@ for i, q in enumerate(qs):
         assert b and b.get('P') and b.get('E'), (i, l, 'missing P/E')
         assert len(b['O']) == 4 and all(b['O']), (i, l, 'needs 4 options')
         assert len(set(b['O'])) == 4, (i, l, 'duplicate option')
-    q['id'] = str(uuid.uuid5(NS, q['pt']['P']))
+    q['id'] = q['pin'] or str(uuid.uuid5(NS, q['pt']['P']))
     assert q['id'] not in seen, (i, 'duplicate prompt'); seen.add(q['id'])
 
 def s(x): return "'" + x.replace("'", "''") + "'"
@@ -73,7 +79,8 @@ TJ = (',' + chr(10)).join(trows)
 sql = f'''-- New questions for {subject}: {len(qs)} questions, each already
 -- with its en/es translation ({len(trows)} translation rows).
 --
--- ids are deterministic (uuid5 of the pt-BR prompt), so running this twice
+-- ids are deterministic (uuid5 of the pt-BR prompt, or the id= pinned in the
+-- source when a published prompt was reworded), so running this twice
 -- inserts nothing new: questions use on conflict do nothing, translations
 -- on conflict do update. The translation join refuses any row whose option
 -- count differs from the original (correct_index is positional).
