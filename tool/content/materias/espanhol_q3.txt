@@ -240,27 +240,27 @@ P: Completa: "El informe era preciso; ___, se publicó demasiado tarde para ayud
 - @
 E: "Sin embargo" se usa para introducir un contraste entre dos oraciones independientes.
 
-=== Coesão e coerência > Conectores e conjunções c=3 d=dificil
-P: Complete: "Deberías llevar un paraguas ___ llueva más tarde." (condição/precaução)
+=== Coesão e coerência > Conectores e conjunções c=3 d=dificil id=482fa829-99b1-5509-af0a-3d2e4d95510b
+P: Complete: "Deberías llevar un paraguas ___ llueve más tarde." (condição/precaução)
 - porque
 - aunque
 - sin embargo
 - por si acaso
-E: "Por si acaso" expressa precaução para uma possibilidade futura.
+E: "Por si acaso" expressa precaução diante de uma possibilidade futura; nessa construção, o natural é o indicativo: "llueve".
 --- en
-P: Complete: "Deberías llevar un paraguas ___ llueva más tarde." (condition/precaution)
+P: Complete: "Deberías llevar un paraguas ___ llueve más tarde." (condition/precaution)
 - porque
 - aunque
 - sin embargo
 - por si acaso
-E: "Por si acaso" expresses precaution for a future possibility.
+E: "Por si acaso" expresses precaution against a future possibility; in this construction the indicative is the natural choice: "llueve".
 --- es
-P: Completa: "Deberías llevar un paraguas ___ llueva más tarde." (condición/precaución)
+P: Completa: "Deberías llevar un paraguas ___ llueve más tarde." (condición/precaución)
 - @
 - @
 - @
 - @
-E: "Por si acaso" expresa precaución para una posibilidad futura.
+E: "Por si acaso" expresa precaución ante una posibilidad futura; en esta construcción lo natural es el indicativo: "llueve".
 
 === Coesão e coerência > Referência pronominal c=0 d=facil
 P: Leia: "María compró una computadora nueva. La usa todos los días para el trabajo." A que se refere o pronome "La"?
@@ -438,27 +438,27 @@ P: Lee: "No te preocupes, es pan comido." ¿Qué significa "pan comido" en este 
 - Algo muy fácil de hacer
 E: "Pan comido" es una expresión que significa "algo muy fácil".
 
-=== Expressões idiomáticas > Modismos comuns c=0 d=medio
-P: Leia: "Creo que deberíamos tirar de la lengua ahora." O que "tirar de la lengua" significa?
+=== Expressões idiomáticas > Modismos comuns c=0 d=medio id=09bcd2bf-1f65-5ac6-bf24-bd158466c25b
+P: Leia: "Creo que deberíamos tirarle de la lengua para que nos cuente lo que sabe." O que "tirarle de la lengua a alguien" significa?
 - Fazer alguém falar/revelar algo
 - Comprar um animal de estimação
 - Sair de casa
 - Terminar um projeto
-E: "Tirar de la lengua" significa induzir alguém a falar/revelar algo que não diria espontaneamente.
+E: "Tirarle de la lengua a alguien" significa induzir ou estimular essa pessoa a contar algo que não diria espontaneamente.
 --- en
-P: Read: "Creo que deberíamos tirar de la lengua ahora." What does "tirar de la lengua" mean?
+P: Read: "Creo que deberíamos tirarle de la lengua para que nos cuente lo que sabe." What does "tirarle de la lengua a alguien" mean?
 - To get someone to talk/reveal something
 - To buy a pet
 - To leave the house
 - To finish a project
-E: "Tirar de la lengua" means to get someone to talk/reveal something they wouldn't say on their own.
+E: "Tirarle de la lengua a alguien" means to coax that person into telling something they would not say on their own.
 --- es
-P: Lee: "Creo que deberíamos tirar de la lengua ahora." ¿Qué significa "tirar de la lengua"?
+P: Lee: "Creo que deberíamos tirarle de la lengua para que nos cuente lo que sabe." ¿Qué significa "tirarle de la lengua a alguien"?
 - Hacer que alguien hable/revele algo
 - Comprar una mascota
 - Salir de casa
 - Terminar un proyecto
-E: "Tirar de la lengua" significa inducir a alguien a hablar/revelar algo que no diría espontáneamente.
+E: "Tirarle de la lengua a alguien" significa inducir o animar a esa persona a contar algo que no diría espontáneamente.
 
 === Expressões idiomáticas > Modismos comuns c=1 d=medio
 P: Leia: "Después de la discusión, decidieron romper el hielo con una broma." O que "romper el hielo" significa?
@@ -504,27 +504,27 @@ P: Lee: "Ha estado pachucho desde el lunes, así que se quedó en casa." ¿Qué 
 - Trabajando al aire libre
 E: "Estar pachucho" es una expresión coloquial que significa "sintiéndose mal/indispuesto".
 
-=== Expressões idiomáticas > Modismos comuns c=3 d=dificil
-P: Leia: "Tengo mucho en el plato este mes, así que no puedo asumir nuevos proyectos." O que "tener mucho en el plato" significa?
-- Muita comida para comer
-- Um prato cheio literalmente
-- Poucas responsabilidades
-- Muitas tarefas e responsabilidades
-E: "Tener mucho en el plato" é uma expressão idiomática que significa "muitas tarefas/responsabilidades no momento".
+=== Expressões idiomáticas > Modismos comuns c=3 d=dificil id=6b4b559a-511c-5f49-a5bf-09d09b5a9d59
+P: Leia: "Tengo mucho entre manos este mes, así que no puedo asumir nuevos proyectos." O que "tener mucho entre manos" significa?
+- Ter várias possibilidades para escolher
+- Estar preocupado especificamente com alimentação
+- Ter pouco trabalho ou poucas obrigações
+- Ter muitas tarefas ou responsabilidades em andamento
+E: "Tener mucho entre manos" é a expressão idiomática para dizer que alguém tem muitas tarefas, assuntos ou responsabilidades em andamento.
 --- en
-P: Read: "Tengo mucho en el plato este mes, así que no puedo asumir nuevos proyectos." What does "tener mucho en el plato" mean?
-- A lot of food to eat
-- A full plate literally
-- Few responsibilities
-- Many tasks and responsibilities
-E: "Tener mucho en el plato" is an idiom meaning many tasks/responsibilities at the moment.
+P: Read: "Tengo mucho entre manos este mes, así que no puedo asumir nuevos proyectos." What does "tener mucho entre manos" mean?
+- Having several options to choose from
+- Being worried specifically about food
+- Having little work or few obligations
+- Having many tasks or responsibilities underway
+E: "Tener mucho entre manos" is the idiom for saying someone has many tasks, matters or responsibilities underway.
 --- es
-P: Lee: "Tengo mucho en el plato este mes, así que no puedo asumir nuevos proyectos." ¿Qué significa "tener mucho en el plato"?
-- Mucha comida para comer
-- Un plato lleno literalmente
-- Pocas responsabilidades
-- Muchas tareas y responsabilidades
-E: "Tener mucho en el plato" es una expresión idiomática que significa "muchas tareas/responsabilidades en el momento".
+P: Lee: "Tengo mucho entre manos este mes, así que no puedo asumir nuevos proyectos." ¿Qué significa "tener mucho entre manos"?
+- Tener varias opciones para elegir
+- Estar preocupado específicamente por la comida
+- Tener poco trabajo o pocas obligaciones
+- Tener muchas tareas o responsabilidades en curso
+E: "Tener mucho entre manos" es la expresión idiomática para decir que alguien tiene muchas tareas, asuntos o responsabilidades en curso.
 
 === Expressões idiomáticas > Perífrases verbais c=0 d=facil
 P: Complete: "___ estudiar más para el examen." (obrigação pessoal)

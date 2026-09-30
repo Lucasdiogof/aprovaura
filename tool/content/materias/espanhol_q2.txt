@@ -1,24 +1,24 @@
-=== Gramática e estrutura da frase > Ser e estar c=2 d=facil
-P: Complete: "Ella ___ médica." (profissão, característica permanente)
+=== Gramática e estrutura da frase > Ser e estar c=2 d=facil id=27088ee5-0d84-5099-bb5a-2681d2edf448
+P: Complete: "Ella ___ médica." (profissão)
 - está
 - estás
 - es
 - son
-E: Para profissão/característica permanente, usa-se "ser": "es".
+E: Para indicar profissão, usa-se "ser": "ella es médica". A profissão não precisa ser permanente para pedir esse verbo.
 --- en
-P: Complete: "Ella ___ médica." (profession, permanent characteristic)
+P: Complete: "Ella ___ médica." (profession)
 - está
 - estás
 - es
 - son
-E: For professions/permanent characteristics, Spanish uses "ser": "es".
+E: To state a profession, Spanish uses "ser": "ella es médica". The profession need not be permanent to take this verb.
 --- es
-P: Completa: "Ella ___ médica." (profesión, característica permanente)
+P: Completa: "Ella ___ médica." (profesión)
 - @
 - @
 - @
 - @
-E: Para profesión/característica permanente, se usa "ser": "es".
+E: Para indicar profesión se usa "ser": "ella es médica". La profesión no necesita ser permanente para llevar este verbo.
 
 === Gramática e estrutura da frase > Ser e estar c=3 d=facil
 P: Complete: "Los niños ___ cansados después de jugar." (estado temporário)
@@ -158,43 +158,43 @@ P: Complete, uma ação passada com relevância no presente: "Esta semana ___ mu
 - he tenido
 - tendré
 - tenía
-E: "Esta semana" (período ainda não encerrado) pede pretérito perfeito composto: "he tenido".
+E: "Esta semana" (período ainda não encerrado) pede o pretérito perfecto compuesto, como o enunciado indica: "he tenido". Em muitas variedades americanas, "tuve" também é frequente.
 --- en
 P: Complete, a past action still relevant to the present: "Esta semana ___ mucho trabajo." (compound preterite)
 - tuve
 - he tenido
 - tendré
 - tenía
-E: "Esta semana" (a period not yet over) calls for the compound preterite: "he tenido".
+E: "Esta semana" (a period not yet over) calls for the pretérito perfecto compuesto, as the prompt asks: "he tenido". In many Latin American varieties, "tuve" is also common.
 --- es
 P: Completa, una acción pasada con relevancia en el presente: "Esta semana ___ mucho trabajo." (pretérito compuesto)
 - @
 - @
 - @
 - @
-E: "Esta semana" (periodo aún no terminado) pide el pretérito perfecto compuesto: "he tenido".
+E: "Esta semana" (periodo aún no terminado) pide el pretérito perfecto compuesto, como indica el enunciado: "he tenido". En muchas variedades americanas, "tuve" también es frecuente.
 
-=== Gramática e estrutura da frase > Pretérito perfeito simples e composto c=2 d=medio
-P: Complete, uma experiência de vida sem tempo específico: "Nunca ___ en España."
+=== Gramática e estrutura da frase > Pretérito perfeito simples e composto c=2 d=medio id=68cdc09f-13d8-545a-bbc8-6c688c465bae
+P: No uso da Espanha, complete com uma experiência de vida sem tempo específico: "Nunca ___ en España."
 - estuve
 - estaba
 - he estado
 - estaré
-E: "Nunca" (experiência de vida até agora) pede pretérito perfeito composto: "he estado".
+E: Na Espanha, uma experiência de vida até o presente pede o pretérito perfecto compuesto: "he estado". Em muitas variedades americanas, "nunca estuve" também é natural.
 --- en
-P: Complete, a life experience with no specific time: "Nunca ___ en España."
+P: In Spain's usage, complete with a life experience with no specific time: "Nunca ___ en España."
 - estuve
 - estaba
 - he estado
 - estaré
-E: "Nunca" (a life experience up to now) calls for the compound preterite: "he estado".
+E: In Spain, a life experience up to now calls for the pretérito perfecto compuesto: "he estado". In many Latin American varieties, "nunca estuve" is also natural.
 --- es
-P: Completa, una experiencia de vida sin tiempo específico: "Nunca ___ en España."
+P: En el uso de España, completa con una experiencia de vida sin tiempo específico: "Nunca ___ en España."
 - @
 - @
 - @
 - @
-E: "Nunca" (experiencia de vida hasta ahora) pide el pretérito perfecto compuesto: "he estado".
+E: En España, una experiencia de vida hasta ahora pide el pretérito perfecto compuesto: "he estado". En muchas variedades americanas, "nunca estuve" también es natural.
 
 === Gramática e estrutura da frase > Pretérito perfeito simples e composto c=3 d=medio
 P: Complete, com um marcador de tempo passado e encerrado: "El año pasado ___ a España."
@@ -240,27 +240,27 @@ P: Completa, una acción concluida en un momento específico y cerrado del pasad
 - @
 E: Con una fecha específica en el pasado ("en 2010"), se usa el pretérito perfecto simple: "se fue".
 
-=== Gramática e estrutura da frase > Pretérito perfeito simples e composto c=1 d=dificil
-P: Complete, destacando o resultado atual de uma ação recente: "Todavía no ___ la tarea."
+=== Gramática e estrutura da frase > Pretérito perfeito simples e composto c=1 d=dificil id=ecff00e2-5d06-5ad6-9fd5-6c2e9659cee0
+P: No uso da Espanha, complete destacando o resultado atual de uma ação recente: "Todavía no ___ la tarea."
 - hice
 - he hecho
 - hago
 - hacía
-E: "Todavía no" (ainda não, com relevância no presente) pede pretérito perfeito composto: "he hecho".
+E: Na Espanha, "todavía no" com relevância no presente pede o pretérito perfecto compuesto: "he hecho". Em muitas variedades americanas, "todavía no hice" também é natural.
 --- en
-P: Complete, highlighting the current result of a recent action: "Todavía no ___ la tarea."
+P: In Spain's usage, complete highlighting the current result of a recent action: "Todavía no ___ la tarea."
 - hice
 - he hecho
 - hago
 - hacía
-E: "Todavía no" (not yet, relevant to the present) calls for the compound preterite: "he hecho".
+E: In Spain, "todavía no" with present relevance calls for the pretérito perfecto compuesto: "he hecho". In many Latin American varieties, "todavía no hice" is also natural.
 --- es
-P: Completa, destacando el resultado actual de una acción reciente: "Todavía no ___ la tarea."
+P: En el uso de España, completa destacando el resultado actual de una acción reciente: "Todavía no ___ la tarea."
 - @
 - @
 - @
 - @
-E: "Todavía no" (relevancia en el presente) pide el pretérito perfecto compuesto: "he hecho".
+E: En España, "todavía no" con relevancia en el presente pide el pretérito perfecto compuesto: "he hecho". En muchas variedades americanas, "todavía no hice" también es natural.
 
 === Gramática e estrutura da frase > Comparativo e superlativo c=2 d=facil
 P: Complete: "Mi hermano es ___ que yo." (comparativo de "alto")

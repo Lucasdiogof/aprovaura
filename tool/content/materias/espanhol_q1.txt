@@ -616,25 +616,25 @@ E: "Nunca comparte nada" indica lo opuesto de generoso.
 
 === Vocabulário em contexto > Sinônimos e antônimos c=0 d=dificil
 P: Leia: "Al principio, ella estaba reacia a aceptar la oferta de trabajo." Qual é o sinônimo de "reacia" nessa frase?
-- Indispuesta
+- Reticente
 - Ansiosa
 - Segura
 - Agradecida
-E: "Reacia" significa "relutante", sinônimo de "indispuesta".
+E: "Reacia" significa relutante, pouco disposta a aceitar algo; o sinônimo mais direto é "reticente". O contexto mostra hesitação diante da oferta.
 --- en
 P: Read: "Al principio, ella estaba reacia a aceptar la oferta de trabajo." What is a synonym for "reacia" in this sentence?
-- Indispuesta
+- Reticente
 - Ansiosa
 - Segura
 - Agradecida
-E: "Reacia" means "reluctant", a synonym of "indispuesta".
+E: "Reacia" means reluctant, unwilling to accept something; the most direct synonym is "reticente". The context shows hesitation about the offer.
 --- es
 P: Lee: "Al principio, ella estaba reacia a aceptar la oferta de trabajo." ¿Cuál es el sinónimo de "reacia" en esta frase?
-- Indispuesta
+- Reticente
 - Ansiosa
 - Segura
 - Agradecida
-E: "Reacia" significa "poco dispuesta", sinónimo de "indispuesta".
+E: "Reacia" significa poco dispuesta a aceptar algo; el sinónimo más directo es "reticente". El contexto muestra vacilación ante la oferta.
 
 === Vocabulário em contexto > Sinônimos e antônimos c=1 d=dificil
 P: Leia: "El agua era abundante en la región hasta que comenzó la sequía." Qual palavra é antônimo de "abundante" nessa frase?

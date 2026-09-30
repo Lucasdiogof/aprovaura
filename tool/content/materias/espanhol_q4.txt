@@ -1,24 +1,24 @@
-=== Cultura e linguagem funcional > Países de língua espanhola c=2 d=facil
-P: Qual desses países tem o espanhol como idioma oficial?
+=== Cultura e linguagem funcional > Países de língua espanhola c=2 d=facil id=58b3ff84-a861-55ab-9cae-39444859c090
+P: Qual desses países é predominantemente hispanofalante?
 - Brasil
 - Portugal
 - Argentina
 - Estados Unidos
-E: A Argentina tem o espanhol como idioma oficial, sendo um dos maiores países de língua espanhola da América do Sul.
+E: Na Argentina, o espanhol é a língua predominante de uso nacional, embora a Constituição não declare um idioma oficial.
 --- en
-P: Which of these countries has Spanish as an official language?
+P: Which of these countries is predominantly Spanish-speaking?
 - Brazil
 - Portugal
 - Argentina
 - The United States
-E: Argentina has Spanish as an official language, one of the largest Spanish-speaking countries in South America.
+E: In Argentina, Spanish is the predominant national language, although the Constitution does not declare an official language.
 --- es
-P: ¿Cuál de estos países tiene el español como idioma oficial?
+P: ¿Cuál de estos países es predominantemente hispanohablante?
 - Brasil
 - Portugal
 - Argentina
 - Estados Unidos
-E: Argentina tiene el español como idioma oficial, siendo uno de los países hispanohablantes más grandes de Sudamérica.
+E: En Argentina, el español es la lengua predominante de uso nacional, aunque la Constitución no declara un idioma oficial.
 
 === Cultura e linguagem funcional > Países de língua espanhola c=3 d=facil
 P: Qual é a capital do México?
@@ -460,27 +460,27 @@ P: Lee: "Un estudio reciente muestra que dormir menos de seis horas por noche es
 - Un aumento de la energía física
 E: El texto dice que dormir menos de seis horas "está asociado con un mayor riesgo de problemas de memoria a largo plazo".
 
-=== Interpretação de textos > Textos informativos e científicos c=3 d=medio
-P: No mesmo texto sobre sono e memória, qual é a relação de causa apresentada?
+=== Interpretação de textos > Textos informativos e científicos c=3 d=medio id=002f90a1-db79-56e7-a108-2d6d1433b3ba
+P: No mesmo texto sobre sono e memória, qual relação é apresentada entre dormir menos de seis horas e a memória?
 - Não há nenhuma relação mencionada
 - Dormir muito causa insônia
 - A memória causa sono
 - Dormir pouco está associado a maior risco de problemas de memória
-E: O texto estabelece explicitamente essa associação entre dormir pouco e maior risco de problemas de memória.
+E: O texto apresenta uma associação entre dormir menos de seis horas por noite e maior risco de problemas de memória; não afirma, por si só, uma relação de causa.
 --- en
-P: In the same text about sleep and memory, what causal relationship is presented?
+P: In the same text about sleep and memory, what relationship is presented between sleeping less than six hours and memory?
 - No relationship is mentioned at all
 - Sleeping too much causes insomnia
 - Memory causes sleep
 - Sleeping little is associated with a higher risk of memory problems
-E: The text explicitly establishes this association between sleeping little and a higher risk of memory problems.
+E: The text presents an association between sleeping less than six hours a night and a higher risk of memory problems; on its own, it does not claim a causal link.
 --- es
-P: En el mismo texto sobre sueño y memoria, ¿qué relación causal se presenta?
+P: En el mismo texto sobre sueño y memoria, ¿qué relación se presenta entre dormir menos de seis horas y la memoria?
 - No se menciona ninguna relación
 - Dormir demasiado causa insomnio
 - La memoria causa sueño
 - Dormir poco está asociado a un mayor riesgo de problemas de memoria
-E: El texto establece explícitamente esta asociación entre dormir poco y un mayor riesgo de problemas de memoria.
+E: El texto presenta una asociación entre dormir menos de seis horas por noche y un mayor riesgo de problemas de memoria; por sí solo, no afirma una relación causal.
 
 === Interpretação de textos > Textos informativos e científicos c=0 d=dificil
 P: Leia: "Aunque se sabe que el ejercicio regular mejora la salud cardiovascular, los científicos aún debaten la intensidad óptima necesaria para maximizar sus beneficios." Qual é o ponto ainda em debate segundo o texto?
