@@ -1,24 +1,24 @@
-=== Cultura e linguagem funcional > Países de língua inglesa c=2 d=facil
-P: Qual destes países tem o inglês como um dos idiomas oficiais?
+=== Cultura e linguagem funcional > Países de língua inglesa c=2 d=facil id=a7e7565d-8f84-5eb5-9ec7-b92917df691e
+P: Em qual destes países o inglês é a língua nacional de fato, embora não haja idioma oficial definido em lei federal?
 - França
 - México
 - Austrália
 - Argentina
-E: A Austrália tem o inglês como idioma oficial (de fato).
+E: Na Austrália, o inglês é a língua nacional de fato, mas o país não estabelece um idioma oficial em nível federal.
 --- en
-P: Which of these countries has English as one of its official languages?
+P: In which of these countries is English the de facto national language, although no official language is set in federal law?
 - France
 - Mexico
 - Australia
 - Argentina
-E: Australia has English as its (de facto) official language.
+E: In Australia, English is the de facto national language, but the country sets no official language at the federal level.
 --- es
-P: ¿Cuál de estos países tiene el inglés como uno de sus idiomas oficiales?
+P: ¿En cuál de estos países el inglés es la lengua nacional de facto, aunque no haya un idioma oficial definido por ley federal?
 - Francia
 - México
 - Australia
 - Argentina
-E: Australia tiene el inglés como idioma oficial (de facto).
+E: En Australia, el inglés es la lengua nacional de facto, pero el país no establece un idioma oficial a nivel federal.
 
 === Cultura e linguagem funcional > Países de língua inglesa c=3 d=facil
 P: A capital do Reino Unido, onde se fala inglês, é:
@@ -108,27 +108,27 @@ P: ¿Cuál de estos países se considera uno de los que tiene más hablantes de 
 - Chile
 E: India tiene un uso amplio del inglés como segunda lengua debido a su historia como colonia británica.
 
-=== Cultura e linguagem funcional > Países de língua inglesa c=3 d=dificil
-P: A Nova Zelândia, país de língua inglesa no Pacífico Sul, reconhece oficialmente, além do inglês, qual outro idioma?
+=== Cultura e linguagem funcional > Países de língua inglesa c=3 d=dificil id=1dab01c8-2fa7-596b-965c-5736786c5644
+P: Na Nova Zelândia, além do inglês, qual língua indígena tem status oficial?
 - Francês
 - Espanhol
 - Havaiano
 - Māori
-E: O Māori é uma língua oficial da Nova Zelândia, reconhecida ao lado do inglês.
+E: O te reo Māori é língua oficial da Nova Zelândia. Desde agosto de 2026, o inglês também tem esse status expresso em lei, e a Língua de Sinais da Nova Zelândia é igualmente oficial.
 --- en
-P: New Zealand, an English-speaking country in the South Pacific, officially recognizes which other language besides English?
+P: In New Zealand, besides English, which Indigenous language has official status?
 - French
 - Spanish
 - Hawaiian
 - Māori
-E: Māori is an official language of New Zealand, recognized alongside English.
+E: Te reo Māori is an official language of New Zealand. Since August 2026 English has also had that status set out in law, and New Zealand Sign Language is official as well.
 --- es
-P: Nueva Zelanda, país de habla inglesa en el Pacífico Sur, reconoce oficialmente, además del inglés, ¿qué otro idioma?
+P: En Nueva Zelanda, además del inglés, ¿qué lengua indígena tiene estatus oficial?
 - Francés
 - Español
 - Hawaiano
 - Māori
-E: El māori es un idioma oficial de Nueva Zelanda, reconocido junto al inglés.
+E: El te reo māori es lengua oficial de Nueva Zelanda. Desde agosto de 2026, el inglés también tiene ese estatus fijado por ley, y la Lengua de Señas de Nueva Zelanda es igualmente oficial.
 
 === Cultura e linguagem funcional > Linguagem funcional do dia a dia c=0 d=facil
 P: Leia o diálogo: "Excuse me, could you tell me how to get to the train station?" "Sure, go straight and turn left at the bank." O que a primeira pessoa está fazendo?
