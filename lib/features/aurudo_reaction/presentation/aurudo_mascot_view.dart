@@ -5,6 +5,7 @@ import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_ty
 import 'package:aura/features/aurudo_reaction/domain/entities/essay_reaction_tier.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_celebrating_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_level_up_effect.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 
 /// Which [AurudoPose] (or short pose-to-pose story) plays for a resolved
@@ -141,6 +142,16 @@ class _AurudoMascotViewState extends State<AurudoMascotView> {
     // there); every other reaction keeps its still pose(s) below.
     if (widget.type == AurudoReactionType.perfectFarmAura) {
       return AurudoFarmAuraAnimation(size: widget.size, instant: _reduced);
+    }
+    // A level up keeps the celebrating mascot exactly as approved, with
+    // its own ascension scene around him -- what tells it apart from
+    // `great` is the scene, never a new pose.
+    if (widget.type == AurudoReactionType.levelUp) {
+      return AurudoLevelUpEffect(
+        size: widget.size,
+        instant: _reduced,
+        child: AurudoCelebratingAnimation(size: widget.size, instant: _reduced),
+      );
     }
     // Same deal for any reaction that lands on `celebrating` as its only
     // pose (great / levelUp / streakMilestone / the top essay tiers) --

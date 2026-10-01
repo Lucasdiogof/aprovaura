@@ -24,7 +24,9 @@ AuraParticlesStyle? _particlesStyleFor(AurudoReactionType type) =>
       AurudoReactionType.perfectFarmAura => null,
       AurudoReactionType.dailyGoalComplete => AuraParticlesStyle.converge,
       AurudoReactionType.great => AuraParticlesStyle.burst,
-      AurudoReactionType.levelUp => AuraParticlesStyle.burst,
+      // Its ascension scene (AurudoLevelUpEffect, inside the mascot view)
+      // brings its own rising sparkles; a burst on top would be confetti.
+      AurudoReactionType.levelUp => null,
       AurudoReactionType.streakMilestone => AuraParticlesStyle.burst,
       AurudoReactionType.writing => AuraParticlesStyle.ambient,
       AurudoReactionType.normal => null,
@@ -33,7 +35,6 @@ AuraParticlesStyle? _particlesStyleFor(AurudoReactionType type) =>
     };
 
 int _particlesCountFor(AurudoReactionType type) => switch (type) {
-  AurudoReactionType.levelUp => 8,
   AurudoReactionType.dailyGoalComplete => 5,
   AurudoReactionType.writing => 4,
   _ => 6,

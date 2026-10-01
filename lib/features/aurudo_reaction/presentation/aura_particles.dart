@@ -6,7 +6,7 @@ import 'package:aura/core/theme/app_colors.dart';
 /// How [AuraParticles] move: [converge] pulls small shapes in from the
 /// edge toward the centre (the perfect/daily-goal placeholder -- "energy
 /// gathering into the mascot"), [burst] pushes them out from the centre
-/// and fades them (great/levelUp/streak), [ambient] barely moves them at
+/// and fades them (great/streak), [ambient] barely moves them at
 /// all, just a soft twinkle (writing).
 enum AuraParticlesStyle { converge, burst, ambient }
 
