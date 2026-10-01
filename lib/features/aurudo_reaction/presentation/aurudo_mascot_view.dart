@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/essay_reaction_tier.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_celebrating_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 
@@ -10,11 +11,12 @@ import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 /// [AurudoReactionType], today's honest placeholder until a rigged
 /// Rive/Lottie asset exists: the character itself never fakes an
 /// articulated gesture, only the surrounding scene (particles, halo) does
-/// that work -- see [AurudoReactionStage]. The one exception is
-/// `perfectFarmAura`, which [AurudoMascotView] hands to
-/// [AurudoFarmAuraAnimation] (real cut-out layers); its pose here is that
-/// animation's fallback. `dailyGoalComplete` shares the still pose, never
-/// the animation.
+/// that work -- see [AurudoReactionStage]. Two exceptions: `perfectFarmAura`,
+/// which [AurudoMascotView] hands to [AurudoFarmAuraAnimation], and any
+/// single-pose sequence ending on [AurudoPose.celebrating], handed to
+/// [AurudoCelebratingAnimation] -- both real cut-out layers; their pose here
+/// is each animation's fallback. `dailyGoalComplete` shares the still pose,
+/// never the animation.
 ///
 /// [essayTier] only matters for [AurudoReactionType.correctionReady] --
 /// every other reaction ignores it. A missing tier for `correctionReady`
@@ -139,6 +141,12 @@ class _AurudoMascotViewState extends State<AurudoMascotView> {
     // there); every other reaction keeps its still pose(s) below.
     if (widget.type == AurudoReactionType.perfectFarmAura) {
       return AurudoFarmAuraAnimation(size: widget.size, instant: _reduced);
+    }
+    // Same deal for any reaction that lands on `celebrating` as its only
+    // pose (great / levelUp / streakMilestone / the top essay tiers) --
+    // never for the two-pose stories, which don't use it.
+    if (_poses.length == 1 && _poses.single == AurudoPose.celebrating) {
+      return AurudoCelebratingAnimation(size: widget.size, instant: _reduced);
     }
     final pose = _poses[_index];
     return AnimatedSwitcher(

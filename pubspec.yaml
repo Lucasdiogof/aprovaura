@@ -104,9 +104,10 @@ flutter:
     - lib/assets/branding/aprovaura_wordmark_dark.png
     - lib/assets/branding/aprovaura_mark.png
     - lib/assets/mascot/
-    # Asset folders are not recursive: the perfectFarmAura layers need
-    # their own line.
+    # Asset folders are not recursive: the perfectFarmAura and celebrating
+    # layers need their own line.
     - lib/assets/mascot/farm_aura/
+    - lib/assets/mascot/celebrating/
     - lib/assets/maps/
 
   # An image asset can refer to one or more resolution-specific "variants", see

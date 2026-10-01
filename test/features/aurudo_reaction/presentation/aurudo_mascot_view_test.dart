@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/essay_reaction_tier.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_celebrating_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_mascot_view.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 
@@ -107,12 +108,11 @@ void main() {
         const AurudoMascotView(type: AurudoReactionType.great),
       );
       await tester.pump(const Duration(seconds: 2));
-      expect(
-        find.byWidgetPredicate(
-          (w) => w is AurudoIllustration && w.pose == AurudoPose.celebrating,
-        ),
-        findsOneWidget,
-      );
+      // `great` resolves to the single `celebrating` pose, which is the one
+      // real animation (AurudoCelebratingAnimation), never the crossfading
+      // still AurudoIllustration -- see that animation's own tests.
+      expect(find.byType(AurudoCelebratingAnimation), findsOneWidget);
+      expect(find.byType(AurudoIllustration), findsNothing);
     });
 
     group('correctionReady picks its pose from the essay tier', () {

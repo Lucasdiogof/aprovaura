@@ -122,7 +122,12 @@ void main() {
       tester,
     ) async {
       for (final type in AurudoReactionType.values.where(
-        (t) => t != AurudoReactionType.perfectFarmAura,
+        (t) =>
+            t != AurudoReactionType.perfectFarmAura &&
+            // Single-pose `celebrating` reactions get their own real
+            // animation too -- see AurudoCelebratingAnimation's own tests.
+            !(aurudoPoseSequence(t).length == 1 &&
+                aurudoPoseSequence(t).single == AurudoPose.celebrating),
       )) {
         await pump(tester, AurudoMascotView(type: type));
         expect(
