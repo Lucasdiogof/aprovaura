@@ -118,14 +118,13 @@ class _AurudoAchievementOverlayState extends State<AurudoAchievementOverlay> {
                         children: [
                           // Fewer and quieter than a perfect result: this
                           // is a good moment, not the app's biggest one.
-                          // A level up and a streak milestone bring their
-                          // own particles (their effects, in the mascot
+                          // Level up, streak and daily goal bring their
+                          // own particles (their scenes, in the mascot
                           // view).
                           if (!reduced &&
-                              widget.reaction.type !=
-                                  AurudoReactionType.levelUp &&
-                              widget.reaction.type !=
-                                  AurudoReactionType.streakMilestone)
+                              !aurudoReactionHasOwnParticles(
+                                widget.reaction.type,
+                              ))
                             AuraParticles(
                               // Sending an essay is a hand-off, not a win:
                               // a few drifting sparkles, never a burst.

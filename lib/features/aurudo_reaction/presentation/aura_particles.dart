@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:aura/core/theme/app_colors.dart';
 
 /// How [AuraParticles] move: [converge] pulls small shapes in from the
-/// edge toward the centre (the perfect/daily-goal placeholder -- "energy
+/// edge toward the centre (no reaction uses it today -- "energy
 /// gathering into the mascot"), [burst] pushes them out from the centre
 /// and fades them (great), [ambient] barely moves them at
 /// all, just a soft twinkle (writing).

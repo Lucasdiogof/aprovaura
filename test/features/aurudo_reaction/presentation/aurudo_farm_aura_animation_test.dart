@@ -6,6 +6,7 @@ import 'package:aura/core/theme/app_theme.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aura_particles.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_daily_goal_effect.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_mascot_view.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_sequence.dart';
@@ -149,8 +150,8 @@ void main() {
       }
     });
 
-    testWidgets('dailyGoalComplete keeps the still farming pose and its own '
-        'particles, never the signature animation', (tester) async {
+    testWidgets('dailyGoalComplete keeps the still farming pose in its own '
+        'ring, never the signature animation', (tester) async {
       await pump(
         tester,
         const AurudoReactionStage(
@@ -166,10 +167,9 @@ void main() {
         tester.widget<AurudoIllustration>(find.byType(AurudoIllustration)).pose,
         AurudoPose.farmingAura,
       );
-      expect(
-        tester.widget<AuraParticles>(find.byType(AuraParticles)).style,
-        AuraParticlesStyle.converge,
-      );
+      // Its ring lights its own sparkles; the stage adds none on top.
+      expect(find.byType(AurudoDailyGoalEffect), findsOneWidget);
+      expect(find.byType(AuraParticles), findsNothing);
       await tester.pump(const Duration(seconds: 3));
     });
 

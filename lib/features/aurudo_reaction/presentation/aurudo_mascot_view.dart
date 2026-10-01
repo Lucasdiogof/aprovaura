@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/essay_reaction_tier.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_celebrating_animation.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_daily_goal_effect.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_level_up_effect.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_streak_effect.dart';
@@ -51,6 +52,18 @@ List<AurudoPose> aurudoPoseSequence(
     EssayReactionTier.developing => const [AurudoPose.neutral],
     EssayReactionTier.encourage => const [AurudoPose.studying],
   },
+};
+
+/// Whether [type]'s renderer draws its own particles -- the farm-Aura
+/// animation and the level-up, streak and daily-goal scenes. A scene that
+/// hosts the mascot (the result stage, Home's overlay) must not add its
+/// generic particles on top of these.
+bool aurudoReactionHasOwnParticles(AurudoReactionType type) => switch (type) {
+  AurudoReactionType.perfectFarmAura ||
+  AurudoReactionType.levelUp ||
+  AurudoReactionType.streakMilestone ||
+  AurudoReactionType.dailyGoalComplete => true,
+  _ => false,
 };
 
 /// Aurudo reacting to a resolved [type]. For the two-pose stories
@@ -170,6 +183,19 @@ class _AurudoMascotViewState extends State<AurudoMascotView> {
       return AurudoCelebratingAnimation(size: widget.size, instant: _reduced);
     }
     final pose = _poses[_index];
+    // The daily goal keeps the still farm-Aura pose (never the 100%
+    // animation above) inside its own progress ring.
+    if (widget.type == AurudoReactionType.dailyGoalComplete) {
+      return AurudoDailyGoalEffect(
+        size: widget.size,
+        instant: _reduced,
+        child: AurudoIllustration(
+          pose: pose,
+          size: widget.size,
+          animate: !_reduced,
+        ),
+      );
+    }
     return AnimatedSwitcher(
       duration: _reduced ? Duration.zero : AurudoMascotView.crossfadeDuration,
       switchInCurve: Curves.easeOutCubic,

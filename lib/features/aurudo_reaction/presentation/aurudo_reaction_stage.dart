@@ -12,17 +12,17 @@ import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_seque
 /// `encourage` and `correctionReady` are not celebrations, so nothing
 /// scatters around Aurudo for them.
 ///
-/// `dailyGoalComplete` deliberately uses fewer particles than
-/// `perfectFarmAura` (whose ten, `FarmAuraTimeline.particleCount`, are
-/// drawn by its own animation): perfect has to stay the visually strongest
-/// reaction in the app, never tied by a smaller achievement landing in the
-/// same activity.
+/// `perfectFarmAura`, `levelUp`, `streakMilestone` and `dailyGoalComplete`
+/// get none here either: each draws its own on its own clock, inside the
+/// mascot view (see [aurudoReactionHasOwnParticles]).
 AuraParticlesStyle? _particlesStyleFor(AurudoReactionType type) =>
     switch (type) {
       // Brings its own particles, on its own clock (AurudoFarmAuraAnimation):
       // a second set here would double them.
       AurudoReactionType.perfectFarmAura => null,
-      AurudoReactionType.dailyGoalComplete => AuraParticlesStyle.converge,
+      // Its progress ring (AurudoDailyGoalEffect) lights its own sparkles
+      // when it closes.
+      AurudoReactionType.dailyGoalComplete => null,
       AurudoReactionType.great => AuraParticlesStyle.burst,
       // Its ascension scene (AurudoLevelUpEffect, inside the mascot view)
       // brings its own rising sparkles; a burst on top would be confetti.
@@ -36,7 +36,6 @@ AuraParticlesStyle? _particlesStyleFor(AurudoReactionType type) =>
     };
 
 int _particlesCountFor(AurudoReactionType type) => switch (type) {
-  AurudoReactionType.dailyGoalComplete => 5,
   AurudoReactionType.writing => 4,
   _ => 6,
 };
