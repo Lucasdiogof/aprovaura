@@ -27,7 +27,8 @@ AuraParticlesStyle? _particlesStyleFor(AurudoReactionType type) =>
       // Its ascension scene (AurudoLevelUpEffect, inside the mascot view)
       // brings its own rising sparkles; a burst on top would be confetti.
       AurudoReactionType.levelUp => null,
-      AurudoReactionType.streakMilestone => AuraParticlesStyle.burst,
+      // Its flame (AurudoStreakEffect) brings its own rising embers.
+      AurudoReactionType.streakMilestone => null,
       AurudoReactionType.writing => AuraParticlesStyle.ambient,
       AurudoReactionType.normal => null,
       AurudoReactionType.encourage => null,

@@ -6,6 +6,7 @@ import 'package:aura/features/aurudo_reaction/domain/entities/essay_reaction_tie
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_celebrating_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_level_up_effect.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_streak_effect.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 
 /// Which [AurudoPose] (or short pose-to-pose story) plays for a resolved
@@ -148,6 +149,15 @@ class _AurudoMascotViewState extends State<AurudoMascotView> {
     // `great` is the scene, never a new pose.
     if (widget.type == AurudoReactionType.levelUp) {
       return AurudoLevelUpEffect(
+        size: widget.size,
+        instant: _reduced,
+        child: AurudoCelebratingAnimation(size: widget.size, instant: _reduced),
+      );
+    }
+    // A streak milestone: same untouched mascot, in front of its own
+    // Aura flame.
+    if (widget.type == AurudoReactionType.streakMilestone) {
+      return AurudoStreakEffect(
         size: widget.size,
         instant: _reduced,
         child: AurudoCelebratingAnimation(size: widget.size, instant: _reduced),
