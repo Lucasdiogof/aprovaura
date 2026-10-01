@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:aura/shared/widgets/aura/aurudo_idle.dart';
+import 'package:aura/shared/widgets/aura/aurudo_wave_animation.dart';
 
 /// Aurudo, the Aprovaura mascot (the official robot/astronaut), in one of
 /// his official poses -- see lib/assets/mascot/.
@@ -35,6 +36,9 @@ enum AurudoPose {
 /// platform asks for reduced motion. Decorative by default: the text next
 /// to him carries the meaning, so screen readers skip the image.
 ///
+/// The `neutral` pose does more than drift: it waves hello once
+/// ([AurudoWaveAnimation], real cut-out layers), with the same entrance.
+///
 /// Use sparingly -- empty states, results, onboarding -- and never while a
 /// question is on screen.
 class AurudoIllustration extends StatelessWidget {
@@ -67,6 +71,12 @@ class AurudoIllustration extends StatelessWidget {
     );
     final reduceMotion = MediaQuery.maybeDisableAnimationsOf(context) ?? false;
     if (!animate || reduceMotion) return image;
+    if (pose == AurudoPose.neutral) {
+      return AurudoIdle(
+        size: size,
+        child: AurudoWaveAnimation(size: size),
+      );
+    }
     return AurudoIdle(
       size: size,
       child: TweenAnimationBuilder<double>(
