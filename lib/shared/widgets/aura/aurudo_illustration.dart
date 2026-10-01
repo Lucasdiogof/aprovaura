@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:aura/shared/widgets/aura/aurudo_frustrated_animation.dart';
 import 'package:aura/shared/widgets/aura/aurudo_idle.dart';
 import 'package:aura/shared/widgets/aura/aurudo_study_animation.dart';
 import 'package:aura/shared/widgets/aura/aurudo_thinking_animation.dart';
@@ -38,11 +39,12 @@ enum AurudoPose {
 /// platform asks for reduced motion. Decorative by default: the text next
 /// to him carries the meaning, so screen readers skip the image.
 ///
-/// The `neutral` pose does more than drift: it waves hello once
-/// ([AurudoWaveAnimation], real cut-out layers), with the same entrance.
-/// `studying` taps at the keyboard a few times ([AurudoStudyAnimation]), and
-/// `thinking` taps his chin a couple of times ([AurudoThinkingAnimation]),
-/// the same way.
+/// Four poses do more than drift, each off real cut-out layers and with
+/// the same entrance: `neutral` waves hello once ([AurudoWaveAnimation]),
+/// `studying` taps at the keyboard ([AurudoStudyAnimation]), `thinking`
+/// taps his chin ([AurudoThinkingAnimation]) and `frustrated` huffs, the
+/// scribble over his head swelling while he shakes
+/// ([AurudoFrustratedAnimation]).
 ///
 /// Use sparingly -- empty states, results, onboarding -- and never while a
 /// question is on screen.
@@ -92,6 +94,12 @@ class AurudoIllustration extends StatelessWidget {
       return AurudoIdle(
         size: size,
         child: AurudoThinkingAnimation(size: size),
+      );
+    }
+    if (pose == AurudoPose.frustrated) {
+      return AurudoIdle(
+        size: size,
+        child: AurudoFrustratedAnimation(size: size),
       );
     }
     return AurudoIdle(
