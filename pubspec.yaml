@@ -105,11 +105,12 @@ flutter:
     - lib/assets/branding/aprovaura_mark.png
     - lib/assets/mascot/
     # Asset folders are not recursive: the perfectFarmAura, celebrating,
-    # neutral wave and studying tap layers each need their own line.
+    # neutral wave, studying tap and thinking tap layers each need their own line.
     - lib/assets/mascot/farm_aura/
     - lib/assets/mascot/celebrating/
     - lib/assets/mascot/neutral_wave/
     - lib/assets/mascot/studying_tap/
+    - lib/assets/mascot/thinking_tap/
     - lib/assets/maps/
 
   # An image asset can refer to one or more resolution-specific "variants", see

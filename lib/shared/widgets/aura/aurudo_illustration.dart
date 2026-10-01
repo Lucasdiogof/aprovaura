@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:aura/shared/widgets/aura/aurudo_idle.dart';
 import 'package:aura/shared/widgets/aura/aurudo_study_animation.dart';
+import 'package:aura/shared/widgets/aura/aurudo_thinking_animation.dart';
 import 'package:aura/shared/widgets/aura/aurudo_wave_animation.dart';
 
 /// Aurudo, the Aprovaura mascot (the official robot/astronaut), in one of
@@ -39,7 +40,8 @@ enum AurudoPose {
 ///
 /// The `neutral` pose does more than drift: it waves hello once
 /// ([AurudoWaveAnimation], real cut-out layers), with the same entrance.
-/// `studying` taps at the keyboard a few times ([AurudoStudyAnimation]),
+/// `studying` taps at the keyboard a few times ([AurudoStudyAnimation]), and
+/// `thinking` taps his chin a couple of times ([AurudoThinkingAnimation]),
 /// the same way.
 ///
 /// Use sparingly -- empty states, results, onboarding -- and never while a
@@ -84,6 +86,12 @@ class AurudoIllustration extends StatelessWidget {
       return AurudoIdle(
         size: size,
         child: AurudoStudyAnimation(size: size),
+      );
+    }
+    if (pose == AurudoPose.thinking) {
+      return AurudoIdle(
+        size: size,
+        child: AurudoThinkingAnimation(size: size),
       );
     }
     return AurudoIdle(
