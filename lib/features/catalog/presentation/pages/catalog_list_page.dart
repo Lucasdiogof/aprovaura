@@ -40,9 +40,8 @@ class CatalogListPage extends StatefulWidget {
   /// How many catalog levels below the subject root this screen's own list
   /// sits: 0 for the first screen after a subject (categories), 1+ for
   /// every screen reached from tapping into one of those (subtopics).
-  /// Picks the tile density -- [CatalogNodeTile] at 0, the tighter
-  /// [CatalogLeafTile] below that -- so depth reads through density
-  /// instead of indentation.
+  /// Picks the tile -- [CatalogNodeTile] (with description) at 0,
+  /// [CatalogLeafTile] (title only) below that.
   final int depth;
 
   @override
@@ -124,8 +123,7 @@ class _CatalogListPageState extends State<CatalogListPage> with RouteAware {
                     ListView.separated(
                       padding: const EdgeInsets.all(24),
                       itemCount: nodes.length,
-                      separatorBuilder: (_, _) =>
-                          SizedBox(height: widget.depth == 0 ? 12 : 8),
+                      separatorBuilder: (_, _) => const SizedBox(height: 12),
                       itemBuilder: (context, index) {
                         final node = nodes[index];
                         final activityBuilder = mappedActivities[node.id];

@@ -69,12 +69,13 @@ class CatalogNodeTile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Always in full: a long category name wraps, it is
+                    // never cut with an ellipsis.
                     Text(
                       node.title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontSize: 16,
+                        height: 1.3,
                         fontWeight: FontWeight.w600,
                         color: colors.textPrimary,
                       ),
@@ -83,8 +84,6 @@ class CatalogNodeTile extends StatelessWidget {
                       const SizedBox(height: 3),
                       Text(
                         node.description!,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 13,
                           color: colors.textSecondary,
