@@ -201,7 +201,12 @@ class EssayRepositoryImpl implements EssayRepository {
     try {
       final response = await _client.functions.invoke(
         'evaluate-essay',
-        body: {'submission_id': submissionId},
+        // The feedback comes back in the app's language, whatever language
+        // the essay itself was written in.
+        body: {
+          'submission_id': submissionId,
+          'locale': _localeCubit.state.databaseLocale,
+        },
       );
       if (response.status == 200) return const Success(null);
       return Error(

@@ -27,6 +27,8 @@ class EssayCompetencyTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    // In the app's language, not the one the evaluation was marked in.
+    final title = strings.competencyTitle(competency.key) ?? competency.title;
     final hasDetail =
         competency.summary.isNotEmpty ||
         competency.strengths.isNotEmpty ||
@@ -75,10 +77,10 @@ class EssayCompetencyTile extends StatelessWidget {
             ),
           ],
         ),
-        if (competency.title.isNotEmpty) ...[
+        if (title.isNotEmpty) ...[
           const SizedBox(height: 2),
           Text(
-            competency.title,
+            title,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(fontSize: 12, color: colors.textSecondary),

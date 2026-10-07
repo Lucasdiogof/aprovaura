@@ -511,6 +511,43 @@ class EssayStrings {
     };
   }
 
+  /// The official name of an ENEM competency (c1..c5), in the app's
+  /// language. The server stores a title with each evaluation, but in the
+  /// language it was marked in; this one always follows the app. Null for
+  /// a key outside c1..c5, so the caller can fall back to the stored one.
+  String? competencyTitle(String key) => switch ((key, language)) {
+    ('c1', AppLanguage.portuguese) =>
+      'Domínio da norma padrão da língua escrita',
+    ('c1', AppLanguage.english) => 'Command of the standard written language',
+    ('c1', AppLanguage.spanish) =>
+      'Dominio de la norma estándar de la lengua escrita',
+    ('c2', AppLanguage.portuguese) =>
+      'Compreender a proposta e aplicar conceitos das várias áreas',
+    ('c2', AppLanguage.english) =>
+      'Understanding the prompt and applying concepts from different fields',
+    ('c2', AppLanguage.spanish) =>
+      'Comprender la propuesta y aplicar conceptos de varias áreas',
+    ('c3', AppLanguage.portuguese) =>
+      'Selecionar, relacionar, organizar e interpretar informações',
+    ('c3', AppLanguage.english) =>
+      'Selecting, relating, organizing and interpreting information',
+    ('c3', AppLanguage.spanish) =>
+      'Seleccionar, relacionar, organizar e interpretar información',
+    ('c4', AppLanguage.portuguese) =>
+      'Conhecimento dos mecanismos linguísticos de argumentação',
+    ('c4', AppLanguage.english) =>
+      'Knowledge of the linguistic devices of argumentation',
+    ('c4', AppLanguage.spanish) =>
+      'Conocimiento de los mecanismos lingüísticos de argumentación',
+    ('c5', AppLanguage.portuguese) =>
+      'Proposta de intervenção que respeite os direitos humanos',
+    ('c5', AppLanguage.english) =>
+      'A proposal for intervention that respects human rights',
+    ('c5', AppLanguage.spanish) =>
+      'Propuesta de intervención que respete los derechos humanos',
+    _ => null,
+  };
+
   String get whatWentWellHeading => switch (language) {
     AppLanguage.portuguese => 'O que funcionou',
     AppLanguage.english => 'What worked',

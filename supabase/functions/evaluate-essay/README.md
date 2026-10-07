@@ -71,7 +71,13 @@ nova.
 ## Contrato
 
 `POST` com `Authorization: Bearer <jwt do usuário>` e corpo
-`{ "submission_id": "<uuid>" }`.
+`{ "submission_id": "<uuid>", "locale": "pt-BR" | "en" | "es" }`.
+
+`locale` é o idioma do app: a correção (resumos, pontos fortes, o que
+melhorar, comentário geral) e os títulos das competências saem nele. A
+redação pode estar em qualquer idioma; a C1 avalia a norma padrão do idioma
+em que ela foi escrita, e outro idioma nunca zera nota nem conta como fuga
+ao tema. Sem `locale` (app antigo), fica em português. Prompt `essay-enem-v2`.
 
 | Resposta | Situação |
 |---|---|

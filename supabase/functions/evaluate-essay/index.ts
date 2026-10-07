@@ -34,7 +34,8 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.47.10';
 
 const MODEL = Deno.env.get('GEMINI_MODEL') ?? 'gemini-3.8-flash';
-const PROMPT_VERSION = 'essay-enem-v1';
+// v2: correção no idioma do app; redação aceita em qualquer idioma.
+const PROMPT_VERSION = 'essay-enem-v2';
 const PROVIDER = 'google';
 
 /** Uma tentativa + uma repetição: JSON torto costuma sair certo na
@@ -52,6 +53,40 @@ const COMPETENCY_TITLES: Record<string, string> = {
   c3: 'Selecionar, relacionar, organizar e interpretar informações',
   c4: 'Conhecimento dos mecanismos linguísticos de argumentação',
   c5: 'Proposta de intervenção que respeite os direitos humanos',
+};
+
+/** Idiomas do app (o mesmo código que o app manda para o banco em
+ * p_locale). A correção sai no idioma de quem está usando o app,
+ * qualquer que seja o idioma em que a redação foi escrita. */
+type Locale = 'pt-BR' | 'en' | 'es';
+
+function parseLocale(value: unknown): Locale {
+  return value === 'en' || value === 'es' ? value : 'pt-BR';
+}
+
+const FEEDBACK_LANGUAGE: Record<Locale, string> = {
+  'pt-BR': 'português do Brasil, dirigindo-se a quem escreveu por "você"',
+  en: 'inglês (English), dirigindo-se a quem escreveu por "you"',
+  es: 'espanhol (español), dirigindo-se a quem escreveu por "tú"',
+};
+
+/** O título gravado junto de cada competência, no idioma da correção. */
+const LOCALIZED_TITLES: Record<Locale, Record<string, string>> = {
+  'pt-BR': COMPETENCY_TITLES,
+  en: {
+    c1: 'Command of the standard written language',
+    c2: 'Understanding the prompt and applying concepts from different fields',
+    c3: 'Selecting, relating, organizing and interpreting information',
+    c4: 'Knowledge of the linguistic devices of argumentation',
+    c5: 'A proposal for intervention that respects human rights',
+  },
+  es: {
+    c1: 'Dominio de la norma estándar de la lengua escrita',
+    c2: 'Comprender la propuesta y aplicar conceptos de varias áreas',
+    c3: 'Seleccionar, relacionar, organizar e interpretar información',
+    c4: 'Conocimiento de los mecanismos lingüísticos de argumentación',
+    c5: 'Propuesta de intervención que respete los derechos humanos',
+  },
 };
 
 /** O schema que o Gemini é obrigado a devolver (structured output). Ter o
@@ -92,7 +127,8 @@ const RESPONSE_SCHEMA = {
   ],
 };
 
-const RUBRIC = `Você é um corretor de redação do ENEM, experiente e pedagógico.
+function rubric(locale: Locale): string {
+  return `Você é um corretor de redação do ENEM, experiente e pedagógico.
 
 Avalie a redação abaixo nas cinco competências do ENEM, cada uma de 0 a 200
 pontos, em múltiplos de 40 (0, 40, 80, 120, 160, 200), como faz a banca:
@@ -103,8 +139,22 @@ C3 — ${COMPETENCY_TITLES.c3}
 C4 — ${COMPETENCY_TITLES.c4}
 C5 — ${COMPETENCY_TITLES.c5}
 
+Idioma da redação:
+- O estudante pode escrever em QUALQUER idioma (português, inglês, espanhol
+  ou outro). Avalie o texto no idioma em que ele foi escrito: a C1 mede o
+  domínio da norma padrão DESSE idioma, e as outras competências valem do
+  mesmo jeito para qualquer idioma.
+- Nunca zere nem rebaixe nenhuma competência porque o texto não está em
+  português. Escrever em outro idioma NÃO é fuga ao tema nem texto
+  insuficiente. O tema e os textos motivadores podem estar num idioma e a
+  redação em outro: isso é normal.
+
 Regras da correção:
-- Escreva em português do Brasil, dirigindo-se a quem escreveu, por "você".
+- Escreva TODO o texto da correção ("summary", "strengths", "improvements",
+  "general_feedback", "priority_improvements") em ${FEEDBACK_LANGUAGE[locale]},
+  mesmo que a redação esteja em outro idioma.
+- Os trechos de "evidence" são citações literais da redação: mantenha-os
+  exatamente como estão no texto, no idioma original, sem traduzir.
 - Tom pedagógico e respeitoso. Aponte o que precisa melhorar sem humilhar:
   nunca use termos como "péssimo", "horrível" ou equivalentes.
 - Em "evidence", cite trechos curtos do próprio texto (entre aspas) que
@@ -116,6 +166,7 @@ Regras da correção:
 - Marque "possible_theme_deviation" quando o texto não tratar do tema
   proposto, e "insufficient_text" quando for curto demais para avaliar.
 - A nota é uma ESTIMATIVA de treino, não a nota oficial do ENEM.`;
+}
 
 type StartRow = {
   body: string;
@@ -153,7 +204,7 @@ function startFailureReason(code: string | undefined): string {
   }
 }
 
-function buildPrompt(row: StartRow): string {
+function buildPrompt(row: StartRow, locale: Locale): string {
   // Só o que é preciso para corrigir. Nenhum identificador interno entra
   // aqui -- ver a nota de privacidade no topo.
   const supporting = Array.isArray(row.supporting_texts)
@@ -168,7 +219,7 @@ function buildPrompt(row: StartRow): string {
     : '';
 
   return [
-    RUBRIC,
+    rubric(locale),
     `TEMA\n${row.theme_title}`,
     `PROPOSTA\n${row.theme_prompt}`,
     supporting ? `TEXTOS MOTIVADORES\n${supporting}` : '',
@@ -298,12 +349,12 @@ function validate(result: unknown): Record<string, unknown> {
 }
 
 /** Monta o payload no formato que complete_essay_evaluation() espera. */
-function toRpcPayload(data: Record<string, unknown>): Record<string, unknown> {
+function toRpcPayload(data: Record<string, unknown>, locale: Locale): Record<string, unknown> {
   const competencies = COMPETENCIES.map((key) => {
     const value = data[key] as Record<string, unknown>;
     return {
       competency: key,
-      title: COMPETENCY_TITLES[key],
+      title: LOCALIZED_TITLES[locale][key],
       score: value.score,
       summary: value.summary ?? '',
       strengths: value.strengths ?? [],
@@ -341,8 +392,12 @@ Deno.serve(async (req) => {
   }
 
   let submissionId: string | undefined;
+  let locale: Locale = 'pt-BR';
   try {
-    submissionId = (await req.json())?.submission_id;
+    const body = await req.json();
+    submissionId = body?.submission_id;
+    // Versões antigas do app não mandam: ficam em português, como antes.
+    locale = parseLocale(body?.locale);
   } catch (_) {
     return json({ error: 'invalid body' }, 400);
   }
@@ -380,7 +435,7 @@ Deno.serve(async (req) => {
     return json({ error: 'submission unavailable', reason: 'unexpected' }, 500);
   }
 
-  const prompt = buildPrompt(row);
+  const prompt = buildPrompt(row, locale);
 
   /** Tenta um modelo até MAX_ATTEMPTS vezes -- só repete no mesmo modelo
    * quando o problema foi a FORMA da resposta (invalid_output). Rate
@@ -422,7 +477,7 @@ Deno.serve(async (req) => {
       'complete_essay_evaluation',
       {
         p_submission_id: submissionId,
-        p_result: toRpcPayload(attemptResult.data),
+        p_result: toRpcPayload(attemptResult.data, locale),
         p_provider: PROVIDER,
         p_model: modelUsed,
         p_prompt_version: PROMPT_VERSION,

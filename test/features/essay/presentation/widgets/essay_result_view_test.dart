@@ -224,4 +224,49 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   });
+
+  group('competency titles follow the app language', () {
+    test('every competency has a title in every language', () {
+      for (final language in AppLanguage.values) {
+        final strings = EssayStrings(language);
+        for (var i = 1; i <= 5; i++) {
+          expect(
+            strings.competencyTitle('c$i'),
+            isNotEmpty,
+            reason: '${language.name} c$i',
+          );
+        }
+      }
+      expect(_strings.competencyTitle('c9'), isNull);
+    });
+
+    testWidgets('an evaluation marked in Portuguese reads in English', (
+      tester,
+    ) async {
+      await tester.pumpApp(
+        Scaffold(
+          body: SingleChildScrollView(
+            child: EssayResultView(
+              evaluation: _evaluation(),
+              strings: const EssayStrings(AppLanguage.english),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(
+        find.text('Command of the standard written language'),
+        findsOneWidget,
+      );
+      // The title stored with the evaluation (in the language it was
+      // marked in) is not what shows.
+      expect(find.text('Título da competência'), findsNothing);
+    });
+
+    testWidgets('an unknown competency keeps its stored title', (tester) async {
+      await _pump(tester, _evaluation(competencies: [_competency('c9')]));
+      await tester.pumpAndSettle();
+      expect(find.text('Título da competência'), findsOneWidget);
+    });
+  });
 }
