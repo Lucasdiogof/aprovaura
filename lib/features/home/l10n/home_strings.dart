@@ -122,26 +122,6 @@ class HomeStrings {
     AppLanguage.spanish => '¡Meta cumplida!',
   };
 
-  /// The one line the achievement overlay says. Exclamations here and
-  /// nowhere else on Home: they belong to the moment, not the dashboard.
-  String get dailyGoalReachedCheer => switch (language) {
-    AppLanguage.portuguese => 'Meta batida!',
-    AppLanguage.english => 'Goal reached!',
-    AppLanguage.spanish => '¡Meta alcanzada!',
-  };
-
-  String levelUpCheer(int level) => switch (language) {
-    AppLanguage.portuguese => 'Nível $level!',
-    AppLanguage.english => 'Level $level!',
-    AppLanguage.spanish => '¡Nivel $level!',
-  };
-
-  String streakMilestoneCheer(int days) => switch (language) {
-    AppLanguage.portuguese => '$days dias seguidos!',
-    AppLanguage.english => '$days-day streak!',
-    AppLanguage.spanish => '¡$days días seguidos!',
-  };
-
   String get navHome => switch (language) {
     AppLanguage.portuguese => 'Início',
     AppLanguage.english => 'Home',

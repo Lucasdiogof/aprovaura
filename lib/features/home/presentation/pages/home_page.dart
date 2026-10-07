@@ -5,8 +5,6 @@ import 'package:aura/features/xp/presentation/cubit/xp_state.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
-import 'package:aura/features/aurudo_reaction/presentation/aurudo_achievement_overlay.dart';
-import 'package:aura/features/aurudo_reaction/presentation/pending_home_reaction.dart';
 import 'package:aura/features/home/l10n/home_strings.dart';
 import 'package:aura/features/home/presentation/cubit/home_summary_cubit.dart';
 import 'package:aura/features/home/presentation/cubit/home_summary_state.dart';
@@ -18,9 +16,6 @@ import 'package:aura/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_state.dart';
 import 'package:aura/features/streak/presentation/widgets/streak_lost_bottom_sheet.dart';
-import 'package:aura/features/home/domain/entities/daily_goal.dart';
-import 'package:aura/features/streak/domain/entities/streak.dart';
-import 'package:aura/features/xp/domain/entities/user_xp.dart';
 
 /// Home is where a session starts without having to decide on a subject
 /// first: the streak, then the three shortcuts that pick the questions for
@@ -33,54 +28,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  /// An achievement that happened while no result screen was in a
-  /// position to show it -- see [pendingHomeReaction]. Home is the
-  /// fallback, once, and then never again.
-  PendingHomeReaction? _pending;
-
   String _displayName(String name, String email) {
     if (name.isNotEmpty) return name.split(' ').first;
     final localPart = email.split('@').first;
     if (localPart.isEmpty) return localPart;
     return localPart[0].toUpperCase() + localPart.substring(1);
-  }
-
-  /// Asked on every build, and answered by the ledger: an achievement
-  /// has one life, so once it is written down this returns null forever
-  /// after. Nothing is decided while a number is still loading -- a
-  /// celebration chosen on half the picture would be a guess.
-  void _checkPending({
-    required UserXp? xp,
-    required Streak? streak,
-    required DailyGoal? dailyGoal,
-  }) {
-    if (_pending != null) return;
-    // Only while Home is really on screen. It lives in the shell's
-    // IndexedStack, so it keeps rebuilding from another tab and under an
-    // activity pushed on top -- deciding there spent the achievement on an
-    // overlay nobody could see (a goal reached mid-exam, with the exam
-    // started from Praticar, was simply lost). Both lookups are inherited
-    // dependencies, so Home rebuilds -- and asks again -- the moment it
-    // comes back into view.
-    final onScreen =
-        Visibility.of(context) && TickerMode.valuesOf(context).enabled;
-    if (!onScreen) return;
-    if (xp == null || streak == null || dailyGoal == null) return;
-    final pending = pendingHomeReaction(
-      xp: xp,
-      streak: streak,
-      dailyGoal: dailyGoal,
-      // The goal's own day (São Paulo, like the server), never the
-      // device's date: see DailyGoal.dayOf.
-      today: DailyGoal.dayOf(DateTime.now()),
-    );
-    if (pending == null) return;
-    // Spent the moment it starts playing, so a rebuild, a theme change or
-    // coming back later finds nothing left to celebrate.
-    pending.markCelebrated();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) setState(() => _pending = pending);
-    });
   }
 
   @override
@@ -109,18 +61,6 @@ class _HomePageState extends State<HomePage> {
       HomeSummaryLoaded(:final dailyGoal) => dailyGoal,
       _ => null,
     };
-    _checkPending(
-      xp: switch (xpState) {
-        XpLoaded(:final xp) => xp,
-        _ => null,
-      },
-      streak: switch (streakState) {
-        StreakLoaded(:final streak) => streak,
-        _ => null,
-      },
-      dailyGoal: dailyGoal,
-    );
-    final pending = _pending;
 
     return BlocListener<StreakCubit, StreakState>(
       listenWhen: (previous, current) =>
@@ -182,22 +122,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            if (pending != null)
-              AurudoAchievementOverlay(
-                reaction: pending.reaction,
-                message: achievementOverlayMessage(
-                  pending.reaction,
-                  levelUp: t.levelUpCheer(switch (xpState) {
-                    XpLoaded(:final xp) => xp.level,
-                    _ => 0,
-                  }),
-                  streakMilestone: t.streakMilestoneCheer(streakDays),
-                  dailyGoal: t.dailyGoalReachedCheer,
-                ),
-                onDismissed: () {
-                  if (mounted) setState(() => _pending = null);
-                },
-              ),
           ],
         ),
       ),

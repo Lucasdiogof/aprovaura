@@ -4,7 +4,6 @@ import 'package:aura/core/theme/app_theme.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction.dart';
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aura_particles.dart';
-import 'package:aura/features/aurudo_reaction/presentation/aurudo_achievement_overlay.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_celebrating_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_daily_goal_effect.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
@@ -212,29 +211,6 @@ void main() {
         ),
       );
       await tester.pump(const Duration(milliseconds: 300));
-      expect(find.byType(AurudoDailyGoalEffect), findsOneWidget);
-      expect(find.byType(AuraParticles), findsNothing);
-      await tester.pump(const Duration(seconds: 3));
-    });
-
-    testWidgets('Home overlay adds no particles on top of it', (tester) async {
-      await tester.pumpApp(
-        Scaffold(
-          // Home stacks it over the page, like this.
-          body: Stack(
-            children: [
-              AurudoAchievementOverlay(
-                reaction: const AurudoReaction(
-                  type: AurudoReactionType.dailyGoalComplete,
-                ),
-                message: 'Meta batida!',
-                onDismissed: () {},
-              ),
-            ],
-          ),
-        ),
-      );
-      await tester.pump(const Duration(milliseconds: 100));
       expect(find.byType(AurudoDailyGoalEffect), findsOneWidget);
       expect(find.byType(AuraParticles), findsNothing);
       await tester.pump(const Duration(seconds: 3));

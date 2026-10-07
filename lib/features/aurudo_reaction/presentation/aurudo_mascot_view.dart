@@ -56,7 +56,7 @@ List<AurudoPose> aurudoPoseSequence(
 
 /// Whether [type]'s renderer draws its own particles -- the farm-Aura
 /// animation and the level-up, streak and daily-goal scenes. A scene that
-/// hosts the mascot (the result stage, Home's overlay) must not add its
+/// hosts the mascot (the result stage) must not add its
 /// generic particles on top of these.
 bool aurudoReactionHasOwnParticles(AurudoReactionType type) => switch (type) {
   AurudoReactionType.perfectFarmAura ||
