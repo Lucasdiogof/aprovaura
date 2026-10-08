@@ -1,123 +1,181 @@
-# Aprovaura
-
-> Estude. Acerte. Ganhe Aura. — *Aprovaura* (aprovação + Aura) é o app; **Aura** é a pontuação dele.
-
-<p>
-  <a href="README.md">🇺🇸 English</a>
-  &nbsp;|&nbsp;
-  <strong>🇧🇷 Português</strong>
+<p align="center">
+  <img src="lib/assets/branding/aprovaura_app_icon_1024.png" width="112" alt="Ícone do app Aprovaura">
 </p>
 
-Um aplicativo de estudos gamificado para estudantes brasileiros se preparando para o ENEM, vestibulares e concursos, feito com Flutter e Supabase. Aprenda. Pratique. Evolua.
+<h1 align="center">Aprovaura</h1>
 
-## Visão geral
+<p align="center">
+  App de estudo para ENEM, vestibulares e provas: questões por matéria, simulados personalizados, revisão de erros e treino de redação.
+</p>
 
-O Aprovaura pega a ideia do Duolingo — lições curtas, estruturadas e que criam hábito — e aplica a matérias escolares em vez de idiomas. O conteúdo de cada matéria é organizado como uma árvore navegável (região/área → tema → atividade) em vez de uma lista plana de quizzes, então ele consegue crescer em profundidade (Geografia e História do Brasil ganham bastante destaque) sem virar uma pilha de questões impossível de navegar.
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white" alt="Flutter">
+  <img src="https://img.shields.io/badge/Dart-0175C2?logo=dart&logoColor=white" alt="Dart">
+  <img src="https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=white" alt="Supabase">
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/plataformas-Android_·_iOS-555555" alt="Plataformas: Android e iOS">
+</p>
 
-O catálogo de conteúdo, a navegação, a autenticação, o perfil e o motor de prática já estão prontos e populados: Matemática, Geografia, História, Português, Biologia, Física e Química têm bancos de questões completos (~1.400 questões), cada uma marcada como fácil/médio/difícil, para o aluno conseguir filtrar uma matéria só pelo nível que quiser. A Geografia ainda tem dezenas de quizzes interativos de mapa e bandeiras, e Atualidades tem seu próprio modelo de dossiê vivo, com quiz de prática. A progressão também é real: questões respondidas e regiões encontradas no mapa são registradas por usuário, terminar uma atividade dá XP e alimenta a ofensiva diária, os erros viram uma lista de revisão e qualquer questão pode ser favoritada. Todos os atalhos de prática estão ligados: a Início abre com a ofensiva mais prática rápida, revisar erros e favoritos, e a aba Praticar guarda o catálogo de matérias.
+<p align="center">
+  <a href="README.md">English</a> · <b>Português</b> · <a href="README.es.md">Español</a>
+</p>
+
+---
+
+O Aprovaura reúne questões, simulados, revisão de erros e redação num só fluxo de estudo. O aluno escolhe uma matéria, responde e vê onde mais erra. O nome junta *aprovação* e **Aura**, a pontuação do app: cada acerto rende Aura, e a Aura define o nível do aluno. O mascote, **Aurudo**, reage ao progresso, como meta do dia, sequência de estudo e subida de nível.
+
+## Disponibilidade
+
+- **Android** e **iOS**, a partir de uma única base em Flutter (o mesmo código também gera a versão web).
+- **Idiomas**: português (Brasil), inglês e espanhol.
+- **Temas**: claro e escuro.
+
+## Telas
+
+### Praticar
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/screenshots/pt-BR/practice.webp" width="220" alt="Tela Praticar com cartões das matérias Matemática, Português, História, Geografia, Biologia e Física"><br><sub><b>Praticar</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/pt-BR/practice-more.webp" width="220" alt="Mais matérias da tela Praticar: Sociologia, Literatura, Inglês, Espanhol, Artes, Educação Física, Atualidades e Redação"><br><sub><b>Mais matérias</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/pt-BR/trail.webp" width="220" alt="Trilha de História por período: História do Brasil, Antiguidade, Idade Média, Idade Moderna e Idade Contemporânea, com filtro por dificuldade"><br><sub><b>Trilha da matéria</b></sub></td></tr>
+<tr><td align="center" valign="top"><img src="docs/screenshots/pt-BR/trail-topics.webp" width="220" alt="História do Brasil dividida em subtemas: Povos indígenas, Brasil Colonial, Independência do Brasil, Brasil Império e República Velha"><br><sub><b>Subtemas</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/pt-BR/trail-question.webp" width="220" alt="Questão 1 de 8 de Brasil Colonial sobre o sistema de capitanias hereditárias, com quatro alternativas"><br><sub><b>Questão</b></sub></td></tr>
+</table>
+
+### Monte seu simulado
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/screenshots/pt-BR/mock-build.webp" width="220" alt="Montar simulado com Matemática no nível médio (10 questões) e Geografia no nível misto (5 questões)"><br><sub><b>Montagem</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/pt-BR/mock-build-more.webp" width="220" alt="Montar simulado com Literatura no nível médio (5 questões) e mais matérias para escolher: Inglês, Espanhol, Artes e Educação Física"><br><sub><b>Mais matérias</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/pt-BR/mock-question.webp" width="220" alt="Simulado em andamento: questão 12 de 20, Geografia no nível fácil, sobre a Caatinga"><br><sub><b>Durante a prova</b></sub></td></tr>
+</table>
+
+### Correção de redação
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/screenshots/pt-BR/essay-list.webp" width="220" alt="Lista de temas de redação, com a última nota dos temas já escritos"><br><sub><b>Temas de redação</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/pt-BR/essay-proposal.webp" width="220" alt="Proposta de redação sobre o tema &quot;Desinformação e o direito de saber&quot;, com o botão Começar redação"><br><sub><b>Proposta</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/pt-BR/essay-correcting.webp" width="220" alt="Redação &quot;Desinformação e o direito de saber&quot; com status Corrigindo e o texto enviado"><br><sub><b>Correção em andamento</b></sub></td></tr>
+<tr><td align="center" valign="top"><img src="docs/screenshots/pt-BR/essay-score.webp" width="220" alt="Redação corrigida com nota estimada de 1000 de 1000 e as competências com 200 de 200"><br><sub><b>Nota estimada</b></sub></td></tr>
+</table>
+
+### Mapas de Geografia
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/screenshots/pt-BR/map.webp" width="220" alt="Mapa do Brasil com pontos para localizar a Planície Costeira"><br><sub><b>Localize no mapa</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/pt-BR/map-done.webp" width="220" alt="Tela de conclusão com o mascote Aurudo, 6 de 17 acertos e +10 Aura"><br><sub><b>Conclusão</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/pt-BR/topics.webp" width="220" alt="Lista de tópicos de Brasil: território, hidrografia, relevo, biomas e clima"><br><sub><b>Tópicos</b></sub></td></tr>
+</table>
+
+### Meta do dia, Aura e progresso
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/screenshots/pt-BR/home.webp" width="220" alt="Tela inicial: boa noite, Lucas, meta de hoje com 0 de 10 questões, ofensiva de 0 dias e atalhos para prática rápida, revisar erros e favoritos"><br><sub><b>Início</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/pt-BR/profile.webp" width="220" alt="Perfil com nível 4 e 390 de Aura, 1 dia seguido, 112 questões, 35% de acerto, objetivo e matérias em foco"><br><sub><b>Perfil</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/pt-BR/level-up.webp" width="220" alt="Tela Subiu de nível depois da atividade Brasil Colonial: 4 de 8 corretas, 50% de aproveitamento, +40 Aura e Nível 3, com o mascote Aurudo"><br><sub><b>Subiu de nível</b></sub></td></tr>
+</table>
 
 ## Funcionalidades
 
-**Início**
-- Saudação personalizada e um card de ofensiva alimentado pela atividade diária real do usuário
-- Um bottom sheet avisa que a ofensiva caiu uma única vez, na primeira vez que o usuário abre o app depois de perder um dia
-- Os três atalhos que escolhem as questões por você: prática rápida, revisar erros e favoritos
+**Matérias e conteúdo**
+- Matemática, Português, História, Geografia, Biologia, Física, Química, Filosofia, Sociologia, Literatura, Inglês, Espanhol, Artes, Educação Física e Atualidades, além da área de Redação.
+- Conteúdo organizado em árvore de tópicos e subtópicos por matéria, cada um com sua barra de progresso.
+- Filtro de dificuldade (fácil, médio e difícil) na raiz de cada matéria.
+- **Atualidades** usa um formato próprio de dossiê (contexto, o que aconteceu, por que importa, quem está envolvido, consequências e fontes), cada um com sua prática.
 
-**Catálogo de matérias**
-- Navegador recursivo de região/tema/atividade por matéria, com dados no Supabase, sem profundidade fixa — algumas matérias têm só dois níveis, outras (como Geografia e História do Brasil) vão bem mais fundo
-- Um seletor de dificuldade Fácil/Médio/Difícil/Todos fica na raiz de cada matéria e filtra a árvore inteira (via uma RPC recursiva no Supabase), deixando só os tópicos que têm questões naquele nível, e carrega esse filtro até a prática
-- Todo nó mostra uma barra de progresso, sempre derivada da soma das questões respondidas (ou regiões encontradas no mapa) das folhas descendentes — nunca armazenada direto
-- Todo tópico-folha termina em um quiz de múltipla escolha ou, nos tópicos de mapa da Geografia, em um quiz interativo de mapa/bandeiras
+**Prática**
+- Questões de múltipla escolha com retorno imediato e explicação.
+- Favoritar qualquer questão ou reportar um problema nela.
+- **Prática rápida**: um bloco de questões nunca respondidas, uma por matéria a cada rodada.
+- **Revisar erros**: respostas erradas agrupadas por matéria e tópico, refeitas até o acerto.
+- **Favoritas**: prática só com as questões salvas.
 
-**Motor de prática (quiz)**
-- Interface de múltipla escolha estilo Duolingo: cabeçalho "Questão X de Y", cards de alternativa com letra e estados de certo/errado, card de feedback e botão fixo "Continuar" na parte de baixo
-- Um único motor compartilhado (view + cubit + interface de repositório) alimenta o quiz de toda matéria, os quizzes de dossiê da Atualidades e o filtro de dificuldade — só o repositório usado e o parâmetro de dificuldade mudam
-- Qualquer questão pode ser favoritada dentro do próprio quiz, e terminar uma atividade dá XP e registra a atividade do dia para a ofensiva
+**Simulados**
+- Combine matérias e escolha, para cada uma, a dificuldade (fácil, médio, difícil ou misto) e a quantidade de questões.
+- O servidor sorteia as questões e congela a ordem das questões e das alternativas; um simulado não terminado fica salvo e pode ser retomado.
+- Modo prova: o gabarito só aparece ao finalizar, e o resultado então alimenta o progresso e a revisão de erros.
 
-**Quizzes interativos de mapa e bandeiras** (Geografia)
-- Construído com `flutter_map` e dados GeoJSON: responde tocando no país/estado certo (polígono), no rio certo (linha) ou na cidade/capital certa (ponto)
-- Um modo de identificação de bandeiras reaproveita as mesmas formas dos países, usando emoji de bandeira como pergunta — sem precisar de imagens
-- Cobertura: estados do Brasil, além de países/capitais/cidades/rios da Europa, América do Sul, África, Ásia, América do Norte, Oceania e do mundo todo
+**Redação**
+- Temas com a proposta completa e os textos motivadores no formato do ENEM, editor com rascunho e histórico de tentativas por tema.
+- **Correção com apoio de IA** (veja [Como a IA é usada](#como-a-ia-é-usada)): nota estimada de 0 a 1000, dividida nas cinco competências do ENEM, cada uma com sua nota e comentário. A correção roda em segundo plano: o aluno pode sair do app e voltar depois para ver o resultado.
 
-**Atualidades**
-- Um modelo de conteúdo separado, o "dossiê" (contexto, o que aconteceu, por quê, quem está envolvido, consequências, fontes), em vez da árvore de região/tema, já que esse conteúdo envelhece e precisa ser atualizado periodicamente, e não de um catálogo fixo
-- Populado com dossiês cobrindo Brasil, geopolítica, economia, meio ambiente, ciência e tecnologia, sociedade e saúde
-- Cada dossiê tem seu próprio quiz de prática, reaproveitando o mesmo motor de múltipla escolha de qualquer outra matéria
+**Mapas interativos**
+- Atividades de Geografia em mapas interativos: toque no estado, país, rio ou cidade certos, além de identificação de bandeiras. Acertos rendem Aura.
 
-**Progresso, XP e ofensiva**
-- Cada questão respondida conta uma única vez por usuário, tendo acertado ou errado; as folhas de quiz de mapa registram as regiões encontradas do mesmo jeito, já que não têm linhas em `questions`
-- Concluir uma atividade dá 10 XP; o nível é sempre derivado do XP total (100 XP por nível) e aparece no Perfil
-- A ofensiva conta dias corridos de calendário (America/São_Paulo) com pelo menos uma atividade concluída, e a quebra é detectada de forma preguiçosa, na primeira vez que uma RPC roda depois de um intervalo de 2+ dias
-- Toda escrita de XP e de ofensiva passa por RPCs `security definer` — o cliente só consegue dizer "uma atividade foi concluída", nunca definir os números
+**Progresso e motivação**
+- **Aura**: ganha a cada acerto; o nível do aluno vem do total de Aura.
+- **Meta do dia** de questões respondidas e **sequência** de dias seguidos de estudo (horário de Brasília).
+- Reações e animações do **Aurudo** em atividades concluídas, meta do dia, sequência, subida de nível e resultado de redação.
+- Perfil com nível, Aura, sequência, questões respondidas e taxa de acerto.
 
-**Praticar** *(aba)*
-- A grade com as 8 matérias: Matemática, Geografia, História, Português, Biologia, Física, Química, Atualidades — praticar uma matéria específica começa aqui
+**Conta**
+- Login por e-mail e recuperação de senha, onboarding com objetivo (ENEM, vestibular, concurso, escola ou estudo por conta própria), ano da prova e matérias em foco.
+- Configurações de idioma e tema e exclusão de conta pelo próprio usuário.
 
-**Atalhos de prática** *(na Início)*
-- **Prática rápida** monta um baralho de 10 questões que o usuário nunca respondeu, em rodadas: uma questão de cada matéria por rodada, sorteada dentro da matéria. No fim, um bottom sheet oferece outra rodada. Como são questões comuns, acertar já conta no progresso do tópico de origem e errar já cai no "revisar erros" — sem nenhuma escrita extra
-- **Revisar erros** lista os tópicos-folha em que o usuário ainda tem questões erradas, com a contagem de erros por tópico, e refaz só essas questões; acertar uma resolve o erro, já que tudo é derivado da mesma tabela de progresso
-- **Favoritos** lista os tópicos que têm questões favoritadas e pratica só elas
+## Como a IA é usada
 
-**Onboarding**
-- Roda uma vez, logo após o cadastro: objetivo (ENEM / vestibular / concurso / escola / conta própria) → ano da prova → matérias de interesse
-- Pula a etapa de ano da prova quando o objetivo é estudar por conta própria, já que não se aplica
+A IA é usada em um único lugar: **a correção de redação**.
 
-**Perfil**
-- Dados da conta (nome, usuário, e-mail), objetivo, matérias de interesse
-- Card de XP e nível
-- Configurações de tema (claro/escuro) e idioma (português/inglês)
-- Sair da conta
+- Quando o aluno envia uma redação, uma Edge Function do Supabase manda a proposta do tema, os textos motivadores e o texto da redação para a **API do Google Gemini** e pede uma avaliação estruturada com base nas cinco competências do ENEM.
+- Nenhum nome, e-mail ou identificador interno vai junto com a redação.
+- O resultado aparece como **estimativa de treino**, não como nota oficial, e o app explica o que é compartilhado antes do envio.
+- Existe um limite diário de correções por aluno, controlado no servidor.
 
-**Conta e autenticação**
-- Autenticação por e-mail/senha via Supabase Auth
-- Cadastro pede só nome (obrigatório), e-mail, senha e um nome de usuário opcional — sem telefone, sem outros dados pessoais
-
-## Stack técnica
-
-| Camada | Escolha |
-|---|---|
-| Framework | Flutter (Android, iOS, Web) |
-| Gerenciamento de estado | `flutter_bloc` (Cubit) |
-| Backend | Supabase (Postgres, Auth, Row Level Security) |
-| Injeção de dependência | `get_it` |
-| Roteamento | `go_router` |
-| Mapas | `flutter_map` + GeoJSON (empacotado como assets) |
-| Testes | `flutter_test` |
+Questões, explicações, simulados e mapas não usam IA durante o uso do app.
 
 ## Arquitetura
 
-Clean Architecture, organizada por feature em vez de por camada no nível raiz:
+- **App Flutter** com Clean Architecture organizada por feature (domain, data, presentation), Cubits para todo o estado de tela, `get_it` para injeção de dependência e `go_router` para navegação. Erros são modelados com um tipo `Result` explícito, sem exceções atravessando camadas.
+- **Supabase** para autenticação, PostgreSQL e storage. Progresso, Aura, sequência, simulados e redações só são gravados por RPCs `security definer`: o cliente informa a resposta, mas nunca define a própria pontuação.
+- **Pontuação idempotente.** A Aura é creditada por um ledger com chave por tentativa, então retentativas ou uma tela de resultado montada duas vezes nunca duplicam a recompensa. A correção de redação segue a mesma regra e também aplica o limite diário.
+- **Integridade do modo prova.** Enquanto o simulado está em andamento, o banco nunca devolve gabarito nem explicação e não mexe no progresso; tudo é resolvido ao finalizar.
+- **Edge Functions** para correção de redação e exclusão de conta. A chave da API do Gemini existe só no ambiente da função e nunca chega ao app.
+- **Localização.** Os textos da interface são localizados por feature, e o conteúdo (catálogo, questões, atualidades, redação) tem traduções guardadas no banco.
+
+## Tecnologias
+
+| Camada | Tecnologia |
+| --- | --- |
+| App | Flutter, Dart |
+| Estado | `flutter_bloc` (Cubit) |
+| DI / Navegação | `get_it`, `go_router` |
+| Backend | Supabase: Auth, PostgreSQL, RLS, RPCs, Edge Functions (Deno) |
+| Mapas | `flutter_map` com GeoJSON embutido |
+| IA (só na correção de redação) | API do Google Gemini |
+| Testes | `flutter_test` |
+
+## Estrutura do projeto
 
 ```
 lib/
-├── core/            # Preocupações transversais: DI, roteamento, tema, tratamento de erros, config de ambiente
-├── shared/          # Widgets e utilitários reutilizáveis, sem conhecimento de nenhuma feature específica
+├── core/           DI, rotas, tema, tratamento de erros, l10n, config
+├── shared/         widgets e utilitários reutilizáveis
 └── features/
-    ├── auth/
-    ├── onboarding/
-    ├── home/
-    ├── subjects/        # Lista de matérias (Matemática, Geografia, ...) exibida na Home
-    ├── catalog/         # Navegador genérico de região/tema/atividade usado por todas as matérias
-    ├── questions/       # Motor de quiz de múltipla escolha compartilhado (view, cubit, repositório)
-    ├── map_quiz/        # Motor de quiz interativo de mapa/bandeiras da Geografia
-    ├── atualidades/     # Dossiês de atualidades (modelo de conteúdo separado)
-    ├── practice/
-    ├── progress/        # Progresso por questão, agregado no progresso de cada nó do catálogo
-    ├── xp/              # XP total e o nível derivado dele
-    ├── streak/          # Ofensiva diária e o aviso de quebra
-    ├── error_review/    # "Revisar erros" — erros pendentes, agrupados por tópico
-    ├── favorites/       # Questões favoritadas, agrupadas por tópico
-    └── profile/
-        ├── data/            # Implementações de repositório (Supabase)
-        ├── domain/          # Entidades e interfaces de repositório
-        └── presentation/    # Cubits, páginas, widgets
+    ├── auth/  onboarding/  home/  profile/
+    ├── subjects/  catalog/  questions/  practice/
+    ├── mock_exam/  essay/  map_quiz/  atualidades/
+    ├── progress/  xp/  streak/  error_review/  favorites/
+    └── aurudo_reaction/
+
+supabase/           SQL de schema, RLS, RPCs e conteúdo, além das Edge Functions
+tool/               scripts de manutenção de conteúdo
 ```
 
-Cada feature só tem as camadas que realmente precisa. Erros são modelados explicitamente com um tipo `Result<T>` (`Success` / `Error`) em vez de exceções lançadas atravessando os limites das camadas, então a UI sempre trata os estados de falha de forma deliberada. Sem `setState` — todo estado de UI, até coisas simples como mostrar/esconder senha, passa por um Cubit.
+## Rodando localmente
 
-## Como rodar
+Requisitos: Flutter (canal stable) e um projeto Supabase.
 
-1. Copie `env.example.json` para `env.json` e preencha a URL e a publishable key do seu projeto Supabase.
-2. No SQL Editor do seu projeto Supabase, rode os arquivos em `supabase/`: primeiro os arquivos de schema (`*_schema.sql`, mais o `map_quiz_progress.sql` e o `quick_practice.sql`), depois os seeds de questões de cada matéria, depois os arquivos `difficulty_classify_*.sql`, e por fim os arquivos de dossiê da Atualidades. `supabase/health_check.sql` e `supabase/audit_questions_duplicates.sql` são scripts só de leitura que você pode rodar a qualquer momento pra auditar o catálogo e o banco de questões.
-3. `flutter pub get`
-4. `flutter run --dart-define-from-file=env.json`
+1. Copie `env.example.json` para `env.json` e preencha a URL do projeto Supabase e a publishable key.
+2. Aplique os arquivos SQL de `supabase/` no projeto (primeiro os de schema, depois os de conteúdo). Leia [`supabase/LEIA_ANTES_DE_REAPLICAR.md`](supabase/LEIA_ANTES_DE_REAPLICAR.md) antes de reaplicar qualquer coisa.
+3. Rode o app:
+
+```bash
+flutter pub get
+flutter run --dart-define-from-file=env.json
+```
+
+```bash
+flutter analyze
+flutter test
+```
+
+## Status do projeto
+
+Em desenvolvimento ativo.
+
+## Licença
+
+Nenhuma licença open source é concedida. O código está visível como parte de um portfólio; todos os direitos reservados.
+
+## Sobre
+
+Desenvolvido por Lucas Diogo França. Case: [lucksrei.com/projects/aura](https://lucksrei.com/projects/aura/)

@@ -1,123 +1,181 @@
-# Aprovaura
-
-> Estude. Acerte. Ganhe Aura. — *Aprovaura* (aprovação + Aura) is the app; **Aura** is its score.
-
-<p>
-  <strong>🇺🇸 English</strong>
-  &nbsp;|&nbsp;
-  <a href="README.pt-BR.md">🇧🇷 Português</a>
+<p align="center">
+  <img src="lib/assets/branding/aprovaura_app_icon_1024.png" width="112" alt="Aprovaura app icon">
 </p>
 
-A gamified study app for Brazilian students preparing for the ENEM, university entrance exams (vestibulares) and civil service exams (concursos), built with Flutter and Supabase. Learn. Practice. Evolve.
+<h1 align="center">Aprovaura</h1>
 
-## Overview
+<p align="center">
+  A study app for Brazil's ENEM, university entrance exams and other tests: questions by subject, custom mock exams, mistake review and essay practice.
+</p>
 
-Aprovaura turns school subjects into short, structured, habit-forming lessons. Content for each subject is organized as a browsable tree (region/area → theme → activity) rather than a flat quiz list, so it can grow deep (Brazil's geography and history get particular depth) without turning into an unnavigable pile of questions.
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white" alt="Flutter">
+  <img src="https://img.shields.io/badge/Dart-0175C2?logo=dart&logoColor=white" alt="Dart">
+  <img src="https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=white" alt="Supabase">
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/platforms-Android_·_iOS-555555" alt="Platforms: Android and iOS">
+</p>
 
-The content catalog, navigation, auth, profile and the practice engine are all built and populated: Matemática, Geografia, História, Português, Biologia, Física and Química have full question banks (~1,400 questions), each one tagged fácil/médio/difícil so a learner can filter a subject down to just the level they want. Geografia additionally has dozens of interactive map and flag quizzes, and Atualidades (current affairs) has its own living dossier model with practice quizzes. Progression is real as well: answered questions and found map regions are tracked per user, completing an activity awards XP and feeds a daily streak, wrong answers pile up into a review list, and any question can be favorited. Every practice entry point is wired: Home opens on the streak plus quick practice, review mistakes and favorites, and the Practice tab holds the subject catalog.
+<p align="center">
+  <b>English</b> · <a href="README.pt-BR.md">Português</a> · <a href="README.es.md">Español</a>
+</p>
+
+---
+
+Aprovaura brings questions, mock exams, mistake review and essay writing into a single study flow. Students pick a subject, answer, and see where they miss the most. The name joins *aprovação* (passing an exam) and **Aura**, the app's score: every correct answer earns Aura, and Aura sets the student's level. The app's mascot, **Aurudo**, reacts to progress such as daily goals, streaks and level-ups.
+
+## Availability
+
+- **Android** and **iOS**, from a single Flutter codebase (the same code also builds for the web).
+- **Languages**: Portuguese (Brazil), English and Spanish.
+- **Themes**: light and dark.
+
+## Screenshots
+
+### Practice
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/screenshots/en/practice.webp" width="220" alt="Practice screen with cards for Math, Portuguese, History, Geography, Biology and Physics"><br><sub><b>Practice</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/en/practice-more.webp" width="220" alt="More subjects on the Practice screen: Sociology, Literature, English, Spanish, Arts, Physical Education, Current events and Essay"><br><sub><b>More subjects</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/en/trail.webp" width="220" alt="History path by period: History of Brazil, Antiquity, Middle Ages, Early Modern and Contemporary periods, with a difficulty filter"><br><sub><b>Subject path</b></sub></td></tr>
+<tr><td align="center" valign="top"><img src="docs/screenshots/en/trail-topics.webp" width="220" alt="History of Brazil split into subtopics: Indigenous peoples, Colonial Brazil, Independence of Brazil, Empire of Brazil and Old Republic"><br><sub><b>Subtopics</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/en/trail-question.webp" width="220" alt="Question 1 of 9 in Antiquity about the rivers that watered Mesopotamia, with four options"><br><sub><b>Question</b></sub></td></tr>
+</table>
+
+### Build your own mock exam
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/screenshots/en/mock-build.webp" width="220" alt="Build a mock exam with Biology selected at medium level and 15 questions"><br><sub><b>Setup</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/en/mock-build-more.webp" width="220" alt="Build a mock exam with Chemistry on hard (10 questions) and more subjects to choose from: Philosophy, Sociology, Literature, English and Spanish"><br><sub><b>More subjects</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/en/mock-question.webp" width="220" alt="Mock exam in progress: question 24 of 25, Chemistry at hard level, about amines"><br><sub><b>During the exam</b></sub></td></tr>
+</table>
+
+### Essay grading
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/screenshots/en/essay-list.webp" width="220" alt="Essay topic list: The limits of privacy in the age of data, App-based work and protection for delivery workers (score 0), Disinformation and the right to know (score 1000) and Students&#x27; mental health"><br><sub><b>Essay topics</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/en/essay-proposal.webp" width="220" alt="Essay prompt on &quot;The limits of privacy in the age of data&quot;, with the Start writing button"><br><sub><b>Prompt</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/en/essay-correcting.webp" width="220" alt="Essay &quot;The limits of privacy in the age of data&quot; with the Marking status and the submitted text"><br><sub><b>Grading in progress</b></sub></td></tr>
+<tr><td align="center" valign="top"><img src="docs/screenshots/en/essay-score.webp" width="220" alt="Graded essay with an estimated score of 880 out of 1000 and each competency scored out of 200"><br><sub><b>Estimated score</b></sub></td></tr>
+</table>
+
+### Geography maps
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/screenshots/en/map.webp" width="220" alt="Map of South America to locate the countries, starting with Guyana"><br><sub><b>Locate on the map</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/en/map-done.webp" width="220" alt="Completion screen for the Major cities of Asia map with the Aurudo mascot: Nice work!, 9 of 15 correct and +10 Aura"><br><sub><b>Completion</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/en/topics.webp" width="220" alt="List of Brazil topics: territory, hydrography, relief, biomes and climate"><br><sub><b>Topics</b></sub></td></tr>
+</table>
+
+### Daily goal, Aura and progress
+
+<table>
+<tr><td align="center" valign="top"><img src="docs/screenshots/en/home.webp" width="220" alt="Home screen: good evening, Lucas, today&#x27;s goal at 0 of 10 questions, a 1-day streak and shortcuts to quick practice, review mistakes and favorites"><br><sub><b>Home</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/en/profile.webp" width="220" alt="Profile at level 4 with 330 Aura, a 1-day streak, 93 questions, 35% accuracy, goal and focus subjects"><br><sub><b>Profile</b></sub></td><td align="center" valign="top"><img src="docs/screenshots/en/level-up.webp" width="220" alt="End-of-activity screen for Colonial Brazil: 2 of 8 correct, 25% score and +20 Aura, with the Aurudo mascot and a Try again button"><br><sub><b>Level up</b></sub></td></tr>
+</table>
 
 ## Features
 
-**Home**
-- Personalized greeting and a streak card driven by the user's real daily activity
-- A bottom sheet announces a broken streak once, the first time the user opens the app after missing a day
-- The three shortcuts that pick the questions for you: quick practice, review mistakes and favorites
+**Subjects and content**
+- Mathematics, Portuguese, History, Geography, Biology, Physics, Chemistry, Philosophy, Sociology, Literature, English, Spanish, Arts, Physical Education and Current Events, plus an Essay section.
+- Content organized as a tree of topics and subtopics per subject, each node with its own progress bar.
+- Easy, medium and hard difficulty filter at the root of each subject.
+- **Current Events** uses a separate dossier format (context, what happened, why it matters, who is involved, consequences and sources), each with its own practice quiz.
 
-**Subject catalog**
-- Recursive region/theme/activity browser per subject, backed by Supabase, with no fixed depth — some subjects go two levels deep, others (like Brazil's geography and história) go much further
-- A Fácil/Médio/Difícil/Todos difficulty selector sits at each subject's root and filters the whole tree (via a recursive Supabase RPC) down to only the topics that have questions at that level, then carries the filter into practice
-- Every node shows a progress bar, always derived by summing the answered questions (or found map regions) of its descendant leaves — never stored directly
-- Every leaf topic ends in either a multiple-choice quiz or, for Geography's map-based topics, an interactive map/flag quiz
+**Practice**
+- Multiple-choice questions with immediate feedback and explanations.
+- Bookmark any question as a favorite, or report a problem with it.
+- **Quick practice**: a deck of questions the student has never answered, one per subject per round.
+- **Mistake review**: wrong answers grouped by subject and topic, replayed until they are answered correctly.
+- **Favorites**: practice only bookmarked questions.
 
-**Practice engine (quiz)**
-- Duolingo-style multiple-choice UI: "Questão X de Y" progress header, lettered option cards with correct/incorrect states, a feedback card, and a fixed bottom "Continuar" button
-- One shared engine (view + cubit + repository interface) powers every subject's quiz, Atualidades dossier quizzes and the difficulty filter — only the backing repository and the difficulty parameter change
-- Any question can be favorited from the quiz itself, and finishing an activity awards XP and registers the day's activity for the streak
+**Mock exams**
+- Combine subjects and choose, per subject, the difficulty (easy, medium, hard or mixed) and the number of questions.
+- The server draws the questions and freezes the order of questions and options; an unfinished exam is saved and can be resumed.
+- Exam mode: correct answers are only revealed when the exam is finished, and results then feed progress and mistake review.
 
-**Interactive map & flag quizzes** (Geography)
-- Built on `flutter_map` and GeoJSON data: tap the right country/state (polygon), river (line) or city/capital (point) to answer
-- A flag-identification mode reuses the same country shapes with emoji flags as prompts — no image assets needed
-- Coverage: Brazil's states, plus countries/capitals/cities/rivers for Europe, South America, Africa, Asia, North America, Oceania and the whole world
+**Essay**
+- Essay topics with the full prompt and supporting texts in ENEM format, an editor with drafts, and the history of attempts per topic.
+- **AI-assisted grading** (see [How AI is used](#how-ai-is-used)): an estimated score from 0 to 1000, split into ENEM's five competencies, each with its own score and feedback. Grading runs in the background, so students can leave the app and come back for the result.
 
-**Atualidades** *(current affairs)*
-- A separate "dossier" content model (context, what happened, why, who's involved, consequences, sources) instead of the region/theme tree, since this content ages and needs periodic refreshing rather than a fixed catalog
-- Seeded with dossiers spanning Brazil, geopolitics, economy, environment, science & technology, society and health
-- Each dossier has its own practice quiz, reusing the same multiple-choice engine as every other subject
+**Interactive maps**
+- Geography activities on interactive maps: tap the right state, country, river or city, plus flag identification. Correct answers earn Aura.
 
-**Progress, XP and streak**
-- Every answered question counts once per user, right or wrong; map-quiz leaves track found regions the same way, since they have no rows in `questions`
-- Completing an activity awards 10 XP; level is always derived from total XP (100 XP per level) and shown on the Profile
-- The daily streak counts consecutive calendar days (America/São_Paulo) with at least one completed activity, and a break is detected lazily, the first time an RPC runs after a gap of 2+ days
-- XP and streak writes only ever happen through `security definer` RPCs — the client can say "an activity was completed", never set the numbers itself
+**Progress and motivation**
+- **Aura**: earned per correct answer; the student's level is derived from total Aura.
+- **Daily goal** of answered questions and a **streak** of consecutive study days (Brasília time).
+- **Aurudo** reactions and animations for completed activities, daily goals, streaks, level-ups and essay results.
+- Profile with level, Aura, streak, questions answered and accuracy.
 
-**Practice** *(tab)*
-- The grid of all 8 subjects: Math, Geography, History, Portuguese, Biology, Physics, Chemistry, Current Affairs — practising a specific subject starts here
+**Account**
+- Email sign-in and password recovery, onboarding with goal (ENEM, entrance exams, civil service exams, school or self-study), exam year and focus subjects.
+- Language and theme settings, and self-service account deletion.
 
-**Practice shortcuts** *(on Home)*
-- **Quick practice** deals a deck of 10 questions the user has never answered, in rounds: one question per subject per round, drawn at random within the subject. A bottom sheet offers another round at the end. They are ordinary questions, so a correct answer already counts toward the originating topic's progress and a wrong one already lands in "review mistakes" -- no extra bookkeeping
-- **Review mistakes** lists the leaf topics where the user still has wrong answers, with a wrong-answer count per topic, and replays just those questions; answering one correctly resolves it, since it is all derived from the same progress table
-- **Favorites** lists the topics holding favorited questions and practices only those
+## How AI is used
 
-**Onboarding**
-- Runs once, right after sign-up: goal (ENEM / vestibular / concurso / school / self-study) → target exam year → subjects of interest
-- Skips the exam-year step when the goal is self-study, since it doesn't apply
+AI is used in one place only: **essay grading**.
 
-**Profile**
-- Account details (name, username, email), goal, subjects of interest
-- XP and level card
-- Light/dark theme and language (Portuguese/English) settings
-- Sign out
+- When a student submits an essay, a Supabase Edge Function sends the topic prompt, the supporting texts and the essay text to the **Google Gemini API** and asks for a structured evaluation based on ENEM's five competencies.
+- No name, email or internal identifier is sent with the essay.
+- The result is shown as an **estimate for practice**, not as an official score, and the app explains what is shared before the essay is submitted.
+- There is a daily limit of essay gradings per student, enforced on the server.
 
-**Account & auth**
-- Email/password authentication via Supabase Auth
-- Sign-up collects only name (required), email, password, and an optional username — no phone, no other personal data
-
-## Tech stack
-
-| Layer | Choice |
-|---|---|
-| Framework | Flutter (Android, iOS, Web) |
-| State management | `flutter_bloc` (Cubit) |
-| Backend | Supabase (Postgres, Auth, Row Level Security) |
-| Dependency injection | `get_it` |
-| Routing | `go_router` |
-| Maps | `flutter_map` + GeoJSON (bundled as assets) |
-| Testing | `flutter_test` |
+Questions, explanations, mock exams and maps do not use AI at runtime.
 
 ## Architecture
 
-Clean Architecture, organized by feature rather than by layer at the top level:
+- **Flutter app** with feature-first Clean Architecture (domain, data, presentation), Cubits for all UI state, `get_it` for dependency injection and `go_router` for navigation. Errors are modeled with an explicit `Result` type instead of exceptions crossing layers.
+- **Supabase** for authentication, PostgreSQL and storage. Progress, Aura, streaks, mock exams and essays are written only through `security definer` RPCs, so the client can report an answer but never set its own score.
+- **Idempotent scoring.** Aura is credited through a ledger keyed by attempt, so retries or a result screen mounted twice never double the reward. The same rule applies to essay grading, which also enforces the daily limit.
+- **Exam-mode integrity.** While a mock exam is in progress, the database never returns correct answers or explanations and does not touch progress; everything is resolved when the exam is finished.
+- **Edge Functions** for essay evaluation and account deletion. The Gemini API key exists only in the function's environment and never reaches the app.
+- **Localization.** UI strings are localized per feature, and content (catalog, questions, current events, essays) has translations stored in the database.
+
+## Tech stack
+
+| Layer | Technology |
+| --- | --- |
+| App | Flutter, Dart |
+| State | `flutter_bloc` (Cubit) |
+| DI / Routing | `get_it`, `go_router` |
+| Backend | Supabase: Auth, PostgreSQL, RLS, RPCs, Edge Functions (Deno) |
+| Maps | `flutter_map` with bundled GeoJSON |
+| AI (essay grading only) | Google Gemini API |
+| Tests | `flutter_test` |
+
+## Project structure
 
 ```
 lib/
-├── core/            # Cross-cutting concerns: DI, routing, theming, error handling, env config
-├── shared/          # Reusable widgets and utilities with no feature-specific knowledge
+├── core/           DI, routing, theme, error handling, l10n, config
+├── shared/         reusable widgets and utilities
 └── features/
-    ├── auth/
-    ├── onboarding/
-    ├── home/
-    ├── subjects/        # Subject list (Math, Geography, ...) shown on Home
-    ├── catalog/         # Generic region/theme/activity browser used by every subject
-    ├── questions/       # Shared multiple-choice quiz engine (view, cubit, repository)
-    ├── map_quiz/        # Interactive map/flag quiz engine for Geography
-    ├── atualidades/     # Current-affairs dossiers (separate content model)
-    ├── practice/
-    ├── progress/        # Per-question progress, aggregated into catalog-node progress
-    ├── xp/              # Total XP and the level derived from it
-    ├── streak/          # Daily streak and its break notice
-    ├── error_review/    # "Review mistakes" — pending wrong answers, grouped by topic
-    ├── favorites/       # Favorited questions, grouped by topic
-    └── profile/
-        ├── data/            # Repository implementations (Supabase)
-        ├── domain/          # Entities and repository interfaces
-        └── presentation/    # Cubits, pages, widgets
+    ├── auth/  onboarding/  home/  profile/
+    ├── subjects/  catalog/  questions/  practice/
+    ├── mock_exam/  essay/  map_quiz/  atualidades/
+    ├── progress/  xp/  streak/  error_review/  favorites/
+    └── aurudo_reaction/
+
+supabase/           SQL for schema, RLS, RPCs and content, plus Edge Functions
+tool/               content maintenance scripts
 ```
 
-Each feature only has the layers it actually needs. Errors are modeled explicitly with a `Result<T>` (`Success` / `Error`) type rather than thrown exceptions crossing layer boundaries, so the UI always handles failure states deliberately. No `setState` — all UI state, including simple things like a password-visibility toggle, goes through a Cubit.
+## Running locally
 
-## Getting started
+Requirements: Flutter (stable channel) and a Supabase project.
 
-1. Copy `env.example.json` to `env.json` and fill in your Supabase project URL and publishable key.
-2. In your Supabase project's SQL Editor, run the files under `supabase/`: schema files first (`*_schema.sql`, plus `map_quiz_progress.sql` and `quick_practice.sql`), then each subject's question seeds, then the `difficulty_classify_*.sql` files, then the Atualidades dossier files. `supabase/health_check.sql` and `supabase/audit_questions_duplicates.sql` are read-only scripts you can run anytime to audit the catalog and the question bank.
-3. `flutter pub get`
-4. `flutter run --dart-define-from-file=env.json`
+1. Copy `env.example.json` to `env.json` and fill in the Supabase project URL and publishable key.
+2. Apply the SQL files in `supabase/` to the project (schema files first, then content). Read [`supabase/LEIA_ANTES_DE_REAPLICAR.md`](supabase/LEIA_ANTES_DE_REAPLICAR.md) before re-applying anything.
+3. Run the app:
+
+```bash
+flutter pub get
+flutter run --dart-define-from-file=env.json
+```
+
+```bash
+flutter analyze
+flutter test
+```
+
+## Project status
+
+Active development.
+
+## License
+
+No open-source license is granted. The source code is visible as part of a portfolio; all rights are reserved.
+
+## About
+
+Built by Lucas Diogo França. Case study: [lucksrei.com/projects/aura](https://lucksrei.com/projects/aura/)
