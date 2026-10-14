@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/auth/presentation/widgets/auth_layout.dart';
 import 'package:aura/features/auth/presentation/widgets/auth_palette.dart';
@@ -21,6 +22,7 @@ class AuthField extends StatelessWidget {
     this.keyboardType,
     this.textInputAction,
     this.autofillHints,
+    this.inputFormatters,
     this.onSubmitted,
     this.obscured,
     this.onToggleObscured,
@@ -36,6 +38,7 @@ class AuthField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
   final List<String>? autofillHints;
+  final List<TextInputFormatter>? inputFormatters;
   final ValueChanged<String>? onSubmitted;
 
   /// A status on the right (the username check); ignored on password
@@ -93,6 +96,7 @@ class AuthField extends StatelessWidget {
           keyboardType: keyboardType,
           textInputAction: textInputAction,
           autofillHints: autofillHints,
+          inputFormatters: inputFormatters,
           onSubmitted: onSubmitted,
           style: textStyle,
           cursorColor: colors.primary,

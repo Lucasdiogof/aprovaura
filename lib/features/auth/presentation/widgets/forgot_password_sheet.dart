@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
@@ -18,9 +19,10 @@ import 'package:aura/shared/widgets/app_logo.dart';
 /// route: the person is one field away from finishing what they started, so
 /// sending them to another page would lose the email they already typed.
 ///
-/// It has two steps — the form, then the confirmation — swapped in place with
-/// an [AnimatedSize] so the sheet grows into the new content instead of
-/// jumping. Dressed like the login it opens over: the Aprovaura symbol, a
+/// It has four steps — email, the 6-digit code that arrived by email, the new
+/// password, and the confirmation — swapped in place with an [AnimatedSize]
+/// so the sheet grows into the new content instead of jumping. No link and no
+/// deep link: everything is typed here. Dressed like the login it opens over: the Aprovaura symbol, a
 /// touch of the same background, the same field and button.
 class ForgotPasswordSheet extends StatefulWidget {
   const ForgotPasswordSheet({required this.initialEmail, super.key});
@@ -109,19 +111,28 @@ class _ForgotPasswordSheetState extends State<ForgotPasswordSheet> {
                     duration: const Duration(milliseconds: 220),
                     curve: Curves.easeOutCubic,
                     alignment: Alignment.topCenter,
-                    child: state is PasswordResetSent
-                        ? _Confirmation(strings: t, state: state)
-                        : _Form(
-                            strings: t,
-                            controller: _emailController,
-                            errorText: _emailError(t),
-                            serverError: state is PasswordResetIdle
-                                ? state.errorMessage
-                                : null,
-                            isSending: state is PasswordResetSending,
-                            canSubmit: isValidEmail(_emailController.text),
-                            onSubmit: _submit,
-                          ),
+                    child: switch (state) {
+                      PasswordResetSent() => _CodeStep(
+                        strings: t,
+                        state: state,
+                      ),
+                      PasswordResetVerified() => _NewPasswordStep(
+                        strings: t,
+                        state: state,
+                      ),
+                      PasswordResetDone() => _DoneStep(strings: t),
+                      _ => _Form(
+                        strings: t,
+                        controller: _emailController,
+                        errorText: _emailError(t),
+                        serverError: state is PasswordResetIdle
+                            ? state.errorMessage
+                            : null,
+                        isSending: state is PasswordResetSending,
+                        canSubmit: isValidEmail(_emailController.text),
+                        onSubmit: _submit,
+                      ),
+                    },
                   ),
                 ],
               );
@@ -193,17 +204,47 @@ class _Form extends StatelessWidget {
   }
 }
 
-class _Confirmation extends StatelessWidget {
-  const _Confirmation({required this.strings, required this.state});
+class _CodeStep extends StatefulWidget {
+  const _CodeStep({required this.strings, required this.state});
 
   final AuthStrings strings;
   final PasswordResetSent state;
 
   @override
+  State<_CodeStep> createState() => _CodeStepState();
+}
+
+class _CodeStepState extends State<_CodeStep> {
+  static const _codeLength = 6;
+  final _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  bool get _complete => _controller.text.length == _codeLength;
+
+  void _submit() {
+    if (!_complete || widget.state.isVerifying) return;
+    FocusScope.of(context).unfocus();
+    context.read<PasswordResetCubit>().verifyCode(_controller.text);
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final strings = widget.strings;
+    final state = widget.state;
     final palette = AuthPalette.of(context);
     return Column(
-      key: const ValueKey('confirmation'),
+      key: const ValueKey('code'),
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -223,13 +264,168 @@ class _Confirmation extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
+        if (state.errorMessage != null) ...[
+          _ErrorBanner(message: state.errorMessage!),
+          const SizedBox(height: 14),
+        ],
+        AuthField(
+          layout: AuthLayout.regular,
+          controller: _controller,
+          label: strings.recoveryCodeLabel,
+          hintText: strings.recoveryCodeHint,
+          icon: Icons.pin_outlined,
+          keyboardType: TextInputType.number,
+          textInputAction: TextInputAction.done,
+          autofillHints: const [AutofillHints.oneTimeCode],
+          inputFormatters: [
+            FilteringTextInputFormatter.digitsOnly,
+            LengthLimitingTextInputFormatter(_codeLength),
+          ],
+          onSubmitted: (_) => _submit(),
+        ),
+        const SizedBox(height: 22),
+        AuthSubmitButton(
+          layout: AuthLayout.regular,
+          label: strings.recoveryCodeSubmit,
+          onPressed: _complete ? _submit : null,
+          isLoading: state.isVerifying,
+        ),
+        const SizedBox(height: 12),
+        _ResendAction(
+          strings: strings,
+          status: state.resend,
+          cooldown: state.cooldown,
+        ),
+      ],
+    );
+  }
+}
+
+class _NewPasswordStep extends StatefulWidget {
+  const _NewPasswordStep({required this.strings, required this.state});
+
+  final AuthStrings strings;
+  final PasswordResetVerified state;
+
+  @override
+  State<_NewPasswordStep> createState() => _NewPasswordStepState();
+}
+
+class _NewPasswordStepState extends State<_NewPasswordStep> {
+  final _password = TextEditingController();
+  final _confirm = TextEditingController();
+  bool _obscured = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _password.addListener(() => setState(() {}));
+    _confirm.addListener(() => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _password.dispose();
+    _confirm.dispose();
+    super.dispose();
+  }
+
+  bool get _validLength => isValidNewPassword(_password.text);
+
+  bool get _valid =>
+      _validLength && doPasswordsMatch(_password.text, _confirm.text);
+
+  void _submit() {
+    if (!_valid || widget.state.isSaving) return;
+    FocusScope.of(context).unfocus();
+    context.read<PasswordResetCubit>().savePassword(_password.text);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final strings = widget.strings;
+    final state = widget.state;
+    return Column(
+      key: const ValueKey('password'),
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        _SheetHeader(
+          leading: const AppLogo.mark(size: 84),
+          title: strings.newPasswordTitle,
+          description: strings.newPasswordDescription,
+        ),
+        const SizedBox(height: 24),
+        if (state.errorMessage != null) ...[
+          _ErrorBanner(message: state.errorMessage!),
+          const SizedBox(height: 14),
+        ],
+        AuthField(
+          layout: AuthLayout.regular,
+          controller: _password,
+          label: strings.passwordLabel,
+          hintText: strings.passwordHint,
+          icon: Icons.lock_outline_rounded,
+          textInputAction: TextInputAction.next,
+          autofillHints: const [AutofillHints.newPassword],
+          obscured: _obscured,
+          onToggleObscured: () => setState(() => _obscured = !_obscured),
+          errorText: _password.text.isNotEmpty && !_validLength
+              ? strings.passwordTooShort
+              : null,
+        ),
+        const SizedBox(height: 14),
+        AuthField(
+          layout: AuthLayout.regular,
+          controller: _confirm,
+          label: strings.confirmPasswordLabel,
+          hintText: strings.confirmPasswordHint,
+          icon: Icons.lock_outline_rounded,
+          textInputAction: TextInputAction.done,
+          obscured: _obscured,
+          onToggleObscured: () => setState(() => _obscured = !_obscured),
+          onSubmitted: (_) => _submit(),
+          errorText:
+              _confirm.text.isNotEmpty &&
+                  !doPasswordsMatch(_password.text, _confirm.text)
+              ? strings.passwordsDoNotMatch
+              : null,
+        ),
+        const SizedBox(height: 22),
+        AuthSubmitButton(
+          layout: AuthLayout.regular,
+          label: strings.newPasswordSubmit,
+          onPressed: _valid ? _submit : null,
+          isLoading: state.isSaving,
+        ),
+      ],
+    );
+  }
+}
+
+class _DoneStep extends StatelessWidget {
+  const _DoneStep({required this.strings});
+
+  final AuthStrings strings;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      key: const ValueKey('done'),
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        _SheetHeader(
+          leading: const _SentBadge(),
+          title: strings.passwordChangedTitle,
+          description: strings.passwordChangedDescription,
+        ),
+        const SizedBox(height: 24),
         AuthSubmitButton(
           layout: AuthLayout.regular,
           label: strings.closeAction,
           onPressed: () => Navigator.of(context).pop(),
         ),
-        const SizedBox(height: 12),
-        _ResendAction(strings: strings, status: state.resend),
       ],
     );
   }
@@ -315,10 +511,15 @@ class _SentBadge extends StatelessWidget {
 }
 
 class _ResendAction extends StatelessWidget {
-  const _ResendAction({required this.strings, required this.status});
+  const _ResendAction({
+    required this.strings,
+    required this.status,
+    required this.cooldown,
+  });
 
   final AuthStrings strings;
   final ResendStatus status;
+  final int cooldown;
 
   @override
   Widget build(BuildContext context) {
@@ -330,8 +531,8 @@ class _ResendAction extends StatelessWidget {
         textAlign: TextAlign.center,
         style: style.copyWith(color: colors.textSecondary),
       ),
-      ResendStatus.sent => Text(
-        strings.forgotPasswordResent,
+      ResendStatus.sent when cooldown > 0 => Text(
+        '${strings.forgotPasswordResent} ${strings.resendInSeconds(cooldown)}',
         textAlign: TextAlign.center,
         style: style.copyWith(
           color: colors.success,
@@ -343,7 +544,12 @@ class _ResendAction extends StatelessWidget {
         textAlign: TextAlign.center,
         style: style.copyWith(color: colors.error),
       ),
-      ResendStatus.idle => TextButton(
+      _ when cooldown > 0 => Text(
+        strings.resendInSeconds(cooldown),
+        textAlign: TextAlign.center,
+        style: style.copyWith(color: colors.textSecondary),
+      ),
+      _ => TextButton(
         onPressed: () => context.read<PasswordResetCubit>().resend(),
         style: TextButton.styleFrom(
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,

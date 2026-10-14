@@ -11,6 +11,8 @@ enum AuthErrorKind {
   invalidEmail,
   emailNotConfirmed,
   rateLimited,
+  invalidCode,
+  samePassword,
   network,
   unknown,
 }
@@ -33,6 +35,8 @@ AuthErrorKind classifyAuthError(AuthException e) {
     return AuthErrorKind.emailTaken;
   }
   if (code == 'weak_password') return AuthErrorKind.weakPassword;
+  if (code == 'same_password') return AuthErrorKind.samePassword;
+  if (code == 'otp_expired') return AuthErrorKind.invalidCode;
   if (code == 'email_address_invalid' || code == 'validation_failed') {
     return AuthErrorKind.invalidEmail;
   }
@@ -84,6 +88,18 @@ String authErrorMessage(AuthErrorKind kind) => switch ((
     'Too many attempts. Wait a moment and try again.',
   (AuthErrorKind.rateLimited, AppLanguage.spanish) =>
     'Demasiados intentos. Espera un momento e intenta de nuevo.',
+  (AuthErrorKind.invalidCode, AppLanguage.portuguese) =>
+    'Código incorreto ou expirado. Confira ou peça um novo.',
+  (AuthErrorKind.invalidCode, AppLanguage.english) =>
+    'Incorrect or expired code. Check it or ask for a new one.',
+  (AuthErrorKind.invalidCode, AppLanguage.spanish) =>
+    'Código incorrecto o vencido. Revísalo o pide uno nuevo.',
+  (AuthErrorKind.samePassword, AppLanguage.portuguese) =>
+    'A nova senha precisa ser diferente da atual.',
+  (AuthErrorKind.samePassword, AppLanguage.english) =>
+    'The new password must be different from the current one.',
+  (AuthErrorKind.samePassword, AppLanguage.spanish) =>
+    'La nueva contraseña debe ser distinta de la actual.',
   (AuthErrorKind.network, AppLanguage.portuguese) =>
     'Sem conexão com o servidor. Confira sua internet e tente de novo.',
   (AuthErrorKind.network, AppLanguage.english) =>

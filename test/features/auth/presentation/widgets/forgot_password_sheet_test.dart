@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:aura/core/di/injection_container.dart';
+import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
@@ -63,12 +64,12 @@ void main() {
     expect(find.byType(AppLogo), findsOneWidget);
   });
 
-  testWidgets('"Enviar link" stays disabled until the e-mail is valid, and '
+  testWidgets('"Enviar código" stays disabled until the e-mail is valid, and '
       'the error follows the typing', (tester) async {
     await open(tester);
     final field = find.byType(TextField);
 
-    await tester.tap(find.text('Enviar link'));
+    await tester.tap(find.text('Enviar código'));
     await tester.pump();
     verifyNever(() => auth.sendPasswordReset(email: any(named: 'email')));
     expect(find.text('Informe seu e-mail.'), findsNothing);
@@ -80,8 +81,71 @@ void main() {
     await tester.enterText(field, 'dash@example.com');
     await tester.pump();
     expect(find.text('Informe um e-mail válido.'), findsNothing);
-    await tester.tap(find.text('Enviar link'));
+    await tester.tap(find.text('Enviar código'));
     await tester.pumpAndSettle();
     verify(() => auth.sendPasswordReset(email: 'dash@example.com')).called(1);
+  });
+
+  testWidgets('walks email -> code -> new password -> done', (tester) async {
+    when(
+      () => auth.verifyRecoveryCode(
+        email: any(named: 'email'),
+        code: any(named: 'code'),
+      ),
+    ).thenAnswer((_) async => const Success(null));
+    when(
+      () => auth.updatePassword(newPassword: any(named: 'newPassword')),
+    ).thenAnswer((_) async => const Success(null));
+    when(() => auth.signOut()).thenAnswer((_) async {});
+    await open(tester, email: 'dash@example.com');
+
+    await tester.tap(find.text('Enviar código'));
+    await tester.pumpAndSettle();
+    expect(find.text('Código de 6 dígitos'), findsOneWidget);
+
+    // Letters are dropped, only 6 digits fit, and the button waits for all 6.
+    await tester.enterText(find.byType(TextField), '12ab34567890');
+    await tester.pump();
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      '123456',
+    );
+    await tester.tap(find.text('Confirmar código'));
+    await tester.pumpAndSettle();
+    verify(
+      () => auth.verifyRecoveryCode(email: 'dash@example.com', code: '123456'),
+    ).called(1);
+
+    expect(find.text('Salvar nova senha'), findsOneWidget);
+    final fields = find.byType(TextField);
+    await tester.enterText(fields.at(0), 'segredo123');
+    await tester.enterText(fields.at(1), 'segredo123');
+    await tester.pump();
+    await tester.tap(find.text('Salvar nova senha'));
+    await tester.pumpAndSettle();
+    verify(() => auth.updatePassword(newPassword: 'segredo123')).called(1);
+    expect(find.text('Senha alterada'), findsOneWidget);
+  });
+
+  testWidgets('a wrong code shows the error and keeps the code step', (
+    tester,
+  ) async {
+    when(
+      () => auth.verifyRecoveryCode(
+        email: any(named: 'email'),
+        code: any(named: 'code'),
+      ),
+    ).thenAnswer(
+      (_) async => Error(AuthFailure('Código incorreto ou expirado.')),
+    );
+    await open(tester, email: 'dash@example.com');
+    await tester.tap(find.text('Enviar código'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), '000000');
+    await tester.pump();
+    await tester.tap(find.text('Confirmar código'));
+    await tester.pumpAndSettle();
+    expect(find.text('Código incorreto ou expirado.'), findsOneWidget);
+    expect(find.text('Confirmar código'), findsOneWidget);
   });
 }

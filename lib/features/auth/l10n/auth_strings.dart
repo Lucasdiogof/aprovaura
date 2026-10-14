@@ -181,20 +181,20 @@ class AuthStrings {
 
   String get forgotPasswordDescription => switch (language) {
     AppLanguage.portuguese =>
-      'Informe o e-mail da sua conta e enviaremos um link para você criar '
-          'uma nova senha.',
+      'Informe o e-mail da sua conta e enviaremos um código de 6 dígitos '
+          'para você criar uma nova senha.',
     AppLanguage.english =>
-      "Enter your account's email and we'll send you a link to create a new "
-          'password.',
+      "Enter your account's email and we'll send you a 6-digit code to "
+          'create a new password.',
     AppLanguage.spanish =>
-      'Ingresa el correo de tu cuenta y te enviaremos un enlace para '
-          'crear una nueva contraseña.',
+      'Ingresa el correo de tu cuenta y te enviaremos un código de 6 '
+          'dígitos para crear una nueva contraseña.',
   };
 
   String get forgotPasswordSubmit => switch (language) {
-    AppLanguage.portuguese => 'Enviar link',
-    AppLanguage.english => 'Send link',
-    AppLanguage.spanish => 'Enviar enlace',
+    AppLanguage.portuguese => 'Enviar código',
+    AppLanguage.english => 'Send code',
+    AppLanguage.spanish => 'Enviar código',
   };
 
   String get forgotPasswordSentTitle => switch (language) {
@@ -205,11 +205,10 @@ class AuthStrings {
 
   String get forgotPasswordSentDescription => switch (language) {
     AppLanguage.portuguese =>
-      'Se essa conta existir, o link de recuperação chegou em:',
-    AppLanguage.english =>
-      'If that account exists, the recovery link is on its way to:',
+      'Se essa conta existir, enviamos um código de 6 dígitos para:',
+    AppLanguage.english => 'If that account exists, we sent a 6-digit code to:',
     AppLanguage.spanish =>
-      'Si esa cuenta existe, el enlace de recuperación llegó a:',
+      'Si esa cuenta existe, enviamos un código de 6 dígitos a:',
   };
 
   String get forgotPasswordNotReceived => switch (language) {
@@ -231,15 +230,71 @@ class AuthStrings {
   };
 
   String get forgotPasswordResent => switch (language) {
-    AppLanguage.portuguese => 'Link enviado de novo.',
-    AppLanguage.english => 'Link sent again.',
-    AppLanguage.spanish => 'Enlace enviado de nuevo.',
+    AppLanguage.portuguese => 'Código enviado de novo.',
+    AppLanguage.english => 'Code sent again.',
+    AppLanguage.spanish => 'Código enviado de nuevo.',
   };
 
   String get forgotPasswordResendFailed => switch (language) {
     AppLanguage.portuguese => 'Não conseguimos reenviar. Tente mais tarde.',
     AppLanguage.english => "We couldn't resend it. Try again later.",
     AppLanguage.spanish => 'No pudimos reenviarlo. Intenta más tarde.',
+  };
+
+  String get recoveryCodeLabel => switch (language) {
+    AppLanguage.portuguese => 'Código de 6 dígitos',
+    AppLanguage.english => '6-digit code',
+    AppLanguage.spanish => 'Código de 6 dígitos',
+  };
+
+  String get recoveryCodeHint => '000000';
+
+  String get recoveryCodeRequired => switch (language) {
+    AppLanguage.portuguese => 'Digite os 6 dígitos do código.',
+    AppLanguage.english => 'Enter the 6 digits of the code.',
+    AppLanguage.spanish => 'Ingresa los 6 dígitos del código.',
+  };
+
+  String get recoveryCodeSubmit => switch (language) {
+    AppLanguage.portuguese => 'Confirmar código',
+    AppLanguage.english => 'Confirm code',
+    AppLanguage.spanish => 'Confirmar código',
+  };
+
+  String resendInSeconds(int seconds) => switch (language) {
+    AppLanguage.portuguese => 'Enviar de novo em ${seconds}s',
+    AppLanguage.english => 'Send again in ${seconds}s',
+    AppLanguage.spanish => 'Enviar de nuevo en ${seconds}s',
+  };
+
+  String get newPasswordTitle => switch (language) {
+    AppLanguage.portuguese => 'Crie sua nova senha',
+    AppLanguage.english => 'Create your new password',
+    AppLanguage.spanish => 'Crea tu nueva contraseña',
+  };
+
+  String get newPasswordDescription => switch (language) {
+    AppLanguage.portuguese => 'Código confirmado. Escolha uma senha nova.',
+    AppLanguage.english => 'Code confirmed. Choose a new password.',
+    AppLanguage.spanish => 'Código confirmado. Elige una contraseña nueva.',
+  };
+
+  String get newPasswordSubmit => switch (language) {
+    AppLanguage.portuguese => 'Salvar nova senha',
+    AppLanguage.english => 'Save new password',
+    AppLanguage.spanish => 'Guardar nueva contraseña',
+  };
+
+  String get passwordChangedTitle => switch (language) {
+    AppLanguage.portuguese => 'Senha alterada',
+    AppLanguage.english => 'Password changed',
+    AppLanguage.spanish => 'Contraseña cambiada',
+  };
+
+  String get passwordChangedDescription => switch (language) {
+    AppLanguage.portuguese => 'Pronto! Entre com a sua nova senha.',
+    AppLanguage.english => 'All set! Sign in with your new password.',
+    AppLanguage.spanish => '¡Listo! Entra con tu nueva contraseña.',
   };
 
   String get closeAction => switch (language) {

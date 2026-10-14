@@ -19,10 +19,21 @@ abstract class AuthRepository {
     required String username,
   });
 
-  /// Asks Supabase to email a password-recovery link. Succeeds even when no
+  /// Asks Supabase to email a 6-digit password-recovery code. Succeeds even when no
   /// account uses that address: Supabase deliberately doesn't tell the caller
   /// which emails are registered, and neither should the UI.
   Future<Result<void>> sendPasswordReset({required String email});
+
+  /// Exchanges the emailed recovery [code] for a session (the second step of
+  /// the recovery). A wrong or expired code is an [AuthFailure] with a
+  /// message the screen can show as is.
+  Future<Result<void>> verifyRecoveryCode({
+    required String email,
+    required String code,
+  });
+
+  /// Sets the password of the session [verifyRecoveryCode] opened.
+  Future<Result<void>> updatePassword({required String newPassword});
 
   Future<void> signOut();
 

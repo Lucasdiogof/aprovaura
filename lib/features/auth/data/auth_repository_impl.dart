@@ -85,10 +85,52 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Result<void>> sendPasswordReset({required String email}) async {
     try {
-      // No redirectTo: the link points at the Site URL configured in the
-      // Supabase dashboard, so the recovery flow can be re-targeted there
-      // without shipping a new build.
+      // The recovery email carries a 6-digit code ({{ .Token }}), not a
+      // link: no redirectTo, no deep link, no PKCE round trip between
+      // devices. The code is typed back into the app (verifyRecoveryCode).
       await _client.auth.resetPasswordForEmail(email);
+      return const Success(null);
+    } on AuthException catch (e) {
+      return Error(_failureFrom(e));
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
+  Future<Result<void>> verifyRecoveryCode({
+    required String email,
+    required String code,
+  }) async {
+    try {
+      await _client.auth.verifyOTP(
+        type: OtpType.recovery,
+        email: email,
+        token: code,
+      );
+      return const Success(null);
+    } on AuthException catch (e) {
+      final kind = classifyAuthError(e);
+      // Anything the server refuses here that isn't connectivity or rate
+      // limiting is the code itself being wrong or expired.
+      return Error(
+        AuthFailure(
+          authErrorMessage(
+            kind == AuthErrorKind.network || kind == AuthErrorKind.rateLimited
+                ? kind
+                : AuthErrorKind.invalidCode,
+          ),
+        ),
+      );
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
+  Future<Result<void>> updatePassword({required String newPassword}) async {
+    try {
+      await _client.auth.updateUser(UserAttributes(password: newPassword));
       return const Success(null);
     } on AuthException catch (e) {
       return Error(_failureFrom(e));
