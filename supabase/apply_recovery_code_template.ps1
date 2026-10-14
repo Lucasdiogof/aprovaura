@@ -1,4 +1,4 @@
-# Applies the 6-digit-code recovery email to the Aprovaura Supabase project via
+﻿# Applies the 6-digit-code recovery email to the Aprovaura Supabase project via
 # the Management API and reads the result back.
 #
 #   $env:SUPABASE_ACCESS_TOKEN = "<personal access token>"
@@ -12,10 +12,10 @@ $ref = 'cesuqfgrtcitatxvokez'
 if (-not $env:SUPABASE_ACCESS_TOKEN) { throw 'Set SUPABASE_ACCESS_TOKEN first.' }
 $url = "https://api.supabase.com/v1/projects/$ref/config/auth"
 $headers = @{ Authorization = "Bearer $env:SUPABASE_ACCESS_TOKEN" }
-$html = Get-Content -Raw -Encoding UTF8 (Join-Path $PSScriptRoot 'templates/recovery_code.html')
+$html = [IO.File]::ReadAllText((Join-Path $PSScriptRoot "templates/recovery_code.html"), [Text.Encoding]::UTF8)
 
 $body = @{
-  mailer_subjects_recovery        = 'Aprovaura: seu código de recuperação / recovery code'
+  mailer_subjects_recovery        = ('Aprovaura: seu c{0}digo de recupera{1}{2}o / recovery code' -f [char]0xF3,[char]0xE7,[char]0xE3)
   mailer_templates_recovery_content = $html
   mailer_otp_length               = 6
   mailer_otp_exp                  = 3600
@@ -28,3 +28,4 @@ $now = Invoke-RestMethod -Method Get -Uri $url -Headers $headers
 'otp_exp:    ' + $now.mailer_otp_exp
 'has {{ .Token }}:           ' + ($now.mailer_templates_recovery_content -like '*{{ .Token }}*')
 'has ConfirmationURL (must be False): ' + ($now.mailer_templates_recovery_content -like '*ConfirmationURL*')
+
