@@ -5,8 +5,7 @@ compatibility_date = "2024-09-23"
 directory = "build/web"
 not_found_handling = "single-page-application"
 
-# Custom domain (lucksrei-web-template, docs/domains.md). DISABLED until the owner authorises DNS changes.
-# Uncomment and deploy to attach aprovaura.lucksrei.com; the workers.dev URL keeps working.
-# [[routes]]
-# pattern = "aprovaura.lucksrei.com"
-# custom_domain = true
+# Custom domain approved by owner; auth/login QA still pending.
+[[routes]]
+pattern = "aprovaura.lucksrei.com"
+custom_domain = true
