@@ -135,10 +135,7 @@ void main() {
       await tester.pump(
         Duration(milliseconds: CelebratingTimeline.peakMs(1).round()),
       );
-      final arm = transformOf(
-        tester,
-        AurudoCelebratingAnimation.armGroupKey,
-      );
+      final arm = transformOf(tester, AurudoCelebratingAnimation.armGroupKey);
       expect(degreesOf(arm), closeTo(6, 0.01));
       await tester.pump(const Duration(seconds: 2));
     });

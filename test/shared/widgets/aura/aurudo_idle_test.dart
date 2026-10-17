@@ -13,7 +13,9 @@ void main() {
       data: MediaQueryData(disableAnimations: reducedMotion),
       child: const Scaffold(
         body: Center(
-          child: AurudoIdle(child: SizedBox.square(dimension: 140, key: _mascot)),
+          child: AurudoIdle(
+            child: SizedBox.square(dimension: 140, key: _mascot),
+          ),
         ),
       ),
     ),

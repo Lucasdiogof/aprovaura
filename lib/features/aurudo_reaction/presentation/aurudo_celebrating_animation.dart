@@ -22,7 +22,8 @@ abstract final class CelebratingGeometry {
 
   static const particles =
       'lib/assets/mascot/celebrating/aurudo_celebrating_particles.webp';
-  static const base = 'lib/assets/mascot/celebrating/aurudo_celebrating_base.webp';
+  static const base =
+      'lib/assets/mascot/celebrating/aurudo_celebrating_base.webp';
   static const rightArm =
       'lib/assets/mascot/celebrating/aurudo_celebrating_right_arm.webp';
 
@@ -62,7 +63,10 @@ abstract final class CelebratingTimeline {
   static (int, double)? pumpAt(double ms) {
     final t = ms - preroll;
     if (t < 0 || t >= pumpCycleDuration * cycles) return null;
-    return (t ~/ pumpCycleDuration, (t % pumpCycleDuration) / pumpCycleDuration);
+    return (
+      t ~/ pumpCycleDuration,
+      (t % pumpCycleDuration) / pumpCycleDuration,
+    );
   }
 
   /// 0 at rest, 1 at the top of a pump; smooth both ways, no bounce.
@@ -98,7 +102,8 @@ class CelebratingPose {
   /// further up/inward (clockwise on screen for this, the character's right,
   /// arm -- mirrored from farm-Aura's left arm, where inward is negative).
   double get armAngleDegrees => CelebratingTimeline.maxArmAngleDegrees * energy;
-  double liftFor(double size) => size * CelebratingTimeline.liftPerSize * energy;
+  double liftFor(double size) =>
+      size * CelebratingTimeline.liftPerSize * energy;
 }
 
 /// Aurudo celebrating: the `great` / `levelUp` / `streakMilestone` / essay
@@ -135,8 +140,7 @@ class AurudoCelebratingAnimation extends StatefulWidget {
       _AurudoCelebratingAnimationState();
 }
 
-class _AurudoCelebratingAnimationState
-    extends State<AurudoCelebratingAnimation>
+class _AurudoCelebratingAnimationState extends State<AurudoCelebratingAnimation>
     with SingleTickerProviderStateMixin {
   late final AnimationController _clock = AnimationController(
     vsync: this,

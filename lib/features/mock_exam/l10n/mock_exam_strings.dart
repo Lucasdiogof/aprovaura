@@ -8,8 +8,6 @@ class MockExamStrings {
 
   final AppLanguage language;
 
-  // --- Home entry -----------------------------------------------------------
-
   String get homeTitle => switch (language) {
     AppLanguage.portuguese => 'Montar simulado',
     AppLanguage.english => 'Build a mock exam',
@@ -50,8 +48,6 @@ class MockExamStrings {
     AppLanguage.english => 'Build another',
     AppLanguage.spanish => 'Crear otro',
   };
-
-  // --- Setup screen ---------------------------------------------------------
 
   String get setupTitle => homeTitle;
 
@@ -145,8 +141,6 @@ class MockExamStrings {
     AppLanguage.spanish => 'Intentar de nuevo',
   };
 
-  // --- Confirmation sheet ---------------------------------------------------
-
   String get confirmTitle => switch (language) {
     AppLanguage.portuguese => 'Seu simulado',
     AppLanguage.english => 'Your mock exam',
@@ -183,8 +177,6 @@ class MockExamStrings {
     AppLanguage.spanish => 'Volver y editar',
   };
 
-  // --- Active exam sheet ----------------------------------------------------
-
   String get activeTitle => switch (language) {
     AppLanguage.portuguese => 'Você já tem um simulado em andamento',
     AppLanguage.english => 'You already have a mock exam in progress',
@@ -218,8 +210,6 @@ class MockExamStrings {
     AppLanguage.english => 'Mock exam discarded. You can build another now.',
     AppLanguage.spanish => 'Simulacro descartado. Ya puedes crear otro.',
   };
-
-  // --- Exam runner --------------------------------------------------------
 
   String get sessionTitle => switch (language) {
     AppLanguage.portuguese => 'Simulado',
@@ -420,8 +410,6 @@ class MockExamStrings {
     AppLanguage.spanish => 'Este simulacro ya no está disponible.',
   };
 
-  // --- Result ---------------------------------------------------------------
-
   String get resultPageTitle => switch (language) {
     AppLanguage.portuguese => 'Resultado do simulado',
     AppLanguage.english => 'Mock exam result',
@@ -597,8 +585,6 @@ class MockExamStrings {
     AppLanguage.spanish => 'Ver preguntas erradas',
   };
 
-  // --- Review (per-exam question review) -------------------------------------
-
   String get reviewPageTitle => switch (language) {
     AppLanguage.portuguese => 'Revisão do simulado',
     AppLanguage.english => 'Mock exam review',
@@ -658,8 +644,6 @@ class MockExamStrings {
     AppLanguage.english => 'Result not found.',
     AppLanguage.spanish => 'Resultado no encontrado.',
   };
-
-  // --- Errors ---------------------------------------------------------------
 
   /// Human sentence for a backend failure. [subjectLabel] and
   /// [difficultyLabel] are already localized by the caller (they need the

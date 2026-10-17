@@ -88,9 +88,7 @@ class FrustratedPose {
     // One smooth swell over the whole sequence, so it starts and ends at
     // exactly 0 -- no jump into or out of the art.
     final envelope = math.sqrt(math.sin(math.pi * p));
-    final beats = math.sin(
-      2 * math.pi * FrustratedTimeline.scribbleBeats * p,
-    );
+    final beats = math.sin(2 * math.pi * FrustratedTimeline.scribbleBeats * p);
     // The body's shivers are front-loaded: they fade as the huff goes on,
     // while the scribble keeps going.
     final shivers =
@@ -132,9 +130,7 @@ class FrustratedPose {
   /// exactly as the art has them.
   double get sparksOpacity =>
       1 -
-      FrustratedTimeline.sparksDim *
-          envelope *
-          (1 - (beats > 0 ? beats : 0));
+      FrustratedTimeline.sparksDim * envelope * (1 - (beats > 0 ? beats : 0));
 }
 
 /// Aurudo frustrated: the scribble over his head swells and rocks, the

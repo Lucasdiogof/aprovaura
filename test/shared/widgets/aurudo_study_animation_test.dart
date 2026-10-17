@@ -35,7 +35,11 @@ void main() {
       var most = 0.0;
       for (var ms = 0.0; ms <= StudyTimeline.total; ms += 5) {
         final p = StudyPose.at(ms);
-        expect(p.angleDegrees, inInclusiveRange(0, StudyTimeline.maxAngleDegrees), reason: '$ms');
+        expect(
+          p.angleDegrees,
+          inInclusiveRange(0, StudyTimeline.maxAngleDegrees),
+          reason: '$ms',
+        );
         expect(p.pressFor(160), greaterThanOrEqualTo(0), reason: '$ms');
         most = p.angleDegrees > most ? p.angleDegrees : most;
       }
@@ -72,9 +76,15 @@ void main() {
       for (final pose in AurudoPose.values) {
         if (pose == AurudoPose.studying) continue;
         await tester.pumpApp(
-          Center(child: AurudoIllustration(key: ValueKey(pose), pose: pose)),
+          Center(
+            child: AurudoIllustration(key: ValueKey(pose), pose: pose),
+          ),
         );
-        expect(find.byType(AurudoStudyAnimation), findsNothing, reason: pose.name);
+        expect(
+          find.byType(AurudoStudyAnimation),
+          findsNothing,
+          reason: pose.name,
+        );
         await tester.pump(const Duration(seconds: 1));
       }
     });
@@ -107,9 +117,15 @@ void main() {
           milliseconds: StudyTimeline.preroll + StudyTimeline.tapDuration ~/ 8,
         ),
       );
-      expect(_transform(tester, AurudoStudyAnimation.handGroupKey).isIdentity(), isFalse);
+      expect(
+        _transform(tester, AurudoStudyAnimation.handGroupKey).isIdentity(),
+        isFalse,
+      );
       await tester.pump(const Duration(seconds: 2));
-      expect(_transform(tester, AurudoStudyAnimation.handGroupKey).isIdentity(), isTrue);
+      expect(
+        _transform(tester, AurudoStudyAnimation.handGroupKey).isIdentity(),
+        isTrue,
+      );
       expect(tester.binding.transientCallbackCount, 0);
     });
 
@@ -117,7 +133,10 @@ void main() {
       await tester.pumpApp(
         const Center(child: AurudoStudyAnimation(size: 160, instant: true)),
       );
-      expect(_transform(tester, AurudoStudyAnimation.handGroupKey).isIdentity(), isTrue);
+      expect(
+        _transform(tester, AurudoStudyAnimation.handGroupKey).isIdentity(),
+        isTrue,
+      );
       expect(tester.binding.transientCallbackCount, 0);
     });
 
@@ -169,7 +188,9 @@ void main() {
           MaterialApp(
             theme: theme,
             home: const Scaffold(
-              body: Center(child: AurudoIllustration(pose: AurudoPose.studying)),
+              body: Center(
+                child: AurudoIllustration(pose: AurudoPose.studying),
+              ),
             ),
           ),
         );

@@ -72,7 +72,9 @@ void main() {
       for (final pose in AurudoPose.values) {
         if (pose == AurudoPose.thinking) continue;
         await tester.pumpApp(
-          Center(child: AurudoIllustration(key: ValueKey(pose), pose: pose)),
+          Center(
+            child: AurudoIllustration(key: ValueKey(pose), pose: pose),
+          ),
         );
         expect(
           find.byType(AurudoThinkingAnimation),
