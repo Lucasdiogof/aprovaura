@@ -19,3 +19,9 @@ Pendência externa: o Supabase embutido só envia 2 e-mails/hora; confirmar SMTP
 ## Observações
 - CI fixa Flutter 3.44.1; o ambiente local usa 3.47.4. Conferir antes de confiar em diferenças de build.
 - O Android/iOS não foram alterados.
+
+
+## QA local no navegador (2026-10-17, build servido por wrangler dev em localhost)
+Carregamento, tela inicial, ausência de erros de console, mobile (375x812) e desktop verificados. Sem chaves privilegiadas no bundle.
+**Não testado por mim**: login/logout/persistência, recuperação por código, isolamento entre usuários (exigem conta de QA e caixa de e-mail de QA, que não tenho; digitar senhas fora de localhost também é vedado).
+Deploy de teste em workers.dev: **bloqueado** (login do wrangler expirou e não há `CLOUDFLARE_API_TOKEN`). Workflow `deploy-web.yml` pronto, desativado até existir o token e a variável `AUTO_DEPLOY=true`.
