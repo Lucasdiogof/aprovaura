@@ -262,10 +262,18 @@ void main() {
       test('a slow answer for an old filter never overwrites the newest '
           'filter', () async {
         final slow = Completer<Result<List<CatalogNode>>>();
-        var call = 0;
-        stubFetch(() {
-          call++;
-          if (call == 1) return slow.future;
+        when(
+          () => catalogRepository.getChildren(
+            subject: any(named: 'subject'),
+            parentId: any(named: 'parentId'),
+            difficulty: any(named: 'difficulty'),
+          ),
+        ).thenAnswer((invocation) {
+          // "Todos" (no filter) is the slow request; the filter picked
+          // afterwards answers at once.
+          if (invocation.namedArguments[#difficulty] == null) {
+            return slow.future;
+          }
           return Future.value(
             const Success([CatalogNode(id: 'hard', title: 'Difícil')]),
           );

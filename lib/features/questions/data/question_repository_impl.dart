@@ -29,7 +29,7 @@ class QuestionRepositoryImpl implements QuestionRepository {
     if (raw is! List || raw.isEmpty) return null;
     try {
       return raw
-          .map((row) => _fromJson(Map<String, dynamic>.from(row)))
+          .map((row) => _fromJson(Map<String, dynamic>.from(row as Map)))
           .toList(growable: false);
     } catch (_) {
       return null;

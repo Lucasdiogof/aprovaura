@@ -7,6 +7,7 @@ import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/network/connection_monitor.dart';
 import 'package:aura/features/catalog/domain/entities/catalog_node.dart';
 import 'package:aura/features/catalog/domain/repositories/catalog_repository.dart';
 import 'package:aura/features/catalog/presentation/pages/catalog_list_page.dart';
@@ -20,6 +21,8 @@ class _MockCatalogRepository extends Mock implements CatalogRepository {}
 
 class _MockProgressRepository extends Mock implements ProgressRepository {}
 
+class _MockConnectionMonitor extends Mock implements ConnectionMonitor {}
+
 void main() {
   group(CatalogListPage, () {
     late CatalogRepository catalogRepository;
@@ -31,7 +34,21 @@ void main() {
       progressRepository = _MockProgressRepository();
       sl
         ..registerLazySingleton<CatalogRepository>(() => catalogRepository)
-        ..registerLazySingleton<ProgressRepository>(() => progressRepository);
+        ..registerLazySingleton<ProgressRepository>(() => progressRepository)
+        ..registerLazySingleton<ConnectionMonitor>(_MockConnectionMonitor.new);
+      when(
+        () => catalogRepository.cachedChildren(
+          subject: any(named: 'subject'),
+          parentId: any(named: 'parentId'),
+          difficulty: any(named: 'difficulty'),
+        ),
+      ).thenAnswer((_) async => null);
+      when(
+        () => progressRepository.cachedBatchProgress(
+          any(),
+          difficulty: any(named: 'difficulty'),
+        ),
+      ).thenAnswer((_) async => null);
     });
 
     testWidgets('renders each node title once the catalog loads', (

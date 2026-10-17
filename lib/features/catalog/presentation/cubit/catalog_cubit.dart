@@ -16,9 +16,8 @@ class CatalogCubit extends Cubit<CatalogState> {
     required this.subject,
     this.parentId,
     this.difficulty,
-    ConnectionMonitor? monitor,
-  }) : _monitor = monitor,
-       super(const CatalogLoading()) {
+    this._monitor,
+  }) : super(const CatalogLoading()) {
     _monitor?.addListener(_onConnectionChanged);
     load();
   }

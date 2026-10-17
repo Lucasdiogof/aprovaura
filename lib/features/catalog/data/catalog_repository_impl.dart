@@ -35,7 +35,7 @@ class CatalogRepositoryImpl implements CatalogRepository {
     if (raw is! List || raw.isEmpty) return null;
     try {
       return raw
-          .map((row) => CatalogNode.fromJson(Map<String, dynamic>.from(row)))
+          .map((row) => CatalogNode.fromJson(Map<String, dynamic>.from(row as Map)))
           .toList(growable: false);
     } catch (_) {
       return null;

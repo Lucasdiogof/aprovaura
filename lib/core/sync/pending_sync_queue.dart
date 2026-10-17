@@ -105,7 +105,7 @@ class PendingSyncQueue {
       if (raw == null) return [];
       return [
         for (final item in jsonDecode(raw) as List)
-          if (PendingAction.fromJson(item) case final action?) action,
+          ?PendingAction.fromJson(item),
       ];
     } catch (_) {
       return [];
