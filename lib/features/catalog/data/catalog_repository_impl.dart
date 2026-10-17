@@ -35,7 +35,10 @@ class CatalogRepositoryImpl implements CatalogRepository {
     if (raw is! List || raw.isEmpty) return null;
     try {
       return raw
-          .map((row) => CatalogNode.fromJson(Map<String, dynamic>.from(row as Map)))
+          .map(
+            (row) =>
+                CatalogNode.fromJson(Map<String, dynamic>.from(row as Map)),
+          )
           .toList(growable: false);
     } catch (_) {
       return null;
@@ -74,14 +77,16 @@ class CatalogRepositoryImpl implements CatalogRepository {
     required String subject,
     required String? parentId,
   }) async {
-    final result = await _client.rpc<List<dynamic>>(
-      'catalog_children',
-      params: {
-        'p_subject': subject,
-        'p_parent': parentId,
-        'p_locale': _localeCubit.state.databaseLocale,
-      },
-    ).withRequestTimeout();
+    final result = await _client
+        .rpc<List<dynamic>>(
+          'catalog_children',
+          params: {
+            'p_subject': subject,
+            'p_parent': parentId,
+            'p_locale': _localeCubit.state.databaseLocale,
+          },
+        )
+        .withRequestTimeout();
     return result.cast<Map<String, dynamic>>();
   }
 
@@ -90,15 +95,17 @@ class CatalogRepositoryImpl implements CatalogRepository {
     required String? parentId,
     required QuestionDifficulty difficulty,
   }) async {
-    final result = await _client.rpc<List<dynamic>>(
-      'catalog_children_with_difficulty',
-      params: {
-        'p_subject': subject,
-        'p_parent': parentId,
-        'p_difficulty': difficulty.dbValue,
-        'p_locale': _localeCubit.state.databaseLocale,
-      },
-    ).withRequestTimeout();
+    final result = await _client
+        .rpc<List<dynamic>>(
+          'catalog_children_with_difficulty',
+          params: {
+            'p_subject': subject,
+            'p_parent': parentId,
+            'p_difficulty': difficulty.dbValue,
+            'p_locale': _localeCubit.state.databaseLocale,
+          },
+        )
+        .withRequestTimeout();
     return result.cast<Map<String, dynamic>>();
   }
 }

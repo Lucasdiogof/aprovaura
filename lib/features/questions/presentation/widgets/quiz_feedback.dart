@@ -35,11 +35,7 @@ class QuizFeedback extends StatelessWidget {
       ),
       child: Text(
         explanation,
-        style: TextStyle(
-          color: colors.textPrimary,
-          fontSize: 14,
-          height: 1.4,
-        ),
+        style: TextStyle(color: colors.textPrimary, fontSize: 14, height: 1.4),
       ),
     );
   }

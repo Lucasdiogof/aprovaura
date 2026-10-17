@@ -24,10 +24,14 @@ abstract final class StudyGeometry {
   /// fraction of the canvas height (6px of the 1011px-tall source crop).
   static const pressFraction = 6 / 1011;
 
-  static const base = 'lib/assets/mascot/studying_tap/aurudo_studying_tap_base.webp';
-  static const hand = 'lib/assets/mascot/studying_tap/aurudo_studying_tap_hand.webp';
-  static const knee = 'lib/assets/mascot/studying_tap/aurudo_studying_tap_knee.webp';
-  static const lid = 'lib/assets/mascot/studying_tap/aurudo_studying_tap_lid.webp';
+  static const base =
+      'lib/assets/mascot/studying_tap/aurudo_studying_tap_base.webp';
+  static const hand =
+      'lib/assets/mascot/studying_tap/aurudo_studying_tap_hand.webp';
+  static const knee =
+      'lib/assets/mascot/studying_tap/aurudo_studying_tap_knee.webp';
+  static const lid =
+      'lib/assets/mascot/studying_tap/aurudo_studying_tap_lid.webp';
 
   /// Paint order, back to front: the knee and the laptop lid both pass in
   /// front of the hand's near corner.
@@ -245,9 +249,7 @@ class _StudyFrame extends StatelessWidget {
     final hand = Matrix4.translationValues(0, press, 0)
       ..multiply(Matrix4.translationValues(wristPoint.dx, wristPoint.dy, 0))
       ..multiply(Matrix4.rotationZ(angle))
-      ..multiply(
-        Matrix4.translationValues(-wristPoint.dx, -wristPoint.dy, 0),
-      );
+      ..multiply(Matrix4.translationValues(-wristPoint.dx, -wristPoint.dy, 0));
     final images = _layersFor(context, size, assets);
 
     Widget layer(int i) => Positioned(

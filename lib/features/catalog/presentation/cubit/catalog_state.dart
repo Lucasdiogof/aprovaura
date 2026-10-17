@@ -14,11 +14,7 @@ class CatalogLoading extends CatalogState {
 }
 
 class CatalogLoaded extends CatalogState {
-  const CatalogLoaded(
-    this.nodes,
-    this.progressByNodeId, {
-    this.offlineMessage,
-  });
+  const CatalogLoaded(this.nodes, this.progressByNodeId, {this.offlineMessage});
 
   final List<CatalogNode> nodes;
   final Map<String, TopicProgress> progressByNodeId;

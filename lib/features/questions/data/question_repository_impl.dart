@@ -42,14 +42,16 @@ class QuestionRepositoryImpl implements QuestionRepository {
     QuestionDifficulty? difficulty,
   }) async {
     try {
-      final rows = await _client.rpc<List<dynamic>>(
-        'get_catalog_questions',
-        params: {
-          'p_catalog_node_id': catalogNodeId,
-          'p_difficulty': difficulty?.dbValue,
-          'p_locale': _localeCubit.state.databaseLocale,
-        },
-      ).withRequestTimeout(const Duration(seconds: 8));
+      final rows = await _client
+          .rpc<List<dynamic>>(
+            'get_catalog_questions',
+            params: {
+              'p_catalog_node_id': catalogNodeId,
+              'p_difficulty': difficulty?.dbValue,
+              'p_locale': _localeCubit.state.databaseLocale,
+            },
+          )
+          .withRequestTimeout(const Duration(seconds: 8));
       final questions = rows
           .cast<Map<String, dynamic>>()
           .map(_fromJson)

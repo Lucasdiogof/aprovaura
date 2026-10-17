@@ -67,10 +67,7 @@ void main() {
         final s = FrustratedPose.at(ms).scribbleScale;
         most = s > most ? s : most;
       }
-      expect(
-        most,
-        greaterThan(1 + FrustratedTimeline.scribbleSwell * 0.7),
-      );
+      expect(most, greaterThan(1 + FrustratedTimeline.scribbleSwell * 0.7));
     });
 
     test('the scribble beats the agreed number of times', () {
@@ -120,7 +117,9 @@ void main() {
       for (final pose in AurudoPose.values) {
         if (pose == AurudoPose.frustrated) continue;
         await tester.pumpApp(
-          Center(child: AurudoIllustration(key: ValueKey(pose), pose: pose)),
+          Center(
+            child: AurudoIllustration(key: ValueKey(pose), pose: pose),
+          ),
         );
         expect(
           find.byType(AurudoFrustratedAnimation),
@@ -156,8 +155,7 @@ void main() {
       await tester.pump(
         const Duration(
           milliseconds:
-              FrustratedTimeline.preroll +
-              FrustratedTimeline.huffDuration ~/ 4,
+              FrustratedTimeline.preroll + FrustratedTimeline.huffDuration ~/ 4,
         ),
       );
       expect(

@@ -23,8 +23,10 @@ abstract final class ThinkingGeometry {
 
   static const particles =
       'lib/assets/mascot/thinking_tap/aurudo_thinking_tap_particles.webp';
-  static const base = 'lib/assets/mascot/thinking_tap/aurudo_thinking_tap_base.webp';
-  static const hand = 'lib/assets/mascot/thinking_tap/aurudo_thinking_tap_hand.webp';
+  static const base =
+      'lib/assets/mascot/thinking_tap/aurudo_thinking_tap_base.webp';
+  static const hand =
+      'lib/assets/mascot/thinking_tap/aurudo_thinking_tap_hand.webp';
 
   /// Paint order, back to front.
   static const all = [particles, base, hand];
@@ -237,9 +239,7 @@ class _ThinkingFrame extends StatelessWidget {
 
     final hand = Matrix4.translationValues(wristPoint.dx, wristPoint.dy, 0)
       ..multiply(Matrix4.rotationZ(angle))
-      ..multiply(
-        Matrix4.translationValues(-wristPoint.dx, -wristPoint.dy, 0),
-      );
+      ..multiply(Matrix4.translationValues(-wristPoint.dx, -wristPoint.dy, 0));
     final images = _layersFor(context, size, assets);
 
     Widget layer(int i) => Positioned(

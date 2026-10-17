@@ -41,8 +41,7 @@ class AuraAnimatedBorder extends StatefulWidget {
   static const staticPhase = 0.08;
 
   @override
-  State<AuraAnimatedBorder> createState() =>
-      _AuraAnimatedBorderState();
+  State<AuraAnimatedBorder> createState() => _AuraAnimatedBorderState();
 }
 
 class _AuraAnimatedBorderState extends State<AuraAnimatedBorder>
