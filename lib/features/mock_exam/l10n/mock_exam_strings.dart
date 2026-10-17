@@ -129,9 +129,14 @@ class MockExamStrings {
 
   String get loadErrorMessage => switch (language) {
     AppLanguage.portuguese =>
-      'Não foi possível carregar as questões disponíveis.',
-    AppLanguage.english => "Couldn't load the available questions.",
-    AppLanguage.spanish => 'No se pudieron cargar las preguntas disponibles.',
+      'Não foi possível carregar as questões disponíveis. O simulado '
+          'precisa de conexão com a internet.',
+    AppLanguage.english =>
+      "Couldn't load the available questions. Mock exams need an internet "
+          'connection.',
+    AppLanguage.spanish =>
+      'No se pudieron cargar las preguntas disponibles. El simulacro '
+          'necesita conexión a internet.',
   };
 
   String get retryButton => switch (language) {

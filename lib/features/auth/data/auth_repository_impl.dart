@@ -1,4 +1,5 @@
 import 'package:aura/core/cache/offline_cache.dart';
+import 'package:aura/core/sync/pending_sync_queue.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
@@ -10,10 +11,14 @@ import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:get_it/get_it.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
-  AuthRepositoryImpl(this._client, [this._cache]);
+  AuthRepositoryImpl(this._client, [this._cache, this._queue]);
 
   // Personal cached data (progress bars) must not outlive the session.
   final OfflineCache? _cache;
+
+  // Answers kept on the device while offline. Sent before signing out when
+  // possible; whatever is left stays under this account's id only.
+  final PendingSyncQueue? _queue;
 
   final SupabaseClient _client;
 
@@ -145,6 +150,9 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<void> signOut() async {
+    try {
+      await _queue?.flush().timeout(const Duration(seconds: 5));
+    } catch (_) {}
     await _cache?.clearUserData();
     await _client.auth.signOut();
   }
@@ -157,6 +165,7 @@ class AuthRepositoryImpl implements AuthRepository {
       // account. No user_id is ever sent: the Edge Function resolves it
       // from this same call's JWT.
       await _client.functions.invoke('delete-account');
+      await _queue?.clearForCurrentUser();
       await _cache?.clearUserData();
       await _client.auth.signOut();
       return const Success(null);

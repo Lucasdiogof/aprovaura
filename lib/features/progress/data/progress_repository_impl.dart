@@ -1,5 +1,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/cache/offline_cache.dart';
+import 'package:aura/core/network/connection_monitor.dart';
+import 'package:aura/core/sync/pending_sync_queue.dart';
 import 'package:aura/core/network/request_guard.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
@@ -9,10 +11,12 @@ import 'package:aura/features/progress/domain/repositories/progress_repository.d
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 
 class ProgressRepositoryImpl implements ProgressRepository {
-  ProgressRepositoryImpl(this._client, this._cache);
+  ProgressRepositoryImpl(this._client, this._cache, this._queue, this._monitor);
 
   final SupabaseClient _client;
   final OfflineCache _cache;
+  final PendingSyncQueue _queue;
+  final ConnectionMonitor _monitor;
 
   // Personal data: keyed by the signed-in user and wiped on sign-out.
   String? _progressKey(List<String> ids, QuestionDifficulty? difficulty) {
@@ -54,13 +58,15 @@ class ProgressRepositoryImpl implements ProgressRepository {
   }) async {
     if (catalogNodeIds.isEmpty) return const Success({});
     try {
-      final rows = await _client.rpc<List<dynamic>>(
-        'catalog_node_progress',
-        params: {
-          'p_node_ids': catalogNodeIds,
-          'p_difficulty': difficulty?.dbValue,
-        },
-      ).withRequestTimeout();
+      final rows = await _client
+          .rpc<List<dynamic>>(
+            'catalog_node_progress',
+            params: {
+              'p_node_ids': catalogNodeIds,
+              'p_difficulty': difficulty?.dbValue,
+            },
+          )
+          .withRequestTimeout();
       final progress = <String, TopicProgress>{
         for (final row in rows.cast<Map<String, dynamic>>())
           row['node_id'] as String: TopicProgress(
@@ -81,19 +87,43 @@ class ProgressRepositoryImpl implements ProgressRepository {
     }
   }
 
+  // Offline, the answer is kept on the device and sent later (see
+  // PendingSyncQueue); the result is a QueuedOfflineFailure so nothing
+  // upstream mistakes it for "already saved on the server".
   @override
   Future<Result<void>> registerQuestionAnswered({
     required String questionId,
     required bool isCorrect,
   }) async {
+    Future<Result<void>> queue() async {
+      await _queue.enqueue(
+        PendingAction(
+          kind: PendingKind.answer,
+          key: questionId,
+          payload: {'isCorrect': isCorrect},
+        ),
+      );
+      return Error(QueuedOfflineFailure());
+    }
+
+    if (!_monitor.isOnline) return queue();
+    // Older offline answers go first so a newer answer is never overwritten
+    // by an older one replayed after it.
+    if (_queue.pendingCount > 0) {
+      await _queue.flush();
+      if (!_monitor.isOnline) return queue();
+    }
     try {
-      await _client.rpc<void>(
-        'register_question_answered',
-        params: {'p_question_id': questionId, 'p_is_correct': isCorrect},
-      ).withRequestTimeout();
+      await _client
+          .rpc<void>(
+            'register_question_answered',
+            params: {'p_question_id': questionId, 'p_is_correct': isCorrect},
+          )
+          .withRequestTimeout();
       return const Success(null);
     } catch (error) {
-      return Error(failureFromError(error));
+      final failure = failureFromError(error);
+      return isConnectionFailure(failure) ? queue() : Error(failure);
     }
   }
 

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:aura/core/error/failures.dart';
@@ -31,6 +33,19 @@ void main() {
     setUp(() {
       catalogRepository = _MockCatalogRepository();
       progressRepository = _MockProgressRepository();
+      when(
+        () => catalogRepository.cachedChildren(
+          subject: any(named: 'subject'),
+          parentId: any(named: 'parentId'),
+          difficulty: any(named: 'difficulty'),
+        ),
+      ).thenAnswer((_) async => null);
+      when(
+        () => progressRepository.cachedBatchProgress(
+          any(),
+          difficulty: any(named: 'difficulty'),
+        ),
+      ).thenAnswer((_) async => null);
     });
 
     CatalogCubit buildCubit({QuestionDifficulty? difficulty}) => CatalogCubit(
@@ -197,6 +212,76 @@ void main() {
         await cubit.refresh();
 
         expect(cubit.state, const CatalogLoaded(<CatalogNode>[], progress));
+      });
+    });
+    group('offline', () {
+      void stubFetch(Future<Result<List<CatalogNode>>> Function() answer) {
+        when(
+          () => catalogRepository.getChildren(
+            subject: any(named: 'subject'),
+            parentId: any(named: 'parentId'),
+            difficulty: any(named: 'difficulty'),
+          ),
+        ).thenAnswer((_) => answer());
+      }
+
+      test('with nothing saved, a connection failure ends in $CatalogError '
+          'flagged as a connection problem', () async {
+        stubFetch(() async => Error(NetworkFailure()));
+        final cubit = buildCubit();
+        await pumpEventQueue();
+        expect(cubit.state, isA<CatalogError>());
+        expect((cubit.state as CatalogError).isConnection, isTrue);
+      });
+
+      test('shows the saved copy first and keeps it when the server cannot '
+          'be reached', () async {
+        when(
+          () => catalogRepository.cachedChildren(
+            subject: any(named: 'subject'),
+            parentId: any(named: 'parentId'),
+            difficulty: any(named: 'difficulty'),
+          ),
+        ).thenAnswer((_) async => nodes);
+        when(
+          () => progressRepository.cachedBatchProgress(
+            any(),
+            difficulty: any(named: 'difficulty'),
+          ),
+        ).thenAnswer((_) async => progress);
+        final failure = RequestTimeoutFailure();
+        stubFetch(() async => Error(failure));
+        final cubit = buildCubit();
+        await pumpEventQueue();
+        expect(
+          cubit.state,
+          CatalogLoaded(nodes, progress, offlineMessage: failure.message),
+        );
+      });
+
+      test('a slow answer for an old filter never overwrites the newest '
+          'filter', () async {
+        final slow = Completer<Result<List<CatalogNode>>>();
+        var call = 0;
+        stubFetch(() {
+          call++;
+          if (call == 1) return slow.future;
+          return Future.value(
+            const Success([CatalogNode(id: 'hard', title: 'Difícil')]),
+          );
+        });
+        when(
+          () => progressRepository.getBatchProgress(
+            any(),
+            difficulty: any(named: 'difficulty'),
+          ),
+        ).thenAnswer((_) async => const Success({}));
+        final cubit = buildCubit();
+        await cubit.setDifficulty(QuestionDifficulty.dificil);
+        await pumpEventQueue();
+        slow.complete(const Success(nodes));
+        await pumpEventQueue();
+        expect((cubit.state as CatalogLoaded).nodes.single.id, 'hard');
       });
     });
   });

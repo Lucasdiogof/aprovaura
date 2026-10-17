@@ -1,36 +1,36 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:aura/core/error/failures.dart';
+import 'package:aura/core/cache/offline_cache.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/error_review/domain/entities/error_topic.dart';
 import 'package:aura/features/error_review/domain/repositories/error_review_repository.dart';
 
 class ErrorReviewRepositoryImpl implements ErrorReviewRepository {
-  ErrorReviewRepositoryImpl(this._client, this._localeCubit);
+  ErrorReviewRepositoryImpl(this._client, this._localeCubit, this._cache);
 
   final SupabaseClient _client;
   final LocaleCubit _localeCubit;
+  final OfflineCache _cache;
 
   @override
   Future<Result<List<ErrorTopic>>> listPendingTopics({String? source}) async {
-    try {
-      final rows = await _client.rpc<List<dynamic>>(
+    final locale = _localeCubit.state.databaseLocale;
+    final result = await _cache.rowsWithFallback(
+      _cache.userKey(
+        _client.auth.currentUser?.id ?? 'anon',
+        'errors.$locale.${source ?? 'all'}',
+      ),
+      () => _client.rpc<List<dynamic>>(
         'list_pending_error_topics',
-        params: {
-          'p_locale': _localeCubit.state.databaseLocale,
-          'p_source': source,
-        },
-      );
-      final topics = rows
-          .cast<Map<String, dynamic>>()
-          .map(_fromJson)
-          .toList(growable: false);
-      return Success(topics);
-    } on PostgrestException {
-      return Error(ServerFailure());
-    } catch (_) {
-      return Error(UnexpectedFailure());
-    }
+        params: {'p_locale': locale, 'p_source': source},
+      ),
+    );
+    return switch (result) {
+      Success(:final data) => Success(
+        data.map(_fromJson).toList(growable: false),
+      ),
+      Error(:final failure) => Error(failure),
+    };
   }
 
   ErrorTopic _fromJson(Map<String, dynamic> json) => ErrorTopic(

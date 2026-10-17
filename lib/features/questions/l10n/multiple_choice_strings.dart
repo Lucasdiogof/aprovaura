@@ -24,6 +24,19 @@ class MultipleChoiceStrings {
       'Sin conexión: esta respuesta no se registró en tu progreso.',
   };
 
+  /// Offline: the answer is kept on the device and sent later.
+  String get answerQueuedNotice => switch (language) {
+    AppLanguage.portuguese =>
+      'Sem conexão: resposta salva no aparelho. Será enviada ao seu '
+          'progresso quando a conexão voltar.',
+    AppLanguage.english =>
+      'No connection: answer saved on this device. It will be added to '
+          'your progress when you are back online.',
+    AppLanguage.spanish =>
+      'Sin conexión: respuesta guardada en el dispositivo. Se añadirá a tu '
+          'progreso cuando vuelva la conexión.',
+  };
+
   String get nextButton => switch (language) {
     AppLanguage.portuguese => 'Próxima',
     AppLanguage.english => 'Next',

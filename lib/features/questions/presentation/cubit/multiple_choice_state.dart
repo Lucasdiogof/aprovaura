@@ -34,6 +34,7 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     this.favoriteQuestionIds = const {},
     this.isPersisting = false,
     this.unsavedAnswerCount = 0,
+    this.queuedAnswerCount = 0,
   });
 
   final List<Question> questions;
@@ -53,6 +54,9 @@ class MultipleChoicePlaying extends MultipleChoiceState {
   // They are not queued: no offline write path exists, so they count for
   // nothing in progress and the screen says so instead of faking a sync.
   final int unsavedAnswerCount;
+  // Answers kept on the device while offline; they are sent when the
+  // connection returns (see PendingSyncQueue).
+  final int queuedAnswerCount;
 
   Question get currentQuestion => questions[currentIndex];
   int? get selectedIndex => answers[currentIndex];
@@ -69,6 +73,7 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     Set<String>? favoriteQuestionIds,
     bool? isPersisting,
     int? unsavedAnswerCount,
+    int? queuedAnswerCount,
   }) => MultipleChoicePlaying(
     questions: questions,
     currentIndex: currentIndex ?? this.currentIndex,
@@ -77,6 +82,7 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     favoriteQuestionIds: favoriteQuestionIds ?? this.favoriteQuestionIds,
     isPersisting: isPersisting ?? this.isPersisting,
     unsavedAnswerCount: unsavedAnswerCount ?? this.unsavedAnswerCount,
+    queuedAnswerCount: queuedAnswerCount ?? this.queuedAnswerCount,
   );
 
   @override
@@ -88,6 +94,7 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     favoriteQuestionIds,
     isPersisting,
     unsavedAnswerCount,
+    queuedAnswerCount,
   ];
 }
 

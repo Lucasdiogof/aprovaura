@@ -46,3 +46,62 @@ to all; only Matemática was observed failing.
 - pt/en/es strings, light/dark, large font, small screens (iPhone + Android).
 - Practice offline: answer-not-recorded notice; finishing a quiz offline
   (XP award path was not changed and was not verified offline).
+
+---
+
+# Round 2: sync queue, connection monitor, more modes
+
+## Connection monitor (`core/network/connection_monitor.dart`)
+No plugin. Every request reports success/failure through `request_guard`
+hooks; a connection failure flips the app to offline, and a cheap probe
+(select 1 row, 5 s) runs every 8 s until the server answers. Offline, repos
+fail fast (no 12 s wait): answers are queued at once, streak/daily goal
+return a network failure. Back online: the queue is flushed and open
+catalog screens refresh by themselves.
+
+## Offline answer queue (`core/sync/pending_sync_queue.dart`) - no migration
+Stored per account (`offline.v1.queue.<uid>`), replayed in order. Safe
+because the server calls are already idempotent:
+- answers: `register_question_answered` upserts on (user, question);
+- XP: `award_quiz_xp` ignores an attempt id already paid;
+- favorites: duplicate insert (23505) / delete of nothing = done.
+A newer action for the same target replaces the older one. Pending items
+are flushed before any new online answer, so an old answer is never
+replayed over a newer one. Failed (non-connection) items are dropped after
+3 attempts. Sign-out tries a 5 s flush first; leftovers stay under that
+uid only; account deletion clears them.
+
+Not queued on purpose:
+- Streak completion: the server dates it with now(); a late replay would
+  credit a day that was not studied. A quiz finished offline therefore
+  earns XP (later) but no streak credit.
+- Daily goal: counts `answered_at = now()` at sync time, so answers given
+  offline count for the day they sync. Fixing this needs a server change
+  (accept the original answer time) - NOT applied, needs authorization.
+
+## Other modes
+Cached with network-first + saved fallback: favorites (topics, questions;
+their answered/wrong marks show as "not answered" offline), review
+questions, error-review topics (per user), Atualidades dossiers (public).
+Quick practice offline: shuffled deck from topics already opened online,
+minus answers waiting in the queue (cannot know what the account answered
+before, so repeats are possible; progress still counts once per question).
+
+## Simulado: online-only by design
+The server owns the exam status and grading and the answer key never
+reaches the device before hand-in; the runner deliberately refuses
+unconfirmed state. Offline answers/finish would break that. Now it fails
+fast with a message saying it needs internet (it used to hang forever).
+
+## Tests
+Added: catalog cubit offline cases (saved copy kept, connection error flag,
+stale response ignored) and `PendingAction` round-trip. NOT run (no
+analyze/tests/builds this round; only `dart format`).
+
+## Manual QA still pending
+- Answer questions in airplane mode, reconnect: progress/XP appear once.
+- Kill the app offline with queued answers, reopen online: they sync.
+- Two accounts on one device: queued data never crosses accounts.
+- Favorite offline, reconnect; unfavorite offline, reconnect.
+- Quick practice, favorites, review, Atualidades offline (opened before).
+- Simulado offline: message, retry works after reconnect.

@@ -1,5 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:aura/core/error/failures.dart';
+import 'package:aura/core/cache/offline_cache.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/questions/domain/entities/question.dart';
@@ -11,34 +11,34 @@ import 'package:aura/features/questions/domain/repositories/question_repository.
 // questions for that topic, not its full bank. difficulty is accepted to
 // satisfy the interface but unused: review sessions aren't filtered by it.
 class ReviewQuestionRepositoryImpl implements QuestionRepository {
-  ReviewQuestionRepositoryImpl(this._client, this._localeCubit);
+  ReviewQuestionRepositoryImpl(this._client, this._localeCubit, this._cache);
 
   final SupabaseClient _client;
   final LocaleCubit _localeCubit;
+  final OfflineCache _cache;
 
   @override
   Future<Result<List<Question>>> getQuestions(
     String catalogNodeId, {
     QuestionDifficulty? difficulty,
   }) async {
-    try {
-      final rows = await _client.rpc<List<dynamic>>(
+    final locale = _localeCubit.state.databaseLocale;
+    final result = await _cache.rowsWithFallback(
+      _cache.userKey(
+        _client.auth.currentUser?.id ?? 'anon',
+        'review.$locale.$catalogNodeId',
+      ),
+      () => _client.rpc<List<dynamic>>(
         'get_wrong_questions_for_node',
-        params: {
-          'p_catalog_node_id': catalogNodeId,
-          'p_locale': _localeCubit.state.databaseLocale,
-        },
-      );
-      final questions = rows
-          .cast<Map<String, dynamic>>()
-          .map(_fromJson)
-          .toList(growable: false);
-      return Success(questions);
-    } on PostgrestException {
-      return Error(ServerFailure());
-    } catch (_) {
-      return Error(UnexpectedFailure());
-    }
+        params: {'p_catalog_node_id': catalogNodeId, 'p_locale': locale},
+      ),
+    );
+    return switch (result) {
+      Success(:final data) => Success(
+        data.map(_fromJson).toList(growable: false),
+      ),
+      Error(:final failure) => Error(failure),
+    };
   }
 
   Question _fromJson(Map<String, dynamic> json) => Question(

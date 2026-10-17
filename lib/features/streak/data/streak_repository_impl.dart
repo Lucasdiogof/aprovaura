@@ -1,13 +1,16 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aura/core/network/connection_monitor.dart';
+import 'package:aura/core/network/request_guard.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/streak/domain/entities/streak.dart';
 import 'package:aura/features/streak/domain/repositories/streak_repository.dart';
 
 class StreakRepositoryImpl implements StreakRepository {
-  StreakRepositoryImpl(this._client);
+  StreakRepositoryImpl(this._client, this._monitor);
 
   final SupabaseClient _client;
+  final ConnectionMonitor _monitor;
 
   @override
   Future<Result<Streak>> getOrRefresh() =>
@@ -19,25 +22,27 @@ class StreakRepositoryImpl implements StreakRepository {
 
   @override
   Future<Result<void>> markBreakSeen() async {
+    if (!_monitor.isOnline) return Error(NetworkFailure());
     try {
-      await _client.rpc<void>('mark_streak_break_seen');
+      await _client.rpc<void>('mark_streak_break_seen').withRequestTimeout();
       return const Success(null);
-    } on PostgrestException {
-      return Error(ServerFailure());
-    } catch (_) {
-      return Error(UnexpectedFailure());
+    } catch (error) {
+      return Error(failureFromError(error));
     }
   }
 
   Future<Result<Streak>> _callAndParse(String function) async {
+    // Streak completion is deliberately not queued: the server dates it
+    // with now(), so replaying it later would credit a day not studied.
+    if (!_monitor.isOnline) return Error(NetworkFailure());
     try {
-      final rows = await _client.rpc<List<dynamic>>(function);
+      final rows = await _client
+          .rpc<List<dynamic>>(function)
+          .withRequestTimeout();
       final row = rows.cast<Map<String, dynamic>>().first;
       return Success(_fromJson(row));
-    } on PostgrestException {
-      return Error(ServerFailure());
-    } catch (_) {
-      return Error(UnexpectedFailure());
+    } catch (error) {
+      return Error(failureFromError(error));
     }
   }
 

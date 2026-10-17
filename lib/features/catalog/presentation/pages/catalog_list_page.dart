@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/shared/widgets/app_aura_loader.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/core/network/connection_monitor.dart';
 import 'package:aura/core/router/app_route_observer.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/catalog/domain/repositories/catalog_repository.dart';
@@ -55,6 +56,7 @@ class _CatalogListPageState extends State<CatalogListPage> with RouteAware {
     subject: widget.subject.key,
     parentId: widget.parentId,
     difficulty: widget.difficulty,
+    monitor: sl<ConnectionMonitor>(),
   );
 
   @override
@@ -108,10 +110,8 @@ class _CatalogListPageState extends State<CatalogListPage> with RouteAware {
                   CatalogLoading() => const Center(
                     child: AppAuraLoader.medium(),
                   ),
-                  CatalogError(:final message, :final isConnection) => _ErrorView(
-                    message: message,
-                    isConnection: isConnection,
-                  ),
+                  CatalogError(:final message, :final isConnection) =>
+                    _ErrorView(message: message, isConnection: isConnection),
                   CatalogLoaded(nodes: final nodes) when nodes.isEmpty =>
                     widget.parentId == null
                         ? (context.read<CatalogCubit>().difficulty == null
@@ -129,14 +129,16 @@ class _CatalogListPageState extends State<CatalogListPage> with RouteAware {
                   ) =>
                     ListView.separated(
                       padding: const EdgeInsets.all(24),
-                      itemCount: nodes.length + (offlineMessage == null ? 0 : 1),
+                      itemCount:
+                          nodes.length + (offlineMessage == null ? 0 : 1),
                       separatorBuilder: (_, _) => const SizedBox(height: 12),
                       itemBuilder: (context, rawIndex) {
                         if (offlineMessage != null && rawIndex == 0) {
                           return _SavedContentBanner(message: offlineMessage);
                         }
-                        final index =
-                            offlineMessage == null ? rawIndex : rawIndex - 1;
+                        final index = offlineMessage == null
+                            ? rawIndex
+                            : rawIndex - 1;
                         final node = nodes[index];
                         final activityBuilder = mappedActivities[node.id];
                         void onTap() => Navigator.of(context).push(

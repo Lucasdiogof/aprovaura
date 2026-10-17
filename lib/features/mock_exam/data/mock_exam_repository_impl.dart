@@ -1,5 +1,8 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
+import 'package:aura/core/network/connection_monitor.dart';
+import 'package:aura/core/network/request_guard.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/mock_exam/domain/entities/active_mock_exam.dart';
 import 'package:aura/features/mock_exam/domain/entities/mock_exam_availability.dart';
@@ -17,10 +20,11 @@ import 'package:aura/features/questions/domain/entities/question_difficulty.dart
 /// by MockExamFailure.fromServer); anything else thrown while calling an
 /// RPC is treated as the request never getting through.
 class MockExamRepositoryImpl implements MockExamRepository {
-  MockExamRepositoryImpl(this._client, this._localeCubit);
+  MockExamRepositoryImpl(this._client, this._localeCubit, this._monitor);
 
   final SupabaseClient _client;
   final LocaleCubit _localeCubit;
+  final ConnectionMonitor _monitor;
 
   @override
   Future<Result<MockExamAvailability>> getAvailability() => _guard(() async {
@@ -186,12 +190,22 @@ class MockExamRepositoryImpl implements MockExamRepository {
         );
       });
 
+  // Mock exams are online-only on purpose: the server owns the exam's
+  // status and the grading (the answer key never reaches the device before
+  // the exam is handed in), so there is nothing safe to do offline. What
+  // matters is failing fast and clearly instead of hanging.
   Future<Result<T>> _guard<T>(Future<T> Function() call) async {
+    if (!_monitor.isOnline) {
+      return Error(MockExamFailure(MockExamFailureKind.network));
+    }
     try {
-      return Success(await call());
+      final value = await call().timeout(kRequestTimeout);
+      onRequestSuccess?.call();
+      return Success(value);
     } on PostgrestException catch (e) {
       return Error(MockExamFailure.fromServer(e.message, e.details));
-    } catch (_) {
+    } catch (error) {
+      failureFromError(error);
       return Error(MockExamFailure(MockExamFailureKind.network));
     }
   }

@@ -93,8 +93,7 @@ class NetworkFailure extends Failure {
   static String _defaultMessage() => switch (_currentLanguage()) {
     AppLanguage.portuguese =>
       'Sem conexão com a internet. Conecte-se e tente novamente.',
-    AppLanguage.english =>
-      'No internet connection. Connect and try again.',
+    AppLanguage.english => 'No internet connection. Connect and try again.',
     AppLanguage.spanish =>
       'Sin conexión a internet. Conéctate e intenta de nuevo.',
   };
@@ -103,7 +102,8 @@ class NetworkFailure extends Failure {
 /// The request got no answer in time (a connection that hangs instead of
 /// failing, common on a flaky network).
 class RequestTimeoutFailure extends Failure {
-  RequestTimeoutFailure([String? message]) : super(message ?? _defaultMessage());
+  RequestTimeoutFailure([String? message])
+    : super(message ?? _defaultMessage());
 
   static String _defaultMessage() => switch (_currentLanguage()) {
     AppLanguage.portuguese =>
@@ -118,3 +118,19 @@ class RequestTimeoutFailure extends Failure {
 /// the data — the cases where already-saved content is a valid substitute.
 bool isConnectionFailure(Failure failure) =>
     failure is NetworkFailure || failure is RequestTimeoutFailure;
+
+/// The action could not reach the server but was kept on the device and
+/// will be sent once the connection is back. It is returned as an [Error]
+/// so callers that only know "success/failure" never treat it as done on
+/// the server; screens that care say "saved on this device".
+class QueuedOfflineFailure extends Failure {
+  QueuedOfflineFailure([String? message]) : super(message ?? _defaultMessage());
+
+  static String _defaultMessage() => switch (_currentLanguage()) {
+    AppLanguage.portuguese =>
+      'Salvo no aparelho. Será enviado quando houver conexão.',
+    AppLanguage.english => 'Saved on this device. It will sync when online.',
+    AppLanguage.spanish =>
+      'Guardado en el dispositivo. Se enviará cuando haya conexión.',
+  };
+}

@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/utils/id_generator.dart';
 import 'package:aura/features/favorites/domain/repositories/favorites_repository.dart';
@@ -132,7 +133,12 @@ class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
       emit(
         settled.copyWith(
           isPersisting: false,
-          unsavedAnswerCount: saved is Error
+          queuedAnswerCount:
+              saved is Error && saved.failure is QueuedOfflineFailure
+              ? settled.queuedAnswerCount + 1
+              : null,
+          unsavedAnswerCount:
+              saved is Error && saved.failure is! QueuedOfflineFailure
               ? settled.unsavedAnswerCount + 1
               : null,
         ),

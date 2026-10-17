@@ -316,7 +316,9 @@ class _QuestionView extends StatelessWidget {
                     isCorrect: wasCorrect,
                     explanation: question.explanation,
                   ),
-                  if (state.unsavedAnswerCount > 0 && !state.isPersisting) ...[
+                  if ((state.unsavedAnswerCount > 0 ||
+                          state.queuedAnswerCount > 0) &&
+                      !state.isPersisting) ...[
                     const SizedBox(height: 12),
                     Row(
                       children: [
@@ -328,7 +330,9 @@ class _QuestionView extends StatelessWidget {
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
-                            strings.answerNotSavedNotice,
+                            state.unsavedAnswerCount > 0
+                                ? strings.answerNotSavedNotice
+                                : strings.answerQueuedNotice,
                             style: TextStyle(
                               fontSize: 13,
                               color: context.colors.textSecondary,

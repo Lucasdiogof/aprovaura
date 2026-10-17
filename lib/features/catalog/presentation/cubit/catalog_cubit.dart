@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/error/failures.dart';
+import 'package:aura/core/network/connection_monitor.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/catalog/domain/entities/catalog_node.dart';
 import 'package:aura/features/catalog/domain/repositories/catalog_repository.dart';
@@ -15,8 +16,30 @@ class CatalogCubit extends Cubit<CatalogState> {
     required this.subject,
     this.parentId,
     this.difficulty,
-  }) : super(const CatalogLoading()) {
+    ConnectionMonitor? monitor,
+  }) : _monitor = monitor,
+       super(const CatalogLoading()) {
+    _monitor?.addListener(_onConnectionChanged);
     load();
+  }
+
+  final ConnectionMonitor? _monitor;
+
+  // Back online while showing saved data or an error: ask the server again
+  // without the person having to tap retry.
+  void _onConnectionChanged() {
+    if (isClosed || !(_monitor?.isOnline ?? false)) return;
+    final current = state;
+    final needsRefresh =
+        current is CatalogError ||
+        (current is CatalogLoaded && current.offlineMessage != null);
+    if (needsRefresh) refresh();
+  }
+
+  @override
+  Future<void> close() {
+    _monitor?.removeListener(_onConnectionChanged);
+    return super.close();
   }
 
   final CatalogRepository _repository;
@@ -71,7 +94,10 @@ class CatalogCubit extends Cubit<CatalogState> {
       } else {
         emit(const CatalogLoading());
       }
-    } else if (state case CatalogLoaded(:final nodes, :final progressByNodeId)) {
+    } else if (state case CatalogLoaded(
+      :final nodes,
+      :final progressByNodeId,
+    )) {
       shown = nodes;
       shownProgress = progressByNodeId;
     }
@@ -91,9 +117,10 @@ class CatalogCubit extends Cubit<CatalogState> {
         if (stale()) return;
         final progress = switch (progressResult) {
           Success(data: final progressMap) => progressMap,
-          Error() => data.any((node) => shownProgress.containsKey(node.id))
-              ? shownProgress
-              : const <String, TopicProgress>{},
+          Error() =>
+            data.any((node) => shownProgress.containsKey(node.id))
+                ? shownProgress
+                : const <String, TopicProgress>{},
         };
         emit(CatalogLoaded(data, progress));
       case Error(:final failure):
