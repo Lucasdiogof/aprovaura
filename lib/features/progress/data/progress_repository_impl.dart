@@ -100,7 +100,10 @@ class ProgressRepositoryImpl implements ProgressRepository {
         PendingAction(
           kind: PendingKind.answer,
           key: questionId,
-          payload: {'isCorrect': isCorrect},
+          payload: {
+            'isCorrect': isCorrect,
+            'answeredAt': DateTime.now().toUtc().toIso8601String(),
+          },
         ),
       );
       return Error(QueuedOfflineFailure());

@@ -4,6 +4,7 @@ import 'package:aura/core/cache/offline_cache.dart';
 import 'package:aura/core/network/connection_monitor.dart';
 import 'package:aura/core/network/request_guard.dart';
 import 'package:aura/core/sync/pending_sync_queue.dart';
+import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/atualidades/data/atualidades_repository_impl.dart';
@@ -70,7 +71,11 @@ void registerSupabaseDependencies() {
     instanceName: 'dossierQuestions',
   );
   sl.registerLazySingleton<StreakRepository>(
-    () => StreakRepositoryImpl(sl(), sl<ConnectionMonitor>()),
+    () => StreakRepositoryImpl(
+      sl(),
+      sl<ConnectionMonitor>(),
+      sl<PendingSyncQueue>(),
+    ),
   );
   sl.registerLazySingleton<ProgressRepository>(
     () => ProgressRepositoryImpl(
@@ -148,6 +153,9 @@ void wireOfflineSupport() {
   queue.onFlushed((synced) {
     if (synced.contains(PendingKind.xp) && sl.isRegistered<XpCubit>()) {
       sl<XpCubit>().load();
+    }
+    if (synced.contains(PendingKind.streak) && sl.isRegistered<StreakCubit>()) {
+      sl<StreakCubit>().load();
     }
   });
   sl<SupabaseClient>().auth.onAuthStateChange.listen((change) {

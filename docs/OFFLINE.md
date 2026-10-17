@@ -71,13 +71,19 @@ replayed over a newer one. Failed (non-connection) items are dropped after
 3 attempts. Sign-out tries a 5 s flush first; leftovers stay under that
 uid only; account deletion clears them.
 
-Not queued on purpose:
-- Streak completion: the server dates it with now(); a late replay would
-  credit a day that was not studied. A quiz finished offline therefore
-  earns XP (later) but no streak credit.
-- Daily goal: counts `answered_at = now()` at sync time, so answers given
-  offline count for the day they sync. Fixing this needs a server change
-  (accept the original answer time) - NOT applied, needs authorization.
+Dates (needs `supabase/offline_sync_dates.sql`, NOT applied yet):
+- Answers are queued with their real time and streak completions with their
+  Sao Paulo calendar day. The SQL adds optional `p_answered_at` to
+  `register_question_answered` (clamped to the last 7 days, latest answer
+  wins) and `p_activity_date` to `register_activity_completion` (never
+  rewrites an older day, break measured to the activity day). Both
+  parameters have defaults, so the old app keeps working after the SQL.
+- Until the SQL is applied the app degrades safely: an answer is sent
+  without its time (counts on the day it syncs, like before) and a streak
+  completion stays queued untouched (`deferred`) instead of crediting a day
+  that may not have been studied. Apply, and the queue drains by itself.
+- Clock trust: the device clock can backdate an answer/activity at most 7
+  days; the server clamps anything in the future or older.
 
 ## Other modes
 Cached with network-first + saved fallback: favorites (topics, questions;

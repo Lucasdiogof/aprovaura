@@ -1,24 +1,49 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/network/connection_monitor.dart';
 import 'package:aura/core/network/request_guard.dart';
+import 'package:aura/core/sync/pending_sync_queue.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/streak/domain/entities/streak.dart';
 import 'package:aura/features/streak/domain/repositories/streak_repository.dart';
 
 class StreakRepositoryImpl implements StreakRepository {
-  StreakRepositoryImpl(this._client, this._monitor);
+  StreakRepositoryImpl(this._client, this._monitor, this._queue);
 
   final SupabaseClient _client;
   final ConnectionMonitor _monitor;
+  final PendingSyncQueue _queue;
 
   @override
   Future<Result<Streak>> getOrRefresh() =>
       _callAndParse('get_or_refresh_user_streak');
 
+  // Offline, the completion is kept with its Sao Paulo calendar day and sent
+  // later; register_activity_completion(p_activity_date) credits that day,
+  // never the day it syncs (supabase/offline_sync_dates.sql).
   @override
-  Future<Result<Streak>> registerActivityCompletion() =>
-      _callAndParse('register_activity_completion');
+  Future<Result<Streak>> registerActivityCompletion() async {
+    Future<Result<Streak>> queue() async {
+      final brasilia = DateTime.now().toUtc().subtract(
+        const Duration(hours: 3),
+      );
+      final day =
+          '${brasilia.year.toString().padLeft(4, '0')}-'
+          '${brasilia.month.toString().padLeft(2, '0')}-'
+          '${brasilia.day.toString().padLeft(2, '0')}';
+      await _queue.enqueue(
+        PendingAction(kind: PendingKind.streak, key: day, payload: const {}),
+      );
+      return Error(QueuedOfflineFailure());
+    }
+
+    if (!_monitor.isOnline) return queue();
+    final result = await _callAndParse('register_activity_completion');
+    if (result case Error(:final failure) when isConnectionFailure(failure)) {
+      return queue();
+    }
+    return result;
+  }
 
   @override
   Future<Result<void>> markBreakSeen() async {
@@ -32,8 +57,6 @@ class StreakRepositoryImpl implements StreakRepository {
   }
 
   Future<Result<Streak>> _callAndParse(String function) async {
-    // Streak completion is deliberately not queued: the server dates it
-    // with now(), so replaying it later would credit a day not studied.
     if (!_monitor.isOnline) return Error(NetworkFailure());
     try {
       final rows = await _client

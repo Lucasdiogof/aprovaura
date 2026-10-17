@@ -6,7 +6,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/network/request_guard.dart';
 
-enum PendingKind { answer, xp, favorite }
+enum PendingKind { answer, xp, favorite, streak }
 
 class PendingAction {
   const PendingAction({
@@ -57,7 +57,10 @@ class PendingAction {
   );
 }
 
-enum _Outcome { done, failed, offline }
+/// [deferred]: the server cannot take this yet (the dated functions from
+/// supabase/offline_sync_dates.sql are not applied). The entry stays queued,
+/// untouched, until they are.
+enum _Outcome { done, failed, offline, deferred }
 
 /// Writes that could not reach the server, kept on the device per account
 /// and replayed in order once it is reachable again.
@@ -161,6 +164,7 @@ class PendingSyncQueue {
       final outcome = await _send(next);
       if (outcome == _Outcome.offline) break;
       handled.add(next);
+      if (outcome == _Outcome.deferred) continue;
 
       // Re-read: the same target may have been enqueued again while the
       // request ran, in which case the newer one must stay for its own turn.
@@ -194,15 +198,41 @@ class PendingSyncQueue {
     try {
       switch (action.kind) {
         case PendingKind.answer:
-          await _client
-              .rpc<void>(
-                'register_question_answered',
-                params: {
-                  'p_question_id': action.key,
-                  'p_is_correct': action.payload['isCorrect'] as bool,
-                },
-              )
-              .withRequestTimeout();
+          final params = {
+            'p_question_id': action.key,
+            'p_is_correct': action.payload['isCorrect'] as bool,
+          };
+          final answeredAt = action.payload['answeredAt'] as String?;
+          try {
+            await _client
+                .rpc<void>(
+                  'register_question_answered',
+                  params: {...params, 'p_answered_at': ?answeredAt},
+                )
+                .withRequestTimeout();
+          } on PostgrestException catch (e) {
+            // PGRST202: the dated version is not deployed yet. Sending the
+            // answer without its time still records it (counted on the day
+            // it syncs), which beats losing it.
+            if (e.code != 'PGRST202' || answeredAt == null) rethrow;
+            await _client
+                .rpc<void>('register_question_answered', params: params)
+                .withRequestTimeout();
+          }
+        case PendingKind.streak:
+          try {
+            await _client
+                .rpc<dynamic>(
+                  'register_activity_completion',
+                  params: {'p_activity_date': action.key},
+                )
+                .withRequestTimeout();
+          } on PostgrestException catch (e) {
+            // Without the dated function the server would credit today,
+            // a day that may not have been studied: keep it queued.
+            if (e.code == 'PGRST202') return _Outcome.deferred;
+            rethrow;
+          }
         case PendingKind.xp:
           await _client
               .rpc<dynamic>(
