@@ -13,6 +13,17 @@ class MultipleChoiceStrings {
     AppLanguage.spanish => 'Pregunta $current de $total',
   };
 
+  /// Shown when an answer could not reach the server (offline). Nothing is
+  /// queued, so it must not read as "will sync later".
+  String get answerNotSavedNotice => switch (language) {
+    AppLanguage.portuguese =>
+      'Sem conexão: esta resposta não foi registrada no seu progresso.',
+    AppLanguage.english =>
+      'No connection: this answer was not recorded in your progress.',
+    AppLanguage.spanish =>
+      'Sin conexión: esta respuesta no se registró en tu progreso.',
+  };
+
   String get nextButton => switch (language) {
     AppLanguage.portuguese => 'Próxima',
     AppLanguage.english => 'Next',

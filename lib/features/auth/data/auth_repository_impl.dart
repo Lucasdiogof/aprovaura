@@ -1,3 +1,4 @@
+import 'package:aura/core/cache/offline_cache.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
@@ -9,7 +10,10 @@ import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:get_it/get_it.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
-  AuthRepositoryImpl(this._client);
+  AuthRepositoryImpl(this._client, [this._cache]);
+
+  // Personal cached data (progress bars) must not outlive the session.
+  final OfflineCache? _cache;
 
   final SupabaseClient _client;
 
@@ -140,7 +144,10 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<void> signOut() => _client.auth.signOut();
+  Future<void> signOut() async {
+    await _cache?.clearUserData();
+    await _client.auth.signOut();
+  }
 
   @override
   Future<Result<void>> deleteAccount() async {
@@ -150,6 +157,7 @@ class AuthRepositoryImpl implements AuthRepository {
       // account. No user_id is ever sent: the Edge Function resolves it
       // from this same call's JWT.
       await _client.functions.invoke('delete-account');
+      await _cache?.clearUserData();
       await _client.auth.signOut();
       return const Success(null);
     } on FunctionException catch (e) {

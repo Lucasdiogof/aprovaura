@@ -14,20 +14,31 @@ class CatalogLoading extends CatalogState {
 }
 
 class CatalogLoaded extends CatalogState {
-  const CatalogLoaded(this.nodes, this.progressByNodeId);
+  const CatalogLoaded(
+    this.nodes,
+    this.progressByNodeId, {
+    this.offlineMessage,
+  });
 
   final List<CatalogNode> nodes;
   final Map<String, TopicProgress> progressByNodeId;
 
+  /// Non-null when these nodes are the last saved copy because the server
+  /// could not be reached; holds the reason to show next to them.
+  final String? offlineMessage;
+
   @override
-  List<Object?> get props => [nodes, progressByNodeId];
+  List<Object?> get props => [nodes, progressByNodeId, offlineMessage];
 }
 
 class CatalogError extends CatalogState {
-  const CatalogError(this.message);
+  const CatalogError(this.message, {this.isConnection = false});
 
   final String message;
 
+  /// The cause was the connection (offline / timeout), not the server.
+  final bool isConnection;
+
   @override
-  List<Object?> get props => [message];
+  List<Object?> get props => [message, isConnection];
 }

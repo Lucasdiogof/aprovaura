@@ -33,6 +33,7 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     this.answers = const {},
     this.favoriteQuestionIds = const {},
     this.isPersisting = false,
+    this.unsavedAnswerCount = 0,
   });
 
   final List<Question> questions;
@@ -48,6 +49,10 @@ class MultipleChoicePlaying extends MultipleChoiceState {
   // question changes or the deck finishes -- see selectOption()'s comment
   // for why that matters for quick practice's "Mais questões".
   final bool isPersisting;
+  // Answers in this session the server did not confirm (no connection).
+  // They are not queued: no offline write path exists, so they count for
+  // nothing in progress and the screen says so instead of faking a sync.
+  final int unsavedAnswerCount;
 
   Question get currentQuestion => questions[currentIndex];
   int? get selectedIndex => answers[currentIndex];
@@ -63,6 +68,7 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     Map<int, int>? answers,
     Set<String>? favoriteQuestionIds,
     bool? isPersisting,
+    int? unsavedAnswerCount,
   }) => MultipleChoicePlaying(
     questions: questions,
     currentIndex: currentIndex ?? this.currentIndex,
@@ -70,6 +76,7 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     answers: answers ?? this.answers,
     favoriteQuestionIds: favoriteQuestionIds ?? this.favoriteQuestionIds,
     isPersisting: isPersisting ?? this.isPersisting,
+    unsavedAnswerCount: unsavedAnswerCount ?? this.unsavedAnswerCount,
   );
 
   @override
@@ -80,6 +87,7 @@ class MultipleChoicePlaying extends MultipleChoiceState {
     answers,
     favoriteQuestionIds,
     isPersisting,
+    unsavedAnswerCount,
   ];
 }
 

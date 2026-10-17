@@ -9,6 +9,13 @@ abstract class ProgressRepository {
     QuestionDifficulty? difficulty,
   });
 
+  /// Last progress saved for this account for the same nodes, or null.
+  /// Personal data: only ever returns what the signed-in user fetched.
+  Future<Map<String, TopicProgress>?> cachedBatchProgress(
+    List<String> catalogNodeIds, {
+    QuestionDifficulty? difficulty,
+  }) async => null;
+
   Future<Result<void>> registerQuestionAnswered({
     required String questionId,
     required bool isCorrect,

@@ -122,14 +122,21 @@ class MultipleChoiceCubit extends Cubit<MultipleChoiceState> {
     );
     if (!trackProgress) return;
 
-    await _progressRepository.registerQuestionAnswered(
+    final saved = await _progressRepository.registerQuestionAnswered(
       questionId: questionId,
       isCorrect: isCorrect,
     );
     if (isClosed) return;
     final settled = state;
     if (settled is MultipleChoicePlaying) {
-      emit(settled.copyWith(isPersisting: false));
+      emit(
+        settled.copyWith(
+          isPersisting: false,
+          unsavedAnswerCount: saved is Error
+              ? settled.unsavedAnswerCount + 1
+              : null,
+        ),
+      );
     }
   }
 

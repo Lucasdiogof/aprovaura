@@ -49,4 +49,14 @@ class CatalogStrings {
     AppLanguage.english => 'Completed',
     AppLanguage.spanish => 'Completado',
   };
+
+  /// Shown above a list that is the last saved copy because the server
+  /// could not be reached.
+  String get savedContentNotice => switch (language) {
+    AppLanguage.portuguese =>
+      'Mostrando conteúdo salvo. Pode estar desatualizado.',
+    AppLanguage.english => 'Showing saved content. It may be out of date.',
+    AppLanguage.spanish =>
+      'Mostrando contenido guardado. Puede estar desactualizado.',
+  };
 }

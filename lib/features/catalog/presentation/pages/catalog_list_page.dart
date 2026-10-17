@@ -108,7 +108,10 @@ class _CatalogListPageState extends State<CatalogListPage> with RouteAware {
                   CatalogLoading() => const Center(
                     child: AppAuraLoader.medium(),
                   ),
-                  CatalogError(:final message) => _ErrorView(message: message),
+                  CatalogError(:final message, :final isConnection) => _ErrorView(
+                    message: message,
+                    isConnection: isConnection,
+                  ),
                   CatalogLoaded(nodes: final nodes) when nodes.isEmpty =>
                     widget.parentId == null
                         ? (context.read<CatalogCubit>().difficulty == null
@@ -119,12 +122,21 @@ class _CatalogListPageState extends State<CatalogListPage> with RouteAware {
                             difficulty: context.read<CatalogCubit>().difficulty,
                             onEmpty: (_) => const _ComingSoonView(),
                           ),
-                  CatalogLoaded(:final nodes, :final progressByNodeId) =>
+                  CatalogLoaded(
+                    :final nodes,
+                    :final progressByNodeId,
+                    :final offlineMessage,
+                  ) =>
                     ListView.separated(
                       padding: const EdgeInsets.all(24),
-                      itemCount: nodes.length,
+                      itemCount: nodes.length + (offlineMessage == null ? 0 : 1),
                       separatorBuilder: (_, _) => const SizedBox(height: 12),
-                      itemBuilder: (context, index) {
+                      itemBuilder: (context, rawIndex) {
+                        if (offlineMessage != null && rawIndex == 0) {
+                          return _SavedContentBanner(message: offlineMessage);
+                        }
+                        final index =
+                            offlineMessage == null ? rawIndex : rawIndex - 1;
                         final node = nodes[index];
                         final activityBuilder = mappedActivities[node.id];
                         void onTap() => Navigator.of(context).push(
@@ -237,10 +249,53 @@ class _DifficultyEmptyView extends StatelessWidget {
   }
 }
 
-class _ErrorView extends StatelessWidget {
-  const _ErrorView({required this.message});
+class _SavedContentBanner extends StatelessWidget {
+  const _SavedContentBanner({required this.message});
 
   final String message;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = CatalogStrings(context.watch<LocaleCubit>().state);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      decoration: BoxDecoration(
+        color: context.colors.surface,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: context.colors.border),
+      ),
+      child: Row(
+        children: [
+          Icon(
+            Icons.cloud_off_outlined,
+            size: 20,
+            color: context.colors.textSecondary,
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              t.savedContentNotice,
+              style: TextStyle(
+                fontSize: 13,
+                color: context.colors.textSecondary,
+              ),
+            ),
+          ),
+          TextButton(
+            onPressed: () => context.read<CatalogCubit>().load(),
+            child: Text(t.retryButton),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ErrorView extends StatelessWidget {
+  const _ErrorView({required this.message, required this.isConnection});
+
+  final String message;
+  final bool isConnection;
 
   @override
   Widget build(BuildContext context) {
@@ -252,7 +307,9 @@ class _ErrorView extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(
-              Icons.error_outline_rounded,
+              isConnection
+                  ? Icons.wifi_off_rounded
+                  : Icons.error_outline_rounded,
               size: 40,
               color: context.colors.error,
             ),

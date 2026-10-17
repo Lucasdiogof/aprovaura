@@ -1,4 +1,6 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aura/core/cache/offline_cache.dart';
+import 'package:aura/core/network/request_guard.dart';
 import 'package:aura/core/error/failures.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/progress/domain/entities/profile_stats.dart';
@@ -7,9 +9,43 @@ import 'package:aura/features/progress/domain/repositories/progress_repository.d
 import 'package:aura/features/questions/domain/entities/question_difficulty.dart';
 
 class ProgressRepositoryImpl implements ProgressRepository {
-  ProgressRepositoryImpl(this._client);
+  ProgressRepositoryImpl(this._client, this._cache);
 
   final SupabaseClient _client;
+  final OfflineCache _cache;
+
+  // Personal data: keyed by the signed-in user and wiped on sign-out.
+  String? _progressKey(List<String> ids, QuestionDifficulty? difficulty) {
+    final uid = _client.auth.currentUser?.id;
+    if (uid == null) return null;
+    final sorted = [...ids]..sort();
+    return _cache.userKey(
+      uid,
+      'progress.${difficulty?.dbValue ?? 'all'}.${sorted.join(',').hashCode}',
+    );
+  }
+
+  @override
+  Future<Map<String, TopicProgress>?> cachedBatchProgress(
+    List<String> catalogNodeIds, {
+    QuestionDifficulty? difficulty,
+  }) async {
+    final key = _progressKey(catalogNodeIds, difficulty);
+    if (key == null) return null;
+    final raw = _cache.read(key);
+    if (raw is! Map) return null;
+    try {
+      return {
+        for (final entry in raw.entries)
+          entry.key as String: TopicProgress(
+            completed: (entry.value as Map)['completed'] as int,
+            total: (entry.value as Map)['total'] as int,
+          ),
+      };
+    } catch (_) {
+      return null;
+    }
+  }
 
   @override
   Future<Result<Map<String, TopicProgress>>> getBatchProgress(
@@ -24,7 +60,7 @@ class ProgressRepositoryImpl implements ProgressRepository {
           'p_node_ids': catalogNodeIds,
           'p_difficulty': difficulty?.dbValue,
         },
-      );
+      ).withRequestTimeout();
       final progress = <String, TopicProgress>{
         for (final row in rows.cast<Map<String, dynamic>>())
           row['node_id'] as String: TopicProgress(
@@ -32,11 +68,16 @@ class ProgressRepositoryImpl implements ProgressRepository {
             total: row['total'] as int,
           ),
       };
+      final key = _progressKey(catalogNodeIds, difficulty);
+      if (key != null) {
+        await _cache.write(key, {
+          for (final e in progress.entries)
+            e.key: {'completed': e.value.completed, 'total': e.value.total},
+        });
+      }
       return Success(progress);
-    } on PostgrestException {
-      return Error(ServerFailure());
-    } catch (_) {
-      return Error(UnexpectedFailure());
+    } catch (error) {
+      return Error(failureFromError(error));
     }
   }
 
@@ -49,12 +90,10 @@ class ProgressRepositoryImpl implements ProgressRepository {
       await _client.rpc<void>(
         'register_question_answered',
         params: {'p_question_id': questionId, 'p_is_correct': isCorrect},
-      );
+      ).withRequestTimeout();
       return const Success(null);
-    } on PostgrestException {
-      return Error(ServerFailure());
-    } catch (_) {
-      return Error(UnexpectedFailure());
+    } catch (error) {
+      return Error(failureFromError(error));
     }
   }
 

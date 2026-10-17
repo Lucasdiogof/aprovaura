@@ -83,3 +83,38 @@ class UnexpectedFailure extends Failure {
     AppLanguage.spanish => 'Error inesperado. Intenta de nuevo.',
   };
 }
+
+/// The device could not reach the server at all (airplane mode, no signal,
+/// DNS failure). Distinct from [ServerFailure] so screens can say "you are
+/// offline" and fall back to saved content.
+class NetworkFailure extends Failure {
+  NetworkFailure([String? message]) : super(message ?? _defaultMessage());
+
+  static String _defaultMessage() => switch (_currentLanguage()) {
+    AppLanguage.portuguese =>
+      'Sem conexão com a internet. Conecte-se e tente novamente.',
+    AppLanguage.english =>
+      'No internet connection. Connect and try again.',
+    AppLanguage.spanish =>
+      'Sin conexión a internet. Conéctate e intenta de nuevo.',
+  };
+}
+
+/// The request got no answer in time (a connection that hangs instead of
+/// failing, common on a flaky network).
+class RequestTimeoutFailure extends Failure {
+  RequestTimeoutFailure([String? message]) : super(message ?? _defaultMessage());
+
+  static String _defaultMessage() => switch (_currentLanguage()) {
+    AppLanguage.portuguese =>
+      'A conexão demorou demais para responder. Tente novamente.',
+    AppLanguage.english => 'The connection took too long. Please try again.',
+    AppLanguage.spanish =>
+      'La conexión tardó demasiado en responder. Intenta de nuevo.',
+  };
+}
+
+/// True for failures caused by the connection rather than by the server or
+/// the data — the cases where already-saved content is a valid substitute.
+bool isConnectionFailure(Failure failure) =>
+    failure is NetworkFailure || failure is RequestTimeoutFailure;

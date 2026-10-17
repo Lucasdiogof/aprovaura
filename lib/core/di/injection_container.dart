@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aura/core/cache/offline_cache.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/atualidades/data/atualidades_repository_impl.dart';
 import 'package:aura/features/atualidades/data/dossier_question_repository_impl.dart';
@@ -37,20 +38,21 @@ import 'package:aura/features/xp/domain/repositories/xp_repository.dart';
 final GetIt sl = GetIt.instance;
 
 void registerSupabaseDependencies() {
+  sl.registerLazySingleton<OfflineCache>(() => OfflineCache(sl()));
   sl.registerLazySingleton<SupabaseClient>(() => Supabase.instance.client);
-  sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(sl()));
+  sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(sl(), sl<OfflineCache>()));
   sl.registerFactory<AuthCubit>(() => AuthCubit(sl()));
   sl.registerLazySingleton<ProfileRepository>(
     () => ProfileRepositoryImpl(sl()),
   );
   sl.registerLazySingleton<CatalogRepository>(
-    () => CatalogRepositoryImpl(sl(), sl<LocaleCubit>()),
+    () => CatalogRepositoryImpl(sl(), sl<LocaleCubit>(), sl<OfflineCache>()),
   );
   sl.registerLazySingleton<AtualidadesRepository>(
     () => AtualidadesRepositoryImpl(sl(), sl<LocaleCubit>()),
   );
   sl.registerLazySingleton<QuestionRepository>(
-    () => QuestionRepositoryImpl(sl(), sl<LocaleCubit>()),
+    () => QuestionRepositoryImpl(sl(), sl<LocaleCubit>(), sl<OfflineCache>()),
   );
   sl.registerLazySingleton<QuestionRepository>(
     () => DossierQuestionRepositoryImpl(sl(), sl<LocaleCubit>()),
@@ -58,7 +60,7 @@ void registerSupabaseDependencies() {
   );
   sl.registerLazySingleton<StreakRepository>(() => StreakRepositoryImpl(sl()));
   sl.registerLazySingleton<ProgressRepository>(
-    () => ProgressRepositoryImpl(sl()),
+    () => ProgressRepositoryImpl(sl(), sl<OfflineCache>()),
   );
   sl.registerLazySingleton<QuestionRepository>(
     () => ReviewQuestionRepositoryImpl(sl(), sl<LocaleCubit>()),
