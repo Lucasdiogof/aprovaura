@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:aura/shared/widgets/aura/aurudo_gesture_repeater.dart';
 
 /// Where everything sits in the thinking art, as fractions of its layer
 /// canvas.
@@ -34,7 +35,9 @@ abstract final class ThinkingGeometry {
 
 /// The chin taps: after the entrance, the raised hand taps the chin a
 /// couple of times -- slower and gentler than the studying keyboard taps --
-/// then settles exactly on the art. Plays once; never loops. The arm, head,
+/// then settles exactly on the art. Every so often, after a pause, he taps
+/// again -- one tap, two, three, a lighter touch -- as a mind still turning
+/// the question over. The arm, head,
 /// orbit ring, bubbles and question mark all stay still: see the kit's
 /// README for why (white on white, the ring crosses the helmet).
 abstract final class ThinkingTimeline {
@@ -54,6 +57,13 @@ abstract final class ThinkingTimeline {
   /// tested clean to 9 degrees, this keeps a safety margin.
   static const maxAngleDegrees = 8.0;
 
+  /// Where a replay picks the gesture up: after the entrance, at its start.
+  static const replayFrom = preroll / total;
+
+  /// A replay comes after a pause of uneven length.
+  static const minPause = Duration(milliseconds: 5500);
+  static const maxPause = Duration(milliseconds: 12500);
+
   /// 0..1 through the tap sequence, or null before it starts / after it ends.
   static double? progressAt(double ms) {
     final t = ms - preroll;
@@ -69,15 +79,19 @@ abstract final class ThinkingTimeline {
 class ThinkingPose {
   const ThinkingPose._(this.k);
 
-  factory ThinkingPose.at(double elapsedMs) {
+  factory ThinkingPose.at(
+    double elapsedMs, {
+    int tapCount = ThinkingTimeline.tapCount,
+    double amplitude = 1,
+  }) {
     final p = ThinkingTimeline.progressAt(elapsedMs);
     if (p == null) return rest;
     // One smooth swell over the whole sequence (starts and ends at exactly
     // 0), rectified so only the downward half of each cycle shows: gentle
     // taps, not a full swing.
     final envelope = math.sqrt(math.sin(math.pi * p));
-    final wave = math.sin(2 * math.pi * ThinkingTimeline.tapCount * p);
-    return ThinkingPose._((wave > 0 ? wave : 0) * envelope);
+    final wave = math.sin(2 * math.pi * tapCount * p);
+    return ThinkingPose._((wave > 0 ? wave : 0) * envelope * amplitude);
   }
 
   static const rest = ThinkingPose._(0);
@@ -104,12 +118,17 @@ class AurudoThinkingAnimation extends StatefulWidget {
   const AurudoThinkingAnimation({
     required this.size,
     this.instant = false,
+    this.entrance = true,
     @visibleForTesting this.assets = ThinkingGeometry.all,
     super.key,
   });
 
   final double size;
   final bool instant;
+
+  /// Whether he fades and scales in. Off when he takes over from another
+  /// pose that is already on screen, so only the crossfade shows.
+  final bool entrance;
 
   /// Particles, base and hand layers, in that order.
   final List<String> assets;
@@ -132,8 +151,51 @@ class _AurudoThinkingAnimationState extends State<AurudoThinkingAnimation>
     vsync: this,
     duration: const Duration(milliseconds: ThinkingTimeline.total),
   );
+  late final AurudoGestureRepeater _repeater = AurudoGestureRepeater(
+    minPause: ThinkingTimeline.minPause,
+    maxPause: ThinkingTimeline.maxPause,
+    onFire: _replay,
+  );
+  int _taps = 2;
+  double _amplitude = 1;
+  bool _replaying = false;
   bool _failed = false;
   bool _precached = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _clock.addStatusListener((status) {
+      if (status == AnimationStatus.completed && mounted && !_still) {
+        _repeater.arm();
+      }
+    });
+  }
+
+  void _replay() {
+    if (!mounted) return;
+    // Behind another route or tab, or under reduced motion: skip this one,
+    // try again after the next pause.
+    if (_still || !TickerMode.valuesOf(context).enabled) {
+      _repeater.arm();
+      return;
+    }
+    final taps = _repeater.betweenInt(1, 3);
+    final burst = GestureBurst(
+      taps: taps,
+      amplitude: _repeater.between(0.65, 1),
+      duration: Duration(
+        milliseconds: (taps * 700 * _repeater.between(0.9, 1.25)).round(),
+      ),
+    );
+    setState(() {
+      _replaying = true;
+      _taps = burst.taps;
+      _amplitude = burst.amplitude;
+    });
+    _clock.value = ThinkingTimeline.replayFrom;
+    _clock.animateTo(1, duration: burst.duration, curve: Curves.linear);
+  }
 
   bool get _still => widget.instant || MediaQuery.disableAnimationsOf(context);
 
@@ -161,6 +223,7 @@ class _AurudoThinkingAnimationState extends State<AurudoThinkingAnimation>
 
   @override
   void dispose() {
+    _repeater.dispose();
     _clock.dispose();
     super.dispose();
   }
@@ -189,6 +252,9 @@ class _AurudoThinkingAnimationState extends State<AurudoThinkingAnimation>
             elapsedMs: _clock.value * ThinkingTimeline.total,
             assets: widget.assets,
             still: still,
+            entrance: widget.entrance && !_replaying,
+            taps: _taps,
+            amplitude: _amplitude,
           ),
         ),
       ),
@@ -219,12 +285,18 @@ class _ThinkingFrame extends StatelessWidget {
     required this.elapsedMs,
     required this.assets,
     required this.still,
+    required this.entrance,
+    required this.taps,
+    required this.amplitude,
   });
 
   final double size;
   final double elapsedMs;
   final List<String> assets;
   final bool still;
+  final bool entrance;
+  final int taps;
+  final double amplitude;
 
   @override
   Widget build(BuildContext context) {
@@ -233,7 +305,9 @@ class _ThinkingFrame extends StatelessWidget {
     final left = (size - width) / 2;
     Offset at(Offset f) => Offset(left + f.dx * width, f.dy * height);
 
-    final pose = still ? ThinkingPose.rest : ThinkingPose.at(elapsedMs);
+    final pose = still
+        ? ThinkingPose.rest
+        : ThinkingPose.at(elapsedMs, tapCount: taps, amplitude: amplitude);
     final angle = pose.angleDegrees * math.pi / 180;
     final wristPoint = at(ThinkingGeometry.wrist);
 
@@ -255,7 +329,7 @@ class _ThinkingFrame extends StatelessWidget {
       ),
     );
 
-    final entranceT = still
+    final entranceT = still || !entrance
         ? 1.0
         : Curves.easeOutCubic.transform(
             (elapsedMs / ThinkingTimeline.entranceDuration).clamp(0.0, 1.0),

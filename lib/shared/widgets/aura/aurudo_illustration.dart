@@ -53,12 +53,18 @@ class AurudoIllustration extends StatelessWidget {
     required this.pose,
     this.size = 140,
     this.animate = true,
+    this.entrance = true,
     super.key,
   });
 
   final AurudoPose pose;
   final double size;
   final bool animate;
+
+  /// Whether he fades and scales in. A pose that takes over from another
+  /// one already on screen turns this off, so the crossfade is the only
+  /// fade (two stacked fades would dip to see-through halfway).
+  final bool entrance;
 
   static const _entrance = Duration(milliseconds: 350);
 
@@ -81,19 +87,19 @@ class AurudoIllustration extends StatelessWidget {
     if (pose == AurudoPose.neutral) {
       return AurudoIdle(
         size: size,
-        child: AurudoWaveAnimation(size: size),
+        child: AurudoWaveAnimation(size: size, entrance: entrance),
       );
     }
     if (pose == AurudoPose.studying) {
       return AurudoIdle(
         size: size,
-        child: AurudoStudyAnimation(size: size),
+        child: AurudoStudyAnimation(size: size, entrance: entrance),
       );
     }
     if (pose == AurudoPose.thinking) {
       return AurudoIdle(
         size: size,
-        child: AurudoThinkingAnimation(size: size),
+        child: AurudoThinkingAnimation(size: size, entrance: entrance),
       );
     }
     if (pose == AurudoPose.frustrated) {
@@ -105,7 +111,7 @@ class AurudoIllustration extends StatelessWidget {
     return AurudoIdle(
       size: size,
       child: TweenAnimationBuilder<double>(
-        tween: Tween(begin: 0, end: 1),
+        tween: Tween(begin: entrance ? 0 : 1, end: 1),
         duration: _entrance,
         curve: Curves.easeOutCubic,
         child: image,

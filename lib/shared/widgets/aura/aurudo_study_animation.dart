@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:aura/shared/widgets/aura/aurudo_gesture_repeater.dart';
 
 /// Where everything sits in the studying art, as fractions of its layer
 /// canvas.
@@ -39,8 +40,10 @@ abstract final class StudyGeometry {
 }
 
 /// The typing taps: after the entrance, the hand dips at the wrist a few
-/// times, fingers down into the keyboard, then back to the art. Plays once;
-/// never loops. The arm, head, orbit ring and orb all stay still -- see the
+/// times, fingers down into the keyboard, then back to the art. After a
+/// pause of uneven length he types again, a different burst each time
+/// (a few taps, a long run, a lighter touch), for as long as he is on
+/// screen -- see [AurudoGestureRepeater]. The arm, head, orbit ring and orb all stay still -- see the
 /// kit's README for why (white on white, the ring crosses the helmet, the
 /// orb sits behind the ring).
 abstract final class StudyTimeline {
@@ -60,6 +63,14 @@ abstract final class StudyTimeline {
   /// much less (6-8°) is invisible at the mascot's usual on-screen size.
   static const maxAngleDegrees = 14.0;
 
+  /// Where a replay picks the sequence up: after the entrance, at the first
+  /// tap.
+  static const replayFrom = preroll / total;
+
+  /// A replay is a short burst, then a pause: busy, not mechanical.
+  static const minPause = Duration(milliseconds: 2600);
+  static const maxPause = Duration(milliseconds: 6800);
+
   /// 0..1 through the tap sequence, or null before it starts / after it ends.
   static double? progressAt(double ms) {
     final t = ms - preroll;
@@ -75,15 +86,19 @@ abstract final class StudyTimeline {
 class StudyPose {
   const StudyPose._(this.k);
 
-  factory StudyPose.at(double elapsedMs) {
+  factory StudyPose.at(
+    double elapsedMs, {
+    int tapCount = StudyTimeline.tapCount,
+    double amplitude = 1,
+  }) {
     final p = StudyTimeline.progressAt(elapsedMs);
     if (p == null) return rest;
     // One smooth swell over the whole sequence (starts and ends at exactly
     // 0, so the pose lands on the art with no jump), rectified so only the
     // downward half of each cycle shows: short dips, not a full swing.
     final envelope = math.sqrt(math.sin(math.pi * p));
-    final wave = math.sin(2 * math.pi * StudyTimeline.tapCount * p);
-    return StudyPose._((wave > 0 ? wave : 0) * envelope);
+    final wave = math.sin(2 * math.pi * tapCount * p);
+    return StudyPose._((wave > 0 ? wave : 0) * envelope * amplitude);
   }
 
   static const rest = StudyPose._(0);
@@ -113,12 +128,17 @@ class AurudoStudyAnimation extends StatefulWidget {
   const AurudoStudyAnimation({
     required this.size,
     this.instant = false,
+    this.entrance = true,
     @visibleForTesting this.assets = StudyGeometry.all,
     super.key,
   });
 
   final double size;
   final bool instant;
+
+  /// Whether he fades and scales in. Off when he takes over from another
+  /// pose that is already on screen, so only the crossfade shows.
+  final bool entrance;
 
   /// Base, hand, knee and lid layers, in that order.
   final List<String> assets;
@@ -140,8 +160,52 @@ class _AurudoStudyAnimationState extends State<AurudoStudyAnimation>
     vsync: this,
     duration: const Duration(milliseconds: StudyTimeline.total),
   );
+  late final AurudoGestureRepeater _repeater = AurudoGestureRepeater(
+    minPause: StudyTimeline.minPause,
+    maxPause: StudyTimeline.maxPause,
+    onFire: _replay,
+  );
+  int _taps = StudyTimeline.tapCount;
+  double _amplitude = 1;
+  bool _replaying = false;
   bool _failed = false;
   bool _precached = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _clock.addStatusListener((status) {
+      if (status == AnimationStatus.completed && mounted && !_still) {
+        _repeater.arm();
+      }
+    });
+  }
+
+  void _replay() {
+    if (!mounted) return;
+    // Behind another route or tab, or under reduced motion: skip this one,
+    // try again after the next pause.
+    if (_still || !TickerMode.valuesOf(context).enabled) {
+      _repeater.arm();
+      return;
+    }
+    final taps = _repeater.betweenInt(2, 6);
+    final burst = GestureBurst(
+      taps: taps,
+      amplitude: _repeater.between(0.6, 1),
+      // About 300ms a tap, a little faster or slower each time.
+      duration: Duration(
+        milliseconds: (taps * 300 * _repeater.between(0.85, 1.2)).round(),
+      ),
+    );
+    setState(() {
+      _replaying = true;
+      _taps = burst.taps;
+      _amplitude = burst.amplitude;
+    });
+    _clock.value = StudyTimeline.replayFrom;
+    _clock.animateTo(1, duration: burst.duration, curve: Curves.linear);
+  }
 
   bool get _still => widget.instant || MediaQuery.disableAnimationsOf(context);
 
@@ -169,6 +233,7 @@ class _AurudoStudyAnimationState extends State<AurudoStudyAnimation>
 
   @override
   void dispose() {
+    _repeater.dispose();
     _clock.dispose();
     super.dispose();
   }
@@ -197,6 +262,9 @@ class _AurudoStudyAnimationState extends State<AurudoStudyAnimation>
             elapsedMs: _clock.value * StudyTimeline.total,
             assets: widget.assets,
             still: still,
+            entrance: widget.entrance && !_replaying,
+            taps: _taps,
+            amplitude: _amplitude,
           ),
         ),
       ),
@@ -227,12 +295,18 @@ class _StudyFrame extends StatelessWidget {
     required this.elapsedMs,
     required this.assets,
     required this.still,
+    required this.entrance,
+    required this.taps,
+    required this.amplitude,
   });
 
   final double size;
   final double elapsedMs;
   final List<String> assets;
   final bool still;
+  final bool entrance;
+  final int taps;
+  final double amplitude;
 
   @override
   Widget build(BuildContext context) {
@@ -241,7 +315,9 @@ class _StudyFrame extends StatelessWidget {
     final left = (size - width) / 2;
     Offset at(Offset f) => Offset(left + f.dx * width, f.dy * height);
 
-    final pose = still ? StudyPose.rest : StudyPose.at(elapsedMs);
+    final pose = still
+        ? StudyPose.rest
+        : StudyPose.at(elapsedMs, tapCount: taps, amplitude: amplitude);
     final angle = pose.angleDegrees * math.pi / 180;
     final press = pose.pressFor(size);
     final wristPoint = at(StudyGeometry.wrist);
@@ -265,7 +341,7 @@ class _StudyFrame extends StatelessWidget {
       ),
     );
 
-    final entranceT = still
+    final entranceT = still || !entrance
         ? 1.0
         : Curves.easeOutCubic.transform(
             (elapsedMs / StudyTimeline.entranceDuration).clamp(0.0, 1.0),

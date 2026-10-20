@@ -204,6 +204,11 @@ class _AurudoMascotViewState extends State<AurudoMascotView> {
         key: ValueKey(pose),
         pose: pose,
         size: widget.size,
+        // The second pose of a story takes over from the first: the
+        // switcher's crossfade is the only fade, and the idle drift carries
+        // on from the same instant (it reads the frame clock), so nothing
+        // jumps.
+        entrance: _index == 0,
       ),
     );
   }

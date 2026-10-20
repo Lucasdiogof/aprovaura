@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:aura/shared/widgets/aura/aurudo_gesture_repeater.dart';
 
 /// Where everything sits in the waving art, as fractions of its layer canvas.
 ///
@@ -45,7 +46,8 @@ abstract final class WaveGeometry {
 
 /// The wave: after the entrance, the hand swings to and fro twice at the
 /// wrist while the arm opens a little at the shoulder and comes back. Plays
-/// once; never loops.
+/// once on arrival, and, if he is still there much later, once more -- a
+/// quiet hello, a little different each time.
 abstract final class WaveTimeline {
   /// Same entrance as the still mascot: fade + [entranceScaleFrom] -> 1.
   static const entranceDuration = 350;
@@ -66,6 +68,13 @@ abstract final class WaveTimeline {
   /// the hand.
   static const maxArmDegrees = 3.0;
 
+  /// Where a replay picks the gesture up: after the entrance, at its start.
+  static const replayFrom = preroll / total;
+
+  /// A replay comes after a pause of uneven length.
+  static const minPause = Duration(milliseconds: 19000);
+  static const maxPause = Duration(milliseconds: 34000);
+
   /// 0..1 through the wave, or null before it starts / after it ends.
   static double? progressAt(double ms) {
     final t = ms - preroll;
@@ -81,15 +90,16 @@ abstract final class WaveTimeline {
 class WavePose {
   const WavePose._(this.armDegrees, this.handDegrees);
 
-  factory WavePose.at(double elapsedMs) {
+  factory WavePose.at(double elapsedMs, {double amplitude = 1}) {
     final p = WaveTimeline.progressAt(elapsedMs);
     if (p == null) return rest;
     // One smooth swell over the whole wave: both motions start and end at
     // exactly 0, so the pose lands on the art with no jump.
     final envelope = math.sin(math.pi * p);
     return WavePose._(
-      WaveTimeline.maxArmDegrees * envelope,
+      WaveTimeline.maxArmDegrees * envelope * amplitude,
       WaveTimeline.maxHandDegrees *
+          amplitude *
           math.sin(2 * math.pi * WaveTimeline.handCycles * p) *
           math.sqrt(envelope),
     );
@@ -116,12 +126,17 @@ class AurudoWaveAnimation extends StatefulWidget {
   const AurudoWaveAnimation({
     required this.size,
     this.instant = false,
+    this.entrance = true,
     @visibleForTesting this.assets = WaveGeometry.all,
     super.key,
   });
 
   final double size;
   final bool instant;
+
+  /// Whether he fades and scales in. Off when he takes over from another
+  /// pose that is already on screen, so only the crossfade shows.
+  final bool entrance;
 
   /// Base, forearm, hand, cuff and strap layers, in that order.
   final List<String> assets;
@@ -145,8 +160,52 @@ class _AurudoWaveAnimationState extends State<AurudoWaveAnimation>
     vsync: this,
     duration: const Duration(milliseconds: WaveTimeline.total),
   );
+  late final AurudoGestureRepeater _repeater = AurudoGestureRepeater(
+    minPause: WaveTimeline.minPause,
+    maxPause: WaveTimeline.maxPause,
+    onFire: _replay,
+  );
+  int _taps = 2;
+  double _amplitude = 1;
+  bool _replaying = false;
   bool _failed = false;
   bool _precached = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _clock.addStatusListener((status) {
+      if (status == AnimationStatus.completed && mounted && !_still) {
+        _repeater.arm();
+      }
+    });
+  }
+
+  void _replay() {
+    if (!mounted) return;
+    // Behind another route or tab, or under reduced motion: skip this one,
+    // try again after the next pause.
+    if (_still || !TickerMode.valuesOf(context).enabled) {
+      _repeater.arm();
+      return;
+    }
+    final taps = _repeater.betweenInt(1, 1);
+    final burst = GestureBurst(
+      taps: taps,
+      amplitude: _repeater.between(0.75, 1),
+      duration: Duration(
+        milliseconds: (WaveTimeline.waveDuration * _repeater.between(0.9, 1.1))
+            .round(),
+      ),
+    );
+    setState(() {
+      _replaying = true;
+      _taps = burst.taps;
+      _amplitude = burst.amplitude;
+    });
+    _clock.value = WaveTimeline.replayFrom;
+    _clock.animateTo(1, duration: burst.duration, curve: Curves.linear);
+  }
 
   bool get _still => widget.instant || MediaQuery.disableAnimationsOf(context);
 
@@ -174,6 +233,7 @@ class _AurudoWaveAnimationState extends State<AurudoWaveAnimation>
 
   @override
   void dispose() {
+    _repeater.dispose();
     _clock.dispose();
     super.dispose();
   }
@@ -202,6 +262,9 @@ class _AurudoWaveAnimationState extends State<AurudoWaveAnimation>
             elapsedMs: _clock.value * WaveTimeline.total,
             assets: widget.assets,
             still: still,
+            entrance: widget.entrance && !_replaying,
+            taps: _taps,
+            amplitude: _amplitude,
           ),
         ),
       ),
@@ -232,12 +295,18 @@ class _WaveFrame extends StatelessWidget {
     required this.elapsedMs,
     required this.assets,
     required this.still,
+    required this.entrance,
+    required this.taps,
+    required this.amplitude,
   });
 
   final double size;
   final double elapsedMs;
   final List<String> assets;
   final bool still;
+  final bool entrance;
+  final int taps;
+  final double amplitude;
 
   @override
   Widget build(BuildContext context) {
@@ -248,7 +317,9 @@ class _WaveFrame extends StatelessWidget {
     final left = (size - size * WaveGeometry.stillAspect) / 2;
     Offset at(Offset f) => Offset(left + f.dx * width, f.dy * height);
 
-    final pose = still ? WavePose.rest : WavePose.at(elapsedMs);
+    final pose = still
+        ? WavePose.rest
+        : WavePose.at(elapsedMs, amplitude: amplitude);
     Matrix4 about(Offset o, double degrees) =>
         Matrix4.translationValues(o.dx, o.dy, 0)
           ..multiply(Matrix4.rotationZ(degrees * math.pi / 180))
@@ -280,7 +351,7 @@ class _WaveFrame extends StatelessWidget {
       ),
     );
 
-    final entranceT = still
+    final entranceT = still || !entrance
         ? 1.0
         : Curves.easeOutCubic.transform(
             (elapsedMs / WaveTimeline.entranceDuration).clamp(0.0, 1.0),
