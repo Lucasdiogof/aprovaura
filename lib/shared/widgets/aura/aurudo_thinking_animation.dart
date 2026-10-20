@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:aura/shared/widgets/aura/aurudo_gesture_repeater.dart';
+import 'package:aura/shared/widgets/aura/aurudo_tap_sequence.dart';
 
 /// Where everything sits in the thinking art, as fractions of its layer
 /// canvas.
@@ -72,6 +73,71 @@ abstract final class ThinkingTimeline {
   }
 }
 
+/// A replay of the chin taps: how many, and when each one lands. Two taps are
+/// his signature ("hmm... hmm"); one is a passing thought, three a harder one.
+/// The gaps are never equal, so it reads as thinking and not as a metronome.
+/// Everything is drawn from the repeater's generator.
+abstract final class ThinkingBurst {
+  /// How many taps a replay makes.
+  static const countWeights = [
+    Weighted(0.30, 1),
+    Weighted(0.55, 2),
+    Weighted(0.15, 3),
+  ];
+
+  /// Pause before the second tap, and before a third.
+  static const firstGapMs = (550.0, 700.0);
+  static const nextGapMs = (450.0, 600.0);
+
+  /// A tap goes down fast and comes back slower.
+  static const downMs = (100.0, 150.0);
+  static const upMs = (180.0, 260.0);
+
+  /// Quiet before the first tap and after the last.
+  static const leadMs = (150.0, 210.0);
+  static const tailMs = (110.0, 170.0);
+
+  /// How hard the first tap is: sometimes a lighter touch.
+  static const amplitude = (0.7, 1.0);
+
+  /// The last tap of a sequence is this much lighter than the first.
+  static const lastTapSoftening = 0.10;
+
+  static TapSequence draw(AurudoGestureRepeater r) {
+    final count = pickWeighted(countWeights, r.between(0, 1));
+    return build(r, count);
+  }
+
+  static TapSequence build(AurudoGestureRepeater r, int count) {
+    final lead = r.between(leadMs.$1, leadMs.$2);
+    final base = r.between(amplitude.$1, amplitude.$2);
+    final taps = <TapSpec>[];
+    var at = lead;
+    for (var i = 0; i < count; i++) {
+      if (i > 0) {
+        final gap = i == 1
+            ? r.between(firstGapMs.$1, firstGapMs.$2)
+            : r.between(nextGapMs.$1, nextGapMs.$2);
+        at += gap;
+      }
+      final soften = count > 1 ? lastTapSoftening * i / (count - 1) : 0.0;
+      taps.add(
+        TapSpec(
+          startMs: at,
+          downMs: r.between(downMs.$1, downMs.$2),
+          upMs: r.between(upMs.$1, upMs.$2),
+          amplitude: base * (1 - soften),
+        ),
+      );
+    }
+    return TapSequence(
+      taps: taps,
+      leadMs: lead,
+      tailMs: r.between(tailMs.$1, tailMs.$2),
+    );
+  }
+}
+
 /// The pose at one instant, before it is placed on screen. At rest (before
 /// and after the taps, and always under reduced motion) it is exactly the
 /// art: 0 degrees.
@@ -83,9 +149,15 @@ class ThinkingPose {
     double elapsedMs, {
     int tapCount = ThinkingTimeline.tapCount,
     double amplitude = 1,
+    TapSequence? sequence,
   }) {
     final p = ThinkingTimeline.progressAt(elapsedMs);
     if (p == null) return rest;
+    // A replay plays its own drawn sequence by time; the first play keeps
+    // the approved swell below.
+    if (sequence != null) {
+      return ThinkingPose._(sequence.k(p * sequence.durationMs));
+    }
     // One smooth swell over the whole sequence (starts and ends at exactly
     // 0), rectified so only the downward half of each cycle shows: gentle
     // taps, not a full swing.
@@ -120,6 +192,7 @@ class AurudoThinkingAnimation extends StatefulWidget {
     this.instant = false,
     this.entrance = true,
     @visibleForTesting this.assets = ThinkingGeometry.all,
+    @visibleForTesting this.seed,
     super.key,
   });
 
@@ -132,6 +205,9 @@ class AurudoThinkingAnimation extends StatefulWidget {
 
   /// Particles, base and hand layers, in that order.
   final List<String> assets;
+
+  /// Fixes the replays' draw, for tests and previews. Null: a fresh draw.
+  final int? seed;
 
   /// The still pose this animates, used if a layer fails to load.
   static const stillAsset = 'lib/assets/mascot/aurudo_thinking.webp';
@@ -155,9 +231,9 @@ class _AurudoThinkingAnimationState extends State<AurudoThinkingAnimation>
     minPause: ThinkingTimeline.minPause,
     maxPause: ThinkingTimeline.maxPause,
     onFire: _replay,
+    seed: widget.seed,
   );
-  int _taps = 2;
-  double _amplitude = 1;
+  TapSequence? _sequence;
   bool _replaying = false;
   bool _failed = false;
   bool _precached = false;
@@ -180,21 +256,17 @@ class _AurudoThinkingAnimationState extends State<AurudoThinkingAnimation>
       _repeater.arm();
       return;
     }
-    final taps = _repeater.betweenInt(1, 3);
-    final burst = GestureBurst(
-      taps: taps,
-      amplitude: _repeater.between(0.65, 1),
-      duration: Duration(
-        milliseconds: (taps * 700 * _repeater.between(0.9, 1.25)).round(),
-      ),
-    );
+    final sequence = ThinkingBurst.draw(_repeater);
     setState(() {
       _replaying = true;
-      _taps = burst.taps;
-      _amplitude = burst.amplitude;
+      _sequence = sequence;
     });
     _clock.value = ThinkingTimeline.replayFrom;
-    _clock.animateTo(1, duration: burst.duration, curve: Curves.linear);
+    _clock.animateTo(
+      1,
+      duration: Duration(milliseconds: sequence.durationMs.round()),
+      curve: Curves.linear,
+    );
   }
 
   bool get _still => widget.instant || MediaQuery.disableAnimationsOf(context);
@@ -253,8 +325,7 @@ class _AurudoThinkingAnimationState extends State<AurudoThinkingAnimation>
             assets: widget.assets,
             still: still,
             entrance: widget.entrance && !_replaying,
-            taps: _taps,
-            amplitude: _amplitude,
+            sequence: _sequence,
           ),
         ),
       ),
@@ -286,8 +357,7 @@ class _ThinkingFrame extends StatelessWidget {
     required this.assets,
     required this.still,
     required this.entrance,
-    required this.taps,
-    required this.amplitude,
+    required this.sequence,
   });
 
   final double size;
@@ -295,8 +365,7 @@ class _ThinkingFrame extends StatelessWidget {
   final List<String> assets;
   final bool still;
   final bool entrance;
-  final int taps;
-  final double amplitude;
+  final TapSequence? sequence;
 
   @override
   Widget build(BuildContext context) {
@@ -307,7 +376,7 @@ class _ThinkingFrame extends StatelessWidget {
 
     final pose = still
         ? ThinkingPose.rest
-        : ThinkingPose.at(elapsedMs, tapCount: taps, amplitude: amplitude);
+        : ThinkingPose.at(elapsedMs, sequence: sequence);
     final angle = pose.angleDegrees * math.pi / 180;
     final wristPoint = at(ThinkingGeometry.wrist);
 

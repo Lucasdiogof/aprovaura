@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:aura/shared/widgets/aura/aurudo_gesture_repeater.dart';
+import 'package:aura/shared/widgets/aura/aurudo_tap_sequence.dart';
 
 /// Where everything sits in the studying art, as fractions of its layer
 /// canvas.
@@ -79,6 +80,93 @@ abstract final class StudyTimeline {
   }
 }
 
+/// A replay of the typing: a short burst, never a metronome. The gaps between
+/// keys wander around 220-320 ms, every key lands a little differently, and in
+/// about one burst in five he stops for an instant in the middle ("typed...
+/// thought... went on"). Everything is drawn from the repeater's generator.
+abstract final class StudyBurst {
+  /// How many keys a replay presses. One reads as a click, six as too long.
+  static const countWeights = [
+    Weighted(0.22, 2),
+    Weighted(0.33, 3),
+    Weighted(0.30, 4),
+    Weighted(0.15, 5),
+  ];
+
+  /// The usual gap between keys of one burst, and how far each gap strays
+  /// from it.
+  static const gapMs = (220.0, 320.0);
+  static const gapJitter = (0.85, 1.15);
+
+  /// The chance that a burst of three or more stops once in the middle, and
+  /// for how long.
+  static const microPauseChance = 0.20;
+  static const microPauseMs = (150.0, 280.0);
+
+  /// A key goes down fast and comes back a little slower.
+  static const downMs = (70.0, 100.0);
+  static const upMs = (100.0, 150.0);
+
+  /// Quiet before the first key and after the last.
+  static const leadMs = (70.0, 110.0);
+  static const tailMs = (90.0, 130.0);
+
+  /// How hard each key lands: never so light it looks like a glitch.
+  static const amplitude = (0.70, 1.0);
+
+  static TapSequence draw(AurudoGestureRepeater r) {
+    final count = pickWeighted(countWeights, r.between(0, 1));
+    return build(r, count);
+  }
+
+  static TapSequence build(AurudoGestureRepeater r, int count) {
+    final lead = r.between(leadMs.$1, leadMs.$2);
+    final base = r.between(gapMs.$1, gapMs.$2);
+    // Where the optional stop falls: after key 1 .. key count-2 (never at the
+    // very start or the very end of the burst).
+    final pauseAfter = count >= 3 && r.chance(microPauseChance)
+        ? r.betweenInt(1, count - 2)
+        : -1;
+    final pause = pauseAfter >= 0
+        ? r.between(microPauseMs.$1, microPauseMs.$2)
+        : 0.0;
+
+    final taps = <TapSpec>[];
+    var at = lead;
+    for (var i = 0; i < count; i++) {
+      var gap = 0.0;
+      if (i < count - 1) {
+        gap = base * r.between(gapJitter.$1, gapJitter.$2);
+        if (i == pauseAfter) gap += pause;
+      }
+      final down = r.between(downMs.$1, downMs.$2);
+      // Never still going back up when the next key comes down.
+      final up = i < count - 1
+          ? math.min(
+              r.between(upMs.$1, upMs.$2),
+              math.max(60.0, gap - down - 10),
+            )
+          : r.between(upMs.$1, upMs.$2);
+      taps.add(
+        TapSpec(
+          startMs: at,
+          downMs: down,
+          upMs: up,
+          amplitude: r.between(amplitude.$1, amplitude.$2),
+        ),
+      );
+      at += gap;
+    }
+    return TapSequence(
+      taps: taps,
+      leadMs: lead,
+      tailMs: r.between(tailMs.$1, tailMs.$2),
+      pauseAfterTap: pauseAfter >= 0 ? pauseAfter : null,
+      pauseMs: pause,
+    );
+  }
+}
+
 /// The pose at one instant, before it is placed on screen. At rest (before
 /// and after the taps, and always under reduced motion) it is exactly the
 /// art: 0°, no press.
@@ -90,9 +178,15 @@ class StudyPose {
     double elapsedMs, {
     int tapCount = StudyTimeline.tapCount,
     double amplitude = 1,
+    TapSequence? sequence,
   }) {
     final p = StudyTimeline.progressAt(elapsedMs);
     if (p == null) return rest;
+    // A replay plays its own drawn burst by time; the first play keeps the
+    // approved swell below.
+    if (sequence != null) {
+      return StudyPose._(sequence.k(p * sequence.durationMs));
+    }
     // One smooth swell over the whole sequence (starts and ends at exactly
     // 0, so the pose lands on the art with no jump), rectified so only the
     // downward half of each cycle shows: short dips, not a full swing.
@@ -130,6 +224,7 @@ class AurudoStudyAnimation extends StatefulWidget {
     this.instant = false,
     this.entrance = true,
     @visibleForTesting this.assets = StudyGeometry.all,
+    @visibleForTesting this.seed,
     super.key,
   });
 
@@ -142,6 +237,9 @@ class AurudoStudyAnimation extends StatefulWidget {
 
   /// Base, hand, knee and lid layers, in that order.
   final List<String> assets;
+
+  /// Fixes the replays' draw, for tests and previews. Null: a fresh draw.
+  final int? seed;
 
   /// The still pose this animates, used if a layer fails to load.
   static const stillAsset = 'lib/assets/mascot/aurudo_studying.webp';
@@ -164,9 +262,9 @@ class _AurudoStudyAnimationState extends State<AurudoStudyAnimation>
     minPause: StudyTimeline.minPause,
     maxPause: StudyTimeline.maxPause,
     onFire: _replay,
+    seed: widget.seed,
   );
-  int _taps = StudyTimeline.tapCount;
-  double _amplitude = 1;
+  TapSequence? _sequence;
   bool _replaying = false;
   bool _failed = false;
   bool _precached = false;
@@ -189,22 +287,17 @@ class _AurudoStudyAnimationState extends State<AurudoStudyAnimation>
       _repeater.arm();
       return;
     }
-    final taps = _repeater.betweenInt(2, 6);
-    final burst = GestureBurst(
-      taps: taps,
-      amplitude: _repeater.between(0.6, 1),
-      // About 300ms a tap, a little faster or slower each time.
-      duration: Duration(
-        milliseconds: (taps * 300 * _repeater.between(0.85, 1.2)).round(),
-      ),
-    );
+    final sequence = StudyBurst.draw(_repeater);
     setState(() {
       _replaying = true;
-      _taps = burst.taps;
-      _amplitude = burst.amplitude;
+      _sequence = sequence;
     });
     _clock.value = StudyTimeline.replayFrom;
-    _clock.animateTo(1, duration: burst.duration, curve: Curves.linear);
+    _clock.animateTo(
+      1,
+      duration: Duration(milliseconds: sequence.durationMs.round()),
+      curve: Curves.linear,
+    );
   }
 
   bool get _still => widget.instant || MediaQuery.disableAnimationsOf(context);
@@ -263,8 +356,7 @@ class _AurudoStudyAnimationState extends State<AurudoStudyAnimation>
             assets: widget.assets,
             still: still,
             entrance: widget.entrance && !_replaying,
-            taps: _taps,
-            amplitude: _amplitude,
+            sequence: _sequence,
           ),
         ),
       ),
@@ -296,8 +388,7 @@ class _StudyFrame extends StatelessWidget {
     required this.assets,
     required this.still,
     required this.entrance,
-    required this.taps,
-    required this.amplitude,
+    required this.sequence,
   });
 
   final double size;
@@ -305,8 +396,7 @@ class _StudyFrame extends StatelessWidget {
   final List<String> assets;
   final bool still;
   final bool entrance;
-  final int taps;
-  final double amplitude;
+  final TapSequence? sequence;
 
   @override
   Widget build(BuildContext context) {
@@ -317,7 +407,7 @@ class _StudyFrame extends StatelessWidget {
 
     final pose = still
         ? StudyPose.rest
-        : StudyPose.at(elapsedMs, tapCount: taps, amplitude: amplitude);
+        : StudyPose.at(elapsedMs, sequence: sequence);
     final angle = pose.angleDegrees * math.pi / 180;
     final press = pose.pressFor(size);
     final wristPoint = at(StudyGeometry.wrist);

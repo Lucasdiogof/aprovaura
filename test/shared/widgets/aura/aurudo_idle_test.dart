@@ -323,6 +323,71 @@ void main() {
       }
     });
 
+    test('the approved idle is unchanged: pinned samples of seed 11', () {
+      // Taken from the idle as approved. Bob, breath, sway and the gestures
+      // must not move when the replays around them are polished.
+      const pins = <int, List<double>>{
+        0: [0, 0, 0, 0, 0, 0],
+        1000: [
+          0.9999903274045842,
+          0.9061813920525295,
+          0.9055267637488259,
+          0,
+          0,
+          0,
+        ],
+        3500: [
+          -0.7232862171507481,
+          0.6322061066139286,
+          -0.7242348848827929,
+          0,
+          0,
+          0,
+        ],
+        6000: [
+          0.16584605274663208,
+          -0.7184355816839757,
+          0.43256689292325906,
+          0,
+          0.009026676834952304,
+          1.0029640927724783,
+        ],
+        12000: [
+          -0.9039362339548784,
+          -0.6456818202933348,
+          0.5394306445457229,
+          0.013560948090743976,
+          0.006029992169776218,
+          0.40199947798508123,
+        ],
+        28400: [
+          -0.703755794946086,
+          -0.8085002778335333,
+          -0.9999979492755318,
+          -0.022705628886641294,
+          0.006030588901118776,
+          0.40203926007458507,
+        ],
+        90000: [
+          0.04220205950809041,
+          0.888132240096437,
+          0.9828773566126808,
+          0,
+          0,
+          0,
+        ],
+      };
+      final c = IdleChoreography();
+      pins.forEach((ms, v) {
+        final p = c.sample(Duration(milliseconds: ms));
+        final got = [p.bob, p.breath, p.sway, p.angle, p.lift, p.inhale];
+        for (var i = 0; i < 6; i++) {
+          expect(got[i], closeTo(v[i], 1e-12), reason: 'field $i at $ms ms');
+        }
+      });
+      expect(IdleChoreography.firstGestureMs, 3500);
+    });
+
     test('the shape starts and ends at exactly zero and stays gentle', () {
       expect(IdleChoreography.shape(0), 0);
       expect(IdleChoreography.shape(1).abs(), lessThan(1e-12));

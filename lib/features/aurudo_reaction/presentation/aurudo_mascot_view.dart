@@ -93,7 +93,18 @@ class AurudoMascotView extends StatefulWidget {
 
   /// How long the first pose of a two-pose story holds before crossfading.
   static const firstPoseDuration = Duration(milliseconds: 600);
-  static const crossfadeDuration = Duration(milliseconds: 250);
+  static const crossfadeDuration = Duration(milliseconds: 180);
+
+  /// The swap happens in the first part of [crossfadeDuration]: the old pose
+  /// is gone by [fadeOutEnd] and the new one, appearing only from
+  /// [fadeInStart], is fully there by [fadeInEnd]; the rest is settling.
+  /// Squeezing both into a short window is what shortens the time the two
+  /// poses are strong together (the "ghost"), without ever letting the
+  /// picture thin out: measured against a plain linear crossfade, the ghost
+  /// is about half as long and the least that is on screen stays above 85%.
+  static const fadeOutEnd = 0.50;
+  static const fadeInStart = 0.25;
+  static const fadeInEnd = 0.60;
 
   @override
   State<AurudoMascotView> createState() => _AurudoMascotViewState();
@@ -198,8 +209,25 @@ class _AurudoMascotViewState extends State<AurudoMascotView> {
     }
     return AnimatedSwitcher(
       duration: _reduced ? Duration.zero : AurudoMascotView.crossfadeDuration,
-      switchInCurve: Curves.easeOutCubic,
-      switchOutCurve: Curves.easeOutCubic,
+      // Linear: the two fades below shape themselves (asymmetrically).
+      switchInCurve: Curves.linear,
+      switchOutCurve: Curves.linear,
+      transitionBuilder: (child, animation) {
+        // The switcher hands the same builder the incoming and the outgoing
+        // child; the incoming one carries the current pose's key.
+        if (child.key == ValueKey(pose)) {
+          return AurudoPoseFade(
+            incoming: true,
+            opacity: animation.drive(_fadeIn),
+            child: child,
+          );
+        }
+        return AurudoPoseFade(
+          incoming: false,
+          opacity: animation.drive(_fadeOut),
+          child: child,
+        );
+      },
       child: AurudoIllustration(
         key: ValueKey(pose),
         pose: pose,
@@ -212,4 +240,45 @@ class _AurudoMascotViewState extends State<AurudoMascotView> {
       ),
     );
   }
+}
+
+/// The new pose: nothing for a moment, then in on a decelerating curve.
+final _fadeIn = CurveTween(
+  curve: const Interval(
+    AurudoMascotView.fadeInStart,
+    AurudoMascotView.fadeInEnd,
+    curve: Curves.easeOutCubic,
+  ),
+);
+
+/// The old pose: out early and accelerating. The switcher plays the outgoing
+/// child backwards (1 -> 0), so the curve reads the clock the other way round.
+final _fadeOut = CurveTween(curve: const _FadeOutCurve());
+
+class _FadeOutCurve extends Curve {
+  const _FadeOutCurve();
+
+  @override
+  double transformInternal(double t) {
+    final elapsed = 1 - t;
+    final p = (elapsed / AurudoMascotView.fadeOutEnd).clamp(0.0, 1.0);
+    return 1 - Curves.easeInCubic.transform(p);
+  }
+}
+
+/// One of the two fades of a pose change. Plain [FadeTransition]s, told apart
+/// by [incoming] so tests can read each pose's opacity. (Not by a `key`: the
+/// switcher wraps each transition in a subtree keyed by the transition's own
+/// key, and two poses sharing a key across a change would be matched to one
+/// another -- the outgoing pose would vanish at once.)
+@visibleForTesting
+class AurudoPoseFade extends FadeTransition {
+  const AurudoPoseFade({
+    required this.incoming,
+    required super.opacity,
+    required super.child,
+    super.key,
+  });
+
+  final bool incoming;
 }

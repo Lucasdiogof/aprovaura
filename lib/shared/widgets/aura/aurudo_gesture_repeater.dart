@@ -1,30 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:flutter/foundation.dart';
-
 import 'package:aura/shared/widgets/aura/aurudo_idle.dart';
-
-/// What one repeat of a gesture looks like. Each replay draws a new one, so
-/// the hand never taps the same pattern twice in a row.
-@immutable
-class GestureBurst {
-  const GestureBurst({
-    required this.taps,
-    required this.amplitude,
-    required this.duration,
-  });
-
-  /// How many dips (or swings) the gesture makes.
-  final int taps;
-
-  /// 0..1 of the gesture's maximum turn. Never above 1: the cut-outs hold
-  /// up to that much and no more.
-  final double amplitude;
-
-  /// How long the gesture takes, start to settled.
-  final Duration duration;
-}
 
 /// Brings a one-shot gesture back after a pause, for as long as it is on
 /// screen: study taps, a chin tap, a hello.
@@ -52,6 +29,9 @@ class AurudoGestureRepeater {
   /// A fair random number in [min, max).
   double between(double min, double max) =>
       min + _rng.nextDouble() * (max - min);
+
+  /// True with probability [p].
+  bool chance(double p) => _rng.nextDouble() < p;
 
   int betweenInt(int min, int max) => min + _rng.nextInt(max - min + 1);
 
