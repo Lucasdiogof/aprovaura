@@ -1,4 +1,4 @@
-package com.aura.aura
+package com.lucasdiogof.aprovaura
 
 import io.flutter.embedding.android.FlutterActivity
 
