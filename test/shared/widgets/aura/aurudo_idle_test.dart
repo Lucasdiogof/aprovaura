@@ -15,7 +15,7 @@ void main() {
           child: Scaffold(
             body: Center(
               child: AurudoIdle(
-                choreography: score ?? _TestClockChoreography(),
+                choreography: score ?? IdleChoreography(),
                 child: const SizedBox.square(dimension: 140, key: _mascot),
               ),
             ),
@@ -79,7 +79,7 @@ void main() {
   });
 
   testWidgets('two of them on screen move as one', (tester) async {
-    final score = _TestClockChoreography(seed: 3);
+    final score = IdleChoreography(seed: 3);
     await tester.pumpWidget(
       MaterialApp(
         home: Column(
@@ -105,6 +105,56 @@ void main() {
               .first,
         )
         .transform;
+    expect(of(_mascot), of(_other));
+    await tester.pumpWidget(const SizedBox());
+  });
+
+  testWidgets('the first frame costs the same whatever the clock reads', (
+    tester,
+  ) async {
+    // The test clock starts in 2015: a frame timestamp 1.4 trillion ms from
+    // zero. The score must not draw its way there.
+    final score = IdleChoreography();
+    await tester.pumpWidget(host(score: score));
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(matrixOf(tester), isNotNull);
+    // Measured from its own zero: only the first ~20s of the story is drawn.
+    expect(score.debugGenerated, lessThan(8));
+    await tester.pumpWidget(const SizedBox());
+  });
+
+  testWidgets('one that appears later joins the same instant of the motion', (
+    tester,
+  ) async {
+    final score = IdleChoreography(seed: 4);
+    Widget two({required bool second}) => MaterialApp(
+      home: Column(
+        children: [
+          AurudoIdle(
+            choreography: score,
+            child: const SizedBox.square(dimension: 140, key: _mascot),
+          ),
+          if (second)
+            AurudoIdle(
+              choreography: score,
+              child: const SizedBox.square(dimension: 140, key: _other),
+            ),
+        ],
+      ),
+    );
+    Matrix4 of(Key k) => tester
+        .widget<Transform>(
+          find
+              .ancestor(of: find.byKey(k), matching: find.byType(Transform))
+              .first,
+        )
+        .transform;
+
+    await tester.pumpWidget(two(second: false));
+    await tester.pump(const Duration(seconds: 5));
+    await tester.pumpWidget(two(second: true));
+    await tester.pump(const Duration(milliseconds: 16));
+    await tester.pump(const Duration(milliseconds: 400));
     expect(of(_mascot), of(_other));
     await tester.pumpWidget(const SizedBox());
   });
@@ -193,6 +243,86 @@ void main() {
       expect(longest, lessThan(25000));
     });
 
+    test('the cost of a sample does not grow with the time asked for', () {
+      for (final days in [10, 30, 365]) {
+        final c = IdleChoreography();
+        final p = c.sample(Duration(days: days));
+        expect(p.angle.abs(), lessThan(0.035), reason: '$days days');
+        // Structural, not a stopwatch: the work is bounded by the catch-up
+        // window, not by how far the clock is from zero.
+        expect(c.debugGenerated, lessThan(80), reason: '$days days');
+        expect(c.debugStored, lessThan(80), reason: '$days days');
+      }
+    });
+
+    test('a short gap is still drawn gesture by gesture, as before', () {
+      final jumpy = IdleChoreography(seed: 9);
+      final steady = IdleChoreography(seed: 9);
+      // Under the catch-up window, jumping in one go and walking in small
+      // steps tell exactly the same story.
+      final end = Duration(
+        milliseconds: (IdleChoreography.maxCatchUpMs - 1).round(),
+      );
+      for (var ms = 0; ms <= end.inMilliseconds; ms += 500) {
+        steady.sample(Duration(milliseconds: ms));
+      }
+      for (final ms in [123456, 200000, 250001]) {
+        final at = Duration(milliseconds: ms);
+        expect(jumpy.sample(at).angle, steady.sample(at).angle);
+      }
+    });
+
+    test('the same seed still tells the same story after a long jump', () {
+      List<double> story(int seed) {
+        final c = IdleChoreography(seed: seed);
+        const far = Duration(days: 30);
+        return [
+          for (var s = 0; s < 240; s++)
+            c.sample(far + Duration(milliseconds: s * 500)).angle,
+        ];
+      }
+
+      expect(story(5), story(5));
+      expect(story(5), isNot(story(6)));
+    });
+
+    test('gestures keep coming round after a long jump', () {
+      final c = IdleChoreography();
+      const far = Duration(days: 365);
+      var gestures = 0;
+      var wasMoving = false;
+      for (var ms = 0; ms < 5 * 60 * 1000; ms += 50) {
+        final p = c.sample(far + Duration(milliseconds: ms));
+        final moving = p.angle != 0 || p.inhale != 0;
+        if (moving && !wasMoving) gestures++;
+        wasMoving = moving;
+      }
+      expect(gestures, greaterThan(20));
+    });
+
+    test('the first frame it sees is its zero, however late the clock is', () {
+      for (final boot in [
+        Duration.zero,
+        const Duration(seconds: 5),
+        const Duration(days: 10),
+        const Duration(days: 30),
+        const Duration(days: 365),
+      ]) {
+        final c = IdleChoreography();
+        expect(c.peekLocalTime(boot), isNull, reason: 'no origin yet');
+        expect(c.localTime(boot), Duration.zero, reason: '$boot');
+        expect(
+          c.localTime(boot + const Duration(seconds: 2)),
+          const Duration(seconds: 2),
+        );
+        // A latecomer on the same score joins the same instant.
+        expect(
+          c.peekLocalTime(boot + const Duration(seconds: 7)),
+          const Duration(seconds: 7),
+        );
+      }
+    });
+
     test('the shape starts and ends at exactly zero and stays gentle', () {
       expect(IdleChoreography.shape(0), 0);
       expect(IdleChoreography.shape(1).abs(), lessThan(1e-12));
@@ -219,18 +349,3 @@ void main() {
 
 const _mascot = Key('mascot');
 const _other = Key('other');
-
-/// The widget-test clock starts at 2015-01-01 (1 420 070 400 000 ms), so the
-/// first frame hands the choreography a time 1.4 trillion milliseconds in --
-/// and it fills its score from zero up to whatever it is asked for: tens of
-/// seconds of work before the first pixel. A real device starts its frame
-/// clock at boot, much closer to zero. This rebases the test clock onto the
-/// same scale; the timing the widget uses is untouched.
-class _TestClockChoreography extends IdleChoreography {
-  _TestClockChoreography({super.seed});
-
-  static const _epoch = Duration(milliseconds: 1420070400000);
-
-  @override
-  IdlePose sample(Duration at) => super.sample(at >= _epoch ? at - _epoch : at);
-}

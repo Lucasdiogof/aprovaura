@@ -84,6 +84,44 @@ class IdleChoreography {
   final List<_Gesture> _gestures = [];
   double _cursorMs = 0;
   bool _lastWasClockwise = false;
+  Duration? _origin;
+  int _generated = 0;
+
+  /// Frame timestamps count from boot (or from the test binding's epoch), so
+  /// they are huge and say nothing about this score. The first frame that
+  /// reaches a score is its zero: everything after is measured from there.
+  /// Every mascot on a score shares that one origin, which is what keeps two
+  /// of them -- or one handing over to the next -- on the same instant of the
+  /// motion, however late each appeared.
+  Duration localTime(Duration frame) {
+    final origin = _origin ??= frame;
+    final local = frame - origin;
+    return local.isNegative ? Duration.zero : local;
+  }
+
+  /// [localTime] without starting the clock: null until a frame has set the
+  /// origin. For a mascot that appears before its first frame.
+  Duration? peekLocalTime(Duration frame) {
+    final origin = _origin;
+    if (origin == null) return null;
+    final local = frame - origin;
+    return local.isNegative ? Duration.zero : local;
+  }
+
+  /// How many gestures were ever drawn / are held now. Tests use them to
+  /// prove the cost of a sample does not grow with the time asked for.
+  @visibleForTesting
+  int get debugGenerated => _generated;
+
+  @visibleForTesting
+  int get debugStored => _gestures.length;
+
+  /// A sample this far past what the score has drawn jumps ahead instead of
+  /// drawing every gesture on the way: nobody saw them (the app was in the
+  /// background, or the clock is far from zero), and drawing them would make
+  /// the cost grow with the gap. Anything shorter -- every frame of a running
+  /// app -- is drawn in full, exactly as before.
+  static const maxCatchUpMs = 5 * 60 * 1000.0;
 
   /// No gesture before this: he settles in first.
   static const firstGestureMs = 3500.0;
@@ -92,6 +130,13 @@ class IdleChoreography {
   static const maxLean = 0.03;
 
   void _fillTo(double ms) {
+    if (ms - _cursorMs > maxCatchUpMs) {
+      // Resume a calm minute before the instant asked for, from the same
+      // generator, so the story stays deterministic for a given seed.
+      _gestures.clear();
+      _cursorMs = ms - 60000;
+      _lastWasClockwise = false;
+    }
     while (_cursorMs < ms + 20000) {
       // Mostly 3-8s of quiet; now and then a long one.
       var gap = 3000 + _rng.nextDouble() * 5000;
@@ -124,6 +169,7 @@ class IdleChoreography {
           ),
         );
       }
+      _generated++;
       _cursorMs = _gestures.last.endMs;
     }
     if (_gestures.length > 400) _gestures.removeRange(0, 200);
@@ -228,11 +274,22 @@ class AurudoIdle extends StatefulWidget {
 
 class _AurudoIdleState extends State<AurudoIdle>
     with SingleTickerProviderStateMixin {
+  IdleChoreography get _choreography =>
+      widget.choreography ?? IdleChoreography.shared;
+
   late final Ticker _ticker = createTicker((_) {
-    _now.value = SchedulerBinding.instance.currentSystemFrameTimeStamp;
+    _now.value = _choreography.localTime(
+      SchedulerBinding.instance.currentSystemFrameTimeStamp,
+    );
   });
+
+  /// Time on the choreography's own clock. Before the first frame has set its
+  /// origin there is nothing to be late for: he stands at the start.
   late final ValueNotifier<Duration> _now = ValueNotifier(
-    SchedulerBinding.instance.currentSystemFrameTimeStamp,
+    _choreography.peekLocalTime(
+          SchedulerBinding.instance.currentSystemFrameTimeStamp,
+        ) ??
+        Duration.zero,
   );
 
   bool _canRun = true;
@@ -259,7 +316,7 @@ class _AurudoIdleState extends State<AurudoIdle>
   @override
   Widget build(BuildContext context) {
     if (!_canRun) return widget.child;
-    final choreography = widget.choreography ?? IdleChoreography.shared;
+    final choreography = _choreography;
     final size = widget.size;
     return RepaintBoundary(
       child: ValueListenableBuilder<Duration>(
