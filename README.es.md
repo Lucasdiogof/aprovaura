@@ -13,11 +13,15 @@
   <img src="https://img.shields.io/badge/Dart-0175C2?logo=dart&logoColor=white" alt="Dart">
   <img src="https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=white" alt="Supabase">
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL">
-  <img src="https://img.shields.io/badge/plataformas-Android_·_iOS-555555" alt="Plataformas: Android e iOS">
+  <img src="https://img.shields.io/badge/plataformas-Android_·_iOS_·_Web-555555" alt="Plataformas: Android, iOS y Web">
 </p>
 
 <p align="center">
   <a href="README.md">English</a> · <a href="README.pt-BR.md">Português</a> · <b>Español</b>
+</p>
+
+<p align="center">
+  <a href="https://apps.apple.com/br/app/aprovaura/id6817047910"><img src="https://img.shields.io/badge/Available_on_the-App_Store-000000?logo=apple&logoColor=white" alt="Disponible en la App Store"></a>
 </p>
 
 ---
@@ -26,7 +30,9 @@ Aprovaura reúne preguntas, simulacros, revisión de errores y redacción en un 
 
 ## Disponibilidad
 
-- **Android** e **iOS**, desde un único código en Flutter (el mismo código también genera la versión web).
+- **iOS**: publicado en la [App Store](https://apps.apple.com/br/app/aprovaura/id6817047910).
+- **Web**: [aprovaura.lucksrei.com](https://aprovaura.lucksrei.com).
+- **Android**: generado desde el mismo código Flutter, aún no está en Google Play.
 - **Idiomas**: portugués (Brasil), inglés y español.
 - **Temas**: claro y oscuro.
 
@@ -98,8 +104,12 @@ Aprovaura reúne preguntas, simulacros, revisión de errores y redacción en un 
 - Perfil con nivel, Aura, racha, preguntas respondidas y porcentaje de aciertos.
 
 **Cuenta**
-- Inicio de sesión con correo y recuperación de contraseña, onboarding con objetivo (ENEM, exámenes de ingreso, oposiciones, escuela o estudio por cuenta propia), año del examen y materias de interés.
+- Inicio de sesión con correo, recuperación de contraseña con un código de 6 dígitos escrito en la app, onboarding con objetivo (ENEM, exámenes de ingreso, oposiciones, escuela o estudio por cuenta propia), año del examen y materias de interés.
 - Ajustes de idioma y tema y eliminación de la cuenta por el propio usuario.
+
+**Sin conexión**
+- Las materias, preguntas, favoritos, repasos y contenidos de actualidad ya abiertos siguen disponibles sin conexión, con el aviso de "contenido guardado".
+- Las respuestas y favoritos hechos sin conexión entran en una cola por cuenta y se sincronizan cuando vuelve la conexión; las llamadas al servidor son idempotentes, así que nada cuenta dos veces. Los simulacros siguen siendo solo en línea, para que la plantilla de respuestas nunca llegue antes al dispositivo ([docs/OFFLINE.md](docs/OFFLINE.md)).
 
 ## Cómo se usa la IA
 
@@ -130,6 +140,7 @@ Las preguntas, explicaciones, simulacros y mapas no usan IA durante el uso de la
 | DI / Navegación | `get_it`, `go_router` |
 | Backend | Supabase: Auth, PostgreSQL, RLS, RPCs, Edge Functions (Deno) |
 | Mapas | `flutter_map` con GeoJSON incluido |
+| Web | Cloudflare Workers (static assets) |
 | IA (solo corrección de redacción) | API de Google Gemini |
 | Tests | `flutter_test` |
 
@@ -170,7 +181,7 @@ flutter test
 
 ## Estado del proyecto
 
-En desarrollo activo.
+Publicado en la App Store y en la web, en desarrollo activo.
 
 ## Licencia
 

@@ -13,11 +13,15 @@
   <img src="https://img.shields.io/badge/Dart-0175C2?logo=dart&logoColor=white" alt="Dart">
   <img src="https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=white" alt="Supabase">
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL">
-  <img src="https://img.shields.io/badge/platforms-Android_·_iOS-555555" alt="Platforms: Android and iOS">
+  <img src="https://img.shields.io/badge/platforms-Android_·_iOS_·_Web-555555" alt="Platforms: Android, iOS and Web">
 </p>
 
 <p align="center">
   <b>English</b> · <a href="README.pt-BR.md">Português</a> · <a href="README.es.md">Español</a>
+</p>
+
+<p align="center">
+  <a href="https://apps.apple.com/br/app/aprovaura/id6817047910"><img src="https://img.shields.io/badge/Available_on_the-App_Store-000000?logo=apple&logoColor=white" alt="Available on the App Store"></a>
 </p>
 
 ---
@@ -26,7 +30,9 @@ Aprovaura brings questions, mock exams, mistake review and essay writing into a 
 
 ## Availability
 
-- **Android** and **iOS**, from a single Flutter codebase (the same code also builds for the web).
+- **iOS**: published on the [App Store](https://apps.apple.com/br/app/aprovaura/id6817047910).
+- **Web**: [aprovaura.lucksrei.com](https://aprovaura.lucksrei.com).
+- **Android**: built from the same Flutter codebase, not on Google Play yet.
 - **Languages**: Portuguese (Brazil), English and Spanish.
 - **Themes**: light and dark.
 
@@ -98,8 +104,12 @@ Aprovaura brings questions, mock exams, mistake review and essay writing into a 
 - Profile with level, Aura, streak, questions answered and accuracy.
 
 **Account**
-- Email sign-in and password recovery, onboarding with goal (ENEM, entrance exams, civil service exams, school or self-study), exam year and focus subjects.
+- Email sign-in, password recovery with a 6-digit code typed in the app, onboarding with goal (ENEM, entrance exams, civil service exams, school or self-study), exam year and focus subjects.
 - Language and theme settings, and self-service account deletion.
+
+**Offline**
+- Subjects, questions, favorites, review and current-events content already opened stay available without a connection, with a "saved content" notice.
+- Answers and favorites made offline are queued per account and synced once the connection returns; the server calls are idempotent, so nothing counts twice. Mock exams stay online-only, so the answer key never reaches the device early ([docs/OFFLINE.md](docs/OFFLINE.md)).
 
 ## How AI is used
 
@@ -130,6 +140,7 @@ Questions, explanations, mock exams and maps do not use AI at runtime.
 | DI / Routing | `get_it`, `go_router` |
 | Backend | Supabase: Auth, PostgreSQL, RLS, RPCs, Edge Functions (Deno) |
 | Maps | `flutter_map` with bundled GeoJSON |
+| Web | Cloudflare Workers (static assets) |
 | AI (essay grading only) | Google Gemini API |
 | Tests | `flutter_test` |
 
@@ -170,7 +181,7 @@ flutter test
 
 ## Project status
 
-Active development.
+Published on the App Store and on the web, in active development.
 
 ## License
 
