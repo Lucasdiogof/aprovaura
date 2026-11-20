@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// The colour tokens of the auth screens (login and sign-up), sampled from
 /// the approved light and dark references. Both themes share one layout;

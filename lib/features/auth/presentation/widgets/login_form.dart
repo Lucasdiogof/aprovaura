@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:aura/features/auth/l10n/auth_strings.dart';
 import 'package:aura/features/auth/presentation/widgets/auth_field.dart';
 import 'package:aura/features/auth/presentation/widgets/auth_layout.dart';

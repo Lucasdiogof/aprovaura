@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Aprovaura palette. Values follow the brand brief exactly, with one
 /// accessibility adaptation: [primary] is the *content* color (text, icons,

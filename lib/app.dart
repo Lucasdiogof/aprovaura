@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
@@ -36,10 +35,8 @@ class App extends StatelessWidget {
                 darkTheme: AppTheme.dark,
                 themeMode: themeMode,
                 locale: language.locale,
-                localizationsDelegates: const [
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
+                localizationsDelegates: [
+                  ...GlobalMaterialLocalizations.delegates,
                 ],
                 supportedLocales: const [
                   Locale('pt', 'BR'),

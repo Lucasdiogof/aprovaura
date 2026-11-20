@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/map_quiz/domain/entities/flag_emoji.dart';
 import 'package:aura/features/map_quiz/domain/entities/map_prompt_mode.dart';

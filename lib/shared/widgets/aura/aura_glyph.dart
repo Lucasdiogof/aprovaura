@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:aura/core/theme/app_colors.dart';
 
 /// The Aura mark: the four-point star from the Aprovaura logo, drawn as a

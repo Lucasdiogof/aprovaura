@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/shared/widgets/app_button.dart';

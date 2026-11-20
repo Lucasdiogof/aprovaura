@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/error_review/l10n/error_review_strings.dart';
 

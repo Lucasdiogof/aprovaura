@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:aura/features/subjects/domain/entities/subject.dart';
 
 /// `CatalogNode.icon` is a raw emoji glyph seeded straight into Supabase

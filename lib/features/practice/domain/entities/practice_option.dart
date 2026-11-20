@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/features/mock_exam/l10n/mock_exam_strings.dart';
 

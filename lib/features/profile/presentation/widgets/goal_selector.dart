@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/features/profile/domain/entities/goal.dart';
 import 'package:aura/shared/widgets/selectable_option_tile.dart';

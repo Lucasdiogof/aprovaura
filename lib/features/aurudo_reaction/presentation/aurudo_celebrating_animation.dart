@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 
 /// Where everything sits in the celebrating art, as fractions of its canvas.

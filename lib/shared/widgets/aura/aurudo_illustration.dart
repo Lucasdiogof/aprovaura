@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:aura/shared/widgets/aura/aurudo_frustrated_animation.dart';
 import 'package:aura/shared/widgets/aura/aurudo_idle.dart';
 import 'package:aura/shared/widgets/aura/aurudo_study_animation.dart';

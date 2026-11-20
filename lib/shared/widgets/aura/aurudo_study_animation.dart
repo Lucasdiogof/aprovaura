@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:aura/shared/widgets/aura/aurudo_gesture_repeater.dart';
 import 'package:aura/shared/widgets/aura/aurudo_tap_sequence.dart';
 
