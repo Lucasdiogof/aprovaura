@@ -261,8 +261,14 @@ create policy "users read their own quota"
 
 -- Um lugar só para os números que as RPCs abaixo compartilham. Trocar o
 -- teto diário é trocar esta função (e rodar o arquivo de novo).
+-- Vem de commercial_config.essay_daily_limit (migration 20261124000500);
+-- 3 é o padrão e o fallback. plpgsql: o corpo só é resolvido na execução.
 create or replace function essay_daily_evaluation_limit()
-returns integer language sql immutable as $$ select 3 $$;
+returns integer language plpgsql stable security definer
+set search_path = public, pg_temp as $$
+begin
+  return coalesce((select essay_daily_limit from commercial_config), 3);
+end $$;
 
 create or replace function essay_award_amount()
 returns integer language sql immutable as $$ select 50 $$;

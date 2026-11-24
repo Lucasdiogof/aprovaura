@@ -32,7 +32,7 @@ Aprovaura brings questions, mock exams, mistake review and essay writing into a 
 
 - **iOS**: published on the [App Store](https://apps.apple.com/br/app/aprovaura/id6817047910).
 - **Web**: [aprovaura.lucksrei.com](https://aprovaura.lucksrei.com).
-- **Android**: built from the same Flutter codebase, not on Google Play yet.
+- **Android**: published on Google Play, built from the same Flutter codebase.
 - **Languages**: Portuguese (Brazil), English and Spanish.
 - **Themes**: light and dark.
 
@@ -181,7 +181,7 @@ flutter test
 
 ## Project status
 
-Published on the App Store and on the web, in active development.
+Published on the App Store, Google Play and the web, in active development. Premium subscriptions and the teacher Partners program are being built; see [docs/PREMIUM_PARTNERS.md](docs/PREMIUM_PARTNERS.md).
 
 ## License
 

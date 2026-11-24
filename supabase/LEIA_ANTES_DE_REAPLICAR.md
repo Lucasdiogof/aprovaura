@@ -1,5 +1,9 @@
 # Quais .sql podem ser rodados de novo
 
+> Migrations versionadas do programa Premium/Partners ficam em `supabase/migrations/`
+> (com rollback em `supabase/rollbacks/`) e são aplicadas uma vez, por
+> `tool/db/apply_migration.py`. Veja `docs/PREMIUM_PARTNERS.md`.
+
 Nem todo arquivo daqui é idempotente, e a diferença não está no nome.
 Em 2026-09-30 rodei todos de uma vez para provar que os arquivos
 realinhados não mexiam no banco. Os realinhados de fato não mexeram —

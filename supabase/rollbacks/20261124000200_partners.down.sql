@@ -1,0 +1,22 @@
+-- Reverte 0200 (destrói dados de parceiros/vínculos: só antes de uso real).
+drop function if exists admin_review_partner_change(uuid, boolean, text);
+drop function if exists request_partner_change(uuid, text);
+drop function if exists partner_update_pix(text, text);
+drop function if exists get_my_partner_profile();
+drop function if exists get_my_partner();
+drop function if exists link_partner(uuid, text);
+drop function if exists _apply_signup_referral(uuid);
+drop function if exists _link_once(uuid, uuid, text);
+drop function if exists _record_link(uuid, uuid, uuid, text, text, uuid, uuid);
+drop function if exists list_active_partners();
+drop function if exists admin_update_partner(uuid, jsonb);
+drop function if exists admin_create_partner(uuid, text, text, integer);
+drop function if exists _new_referral_code();
+drop function if exists partner_user_active(uuid);
+drop function if exists partner_active_at(uuid, timestamptz);
+drop table if exists partner_change_requests;
+drop table if exists partner_link_history;
+drop table if exists partner_links;
+drop table if exists partners;
+drop function if exists partners_audit_log();
+drop function if exists partners_audit();

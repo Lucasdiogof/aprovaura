@@ -32,7 +32,7 @@ Aprovaura reúne preguntas, simulacros, revisión de errores y redacción en un 
 
 - **iOS**: publicado en la [App Store](https://apps.apple.com/br/app/aprovaura/id6817047910).
 - **Web**: [aprovaura.lucksrei.com](https://aprovaura.lucksrei.com).
-- **Android**: generado desde el mismo código Flutter, aún no está en Google Play.
+- **Android**: generado desde el mismo código Flutter, publicado en Google Play.
 - **Idiomas**: portugués (Brasil), inglés y español.
 - **Temas**: claro y oscuro.
 
