@@ -6,16 +6,32 @@
 
 | # | Item | Situação |
 |---|---|---|
-| B1 | Gemini free tier + termos exigem 18+ e vedam clientes "direcionados a ou provavelmente acessados por" menores de 18 (FATOS §3) | BLOQUEADOR [PENDENTE-DONO]: migrar para camada paga e decidir política para menores antes de usuários reais em escala. Afeta classificação etária, público-alvo (Play) e Data Safety. |
-| B2 | Decisões sobre menores (idade mínima, <12, consentimento parental, assinatura por menores, RIPD/DPO, advogado) — FATOS §4 | BLOQUEADOR [PENDENTE-DONO]. |
+| B1 | Gemini: termos exigem 18+ e vedam apps provavelmente acessados por menores | **ATENUADO (24/11)**: envio de redações suspenso (`ESSAY_AI_PROVIDER=disabled`), nenhum dado sai; fichas das lojas e paywall **não anunciam correção por IA** enquanto durar. Ao reativar: restaurar o texto de IA nas fichas (ver §0.1) e rever Data Safety/App Privacy. |
+| B2 | Menores: piso de idade, <12 e consentimento do responsável, assinatura por menores | **App não é 18+** (decisão do dono). Resta com advogado (§0.2). |
 | B3 | Termos de Uso NÃO publicados em `legal_documents` (FATOS §8) | A URL de Termos/EULA só vale após `publish_legal_version` na ativação coordenada. Até lá, EULA padrão Apple. |
-| B4 | `ios/Runner/PrivacyInfo.xcprivacy` declara `NSPrivacyCollectedDataTypes` vazio e `NSPrivacyTracking` false; o app coleta e-mail, progresso, redações etc. no Supabase | DIVERGÊNCIA a revisar: manifest × nutrition labels (§5). Tracking=false é coerente (sem publicidade/SDK de tracking no `pubspec.yaml`); a lista vazia de dados coletados precisa de decisão do dono/revisão. |
+| B4 | `PrivacyInfo.xcprivacy` | **RESOLVIDO**: manifesto declara e-mail, nome, ID de usuário, histórico de compras, conteúdo do usuário, interação com produto, diagnóstico e outros dados (todos vinculados, sem rastreamento, finalidade: funcionalidade). Conferir contra os rótulos no App Store Connect. |
 | B5 | Listagens descrevem teste de 3 dias + assinatura, mas `enforcement_enabled`, confirmação de e-mail obrigatória e provedores comerciais estão DESLIGADOS em produção (FATOS §8) | A ficha só deve ir ao ar na ativação coordenada; ver §1.4 e §9. |
 | B6 | Product IDs vêm do catálogo semeado em `supabase/migrations/20261129000100_payment_integrations.sql` (não há constantes no Dart; o app lê do servidor) | Conferir que os IDs criados nos consoles sejam IDÊNTICOS: Apple `aprovaura_premium_monthly` / `aprovaura_premium_annual`; Google produto `aprovaura_premium` com base plans `monthly` / `annual`. |
-| B7 | Dados do responsável (razão social, CNPJ, endereço, canal de suporte oficial, DPO) | [PENDENTE-DONO] — exigidos nas fichas/declarações das lojas. |
+| B7 | Dados do responsável | **Preenchido**: Lucas Diogo Franca (marca Lucksrei), CNPJ 54.868.173/0001-55, suporte marketing@lucksrei.com (os mesmos do site oficial e da página de privacidade do Aura já publicada). **Falta só o endereço** (indispensável: Decreto 7.962 e dados do desenvolvedor nas lojas). |
 | OK | SDK/Billing/target (§6) | Sem divergência no repo; confirmar no binário final. |
 
-## 1. Instruções para o revisor Apple (App Review Information)
+### 0.1 Texto de IA nas fichas
+As fichas `apple/*` e `google/*` foram ajustadas em 24/11 para **não anunciar correção por IA** (a função está suspensa; anunciar seria declaração falsa). Redação aparece como escrita com rascunhos salvos. Ao reativar a IA: voltar a linha "Redação com correção por IA: nota estimada de 0 a 1000, com pontuação por competência", o parágrafo "Sobre a correção por IA" (nota é estimativa, não garante resultado) e o benefício da assinatura; reconferir contagens de caracteres. O aviso no app é contextual (acima do botão de envio), sem banners.
+
+### 0.2 O que realmente exige advogado
+1. Piso de idade e tratamento de <12 (LGPD art. 14; ECA Digital): a faixa "menor de 13" existe no cadastro; decidir manter, exigir responsável ou bloquear.
+2. Assinatura por menores (Código Civil arts. 3º-4º; CDC): modelo de pagamento pelo responsável.
+3. Dispensa de encarregado (Res. CD/ANPD 2/2022, agente de pequeno porte) e RIPD.
+4. Exibição ao professor do nome de menores no vínculo comercial (minimização) e base legal do vínculo.
+5. Retenção do `trial_grants` após exclusão, prazo fiscal (contador) e prazo de guarda de aceites.
+6. Aplicação do CDC art. 49 a assinatura via loja e redação final dos Termos.
+Não exigem advogado (decisão operacional): endereço, canal de suporte, texto das fichas, rótulos de privacidade.
+
+### 0.3 Rótulos e classificação (proposta, sem publicar)
+- **Apple App Privacy:** coleta vinculada ao usuário, sem rastreamento: e-mail, nome, ID de usuário, compras, conteúdo do usuário (redações, respostas), interação com o produto, diagnóstico, outros dados (faixa etária). Finalidade só funcionalidade do app. Gemini: **não declarar envio a terceiros enquanto suspenso**; declarar ao reativar.
+- **Apple idade:** responder o questionário com honestidade (sem conteúdo adulto, sem rede social, redações são privadas); NÃO usar Kids Category; público adolescente/adulto.
+- **Google Play:** público-alvo **13–15, 16–17 e 18+** (sem "crianças"); Data Safety: e-mail, nome, ID, compras, conteúdo do usuário, atividade no app; sem anúncios, sem compartilhamento com terceiros além de operadores; criptografia em trânsito; exclusão por app e link. Se o piso de idade ficar abaixo de 13, a Families Policy passa a se aplicar (decisão do item 1).
+ (App Review Information)
 
 ### 1.1 Conta de revisão
 - Usuário (e-mail): **[PENDENTE-DONO: dono cria e cola]**

@@ -5,13 +5,13 @@
 
 ## 1. Who we are
 
-AprovaAura (the "Service") is offered by **[PENDENTE-DONO: legal name]**, CNPJ **[PENDENTE-DONO: CNPJ]**, located at **[PENDENTE-DONO: address]** ("we"). Support: **[PENDENTE-DONO: official support e-mail/channel]** and https://lucksrei.com/projects/aura/support/.
+AprovaAura (the "Service") is offered by Lucas Diogo Franca (marca Lucksrei), CNPJ 54.868.173/0001-55, located at **[PENDENTE-DONO: address]** ("we"). Support: marketing@lucksrei.com and https://lucksrei.com/projects/aura/support/.
 
 By creating an account or using the Service, you state that you have read these Terms and the Privacy Policy (https://lucksrei.com/projects/aura/privacy/). The Service is aimed at students (ENEM and university-entrance exams) and is **not restricted to users over 18**. Minors should use it with the knowledge and guidance of a parent or legal guardian; paid subscriptions by minors require the guardian's agreement. **[PENDENTE-DONO/lawyer: minimum age and final rules for minors.]**
 
 ## 2. Educational purpose
 
-AprovaAura is a study tool (questions, mock exams, progress tracking and essay feedback) for ENEM, university entrance exams and public-service exams. **We do not promise approval, any score or any ranking** in any exam. Results depend on your effort and on factors beyond our control.
+AprovaAura is a study tool (questions, mock exams, progress tracking and essay writing, with AI feedback when available) for ENEM, university entrance exams and public-service exams. **We do not promise approval, any score or any ranking** in any exam. Results depend on your effort and on factors beyond our control.
 
 ## 3. Account and e-mail confirmation
 
@@ -70,14 +70,14 @@ We may grant courtesy access periods (for example through referrals or promotion
 
 ## 12. Artificial intelligence and essay feedback
 
-- Essay feedback uses **artificial intelligence** (Google Gemini API). The score and comments are **study support and a practice estimate, not an official score**, nor an opinion of an exam board or teacher, and may contain errors or inaccuracies.
+- When reactivated, essay feedback uses **artificial intelligence** (Google Gemini API). The score and comments are **study support and a practice estimate, not an official score**, nor an opinion of an exam board or teacher, and may contain errors or inaccuracies.
 - For feedback, we send to Google's API only the topic, supporting texts, essay text and criteria, **without your identifiers** (name, e-mail, account ID). Details and the provider's data-use conditions are in the Privacy Policy.
 - Do not include personal data about yourself or others, or sensitive or confidential information, in your essay.
 - AI feedback is **temporarily suspended**: no essay is sent to AI providers. It serves **only** essay correction (no chatbot), limited to **3 corrections per day**. It will be reactivated only with a solution compatible with the provider's terms and with a teenage audience, after notice in these Terms and the Privacy Policy.
 
 ## 13. Teacher referral and sharing of statistics
 
-- You may, **optionally**, link to a partner teacher who invited you. The link and the sharing require your **specific consent**.
+- You may, **optionally**, link to a partner teacher who invited you. The link (commercial referral) is **distinct** from sharing statistics: the link shows the teacher only your name, username, date and commercial status, for commission purposes; sharing study statistics requires your **specific, separate and revocable consent**.
 - With consent, the teacher sees **performance statistics only**. We never share the full essay, passwords, credentials, financial data or unnecessary individual answers.
 - In this version, sharing is **allowed only for users who declared themselves adults**. Users who declare a minor age range cannot share, and declaring a minor age range ends any active sharing.
 - You may **revoke** consent at any time in **Profile → Privacy and terms**. Revocation stops the sharing; it does not erase commissions already generated for the teacher nor undo the teacher's commercial relationship with us, but the teacher stops seeing your statistics.
@@ -98,7 +98,7 @@ In case of serious violation we may suspend or terminate your account. **Beforeh
 ## 17. Account deletion and support
 
 - You may delete your account **inside the app** (Profile → Delete account) or at https://lucksrei.com/projects/aura/data-deletion/. What is deleted, anonymized or retained by legal obligation is described in the Privacy Policy. **Deleting the account does not cancel store subscriptions**: cancel them in the store to avoid being charged.
-- Support: https://lucksrei.com/projects/aura/support/ and **[PENDENTE-DONO: official support e-mail/channel]**.
+- Support: https://lucksrei.com/projects/aura/support/ and marketing@lucksrei.com.
 
 ## 18. Changes to these Terms
 

@@ -107,7 +107,7 @@ Todos devem ser definidos como **Supabase Secrets** (nunca no repositório, nunc
 ## 7. Gemini (avaliação de redações)
 | Item | Estado atual | O que falta | Onde configurar | Quem executa | Bloqueia? | Como validar |
 |---|---|---|---|---|---|---|
-| Camada | GRATUITA: Google pode usar conteúdo para melhorar produtos e revisores humanos podem ler; termos pedem não enviar dados pessoais | Migrar para camada PAGA (billing) ANTES de redações de usuários reais em escala comercial. Custo novo = decisão do dono | Google AI Studio / Cloud Billing | Dono | **Sim [PENDENTE-DONO]** | Projeto da chave com billing ativo; prazo exato dos logs da camada paga [INCERTO] |
+| Camada | **Envio suspenso (decisão 24/11): nenhum dado sai.** Se reativar: GRATUITA: Google pode usar conteúdo para melhorar produtos e revisores humanos podem ler; termos pedem não enviar dados pessoais | Migrar para camada PAGA (billing) ANTES de redações de usuários reais em escala comercial. Custo novo = decisão do dono | Google AI Studio / Cloud Billing | Dono | **Sim [PENDENTE-DONO]** | Projeto da chave com billing ativo; prazo exato dos logs da camada paga [INCERTO] |
 | Chave | `GEMINI_API_KEY` (verificar no cofre antes) | Nova chave do projeto pago, se houver troca | Supabase Secrets | Agente | Sim | `evaluate-essay` responde |
 | Política de menores | Termos exigem 18+ e vedam clientes "direcionados a ou provavelmente acessados por" menores de 18 | Decidir: restringir correção por IA a 18+ ou obter parecer jurídico | Produto + jurídico | Dono | **Sim [PENDENTE-DONO]** | Decisão registrada; UI/servidor aplica a regra |
 | Texto público | Não afirmar "sem treinamento" para a camada atual | Atualizar só depois da migração | Política/ficha | Agente | Não | Revisão de textos |
@@ -116,12 +116,12 @@ Todos devem ser definidos como **Supabase Secrets** (nunca no repositório, nunc
 ## 8. Jurídico / dono
 | Item | Estado atual | O que falta | Onde configurar | Quem executa | Bloqueia? | Como validar |
 |---|---|---|---|---|---|---|
-| CNPJ | [PENDENTE-DONO: CNPJ] | Informar | Termos/Política/lojas | Dono | Sim | Aparece nos documentos |
-| Razão social | [PENDENTE-DONO: razão social] | Informar | idem | Dono | Sim | idem |
-| Endereço | [PENDENTE-DONO: endereço] | Informar (Decreto 7.962: identificação do fornecedor) | idem | Dono | Sim | idem |
-| E-mail/canal de suporte oficial | [PENDENTE-DONO: e-mail de suporte] | Definir canal e SLA de resposta (Decreto 7.962: até 5 dias) | Site `…/support/`, lojas | Dono | Sim | Mensagem de teste respondida |
-| Encarregado (DPO) | [PENDENTE-DONO: encarregado] | Nomear e publicar contato | Política | Dono | Sim | Contato publicado |
-| Idade mínima | [PENDENTE-DONO: 13/16/18?] | Decidir; reflete no `set_my_age_band` e nas lojas | Produto | Dono | Sim | Regra aplicada no cadastro |
+| CNPJ | 54.868.173/0001-55 (rodapé oficial do site Lucksrei e página de privacidade do Aura já publicada) | Nada | Termos/Política/lojas | — | Não | Aparece nos documentos |
+| Razão social | Lucas Diogo Franca (marca Lucksrei), como no site oficial | Confirmar se o nome empresarial no cartão CNPJ é idêntico (o nome do desenvolvedor nas lojas deve coincidir) | idem | Dono | Não | Cartão CNPJ |
+| Endereço | [PENDENTE-DONO: endereço] | **Única informação indispensável faltante**: endereço do estabelecimento (Decreto 7.962 art. 2º; lojas pedem o do desenvolvedor). Pode ser o do cartão CNPJ | idem | Dono | Sim | Aparece nos documentos |
+| E-mail/canal de suporte oficial | marketing@lucksrei.com (já publicado em `…/support/` do Aura) | Opcional: criar `aprovaura@` dedicado; responder em até 5 dias (Decreto 7.962) | Site `…/support/`, lojas | Dono | Não | Mensagem de teste respondida |
+| Encarregado (DPO) | Minutas: o próprio controlador, via marketing@lucksrei.com | Confirmar com advogado a dispensa de encarregado para agente de pequeno porte (Res. CD/ANPD 2/2022); canal de contato é obrigatório de todo modo | Política | Advogado | Não | Parecer |
+| Idade mínima | App NÃO restrito a 18+ (decisão 24/11); piso a definir (hoje aceita "menor de 13") | Advogado definir piso e regra para <12 (consentimento do responsável) | Produto + jurídico | Advogado | Sim | Regra aplicada no cadastro |
 | Base legal professor/menores | Implementado seguro por padrão (só `adult` compartilha) | Decidir modelo de vínculo para menores, consentimento parental (<12), pagamento por responsável | Jurídico | Dono + advogado | Sim | Parecer arquivado |
 | RIPD | Não elaborado | Elaborar com base em `MATRIZ_DADOS_PRIVACIDADE.md` | Jurídico | Dono/advogado | Sim [PENDENTE-DONO] | Documento assinado |
 | Termos de Uso | NÃO publicados em `legal_documents` | Dono aprovar texto → `publish_legal_version` na ativação coordenada | Banco (RPC) + site `…/terms/` | Agente (após aprovação) | Sim | `get_legal_status` lista os dois |

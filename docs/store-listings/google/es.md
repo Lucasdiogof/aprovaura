@@ -9,12 +9,12 @@
 AprovaAura: ENEM y Vestibular
 ```
 
-### Descrição curta (73/80 chars)
+### Descrição curta (66/80 chars)
 ```text
-Preguntas, simulacros, repaso de errores y redacción con IA para el ENEM.
+Preguntas, simulacros, repaso de errores y redacción para el ENEM.
 ```
 
-### Descrição completa (1663/4000 chars)
+### Descrição completa (1441/4000 chars)
 ```text
 AprovaAura es la app de estudio para quien se prepara para el ENEM, exámenes de ingreso universitario y otras pruebas en Brasil. Preguntas, simulacros, repaso de errores y redacción en un solo flujo de estudio.
 
@@ -23,7 +23,7 @@ QUÉ PUEDES HACER
 • Simulacros personalizados: elige materias, nivel y número de preguntas
 • Repaso de errores y favoritos, para volver a lo que más fallas
 • Práctica rápida: una ronda solo con preguntas que aún no respondiste
-• Redacción con corrección por IA: nota estimada de 0 a 1000, con puntuación por competencia
+• Redacción: escribe sobre temas tipo examen, guarda borradores y sigue tus textos
 • Aura y niveles: cada acierto da Aura; la mascota Aurudo reacciona a metas diarias, rachas y subidas de nivel
 • Temas claro y oscuro; portugués, inglés y español
 • Una misma cuenta en el móvil y en la web
@@ -32,9 +32,6 @@ SUSCRIPCIÓN PREMIUM
 • Prueba de 3 días sin tarjeta, después de confirmar tu correo (una vez por persona).
 • Pasada la prueba, el acceso completo es por suscripción: R$ 19,90 al mes o R$ 190,00 al año (cerca de 20% menos que 12 meses).
 • La suscripción se renueva automáticamente hasta que la canceles. El pago se carga a tu cuenta de Google Play. Gestiona o cancela cuando quieras en Play Store > Perfil > Pagos y suscripciones > Suscripciones.
-
-SOBRE LA CORRECCIÓN POR IA
-La nota de la redacción es una estimación hecha por inteligencia artificial para apoyar tu práctica. No garantiza resultado en ningún examen ni sustituye la evaluación de un profesor.
 
 ENLACES
 Política de Privacidad: https://lucksrei.com/projects/aura/privacy/
@@ -60,7 +57,7 @@ AprovaAura Premium
 
 Benefícios (limite por item [INCERTO — confirmar no Play Console]; mantidos em 40 caracteres ou menos):
 - Preguntas y simulacros completos (32/40 chars)
-- Redacción con corrección por IA (31/40 chars)
+- Redacción con borradores guardados (34/40 chars)
 - Repaso de errores y favoritos (29/40 chars)
 - Una cuenta en móvil y web (25/40 chars)
 

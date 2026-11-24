@@ -5,13 +5,13 @@
 
 ## 1. Quiénes somos
 
-AprovaAura (el "Servicio") es ofrecido por **[PENDENTE-DONO: razón social]**, CNPJ **[PENDENTE-DONO: CNPJ]**, con domicilio en **[PENDENTE-DONO: dirección]** ("nosotros"). Atención: **[PENDENTE-DONO: correo/canal oficial de soporte]** y https://lucksrei.com/projects/aura/support/.
+AprovaAura (el "Servicio") es ofrecido por Lucas Diogo Franca (marca Lucksrei), CNPJ 54.868.173/0001-55, con domicilio en **[PENDENTE-DONO: dirección]** ("nosotros"). Atención: marketing@lucksrei.com y https://lucksrei.com/projects/aura/support/.
 
 Al crear una cuenta o usar el Servicio, declaras haber leído estos Términos y la Política de Privacidad (https://lucksrei.com/projects/aura/privacy/). El Servicio está dirigido a estudiantes (ENEM y vestibulares) y **no está restringido a mayores de 18 años**. Los menores deben usarlo con el conocimiento y la orientación de su madre, padre o responsable legal; las suscripciones de pago de menores requieren la conformidad del responsable. **[PENDENTE-DONO/abogado: edad mínima y reglas finales para menores.]**
 
 ## 2. Finalidad educativa
 
-AprovaAura es una herramienta de estudio (preguntas, simulacros, seguimiento del progreso y corrección de redacciones) para ENEM, exámenes de ingreso universitario y concursos. **No prometemos aprobación, puntuación ni clasificación** en ningún examen. Los resultados dependen de tu esfuerzo y de factores fuera de nuestro control.
+AprovaAura es una herramienta de estudio (preguntas, simulacros, seguimiento del progreso y redacción, con corrección por IA cuando esté disponible) para ENEM, exámenes de ingreso universitario y concursos. **No prometemos aprobación, puntuación ni clasificación** en ningún examen. Los resultados dependen de tu esfuerzo y de factores fuera de nuestro control.
 
 ## 3. Cuenta y confirmación de correo
 
@@ -70,14 +70,14 @@ Podemos conceder períodos de acceso de cortesía (por ejemplo, por recomendaci�
 
 ## 12. Inteligencia artificial y corrección de redacciones
 
-- La corrección de redacciones usa **inteligencia artificial** (API de Google Gemini). La nota y los comentarios son **apoyo al estudio y una estimación de práctica, no una nota oficial**, ni un dictamen de un tribunal examinador o de un profesor, y pueden contener errores o imprecisiones.
+- Al reactivarse, la corrección de redacciones usa **inteligencia artificial** (API de Google Gemini). La nota y los comentarios son **apoyo al estudio y una estimación de práctica, no una nota oficial**, ni un dictamen de un tribunal examinador o de un profesor, y pueden contener errores o imprecisiones.
 - Para la corrección enviamos a la API de Google solo el tema, los textos de apoyo, el texto de la redacción y los criterios, **sin tus identificadores** (nombre, correo, ID de cuenta). Los detalles y las condiciones de uso de datos del proveedor están en la Política de Privacidad.
 - No incluyas en la redacción datos personales tuyos o de terceros, ni información sensible o confidencial.
 - La corrección por IA está **temporalmente suspendida**: ninguna redacción se envía a proveedores de IA. Sirve **solo** para corregir redacciones (sin chatbot), con límite de **3 correcciones por día**. Se reactivará solo con una solución compatible con los términos del proveedor y con el público adolescente, previo aviso en estos Términos y en la Política de Privacidad.
 
 ## 13. Indicación de profesor y compartición de estadísticas
 
-- Puedes, **opcionalmente**, vincularte a un profesor asociado que te haya invitado. El vínculo y la compartición exigen tu **consentimiento específico**.
+- Puedes, **opcionalmente**, vincularte a un profesor asociado que te haya invitado. El vínculo (indicación comercial) es **distinto** de la compartición de estadísticas: el vínculo muestra al profesor solo nombre, usuario, fecha y situación comercial, para fines de comisión; compartir estadísticas de estudio exige tu **consentimiento específico, separado y revocable**.
 - Con el consentimiento, el profesor ve **solo estadísticas de rendimiento**. Nunca compartimos la redacción completa, contraseñas, credenciales, datos financieros ni respuestas individuales innecesarias.
 - En esta versión, la compartición está **permitida solo a usuarios que declararon ser adultos**. Quien declara un rango de edad de menor no comparte, y declararse menor pone fin a la compartición activa.
 - Puedes **revocar** el consentimiento en cualquier momento en **Perfil → Privacidad y términos**. La revocación detiene la compartición; no borra comisiones ya generadas al profesor ni deshace su relación comercial con nosotros, pero el profesor deja de ver tus estadísticas.
@@ -98,7 +98,7 @@ En caso de infracción grave, podemos suspender o cerrar tu cuenta. **Antes**, s
 ## 17. Eliminación de cuenta y soporte
 
 - Puedes eliminar tu cuenta **dentro de la app** (Perfil → Eliminar cuenta) o en https://lucksrei.com/projects/aura/data-deletion/. Lo que se borra, anonimiza o conserva por obligación legal se describe en la Política de Privacidad. **Eliminar la cuenta no cancela las suscripciones de las tiendas**: cancélalas en la tienda para evitar cobros.
-- Soporte: https://lucksrei.com/projects/aura/support/ y **[PENDENTE-DONO: correo/canal oficial de soporte]**.
+- Soporte: https://lucksrei.com/projects/aura/support/ y marketing@lucksrei.com.
 
 ## 18. Cambios en estos Términos
 

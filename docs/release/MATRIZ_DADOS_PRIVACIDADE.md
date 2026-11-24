@@ -2,7 +2,7 @@
 
 > Data-base: 24/11/2026. Base: migrations de `supabase/migrations/` (0100 a 20261201000200), `supabase/functions/`, `FATOS_ETAPA09.md` e `PREMIUM_PARTNERS.md`. Rascunho técnico para o RIPD e para advogado: NÃO é parecer jurídico.
 > Legenda: **V** = verificado no código/migration; **NV** = não verificado (precisa conferir antes de afirmar publicamente); **[PENDENTE-DONO]** = decisão do dono/jurídico. Bases legais abaixo são PROPOSTAS (LGPD art. 7º/14) a validar com advogado, não afirmações finais.
-> Controlador: [PENDENTE-DONO: razão social, CNPJ, endereço]; encarregado: [PENDENTE-DONO: DPO].
+> Controlador: Lucas Diogo Franca (marca Lucksrei), CNPJ 54.868.173/0001-55, endereço [PENDENTE-DONO: endereço]; encarregado: o próprio controlador, via marketing@lucksrei.com (dispensa a confirmar com advogado).
 
 ## Operadores e destinos
 | Operador | Papel | Dados | País/região |

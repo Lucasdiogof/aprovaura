@@ -183,7 +183,7 @@ class _PaywallViewState extends State<_PaywallView> {
 
   List<String> _benefits(PortalStrings t) => [
     t('Banco completo de questões e simulados', 'Full question bank and mock exams', 'Banco completo de preguntas y simulacros'),
-    t('Correção de redações com IA (com limite diário)', 'AI essay feedback (with a daily limit)', 'Corrección de redacciones con IA (con límite diario)'),
+    t('Redações com rascunhos salvos', 'Essays with saved drafts', 'Redacciones con borradores guardados'),
     t('Revisão dos seus erros e favoritos', 'Review of your mistakes and favorites', 'Revisión de tus errores y favoritos'),
     t('Mapas, atualidades e trilhas por disciplina', 'Maps, current affairs and subject tracks', 'Mapas, actualidades y rutas por asignatura'),
     t('Uma conta no Android, iOS e Web', 'One account on Android, iOS and Web', 'Una cuenta en Android, iOS y Web'),

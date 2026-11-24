@@ -7,9 +7,9 @@ Esta Política explica qué datos trata AprovaAura, para qué, con quién los co
 
 ## 1. Responsable y contacto
 
-Responsable: **[PENDENTE-DONO: razón social]**, CNPJ **[PENDENTE-DONO: CNPJ]**, **[PENDENTE-DONO: dirección]**.
-Delegado de protección de datos (DPO): **[PENDENTE-DONO: nombre y contacto del encargado]**.
-Canal de privacidad y soporte: **[PENDENTE-DONO: correo/canal oficial]** · https://lucksrei.com/projects/aura/support/
+Responsable: Lucas Diogo Franca (marca Lucksrei), CNPJ 54.868.173/0001-55, **[PENDENTE-DONO: dirección]**.
+Delegado de protección de datos (DPO): o próprio controlador, pelo canal marketing@lucksrei.com (dispensa de encarregado a confirmar com advogado: Res. CD/ANPD 2/2022).
+Canal de privacidad y soporte: marketing@lucksrei.com · https://lucksrei.com/projects/aura/support/
 
 ## 2. Datos que tratamos
 
@@ -86,9 +86,11 @@ Puedes eliminar tu cuenta **en la app (Perfil → Eliminar cuenta)** o en https:
 - **Se retiene por ley**: registros de acceso durante 6 meses.
 - La eliminación **no cancela las suscripciones de las tiendas** (Apple/Google): cancélalas en la tienda.
 
-## 9. Compartición con el profesor
+## 9. Indicación de profesor y compartición de estadísticas
 
-Solo ocurre si consientes, tras la invitación de un profesor asociado. El profesor ve **solo estadísticas de rendimiento** y **nunca** tu redacción completa, contraseñas, credenciales, datos financieros ni respuestas individuales innecesarias. En esta versión, **solo usuarios adultos** pueden compartir; quien declara un rango de menor no comparte, y declararse menor pone fin a la compartición activa. Revocas en **Perfil → Privacidad y términos**. La revocación detiene el acceso del profesor a tus estadísticas, pero no borra comisiones ya generadas ni deshace la relación comercial del profesor con nosotros.
+**Indicación comercial (vínculo)**: si usas el enlace/código de un profesor asociado o lo eliges al registrarte, él ve en su portal tu **nombre, nombre de usuario, fecha del vínculo y situación comercial** (prueba, suscripción o cortesía, y el plan), porque es necesario para calcular la comisión. Esto **no incluye** estadísticas de estudio, redacciones ni respuestas. **[DECISIÓN DEL TITULAR/abogado: para menores de 18 años, mostrar al profesor solo un identificador reducido en lugar del nombre completo (minimización, LGPD art. 6, III).]**
+
+**Compartición de estadísticas (autorización separada)**: Solo ocurre si consientes, tras la invitación de un profesor asociado. El profesor ve **solo estadísticas de rendimiento** y **nunca** tu redacción completa, contraseñas, credenciales, datos financieros ni respuestas individuales innecesarias. En esta versión, **solo usuarios adultos** pueden compartir; quien declara un rango de menor no comparte, y declararse menor pone fin a la compartición activa. Revocas en **Perfil → Privacidad y términos**. La revocación detiene el acceso del profesor a tus estadísticas, pero no borra comisiones ya generadas ni deshace la relación comercial del profesor con nosotros.
 
 ## 10. Niños y adolescentes
 

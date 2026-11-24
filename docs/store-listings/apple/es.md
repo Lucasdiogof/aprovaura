@@ -14,9 +14,9 @@ AprovaAura
 ENEM, simulacros y redacción
 ```
 
-### Texto promocional (148/170 chars)
+### Texto promocional (126/170 chars)
 ```text
-Preguntas, simulacros, repaso de errores y redacción con corrección por IA para el ENEM. 3 días de prueba sin tarjeta. Suscripción opcional después.
+Preguntas, simulacros, repaso de errores y redacción para el ENEM. 3 días de prueba sin tarjeta. Suscripción opcional después.
 ```
 
 ### Palavras-chave (bytes UTF-8, sem espaços) (83/100 bytes)
@@ -24,7 +24,7 @@ Preguntas, simulacros, repaso de errores y redacción con corrección por IA par
 enem,vestibular,simulacro,redacción,preguntas,estudio,examen,repaso,errores,brasil
 ```
 
-### Descrição (1672/4000 chars)
+### Descrição (1450/4000 chars)
 ```text
 AprovaAura es la app de estudio para quien se prepara para el ENEM, exámenes de ingreso universitario y otras pruebas en Brasil. Preguntas, simulacros, repaso de errores y redacción en un solo flujo de estudio.
 
@@ -33,7 +33,7 @@ QUÉ PUEDES HACER
 • Simulacros personalizados: elige materias, nivel y número de preguntas
 • Repaso de errores y favoritos, para volver a lo que más fallas
 • Práctica rápida: una ronda solo con preguntas que aún no respondiste
-• Redacción con corrección por IA: nota estimada de 0 a 1000, con puntuación por competencia
+• Redacción: escribe sobre temas tipo examen, guarda borradores y sigue tus textos
 • Aura y niveles: cada acierto da Aura; la mascota Aurudo reacciona a metas diarias, rachas y subidas de nivel
 • Temas claro y oscuro; portugués, inglés y español
 • Una misma cuenta en el móvil y en la web
@@ -42,9 +42,6 @@ SUSCRIPCIÓN PREMIUM
 • Prueba de 3 días sin tarjeta, después de confirmar tu correo (una vez por persona).
 • Pasada la prueba, el acceso completo es por suscripción: R$ 19,90 al mes o R$ 190,00 al año (cerca de 20% menos que 12 meses).
 • La suscripción se renueva automáticamente salvo que se cancele al menos 24 horas antes del fin del período. El pago se carga a tu cuenta de Apple. Gestiona o cancela en Ajustes del iPhone > tu nombre > Suscripciones.
-
-SOBRE LA CORRECCIÓN POR IA
-La nota de la redacción es una estimación hecha por inteligencia artificial para apoyar tu práctica. No garantiza resultado en ningún examen ni sustituye la evaluación de un profesor.
 
 ENLACES
 Política de Privacidad: https://lucksrei.com/projects/aura/privacy/

@@ -1,6 +1,6 @@
 # Materiais de parceria para professores — AprovaAura
 
-> Data-base: 24/11/2026. Fonte: `docs/release/FATOS_ETAPA09.md`. Sem depoimentos, sem números de resultado, sem promessa de aprovação. Parceria **por convite**: não há cadastro público de professor nem contrato digital. Termos finais da parceria e dados do responsável: [PENDENTE-DONO: razão social, CNPJ, e-mail de contato]. Revisão jurídica pendente.
+> Data-base: 24/11/2026. Fonte: `docs/release/FATOS_ETAPA09.md`. Sem depoimentos, sem números de resultado, sem promessa de aprovação. Parceria **por convite**: não há cadastro público de professor nem contrato digital. Termos finais da parceria e dados do responsável: Lucas Diogo Franca (marca Lucksrei), CNPJ 54.868.173/0001-55, contato marketing@lucksrei.com. Revisão jurídica pendente.
 > Portal do professor: https://aprovaura.lucksrei.com/partners · App: https://aprovaura.lucksrei.com
 
 ---
@@ -21,14 +21,14 @@
 5. Comissão só vem de pagamento real confirmado e conciliado. Teste, cortesia e Premium de professor não geram comissão. Estornos e reembolsos geram ajuste negativo.
 
 ### Privacidade do aluno
-Você só vê estatísticas de desempenho de alunos que autorizaram o compartilhamento e que são maiores de idade; nunca redações, senhas, dados financeiros ou respostas individuais desnecessárias. O aluno pode revogar a qualquer momento (isso não apaga comissões já conquistadas). Estatísticas agregadas só aparecem com pelo menos 5 alunos que compartilham.
+Da indicação você vê apenas nome, usuário, data do vínculo e situação comercial (necessários à comissão). Estatísticas de desempenho só dos alunos que autorizaram o compartilhamento e que são maiores de idade; nunca redações, senhas, dados financeiros ou respostas individuais desnecessárias. O aluno pode revogar a qualquer momento (isso não apaga comissões já conquistadas). Estatísticas agregadas só aparecem com pelo menos 5 alunos que compartilham.
 
 ### Exemplo ILUSTRATIVO (valores hipotéticos, não é promessa nem resultado real)
 Suponha uma assinatura mensal de R$ 19,90 paga por um aluno indicado, com líquido hipotético de R$ 17,00 após taxas e impostos, e comissão de 50%: comissão = R$ 8,50. Os valores reais dependem do provedor de pagamento, de taxas e impostos efetivos e da conciliação.
 
 ### Perguntas frequentes
 **Preciso pagar para ser parceiro?** Não. A parceria é por convite e o Premium é grátis enquanto ela durar.
-**Posso me cadastrar sozinho?** Não há cadastro público; entre em contato: [PENDENTE-DONO: e-mail de contato].
+**Posso me cadastrar sozinho?** Não há cadastro público; entre em contato: marketing@lucksrei.com.
 **Quando recebo?** Todo dia 1º, por Pix, manualmente, sem mínimo; o saldo fica visível no portal.
 **Há contrato digital no app?** Não. Os termos são tratados fora do app.
 **E se um aluno pedir reembolso?** A comissão correspondente é estornada com um ajuste negativo, que pode compensar nos meses seguintes.
@@ -54,14 +54,14 @@ Suponha uma assinatura mensal de R$ 19,90 paga por um aluno indicado, com líqui
 5. Commission comes only from real, confirmed and reconciled payments. Trials, courtesy and teacher Premium generate none. Refunds and chargebacks create a negative adjustment.
 
 ### Student privacy
-You only see performance statistics for students who consented to sharing and who are adults; never essays, passwords, financial data or unnecessary individual answers. Students can revoke at any time (this does not erase commissions already earned). Aggregate statistics appear only with at least 5 sharing students.
+From a referral you see only name, username, link date and commercial status (needed for commission). Performance statistics only for students who consented to sharing and who are adults; never essays, passwords, financial data or unnecessary individual answers. Students can revoke at any time (this does not erase commissions already earned). Aggregate statistics appear only with at least 5 sharing students.
 
 ### ILLUSTRATIVE example (hypothetical figures, not a promise or actual result)
 Suppose a referred student pays a monthly subscription of R$ 19.90, with a hypothetical net of R$ 17.00 after fees and taxes, and a 50% commission: commission = R$ 8.50. Real values depend on the payment provider, effective fees and taxes, and reconciliation.
 
 ### FAQ
 **Do I pay to be a partner?** No. Partnership is by invitation and Premium is free while it lasts.
-**Can I sign up myself?** There is no public sign-up; contact: [PENDING-OWNER: contact e-mail].
+**Can I sign up myself?** There is no public sign-up; contact: marketing@lucksrei.com.
 **When do I get paid?** On the 1st of each month, by Pix, manually, no minimum; balance is visible in the portal.
 **Is there a digital contract in the app?** No. Terms are handled outside the app.
 **What if a student gets a refund?** The matching commission is reversed with a negative adjustment, which may offset future months.
@@ -87,14 +87,14 @@ Suppose a referred student pays a monthly subscription of R$ 19.90, with a hypot
 5. La comisión solo proviene de pagos reales, confirmados y conciliados. Pruebas, cortesías y Premium de profesor no generan comisión. Reembolsos y contracargos crean un ajuste negativo.
 
 ### Privacidad del alumno
-Solo ves estadísticas de desempeño de alumnos que autorizaron compartirlas y que son mayores de edad; nunca redacciones, contraseñas, datos financieros ni respuestas individuales innecesarias. El alumno puede revocar en cualquier momento (esto no borra comisiones ya ganadas). Las estadísticas agregadas aparecen solo con al menos 5 alumnos que comparten.
+De la indicación ves solo nombre, usuario, fecha del vínculo y situación comercial (necesarios para la comisión). Estadísticas de desempeño solo de alumnos que autorizaron compartirlas y que son mayores de edad; nunca redacciones, contraseñas, datos financieros ni respuestas individuales innecesarias. El alumno puede revocar en cualquier momento (esto no borra comisiones ya ganadas). Las estadísticas agregadas aparecen solo con al menos 5 alumnos que comparten.
 
 ### Ejemplo ILUSTRATIVO (cifras hipotéticas, no es promesa ni resultado real)
 Supón una suscripción mensual de R$ 19,90 pagada por un alumno indicado, con neto hipotético de R$ 17,00 tras tasas e impuestos, y comisión del 50%: comisión = R$ 8,50. Los valores reales dependen del proveedor de pago, tasas e impuestos efectivos y la conciliación.
 
 ### Preguntas frecuentes
 **¿Pago para ser socio?** No. La alianza es por invitación y el Premium es gratis mientras dure.
-**¿Puedo registrarme yo mismo?** No hay registro público; contacta: [PENDIENTE-DUEÑO: correo de contacto].
+**¿Puedo registrarme yo mismo?** No hay registro público; contacta: marketing@lucksrei.com.
 **¿Cuándo cobro?** El día 1 de cada mes, por Pix, manualmente, sin mínimo; el saldo se ve en el portal.
 **¿Hay contrato digital en la app?** No. Los términos se tratan fuera de la app.
 **¿Y si un alumno pide reembolso?** La comisión correspondiente se revierte con un ajuste negativo, que puede compensarse en los meses siguientes.

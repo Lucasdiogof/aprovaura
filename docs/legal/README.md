@@ -23,11 +23,11 @@ Fonte de fatos: `docs/release/FATOS_ETAPA09.md`. EN/ES são traduções do pt-BR
 ## Lacunas [PENDENTE-DONO] consolidadas
 
 Dados do responsável (Termos e Política):
-1. Razão social
-2. CNPJ
-3. Endereço
-4. E-mail/canal de suporte oficial
-5. Encarregado (DPO): nome e contato
+1. Razão social: **preenchido** (Lucas Diogo Franca, marca Lucksrei, como no site oficial)
+2. CNPJ: **preenchido** (54.868.173/0001-55, do site oficial)
+3. Endereço: **ÚNICO dado indispensável ainda faltante (dono)**
+4. Canal de suporte/privacidade: **preenchido** (marketing@lucksrei.com, já publicado em `…/support/`)
+5. Encarregado: minutas indicam o próprio controlador; dispensa a confirmar com advogado (Res. CD/ANPD 2/2022)
 
 Decisões bloqueadoras:
 6. Idade mínima do serviço. **Decidido (24/11): app NÃO restrito a 18+** (público ENEM/vestibular, inclui adolescentes). Resta definir o piso (hoje o app aceita a faixa "menor de 13") com advogado

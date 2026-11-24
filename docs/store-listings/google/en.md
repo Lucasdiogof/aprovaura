@@ -9,12 +9,12 @@
 AprovaAura: ENEM Exam Prep
 ```
 
-### Descrição curta (77/80 chars)
+### Descrição curta (75/80 chars)
 ```text
-Questions, mock exams, mistake review and AI-graded essays for Brazil's ENEM.
+Questions, mock exams, mistake review and essay practice for Brazil's ENEM.
 ```
 
-### Descrição completa (1567/4000 chars)
+### Descrição completa (1344/4000 chars)
 ```text
 AprovaAura is a study app for Brazil's ENEM, university entrance exams and other tests. Questions, mock exams, mistake review and essay writing in a single study flow.
 
@@ -23,7 +23,7 @@ WHAT YOU CAN DO
 • Custom mock exams: pick subjects, level and number of questions
 • Mistake review and favorites, to go back to what you miss the most
 • Quick practice: one round of questions you have never answered
-• Essay writing with AI grading: an estimated score from 0 to 1000, with a score per competency
+• Essays: write on exam-style prompts, save drafts and track your texts
 • Aura and levels: every correct answer earns Aura; the mascot Aurudo reacts to daily goals, streaks and level-ups
 • Light and dark themes; Portuguese, English and Spanish
 • One account on your phone and on the web
@@ -32,9 +32,6 @@ PREMIUM SUBSCRIPTION
 • 3-day trial with no card, after you confirm your email (once per person).
 • After the trial, full access is by subscription: R$ 19.90 per month or R$ 190.00 per year (about 20% less than 12 months).
 • The subscription renews automatically until canceled. Payment is charged to your Google Play account. Manage or cancel anytime in Play Store > Profile > Payments & subscriptions > Subscriptions.
-
-ABOUT AI GRADING
-The essay score is an estimate produced by artificial intelligence to support your practice. It does not guarantee a result on any exam and does not replace a teacher's evaluation.
 
 LINKS
 Privacy Policy: https://lucksrei.com/projects/aura/privacy/
@@ -60,7 +57,7 @@ AprovaAura Premium
 
 Benefícios (limite por item [INCERTO — confirmar no Play Console]; mantidos em 40 caracteres ou menos):
 - Questions and mock exams, all subjects (38/40 chars)
-- Essay writing with AI grading (29/40 chars)
+- Essay writing with saved drafts (31/40 chars)
 - Mistake review and favorites (28/40 chars)
 - One account on phone and web (28/40 chars)
 

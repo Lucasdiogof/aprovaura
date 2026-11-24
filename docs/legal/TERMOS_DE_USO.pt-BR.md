@@ -4,13 +4,13 @@
 
 ## 1. Quem somos
 
-O AprovaAura ("Serviço") é oferecido por **[PENDENTE-DONO: razão social]**, CNPJ **[PENDENTE-DONO: CNPJ]**, com sede em **[PENDENTE-DONO: endereço]** ("nós"). Atendimento: **[PENDENTE-DONO: e-mail/canal de suporte oficial]** e https://lucksrei.com/projects/aura/support/.
+O AprovaAura ("Serviço") é oferecido por Lucas Diogo Franca (marca Lucksrei), CNPJ 54.868.173/0001-55, com sede em **[PENDENTE-DONO: endereço]** ("nós"). Atendimento: marketing@lucksrei.com e https://lucksrei.com/projects/aura/support/.
 
 Ao criar uma conta ou usar o Serviço, você declara ter lido estes Termos e a Política de Privacidade (https://lucksrei.com/projects/aura/privacy/). O Serviço é voltado a estudantes (ENEM e vestibulares) e **não é restrito a maiores de 18 anos**. Menores de idade devem usar com o conhecimento e a orientação de pai, mãe ou responsável legal; assinaturas pagas por menores exigem a concordância do responsável. **[PENDENTE-DONO/advogado: idade mínima e regras finais para menores.]**
 
 ## 2. Finalidade educacional
 
-O AprovaAura é uma ferramenta de estudo (questões, simulados, acompanhamento de progresso e correção de redação) para ENEM, vestibulares e concursos. **Não prometemos aprovação, nota ou classificação** em nenhum exame. Os resultados dependem do seu esforço e de fatores fora do nosso controle.
+O AprovaAura é uma ferramenta de estudo (questões, simulados, acompanhamento de progresso e redação, com correção por IA quando disponível) para ENEM, vestibulares e concursos. **Não prometemos aprovação, nota ou classificação** em nenhum exame. Os resultados dependem do seu esforço e de fatores fora do nosso controle.
 
 ## 3. Conta e confirmação de e-mail
 
@@ -77,7 +77,7 @@ Podemos conceder períodos de acesso de cortesia (por exemplo, por indicação o
 
 ## 13. Indicação de professor e compartilhamento de estatísticas
 
-- Você pode, **opcionalmente**, vincular-se a um professor parceiro que o tenha convidado. O vínculo e o compartilhamento exigem seu **consentimento específico**.
+- Você pode, **opcionalmente**, vincular-se a um professor parceiro que o tenha convidado. O vínculo (indicação comercial) é **distinto** do compartilhamento de estatísticas: o vínculo mostra ao professor apenas nome, usuário, data e situação comercial, para fins de comissão; o compartilhamento de estatísticas de estudo exige seu **consentimento específico, separado e revogável**.
 - Com o consentimento, o professor vê **apenas estatísticas de desempenho**. Nunca compartilhamos a redação completa, senhas, credenciais, dados financeiros ou respostas individuais desnecessárias.
 - Nesta versão, o compartilhamento é **permitido somente a usuários que declararam ser adultos**. Quem declara faixa etária de menor não compartilha, e declarar-se menor encerra compartilhamento ativo.
 - Você pode **revogar** o consentimento a qualquer momento em **Perfil → Privacidade e termos**. A revogação interrompe o compartilhamento; não apaga comissões já geradas ao professor nem desfaz o vínculo comercial dele conosco, mas ele deixa de ver suas estatísticas.
@@ -98,7 +98,7 @@ Em caso de violação grave, podemos suspender ou encerrar sua conta. **Antes**,
 ## 17. Exclusão de conta e suporte
 
 - Você pode excluir sua conta **dentro do app** (Perfil → Excluir conta) ou em https://lucksrei.com/projects/aura/data-deletion/. O que é apagado, anonimizado ou retido por obrigação legal está na Política de Privacidade. **Excluir a conta não cancela assinaturas nas lojas**: cancele-as na loja para não ser cobrado.
-- Suporte: https://lucksrei.com/projects/aura/support/ e **[PENDENTE-DONO: e-mail/canal de suporte oficial]**.
+- Suporte: https://lucksrei.com/projects/aura/support/ e marketing@lucksrei.com.
 
 ## 18. Alterações destes Termos
 

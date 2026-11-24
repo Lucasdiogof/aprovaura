@@ -7,9 +7,9 @@ This Policy explains what data AprovaAura processes, why, with whom we share it 
 
 ## 1. Controller and contact
 
-Controller: **[PENDENTE-DONO: legal name]**, CNPJ **[PENDENTE-DONO: CNPJ]**, **[PENDENTE-DONO: address]**.
-Data Protection Officer (DPO): **[PENDENTE-DONO: DPO name and contact]**.
-Privacy and support channel: **[PENDENTE-DONO: official e-mail/channel]** · https://lucksrei.com/projects/aura/support/
+Controller: Lucas Diogo Franca (marca Lucksrei), CNPJ 54.868.173/0001-55, **[PENDENTE-DONO: address]**.
+Data Protection Officer (DPO): o próprio controlador, pelo canal marketing@lucksrei.com (dispensa de encarregado a confirmar com advogado: Res. CD/ANPD 2/2022).
+Privacy and support channel: marketing@lucksrei.com · https://lucksrei.com/projects/aura/support/
 
 ## 2. Data we process
 
@@ -86,9 +86,11 @@ You may delete your account **in the app (Profile → Delete account)** or at ht
 - **Retained by law**: access logs for 6 months.
 - Deletion **does not cancel store subscriptions** (Apple/Google): cancel them in the store.
 
-## 9. Sharing with the teacher
+## 9. Teacher referral and sharing of statistics
 
-This happens only if you consent, after an invitation from a partner teacher. The teacher sees **performance statistics only** and **never** your full essay, passwords, credentials, financial data or unnecessary individual answers. In this version, **only adult users** may share; users who declare a minor age range do not share, and declaring a minor age range ends active sharing. You revoke in **Profile → Privacy and terms**. Revocation stops the teacher's access to your statistics but does not erase commissions already generated nor undo the teacher's commercial relationship with us.
+**Commercial referral (link)**: if you use a partner teacher's link/code or pick them at sign-up, they see in their portal your **name, username, link date and commercial status** (trial, subscription or courtesy, and plan), because this is needed to compute commission. This **does not include** study statistics, essays or answers. **[OWNER/LAWYER DECISION: for users under 18, show the teacher only a shortened identifier instead of the full name (minimization, LGPD art. 6, III).]**
+
+**Sharing of statistics (separate authorization)**: This happens only if you consent, after an invitation from a partner teacher. The teacher sees **performance statistics only** and **never** your full essay, passwords, credentials, financial data or unnecessary individual answers. In this version, **only adult users** may share; users who declare a minor age range do not share, and declaring a minor age range ends active sharing. You revoke in **Profile → Privacy and terms**. Revocation stops the teacher's access to your statistics but does not erase commissions already generated nor undo the teacher's commercial relationship with us.
 
 ## 10. Children and teenagers
 

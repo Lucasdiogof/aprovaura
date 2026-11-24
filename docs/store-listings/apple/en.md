@@ -14,9 +14,9 @@ AprovaAura
 ENEM mock exams & essays
 ```
 
-### Texto promocional (148/170 chars)
+### Texto promocional (146/170 chars)
 ```text
-Questions, mock exams, mistake review and AI-graded essays for Brazil's ENEM. Start with a 3-day trial, no card needed. Optional subscription after.
+Questions, mock exams, mistake review and essay practice for Brazil's ENEM. Start with a 3-day trial, no card needed. Optional subscription after.
 ```
 
 ### Palavras-chave (bytes UTF-8, sem espaços) (89/100 bytes)
@@ -24,7 +24,7 @@ Questions, mock exams, mistake review and AI-graded essays for Brazil's ENEM. St
 enem,vestibular,mock exam,essay,questions,study,exam prep,review,mistakes,brazil,practice
 ```
 
-### Descrição (1581/4000 chars)
+### Descrição (1358/4000 chars)
 ```text
 AprovaAura is a study app for Brazil's ENEM, university entrance exams and other tests. Questions, mock exams, mistake review and essay writing in a single study flow.
 
@@ -33,7 +33,7 @@ WHAT YOU CAN DO
 • Custom mock exams: pick subjects, level and number of questions
 • Mistake review and favorites, to go back to what you miss the most
 • Quick practice: one round of questions you have never answered
-• Essay writing with AI grading: an estimated score from 0 to 1000, with a score per competency
+• Essays: write on exam-style prompts, save drafts and track your texts
 • Aura and levels: every correct answer earns Aura; the mascot Aurudo reacts to daily goals, streaks and level-ups
 • Light and dark themes; Portuguese, English and Spanish
 • One account on your phone and on the web
@@ -42,9 +42,6 @@ PREMIUM SUBSCRIPTION
 • 3-day trial with no card, after you confirm your email (once per person).
 • After the trial, full access is by subscription: R$ 19.90 per month or R$ 190.00 per year (about 20% less than 12 months).
 • The subscription renews automatically unless canceled at least 24 hours before the end of the period. Payment is charged to your Apple account. Manage or cancel in iPhone Settings > your name > Subscriptions.
-
-ABOUT AI GRADING
-The essay score is an estimate produced by artificial intelligence to support your practice. It does not guarantee a result on any exam and does not replace a teacher's evaluation.
 
 LINKS
 Privacy Policy: https://lucksrei.com/projects/aura/privacy/

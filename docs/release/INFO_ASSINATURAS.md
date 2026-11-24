@@ -1,6 +1,6 @@
 # Informações de assinatura — resumo canônico (PT-BR / EN / ES)
 
-> Data-base: 24/11/2026. Fonte: `FATOS_ETAPA09.md`. Os três idiomas usam os MESMOS números. O preço exibido no app é o da loja/servidor; os valores abaixo são de referência (BRL, Brasil). Dados do responsável: [PENDENTE-DONO: razão social, CNPJ, endereço, e-mail de suporte]. Revisão jurídica pendente.
+> Data-base: 24/11/2026. Fonte: `FATOS_ETAPA09.md`. Os três idiomas usam os MESMOS números. O preço exibido no app é o da loja/servidor; os valores abaixo são de referência (BRL, Brasil). Dados do responsável: Lucas Diogo Franca (marca Lucksrei), CNPJ 54.868.173/0001-55, suporte marketing@lucksrei.com, endereço [PENDENTE-DONO: endereço]. Revisão jurídica pendente.
 
 ## Números canônicos
 | Item | Valor |
@@ -31,7 +31,7 @@
 - Web com Pix: não há renovação a cancelar.
 Excluir a conta NÃO cancela assinaturas das lojas ou do Mercado Pago; cancele antes.
 
-**Arrependimento.** Para contratações à distância, o Código de Defesa do Consumidor prevê 7 dias para desistir (art. 49). A aplicação a assinaturas digitais dentro de lojas [INCERTO]; compras feitas na Apple ou no Google são reembolsadas conforme a política da loja. Fale com o suporte: [PENDENTE-DONO: e-mail de suporte].
+**Arrependimento.** Para contratações à distância, o Código de Defesa do Consumidor prevê 7 dias para desistir (art. 49). A aplicação a assinaturas digitais dentro de lojas [INCERTO]; compras feitas na Apple ou no Google são reembolsadas conforme a política da loja. Fale com o suporte: marketing@lucksrei.com.
 
 **Restaurar compras.** Em Minha assinatura ou na tela de assinatura, toque em "Restaurar compras" para recuperar uma assinatura da loja em outro aparelho ou após reinstalar.
 

@@ -9,12 +9,12 @@
 AprovaAura: ENEM e Vestibular
 ```
 
-### Descrição curta (80/80 chars)
+### Descrição curta (75/80 chars)
 ```text
-Questões, simulados, revisão de erros e redação com correção por IA para o ENEM.
+Questões, simulados, revisão de erros e redação para o ENEM e vestibulares.
 ```
 
-### Descrição completa (1618/4000 chars)
+### Descrição completa (1410/4000 chars)
 ```text
 AprovaAura é o app de estudos para quem se prepara para o ENEM, vestibulares e outras provas no Brasil. Questões, simulados, revisão de erros e redação num só fluxo de estudo.
 
@@ -23,7 +23,7 @@ O QUE VOCÊ FAZ NO APP
 • Simulados personalizados: escolha matérias, nível e número de questões
 • Revisão de erros e favoritos, para voltar ao que você mais erra
 • Prática rápida: uma rodada só com questões que você ainda não respondeu
-• Redação com correção por IA: nota estimada de 0 a 1000, com pontuação por competência
+• Redação: escreva sobre temas de proposta, salve rascunhos e acompanhe seus textos
 • Aura e níveis: cada acerto rende Aura; o mascote Aurudo reage a metas diárias, sequências e subidas de nível
 • Temas claro e escuro; português, inglês e espanhol
 • Mesma conta no celular e na web
@@ -32,9 +32,6 @@ ASSINATURA PREMIUM
 • Teste de 3 dias sem cartão, após confirmar seu e-mail (uma vez por pessoa).
 • Depois do teste, o acesso completo é por assinatura: R$ 19,90 por mês ou R$ 190,00 por ano (cerca de 20% de economia sobre 12 meses).
 • A assinatura renova automaticamente até ser cancelada. O pagamento é cobrado na sua conta do Google Play. Gerencie ou cancele a qualquer momento em Play Store > Perfil > Pagamentos e assinaturas > Assinaturas.
-
-SOBRE A CORREÇÃO POR IA
-A nota da redação é uma estimativa feita por inteligência artificial para apoiar seu treino. Ela não garante resultado em nenhuma prova nem substitui a avaliação de um professor.
 
 LINKS
 Política de Privacidade: https://lucksrei.com/projects/aura/privacy/
@@ -60,7 +57,7 @@ AprovaAura Premium
 
 Benefícios (limite por item [INCERTO — confirmar no Play Console]; mantidos em 40 caracteres ou menos):
 - Questões e simulados, todas as matérias (39/40 chars)
-- Redação com correção por IA (27/40 chars)
+- Redação com rascunhos salvos (28/40 chars)
 - Revisão de erros e favoritos (28/40 chars)
 - Mesma conta no celular e na web (31/40 chars)
 
