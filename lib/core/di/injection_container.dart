@@ -16,6 +16,9 @@ import 'package:aura/features/access/data/access_grant_verifier.dart';
 import 'package:aura/features/access/data/access_repository_impl.dart';
 import 'package:aura/features/access/domain/repositories/access_repository.dart';
 import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
+import 'package:aura/features/payments/data/payments_repository_impl.dart';
+import 'package:aura/features/payments/domain/payments.dart';
+import 'package:aura/features/payments/presentation/cubit/payments_cubit.dart';
 import 'package:aura/core/router/app_router.dart';
 import 'package:aura/features/partners/data/partners_repository_impl.dart';
 import 'package:aura/features/partners/domain/repositories/partners_repository.dart';
@@ -160,6 +163,12 @@ void registerSupabaseDependencies() {
   );
   sl.registerLazySingleton<PartnersRepository>(
     () => PartnersRepositoryImpl(sl()),
+  );
+  sl.registerLazySingleton<PaymentsRepository>(
+    () => PaymentsRepositoryImpl(sl()),
+  );
+  sl.registerFactory<PaymentsCubit>(
+    () => PaymentsCubit(sl<PaymentsRepository>(), sl<AccessCubit>()),
   );
 }
 

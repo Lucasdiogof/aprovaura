@@ -164,6 +164,14 @@ class PortalApi {
   Future<Map<String, dynamic>> partnerFinance({int limit = 25, int offset = 0}) =>
       _map('partner_finance', {'p_limit': limit, 'p_offset': offset});
 
+  // ----- Integrações de pagamento (Etapa 07) -----
+  Future<Map<String, dynamic>> paymentsStatus() => _map('admin_payments_status');
+
+  Future<Map<String, dynamic>> paymentEvents({String? status, String? provider, int limit = 25, int offset = 0}) =>
+      _map('admin_list_payment_events', {'p_status': status, 'p_provider': provider, 'p_limit': limit, 'p_offset': offset});
+
+  Future<void> requeuePaymentEvent(int id) => _rpc<dynamic>('admin_requeue_event', {'p_id': id});
+
   // ----- Financeiro (Etapa 06) -----
   Future<Map<String, dynamic>> financeDashboard(DateTime from, DateTime to) =>
       _map('admin_finance_dashboard', {'p_from': _d(from), 'p_to': _d(to)});

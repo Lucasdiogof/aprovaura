@@ -313,3 +313,54 @@ RLS ligada e `revoke` em todas as tabelas novas; RPCs `security definer` com `se
 
 ### 17.12 Checklist de QA futuro
 Pagamento com professor → comissão; mudar % → pagamento antigo reprocessado mantém %; taxa estimada → conciliar; reembolso parcial/total/duplicado; repasse total/parcial/clique duplo/acima do saldo/reverter; novo saldo após repasse; exportações CSV com `=cmd()`; professor encerrado só Financeiro; isolamento entre professores; PT/EN/ES, claro/escuro, mobile.
+
+## 18. Etapa 07 — Assinaturas Apple, Google Play e Mercado Pago (2026-11-29)
+
+> **Estado:** código e backend prontos; **nenhuma integração está operacional** e **nada é cobrado**. Todo provedor/ambiente nasce com `enabled = false` em `payment_providers_config`; `enforcement_enabled`, confirmação obrigatória de e-mail e AUTO_DEPLOY seguem desligados. Código escrito ≠ integração validada.
+
+### 18.1 Arquitetura
+`lib/features/payments/` (domain → data → cubit): `PaymentsRepository` (catálogo/preços reais via `in_app_purchase`, compra, restauração, Mercado Pago), `PaymentsCubit` (loading/purchasing/pending/validating/success/cancelled/conflict/failed) ligado ao `AccessCubit` (relê o acesso sem logout). **O "sucesso" do cliente nunca é prova**: o app só entrega o comprovante à Edge Function, que valida e grava; a transação só é encerrada na loja (`completePurchase`) depois da validação. UI definitiva (paywall, gestão) = Etapa 08; já existe o componente `PixPaymentPanel` (QR, copia-e-cola, contagem regressiva, atualização proporcional 5→30 s, "Verificar pagamento", expirado → novo Pix). StoreKit 2 é o padrão do pacote `in_app_purchase_storekit`.
+
+### 18.2 Catálogo e ids
+`payment_catalog` (plano × provedor × ambiente): `aprovaura_premium_monthly`/`_annual` (Apple, um grupo de assinatura), `aprovaura_premium` com base plans `monthly`/`annual` (Google), planos internos no Mercado Pago. Preço R$ 19,90 / R$ 190,00 é **referência**; o app mostra o preço **da loja**. `verified=false` até conferir no console. Bundle/package: `com.lucasdiogof.aprovaura`.
+
+### 18.3 Associação conta ↔ compra
+`get_purchase_account_token()` devolve um UUID opaco por usuário (exige e-mail confirmado quando a regra estiver ativa): Apple `appAccountToken`, Google `obfuscatedAccountId`, Mercado Pago `external_reference`. `provider_subscriptions` fixa `(provider, env, original_ref) → user`; outro token tentando a mesma assinatura vira `payment_conflicts` + evento `conflict` (sem transferência automática; transferência exige ação de admin auditada). `service_upsert_entitlement` já recusava mover `(source, external_ref)` entre usuários.
+
+### 18.4 Entrada única de eventos
+`payments_ingest_event` (service_role): lock por assinatura, idempotência por `(provider, env, event_id)`, tentativas/erro em `payment_events` (sem payload bruto), **barra evento antigo** (`last_event_at`), converte em entitlement (só a fonte do próprio provedor; revogar uma não revoga as outras) e, **só em produção**, chama `record_confirmed_payment`/`record_payment_refund`/`record_payment_settlement` (Etapa 06). **Sandbox nunca gera receita nem comissão** (o entitlement leva ref `sandbox:` e permite revisão da loja/testers). Taxa/imposto não informados → `estimated` (comissão fica pendente até conciliar). Cada pagamento tem id próprio (Apple `transactionId`, Google `latestSuccessfulOrderId`, MP `payment.id`): renovações não duplicam comissão. Cancelar renovação ≠ reembolso: acesso até o fim do período.
+
+### 18.5 Apple (`payments-apple`)
+Notificações V2 (`signedPayload`) e verificação do app (`signedTransaction`, JWT do usuário). **JWS verificado de verdade**: `alg=ES256`, `x5c` de 3 certificados, raiz **fixada** em `APPLE_ROOT_CA_PEM`, assinatura de cada elo, validade, OIDs Apple e assinatura do JWS. Confere `bundleId`, produto do catálogo, ambiente (Sandbox ≠ Production) e `appAccountToken`. Mapeia SUBSCRIBED/DID_RENEW (ativo + pagamento; `price` em milésimos → centavos), cancelamento de renovação (vale até o fim), DID_FAIL_TO_RENEW (carência/retentativa), EXPIRED, REFUND/REVOKE e mudança de plano. Consulta oficial na reconciliação: App Store Server API (JWT ES256 com chave `.p8`).
+
+### 18.6 Google Play (`payments-google`)
+RTDN por Pub/Sub push autenticado por **OIDC** (audience + service account verificados); a mensagem só avisa — o estado é relido em `subscriptionsv2`. Valida `packageName`, produto + base plan e conta ofuscada. **Acknowledge só após validar e gravar** e só se pendente. `linkedPurchaseToken` encerra o token antigo. `voidedPurchaseNotification` → reembolso/chargeback. Estados: ACTIVE, CANCELED, IN_GRACE_PERIOD, ON_HOLD/PAUSED (sem acesso), EXPIRED, PENDING; `testPurchase` → sandbox. **Limite:** a API v2 não devolve o preço pago → bruto = preço de referência, marcado estimado até conciliar com o relatório financeiro da Play.
+
+### 18.7 Mercado Pago (`mp-checkout`, `mp-webhook`) — somente Web/Portal
+Nunca dentro dos apps móveis (regra das lojas). Cartão: assinatura recorrente (`preapproval`, checkout hospedado — sem PAN/CVV). **Pix: não há Pix recorrente automático** nesta integração → Pix **avulso** por 30/365 dias, renovação manual, rotulado assim; períodos empilham após o vigente. O servidor cria a cobrança com valor do catálogo (o cliente não envia valor), reaproveita a tentativa pendente, substitui a antiga ao trocar plano/método e recusa se já houver assinatura vigente em outro provedor (409; nunca cancela sozinho). Webhook: **HMAC oficial** (`x-signature`), relê o recurso na API e valida conta recebedora (`MP_COLLECTOR_ID`; sem ele, falha fechada), valor × plano, moeda BRL, `external_reference` e `live_mode` (→ ambiente). Taxa vem de `fee_details`; imposto estimado. Assinatura autorizada sem cobrança aprovada **não** concede acesso.
+
+### 18.8 Reconciliação periódica (`payments-reconcile`)
+Protegida por `CRON_SECRET`. Lote ≤ 50 de `service_subscriptions_to_check` (vencendo em 2 dias/pendentes, mín. 12 h entre checagens): relê o provedor e reaplica pelo mesmo caminho (idempotente). Não roda a cada abertura do app. **O agendamento externo não foi criado** (ver 18.12). Reprocesso admin (`admin_requeue_event`) só recoloca evento **falho** na fila; não cria pagamentos.
+
+### 18.9 Portal admin
+`/partners/integrations`: provedores × ambientes (liberado/desligado), produtos e "conferido na loja", último evento/falhas, pagamentos a conciliar, conflitos e histórico com reprocesso seguro. Sem segredos e sem botão de cobrança real. RPCs: `admin_payments_status`, `admin_list_payment_events`, `admin_requeue_event`, `admin_reconcile_payment_tax`.
+
+### 18.10 Segurança
+RLS + `revoke` nas tabelas novas; RPCs `security definer` com `search_path` fixo; service-only: `payments_ingest_event`, `service_*`; o cliente só chama `get_purchase_*`/`get_my_subscription`. Nenhuma chave Apple/Google/MP nem `service_role` no Flutter. Logs só com tipo/código (sem token, e-mail ou payload). Rotas de compra liberadas no gate sem exigir Premium; o token exige e-mail confirmado. Migration: `20261129000100_payment_integrations.sql` (rollback em `supabase/rollbacks/`).
+
+### 18.11 Variáveis de ambiente (Supabase Secrets — nunca no repositório)
+Apple: `APPLE_BUNDLE_ID`, `APPLE_ROOT_CA_PEM` (Apple Root CA G3), `APPLE_IAP_KEY_ID`, `APPLE_IAP_ISSUER_ID`, `APPLE_IAP_PRIVATE_KEY`. Google: `GOOGLE_PACKAGE_NAME`, `GOOGLE_SA_JSON`, `GOOGLE_PUBSUB_AUDIENCE`, `GOOGLE_PUBSUB_SA_EMAIL`. Mercado Pago: `MP_ACCESS_TOKEN`, `MP_WEBHOOK_SECRET`, `MP_COLLECTOR_ID`, `MP_ENV`, `MP_NOTIFICATION_URL`, `PORTAL_BACK_URL`. Reconciliação: `CRON_SECRET`.
+
+### 18.12 Ações do dono (procedimento e motivo)
+1. **PAT do projeto `cesuqfgrtcitatxvokez`** e rodar `supabase/deploy_payments_functions.ps1` (publica as 5 funções; sem PAT não há como publicar).
+2. **Apple**: contrato Paid Apps + dados bancários/fiscais; criar o **grupo de assinatura** com `aprovaura_premium_monthly`/`_annual` (BRL, Brasil), localizações e análise; Small Business Program; chave **In-App Purchase** (.p8, Key ID, Issuer ID); URL de Notificações V2 (produção e sandbox) → `…/functions/v1/payments-apple`; a primeira assinatura deve ir **junto com a versão do app**; conta e instruções de revisão.
+3. **Google**: perfil de pagamentos; assinatura `aprovaura_premium` com base plans `monthly`/`annual`; service account com permissão de pedidos/assinaturas + API Android Publisher; tópico Pub/Sub + assinatura push com OIDC → `…/payments-google` e RTDN no Play Console; testers de licença; versão atual da Play Billing Library.
+4. **Mercado Pago**: **confirmar a titularidade** das credenciais hoje `unassigned` (não foram usadas); criar aplicação, credenciais teste/produção, segredo e URL do webhook → `…/mp-webhook`; confirmar assinatura recorrente e Pix na conta.
+5. **Cron** (pg_cron/GitHub Actions/Cloudflare) chamando `payments-reconcile` com `x-cron-secret` a cada 6–12 h.
+6. Conferir os produtos no console → `update payment_catalog set verified=true …`; só então liberar `update payment_providers_config set enabled=true where provider=… and environment=…`.
+
+### 18.13 Pendências e limites conhecidos
+Sem validação sandbox/produção (sem credenciais). Imposto sobre venda não vem dos provedores (estimado; `admin_reconcile_payment_tax`). **Importação de relatórios oficiais (Apple/Google/MP) não implementada**: conciliar por pagamento; relatório agregado não deve ser casado "por palpite". Preço Apple/Google (regional/imposto) = estimativa até o relatório. Confirmar os ids no console (Google usa `aprovaura_premium` + base plan). Mercado Pago: tolerância de timestamp da assinatura não aplicada (replay barrado por idempotência). Gestão/paywall: Etapa 08. Sem `flutter analyze`/testes/builds por diretriz.
+
+### 18.14 QA e publicação (futuro)
+Sandbox Apple/Google: compra, renovação, cancelamento, expiração, carência, reembolso, restauração, reinstalação, troca de aparelho, conflito de conta. MP teste: Pix aprovado/expirado/estornado, cartão aprovado/recusado/cancelado, webhook duplicado/fora de ordem. Verificar: entitlement por fonte, uma comissão por pagamento, sandbox sem comissão, `enabled` por ambiente. Publicação: produtos aprovados, conta de revisão, termos/privacidade/exclusão de conta, preço localizado e renovação automática claros, Mercado Pago ausente do app móvel.
