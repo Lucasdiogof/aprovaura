@@ -3,7 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/features/auth/domain/entities/legal_document.dart';
+import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/auth/l10n/auth_strings.dart';
+import 'package:aura/features/auth/l10n/email_verification_strings.dart';
+import 'package:aura/features/auth/presentation/widgets/register_extras.dart';
+import 'package:aura/features/partners/domain/repositories/partners_repository.dart';
+import 'package:aura/features/partners/presentation/cubit/partner_picker_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_state.dart';
 import 'package:aura/features/auth/presentation/cubit/register_form_cubit.dart';
@@ -39,9 +45,17 @@ class _RegisterPageState extends State<RegisterPage> {
         sl<ProfileRepository>().isUsernameAvailable(username),
   );
 
+  final _picker = PartnerPickerCubit(sl<PartnersRepository>());
+  List<LegalDocument> _legalDocs = const [];
+  bool _legalAccepted = false;
+
   @override
   void initState() {
     super.initState();
+    _picker.load();
+    sl<AuthRepository>().legalDocuments().then((docs) {
+      if (mounted) setState(() => _legalDocs = docs);
+    });
     for (final controller in _fields) {
       controller.addListener(_formCubit.notifyFieldChanged);
     }
@@ -69,6 +83,7 @@ class _RegisterPageState extends State<RegisterPage> {
     _usernameFocus.dispose();
     _formCubit.close();
     _usernameCheck.close();
+    _picker.close();
     super.dispose();
   }
 
@@ -111,7 +126,8 @@ class _RegisterPageState extends State<RegisterPage> {
         _usernameCheck.state.confirms(_usernameController.text) &&
         isValidEmail(_emailController.text) &&
         isValidNewPassword(password) &&
-        doPasswordsMatch(password, _confirmPasswordController.text);
+        doPasswordsMatch(password, _confirmPasswordController.text) &&
+        (_legalDocs.isEmpty || _legalAccepted);
   }
 
   void _submit() {
@@ -127,6 +143,8 @@ class _RegisterPageState extends State<RegisterPage> {
       password: _passwordController.text,
       name: _nameController.text.trim(),
       username: _usernameController.text.trim(),
+      referralPartnerId: _picker.state.selected?.id,
+      legalAccept: {for (final d in _legalDocs) d.kind: d.version},
     );
   }
 
@@ -157,6 +175,9 @@ class _RegisterPageState extends State<RegisterPage> {
             // together, in one database transaction.
             case AuthSuccess():
               context.go('/onboarding');
+            // The e-mail must be confirmed with the 6-digit code first.
+            case AuthEmailConfirmationRequired(:final email):
+              context.go('/confirmar-email', extra: (email, true));
             // Someone took the username between the check and the sign-up.
             // Nothing was created (the transaction was refused): the field
             // says so and the person picks another name, right here.
@@ -226,6 +247,15 @@ class _RegisterPageState extends State<RegisterPage> {
                           onSubmit: _submit,
                           canSubmit: !isSubmitting && _isComplete(),
                           isLoading: isSubmitting,
+                          extras: RegisterExtras(
+                            strings: EmailVerificationStrings(language),
+                            picker: _picker,
+                            legalDocs: _legalDocs,
+                            legalAccepted: _legalAccepted,
+                            onLegalChanged: (v) =>
+                                setState(() => _legalAccepted = v),
+                            showLegalError: formState.submitted,
+                          ),
                         ),
                       ),
                     ],

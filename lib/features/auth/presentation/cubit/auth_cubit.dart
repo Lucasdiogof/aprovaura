@@ -15,6 +15,9 @@ class AuthCubit extends Cubit<AuthState> {
     switch (result) {
       case Success(:final data):
         emit(AuthSuccess(data));
+      case Error(:final failure)
+          when failure is AuthFailure && failure.needsEmailConfirmation:
+        emit(AuthEmailConfirmationRequired(email));
       case Error(:final failure):
         emit(
           AuthError(
@@ -31,6 +34,8 @@ class AuthCubit extends Cubit<AuthState> {
     required String password,
     required String name,
     required String username,
+    String? referralPartnerId,
+    Map<String, String> legalAccept = const {},
   }) async {
     emit(const AuthLoading());
     final result = await _repository.signUp(
@@ -38,10 +43,15 @@ class AuthCubit extends Cubit<AuthState> {
       password: password,
       name: name,
       username: username,
+      referralPartnerId: referralPartnerId,
+      legalAccept: legalAccept,
     );
     switch (result) {
       case Success(:final data):
         emit(AuthSuccess(data));
+      case Error(:final failure)
+          when failure is AuthFailure && failure.needsEmailConfirmation:
+        emit(AuthEmailConfirmationRequired(email, isNewAccount: true));
       case Error(:final failure):
         emit(
           AuthError(

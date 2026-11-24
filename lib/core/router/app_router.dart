@@ -4,6 +4,7 @@ import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/router/app_route_observer.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:aura/features/auth/presentation/pages/email_verification_page.dart';
 import 'package:aura/features/auth/presentation/pages/login_page.dart';
 import 'package:aura/features/auth/presentation/pages/register_page.dart';
 import 'package:aura/features/home/presentation/pages/home_shell_page.dart';
@@ -41,6 +42,21 @@ final GoRouter appRouter = GoRouter(
         create: (_) => sl<AuthCubit>(),
         child: const RegisterPage(),
       ),
+    ),
+    GoRoute(
+      path: '/confirmar-email',
+      builder: (context, state) {
+        // (e-mail, veio do cadastro). Sem o extra (web recarregada) a
+        // página do login retoma pelo cadastro pendente guardado.
+        final extra = state.extra;
+        if (extra is (String, bool)) {
+          return EmailVerificationPage(email: extra.$1, fromSignUp: extra.$2);
+        }
+        return BlocProvider(
+          create: (_) => sl<AuthCubit>(),
+          child: const LoginPage(),
+        );
+      },
     ),
     GoRoute(
       path: '/onboarding',

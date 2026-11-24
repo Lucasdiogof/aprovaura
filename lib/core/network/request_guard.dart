@@ -18,19 +18,29 @@ void Function()? onRequestSuccess;
 /// AccessCubit atualiza o estado de acesso sem cada repositório saber.
 void Function()? onPremiumRequired;
 
+/// Chamado quando o servidor responde 403 (e-mail da conta ainda sem prova
+/// por código de 6 dígitos): o app encerra a sessão e leva ao login, que
+/// retoma a confirmação.
+void Function()? onEmailUnverified;
+
 /// Maps anything a Supabase call can throw to the [Failure] that tells the
 /// person what actually happened.
 Failure failureFromError(Object error) {
   final failure = _classify(error);
   if (isConnectionFailure(failure)) onRequestFailure?.call(failure);
   if (failure is PremiumRequiredFailure) onPremiumRequired?.call();
+  if (failure is EmailUnverifiedFailure) onEmailUnverified?.call();
   return failure;
 }
 
 Failure _classify(Object error) {
   if (error is TimeoutException) return RequestTimeoutFailure();
   if (error is PostgrestException) {
-    return error.code == 'PT402' ? PremiumRequiredFailure() : ServerFailure();
+    return switch (error.code) {
+      'PT402' => PremiumRequiredFailure(),
+      'PT403' => EmailUnverifiedFailure(),
+      _ => ServerFailure(),
+    };
   }
   // Matched by name on purpose: dart:io's SocketException does not exist on
   // web, and package:http's ClientException / Supabase's retryable auth

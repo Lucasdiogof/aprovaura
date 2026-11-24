@@ -6,6 +6,14 @@ abstract class PartnersRepository {
   /// continua sendo "nenhuma indicação".
   Future<Result<List<PartnerSummary>>> listActive();
 
+  /// Busca paginada (search_active_partners): ordem alfabética, só nome de
+  /// divulgação. Funciona antes do login (cadastro).
+  Future<Result<List<PartnerSummary>>> search({
+    String? query,
+    int offset = 0,
+    int limit = 30,
+  });
+
   Future<Result<PartnerLink>> getMyLink();
 
   /// Vínculo único feito pelo próprio aluno (link_partner).

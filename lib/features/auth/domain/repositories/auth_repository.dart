@@ -1,5 +1,7 @@
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
+import 'package:aura/features/auth/domain/entities/legal_document.dart';
+import 'package:aura/features/auth/domain/entities/pending_signup.dart';
 
 abstract class AuthRepository {
   Future<Result<AppUser>> signIn({
@@ -17,7 +19,36 @@ abstract class AuthRepository {
     required String password,
     required String name,
     required String username,
+    String? referralPartnerId,
+    Map<String, String> legalAccept = const {},
   });
+
+  /// Confirms the account's e-mail with the 6-digit [code] from the signup
+  /// e-mail. On success Supabase opens the session. Only the server can mark
+  /// an e-mail as confirmed: the client just types the code back.
+  Future<Result<void>> verifySignupCode({
+    required String email,
+    required String code,
+  });
+
+  /// Sends a fresh confirmation code (the server rate-limits it).
+  Future<Result<void>> resendSignupCode({required String email});
+
+  /// "Corrigir e-mail": deletes the still-unconfirmed account (the password
+  /// proves it is theirs) so the sign-up can be redone with another address.
+  Future<Result<void>> discardUnconfirmedSignup({
+    required String email,
+    required String password,
+  });
+
+  /// Current legal documents to accept on sign-up (empty if none published
+  /// or if the server can't be reached).
+  Future<List<LegalDocument>> legalDocuments();
+
+  /// The interrupted e-mail confirmation, if any.
+  Future<PendingSignup?> pendingSignup();
+
+  Future<void> clearPendingSignup();
 
   /// Asks Supabase to email a 6-digit password-recovery code. Succeeds even when no
   /// account uses that address: Supabase deliberately doesn't tell the caller

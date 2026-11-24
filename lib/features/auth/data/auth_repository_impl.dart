@@ -6,7 +6,10 @@ import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/auth/data/auth_error_messages.dart';
+import 'package:aura/features/auth/data/pending_signup_store.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
+import 'package:aura/features/auth/domain/entities/legal_document.dart';
+import 'package:aura/features/auth/domain/entities/pending_signup.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:get_it/get_it.dart';
 
@@ -21,6 +24,15 @@ class AuthRepositoryImpl implements AuthRepository {
   final PendingSyncQueue? _queue;
 
   final SupabaseClient _client;
+  final _pending = PendingSignupStore();
+
+  String get _langCode => switch (GetIt.instance.isRegistered<LocaleCubit>()
+      ? GetIt.instance<LocaleCubit>().state
+      : AppLanguage.portuguese) {
+    AppLanguage.portuguese => 'pt',
+    AppLanguage.english => 'en',
+    AppLanguage.spanish => 'es',
+  };
 
   @override
   Future<Result<AppUser>> signIn({
@@ -36,6 +48,22 @@ class AuthRepositoryImpl implements AuthRepository {
       if (user == null) return Error(AuthFailure());
       return Success(_toAppUser(user));
     } on AuthException catch (e) {
+      if (classifyAuthError(e) == AuthErrorKind.emailNotConfirmed) {
+        // Resumes the confirmation: the screen sends a fresh code.
+        final known = await _pending.read();
+        if (known == null || known.email != email) {
+          await _pending.save(PendingSignup(email: email));
+        }
+        return Error(
+          AuthFailure(
+            _pendingConfirmationMessage(),
+            false,
+            false,
+            false,
+            true,
+          ),
+        );
+      }
       return Error(_failureFrom(e));
     } catch (_) {
       return Error(UnexpectedFailure());
@@ -48,19 +76,46 @@ class AuthRepositoryImpl implements AuthRepository {
     required String password,
     required String name,
     required String username,
+    String? referralPartnerId,
+    Map<String, String> legalAccept = const {},
   }) async {
     try {
       final response = await _client.auth.signUp(
         email: email,
         password: password,
         // Read by the on_auth_user_created_claim_username trigger, which
-        // writes the profile in the same transaction as the account.
-        data: {'name': name, 'username': username},
+        // writes the profile in the same transaction as the account. The
+        // rest stays in user_metadata until the e-mail is confirmed, when
+        // the server links the teacher and records the legal acceptance.
+        data: {
+          'name': name,
+          'username': username,
+          'lang': _langCode,
+          'referral_partner_id': ?referralPartnerId,
+          if (legalAccept.isNotEmpty) 'legal_accept': legalAccept,
+        },
       );
       final user = response.user;
       if (user == null) return Error(AuthFailure());
       if (response.session == null) {
-        return Error(AuthFailure(_pendingConfirmationMessage()));
+        await _pending.save(
+          PendingSignup(
+            email: email,
+            name: name,
+            username: username,
+            referralPartnerId: referralPartnerId,
+            legalAccept: legalAccept,
+          ),
+        );
+        return Error(
+          AuthFailure(
+            _pendingConfirmationMessage(),
+            false,
+            false,
+            false,
+            true,
+          ),
+        );
       }
       return Success(_toAppUser(user));
     } on AuthException catch (e) {
@@ -78,6 +133,94 @@ class AuthRepositoryImpl implements AuthRepository {
       return Error(UnexpectedFailure());
     }
   }
+
+  @override
+  Future<Result<void>> verifySignupCode({
+    required String email,
+    required String code,
+  }) async {
+    try {
+      final response = await _client.auth.verifyOTP(
+        type: OtpType.signup,
+        email: email,
+        token: code,
+      );
+      if (response.session == null) return Error(AuthFailure());
+      await _pending.clear();
+      return const Success(null);
+    } on AuthException catch (e) {
+      final kind = classifyAuthError(e);
+      return Error(
+        AuthFailure(
+          authErrorMessage(
+            kind == AuthErrorKind.network || kind == AuthErrorKind.rateLimited
+                ? kind
+                : AuthErrorKind.invalidCode,
+          ),
+        ),
+      );
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
+  Future<Result<void>> resendSignupCode({required String email}) async {
+    try {
+      await _client.auth.resend(type: OtpType.signup, email: email);
+      return const Success(null);
+    } on AuthException catch (e) {
+      return Error(_failureFrom(e));
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
+  Future<Result<void>> discardUnconfirmedSignup({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final done = await _client.rpc<bool>(
+        'discard_unconfirmed_signup',
+        params: {'p_email': email, 'p_password': password},
+      );
+      if (!done) return Error(AuthFailure());
+      return const Success(null);
+    } on AuthException catch (e) {
+      return Error(_failureFrom(e));
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
+  Future<List<LegalDocument>> legalDocuments() async {
+    try {
+      final raw = await _client
+          .rpc<dynamic>('get_public_app_config')
+          .timeout(const Duration(seconds: 8));
+      final legal = (raw as Map)['legal'];
+      return [
+        if (legal is List)
+          for (final d in legal)
+            LegalDocument(
+              kind: (d as Map)['kind'] as String,
+              version: d['version'] as String,
+              url: d['url'] as String,
+            ),
+      ];
+    } catch (_) {
+      return const [];
+    }
+  }
+
+  @override
+  Future<PendingSignup?> pendingSignup() => _pending.read();
+
+  @override
+  Future<void> clearPendingSignup() => _pending.clear();
 
   Future<bool> _isUsernameTakenNow(String username) async {
     try {

@@ -31,6 +31,7 @@ class RegisterForm extends StatelessWidget {
     required this.canSubmit,
     super.key,
     this.isLoading = false,
+    this.extras,
   });
 
   static const layout = AuthLayout.compact;
@@ -58,6 +59,9 @@ class RegisterForm extends StatelessWidget {
   /// Every field valid and the username confirmed free.
   final bool canSubmit;
   final bool isLoading;
+
+  /// Referral picker + legal line (see RegisterExtras).
+  final Widget? extras;
 
   @override
   Widget build(BuildContext context) {
@@ -130,6 +134,10 @@ class RegisterForm extends StatelessWidget {
           onSubmitted: (_) => onSubmit(),
           errorText: confirmPasswordError,
         ),
+        if (extras != null) ...[
+          SizedBox(height: layout.fieldToNextLabel),
+          extras!,
+        ],
         SizedBox(height: layout.lastFieldToButton),
         AuthSubmitButton(
           layout: layout,

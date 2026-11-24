@@ -15,6 +15,7 @@ import 'package:aura/features/access/data/access_grant_verifier.dart';
 import 'package:aura/features/access/data/access_repository_impl.dart';
 import 'package:aura/features/access/domain/repositories/access_repository.dart';
 import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
+import 'package:aura/core/router/app_router.dart';
 import 'package:aura/features/partners/data/partners_repository_impl.dart';
 import 'package:aura/features/partners/domain/repositories/partners_repository.dart';
 import 'package:aura/features/atualidades/data/atualidades_repository_impl.dart';
@@ -168,6 +169,11 @@ void registerSupabaseDependencies() {
 void wireAccessSupport() {
   final cubit = sl<AccessCubit>();
   onPremiumRequired = () => unawaited(cubit.refresh(force: true));
+  // E-mail sem prova: sai da conta e o login retoma pelo código de 6 dígitos.
+  onEmailUnverified = () => unawaited(() async {
+    await sl<AuthRepository>().signOut();
+    appRouter.go('/login');
+  }());
   sl<ConnectionMonitor>().onReconnect(() => cubit.refresh(force: true));
   sl<SupabaseClient>().auth.onAuthStateChange.listen((change) {
     switch (change.event) {

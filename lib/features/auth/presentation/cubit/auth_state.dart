@@ -25,6 +25,20 @@ class AuthSuccess extends AuthState {
   List<Object?> get props => [user];
 }
 
+/// The account exists but its e-mail still has to be confirmed with the
+/// 6-digit code: the screen leads to the confirmation page.
+class AuthEmailConfirmationRequired extends AuthState {
+  const AuthEmailConfirmationRequired(this.email, {this.isNewAccount = false});
+
+  final String email;
+
+  /// Came from sign-up (goes to onboarding afterwards) rather than login.
+  final bool isNewAccount;
+
+  @override
+  List<Object?> get props => [email, isNewAccount];
+}
+
 class AuthError extends AuthState {
   const AuthError(
     this.message, {

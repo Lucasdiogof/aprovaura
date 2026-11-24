@@ -28,6 +28,35 @@ class PartnersRepositoryImpl implements PartnersRepository {
   }
 
   @override
+  Future<Result<List<PartnerSummary>>> search({
+    String? query,
+    int offset = 0,
+    int limit = 30,
+  }) async {
+    try {
+      final rows = await _client
+          .rpc<List<dynamic>>(
+            'search_active_partners',
+            params: {
+              'p_query': ?query,
+              'p_limit': limit,
+              'p_offset': offset,
+            },
+          )
+          .withRequestTimeout();
+      return Success([
+        for (final row in rows)
+          PartnerSummary(
+            id: (row as Map)['partner_id'] as String,
+            displayName: row['display_name'] as String,
+          ),
+      ]);
+    } catch (error) {
+      return Error(failureFromError(error));
+    }
+  }
+
+  @override
   Future<Result<PartnerLink>> getMyLink() async {
     try {
       final raw = await _client

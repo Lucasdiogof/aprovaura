@@ -1,7 +1,9 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/auth/l10n/auth_strings.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_state.dart';
@@ -33,6 +35,15 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
     _emailController.addListener(_formCubit.notifyFieldChanged);
     _passwordController.addListener(_formCubit.notifyFieldChanged);
+    _resumePendingConfirmation();
+  }
+
+  // A sign-up whose e-mail confirmation was interrupted (app closed) goes
+  // straight back to the code screen.
+  Future<void> _resumePendingConfirmation() async {
+    final pending = await sl<AuthRepository>().pendingSignup();
+    if (pending == null || !mounted) return;
+    context.push('/confirmar-email', extra: (pending.email, false));
   }
 
   @override
@@ -92,6 +103,9 @@ class _LoginPageState extends State<LoginPage> {
           switch (state) {
             case AuthSuccess():
               context.go('/home');
+            // Account exists but the e-mail was never confirmed: resume.
+            case AuthEmailConfirmationRequired(:final email):
+              context.push('/confirmar-email', extra: (email, false));
             case AuthError(:final message, :final isInvalidCredentials):
               if (isInvalidCredentials) {
                 AppInfoBottomSheet.showError(

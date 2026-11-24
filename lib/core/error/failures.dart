@@ -25,6 +25,7 @@ class AuthFailure extends Failure {
     this.isInvalidCredentials = false,
     this.isEmailTaken = false,
     this.isUsernameTaken = false,
+    this.needsEmailConfirmation = false,
   ]) : super(message ?? _defaultMessage());
 
   final bool isInvalidCredentials;
@@ -35,6 +36,10 @@ class AuthFailure extends Failure {
   /// Sign-up was refused because someone took the username (after it was
   /// checked). Nothing was created: the person just picks another name.
   final bool isUsernameTaken;
+
+  /// The account exists but its e-mail is not confirmed yet: the screen
+  /// leads to the 6-digit code instead of showing an error.
+  final bool needsEmailConfirmation;
 
   static String _defaultMessage() => switch (_currentLanguage()) {
     AppLanguage.portuguese => 'Falha de autenticação.',
@@ -48,6 +53,7 @@ class AuthFailure extends Failure {
     isInvalidCredentials,
     isEmailTaken,
     isUsernameTaken,
+    needsEmailConfirmation,
   ];
 }
 
@@ -125,6 +131,20 @@ class PremiumRequiredFailure extends Failure {
     AppLanguage.portuguese => 'Esta função requer uma assinatura Premium ativa.',
     AppLanguage.english => 'This feature requires an active Premium subscription.',
     AppLanguage.spanish => 'Esta función requiere una suscripción Premium activa.',
+  };
+}
+
+/// O servidor recusou (HTTP 403 / PT403) porque o e-mail da conta ainda não
+/// foi confirmado com o código de 6 dígitos. Só acontece depois que a
+/// confirmação obrigatória é ativada.
+class EmailUnverifiedFailure extends Failure {
+  EmailUnverifiedFailure([String? message])
+    : super(message ?? _defaultMessage());
+
+  static String _defaultMessage() => switch (_currentLanguage()) {
+    AppLanguage.portuguese => 'Confirme seu e-mail para continuar.',
+    AppLanguage.english => 'Confirm your email to continue.',
+    AppLanguage.spanish => 'Confirma tu correo para continuar.',
   };
 }
 

@@ -48,6 +48,7 @@ class AccessRepositoryImpl implements AccessRepository {
       }
       await _prefs.setBool(_enforcedKey(uid), json['enforced'] == true);
       await _ratchetSeen(uid);
+      if (json['must_verify_email'] == true) onEmailUnverified?.call();
       return Success(AccessStatus.fromJson(json));
     } catch (error) {
       final failure = failureFromError(error);
