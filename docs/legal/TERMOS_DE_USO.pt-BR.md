@@ -6,7 +6,7 @@
 
 O AprovaAura ("Serviço") é oferecido por **[PENDENTE-DONO: razão social]**, CNPJ **[PENDENTE-DONO: CNPJ]**, com sede em **[PENDENTE-DONO: endereço]** ("nós"). Atendimento: **[PENDENTE-DONO: e-mail/canal de suporte oficial]** e https://lucksrei.com/projects/aura/support/.
 
-Ao criar uma conta ou usar o Serviço, você declara ter lido estes Termos e a Política de Privacidade (https://lucksrei.com/projects/aura/privacy/). Idade mínima para usar o Serviço: **[PENDENTE-DONO: idade mínima]**; regras para menores de 18 anos: **[PENDENTE-DONO: regras para menores]**.
+Ao criar uma conta ou usar o Serviço, você declara ter lido estes Termos e a Política de Privacidade (https://lucksrei.com/projects/aura/privacy/). O Serviço é voltado a estudantes (ENEM e vestibulares) e **não é restrito a maiores de 18 anos**. Menores de idade devem usar com o conhecimento e a orientação de pai, mãe ou responsável legal; assinaturas pagas por menores exigem a concordância do responsável. **[PENDENTE-DONO/advogado: idade mínima e regras finais para menores.]**
 
 ## 2. Finalidade educacional
 
@@ -69,10 +69,11 @@ Podemos conceder períodos de acesso de cortesia (por exemplo, por indicação o
 
 ## 12. Inteligência artificial e correção de redação
 
-- A correção de redação usa **inteligência artificial** (API Google Gemini). A nota e os comentários são **apoio ao estudo e uma estimativa de treino, não uma nota oficial** nem um parecer de banca ou de professor, e podem conter erros ou imprecisões.
+- **A correção por IA está temporariamente suspensa.** Enquanto durar, nenhuma redação é enviada a provedores de IA; você pode escrever e salvar redações normalmente. A IA serve **somente** para corrigir redações (não há chatbot), com limite de **3 correções por dia**.
+- Quando reativada, a correção de redação usa **inteligência artificial** (API Google Gemini). A nota e os comentários são **apoio ao estudo e uma estimativa de treino, não uma nota oficial** nem um parecer de banca ou de professor, e podem conter erros ou imprecisões.
 - Para a correção, enviamos à API do Google apenas o tema, os textos de apoio, o texto da redação e os critérios, **sem seus identificadores** (nome, e-mail, ID de conta). Detalhes e condições de uso de dados do provedor estão na Política de Privacidade.
 - Não envie na redação dados pessoais seus ou de terceiros, nem informações sensíveis ou confidenciais.
-- **[PENDENTE-DONO: confirmar se a correção por IA será restrita a maiores de 18 anos, conforme os termos do Gemini.]**
+- A reativação só ocorrerá com solução compatível com os termos do provedor e com o público adolescente, e após aviso nestes Termos e na Política de Privacidade.
 
 ## 13. Indicação de professor e compartilhamento de estatísticas
 

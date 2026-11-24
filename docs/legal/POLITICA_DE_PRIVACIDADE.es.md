@@ -58,11 +58,12 @@ También podemos divulgar datos cuando la ley o una orden de autoridad lo exija.
 
 ## 5. Corrección de redacciones y Google Gemini
 
-- La corrección usa la API de Google Gemini. Enviamos **sin identificadores**: ningún nombre, correo, ID de cuenta ni nombre de usuario. El texto de la redacción, sin embargo, es contenido que **tú escribiste**; evita incluir datos personales tuyos o de terceros.
+- **Situación actual: la corrección de redacciones por IA está temporalmente suspendida y ninguna redacción se envía a proveedores de IA.** Se reactivará solo tras avisarlo aquí y con una solución compatible con los términos del proveedor y con el público adolescente. La IA se usa **solo** para corregir redacciones (sin chatbot), con límite de **3 correcciones por día** por usuario (configurable).
+- Al reactivarse, la corrección usará la API de Google Gemini (integración mantenida). Enviamos **sin identificadores**: ningún nombre, correo, ID de cuenta ni nombre de usuario. El texto de la redacción, sin embargo, es contenido que **tú escribiste**; evita incluir datos personales tuyos o de terceros.
 - **Las condiciones de Google sobre uso y conservación de estos datos dependen del nivel de servicio contratado.** En el nivel gratuito, según la documentación de Google, el contenido puede usarse para mejorar productos de Google y puede ser leído por revisores humanos, y Google recomienda no enviar datos personales ni confidenciales. En el nivel de pago, Google afirma que no usa el contenido para mejorar productos, pero registra datos por un período limitado para prevención de abuso y obligaciones legales. **No garantizamos que el contenido no se use para entrenamiento** mientras se aplique el nivel gratuito.
-- **[PENDENTE-DONO: definir e informar qué nivel estará en uso en la publicación (pasar al nivel de pago es requisito para uso comercial a escala).]**
+- Decisión del titular (24/11/2026): sin contratación de IA de pago. El nivel gratuito **no se usará con redacciones de usuarios reales** mientras el envío esté suspendido; antes de reactivar, esta sección indicará el nivel y proveedor efectivos.
 - La nota es **apoyo al estudio y estimación de práctica, no nota oficial**. Si prefieres, no uses la corrección por IA: el resto de la app no depende de ella.
-- Los términos de Google exigen usuarios de 18 años o más. **[PENDENTE-DONO: posición sobre menores de 18 años en la corrección por IA.]**
+- Los términos de Google exigen 18 años o más y vedan apps probablemente accesibles a menores. Como AprovaAura atiende estudiantes de todas las edades (incluidos adolescentes), **el envío sigue suspendido** hasta que exista una solución compatible.
 
 ## 6. Transferencia internacional
 
@@ -96,7 +97,8 @@ Tratamos datos de niños y adolescentes en su **mejor interés** (LGPD, art. 14)
 - Recopilamos solo el **rango de edad declarado**, sin fecha de nacimiento. La autodeclaración no es una verificación rigurosa de edad.
 - **Sin perfilado conductual y sin publicidad conductual.** La app no usa recursos de uso compulsivo.
 - **Compartición con profesor: solo adultos.**
-- Para niños (menores de 12 años), la LGPD exige consentimiento específico de al menos uno de los padres o responsable legal. **[PENDENTE-DONO: edad mínima del servicio, reglas para menores de 18 años, forma de obtener el consentimiento de los responsables, suscripción por menores.]**
+- AprovaAura **no está restringida a mayores de 18 años**: atiende estudiantes de ENEM y vestibulares, incluidos adolescentes (decisión del titular, 24/11/2026).
+- Para niños (menores de 12 años), la LGPD exige consentimiento específico de al menos uno de los padres o responsable legal. **[PENDENTE-DONO/abogado: edad mínima del servicio (hoy la app acepta la franja "menor de 13"), forma de obtener el consentimiento de los responsables y regla de suscripción por menores.]**
 - Los responsables pueden solicitar acceso, corrección o eliminación de los datos de un menor por el canal de privacidad.
 
 ## 11. Tus derechos

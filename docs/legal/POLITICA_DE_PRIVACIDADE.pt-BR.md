@@ -57,11 +57,12 @@ Também podemos divulgar dados quando a lei ou ordem de autoridade exigir.
 
 ## 5. Correção de redação e Google Gemini
 
-- A correção usa a API do Google Gemini. Enviamos **sem identificadores**: nenhum nome, e-mail, ID de conta ou nome de usuário. O texto da redação, porém, é conteúdo que **você escreveu**; evite incluir dados pessoais seus ou de terceiros.
+- **Situação atual: a correção de redação por IA está temporariamente suspensa e nenhuma redação é enviada a provedores de IA.** O recurso só será reativado depois de avisarmos aqui e de existir solução compatível com os termos do provedor e com o público adolescente. A IA serve **exclusivamente** para corrigir redações: não há chatbot nem conversa livre. O limite é de **3 correções por dia** por usuário (configurável).
+- Quando reativada, a correção usará a API do Google Gemini (integração mantida). Enviamos **sem identificadores**: nenhum nome, e-mail, ID de conta ou nome de usuário. O texto da redação, porém, é conteúdo que **você escreveu**; evite incluir dados pessoais seus ou de terceiros.
 - **As condições do Google sobre uso e retenção desses dados dependem da camada contratada**. Na camada gratuita, segundo a documentação do Google, o conteúdo pode ser usado para melhorar produtos do Google e pode ser lido por revisores humanos, e a Google recomenda não enviar dados pessoais ou confidenciais. Na camada paga, o Google afirma que não usa o conteúdo para melhorar produtos, mas registra dados por período limitado para prevenção de abuso e obrigações legais. **Não garantimos que o conteúdo não seja usado para treinamento** enquanto aplicável a camada gratuita.
-- **[PENDENTE-DONO: definir e informar qual camada estará em uso na publicação (a migração para a camada paga é pré-requisito para uso comercial em escala).]**
+- Decisão do dono (24/11/2026): sem contratação de IA paga. Portanto a camada gratuita **não será usada com redações de usuários reais** enquanto o envio estiver suspenso; antes de reativar, esta seção será atualizada com a camada e o provedor efetivos.
 - A nota é **apoio ao estudo e estimativa de treino, não nota oficial**. Se preferir, não use a correção por IA: o restante do app não depende dela.
-- Os termos do Google exigem usuários com 18 anos ou mais. **[PENDENTE-DONO: posição sobre menores de 18 anos no recurso de correção por IA.]**
+- Os termos do Google exigem 18 anos ou mais e vedam apps provavelmente acessados por menores. Como o AprovaAura atende estudantes de todas as idades (inclusive adolescentes), **o envio permanece suspenso** até haver solução compatível.
 
 ## 6. Transferência internacional
 
@@ -95,7 +96,8 @@ Tratamos dados de crianças e adolescentes no seu **melhor interesse** (LGPD, ar
 - Coletamos só a **faixa etária declarada**, sem data de nascimento. A autodeclaração não é verificação rigorosa de idade.
 - **Sem perfilamento comportamental e sem publicidade comportamental.** O app não usa recursos de uso compulsivo.
 - **Compartilhamento com professor: somente adultos.**
-- Para crianças (menores de 12 anos), a LGPD pede consentimento específico de ao menos um dos pais ou responsável legal. **[PENDENTE-DONO: idade mínima do serviço, regras para menores de 18 anos, forma de obter consentimento dos responsáveis, assinatura por menores.]**
+- O AprovaAura **não é restrito a maiores de 18 anos**: atende estudantes do ENEM e vestibulandos, inclusive adolescentes. Decisão do dono (24/11/2026).
+- Para crianças (menores de 12 anos), a LGPD pede consentimento específico de ao menos um dos pais ou responsável legal. **[PENDENTE-DONO/advogado: idade mínima do serviço (hoje o app aceita a faixa "menor de 13"), forma de obter consentimento dos responsáveis e regra de assinatura por menores (pagamento pelo responsável).]**
 - Responsáveis podem solicitar acesso, correção ou exclusão dos dados de um menor pelo canal de privacidade.
 
 ## 11. Seus direitos

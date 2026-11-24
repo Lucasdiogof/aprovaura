@@ -7,7 +7,7 @@
 
 AprovaAura (the "Service") is offered by **[PENDENTE-DONO: legal name]**, CNPJ **[PENDENTE-DONO: CNPJ]**, located at **[PENDENTE-DONO: address]** ("we"). Support: **[PENDENTE-DONO: official support e-mail/channel]** and https://lucksrei.com/projects/aura/support/.
 
-By creating an account or using the Service, you state that you have read these Terms and the Privacy Policy (https://lucksrei.com/projects/aura/privacy/). Minimum age to use the Service: **[PENDENTE-DONO: minimum age]**; rules for users under 18: **[PENDENTE-DONO: rules for minors]**.
+By creating an account or using the Service, you state that you have read these Terms and the Privacy Policy (https://lucksrei.com/projects/aura/privacy/). The Service is aimed at students (ENEM and university-entrance exams) and is **not restricted to users over 18**. Minors should use it with the knowledge and guidance of a parent or legal guardian; paid subscriptions by minors require the guardian's agreement. **[PENDENTE-DONO/lawyer: minimum age and final rules for minors.]**
 
 ## 2. Educational purpose
 
@@ -73,7 +73,7 @@ We may grant courtesy access periods (for example through referrals or promotion
 - Essay feedback uses **artificial intelligence** (Google Gemini API). The score and comments are **study support and a practice estimate, not an official score**, nor an opinion of an exam board or teacher, and may contain errors or inaccuracies.
 - For feedback, we send to Google's API only the topic, supporting texts, essay text and criteria, **without your identifiers** (name, e-mail, account ID). Details and the provider's data-use conditions are in the Privacy Policy.
 - Do not include personal data about yourself or others, or sensitive or confidential information, in your essay.
-- **[PENDENTE-DONO: confirm whether AI feedback will be restricted to users 18 and over, per Gemini's terms.]**
+- AI feedback is **temporarily suspended**: no essay is sent to AI providers. It serves **only** essay correction (no chatbot), limited to **3 corrections per day**. It will be reactivated only with a solution compatible with the provider's terms and with a teenage audience, after notice in these Terms and the Privacy Policy.
 
 ## 13. Teacher referral and sharing of statistics
 

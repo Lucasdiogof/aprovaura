@@ -58,11 +58,12 @@ We may also disclose data when required by law or authority order.
 
 ## 5. Essay feedback and Google Gemini
 
-- Feedback uses the Google Gemini API. We send it **without identifiers**: no name, e-mail, account ID or username. The essay text, however, is content **you wrote**; avoid including personal data about yourself or others.
+- **Current status: AI essay feedback is temporarily suspended and no essay is sent to AI providers.** It will be reactivated only after notice here and with a solution compatible with the provider's terms and a teenage audience. AI is used **only** for essay correction (no chatbot), limited to **3 corrections per day** per user (configurable).
+- When reactivated, feedback will use the Google Gemini API (integration kept). We send it **without identifiers**: no name, e-mail, account ID or username. The essay text, however, is content **you wrote**; avoid including personal data about yourself or others.
 - **Google's conditions on use and retention of this data depend on the service tier contracted.** On the free tier, according to Google's documentation, content may be used to improve Google products and may be read by human reviewers, and Google advises not to submit personal or confidential data. On the paid tier, Google states that it does not use content to improve products, but logs data for a limited period for abuse prevention and legal obligations. **We do not guarantee that content is not used for training** while the free tier applies.
-- **[PENDENTE-DONO: define and disclose which tier will be in use at publication (moving to the paid tier is a prerequisite for commercial use at scale).]**
+- Owner decision (2026-11-24): no paid AI contract. The free tier will **not be used with real users' essays** while sending is suspended; before reactivation this section will state the tier and provider actually used.
 - The score is **study support and a practice estimate, not an official score**. If you prefer, do not use AI feedback: the rest of the app does not depend on it.
-- Google's terms require users aged 18 or over. **[PENDENTE-DONO: position on users under 18 for AI feedback.]**
+- Google's terms require users aged 18 or over and bar apps likely accessed by minors. Since AprovaAura serves students of all ages (including teenagers), **sending remains suspended** until a compatible solution exists.
 
 ## 6. International transfer
 
@@ -96,7 +97,8 @@ We process children's and teenagers' data in their **best interest** (LGPD, art.
 - We collect only the **declared age range**, without date of birth. Self-declaration is not rigorous age verification.
 - **No behavioral profiling and no behavioral advertising.** The app does not use compulsive-use features.
 - **Sharing with a teacher: adults only.**
-- For children (under 12), the LGPD requires specific consent from at least one parent or legal guardian. **[PENDENTE-DONO: minimum age of the service, rules for users under 18, how to obtain guardian consent, subscriptions by minors.]**
+- AprovaAura is **not restricted to users over 18**: it serves ENEM and university-entrance students, including teenagers (owner decision, 2026-11-24).
+- For children (under 12), the LGPD requires specific consent from at least one parent or legal guardian. **[PENDENTE-DONO/lawyer: minimum age of the service (the app currently accepts the "under 13" band), how to obtain guardian consent, and the rule for subscriptions by minors.]**
 - Guardians may request access, correction or deletion of a minor's data through the privacy channel.
 
 ## 11. Your rights

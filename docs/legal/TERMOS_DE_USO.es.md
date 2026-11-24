@@ -7,7 +7,7 @@
 
 AprovaAura (el "Servicio") es ofrecido por **[PENDENTE-DONO: razón social]**, CNPJ **[PENDENTE-DONO: CNPJ]**, con domicilio en **[PENDENTE-DONO: dirección]** ("nosotros"). Atención: **[PENDENTE-DONO: correo/canal oficial de soporte]** y https://lucksrei.com/projects/aura/support/.
 
-Al crear una cuenta o usar el Servicio, declaras haber leído estos Términos y la Política de Privacidad (https://lucksrei.com/projects/aura/privacy/). Edad mínima para usar el Servicio: **[PENDENTE-DONO: edad mínima]**; reglas para menores de 18 años: **[PENDENTE-DONO: reglas para menores]**.
+Al crear una cuenta o usar el Servicio, declaras haber leído estos Términos y la Política de Privacidad (https://lucksrei.com/projects/aura/privacy/). El Servicio está dirigido a estudiantes (ENEM y vestibulares) y **no está restringido a mayores de 18 años**. Los menores deben usarlo con el conocimiento y la orientación de su madre, padre o responsable legal; las suscripciones de pago de menores requieren la conformidad del responsable. **[PENDENTE-DONO/abogado: edad mínima y reglas finales para menores.]**
 
 ## 2. Finalidad educativa
 
@@ -73,7 +73,7 @@ Podemos conceder períodos de acceso de cortesía (por ejemplo, por recomendaci�
 - La corrección de redacciones usa **inteligencia artificial** (API de Google Gemini). La nota y los comentarios son **apoyo al estudio y una estimación de práctica, no una nota oficial**, ni un dictamen de un tribunal examinador o de un profesor, y pueden contener errores o imprecisiones.
 - Para la corrección enviamos a la API de Google solo el tema, los textos de apoyo, el texto de la redacción y los criterios, **sin tus identificadores** (nombre, correo, ID de cuenta). Los detalles y las condiciones de uso de datos del proveedor están en la Política de Privacidad.
 - No incluyas en la redacción datos personales tuyos o de terceros, ni información sensible o confidencial.
-- **[PENDENTE-DONO: confirmar si la corrección por IA se restringirá a mayores de 18 años, según los términos de Gemini.]**
+- La corrección por IA está **temporalmente suspendida**: ninguna redacción se envía a proveedores de IA. Sirve **solo** para corregir redacciones (sin chatbot), con límite de **3 correcciones por día**. Se reactivará solo con una solución compatible con los términos del proveedor y con el público adolescente, previo aviso en estos Términos y en la Política de Privacidad.
 
 ## 13. Indicación de profesor y compartición de estadísticas
 

@@ -3,6 +3,13 @@
 Data: 2026-11-24. Redações **sintéticas** apenas; nenhum dado de aluno. Scripts: `tool/qa/essay_ai_eval.py`
 (prompt/schema reais da função, chamada direta ao Gemini) e `tool/qa/essay_quota_check.py` (RPCs, usuário temporário apagado).
 
+## Decisões definitivas do dono (24/11/2026)
+- Não contratar OpenAI nem qualquer serviço de IA pago; não procurar novos provedores pagos.
+- **Gemini mantido como integração existente**, com a chave compartilhada com o ia-audio; **envio de redações SUSPENSO** (`ESSAY_AI_PROVIDER=disabled`) até existir solução compatível com os termos do provedor e com o público adolescente.
+- O AprovaAura **não** vira app exclusivo para 18+: preserva estudantes do ENEM e vestibulandos.
+- IA **somente** para correção de redações; limite configurável de **3 correções/dia** preservado; **sem chatbot ou conversa livre**.
+- Monetização e AUTO_DEPLOY seguem desativados; nenhum custo gerado.
+
 ## 1. Estado atual: correção externa SUSPENSA
 
 - Secret `ESSAY_AI_PROVIDER=disabled`. O código (`_shared/essay_provider.ts`) só reconhece `google`; qualquer outro valor
@@ -78,7 +85,7 @@ Preços citados nesta tabela vêm de agregadores. A leitura das páginas oficiai
 1. **Manter suspenso.** O Gemini Developer API (gratuito ou pago) não pode atender um app cujo público inclui
    estudantes menores de 18 anos, e o nível gratuito ainda treina com o conteúdo. Isso é uma restrição contratual,
    não de qualidade. O Aprovaura segue aberto a todas as idades.
-2. Candidatos a avaliar com autorização de custo: **Vertex AI** (termos do Google Cloud; menor troca de modelo e
+2. (Superado pela decisão do dono: sem novos provedores pagos.) Candidatos, só se um dia houver orçamento: **Vertex AI** (termos do Google Cloud; menor troca de modelo e
    prompt) ou **OpenAI API** (sem treino por padrão; conferir a Usage Policy para menores e o consentimento
    parental/aviso na Política de Privacidade). Nenhum foi contratado ou testado.
 3. Qualquer escolha exige: aviso na Política de Privacidade (serviço 4), chave própria do Aprovaura, teto global

@@ -30,10 +30,10 @@ Dados do responsável (Termos e Política):
 5. Encarregado (DPO): nome e contato
 
 Decisões bloqueadoras:
-6. Idade mínima do serviço (13, 16 ou 18)
+6. Idade mínima do serviço. **Decidido (24/11): app NÃO restrito a 18+** (público ENEM/vestibular, inclui adolescentes). Resta definir o piso (hoje o app aceita a faixa "menor de 13") com advogado
 7. Regras para menores de 18 anos; uso por menores de 12 e consentimento dos responsáveis; vínculo com professor para menores; assinatura por menores (Family Sharing/Ask to Buy, Family Link)
-8. Gemini: migrar para a camada paga antes de redações reais em escala; posição sobre menores de 18 × termos do Gemini (restringir IA a 18+ ou parecer)
-9. Informar na Política qual camada do Gemini estará em uso na publicação
+8. Gemini: **decidido (24/11)**: integração mantida, envio SUSPENSO até haver solução compatível com termos do provedor e adolescentes; sem IA paga; sem novos provedores; IA só para correção de redação (sem chatbot), 3/dia. Minutas já refletem isso
+9. Informar na Política a camada/provedor efetivos **somente ao reativar o envio** (hoje: suspenso, nada é enviado)
 10. Prazo de guarda fiscal dos dados financeiros (contador)
 11. Prazo de guarda do registro de aceites
 12. Mecanismo de transferência internacional e regiões de cada provedor

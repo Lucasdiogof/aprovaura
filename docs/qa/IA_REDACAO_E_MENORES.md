@@ -2,6 +2,13 @@
 
 > Recomendação técnica, **não** orientação jurídica. Preços e termos de provedores mudam: **conferir nas páginas oficiais antes de contratar** (não verificados nesta sessão; a coluna de outros provedores é conhecimento geral, não pesquisa de hoje). Nenhum serviço foi contratado e o provedor não foi trocado.
 
+## Decisões definitivas do dono (24/11/2026)
+- Não contratar OpenAI nem qualquer serviço de IA pago; não procurar novos provedores pagos.
+- **Gemini mantido como integração existente**, com a chave compartilhada com o ia-audio; **envio de redações SUSPENSO** (`ESSAY_AI_PROVIDER=disabled`) até existir solução compatível com os termos do provedor e com o público adolescente.
+- O AprovaAura **não** vira app exclusivo para 18+: preserva estudantes do ENEM e vestibulandos.
+- IA **somente** para correção de redações; limite configurável de **3 correções/dia** preservado; **sem chatbot ou conversa livre**.
+- Monetização e AUTO_DEPLOY seguem desativados; nenhum custo gerado.
+
 ## Estado atual
 `evaluate-essay` usa Gemini (`GEMINI_MODEL`, camada gratuita). No prompt vão só proposta, textos motivadores e redação (sem identificadores). O limite de 3 correções/dia continua configurável no admin. Documentação do Google (registrada em `docs/release/FATOS_ETAPA09.md`): na camada gratuita o conteúdo pode ser usado para melhorar produtos e revisado por humanos, e o serviço é para 18+.
 
