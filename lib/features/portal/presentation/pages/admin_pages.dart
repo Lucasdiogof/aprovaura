@@ -417,7 +417,7 @@ class _SettingsBodyState extends State<_SettingsBody> {
             t('Bloqueio emergencial', 'Emergency disable', 'Desactivación de emergencia'),
             Row(children: [
               Switch(value: c['emergency_disable'] == true, onChanged: _toggleEmergency),
-              Text(c['emergency_disable'] == true ? t('Ativo', 'Active', 'Activo') : t('Inativo', 'Inactive', 'Inactivo')),
+              Flexible(child: Text(c['emergency_disable'] == true ? t('Ativo', 'Active', 'Activo') : t('Inativo', 'Inactive', 'Inactivo'), overflow: TextOverflow.ellipsis)),
             ]),
           ),
           const SizedBox(height: 8),

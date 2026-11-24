@@ -502,21 +502,28 @@ class Select<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    // Em tela estreita o item mais largo estourava a linha: ocupa o espaço disponível e trunca.
+    final narrow = MediaQuery.sizeOf(context).width < 480;
+    final dropdown = DropdownButtonHideUnderline(
+      child: DropdownButton<T>(
+        value: value,
+        isDense: true,
+        isExpanded: narrow,
+        items: [
+          for (final e in items.entries)
+            DropdownMenuItem<T>(value: e.key, child: Text(e.value, overflow: TextOverflow.ellipsis)),
+        ],
+        onChanged: (v) {
+          if (v != null) onChanged(v);
+        },
+      ),
+    );
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(border: Border.all(color: c.border), borderRadius: BorderRadius.circular(10)),
-      child: Row(mainAxisSize: MainAxisSize.min, children: [
+      child: Row(mainAxisSize: narrow ? MainAxisSize.max : MainAxisSize.min, children: [
         Text('$label: ', style: TextStyle(fontSize: 12, color: c.textHint)),
-        DropdownButtonHideUnderline(
-          child: DropdownButton<T>(
-            value: value,
-            isDense: true,
-            items: [for (final e in items.entries) DropdownMenuItem<T>(value: e.key, child: Text(e.value))],
-            onChanged: (v) {
-              if (v != null) onChanged(v);
-            },
-          ),
-        ),
+        if (narrow) Expanded(child: dropdown) else dropdown,
       ]),
     );
   }
@@ -622,7 +629,8 @@ class BarChart extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 1),
                   child: Container(
-                    height: max == 0 ? 2 : (values[i] / max * (height - 4)).toDouble() + 2,
+                    // Valor negativo (estorno/saldo) vira barra mínima: altura negativa quebra o layout.
+                    height: max <= 0 || values[i] <= 0 ? 2 : (values[i] / max * (height - 4)).toDouble() + 2,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [c.auraViolet, c.auraCyan],
