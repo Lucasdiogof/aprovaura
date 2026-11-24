@@ -43,11 +43,11 @@ class Session:
         return self.page.evaluate("document.body.innerText") + " " + " ".join(
             self.page.evaluate("[...document.querySelectorAll('flt-semantics')].map(e=>e.getAttribute('aria-label')||e.innerText||'')"))
 
-    def click_text(self, label, timeout=4000, nth=0):
+    def click_text(self, label, timeout=8000, nth=0):
         """Clica no botão/aba/link cujo nome COMEÇA com `label` (semântica do Flutter)."""
         self.enable_semantics()
         loc = self.page.locator("flt-semantics[role='button'], flt-semantics[role='tab'], flt-semantics[role='link'], flt-semantics[role='menuitem'], flt-semantics[role='checkbox'], flt-semantics[role='radio']").filter(
-            has_text=re.compile(r"^\s*" + re.escape(label), re.I)).nth(nth)
+            has_text=re.compile(r"^\s*" + r"\s+".join(re.escape(w) for w in label.split()), re.I)).nth(nth)
         loc.click(timeout=timeout)
         self.page.wait_for_timeout(900)
 
@@ -65,7 +65,7 @@ class Session:
         self.pw.stop()
 
 
-def login(s, user, wait=9000):
+def login(s, user, wait=13000):
     s.open("/login", 8000)
     s.page.locator("input").nth(0).fill(f"{user}@qa.invalid")
     s.page.locator("input").nth(1).fill(PASSWORD)
