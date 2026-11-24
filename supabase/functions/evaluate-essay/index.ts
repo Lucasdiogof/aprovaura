@@ -32,6 +32,7 @@
 // submission nunca se perdem.
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.47.10';
+import { resolveEssayProvider } from '../_shared/essay_provider.ts';
 
 const MODEL = Deno.env.get('GEMINI_MODEL') ?? 'gemini-3.8-flash';
 // v2: correção no idioma do app; redação aceita em qualquer idioma.
@@ -384,6 +385,10 @@ Deno.serve(async (req) => {
 
   const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
   const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
+  // Interruptor de segurança: suspende a correção externa antes de qualquer cota ou envio.
+  if (resolveEssayProvider(Deno.env.get('ESSAY_AI_PROVIDER')) === 'suspended') {
+    return json({ error: 'provider suspended', reason: 'not_configured' }, 503);
+  }
   const apiKey = Deno.env.get('GEMINI_API_KEY');
   if (!apiKey) {
     // Sem chave configurada não há como corrigir. Erro claro, sem
