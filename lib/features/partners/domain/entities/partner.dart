@@ -1,6 +1,9 @@
 import 'package:equatable/equatable.dart';
 
 /// Professor parceiro ativo, como aparece na lista de indicação.
+/// Chave (SharedPreferences) do código de indicação vindo de ?ref=.
+const kReferralKey = 'pending_referral_code';
+
 class PartnerSummary extends Equatable {
   const PartnerSummary({required this.id, required this.displayName});
 

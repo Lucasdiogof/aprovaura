@@ -140,4 +140,27 @@ class PortalApi {
       (await _rpc<List>('admin_audit_actions')).map((e) => '$e').toList();
 
   Future<Map<String, dynamic>> auditNeighbors(int id) => _map('admin_audit_neighbors', {'p_id': id});
+
+  // ----- Portal do professor (identificado SEMPRE pela sessão no servidor) -----
+  Future<Map<String, dynamic>> partnerMe() => _map('partner_portal_me');
+
+  Future<Map<String, dynamic>> partnerDashboard(DateTime from, DateTime to) =>
+      _map('partner_dashboard', {'p_from': _d(from), 'p_to': _d(to)});
+
+  Future<Map<String, dynamic>> partnerUsage(DateTime from, DateTime to) =>
+      _map('partner_usage', {'p_from': _d(from), 'p_to': _d(to)});
+
+  Future<Map<String, dynamic>> partnerStudents({
+    String? search, String? filter, String sort = 'linked', String dir = 'desc',
+    int limit = 25, int offset = 0,
+  }) =>
+      _map('partner_list_students', {
+        'p_search': search, 'p_filter': filter, 'p_sort': sort, 'p_dir': dir,
+        'p_limit': limit, 'p_offset': offset,
+      });
+
+  Future<Map<String, dynamic>> partnerStudent(String id) => _map('partner_student_detail', {'p_student': id});
+
+  Future<Map<String, dynamic>> partnerFinance({int limit = 25, int offset = 0}) =>
+      _map('partner_finance', {'p_limit': limit, 'p_offset': offset});
 }

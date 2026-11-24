@@ -57,6 +57,24 @@ class PartnersRepositoryImpl implements PartnersRepository {
   }
 
   @override
+  Future<Result<PartnerSummary?>> resolveCode(String code) async {
+    try {
+      final raw = await _client
+          .rpc<dynamic>('resolve_referral_code', params: {'p_code': code})
+          .withRequestTimeout();
+      if (raw is! Map) return const Success(null);
+      return Success(
+        PartnerSummary(
+          id: raw['partner_id'] as String,
+          displayName: raw['display_name'] as String,
+        ),
+      );
+    } catch (error) {
+      return Error(failureFromError(error));
+    }
+  }
+
+  @override
   Future<Result<PartnerLink>> getMyLink() async {
     try {
       final raw = await _client

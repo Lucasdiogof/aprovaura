@@ -19,6 +19,7 @@ import 'package:aura/features/mock_exam/domain/repositories/mock_exam_repository
 import 'package:aura/features/map_quiz/domain/repositories/map_quiz_repository.dart';
 import 'package:aura/features/streak/domain/repositories/streak_repository.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
+import 'package:aura/features/partners/domain/entities/partner.dart';
 import 'package:aura/features/xp/domain/repositories/xp_repository.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 
@@ -48,6 +49,16 @@ void main() async {
   sl.registerSingleton<SharedPreferences>(
     await SharedPreferences.getInstance(),
   );
+
+  // Link de indicação (?ref=CODE): guarda só o código, e só sem sessão ativa
+  // (um aluno já logado nunca tem a indicação alterada por um link).
+  final ref = Uri.base.queryParameters['ref'];
+  if (kIsWeb &&
+      ref != null &&
+      Supabase.instance.client.auth.currentSession == null &&
+      RegExp(r'^[A-Za-z0-9]{4,12}$').hasMatch(ref)) {
+    await sl<SharedPreferences>().setString(kReferralKey, ref.toUpperCase());
+  }
 
   sl.registerLazySingleton<ThemeCubit>(ThemeCubit.new);
   sl.registerLazySingleton<LocaleCubit>(LocaleCubit.new);

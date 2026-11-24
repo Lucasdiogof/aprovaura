@@ -18,10 +18,13 @@ import 'package:aura/shared/widgets/app_logo.dart';
 enum PortalRole { loading, admin, partner, denied, error }
 
 class PortalSessionState {
-  const PortalSessionState(this.role, {this.email, this.pending = 0});
+  const PortalSessionState(this.role, {this.email, this.pending = 0, this.partnerActive = true});
   final PortalRole role;
   final String? email;
   final int pending;
+
+  /// Professor com parceria ativa. Encerrado/suspenso: só Financeiro e Minha parceria.
+  final bool partnerActive;
 }
 
 /// Papéis do portal, SEMPRE lidos do servidor (get_my_access online). Refaz a
@@ -50,7 +53,11 @@ class PortalSession extends Cubit<PortalSessionState> {
         } catch (_) {}
         emit(PortalSessionState(PortalRole.admin, email: email, pending: pending));
       } else if (roles['partner'] == true) {
-        emit(PortalSessionState(PortalRole.partner, email: email));
+        var active = true;
+        try {
+          active = (await api.partnerMe())['active'] == true;
+        } catch (_) {}
+        emit(PortalSessionState(PortalRole.partner, email: email, partnerActive: active));
       } else {
         emit(PortalSessionState(PortalRole.denied, email: email));
       }
@@ -153,7 +160,7 @@ class _PortalGateState extends State<PortalGate> {
                 location: widget.location,
                 admin: false,
                 signOut: _signOut,
-                child: const _TeacherPlaceholder(),
+                child: widget.child,
               );
             case PortalRole.admin:
               return PortalShell(location: widget.location, admin: true, signOut: _signOut, child: widget.child);
@@ -209,28 +216,6 @@ class _Message extends StatelessWidget {
   }
 }
 
-/// Estrutura compartilhada com o portal dos professores (Etapa 05).
-class _TeacherPlaceholder extends StatelessWidget {
-  const _TeacherPlaceholder();
-  @override
-  Widget build(BuildContext context) {
-    final t = PortalStrings.watch(context);
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      PageHeader(title: t('Portal dos professores', 'Teacher portal', 'Portal de profesores')),
-      Panel(
-        child: EmptyState(
-          icon: Icons.school_outlined,
-          message: t(
-            'Sua parceria está ativa. Seu painel (alunos, indicações e financeiro) estará disponível em breve.',
-            'Your partnership is active. Your dashboard (students, referrals and finances) is coming soon.',
-            'Tu alianza está activa. Tu panel (alumnos, referidos y finanzas) estará disponible pronto.',
-          ),
-        ),
-      ),
-    ]);
-  }
-}
-
 class _NavItem {
   const _NavItem(this.path, this.icon, this.label);
   final String path;
@@ -252,7 +237,7 @@ class PortalShell extends StatelessWidget {
   final Future<void> Function() signOut;
   final Widget child;
 
-  List<_NavItem> _items(PortalStrings t) => admin
+  List<_NavItem> _items(PortalStrings t, bool partnerActive) => admin
       ? [
           _NavItem('/partners', Icons.dashboard_outlined, t('Visão geral', 'Overview', 'Resumen')),
           _NavItem('/partners/users', Icons.people_outline_rounded, t('Usuários', 'Users', 'Usuarios')),
@@ -262,7 +247,16 @@ class PortalShell extends StatelessWidget {
           _NavItem('/partners/audit', Icons.fact_check_outlined, t('Auditoria', 'Audit', 'Auditoría')),
           _NavItem('/partners/settings', Icons.tune_rounded, t('Configurações', 'Settings', 'Configuración')),
         ]
-      : [_NavItem('/partners', Icons.dashboard_outlined, t('Início', 'Home', 'Inicio'))];
+      : [
+          if (partnerActive) ...[
+            _NavItem('/partners', Icons.dashboard_outlined, t('Visão geral', 'Overview', 'Resumen')),
+            _NavItem('/partners/students', Icons.people_outline_rounded, t('Meus alunos', 'My students', 'Mis alumnos')),
+            _NavItem('/partners/stats', Icons.insights_outlined, t('Estatísticas', 'Statistics', 'Estadísticas')),
+          ],
+          _NavItem('/partners/finance', Icons.account_balance_wallet_outlined, t('Financeiro', 'Finance', 'Finanzas')),
+          if (partnerActive) _NavItem('/partners/referrals', Icons.share_outlined, t('Minhas indicações', 'My referrals', 'Mis referidos')),
+          _NavItem('/partners/me', Icons.badge_outlined, t('Minha parceria', 'My partnership', 'Mi alianza')),
+        ];
 
   bool _active(String path) =>
       path == '/partners' ? location == '/partners' : location == path || location.startsWith('$path/');
@@ -274,6 +268,7 @@ class PortalShell extends StatelessWidget {
     final wide = MediaQuery.sizeOf(context).width >= kWide;
     final pending = context.select((PortalSession s) => s.state.pending);
     final email = context.select((PortalSession s) => s.state.email);
+    final partnerActive = context.select((PortalSession s) => s.state.partnerActive);
 
     Widget nav({required bool inDrawer}) => Container(
           width: 240,
@@ -298,7 +293,7 @@ class PortalShell extends StatelessWidget {
                   tone: Tone.info,
                 ),
               ),
-              for (final i in _items(t))
+              for (final i in _items(t, partnerActive))
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                   child: InkWell(

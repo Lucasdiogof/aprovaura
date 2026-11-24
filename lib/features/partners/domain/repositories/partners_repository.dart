@@ -14,6 +14,10 @@ abstract class PartnersRepository {
     int limit = 30,
   });
 
+  /// Valida um código de indicação (link ?ref=). null = inválido ou professor
+  /// inativo; nunca revela mais do que o nome de divulgação.
+  Future<Result<PartnerSummary?>> resolveCode(String code);
+
   Future<Result<PartnerLink>> getMyLink();
 
   /// Vínculo único feito pelo próprio aluno (link_partner).

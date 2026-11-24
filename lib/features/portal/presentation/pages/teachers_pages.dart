@@ -21,7 +21,7 @@ Tone partnerTone(String s) => switch (s) {
       _ => Tone.bad,
     };
 
-String referralLink(String code) => 'https://aprovaura.lucksrei.com/cadastro?ref=$code';
+String referralLink(String code) => 'https://aprovaura.lucksrei.com/?ref=$code';
 
 class TeachersPage extends StatefulWidget {
   const TeachersPage({super.key});
@@ -357,9 +357,9 @@ class _TeacherBody extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Text(
               t(
-                'O cadastro por este link ainda não está habilitado no app; hoje o aluno escolhe o professor na lista.',
-                'Sign-up through this link is not enabled in the app yet; today students pick the teacher from the list.',
-                'El registro por este enlace aún no está habilitado en la app; hoy el alumno elige al profesor en la lista.',
+                'Quem abre este link e se cadastra já vê o professor pré-selecionado e pode trocá-lo.',
+                'Whoever opens this link and signs up sees the teacher pre-selected and can change it.',
+                'Quien abre este enlace y se registra ve al profesor preseleccionado y puede cambiarlo.',
               ),
               style: const TextStyle(fontSize: 11),
             ),

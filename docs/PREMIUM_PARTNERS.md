@@ -229,11 +229,44 @@ Sem chave privilegiada no Flutter; todas as operações por RPC `security define
 
 ### 15.7 Limitações assumidas
 - `compute_access` é chamado por usuário (dashboard e filtro de acesso): ótimo para milhares, a reavaliar com dezenas de milhares (materializar).
-- Link de indicação exibido, mas o cadastro por `?ref=` ainda não é consumido pelo app (hoje o aluno escolhe na lista).
-- Professor sem painel (Etapa 05). Financeiro detalhado, fechamento e repasses pela UI: Etapa 06.
+- (Resolvido na Etapa 05: o cadastro consome `?ref=`; professor tem painel.)
+- Financeiro detalhado, fechamento e repasses pela UI: Etapa 06.
 - Código Flutter novo escrito **sem `flutter analyze` e sem testes** (diretriz); revisar no QA final. Teste de `authRedirect` existente segue válido (parâmetros novos são opcionais).
 
 ### 15.8 Pendências externas
 1. Deploy da Edge Function (`supabase functions deploy admin-provision-partner`, requer PAT do dono para o projeto `cesuqfgrtcitatxvokez`).
 2. Aplicar templates/SMTP de e-mail (§13.6) para o e-mail de definição de senha do professor chegar com o layout trilíngue.
 3. Publicar a web (sem deploy nesta etapa) — `/partners` só existe após o próximo deploy.
+
+## 16. Etapa 05 — Portal dos professores (2026-11-27)
+
+### 16.1 Arquitetura
+Mesmo endereço (`/partners`), mesma shell, auth, tema e i18n da Etapa 04. `/partners` é role-aware (`PortalHome`): admin vê o painel admin; professor ativo, a visão geral. Menu: Visão geral · Meus alunos · Estatísticas · Financeiro · Minhas indicações · Minha parceria (`partner_pages.dart`). Componentes compartilhados novos: `PeriodState` (seletor de período único, agora usado também pelo painel admin) e `ReferralCard`. Tudo somente leitura.
+
+### 16.2 RPCs (migration `20261127000100_partner_portal.sql`, aplicada; rollback em `supabase/rollbacks`)
+`partner_portal_me`, `partner_dashboard`, `partner_usage`, `partner_list_students`, `partner_student_detail`, `partner_finance`, `resolve_referral_code` (anon). O professor vem **sempre de `auth.uid()`** (`_my_partner_id`/`_active_partner_id`); nenhum RPC aceita `partner_id`. `app_pre_request` libera `/rpc/partner_%` e `/rpc/resolve_referral_code` (funciona sem Premium e com e-mail pendente).
+
+### 16.3 Isolamento e privacidade
+- Lista/detalhe só de alunos vinculados **a este professor** (outro aluno → 42501). Sem e-mail, senha, Pix ou pagamentos de alunos; texto de redação e respostas individuais nunca saem.
+- **Dois consentimentos independentes**: vínculo comercial (indicação) mostra situação comercial; estudo individual exige o **último** registro de `study_sharing_consents` = concedido (revogar bloqueia na hora; vínculo e comissões ficam). Menor sem autorização do responsável já vale como não concedido.
+- Agregados de estudo (`partner_usage`, cards de estudo da Visão geral) só com **≥ 5 alunos que compartilham**; abaixo disso, mensagem de coorte mínima (sem números).
+- Professor encerrado/suspenso: só `partner_finance` e `partner_portal_me`; sem dados de ex-alunos.
+
+### 16.4 Definições de métrica
+- **Alunos indicados** = vínculos atuais. **Novos no período** = `linked_at` no período. **Assinante ativo** = entitlement apple/google/web vigente (mensal/anual pelo plano). **Experiência gratuita** = trial vigente; **encerrada** = trial expirado/revogado. **Assinatura expirada** = teve assinatura e não tem vigente. **Cortesia** = Premium cortesia vigente.
+- **Conversão** = alunos que já assinaram ÷ alunos indicados (denominador explícito no card).
+- **Ativo no período** = respondeu questão, fez simulado, enviou redação ou ganhou Aura. **Atividade recente** = estudo/uso do app nos últimos 14 dias (só para quem compartilha).
+- `user_question_progress` guarda a última resposta por questão (não o histórico): totais são consolidados; "no período" usa a data da última resposta. Sem rankings nem estimativas apresentadas como exatas.
+- Premium de professor/cortesia **nunca** gera comissão; comissão só vem de pagamento confirmado (`commission_ledger`).
+
+### 16.5 Link de indicação
+`https://aprovaura.lucksrei.com/?ref=CODE`. Na web, sem sessão, `main.dart` guarda o código (SharedPreferences `pending_referral_code`, só `[A-Za-z0-9]{4,12}`); `RegisterPage` valida via `resolve_referral_code` (professor ativo) e **pré-seleciona** no dropdown — o aluno pode trocar/remover. Inválido/inativo é descartado em silêncio. O código é limpo ao enviar o cadastro; a indicação segue no próprio cadastro (persiste pela confirmação de e-mail). Usuário já logado nunca é alterado por link; vínculo existente nunca é substituído (regras de `link_partner`). Copiar código, copiar link e compartilhar (`share_plus`, com cópia como alternativa). Sem serviço de deep link nem atribuição pós-instalação.
+
+### 16.6 Financeiro do professor
+Saldo, comissões confirmadas, estornos/ajustes, total recebido, último/próximo repasse (1º do mês, manual), histórico por competência, repasses (pago/pendente) e movimentações paginadas. Extensível: a Etapa 06 só adiciona fechamento/repasse pela UI do admin.
+
+### 16.7 Pendências externas e limitações
+PAT do dono para deploy de `admin-provision-partner`; templates/SMTP Resend (§13.6); deploy da web. Mobile (Android/iOS) não expõe o portal. `pubspec.lock` foi regenerado pelo SDK local (pacotes de dev recuados) + `share_plus` novo. Código Flutter sem `flutter analyze`/testes (diretriz): revisar no QA final.
+
+### 16.8 Checklist de QA futuro
+Link `?ref=` válido/inválido/inativo; login prévio + link; troca no dropdown; professor com <5 e ≥5 consentimentos; revogar consentimento; aluno de outro professor (42501); professor encerrado (só Financeiro/Parceria); PT/EN/ES, claro/escuro, mobile; F5 em `/partners/...`.

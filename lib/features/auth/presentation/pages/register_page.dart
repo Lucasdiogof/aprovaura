@@ -1,6 +1,8 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:aura/core/error/result.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/auth/domain/entities/legal_document.dart';
@@ -8,6 +10,7 @@ import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/auth/l10n/auth_strings.dart';
 import 'package:aura/features/auth/l10n/email_verification_strings.dart';
 import 'package:aura/features/auth/presentation/widgets/register_extras.dart';
+import 'package:aura/features/partners/domain/entities/partner.dart';
 import 'package:aura/features/partners/domain/repositories/partners_repository.dart';
 import 'package:aura/features/partners/presentation/cubit/partner_picker_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
@@ -68,10 +71,26 @@ class _RegisterPageState extends State<RegisterPage> {
     });
   }
 
+  /// Código vindo de ?ref=: valida no backend e pré-seleciona o professor
+  /// (o aluno pode trocar ou remover). Código inválido/inativo é descartado.
+  Future<void> _applyReferral() async {
+    final prefs = sl<SharedPreferences>();
+    final code = prefs.getString(kReferralKey);
+    if (code == null) return;
+    final r = await sl<PartnersRepository>().resolveCode(code);
+    if (!mounted) return;
+    if (r case Success(:final data) when data != null) {
+      _picker.select(data);
+    } else if (r is! Error) {
+      await prefs.remove(kReferralKey);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     _picker.load();
+    _applyReferral();
     _loadLegal();
     for (final controller in _fields) {
       controller.addListener(_formCubit.notifyFieldChanged);
@@ -157,6 +176,7 @@ class _RegisterPageState extends State<RegisterPage> {
     // it just reveals what is still missing.
     _formCubit.markSubmitted();
     if (!_isComplete()) return;
+    sl<SharedPreferences>().remove(kReferralKey);
     context.read<AuthCubit>().signUp(
       email: _emailController.text.trim(),
       password: _passwordController.text,

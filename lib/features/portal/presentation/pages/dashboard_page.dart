@@ -4,80 +4,24 @@ import 'package:aura/features/portal/data/portal_api.dart';
 import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/features/portal/presentation/widgets/portal_widgets.dart';
 
-enum _Preset { today, d7, d30, month, lastMonth, custom }
-
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
   @override
   State<DashboardPage> createState() => _DashboardPageState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
-  _Preset _preset = _Preset.d30;
-  DateTimeRange? _custom;
-
-  DateTimeRange _range() {
-    final now = DateTime.now();
-    final today = DateTime(now.year, now.month, now.day);
-    switch (_preset) {
-      case _Preset.today:
-        return DateTimeRange(start: today, end: today);
-      case _Preset.d7:
-        return DateTimeRange(start: today.subtract(const Duration(days: 6)), end: today);
-      case _Preset.d30:
-        return DateTimeRange(start: today.subtract(const Duration(days: 29)), end: today);
-      case _Preset.month:
-        return DateTimeRange(start: DateTime(now.year, now.month), end: today);
-      case _Preset.lastMonth:
-        return DateTimeRange(start: DateTime(now.year, now.month - 1), end: DateTime(now.year, now.month, 0));
-      case _Preset.custom:
-        return _custom ?? DateTimeRange(start: today.subtract(const Duration(days: 29)), end: today);
-    }
-  }
-
-  Future<void> _pick(Object? v) async {
-    final p = v as _Preset;
-    if (p == _Preset.custom) {
-      final now = DateTime.now();
-      final r = await showDateRangePicker(
-        context: context,
-        firstDate: DateTime(2025),
-        lastDate: now,
-        initialDateRange: _range(),
-      );
-      if (r == null) return;
-      setState(() {
-        _custom = r;
-        _preset = p;
-      });
-      return;
-    }
-    setState(() => _preset = p);
-  }
-
+class _DashboardPageState extends State<DashboardPage> with PeriodState {
   @override
   Widget build(BuildContext context) {
     final t = PortalStrings.watch(context);
-    final range = _range();
+    final range = this.range;
     final api = context.read<PortalApi>();
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       PageHeader(
         title: t('Visão geral', 'Overview', 'Resumen'),
         subtitle: '${t.date(range.start)} – ${t.date(range.end)}',
         actions: [
-          Select<_Preset>(
-            label: t('Período', 'Period', 'Periodo'),
-            value: _preset,
-            items: {
-              _Preset.today: t('Hoje', 'Today', 'Hoy'),
-              _Preset.d7: t('Últimos 7 dias', 'Last 7 days', 'Últimos 7 días'),
-              _Preset.d30: t('Últimos 30 dias', 'Last 30 days', 'Últimos 30 días'),
-              _Preset.month: t('Mês atual', 'This month', 'Mes actual'),
-              _Preset.lastMonth: t('Mês anterior', 'Last month', 'Mes anterior'),
-              _Preset.custom: t('Personalizado…', 'Custom…', 'Personalizado…'),
-            },
-            onChanged: _pick,
-          ),
+          periodSelect(t),
         ],
       ),
       Loader<Map<String, dynamic>>(

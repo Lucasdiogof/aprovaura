@@ -53,6 +53,7 @@ dependencies:
   crypto: ^3.0.6 # SHA-256 to verify the server-signed offline access grant
 
   material_ui: ^1.11.1
+  share_plus: ^13.3.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

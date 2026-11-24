@@ -639,3 +639,64 @@ class BarChart extends StatelessWidget {
     ]);
   }
 }
+
+enum Preset { today, d7, d30, month, lastMonth, custom }
+
+/// Seletor de período compartilhado (painel do admin e do professor): mesmos
+/// atalhos, mesmo intervalo personalizado, mesmos rótulos.
+mixin PeriodState<T extends StatefulWidget> on State<T> {
+  Preset preset = Preset.d30;
+  DateTimeRange? customRange;
+
+  DateTimeRange get range {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    switch (preset) {
+      case Preset.today:
+        return DateTimeRange(start: today, end: today);
+      case Preset.d7:
+        return DateTimeRange(start: today.subtract(const Duration(days: 6)), end: today);
+      case Preset.d30:
+        return DateTimeRange(start: today.subtract(const Duration(days: 29)), end: today);
+      case Preset.month:
+        return DateTimeRange(start: DateTime(now.year, now.month), end: today);
+      case Preset.lastMonth:
+        return DateTimeRange(start: DateTime(now.year, now.month - 1), end: DateTime(now.year, now.month, 0));
+      case Preset.custom:
+        return customRange ?? DateTimeRange(start: today.subtract(const Duration(days: 29)), end: today);
+    }
+  }
+
+  Future<void> pickPreset(Object? v) async {
+    final p = v as Preset;
+    if (p == Preset.custom) {
+      final r = await showDateRangePicker(
+        context: context,
+        firstDate: DateTime(2025),
+        lastDate: DateTime.now(),
+        initialDateRange: range,
+      );
+      if (r == null) return;
+      setState(() {
+        customRange = r;
+        preset = p;
+      });
+      return;
+    }
+    setState(() => preset = p);
+  }
+
+  Widget periodSelect(PortalStrings t) => Select<Preset>(
+        label: t('Período', 'Period', 'Periodo'),
+        value: preset,
+        items: {
+          Preset.today: t('Hoje', 'Today', 'Hoy'),
+          Preset.d7: t('Últimos 7 dias', 'Last 7 days', 'Últimos 7 días'),
+          Preset.d30: t('Últimos 30 dias', 'Last 30 days', 'Últimos 30 días'),
+          Preset.month: t('Mês atual', 'This month', 'Mes actual'),
+          Preset.lastMonth: t('Mês anterior', 'Last month', 'Mes anterior'),
+          Preset.custom: t('Personalizado…', 'Custom…', 'Personalizado…'),
+        },
+        onChanged: pickPreset,
+      );
+}
