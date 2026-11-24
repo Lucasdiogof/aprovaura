@@ -433,3 +433,11 @@ Importar só confere; aplicar é ato do admin, auditado, apenas em linhas com va
 
 ### 20.4 Pendências para a Etapa 10
 QA consolidado (sem `analyze`/testes/builds até lá, por diretriz): rodar `flutter analyze` e a suíte (inclui `gate_redirect_test`); validar `/privacidade` e a aba Conciliação; re-aceite: a tela `/privacidade` já lista versões vigentes não aceitas (`get_legal_status`) com botão Aceitar; o bloqueio forçado de uso até aceitar **não foi implementado** (decidir na Etapa 10, depois de publicados os Termos); publicar Termos via `publish_legal_version` na ativação; todas as pendências externas de `docs/release/PENDENCIAS_EXTERNAS.md`; plano de 20 passos em `docs/release/PLANO_ATIVACAO_COMERCIAL.md`; confirmar `site_url` de produção, target API 36, deployment target iOS, Storage/Realtime e endurecimento de permissões (`REVISAO_TECNICA_ETAPA09.md`).
+
+## 21. Etapa 10 — QA consolidado (2026-11-24) — EM ANDAMENTO (não concluída)
+A etapa 10 do roteiro **não** está marcada como concluída: há bloqueadores de lançamento que dependem do dono (`docs/qa/PENDENCIAS_DO_DONO.md`). Veredito atual: **NO-GO** para ativação comercial.
+
+- **Feito e verificado:** `flutter analyze` limpo; 1196 testes Flutter passando; Deno ok; SQL 66/66 (produção, transação revertida: financeiro A–D, conciliação, permissões, exclusão de conta); REST anônimo 34/34 negados; 14 migrações aplicadas do zero em Postgres descartável; builds Web, APK debug e AAB release (1.1.0+8) compilam (nada publicado).
+- **Código novo:** bloqueio de reaceite legal (`AccessGate.legalRequired`, `/aceite-legal`, inerte até haver versão com `requires_reaccept`); interruptor `ESSAY_AI_PROVIDER` da correção por IA (função ainda não publicada); `PrivacyInfo.xcprivacy` com dados coletados; rollback de `20261201000100` completo.
+- **Não validado:** pagamentos reais (Apple/Google/Mercado Pago), e-mail, iOS, rodada visual manual com capturas, Storage/Realtime.
+- Detalhes: `docs/qa/README.md` (classificação por componente), `RESULTADOS.md`, `BUGS_E_CORRECOES.md`, `SEGURANCA_E_BANCO.md`, `FINANCEIRO_HOMOLOGACAO.md`, `IA_REDACAO_E_MENORES.md`, `ATIVACAO_E_ROLLBACK.md`.

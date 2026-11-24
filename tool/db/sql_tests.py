@@ -257,6 +257,23 @@ try:
     as_user(teacher2)
     raises("professor não lê aluno de outro professor", "select partner_student_detail(%s)", stud_a)
     as_service()
+
+    # ------------------------------------------------------------------ Exclusão de conta (contas de teste, tudo dentro da transação revertida)
+    stud_d = new_user("del")
+    link(stud_d, pid2)
+    pay("DEL-1", stud_d, 1990, 299, 0)
+    q("update payments set raw = '{\"x\": 1}'::jsonb where external_id = 'DEL-1'")
+    before = one("select coalesce(sum(amount_cents),0) from commission_ledger where partner_id=%s", pid2)
+    q("delete from auth.users where id=%s", stud_d)
+    ok("excluir aluno: dados pessoais do pagamento minimizados (raw nulo)", one("select raw is null from payments where external_id='DEL-1'") is True)
+    ok("excluir aluno: pagamento e comissão permanecem (contábil)", one("select count(*) from payments where external_id='DEL-1'") == 1
+       and one("select coalesce(sum(amount_cents),0) from commission_ledger where partner_id=%s", pid2) == before)
+    ok("excluir aluno: vínculo some", one("select count(*) from partner_links where student_id=%s", stud_d) == 0)
+    q("delete from auth.users where id=%s", teacher2)
+    ok("excluir professor: perfil anonimizado, encerrado e sem Pix",
+       q("select status, display_name, pix_key from partners where id=%s", pid2)[0] == ("ended", "Professor removido", None))
+    ok("excluir professor: comissões e repasses preservados", one("select count(*) from commission_ledger where partner_id=%s", pid2) > 0)
+    as_service()
 finally:
     conn.rollback()
     conn.close()
