@@ -10,6 +10,7 @@ const CAT = [{ plan: 'monthly', price_cents: 1990 }, { plan: 'annual', price_cen
 
 function fakeDb(tables: Record<string, unknown> = {}) {
   const rpcs: any[] = [], updates: any[] = [];
+  tables = { purchase_account_tokens: { user_id: 'u1' }, ...tables };
   const chain = (table: string): any => new Proxy({}, { get: (_t, k: string) => {
     if (k === 'then') return (res: any) => res({ data: table === 'payment_catalog' ? CAT : (tables[table] ?? null) });
     if (k === 'maybeSingle' || k === 'single') return () => Promise.resolve({ data: tables[table] ?? null });
@@ -82,9 +83,9 @@ Deno.test('conta recebedora diferente, sem collector configurado: recusa e não 
   } finally { api.restore(); Deno.env.delete('MP_ACCESS_TOKEN'); Deno.env.delete('MP_COLLECTOR_ID'); }
 });
 
-Deno.test('valor fora do catálogo, moeda errada e sem referência: invalid, nada concedido', () => withEnv(async () => {
+Deno.test('valor fora do catálogo e moeda errada: invalid, nada concedido', () => withEnv(async () => {
   const { db, rpcs } = fakeDb();
-  for (const o of [{ transaction_amount: 10 }, { currency_id: 'USD' }, { external_reference: null }]) {
+  for (const o of [{ transaction_amount: 10 }, { currency_id: 'USD' }]) {
     const api = stubApi({ '/v1/payments/115': pix({ id: 115, ...o }) });
     try { eq(await processPayment(db, 115), 'invalid', JSON.stringify(o)); } finally { api.restore(); }
   }
@@ -177,3 +178,13 @@ Deno.test('paymentInfo: taxa só "informada" com fee_details; liquidação só q
   const c = paymentInfo({ id: 1, transaction_amount: 19.9, fee_details: [{ amount: 0.75 }], money_release_status: 'released', money_release_date: '2026-12-08T00:00:00Z', transaction_details: { net_received_amount: 19.15 } });
   eq([c.settled_cents, c.settled_at], [1915, '2026-12-08T00:00:00Z'], 'liquidado');
 });
+
+Deno.test('pagamento de outra origem (Payhip, mesma conta MP) é ignorado', () => withEnv(async () => {
+  const api = stubApi({ '/v1/payments/130': pix({ id: 130, external_reference: 'payhip-xyz' }) }); const { db, rpcs } = fakeDb({ purchase_account_tokens: null });
+  try { eq(await processPayment(db, 130), 'foreign', 'resultado'); eq(rpcs.length, 0, 'nada ingerido'); } finally { api.restore(); }
+}));
+
+Deno.test('pagamento sem external_reference é ignorado como de outra origem', () => withEnv(async () => {
+  const api = stubApi({ '/v1/payments/131': pix({ id: 131, external_reference: null }) }); const { db, rpcs } = fakeDb();
+  try { eq(await processPayment(db, 131), 'foreign', 'resultado'); eq(rpcs.length, 0, 'nada ingerido'); } finally { api.restore(); }
+}));

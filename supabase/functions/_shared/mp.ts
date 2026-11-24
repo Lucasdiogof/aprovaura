@@ -60,6 +60,14 @@ async function closeCharge(db: SupabaseClient, mpRef: string, status: 'approved'
   await db.from('mp_pending_charges').update({ status }).eq('mp_ref', mpRef).eq('status', 'pending');
 }
 
+/** A aplicação do Mercado Pago é compartilhada com o Payhip: só processamos cobrança cujo external_reference
+ *  é um token de compra emitido por este sistema; qualquer outra origem é ignorada ('foreign'). */
+async function ownToken(db: SupabaseClient, token: unknown) {
+  if (typeof token !== 'string' || !token) return false;
+  const { data } = await db.from('purchase_account_tokens').select('user_id').eq('token', token).maybeSingle();
+  return !!data;
+}
+
 /** Pix avulso: aprovado concede período fixo; estorno/chargeback reverte. */
 export async function processPayment(db: SupabaseClient, id: string | number) {
   const p = await mp(`/v1/payments/${id}`);
@@ -67,7 +75,8 @@ export async function processPayment(db: SupabaseClient, id: string | number) {
   if (p.payment_method_id !== 'pix') return await processCardReversal(db, p); // aprovação do cartão chega por authorized_payments
   const cat = await plans(db);
   const row = cat.find((c) => Number(c.price_cents) === cents(p.transaction_amount));
-  if (!row || p.currency_id !== 'BRL' || !p.external_reference) return 'invalid';
+  if (!(await ownToken(db, p.external_reference))) return 'foreign';
+  if (!row || p.currency_id !== 'BRL') return 'invalid';
   const env = p.live_mode ? 'production' : 'sandbox';
   const base = { provider: 'mercadopago' as const, env: env as Ev['env'], occurredAt: new Date(p.date_last_updated ?? Date.now()),
     token: p.external_reference, ref: 'pix:' + p.id, plan: row.plan as Ev['plan'] };
@@ -128,7 +137,8 @@ export async function processAuthorizedPayment(db: SupabaseClient, id: string | 
   assertCollector(pay);
   const pre = await mp(`/preapproval/${a.preapproval_id}`);
   const row = (await plans(db)).find((c) => Number(c.price_cents) === cents(pay.transaction_amount));
-  if (!row || pay.currency_id !== 'BRL' || !pre.external_reference) return 'invalid';
+  if (!(await ownToken(db, pre.external_reference))) return 'foreign';
+  if (!row || pay.currency_id !== 'BRL') return 'invalid';
   const r = await ingest(db, { provider: 'mercadopago', env: pay.live_mode ? 'production' : 'sandbox',
     eventId: `mp:auth:${a.id}:approved`, type: 'card_paid', occurredAt: new Date(pay.date_approved ?? Date.now()),
     token: pre.external_reference, ref: 'pre:' + pre.id, plan: row.plan as Ev['plan'], state: 'active',

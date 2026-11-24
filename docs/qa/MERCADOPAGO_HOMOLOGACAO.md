@@ -99,3 +99,15 @@ cartão mensal/anual reais de teste, Pix de teste (QR, copia e cola, expiração
 1. Guardar no cofre o Access Token de teste e o segredo de webhook (modo teste); descobrir o id da conta vendedora de teste com o token; definir `MP_ACCESS_TOKEN`, `MP_WEBHOOK_SECRET`, `MP_SANDBOX_COLLECTOR_ID`, `MP_ENV=sandbox`.
 2. Habilitar **só** a linha `mercadopago/sandbox` em `payment_providers_config` durante a janela de teste e desabilitar ao final. Atenção: o acesso concedido por compra de teste é real dentro do app (entitlement `sandbox:`), então a janela deve ser curta e só com conta de teste.
 3. Executar a matriz da seção 7 com cartões e usuários de teste oficiais; registrar resultado de cada linha aqui. Voltar `MP_ENV` e os secrets de teste ao estado anterior.
+
+## 11. Rodada de homologação sandbox (24/11/2026) — resultado
+
+**Isolamento Payhip (novo, no código):** a aplicação do Mercado Pago é compartilhada com o Payhip. `processPayment` e `processAuthorizedPayment` só processam cobrança cujo `external_reference` é um token de `purchase_account_tokens`; qualquer outra origem retorna `foreign` e não gera evento, pagamento, comissão nem acesso. Cobertos por 2 testes Deno (25/25).
+
+**Pagamento sandbox NÃO homologado.** Resultado real das tentativas com a API:
+- As credenciais "de teste" cadastradas (`TEST-…`) pertencem à conta real (id 207507198), não a uma conta vendedora de teste.
+- Pix com e-mail aleatório: 400 `2034 Invalid users involved`. Pix e cartão com comprador de teste criado via API: 403 `4390 Payer email forbidden`. Token de cartão foi gerado normalmente (cartão de teste do MP).
+- Conclusão: vendedor real + comprador de teste não combinam. É preciso um par **vendedor de teste + comprador de teste** (mesmo país), usando o Access Token APP_USR do **vendedor de teste**.
+- Nada foi simulado; nenhuma cobrança real; segredos `MP_ACCESS_TOKEN`/`MP_WEBHOOK_SECRET`/`MP_ENV` seguem ausentes no Supabase (provedor desligado).
+
+**Procedimento para o dono (painel Mercado Pago Developers):** Suas integrações → aplicação → Testes → Contas de teste → criar conta **Vendedor** (Brasil) e **Comprador** (Brasil); abrir os três pontos da conta vendedora → "Gerar nova senha"; logar nela (usuário/senha da tela; se pedir código, são 6 dígitos enviados ao e-mail de teste) em janela anônima, abrir Developers e copiar o Access Token APP_USR dessa conta e criar o webhook de teste com a assinatura secreta. Guardar tudo no cofre (`mercadopago.aprovaura.sandbox.*`). Depois a Claude instala os segredos por janela controlada e roda a matriz (Pix/cartão, mensal/anual, aprovado/pendente/recusado, cancelamento, reembolso).
