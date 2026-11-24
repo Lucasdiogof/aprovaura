@@ -258,6 +258,11 @@ try:
     raises("professor não lê aluno de outro professor", "select partner_student_detail(%s)", stud_a)
     as_service()
 
+    # ------------------------------------------------------------------ Reaceite legal: nunca exigido por padrão
+    as_service()
+    ok("legal: padrão da coluna requires_reaccept é false", one("select column_default from information_schema.columns where table_name='legal_documents' and column_name='requires_reaccept'") == "false")
+    ok("legal: nenhum documento vigente exige reaceite hoje", one("select count(*) from legal_documents where is_current and requires_reaccept") == 0)
+
     # ------------------------------------------------------------------ Exclusão de conta (contas de teste, tudo dentro da transação revertida)
     stud_d = new_user("del")
     link(stud_d, pid2)
