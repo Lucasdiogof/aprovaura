@@ -1,7 +1,7 @@
 # AprovaAura Premium + Partners — documento central
 
 > **Fonte de continuidade entre sessões e agentes.** Atualize-o em TODA etapa.
-> Estado em 2026-11-25: **Etapas 01 (fundação), 02 (cadastro/autenticação/indicação) e 03 (onboarding animado) concluídas. O modelo comercial e a confirmação obrigatória de e-mail estão DESLIGADOS em produção.**
+> Estado em 2026-11-26: **Etapas 01 (fundação), 02 (cadastro/autenticação/indicação), 03 (onboarding animado) e 04 (portal administrativo) concluídas. O modelo comercial e a confirmação obrigatória de e-mail estão DESLIGADOS em produção.**
 
 ## 1. Decisões comerciais definitivas
 - Premium **mensal R$ 19,90** e **anual R$ 190,00**. Mercado inicial: Brasil (BRL). **Sem plano gratuito permanente.**
@@ -83,6 +83,7 @@ Flutter  ──get_my_access()──▶  Supabase (Postgres)  ◀── futuros 
 | `20261124000500_enforcement_gate_essay.sql` | gate de API + limite de redações configurável | sim |
 | `20261125000100_email_proof_legal_referral.sql` | prova de e-mail, trial na confirmação, termos/consentimentos, busca de professores, gate PT403 | sim (2026-11-25) |
 | `20261125000200_discard_unconfirmed_signup.sql` | corrigir e-mail no cadastro + rota no gate | sim (2026-11-25) |
+| `20261126000100_admin_portal.sql` | RPCs do portal admin, atividade, vínculo/solicitações, config | sim (2026-11-26) |
 
 Rollbacks em `supabase/rollbacks/*.down.sql` (os de 0200/0300/0400 apagam dados: só antes de uso real). Aplicar com `tool/db/apply_migration.py` (ensaio `dry` com ROLLBACK, depois `apply`); **nunca `supabase db push`**. A chave de assinatura foi gerada com `tool/db/gen_access_key.py` (kid `k1`).
 
@@ -116,7 +117,7 @@ Rollbacks em `supabase/rollbacks/*.down.sql` (os de 0200/0300/0400 apagam dados:
 - Cloudflare Workers Builds (integração Git) pode publicar sozinho a cada push, independente do GitHub Actions — **NÃO CONFIRMADO** (sem acesso ao painel).
 - `AUTO_DEPLOY` (variável do GitHub) foi posta em `false` na Etapa 01 para o push em `main` não publicar a web durante o desenvolvimento; **reativar (`true`) só no lançamento**. Deploy manual: `workflow_dispatch`.
 
-**Roadmap (dez etapas; numeração do plano do dono — ajustar se divergir):** 00 auditoria ✔; 01 fundação/segurança/monetização ✔; 02 cadastro, autenticação, Resend e indicação ✔ (este documento §13); 03 onboarding animado ✔ (§14); 04 paywall/tela de bloqueio + navegação por estado de acesso; 05 pagamentos web (Mercado Pago) + webhooks; 06 Play Billing/StoreKit + recibos; 07 portais admin e professor (`/partners`, mesma conta); 08 notificações + contratos digitais; 09 turmas, questões autorais, rankings, chats; 10 endurecimento (gabaritos no servidor) + QA consolidado + lançamento. (Numeração reorganizada em dez etapas contando a 00; ajustar se divergir do plano do dono.)
+**Roadmap oficial (exatamente dez etapas, 01–10; não renumerar):** 1 Fundação, segurança e monetização ✔; 2 Cadastro, Resend e confirmação de e-mail ✔; 3 Onboarding animado com Aurudo ✔; 4 Portal administrativo ✔ (§15); 5 Portal dos professores; 6 Financeiro, comissões e repasses; 7 Apple, Google e Mercado Pago; 8 Paywall e integração final; 9 Termos, privacidade e preparação comercial; 10 QA consolidado, correções e publicação.
 
 **Checklist de QA/publicação (a executar na etapa final):** `flutter analyze` + testes; revisar código novo da Etapa 01 (escrito sem analyze); teste de ponta a ponta de `get_my_access`, trial, cortesia, gate 402 (com enforcement ligado em ambiente de teste), offline (relógio recuado, troca de conta, expiração), fila offline sob 402; testes das RPCs financeiras; builds Android/iOS/Web; revisão de strings PT/EN/ES e temas; atualizar política de privacidade e termos (assinatura, parceiros); ativar modelo; monitorar; manter `emergency_disable` à mão.
 
@@ -196,3 +197,43 @@ Publicar a web (o logo do e-mail depende disso) e conferir `site_url`; demais pe
 
 ### 14.8 Checklist de QA futuro (Etapa 03)
 Primeira abertura (Android/iOS/web) → apresentação; pular; reabrir (não repete); trocar idioma na apresentação; redução de movimento; fonte grande (sem corte); celular pequeno, tablet, desktop; claro/escuro; voltar/avançar por gesto, botão e teclado; replay da tela 5 ao voltar; cadastro novo → configuração → app; fechar o app no meio da configuração e reabrir (retoma); usuário existente (não vê configuração; vê apresentação uma vez); confirmação de e-mail pendente ao abrir; verificar consumo (nenhum controller rodando fora da tela visível).
+
+
+## 15. Etapa 04 — Portal administrativo (2026-11-26)
+
+### 15.1 Arquitetura e URL
+- **https://aprovaura.lucksrei.com/partners** é o próprio Flutter Web (mesmo bundle, Auth, tema e idiomas). O app passou a `usePathUrlStrategy()` (URLs sem `#`); o Cloudflare já devolve `index.html` para qualquer caminho (SPA). **Links antigos `/#/rota` continuam abrindo** (`_initialLocation` lê o fragmento). Acesso direto, F5 e voltar funcionam; sem sessão → `/login?next=/partners/...` e, após entrar, volta ao destino (só aceita `next` que comece com `/partners`; nunca redireciona para fora).
+- `lib/features/portal/`: `data/portal_api.dart` (único cliente de RPCs `admin_*` + Edge Function), `l10n/portal_strings.dart` (PT/EN/ES, datas/moeda por idioma), `presentation/widgets/portal_widgets.dart` (cards, tabela responsiva, paginação, filtros, skeleton, gráficos de barras sem dependência), `pages/` (gate/shell, dashboard, usuários, detalhe, professores, solicitações, assinaturas, configurações, auditoria).
+- **Gate**: `PortalSession` lê `get_my_access` **direto do servidor** (nunca da autorização offline) e decide a interface: administrador → portal completo; professor ativo → casca compartilhada com placeholder (Etapa 05); demais → "Acesso restrito" + link para o app. Reconsulta a cada 5 min e quando qualquer operação volta `42501` (perda de papel na sessão fecha o portal). Sessão expirada (JWT) → logout e login com retorno. Cada RPC valida `require_admin()` no servidor: esconder menu não é segurança.
+
+### 15.2 Telas
+Visão geral (indicadores + gráficos diários, presets hoje/7d/30d/mês atual/anterior/personalizado), Usuários (busca nome/username/e-mail; filtros acesso, professor, indicação, e-mail verificado, data; ordenação; paginação no servidor), Detalhe do usuário (Conta, Premium com concessão/revogação, Professor indicador com histórico e solicitações, Estatísticas, Financeiro), Professores (lista, cadastro, detalhe com alunos/estatísticas/histórico, editar, encerrar/reativar), Solicitações (badge de pendentes no menu), Assinaturas, Auditoria (detalhe + registros anteriores/posteriores), Configurações.
+
+### 15.3 Migration `20261126000100_admin_portal.sql` (aplicada; rollback em `supabase/rollbacks`)
+- `commercial_config.default_commission_bps` (50%). `user_activity` + `touch_activity(platform)`.
+- Leitura: `admin_dashboard(from,to)`, `admin_list_users(...)`, `admin_get_user`, `admin_list_partners`, `admin_get_partner`, `admin_list_change_requests`, `admin_pending_change_count`, `admin_list_subscriptions`, `admin_get_config`, `admin_list_audit`, `admin_audit_actions`, `admin_audit_neighbors`, `admin_assert`.
+- Escrita: `admin_grant_premium` (dias/data/sem fim; cortesia, sem comissão), `admin_revoke_entitlement` (**agora só cortesia**, P0032 para o resto), `admin_promote_partner` (reativa a mesma parceria se já existiu), `admin_update_partner` (validações + código único P0052), `admin_set_student_partner` (vincula/troca/remove, auditoria, bloqueio por aluno, encerra pendência obsoleta), `admin_review_partner_change` (agora devolve jsonb; idempotente se já processada; "obsoleta" se o vínculo mudou; bloqueia professor inativo), `admin_update_commercial_config` (+ validação de versões, + comissão padrão).
+- Auxiliares internos sem acesso de cliente: `_scrub` (remove `pix_key`, `raw`, tokens do que o portal mostra da auditoria), `_page`, `_like_escape`, `_user_last_study`, `service_find_user_by_email` (só service_role).
+- Correção: `_link_once`/`get_my_partner` — depois que o admin **remove** o vínculo, o aluno pode escolher de novo (antes ficava sem caminho).
+- Todas as `admin_*` já passam no gate (`/rpc/admin_%`).
+
+### 15.4 Provisionamento de professor (Edge Function `admin-provision-partner`)
+Valida o chamador com `admin_assert()` usando o JWT dele; só então usa `service_role` (existe apenas no ambiente da função, nunca no bundle). E-mail já existente → reutiliza a conta (senha intocada). Conta nova → senha aleatória descartada + e-mail de recuperação para o professor definir a própria senha; nada de senha em tabela. A parceria é criada por `admin_promote_partner` **com o JWT do admin** (auditoria correta); falha → remove a conta recém-criada. **Pendente: deploy** (ver 15.8). Promover usuário existente também funciona pela RPC direta.
+
+### 15.5 Semântica da atividade
+- **Último login** = `auth.users.last_sign_in_at` (GoTrue). **Atividade no app** = `user_activity.last_seen_at` (abertura/retorno do app autenticado; ≤1 escrita/10 min no cliente e no servidor; só plataforma, sem geolocalização). **Último estudo** = maior entre resposta, simulado, redação e Aura. Usuários antigos só têm "atividade no app" após abrirem a versão nova.
+- Encerrar parceria: sai da lista, perde Premium de professor, sem novas comissões; mantém conta, histórico, ledger e repasses; vínculos dos alunos permanecem como história.
+
+### 15.6 Segurança
+Sem chave privilegiada no Flutter; todas as operações por RPC `security definer` + `require_admin()`; paginação limitada no servidor; filtros validados (P0060); auditoria imutável sem segredos; revogação restrita a cortesia (admin não "vira" a Apple/Google/Mercado Pago); ativação do modelo comercial **não existe na UI** (somente leitura + bloqueio emergencial com confirmação).
+
+### 15.7 Limitações assumidas
+- `compute_access` é chamado por usuário (dashboard e filtro de acesso): ótimo para milhares, a reavaliar com dezenas de milhares (materializar).
+- Link de indicação exibido, mas o cadastro por `?ref=` ainda não é consumido pelo app (hoje o aluno escolhe na lista).
+- Professor sem painel (Etapa 05). Financeiro detalhado, fechamento e repasses pela UI: Etapa 06.
+- Código Flutter novo escrito **sem `flutter analyze` e sem testes** (diretriz); revisar no QA final. Teste de `authRedirect` existente segue válido (parâmetros novos são opcionais).
+
+### 15.8 Pendências externas
+1. Deploy da Edge Function (`supabase functions deploy admin-provision-partner`, requer PAT do dono para o projeto `cesuqfgrtcitatxvokez`).
+2. Aplicar templates/SMTP de e-mail (§13.6) para o e-mail de definição de senha do professor chegar com o layout trilíngue.
+3. Publicar a web (sem deploy nesta etapa) — `/partners` só existe após o próximo deploy.

@@ -42,6 +42,8 @@ dependencies:
   equatable: ^3.0.0 # Value equality for entities, states and failures
   get_it: ^9.3.0 # Dependency injection / service locator
   go_router: ^18.1.4 # Declarative routing
+  flutter_web_plugins:
+    sdk: flutter # usePathUrlStrategy: portal em /partners
   supabase_flutter: ^2.9.0 # Supabase client (auth)
   shared_preferences: ^2.3.3 # Persists theme and language preferences
   flutter_map: ^8.3.1

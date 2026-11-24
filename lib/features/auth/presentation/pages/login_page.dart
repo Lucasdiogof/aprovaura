@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/core/router/app_router.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/auth/l10n/auth_strings.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
@@ -102,7 +103,9 @@ class _LoginPageState extends State<LoginPage> {
         listener: (context, state) {
           switch (state) {
             case AuthSuccess():
-              context.go('/home');
+              // Vindo do portal (/partners), volta para lá; senão, o app.
+              final next = GoRouterState.of(context).uri.queryParameters['next'];
+              context.go(isPortalPath(next) ? next! : '/home');
             // Account exists but the e-mail was never confirmed: resume.
             case AuthEmailConfirmationRequired(:final email):
               context.push('/confirmar-email', extra: (email, false));

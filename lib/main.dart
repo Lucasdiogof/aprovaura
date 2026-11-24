@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -22,6 +23,9 @@ import 'package:aura/features/xp/domain/repositories/xp_repository.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 
 void main() async {
+  // URLs sem '#': o portal precisa responder em /partners (acesso direto e F5).
+  // Links antigos '#/rota' continuam funcionando (ver _initialLocation).
+  usePathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
 
   EnvConfig.validate();

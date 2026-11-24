@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 
 import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
@@ -179,7 +180,10 @@ void wireAccessSupport() {
     switch (change.event) {
       case AuthChangeEvent.signedIn:
       case AuthChangeEvent.initialSession:
-        if (change.session != null) unawaited(cubit.refresh(force: true));
+        if (change.session != null) {
+          unawaited(cubit.refresh(force: true));
+          unawaited(_touchActivity());
+        }
       case AuthChangeEvent.signedOut:
         unawaited(cubit.reset());
       default:
@@ -196,8 +200,30 @@ class _AccessLifecycleObserver with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed) unawaited(_cubit.refresh());
+    if (state == AppLifecycleState.resumed) {
+      unawaited(_cubit.refresh());
+      unawaited(_touchActivity());
+    }
   }
+}
+
+DateTime? _lastTouch;
+
+/// "Última atividade no app" para o portal administrativo: no máximo 1 gravação
+/// a cada 10 min por aparelho (o servidor também limita), só com sessão, sem
+/// dados além da plataforma. Falhas (offline, 402) são ignoradas.
+Future<void> _touchActivity() async {
+  final now = DateTime.now();
+  if (_lastTouch != null && now.difference(_lastTouch!) < const Duration(minutes: 10)) return;
+  final client = sl<SupabaseClient>();
+  if (client.auth.currentSession == null) return;
+  _lastTouch = now;
+  try {
+    final platform = kIsWeb
+        ? 'web'
+        : (defaultTargetPlatform == TargetPlatform.iOS ? 'ios' : 'android');
+    await client.rpc<dynamic>('touch_activity', params: {'p_platform': platform});
+  } catch (_) {}
 }
 
 /// Connects the connection monitor and the pending-sync queue to the rest of
