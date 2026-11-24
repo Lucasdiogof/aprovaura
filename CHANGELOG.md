@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Added (Etapas 08–09: commercial preparation, inactive in production)
+- Mandatory paywall flow, access gate and "My subscription" (Etapa 08).
+- Versioned legal documents (effective date, languages, acceptance history, `publish_legal_version`), declared age range and safe-by-default teacher stat sharing (adults only), "Privacy and terms" screen in Profile.
+- Admin reconciliation import for Google Play, Mercado Pago and Apple (aggregate check) reports: import only checks, applying is audited.
+- Release docs: legal drafts, store listings, activation plan and external-pendencies inventory under `docs/`.
+
 ### Added
 - Quick practice: a deck of never-answered questions, one per subject per
   round, with a bottom sheet offering another round at the end.

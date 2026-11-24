@@ -10,6 +10,7 @@ import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/partners/presentation/widgets/partner_link_tile.dart';
 import 'package:aura/features/paywall/presentation/widgets/my_subscription_tile.dart';
+import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/features/profile/l10n/profile_strings.dart';
 import 'package:aura/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:aura/features/profile/presentation/cubit/profile_state.dart';
@@ -307,6 +308,12 @@ class _ProfileBody extends StatelessWidget {
                           onTap: () => _openSettings(context),
                         ),
                         const MySubscriptionTile(),
+                        SettingsTile(
+                          icon: Icons.privacy_tip_outlined,
+                          title: PortalStrings.watch(context)('Privacidade e termos', 'Privacy and terms', 'Privacidad y términos'),
+                          subtitle: PortalStrings.watch(context)('Documentos, faixa etária e compartilhamento', 'Documents, age range and sharing', 'Documentos, rango de edad y compartir'),
+                          onTap: () => context.push('/privacidade'),
+                        ),
                         const PartnerLinkTile(),
                       ],
                     ),

@@ -179,6 +179,12 @@ flutter analyze
 flutter test
 ```
 
+## Commercial model (prepared, not yet active)
+
+Premium plans: **R$ 19.90/month** or **R$ 190.00/year** (about 20% off), with a **72-hour trial after e-mail confirmation, no card required** (existing users do not get a new trial). Android bills through Google Play Billing, iOS through the App Store, and the web through Mercado Pago (recurring card, or one-off Pix with manual renewal). One account works on every platform. Partner teachers earn 50% of the net amount, paid manually by Pix on the 1st of each month.
+
+The paywall and the billing providers are built but **switched off in production** until store approval and sandbox validation. Legal drafts, store listings and the activation plan live in [`docs/legal`](docs/legal), [`docs/store-listings`](docs/store-listings) and [`docs/release`](docs/release). Public pages: [terms](https://lucksrei.com/projects/aura/terms/) · [privacy](https://lucksrei.com/projects/aura/privacy/) · [account deletion](https://lucksrei.com/projects/aura/data-deletion/) · [support](https://lucksrei.com/projects/aura/support/).
+
 ## Project status
 
 Published on the App Store, Google Play and the web, in active development. Premium subscriptions and the teacher Partners program are being built; see [docs/PREMIUM_PARTNERS.md](docs/PREMIUM_PARTNERS.md).

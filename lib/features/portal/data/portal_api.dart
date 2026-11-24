@@ -211,6 +211,22 @@ class PortalApi {
 
   Future<Map<String, dynamic>> partnerPix(String id) => _map('admin_get_partner_pix', {'p_partner': id});
 
+  Future<Map<String, dynamic>> importReport({
+    required String provider, required String kind, required DateTime competence, String? fileName,
+    required String sha256, required List<Map<String, dynamic>> lines,
+  }) => _map('admin_import_report', {
+        'p_provider': provider, 'p_kind': kind, 'p_competence': _d(competence), 'p_file_name': fileName,
+        'p_sha256': sha256, 'p_lines': lines,
+      });
+
+  Future<Map<String, dynamic>> applyReport(String id) => _map('admin_apply_report', {'p_import': id});
+
+  Future<List<Map<String, dynamic>>> reportImports() async => [
+        for (final e in (await _rpc<List>('admin_list_report_imports'))) Map<String, dynamic>.from(e as Map)
+      ];
+
+  Future<Map<String, dynamic>> reportImport(String id) => _map('admin_get_report_import', {'p_import': id});
+
   Future<Map<String, dynamic>> expenses({DateTime? from, DateTime? to, String? category, int limit = 25, int offset = 0}) =>
       _map('admin_list_expenses', {
         'p_from': from == null ? null : _d(from), 'p_to': to == null ? null : _d(to),

@@ -179,6 +179,12 @@ flutter analyze
 flutter test
 ```
 
+## Modelo comercial (preparado, ainda não ativo)
+
+Planos Premium: **R$ 19,90/mês** ou **R$ 190,00/ano** (cerca de 20% de desconto), com **teste de 72 horas após a confirmação do e-mail, sem cartão** (usuários já existentes não ganham novo teste). No Android a cobrança é pelo Google Play Billing, no iOS pela App Store e na web pelo Mercado Pago (cartão recorrente ou Pix avulso com renovação manual). Uma conta vale em todas as plataformas. Professores parceiros recebem 50% do valor líquido, pago manualmente por Pix todo dia 1º.
+
+O paywall e os provedores de cobrança estão prontos, mas **desligados em produção** até a aprovação nas lojas e a validação em sandbox. Minutas legais, fichas das lojas e plano de ativação ficam em [`docs/legal`](docs/legal), [`docs/store-listings`](docs/store-listings) e [`docs/release`](docs/release). Páginas públicas: [termos](https://lucksrei.com/projects/aura/terms/) · [privacidade](https://lucksrei.com/projects/aura/privacy/) · [exclusão de conta](https://lucksrei.com/projects/aura/data-deletion/) · [suporte](https://lucksrei.com/projects/aura/support/).
+
 ## Status do projeto
 
 Publicado na App Store e na web, em desenvolvimento ativo.

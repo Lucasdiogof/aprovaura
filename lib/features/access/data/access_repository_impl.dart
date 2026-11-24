@@ -52,7 +52,14 @@ class AccessRepositoryImpl implements AccessRepository {
       return Success(AccessStatus.fromJson(json));
     } catch (error) {
       final failure = failureFromError(error);
-      if (isConnectionFailure(failure)) return Success(_offline(uid));
+      // Sem rede OU falha do servidor (5xx/inesperada): vale só a autorização
+      // assinada ainda válida. Uma falha do servidor NUNCA estende acesso
+      // vencido: sem autorização válida cai em "conecte-se para verificar".
+      if (isConnectionFailure(failure) ||
+          failure is ServerFailure ||
+          failure is UnexpectedFailure) {
+        return Success(_offline(uid));
+      }
       return Error(failure);
     }
   }

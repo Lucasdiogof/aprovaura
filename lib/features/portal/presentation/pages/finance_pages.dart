@@ -8,6 +8,7 @@ import 'package:aura/features/portal/data/portal_api.dart';
 import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/features/portal/presentation/pages/partner_pages.dart';
 import 'package:aura/features/portal/presentation/pages/portal_gate.dart';
+import 'package:aura/features/portal/presentation/pages/reconcile_tab.dart';
 import 'package:aura/features/portal/presentation/widgets/portal_widgets.dart';
 
 // Financeiro do administrador (Etapa 06). Todos os números vêm do servidor
@@ -94,6 +95,7 @@ class _AdminFinanceState extends State<AdminFinancePage> {
       t('Pagamentos', 'Payments', 'Pagos'),
       t('Repasses', 'Payouts', 'Pagos a profesores'),
       t('Despesas', 'Expenses', 'Gastos'),
+      t('Conciliação', 'Reconciliation', 'Conciliación'),
     ];
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       PageHeader(title: t('Financeiro', 'Finance', 'Finanzas')),
@@ -108,7 +110,8 @@ class _AdminFinanceState extends State<AdminFinancePage> {
         0 => const _OverviewTab(),
         1 => const _PaymentsTab(),
         2 => const _PayoutsTab(),
-        _ => const _ExpensesTab(),
+        3 => const _ExpensesTab(),
+        _ => const ReconcileTab(),
       },
     ]);
   }

@@ -27,6 +27,7 @@ import 'package:aura/features/portal/presentation/pages/finance_pages.dart';
 import 'package:aura/features/portal/presentation/pages/integrations_page.dart';
 import 'package:aura/features/portal/presentation/pages/partner_pages.dart';
 import 'package:aura/features/portal/presentation/pages/portal_gate.dart';
+import 'package:aura/features/legal/presentation/pages/privacy_page.dart';
 import 'package:aura/features/portal/presentation/pages/teachers_pages.dart';
 import 'package:aura/features/portal/presentation/pages/user_detail_page.dart';
 import 'package:aura/features/portal/presentation/pages/users_page.dart';
@@ -35,7 +36,7 @@ import 'package:aura/features/portal/presentation/pages/users_page.dart';
 /// `currentUser!` e `/onboarding` gravaria perfil sem dono. Importa também
 /// na web, onde qualquer URL pode ser aberta direto.
 const _authenticatedRoutes = {'/home', '/onboarding'};
-const _sessionOnlyRoutes = {'/assinatura', '/minha-assinatura', '/verificando', '/conectar', '/atualizar'};
+const _sessionOnlyRoutes = {'/assinatura', '/minha-assinatura', '/privacidade', '/verificando', '/conectar', '/atualizar'};
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -97,7 +98,7 @@ String? gateRedirect({
       }
       return location == '/conectar' || location == '/atualizar' ? '/home' : null;
     case AccessGate.paywall:
-      return location == '/assinatura' || location == '/minha-assinatura' ? null : '/assinatura';
+      return location == '/assinatura' || location == '/minha-assinatura' || location == '/privacidade' ? null : '/assinatura';
     case AccessGate.connectionRequired:
       return location == '/conectar' ? null : '/conectar';
     case AccessGate.updateRequired:
@@ -209,6 +210,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(path: '/atualizar', builder: (_, __) => const UpdateRequiredPage()),
     GoRoute(path: '/assinatura', builder: (_, __) => const PaywallPage()),
     GoRoute(path: '/minha-assinatura', builder: (_, __) => const MySubscriptionPage()),
+    GoRoute(path: '/privacidade', builder: (_, __) => const PrivacyPage()),
     GoRoute(
       path: '/onboarding',
       builder: (context, state) => const OnboardingPage(),

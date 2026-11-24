@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#040405">
+<script src="/assets/js/theme-boot.js"></script>
+<script src="/assets/js/i18n-boot.js"></script>
+<title>Subscriptions — Aprovaura | Lucksrei</title>
+<meta name="description" content="How to subscribe to, manage and cancel Aprovaura on Google Play, App Store and web; 72-hour trial, withdrawal and restoring purchases.">
+<link rel="canonical" href="https://lucksrei.com/projects/aura/subscriptions/">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/css/style.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lucksrei">
+<meta property="og:title" content="Subscriptions — Aprovaura">
+<meta property="og:description" content="How to subscribe to, manage and cancel Aprovaura on Google Play, App Store and web; 72-hour trial, withdrawal and restoring purchases.">
+<meta property="og:url" content="https://lucksrei.com/projects/aura/subscriptions/">
+<meta name="twitter:card" content="summary">
+<!-- Titles/descriptions PT and ES (the site i18n.js only swaps data-i18n keys; legal blocks switch by html[lang]):
+ PT: Assinaturas — Aprovaura | Como assinar, gerenciar e cancelar o Aprovaura no Google Play, App Store e web; teste de 72 horas, arrependimento e restauração de compras.
+ ES: Suscripciones — Aprovaura | Cómo suscribirte, gestionar y cancelar Aprovaura en Google Play, App Store y web; prueba de 72 horas, arrepentimiento y restauración de compras. -->
+<style>
+html[lang="pt-BR"] [data-legal]:not([data-legal="pt-BR"]),
+html[lang="en"] [data-legal]:not([data-legal="en"]),
+html[lang="es"] [data-legal]:not([data-legal="es"]){ display:none; }
+.legal-draft{ font-size:13px; color:var(--text-dim); border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--panel); padding:10px 14px; margin-bottom:24px; }
+.plans{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin:16px 0 8px; }
+.plan{ border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--panel); padding:18px; }
+.plan strong{ display:block; font-size:1.5rem; margin:4px 0; }
+.plan small{ color:var(--text-dim); }
+.ilus{ border:1px dashed var(--border); border-radius:var(--radius-sm); padding:14px 16px; margin:16px 0; background:var(--panel); }
+.ilus table{ width:100%; border-collapse:collapse; margin-top:8px; }
+.ilus td,.ilus th{ text-align:left; padding:6px 4px; border-bottom:1px solid var(--border); }
+.pend{ font-weight:600; }
+@media (max-width:560px){ .ilus td,.ilus th{ font-size:14px; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="nav.skip">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Main" data-i18n-attr="aria-label:nav.aria">
+      <a class="nav-brand" href="/"><span class="brand-logo"><img src="/assets/img/brand/lucksrei-sm.webp" alt="Lucksrei" width="159" height="34"></span></a>
+      <div class="nav-links">
+        <a href="/#sobre" data-i18n="nav.about">About</a>
+        <a href="/#experiencia" data-i18n="nav.experience">Experience</a>
+        <a href="/#projetos" data-i18n="nav.projects">Projects</a>
+        <a href="/apps/" data-i18n="nav.apps">Apps</a>
+        <a href="/#tecnologias" data-i18n="nav.technologies">Technologies</a>
+        <a href="/contact/" data-i18n="nav.contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang_aria">
+          <button type="button" class="lang-btn" data-locale="pt-BR" lang="pt-BR" aria-pressed="false" title="Português (Brasil)">PT</button>
+          <button type="button" class="lang-btn" data-locale="en" lang="en" aria-pressed="true" title="English">EN</button>
+          <button type="button" class="lang-btn" data-locale="es" lang="es" aria-pressed="false" title="Español">ES</button>
+        </div>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme"><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button>
+        <button class="mobile-toggle" aria-label="Open menu" data-i18n-attr="aria-label:nav.menu_open" aria-expanded="false" aria-controls="mobile-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="/#sobre" data-i18n="nav.about">About</a>
+    <a href="/#experiencia" data-i18n="nav.experience">Experience</a>
+    <a href="/#projetos" data-i18n="nav.projects">Projects</a>
+    <a href="/apps/" data-i18n="nav.apps">Apps</a>
+    <a href="/#tecnologias" data-i18n="nav.technologies">Technologies</a>
+    <a href="/contact/" data-i18n="nav.contact">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+<div data-legal="en" lang="en">
+  <section class="page-hero lk-grid">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Lucksrei</a> / <a href="/projects/aura/">Aprovaura</a> / Subscriptions</div>
+      <span class="eyebrow">Aprovaura</span>
+      <h1>Subscriptions — Aprovaura</h1>
+      <p class="lead">How to subscribe, manage and cancel, on each platform.</p>
+    </div>
+  </section>
+  <section>
+    <div class="container legal-body" style="max-width:760px">
+      <p class="legal-draft">Draft of November 24, 2026, based on the verified facts of Stage 09. It describes how the app works and is not legal advice.</p>
+
+<h2>Plans</h2>
+<p>R$ 19.90/month or R$ 190.00/year (about 20% savings over 12 × R$ 19.90 = R$ 238.80). What you get: full access to the question bank, mock exams, mistake review, AI essay grading (an estimate, not the official score), maps and the other features described on the <a href="/projects/aura/">app page</a>.</p>
+<h2>72-hour trial, no card</h2>
+<p>The trial lasts 72 hours from the moment your e-mail is actually confirmed. It asks for no card and creates no automatic charge: at the end, you decide whether to subscribe. Users who already had an account do not get a new trial. This trial is Aprovaura's own, not a store introductory offer.</p>
+<h2>How to subscribe and manage, by platform</h2>
+<h3>Android — Google Play</h3>
+<p>Subscribing goes through Google Play Billing and renews automatically until you cancel. To manage or cancel: Google Play → your profile → Payments &amp; subscriptions → Subscriptions → Aprovaura (Google Play subscription center). Cancellation takes effect at the end of the period already paid.</p>
+<h3>iPhone/iPad — App Store</h3>
+<p>Subscribing goes through StoreKit (App Store) and renews automatically until you cancel. To manage or cancel: Settings → your name → Subscriptions → Aprovaura. Use <strong>Restore purchases</strong> in the app if you changed device or reinstalled.</p>
+<h3>Web — Mercado Pago</h3>
+<p>On the web you choose between a card with recurring billing or a one-off Pix payment. A one-off Pix has no automatic renewal: when the period ends, you renew manually if you wish. To cancel recurring card billing, use the app's “My subscription” screen or contact support (<span class="pend">[PENDENTE-DONO: official support e-mail/channel]</span>). Aprovaura does not see your card number; Mercado Pago processes it.</p>
+<h2>One account</h2>
+<p>Your account works on Android, iOS and web. Cancelling on one platform does not automatically cancel a subscription made on another: cancel on the platform where you paid.</p>
+<h2>7-day right of withdrawal</h2>
+<p>For distance contracts, Brazil's Consumer Defense Code (art. 49) provides a 7-day right of withdrawal with a full refund. If you bought on the web, ask support (<span class="pend">[PENDENTE-DONO: official support e-mail/channel]</span>), by the same means used to contract. If you bought through Google Play or the App Store, the refund is processed by the store itself under its policy. If you are unsure how this applies to you, contact support.</p>
+<h2>Restore purchases</h2>
+<p>If you already subscribed and the app does not recognize your plan: sign in with the same account and use “Restore purchases” (iOS) or wait for the sync with the store (Android). If it persists, write to support.</p>
+<h2>No promises</h2>
+<p>Aprovaura is a study aid and does not promise approval in any exam.</p>
+<div class="hero-ctas" style="margin-top:32px"><a class="btn btn-ghost" href="/projects/aura/terms/">Terms of Use</a><a class="btn btn-ghost" href="/projects/aura/privacy/">Privacy policy</a><a class="btn btn-ghost" href="/projects/aura/support/">Support</a><a class="btn btn-ghost" href="/projects/aura/data-deletion/">Account and data deletion</a></div>
+    </div>
+  </section>
+</div>
+<div data-legal="pt-BR" lang="pt-BR">
+  <section class="page-hero lk-grid">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Lucksrei</a> / <a href="/projects/aura/">Aprovaura</a> / Assinaturas</div>
+      <span class="eyebrow">Aprovaura</span>
+      <h1>Assinaturas — Aprovaura</h1>
+      <p class="lead">Como assinar, gerenciar e cancelar, em cada plataforma.</p>
+    </div>
+  </section>
+  <section>
+    <div class="container legal-body" style="max-width:760px">
+      <p class="legal-draft">Rascunho de 24 de novembro de 2026, baseado nos fatos verificados da Etapa 09. Descreve como o app funciona e não substitui orientação jurídica.</p>
+
+<h2>Planos</h2>
+<p>R$ 19,90/mês ou R$ 190,00/ano (cerca de 20% de economia sobre 12 × R$ 19,90 = R$ 238,80). O que você recebe: acesso completo ao banco de questões, simulados, revisão de erros, correção de redação por IA (estimativa, não a nota oficial), mapas e demais recursos descritos na <a href="/projects/aura/">página do app</a>.</p>
+<h2>Teste de 72 horas, sem cartão</h2>
+<p>O teste dura 72 horas contadas a partir da confirmação efetiva do seu e-mail. Não pede cartão e não gera cobrança automática: ao final, você decide se assina. Usuários que já tinham conta não ganham um novo teste. Esse teste é do próprio Aprovaura, não uma oferta introdutória da loja.</p>
+<h2>Como assinar e gerenciar, por plataforma</h2>
+<h3>Android — Google Play</h3>
+<p>A assinatura é feita pelo Google Play Billing, com renovação automática até você cancelar. Para gerenciar ou cancelar: Google Play → seu perfil → Pagamentos e assinaturas → Assinaturas → Aprovaura (Central de Assinaturas do Google Play). O cancelamento vale a partir do fim do período já pago.</p>
+<h3>iPhone/iPad — App Store</h3>
+<p>A assinatura é feita pelo StoreKit (App Store), com renovação automática até você cancelar. Para gerenciar ou cancelar: Ajustes → seu nome → Assinaturas → Aprovaura. Use <strong>Restaurar compras</strong> no app se trocou de aparelho ou reinstalou.</p>
+<h3>Web — Mercado Pago</h3>
+<p>Na web você escolhe entre cartão com cobrança recorrente ou Pix avulso. No Pix avulso não há renovação automática: quando o período acaba, você renova manualmente se quiser. Para cancelar o cartão recorrente, use a tela “Minha assinatura” do app ou fale com o suporte (<span class="pend">[PENDENTE-DONO: e-mail/canal de suporte oficial]</span>). O Aprovaura não vê o número do seu cartão; quem processa é o Mercado Pago.</p>
+<h2>Conta única</h2>
+<p>Sua conta vale em Android, iOS e web. Cancelar numa plataforma não cancela automaticamente a assinatura feita em outra: cancele na plataforma em que você pagou.</p>
+<h2>Arrependimento em 7 dias</h2>
+<p>Para contratações à distância, o Código de Defesa do Consumidor (art. 49) prevê o direito de arrependimento em 7 dias, com devolução integral. Se você comprou pela web, peça pelo suporte (<span class="pend">[PENDENTE-DONO: e-mail/canal de suporte oficial]</span>), pelo mesmo meio de contratação. Se comprou pelo Google Play ou pela App Store, o reembolso é processado pela própria loja, conforme a política dela. Se você tiver dúvida sobre como isso se aplica ao seu caso, fale com o suporte.</p>
+<h2>Restaurar compras</h2>
+<p>Se você já assinou e o app não reconhece o plano: entre com a mesma conta e use “Restaurar compras” (iOS) ou aguarde a sincronização com a loja (Android). Se persistir, escreva para o suporte.</p>
+<h2>Sem promessas</h2>
+<p>O Aprovaura é um apoio ao estudo e não promete aprovação em nenhum exame.</p>
+<div class="hero-ctas" style="margin-top:32px"><a class="btn btn-ghost" href="/projects/aura/terms/">Termos de uso</a><a class="btn btn-ghost" href="/projects/aura/privacy/">Política de privacidade</a><a class="btn btn-ghost" href="/projects/aura/support/">Suporte</a><a class="btn btn-ghost" href="/projects/aura/data-deletion/">Exclusão de conta e dados</a></div>
+    </div>
+  </section>
+</div>
+<div data-legal="es" lang="es">
+  <section class="page-hero lk-grid">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Lucksrei</a> / <a href="/projects/aura/">Aprovaura</a> / Suscripciones</div>
+      <span class="eyebrow">Aprovaura</span>
+      <h1>Suscripciones — Aprovaura</h1>
+      <p class="lead">Cómo suscribirte, gestionar y cancelar, en cada plataforma.</p>
+    </div>
+  </section>
+  <section>
+    <div class="container legal-body" style="max-width:760px">
+      <p class="legal-draft">Borrador del 24 de noviembre de 2026, basado en los hechos verificados de la Etapa 09. Describe cómo funciona la app y no sustituye el asesoramiento jurídico.</p>
+
+<h2>Planes</h2>
+<p>R$ 19,90/mes o R$ 190,00/año (cerca de 20% de ahorro sobre 12 × R$ 19,90 = R$ 238,80). Qué recibes: acceso completo al banco de preguntas, simulacros, revisión de errores, corrección de redacción con IA (una estimación, no la nota oficial), mapas y los demás recursos descritos en la <a href="/projects/aura/">página de la app</a>.</p>
+<h2>Prueba de 72 horas, sin tarjeta</h2>
+<p>La prueba dura 72 horas contadas desde la confirmación efectiva de tu correo. No pide tarjeta ni genera cobro automático: al final, decides si te suscribes. Los usuarios que ya tenían cuenta no reciben una nueva prueba. Esta prueba es propia de Aprovaura, no una oferta introductoria de la tienda.</p>
+<h2>Cómo suscribirte y gestionar, por plataforma</h2>
+<h3>Android — Google Play</h3>
+<p>La suscripción se hace con Google Play Billing y se renueva automáticamente hasta que canceles. Para gestionar o cancelar: Google Play → tu perfil → Pagos y suscripciones → Suscripciones → Aprovaura (centro de suscripciones de Google Play). La cancelación vale desde el final del período ya pagado.</p>
+<h3>iPhone/iPad — App Store</h3>
+<p>La suscripción se hace con StoreKit (App Store) y se renueva automáticamente hasta que canceles. Para gestionar o cancelar: Ajustes → tu nombre → Suscripciones → Aprovaura. Usa <strong>Restaurar compras</strong> en la app si cambiaste de dispositivo o reinstalaste.</p>
+<h3>Web — Mercado Pago</h3>
+<p>En la web eliges entre tarjeta con cobro recurrente o Pix individual. El Pix individual no tiene renovación automática: al terminar el período, renuevas manualmente si quieres. Para cancelar la tarjeta recurrente, usa la pantalla “Mi suscripción” de la app o contacta a soporte (<span class="pend">[PENDENTE-DONO: correo/canal de soporte oficial]</span>). Aprovaura no ve el número de tu tarjeta; lo procesa Mercado Pago.</p>
+<h2>Cuenta única</h2>
+<p>Tu cuenta vale en Android, iOS y web. Cancelar en una plataforma no cancela automáticamente una suscripción hecha en otra: cancela en la plataforma donde pagaste.</p>
+<h2>Arrepentimiento en 7 días</h2>
+<p>Para contrataciones a distancia, el Código de Defensa del Consumidor de Brasil (art. 49) prevé el derecho de arrepentimiento en 7 días, con devolución íntegra. Si compraste por la web, solicítalo a soporte (<span class="pend">[PENDENTE-DONO: correo/canal de soporte oficial]</span>), por el mismo medio de contratación. Si compraste por Google Play o App Store, el reembolso lo procesa la propia tienda según su política. Si tienes dudas sobre cómo se aplica a tu caso, contacta a soporte.</p>
+<h2>Restaurar compras</h2>
+<p>Si ya te suscribiste y la app no reconoce tu plan: entra con la misma cuenta y usa “Restaurar compras” (iOS) o espera la sincronización con la tienda (Android). Si persiste, escribe a soporte.</p>
+<h2>Sin promesas</h2>
+<p>Aprovaura es un apoyo al estudio y no promete aprobación en ningún examen.</p>
+<div class="hero-ctas" style="margin-top:32px"><a class="btn btn-ghost" href="/projects/aura/terms/">Términos de uso</a><a class="btn btn-ghost" href="/projects/aura/privacy/">Política de privacidad</a><a class="btn btn-ghost" href="/projects/aura/support/">Soporte</a><a class="btn btn-ghost" href="/projects/aura/data-deletion/">Eliminación de cuenta y datos</a></div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-id">
+        <div class="footer-brand"><img src="/assets/img/brand/lucksrei-md.webp" alt="Lucksrei" width="262" height="56" loading="lazy" decoding="async"></div>
+      </div>
+      <a class="footer-up" href="#main"><span aria-hidden="true">↑</span> <span data-i18n="common.voltar_ao_topo">Back to top</span></a>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p class="footer-title" data-i18n="nav.projects">Projects</p>
+        <ul>
+          <li><a href="/projects/fan-hub/">Goiás App</a></li>
+          <li><a href="/projects/aura/">Aprovaura</a></li>
+          <li><a href="/projects/la-pelve/">La Pelve</a></li>
+          <li><a href="/projects/match-queue/">Match Queue</a></li>
+          <li><a href="/projects/orbijob/">OrbiJob</a></li>
+          <li><a href="/projects/bebometro/">Bebômetro</a></li>
+          <li><a href="/projects/busaogyn/">BusãoGyn</a></li>
+          <li><a href="/apps/" data-i18n="footer.other_apps">Other apps</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-title" data-i18n="footer.nav_title">Navigation</p>
+        <ul>
+          <li><a href="/#sobre" data-i18n="nav.about">About</a></li>
+          <li><a href="/#experiencia" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="/#tecnologias" data-i18n="nav.technologies">Technologies</a></li>
+          <li><a href="/contact/" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="/privacy/" data-i18n="footer.privacy">Privacy</a></li>
+          <li><a href="/terms/" data-i18n="footer.terms">Terms of Use</a></li>
+          <li><a href="/support/" data-i18n="footer.support">Support</a></li>
+          <li><a href="/visitors/" data-i18n="footer.visitors">Visitor map</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-title" data-i18n="footer.connect_title">Connect</p>
+        <ul>
+          <li><a href="mailto:marketing@lucksrei.com">marketing@lucksrei.com</a></li>
+          <li><a href="https://www.linkedin.com/in/lucas-diogo-aa39b9174/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/Lucasdiogof" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="https://wa.me/5562982795032" target="_blank" rel="noopener">WhatsApp ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Lucksrei — LUCAS DIOGO FRANCA · CNPJ 54.868.173/0001-55 · <span data-i18n="footer.country">Brazil</span></span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top" data-i18n-attr="aria-label:common.voltar_ao_topo">↑</button>
+<script src="/assets/js/i18n.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/kingdom.js"></script>
+</body>
+</html>

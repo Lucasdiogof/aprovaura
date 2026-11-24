@@ -117,7 +117,7 @@ Rollbacks em `supabase/rollbacks/*.down.sql` (os de 0200/0300/0400 apagam dados:
 - Cloudflare Workers Builds (integração Git) pode publicar sozinho a cada push, independente do GitHub Actions — **NÃO CONFIRMADO** (sem acesso ao painel).
 - `AUTO_DEPLOY` (variável do GitHub) foi posta em `false` na Etapa 01 para o push em `main` não publicar a web durante o desenvolvimento; **reativar (`true`) só no lançamento**. Deploy manual: `workflow_dispatch`.
 
-**Roadmap oficial (exatamente dez etapas, 01–10; não renumerar):** 1 Fundação, segurança e monetização ✔; 2 Cadastro, Resend e confirmação de e-mail ✔; 3 Onboarding animado com Aurudo ✔; 4 Portal administrativo ✔ (§15); 5 Portal dos professores ✔; 6 Financeiro, comissões e repasses ✔; 7 Apple, Google e Mercado Pago ✔; 8 Paywall e integração final ✔ (§19); 9 Termos, privacidade e preparação comercial; 10 QA consolidado, correções e publicação.
+**Roadmap oficial (exatamente dez etapas, 01–10; não renumerar):** 1 Fundação, segurança e monetização ✔; 2 Cadastro, Resend e confirmação de e-mail ✔; 3 Onboarding animado com Aurudo ✔; 4 Portal administrativo ✔ (§15); 5 Portal dos professores ✔; 6 Financeiro, comissões e repasses ✔; 7 Apple, Google e Mercado Pago ✔; 8 Paywall e integração final ✔ (§19); 9 Termos, privacidade e preparação comercial ✔ (§20); 10 QA consolidado, correções e publicação.
 
 **Checklist de QA/publicação (a executar na etapa final):** `flutter analyze` + testes; revisar código novo da Etapa 01 (escrito sem analyze); teste de ponta a ponta de `get_my_access`, trial, cortesia, gate 402 (com enforcement ligado em ambiente de teste), offline (relógio recuado, troca de conta, expiração), fila offline sob 402; testes das RPCs financeiras; builds Android/iOS/Web; revisão de strings PT/EN/ES e temas; atualizar política de privacidade e termos (assinatura, parceiros); ativar modelo; monitorar; manter `emergency_disable` à mão.
 
@@ -416,3 +416,20 @@ Gate (com `enforcement` ligado só em ambiente de teste): sem acesso → paywall
 
 ### 19.12 Checklist de ativação comercial
 Tudo da §12/§13.9 e §18.12 concluído; versão nova (com paywall e `/confirmar-email`) **aprovada e publicada** nas lojas e na web; produtos Apple/Google/MP conferidos (`verified=true`) e provedores `enabled=true` por ambiente; `min_version_*` definido; Termos de Uso e Política atualizados; cron de reconciliação; `emergency_disable` à mão; só então `admin_set_commercial_enforcement(true)` e, por último, `AUTO_DEPLOY=true`.
+
+## 20. Etapa 09 — Termos, privacidade e preparação comercial (2026-11-24)
+Nada foi ativado: `enforcement_enabled`, confirmação de e-mail obrigatória, provedores comerciais e `AUTO_DEPLOY` seguem **desligados**; nenhuma publicação nas lojas ou na web.
+
+### 20.1 Entregue
+- **Migrations aplicadas** (aditivas, com rollback em `supabase/rollbacks/`): `20261201000100_legal_versions_age_sharing` (documentos legais com vigência/idiomas/re-aceite, `publish_legal_version`, histórico de aceites, faixa etária declarada, compartilhamento seguro por padrão, gate liberando consulta/aceite sem Premium) e `20261201000200_financial_report_import` (conciliação por relatórios oficiais).
+- **Flutter**: tela `/privacidade` (Perfil → Privacidade e termos: documentos, histórico de aceites, faixa etária, compartilhamento revogável); aba **Conciliação** no financeiro do portal admin; endurecimento do acesso offline contra 5xx.
+- **Documentos**: `docs/legal/` (minutas de Termos e Política, PT/EN/ES), `docs/site-lucksrei/` (rascunhos do site e da página de parceiros; nada publicado), `docs/store-listings/` (Apple/Google PT/EN/ES + revisores/checklists), `docs/release/` (fatos, pendências externas, plano de ativação, assinaturas, matriz de dados, revisão técnica), `docs/partners/`, `docs/finance/RECONCILIATION.md`.
+
+### 20.2 Menores (decisão e bloqueadores)
+Seguro por padrão: só quem declarou **adulto** no servidor compartilha estatísticas com professor; menor/desconhecido nunca; sem data de nascimento, perfilamento ou publicidade comportamental. **Bloqueadores de lançamento (decisão do dono + advogado):** idade mínima do serviço; permitir <12 e consentimento parental; vínculo com professor para menores e base legal; assinatura por menores; RIPD/encarregado; Gemini exige 18+ e a camada gratuita permite revisão humana/treino → migrar para camada paga e decidir correção por IA para menores. Detalhes e fontes em `docs/release/FATOS_ETAPA09.md`.
+
+### 20.3 Conciliação — estado e limites
+Importar só confere; aplicar é ato do admin, auditado, apenas em linhas com valor bruto idêntico; divergência/sem par nunca é aplicada; Apple (agregada) só confere totais; comissão estimada nunca vira repasse. Formatos **não validados** com amostras reais — validar na Etapa 10.
+
+### 20.4 Pendências para a Etapa 10
+QA consolidado (sem `analyze`/testes/builds até lá, por diretriz): rodar `flutter analyze` e a suíte (inclui `gate_redirect_test`); validar `/privacidade` e a aba Conciliação; re-aceite: a tela `/privacidade` já lista versões vigentes não aceitas (`get_legal_status`) com botão Aceitar; o bloqueio forçado de uso até aceitar **não foi implementado** (decidir na Etapa 10, depois de publicados os Termos); publicar Termos via `publish_legal_version` na ativação; todas as pendências externas de `docs/release/PENDENCIAS_EXTERNAS.md`; plano de 20 passos em `docs/release/PLANO_ATIVACAO_COMERCIAL.md`; confirmar `site_url` de produção, target API 36, deployment target iOS, Storage/Realtime e endurecimento de permissões (`REVISAO_TECNICA_ETAPA09.md`).
