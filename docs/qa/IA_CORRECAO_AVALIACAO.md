@@ -71,7 +71,7 @@ significa **cota única**: consumo de um app esgota o outro. Recomenda-se chave/
 | Disponibilidade medida | ruim (503) | não testado | não testado | não testado |
 | Exige contratar | não | **sim** | **sim** | **sim** |
 
-Preços citados vêm de agregadores, não das páginas oficiais; conferir antes de decidir.
+Preços citados nesta tabela vêm de agregadores. A leitura das páginas oficiais da OpenAI (preços, menores, retenção, ZDR) está em `IA_OPENAI_AVALIACAO.md`.
 
 ## 8. Recomendação
 
