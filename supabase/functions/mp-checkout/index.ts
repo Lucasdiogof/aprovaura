@@ -2,7 +2,7 @@
 // consulta/atualiza a cobrança pendente e cancela a assinatura. Valor, moeda e duração vêm do
 // catálogo do servidor — nunca do cliente. Nenhum PAN/CVV passa por aqui (checkout hospedado).
 import { admin, caller, catalogRows, json } from '../_shared/common.ts';
-import { mp, processPayment } from '../_shared/mp.ts';
+import { mp, processPayment, reconcilePreapproval } from '../_shared/mp.ts';
 
 const ENV = () => (Deno.env.get('MP_ENV') === 'sandbox' ? 'sandbox' : 'production');
 
@@ -26,6 +26,11 @@ Deno.serve(async (req) => {
         if (st !== 'pending') await db.from('mp_pending_charges').update({ status: st }).eq('id', c.id);
         return json({ status: st });
       }
+      if (c?.status === 'pending' && c.method === 'card' && c.mp_ref) { // cartão: confirma no Mercado Pago (nunca pelo retorno do checkout)
+        await reconcilePreapproval(db, c.mp_ref).catch(() => {});
+        const { data: c2 } = await db.from('mp_pending_charges').select('status').eq('id', c.id).single();
+        return json({ status: c2?.status ?? 'pending' });
+      }
       return json({ status: c?.status ?? 'none' });
     }
     if (action === 'cancel') { // cancela a assinatura de cartão; acesso segue até o fim do período
@@ -40,6 +45,8 @@ Deno.serve(async (req) => {
       return json({ error: 'body' }, 400);
     }
     const env = ENV();
+    // Falha fechada ANTES de criar qualquer cobrança: sem conta recebedora/segredo do webhook o pagamento nunca seria creditado.
+    if (!Deno.env.get(env === 'sandbox' ? 'MP_SANDBOX_COLLECTOR_ID' : 'MP_COLLECTOR_ID') || !Deno.env.get('MP_WEBHOOK_SECRET')) return json({ error: 'provider_disabled' }, 403);
     const { data: cfg } = await db.from('payment_providers_config').select('enabled').eq('provider', 'mercadopago').eq('environment', env).single();
     if (!cfg?.enabled) return json({ error: 'provider_disabled' }, 403);
     // Gate de e-mail confirmado + token opaco (sem e-mail/nome no external_reference).
@@ -54,7 +61,7 @@ Deno.serve(async (req) => {
     const row = (await catalogRows(db, 'mercadopago')).find((c) => c.plan === b.plan);
     if (!row) return json({ error: 'plan' }, 422);
     const amount = Number(row.price_cents) / 100;
-    const origin = Deno.env.get('PORTAL_BACK_URL') ?? 'https://aprovaura.lucksrei.com/partners';
+    const origin = Deno.env.get('PORTAL_BACK_URL') ?? 'https://aprovaura.lucksrei.com/minha-assinatura';
 
     const { data: old } = await db.from('mp_pending_charges').select('*').eq('user_id', me.user.id).eq('status', 'pending');
     for (const o of old ?? []) { // mesma tentativa reaproveitada; plano/método novo substitui a antiga
@@ -80,7 +87,8 @@ Deno.serve(async (req) => {
       status: 'pending', auto_recurring: { frequency: b.plan === 'annual' ? 12 : 1, frequency_type: 'months',
         transaction_amount: amount, currency_id: 'BRL' } }) });
     const { data: c } = await db.from('mp_pending_charges').insert({ id: pendingId, user_id: me.user.id, plan: b.plan,
-      method: 'card', mp_ref: String(pre.id), amount_cents: row.price_cents, checkout_url: pre.init_point }).select().single();
+      method: 'card', mp_ref: String(pre.id), amount_cents: row.price_cents, checkout_url: pre.init_point,
+      expires_at: new Date(Date.now() + 24 * 3_600_000).toISOString() }).select().single();
     return json({ charge: c });
   } catch (e) {
     console.error('mp-checkout', (e as Error).message);

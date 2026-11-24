@@ -5,7 +5,7 @@
 import { admin, catalogRows, ingest, json, timingEqual } from '../_shared/common.ts';
 import { appleEvent, appleLookup } from '../_shared/apple.ts';
 import { processGoogleToken } from '../_shared/google.ts';
-import { processPreapproval } from '../_shared/mp.ts';
+import { reconcileMpPending, reconcilePreapproval } from '../_shared/mp.ts';
 
 Deno.serve(async (req) => {
   const secret = Deno.env.get('CRON_SECRET'), got = req.headers.get('x-cron-secret') ?? '';
@@ -25,7 +25,7 @@ Deno.serve(async (req) => {
       } else if (s.provider === 'google') {
         await processGoogleToken(db, s.original_ref, `recon:google:${s.original_ref}:${new Date().toISOString().slice(0, 13)}`, new Date());
       } else if (s.original_ref.startsWith('pre:')) {
-        await processPreapproval(db, s.original_ref.slice(4));
+        await reconcilePreapproval(db, s.original_ref.slice(4));
       }
       await db.rpc('service_mark_checked', { p_id: s.id });
       out.checked++;
@@ -34,5 +34,6 @@ Deno.serve(async (req) => {
       console.error('reconcile', s.provider, (e as Error).message); // sem token/ref nos logs
     }
   }
-  return json(out);
+  const mpPending = Deno.env.get('MP_ACCESS_TOKEN') ? await reconcileMpPending(db) : null; // só com Mercado Pago configurado
+  return json({ ...out, mpPending });
 });

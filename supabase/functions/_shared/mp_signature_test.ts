@@ -7,7 +7,7 @@ const SECRET = 'segredo-de-teste';
 
 async function sign(dataId: string, rid: string, ts: string, secret = SECRET) {
   const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-  const mac = new Uint8Array(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`id:${dataId.toLowerCase()};request-id:${rid};ts:${ts};`)));
+  const mac = new Uint8Array(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode((dataId ? `id:${dataId.toLowerCase()};` : '') + (rid ? `request-id:${rid};` : '') + `ts:${ts};`)));
   return [...mac].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 const req = (sig: string, rid = 'rid-1') => new Request('https://x.test/hook', { method: 'POST', headers: { 'x-signature': sig, 'x-request-id': rid } });
@@ -41,4 +41,11 @@ Deno.test('timingEqual', () => {
   assert(timingEqual('abc', 'abc'), 'iguais');
   assert(!timingEqual('abc', 'abd'), 'diferentes');
   assert(!timingEqual('abc', 'abcd'), 'tamanhos diferentes');
+});
+
+Deno.test('sem x-request-id o manifesto omite a parte (regra oficial) e valida', async () => {
+  Deno.env.set('MP_WEBHOOK_SECRET', SECRET);
+  const v1 = await sign('abc', '', '1700000000');
+  const r = new Request('https://x.test/hook', { method: 'POST', headers: { 'x-signature': `ts=1700000000,v1=${v1}` } });
+  assert(await verifySignature(r, 'abc'), 'sem request-id');
 });

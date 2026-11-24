@@ -280,6 +280,44 @@ try:
     ok("excluir professor: comissões e repasses preservados", one("select count(*) from commission_ledger where partner_id=%s", pid2) > 0)
     as_service()
 
+    # Mercado Pago ponta a ponta no banco (payments_ingest_event): sandbox, anual integral, duplicado, atrasado, comissão, reembolso
+    mp_t, mp_s = new_user("mpt"), new_user("mps")
+    mp_pid = partner(mp_t, 5000)
+    link(mp_s, mp_pid)
+    q("insert into purchase_account_tokens (user_id) values (%s) on conflict (user_id) do nothing", mp_s)
+    mp_tok = one("select token from purchase_account_tokens where user_id=%s", mp_s)
+
+    def ing(eid, typ, plan, state, pay=None, refund=None, env="production", at="2026-12-05T12:00:00Z", ref="pix:MPQ1"):
+        return q("select payments_ingest_event('mercadopago',%s,%s,%s,%s::timestamptz,%s::uuid,%s,%s,%s,null,null,null,%s::jsonb,%s::jsonb)",
+                 env, eid, typ, at, mp_tok, ref, plan, state, json.dumps(pay) if pay else None, json.dumps(refund) if refund else None)[0][0]
+
+    r = ing("mpq:sbx:1", "pix_paid", "monthly", "active", {"external_id": "MPQ-SBX", "gross_cents": 1990, "fee_cents": 120, "fee_source": "reported"}, env="sandbox", ref="pix:MPQSBX")
+    ok("MP sandbox: evento processado", r["status"] == "processed", r)
+    ok("MP sandbox: nenhum pagamento/receita/comissão de produção", one("select count(*) from payments where external_id='MPQ-SBX'") == 0)
+    ok("MP sandbox: assinatura marcada sandbox", one("select count(*) from provider_subscriptions where original_ref='pix:MPQSBX' and environment='sandbox'") == 1)
+
+    pay_a = {"external_id": "MPQ-ANN", "gross_cents": 19000, "fee_cents": 120, "fee_source": "reported", "paid_at": "2026-12-05T12:00:00Z"}
+    r = ing("mpq:ann:1", "pix_paid", "annual", "active", pay_a)
+    ok("MP anual (Pix): processado", r["status"] == "processed", r)
+    ok("MP anual: pagamento integral R$ 190,00", one("select gross_cents from payments where external_id='MPQ-ANN'") == 19000)
+    ok("MP anual: taxa informada, imposto ainda estimado => pendente de conciliação, sem comissão liberável",
+       q("select fee_source, tax_source, reconciliation_status from payments where external_id='MPQ-ANN'")[0] == ("reported", "estimated", "pending")
+       and one("select count(*) from commission_ledger l join payments p on p.id=l.payment_id where p.external_id='MPQ-ANN'") == 0)
+    ok("MP anual (Pix): acesso de 365 dias", one("select period_end >= now() + interval '364 days' from provider_subscriptions where original_ref='pix:MPQ1'") is True)
+    r = ing("mpq:ann:1", "pix_paid", "annual", "active", pay_a)
+    ok("MP: webhook duplicado é inerte", r.get("duplicate") is True and one("select count(*) from payments where external_id='MPQ-ANN'") == 1, r)
+    q("select record_payment_reconciliation('mercadopago','MPQ-ANN', 120, 0, null, null)")
+    ok("MP anual: comissão de 50% sobre o líquido do pagamento INTEGRAL (floor((19000-120)*0.5)=9440)",
+       one("select coalesce(sum(l.amount_cents),0) from commission_ledger l join payments p on p.id=l.payment_id where p.external_id='MPQ-ANN'") == 9440)
+    q("update partners set commission_bps = 3000 where id=%s", mp_pid)
+    ok("MP: mudar o percentual depois não altera a comissão já lançada",
+       q("select commission_bps, commission_cents from payments where external_id='MPQ-ANN'")[0] == (5000, 9440))
+    r = ing("mpq:ann:old", "pix_expired", "annual", "expired", at="2026-12-01T00:00:00Z")
+    ok("MP: evento atrasado/fora de ordem não derruba o acesso vigente", r.get("stale") is True and one("select state from provider_subscriptions where original_ref='pix:MPQ1'") != "expired", r)
+    r = ing("mpq:ann:refund", "refund", "annual", "refunded", refund={"external_id": "MPQ-ANN", "at": "2026-12-10T00:00:00Z", "charged_back": False, "external_ref": "mp-refund:MPQ-ANN:190"}, at="2026-12-10T00:00:00Z")
+    ok("MP reembolso total: pagamento refunded e comissão revertida", one("select status from payments where external_id='MPQ-ANN'") == "refunded"
+       and one("select coalesce(sum(l.amount_cents),0) from commission_ledger l join payments p on p.id=l.payment_id where p.external_id='MPQ-ANN'") == 0, r)
+
     # Streak: refresh_broken_streak (SECURITY DEFINER, recebe user_id) não é chamável por anon/authenticated;
     # o caminho legítimo (get_or_refresh_user_streak, como dono) continua funcionando.
     ok("streak: anon não executa refresh_broken_streak", one("select has_function_privilege('anon','public.refresh_broken_streak(uuid,date)','execute')") is False)
