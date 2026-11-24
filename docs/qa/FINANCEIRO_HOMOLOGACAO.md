@@ -23,7 +23,14 @@ Valores em centavos. Executado em `tool/db/sql_tests.py` (produção, transaçã
 Simulado por: saldo disponível por professor, `admin_register_payout` com chave idempotente, saldo 0, estorno/ajuste posterior. **Nenhum Pix enviado**; o pagamento ao professor é manual e fora do app.
 
 ## Concorrência
-Repasse protegido por bloqueio de linha do parceiro e chave de idempotência (testado: repetição não duplica; excesso de saldo recusado). Teste com duas sessões simultâneas reais **não foi executado**.
+Executado na Etapa 10B com **sessões reais simultâneas** em Postgres descartável (`tool/db/concurrency_tests.py`, 22/22, repetido 3 vezes):
+- dois repasses do saldo inteiro: exatamente um passa, o outro recebe P0041, saldo final 0;
+- mesma chave de idempotência em 6 sessões: um único repasse gravado e débito aplicado uma vez (a chave é **única globalmente**; reutilizá-la com outro parceiro falha com 23505, de forma segura);
+- repasse x nova comissão e repasse x reembolso simultâneos: nenhum repasse acima do saldo existente; contabilidade fecha (comissões - estornos - repasses = saldo); estorno depois do repasse gera saldo negativo (compensação futura);
+- webhook duplicado (8 sessões): um pagamento, uma comissão, uma única resposta `created`;
+- conciliação duplicada (6 sessões): comissão creditada uma vez;
+- alteração de bps durante o registro (15 corridas): comissão sempre coerente com o bps usado;
+- eventos fora de ordem (reembolso/conciliação/ajuste antes do pagamento, reembolso repetido, conciliação tardia): sem saldo indevido.
 
 ## Provedores
 Apple, Google Play e Mercado Pago: **NÃO HOMOLOGADOS** (sem credenciais/consoles do AprovaAura; as de Mercado Pago `unassigned` não foram usadas). Conta única entre plataformas: regra no banco (entitlement por conta) coberta pelas migrações; compra cruzada real depende da homologação.
