@@ -1,6 +1,5 @@
 import 'package:aura/core/error/result.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
-import 'package:aura/features/auth/domain/entities/legal_document.dart';
 import 'package:aura/features/auth/domain/entities/pending_signup.dart';
 import 'package:aura/features/auth/domain/entities/public_app_config.dart';
 

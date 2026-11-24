@@ -37,7 +37,7 @@ class _Body extends StatelessWidget {
   const _Body({required this.data});
   final Map<String, dynamic> data;
 
-  num _n(Map m, String k) => (m[k] as num?) ?? 0;
+  num _n(Map<dynamic, dynamic> m, String k) => (m[k] as num?) ?? 0;
 
   @override
   Widget build(BuildContext context) {

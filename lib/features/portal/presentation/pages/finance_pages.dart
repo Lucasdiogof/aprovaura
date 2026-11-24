@@ -14,7 +14,7 @@ import 'package:aura/features/portal/presentation/widgets/portal_widgets.dart';
 // Financeiro do administrador (Etapa 06). Todos os números vêm do servidor
 // (RPCs admin_*): o Flutter só formata e exibe, sem recalcular dinheiro.
 
-num _n(Map? m, String k) => (m?[k] as num?) ?? 0;
+num _n(Map<dynamic, dynamic>? m, String k) => (m?[k] as num?) ?? 0;
 Map<String, dynamic> _m(dynamic v) => Map<String, dynamic>.from(v as Map);
 List<Map<String, dynamic>> _l(dynamic v) => [for (final e in (v as List? ?? const [])) _m(e)];
 
@@ -58,11 +58,11 @@ Tone _payTone(String s) => switch (s) {
       _ => Tone.bad,
     };
 
-Widget _recon(PortalStrings t, Map p) => p['reconciliation_status'] == 'pending'
+Widget _reconBadge(PortalStrings t, Map<dynamic, dynamic> p) => p['reconciliation_status'] == 'pending'
     ? StatusBadge(t('Taxas estimadas', 'Estimated fees', 'Tarifas estimadas'), tone: Tone.warn)
     : StatusBadge(t('Conciliado', 'Reconciled', 'Conciliado'), tone: Tone.good);
 
-String _settle(PortalStrings t, Map p) =>
+String _settle(PortalStrings t, Map<dynamic, dynamic> p) =>
     p['settlement_status'] == 'settled' ? t('Liquidado', 'Settled', 'Liquidado') : t('Aguardando', 'Awaiting', 'Pendiente');
 
 Widget _section(String title, List<Widget> cards) => Padding(
@@ -313,7 +313,8 @@ class _PaymentsTabState extends State<_PaymentsTab> {
 
   Future<void> _pickRange() async {
     final r = await showDateRangePicker(context: context, firstDate: DateTime(2025), lastDate: DateTime.now());
-    if (r != null) _set(() {
+    if (r == null) return;
+    _set(() {
       _from = r.start;
       _to = r.end;
     });
@@ -416,7 +417,7 @@ class _PaymentsTabState extends State<_PaymentsTab> {
                       Text(t.money(_n(r, 'lucksrei_cents'))),
                       Wrap(spacing: 4, runSpacing: 4, children: [
                         StatusBadge(_payStatus(t, '${r['status']}'), tone: _payTone('${r['status']}')),
-                        _recon(t, r),
+                        _reconBadge(t, r),
                         Text(_settle(t, r), style: const TextStyle(fontSize: 11)),
                       ]),
                     ],
@@ -457,7 +458,7 @@ class PaymentDetailPage extends StatelessWidget {
                 KeyValue(t('Usuário', 'User', 'Usuario'), Text('${p['user_name'] ?? '—'} · ${p['user_email'] ?? ''}')),
                 KeyValue(t('Data', 'Date', 'Fecha'), Text(t.dateTimeOf(p['paid_at']))),
                 KeyValue(t('Plano', 'Plan', 'Plan'), Text(planLabel(t, p['plan'] as String?))),
-                KeyValue(t('Situação', 'Status', 'Estado'), Wrap(spacing: 6, children: [StatusBadge(_payStatus(t, '${p['status']}'), tone: _payTone('${p['status']}')), _recon(t, p)])),
+                KeyValue(t('Situação', 'Status', 'Estado'), Wrap(spacing: 6, children: [StatusBadge(_payStatus(t, '${p['status']}'), tone: _payTone('${p['status']}')), _reconBadge(t, p)])),
                 KeyValue(t('Liquidação', 'Settlement', 'Liquidación'), Text(p['settlement_status'] == 'settled' ? '${t('Liquidado', 'Settled', 'Liquidado')}: ${t.money(_n(p, 'settled_cents'))} · ${t.dateOf(p['settled_at'])}' : _settle(t, p))),
                 KeyValue(t('Bruto', 'Gross', 'Bruto'), Text(t.money(_n(p, 'gross_cents')))),
                 KeyValue(t('Taxas', 'Fees', 'Tarifas'), Text('${t.money(_n(p, 'fee_cents'))} (${p['fee_source'] == 'estimated' ? t('estimada', 'estimated', 'estimada') : t('informada', 'reported', 'informada')})')),
@@ -574,7 +575,7 @@ class _PayoutsTabState extends State<_PayoutsTab> {
               if (rows.isEmpty) {
                 return EmptyState(message: t('Nenhum professor com lançamentos até esta competência.', 'No teacher has entries up to this competence.', 'Ningún profesor con asientos hasta esta competencia.'));
               }
-              String state(Map r) {
+              String state(Map<dynamic, dynamic> r) {
                 final av = _n(r, 'available'), paid = _n(r, 'paid_cents');
                 if (av <= 0 && paid > 0) return t('Pago', 'Paid', 'Pagado');
                 if (av > 0 && paid > 0) return t('Parcial', 'Partial', 'Parcial');
@@ -661,7 +662,7 @@ class _PayoutsTabState extends State<_PayoutsTab> {
                   PortalColumn(t('Valor', 'Amount', 'Valor')),
                   PortalColumn(t('Referência / obs.', 'Reference / note', 'Referencia / obs.'), flex: 3),
                   PortalColumn(t('Situação', 'Status', 'Estado')),
-                  PortalColumn(''),
+                  const PortalColumn(''),
                 ],
                 rows: [
                   for (final r in rows)
@@ -1005,7 +1006,7 @@ class _ExpensesTabState extends State<_ExpensesTab> with PeriodState {
                   PortalColumn(t('Categoria', 'Category', 'Categoría'), flex: 2),
                   PortalColumn(t('Descrição', 'Description', 'Descripción'), flex: 3),
                   PortalColumn(t('Valor', 'Amount', 'Valor')),
-                  PortalColumn(''),
+                  const PortalColumn(''),
                 ],
                 rows: [
                   for (final e in rows)

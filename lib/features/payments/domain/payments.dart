@@ -102,7 +102,7 @@ class SubscriptionInfo extends Equatable {
       ['active', 'grace', 'canceled'].contains(state) &&
       (periodEnd == null || periodEnd!.isAfter(DateTime.now()));
 
-  static SubscriptionInfo? fromJson(Map j) {
+  static SubscriptionInfo? fromJson(Map<dynamic, dynamic> j) {
     final p = _provider(j['provider']), pl = _plan(j['plan']);
     if (p == null || pl == null) return null;
     return SubscriptionInfo(
@@ -197,7 +197,7 @@ class PaymentRecord extends Equatable {
   final String status;
   final DateTime paidAt;
 
-  static PaymentRecord? fromJson(Map j) {
+  static PaymentRecord? fromJson(Map<dynamic, dynamic> j) {
     final p = _provider(j['provider']), pl = _plan(j['plan']);
     final at = DateTime.tryParse('${j['paid_at']}');
     if (p == null || pl == null || at == null) return null;

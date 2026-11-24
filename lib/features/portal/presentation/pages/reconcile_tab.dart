@@ -48,7 +48,7 @@ class _ReconcileTabState extends State<ReconcileTab> {
     } on PortalException catch (e) {
       _msg = e.code == 'P0061'
           ? t('Este arquivo já foi importado.', 'This file was already imported.', 'Este archivo ya fue importado.')
-          : '${e.message}';
+          : e.message;
     } catch (e) {
       _msg = '$e';
     } finally {
@@ -108,7 +108,7 @@ class _ReconcileTabState extends State<ReconcileTab> {
           keys: [_reload],
           builder: (context, rows, reload) => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(t('Importações', 'Imports', 'Importaciones'), style: Theme.of(context).textTheme.titleMedium),
-            if (rows.isEmpty) Padding(padding: const EdgeInsets.only(top: 8), child: Text('—')),
+            if (rows.isEmpty) const Padding(padding: EdgeInsets.only(top: 8), child: Text('—')),
             for (final r in rows)
               ListTile(
                 contentPadding: EdgeInsets.zero,

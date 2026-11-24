@@ -17,6 +17,8 @@ class PaymentsRepositoryImpl implements PaymentsRepository {
 
   final SupabaseClient _client;
   final _out = StreamController<StoreOutcome>.broadcast();
+  // Repositório é singleton e vive com o app: a assinatura da loja nunca precisa ser cancelada.
+  // ignore: cancel_subscriptions
   StreamSubscription<List<PurchaseDetails>>? _sub;
 
   @override
@@ -187,7 +189,7 @@ class PaymentsRepositoryImpl implements PaymentsRepository {
       final r = await _mp({'action': 'create', 'plan': plan.name, 'method': method});
       return Success(PixCharge.fromJson(r['charge']));
     } on FunctionException catch (e) {
-      return Error(e.status == 409 ? AlreadySubscribedFailure() : failureFromError(e));
+      return Error(e.status == 409 ? const AlreadySubscribedFailure() : failureFromError(e));
     } catch (e) {
       return Error(failureFromError(e));
     }

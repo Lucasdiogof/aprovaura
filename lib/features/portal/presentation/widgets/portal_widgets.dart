@@ -71,7 +71,7 @@ class Panel extends StatelessWidget {
                 child: Text(title!,
                     style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16, color: c.textPrimary)),
               ),
-              if (trailing != null) trailing!,
+              ?trailing,
             ]),
           ),
         child,

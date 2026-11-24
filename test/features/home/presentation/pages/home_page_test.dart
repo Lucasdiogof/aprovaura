@@ -28,6 +28,8 @@ import 'package:aura/features/xp/domain/entities/user_xp.dart';
 import 'package:aura/features/xp/domain/repositories/xp_repository.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_state.dart';
+import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
+import '../../../../helpers/fakes.dart';
 
 class _MockDailyGoalRepository extends Mock implements DailyGoalRepository {}
 
@@ -150,6 +152,7 @@ void main() {
     await tester.pumpWidget(
       MultiBlocProvider(
         providers: [
+          BlocProvider<AccessCubit>(create: (_) => fakeAccessCubit()),
           BlocProvider<LocaleCubit>(
             create: (_) => LocaleCubit()..emit(AppLanguage.portuguese),
           ),

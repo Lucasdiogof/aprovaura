@@ -21,6 +21,10 @@ import 'package:aura/features/auth/presentation/widgets/auth_palette.dart';
 import 'package:aura/features/auth/presentation/widgets/auth_scaffold.dart';
 import 'package:aura/features/auth/presentation/widgets/auth_submit_button.dart';
 import 'package:aura/shared/widgets/app_aura_loader.dart';
+import 'package:aura/core/di/injection_container.dart';
+import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
+import '../../../../helpers/fakes.dart';
+import 'package:aura/features/partners/domain/repositories/partners_repository.dart';
 
 class _MockAuthCubit extends MockCubit<AuthState> implements AuthCubit {}
 
@@ -37,7 +41,12 @@ void main() {
 
   setUpAll(() => registerFallbackValue(const AuthInitial()));
 
-  setUp(() {
+  setUp(() async {
+    await sl.reset();
+    sl.registerSingleton<AuthRepository>(FakeAuthRepository());
+    sl.registerLazySingleton<PartnersRepository>(FakePartnersRepository.new);
+    SharedPreferences.setMockInitialValues({});
+    sl.registerSingleton<SharedPreferences>(await SharedPreferences.getInstance());
     auth = _MockAuthCubit();
     when(() => auth.state).thenReturn(const AuthInitial());
     when(

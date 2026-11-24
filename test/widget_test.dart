@@ -2,12 +2,16 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:aura/app.dart';
+import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
+import 'helpers/fakes.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/theme/theme_cubit.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
+import 'package:aura/features/auth/domain/entities/pending_signup.dart';
+import 'package:aura/features/auth/domain/entities/public_app_config.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/streak/domain/entities/streak.dart';
@@ -30,7 +34,29 @@ class _FakeAuthRepository implements AuthRepository {
     required String password,
     required String name,
     required String username,
+    String? referralPartnerId,
+    Map<String, String> legalAccept = const {},
   }) => throw UnimplementedError();
+
+  @override
+  Future<Result<void>> verifySignupCode({required String email, required String code}) =>
+      throw UnimplementedError();
+
+  @override
+  Future<Result<void>> resendSignupCode({required String email}) => throw UnimplementedError();
+
+  @override
+  Future<Result<void>> discardUnconfirmedSignup({required String email, required String password}) =>
+      throw UnimplementedError();
+
+  @override
+  Future<PublicAppConfig?> publicConfig() async => null;
+
+  @override
+  Future<PendingSignup?> pendingSignup() async => null;
+
+  @override
+  Future<void> clearPendingSignup() async {}
 
   @override
   Future<Result<void>> sendPasswordReset({required String email}) =>
@@ -83,8 +109,11 @@ class _FakeXpRepository implements XpRepository {
 }
 
 void main() {
-  testWidgets('app opens directly on the login screen', (tester) async {
-    SharedPreferences.setMockInitialValues({});
+  testWidgets('app opens on the login screen once the intro was seen', (tester) async {
+    // A apresentação animada (Etapa 03) só aparece na primeira abertura: aqui ela já foi vista.
+    SharedPreferences.setMockInitialValues({'intro_seen_v1': true});
+    if (sl.isRegistered<SharedPreferences>()) await sl.unregister<SharedPreferences>();
+    sl.registerSingleton<SharedPreferences>(await SharedPreferences.getInstance());
     if (!sl.isRegistered<ThemeCubit>()) {
       sl.registerLazySingleton<ThemeCubit>(ThemeCubit.new);
     }
@@ -108,6 +137,9 @@ void main() {
     }
     if (!sl.isRegistered<XpCubit>()) {
       sl.registerLazySingleton<XpCubit>(() => XpCubit(sl()));
+    }
+    if (!sl.isRegistered<AccessCubit>()) {
+      sl.registerLazySingleton<AccessCubit>(fakeAccessCubit);
     }
     if (!sl.isRegistered<AppBlockingLoadingCubit>()) {
       sl.registerLazySingleton<AppBlockingLoadingCubit>(

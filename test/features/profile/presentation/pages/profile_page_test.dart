@@ -35,6 +35,9 @@ import 'package:aura/features/subjects/domain/entities/subject.dart';
 import 'package:aura/features/xp/domain/repositories/xp_repository.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/shared/widgets/app_loading_overlay.dart';
+import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
+import '../../../../helpers/fakes.dart';
+import 'package:aura/features/partners/domain/repositories/partners_repository.dart';
 
 class _MockProfileRepository extends Mock implements ProfileRepository {}
 
@@ -84,6 +87,7 @@ void main() {
     final progress = _MockProgressRepository();
     when(() => progress.getProfileStats()).thenAnswer((_) => Future.any([]));
     sl.registerLazySingleton<ProgressRepository>(() => progress);
+    sl.registerLazySingleton<PartnersRepository>(FakePartnersRepository.new);
   });
 
   tearDown(() => authCubit.close());
@@ -117,6 +121,7 @@ void main() {
     await tester.pumpWidget(
       MultiBlocProvider(
         providers: [
+          BlocProvider<AccessCubit>(create: (_) => fakeAccessCubit()),
           BlocProvider<LocaleCubit>(
             create: (_) => LocaleCubit()..emit(AppLanguage.portuguese),
           ),
@@ -157,6 +162,8 @@ void main() {
     ) async {
       await pumpProfile(tester);
       await tester.scrollUntilVisible(find.text('Excluir minha conta'), 200);
+      await tester.ensureVisible(find.text('Excluir minha conta'));
+      await tester.pumpAndSettle();
 
       // Estudos, Conta, Sair -- "Excluir minha conta" is plain text.
       expect(find.byType(SettingsGroup), findsNWidgets(3));
@@ -270,6 +277,8 @@ void main() {
   group('deleting the account', () {
     Future<void> openConfirmation(WidgetTester tester) async {
       await tester.scrollUntilVisible(find.text('Excluir minha conta'), 200);
+      await tester.ensureVisible(find.text('Excluir minha conta'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Excluir minha conta'));
       await tester.pumpAndSettle();
     }
@@ -279,6 +288,8 @@ void main() {
     ) async {
       await pumpProfile(tester);
       await tester.scrollUntilVisible(find.text('Excluir minha conta'), 200);
+      await tester.ensureVisible(find.text('Excluir minha conta'));
+      await tester.pumpAndSettle();
 
       // Centered red text, not a card.
       final label = find.text('Excluir minha conta');
@@ -378,18 +389,24 @@ void main() {
     testWidgets('fits 360px', (tester) async {
       await pumpProfile(tester, size: const Size(360, 640));
       await tester.scrollUntilVisible(find.text('Excluir minha conta'), 200);
+      await tester.ensureVisible(find.text('Excluir minha conta'));
+      await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
     });
 
     testWidgets('renders on dark', (tester) async {
       await pumpProfile(tester, theme: AppTheme.dark);
       await tester.scrollUntilVisible(find.text('Excluir minha conta'), 200);
+      await tester.ensureVisible(find.text('Excluir minha conta'));
+      await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
     });
 
     testWidgets('survives a larger text size', (tester) async {
       await pumpProfile(tester, size: const Size(360, 640), textScale: 1.5);
       await tester.scrollUntilVisible(find.text('Excluir minha conta'), 200);
+      await tester.ensureVisible(find.text('Excluir minha conta'));
+      await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
     });
   });

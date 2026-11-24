@@ -6,7 +6,7 @@ import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/features/portal/presentation/widgets/portal_widgets.dart';
 
 /// Resumo de acesso (origem + validade) usado em listas.
-Widget accessSummary(PortalStrings t, Map access) {
+Widget accessSummary(PortalStrings t, Map<dynamic, dynamic> access) {
   final has = access['has_access'] == true;
   final sources = ((access['sources'] as List?) ?? const []).map((e) => '${(e as Map)['source']}').toSet();
   if (!has) return StatusBadge(t('Sem Premium', 'No Premium', 'Sin Premium'), tone: Tone.bad);
@@ -46,7 +46,8 @@ class _UsersPageState extends State<UsersPage> {
       lastDate: DateTime.now(),
       initialDateRange: _from == null || _to == null ? null : DateTimeRange(start: _from!, end: _to!),
     );
-    if (r != null) _set(() {
+    if (r == null) return;
+    _set(() {
       _from = r.start;
       _to = r.end;
     });
@@ -173,7 +174,7 @@ class _UsersPageState extends State<UsersPage> {
                     PortalColumn(t('Usuário', 'User', 'Usuario'), flex: 3),
                     PortalColumn(t('Cadastro', 'Signed up', 'Registro')),
                     PortalColumn(t('Professor', 'Teacher', 'Profesor'), flex: 2),
-                    PortalColumn('Premium', flex: 2),
+                    const PortalColumn('Premium', flex: 2),
                     PortalColumn(t('Expira', 'Expires', 'Expira')),
                     PortalColumn(t('Atividade no app', 'App activity', 'Actividad en la app')),
                     PortalColumn(t('Último estudo', 'Last study', 'Último estudio')),

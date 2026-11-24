@@ -9,6 +9,9 @@ import 'package:aura/features/auth/presentation/cubit/auth_state.dart';
 import 'package:aura/features/auth/presentation/pages/login_page.dart';
 
 import '../../../../helpers/pump_app.dart';
+import 'package:aura/core/di/injection_container.dart';
+import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
+import '../../../../helpers/fakes.dart';
 
 class _MockAuthCubit extends MockCubit<AuthState> implements AuthCubit {}
 
@@ -20,7 +23,9 @@ void main() {
       registerFallbackValue(const AuthInitial());
     });
 
-    setUp(() {
+    setUp(() async {
+      await sl.reset();
+      sl.registerSingleton<AuthRepository>(FakeAuthRepository());
       authCubit = _MockAuthCubit();
       when(() => authCubit.state).thenReturn(const AuthInitial());
       when(

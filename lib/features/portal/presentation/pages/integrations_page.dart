@@ -126,12 +126,13 @@ class _IntegrationsPageState extends State<IntegrationsPage> {
                     if (e['status'] == 'failed')
                       TextButton(
                         onPressed: () async {
-                          if (!await confirmDialog(context,
+                          final confirmed = await confirmDialog(context,
                               title: t('Reprocessar evento', 'Reprocess event', 'Reprocesar evento'),
                               message: t('O servidor relerá o estado oficial no provedor. Nada é criado manualmente.',
                                   'The server will re-read the official state from the provider. Nothing is created manually.',
                                   'El servidor releerá el estado oficial en el proveedor. No se crea nada manualmente.'),
-                              action: t('Reprocessar', 'Reprocess', 'Reprocesar'))) return;
+                              action: t('Reprocessar', 'Reprocess', 'Reprocesar'));
+                          if (!confirmed) return;
                           if (!context.mounted) return;
                           if (await runAction(context, () => api.requeuePaymentEvent(e['id'] as int),
                               success: t('Na fila para reprocessar.', 'Queued for reprocessing.', 'En cola para reprocesar.'))) {

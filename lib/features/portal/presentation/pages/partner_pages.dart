@@ -11,8 +11,8 @@ import 'package:aura/features/portal/presentation/widgets/portal_widgets.dart';
 // Portal do professor (Etapa 05). Tudo aqui é leitura: o professor é
 // identificado no servidor pela sessão; nenhuma tela envia partner_id.
 
-String _avg(Map u) => ((u['avg_study_days'] as num?) ?? 0).toStringAsFixed(1);
-num _n(Map? m, String k) => (m?[k] as num?) ?? 0;
+String _avg(Map<dynamic, dynamic> u) => ((u['avg_study_days'] as num?) ?? 0).toStringAsFixed(1);
+num _n(Map<dynamic, dynamic>? m, String k) => (m?[k] as num?) ?? 0;
 Map<String, dynamic> _m(dynamic v) => Map<String, dynamic>.from(v as Map);
 List<Map<String, dynamic>> _l(dynamic v) => [for (final e in (v as List? ?? const [])) _m(e)];
 

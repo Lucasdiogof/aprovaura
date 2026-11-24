@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
@@ -67,7 +68,7 @@ class _Detail extends StatelessWidget {
       _section(t('Conta', 'Account', 'Cuenta'), [
         KeyValue('ID', SelectableText(id)),
         KeyValue('E-mail', Text('${acc['email']}')),
-        KeyValue(t('Usuário', 'Username', 'Usuario'), Text('${acc['username'] == null ? '—' : '@${acc['username']}'}')),
+        KeyValue(t('Usuário', 'Username', 'Usuario'), Text(acc['username'] == null ? '—' : '@${acc['username']}')),
         KeyValue(t('Cadastro', 'Signed up', 'Registro'), Text(t.dateTimeOf(acc['created_at']))),
         KeyValue(
           t('E-mail verificado', 'E-mail verified', 'Correo verificado'),
@@ -478,7 +479,7 @@ class _LinkDialogState extends State<_LinkDialog> {
     );
     if (!mounted) return;
     if (done) {
-      widget.session.refreshPending();
+      unawaited(widget.session.refreshPending());
       Navigator.pop(context, true);
     } else {
       setState(() => _busy = false);

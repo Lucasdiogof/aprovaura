@@ -7,7 +7,6 @@ import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
-import 'package:aura/features/access/domain/entities/access_status.dart';
 import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
 import 'package:aura/features/payments/domain/payments.dart';
 import 'package:aura/features/payments/presentation/cubit/payments_cubit.dart';

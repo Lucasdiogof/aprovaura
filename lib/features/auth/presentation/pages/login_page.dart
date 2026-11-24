@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -44,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> _resumePendingConfirmation() async {
     final pending = await sl<AuthRepository>().pendingSignup();
     if (pending == null || !mounted) return;
-    context.push('/confirmar-email', extra: (pending.email, false));
+    unawaited(context.push('/confirmar-email', extra: (pending.email, false)));
   }
 
   @override

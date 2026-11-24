@@ -542,7 +542,8 @@ class _AuditPageState extends State<AuditPage> {
             OutlinedButton.icon(
               onPressed: () async {
                 final r = await showDateRangePicker(context: context, firstDate: DateTime(2025), lastDate: DateTime.now());
-                if (r != null) _set(() {
+                if (r == null) return;
+    _set(() {
                   _from = r.start;
                   _to = r.end;
                 });

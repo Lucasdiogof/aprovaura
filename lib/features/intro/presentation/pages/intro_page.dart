@@ -13,7 +13,6 @@ import 'package:aura/features/auth/domain/entities/public_app_config.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/intro/data/intro_store.dart';
 import 'package:aura/features/intro/l10n/intro_strings.dart';
-import 'package:aura/features/intro/presentation/widgets/intro_common.dart';
 import 'package:aura/features/intro/presentation/widgets/intro_visuals.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 

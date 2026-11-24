@@ -36,7 +36,7 @@ class PortalApi {
   }
 
   Future<Map<String, dynamic>> _map(String fn, [Map<String, dynamic>? p]) async =>
-      Map<String, dynamic>.from(await _rpc<Map>(fn, p));
+      Map<String, dynamic>.from(await _rpc<Map<dynamic, dynamic>>(fn, p));
 
   static String _d(DateTime d) =>
       '${d.year.toString().padLeft(4, '0')}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
@@ -137,7 +137,7 @@ class PortalApi {
       });
 
   Future<List<String>> auditActions() async =>
-      (await _rpc<List>('admin_audit_actions')).map((e) => '$e').toList();
+      (await _rpc<List<dynamic>>('admin_audit_actions')).map((e) => '$e').toList();
 
   Future<Map<String, dynamic>> auditNeighbors(int id) => _map('admin_audit_neighbors', {'p_id': id});
 
@@ -222,7 +222,7 @@ class PortalApi {
   Future<Map<String, dynamic>> applyReport(String id) => _map('admin_apply_report', {'p_import': id});
 
   Future<List<Map<String, dynamic>>> reportImports() async => [
-        for (final e in (await _rpc<List>('admin_list_report_imports'))) Map<String, dynamic>.from(e as Map)
+        for (final e in (await _rpc<List<dynamic>>('admin_list_report_imports'))) Map<String, dynamic>.from(e as Map<dynamic, dynamic>)
       ];
 
   Future<Map<String, dynamic>> reportImport(String id) => _map('admin_get_report_import', {'p_import': id});
