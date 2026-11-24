@@ -171,6 +171,9 @@ Na mistura esperada o custo é 0,6% (luna), 6,3% (terra) e 12,6% (sol) do líqui
 5. Adaptação do schema e da chamada (seção 6) com testes; teto global e mensal; moderação.
 6. Só então trocar `ESSAY_AI_PROVIDER` (o código hoje só reconhece `google` e `suspended`; seria preciso adicionar `openai`).
 
+## Decisão do dono (24/11)
+Nenhum gasto autorizado: a bateria de qualidade (≈ US$ 6,47), a conta na OpenAI e qualquer chamada paga ficam **recusadas por ora**. A correção por IA continua suspensa, sem prazo. Este documento fica como referência caso o orçamento seja reaberto.
+
 ## 12. O que esta rodada não fez
 
 Não contratou nem criou conta; não fez nenhuma chamada à API; não alterou código de produção nem Secrets; não reativou nem trocou o provedor; não leu os Termos de Uso nem a lista de suboperadores; não mediu qualidade. Monetização, provedores comerciais, confirmação obrigatória de e-mail e `AUTO_DEPLOY` seguem desligados.
