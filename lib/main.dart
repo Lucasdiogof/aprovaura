@@ -53,6 +53,7 @@ void main() async {
   sl.registerLazySingleton<MapQuizRepository>(MapQuizRepositoryImpl.new);
   registerSupabaseDependencies();
   wireOfflineSupport();
+  wireAccessSupport();
   sl.registerLazySingleton<StreakCubit>(
     () => StreakCubit(sl<StreakRepository>()),
   );

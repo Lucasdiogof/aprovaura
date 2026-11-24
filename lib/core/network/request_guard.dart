@@ -14,17 +14,24 @@ const Duration kRequestTimeout = Duration(seconds: 12);
 void Function(Failure failure)? onRequestFailure;
 void Function()? onRequestSuccess;
 
+/// Chamado quando o servidor responde 402 (conta sem Premium ativo): o
+/// AccessCubit atualiza o estado de acesso sem cada repositório saber.
+void Function()? onPremiumRequired;
+
 /// Maps anything a Supabase call can throw to the [Failure] that tells the
 /// person what actually happened.
 Failure failureFromError(Object error) {
   final failure = _classify(error);
   if (isConnectionFailure(failure)) onRequestFailure?.call(failure);
+  if (failure is PremiumRequiredFailure) onPremiumRequired?.call();
   return failure;
 }
 
 Failure _classify(Object error) {
   if (error is TimeoutException) return RequestTimeoutFailure();
-  if (error is PostgrestException) return ServerFailure();
+  if (error is PostgrestException) {
+    return error.code == 'PT402' ? PremiumRequiredFailure() : ServerFailure();
+  }
   // Matched by name on purpose: dart:io's SocketException does not exist on
   // web, and package:http's ClientException / Supabase's retryable auth
   // fetch error are not imported here to keep this file free of their

@@ -114,6 +114,20 @@ class RequestTimeoutFailure extends Failure {
   };
 }
 
+/// O servidor recusou (HTTP 402 / PT402) porque a conta não tem acesso
+/// Premium ativo. Só acontece depois da ativação comercial. Telas mostram o
+/// estado de acesso (AccessCubit), nunca "erro genérico".
+class PremiumRequiredFailure extends Failure {
+  PremiumRequiredFailure([String? message])
+    : super(message ?? _defaultMessage());
+
+  static String _defaultMessage() => switch (_currentLanguage()) {
+    AppLanguage.portuguese => 'Esta função requer uma assinatura Premium ativa.',
+    AppLanguage.english => 'This feature requires an active Premium subscription.',
+    AppLanguage.spanish => 'Esta función requiere una suscripción Premium activa.',
+  };
+}
+
 /// True for failures caused by the connection rather than by the server or
 /// the data — the cases where already-saved content is a valid substitute.
 bool isConnectionFailure(Failure failure) =>

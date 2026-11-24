@@ -263,6 +263,10 @@ class PendingSyncQueue {
     } on PostgrestException catch (e) {
       // 23505: the favorite already exists, which is what we wanted.
       if (e.code == '23505') return _Outcome.done;
+      // PT402: the account has no active Premium right now. The activity was
+      // legitimately done offline, so it stays queued untouched (never
+      // counted as a failed attempt) until access is renewed.
+      if (e.code == 'PT402') return _Outcome.deferred;
       return _Outcome.failed;
     } catch (error) {
       return isConnectionFailure(failureFromError(error))

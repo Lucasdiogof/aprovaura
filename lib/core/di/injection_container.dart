@@ -1,4 +1,8 @@
+import 'dart:async';
+
+import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aura/core/cache/offline_cache.dart';
 import 'package:aura/core/network/connection_monitor.dart';
@@ -7,6 +11,12 @@ import 'package:aura/core/sync/pending_sync_queue.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
+import 'package:aura/features/access/data/access_grant_verifier.dart';
+import 'package:aura/features/access/data/access_repository_impl.dart';
+import 'package:aura/features/access/domain/repositories/access_repository.dart';
+import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
+import 'package:aura/features/partners/data/partners_repository_impl.dart';
+import 'package:aura/features/partners/domain/repositories/partners_repository.dart';
 import 'package:aura/features/atualidades/data/atualidades_repository_impl.dart';
 import 'package:aura/features/atualidades/data/dossier_question_repository_impl.dart';
 import 'package:aura/features/atualidades/domain/repositories/atualidades_repository.dart';
@@ -136,6 +146,52 @@ void registerSupabaseDependencies() {
   sl.registerLazySingleton<QuestionReportRepository>(
     () => QuestionReportRepositoryImpl(sl()),
   );
+  sl.registerLazySingleton<AccessRepository>(
+    () => AccessRepositoryImpl(
+      sl(),
+      sl<SharedPreferences>(),
+      const AccessGrantVerifier(),
+    ),
+  );
+  sl.registerLazySingleton<AccessCubit>(
+    () => AccessCubit(sl<AccessRepository>()),
+  );
+  sl.registerLazySingleton<PartnersRepository>(
+    () => PartnersRepositoryImpl(sl()),
+  );
+}
+
+/// Liga o estado de acesso Premium ao ciclo de vida do app: login/abertura
+/// (sessão inicial), saída da conta, retorno do segundo plano, reconexão e
+/// resposta 402 do servidor. Chamar uma vez, depois de registrar tudo.
+/// Com o modelo comercial desligado no servidor, nada disto bloqueia ninguém.
+void wireAccessSupport() {
+  final cubit = sl<AccessCubit>();
+  onPremiumRequired = () => unawaited(cubit.refresh(force: true));
+  sl<ConnectionMonitor>().onReconnect(() => cubit.refresh(force: true));
+  sl<SupabaseClient>().auth.onAuthStateChange.listen((change) {
+    switch (change.event) {
+      case AuthChangeEvent.signedIn:
+      case AuthChangeEvent.initialSession:
+        if (change.session != null) unawaited(cubit.refresh(force: true));
+      case AuthChangeEvent.signedOut:
+        unawaited(cubit.reset());
+      default:
+        break;
+    }
+  });
+  WidgetsBinding.instance.addObserver(_AccessLifecycleObserver(cubit));
+}
+
+class _AccessLifecycleObserver with WidgetsBindingObserver {
+  _AccessLifecycleObserver(this._cubit);
+
+  final AccessCubit _cubit;
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) unawaited(_cubit.refresh());
+  }
 }
 
 /// Connects the connection monitor and the pending-sync queue to the rest of

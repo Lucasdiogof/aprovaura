@@ -7,6 +7,7 @@ import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/router/app_router.dart';
 import 'package:aura/core/theme/app_theme.dart';
 import 'package:aura/core/theme/theme_cubit.dart';
+import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/xp/presentation/cubit/xp_cubit.dart';
 import 'package:aura/shared/widgets/app_loading_overlay.dart';
@@ -22,6 +23,7 @@ class App extends StatelessWidget {
         BlocProvider.value(value: sl<LocaleCubit>()),
         BlocProvider.value(value: sl<StreakCubit>()),
         BlocProvider.value(value: sl<XpCubit>()),
+        BlocProvider.value(value: sl<AccessCubit>()),
         BlocProvider.value(value: sl<AppBlockingLoadingCubit>()),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
