@@ -6,9 +6,9 @@ import 'package:aura/features/access/domain/repositories/access_repository.dart'
 import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
 
 class _Repo implements AccessRepository {
-  _Repo(this.result, [this.context = const AccessContext()]);
+  _Repo(this.result);
   Result<AccessStatus> result;
-  AccessContext context;
+  AccessContext context = const AccessContext();
   int refreshes = 0, contexts = 0, clears = 0;
 
   @override
