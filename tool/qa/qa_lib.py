@@ -43,11 +43,13 @@ class Session:
         return self.page.evaluate("document.body.innerText") + " " + " ".join(
             self.page.evaluate("[...document.querySelectorAll('flt-semantics')].map(e=>e.getAttribute('aria-label')||e.innerText||'')"))
 
-    def click_text(self, label, exact=False, timeout=4000):
+    def click_text(self, label, timeout=4000, nth=0):
+        """Clica no botão/aba/link cujo nome COMEÇA com `label` (semântica do Flutter)."""
         self.enable_semantics()
-        loc = self.page.get_by_text(label, exact=exact).first if False else self.page.locator(f"flt-semantics:has-text('{label}')").first
+        loc = self.page.locator("flt-semantics[role='button'], flt-semantics[role='tab'], flt-semantics[role='link'], flt-semantics[role='menuitem'], flt-semantics[role='checkbox'], flt-semantics[role='radio']").filter(
+            has_text=re.compile(r"^\s*" + re.escape(label), re.I)).nth(nth)
         loc.click(timeout=timeout)
-        self.page.wait_for_timeout(800)
+        self.page.wait_for_timeout(900)
 
     def fill_by_label(self, label, value):
         self.enable_semantics()
@@ -61,3 +63,97 @@ class Session:
     def close(self):
         self.browser.close()
         self.pw.stop()
+
+
+def login(s, user, wait=9000):
+    s.open("/login", 8000)
+    s.page.locator("input").nth(0).fill(f"{user}@qa.invalid")
+    s.page.locator("input").nth(1).fill(PASSWORD)
+    s.page.keyboard.press("Enter")
+    s.page.wait_for_timeout(wait)
+    s.enable_semantics()
+    return s.page.url
+
+
+def labels(s):
+    s.enable_semantics()
+    return sorted(set(x.strip() for x in s.page.evaluate(
+        "[...document.querySelectorAll('flt-semantics')].map(e=>(e.getAttribute('aria-label')||e.innerText||'').split(String.fromCharCode(10))[0])") if x.strip()))
+
+
+DENY = re.compile(r"sair|excluir|apagar|reset|remover|logout|cancelar|encerrar|delete|sign out|salir|eliminar|borrar|log out|remove|clear|limpar", re.I)
+TABS = {"início", "praticar", "perfil", "home", "practice", "profile", "inicio", "practicar"}
+
+
+def buttons(s):
+    s.enable_semantics()
+    out = s.page.evaluate(r"""[...document.querySelectorAll("flt-semantics[role='button'], flt-semantics[role='link'], flt-semantics[role='tab']")]
+        .filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight})
+        .map(e=>(e.getAttribute('aria-label')||e.innerText||'').split(String.fromCharCode(10))[0].trim())""")
+    seen, res = set(), []
+    for t in out:
+        k = t.lower()
+        if not t or k in seen or k in TABS or DENY.search(t):
+            continue
+        seen.add(k)
+        res.append(t)
+    return res
+
+
+def slug(t):
+    return re.sub(r"[^a-z0-9]+", "-", t.lower())[:28].strip("-")
+
+
+def crawl(s, outdir, tag, entry="/home", depth=2, per_page=8, base=(), log=print):
+    """Explora a UI clicando nos botões de cada tela (profundidade limitada), com captura e coleta de issues.
+    Devolve lista de (caminho, issues_novas, arquivo)."""
+    import os
+    os.makedirs(outdir, exist_ok=True)
+    results = []
+
+    def snap(path):
+        before = len(s.issues)
+        s.page.wait_for_timeout(700)
+        fn = os.path.join(outdir, f"{tag}__{'__'.join(slug(p) for p in list(base) + path) or 'raiz'}.png")
+        s.page.screenshot(path=fn)
+        results.append(("/".join(path) or "raiz", list(s.issues[before - 0:]) if False else [], fn))
+
+    def go_entry():
+        s.open(entry, 4500)
+        for b in base:
+            s.click_text(b)
+
+    def replay(path):
+        go_entry()
+        for p in path:
+            try:
+                s.click_text(p, timeout=3000)
+            except Exception:
+                return False
+        return True
+
+    def explore(path, d):
+        labs = buttons(s)[:per_page]
+        for lab in labs:
+            mark = len(s.issues)
+            try:
+                s.click_text(lab, timeout=3000)
+            except Exception:
+                continue
+            np = path + [lab]
+            snap(np)
+            new = s.issues[mark:]
+            results[-1] = (results[-1][0], list(new), results[-1][2])
+            if d + 1 < depth:
+                explore(np, d + 1)
+            # volta à tela anterior
+            s.page.go_back()
+            s.page.wait_for_timeout(1200)
+            s.enable_semantics()
+            if lab not in " ".join(labels(s)):
+                if not replay(path):
+                    return
+    go_entry()
+    snap([])
+    explore([], 0)
+    return results
