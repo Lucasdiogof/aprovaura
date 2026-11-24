@@ -8,7 +8,7 @@ Auditoria do cofre (Etapa 10C): para o AprovaAura existem apenas `supabase.aprov
 |---|---|---|---|---|---|---|---|
 | 1 | PAT do Supabase | **FEITO (24/11)**: no cofre (`supabase.aprovaura.production.pat`), restrito ao projeto `cesuqfgrtcitatxvokez` | nada | cofre | — | Não | lista só o projeto aura; org retorna 403 |
 | 2 | Publicar Edge Functions | **FEITO (24/11)**: 7 publicadas (`evaluate-essay` v18 com interruptor + 6 de pagamento/provisão); falha fechada 19/19 | só os Secrets de cada provedor na ativação (`SUPABASE_AUDITORIA.md` §4) | CLI | Dono (valores) | Não | `tool/qa/edge_smoke.py` |
-| 3 | Resend: confirmar domínio e titularidade da chave `unassigned` | não confirmado | verificar SPF/DKIM; autorizar chave para o AprovaAura | resend.com; cofre | Dono | Sim | status `verified`; envio de teste |
+| 3 | Resend: confirmar domínio e titularidade da chave `unassigned` | **SMTP e templates aplicados (24/11)**; `lucksrei.com` verificado por envio; chave só de envio. Resta: conferir no painel a titularidade e ver um e-mail renderizado | verificar SPF/DKIM; autorizar chave para o AprovaAura | resend.com; cofre | Dono | Sim | status `verified`; envio de teste |
 | 4 | Templates e SMTP no Auth | prontos, não aplicados | `apply_auth_email_config.ps1` com PAT | Auth | Agente | Sim | e-mail PT/EN/ES recebido |
 | 5 | Mercado Pago: titularidade das credenciais `unassigned`, app e webhook | não confirmado | confirmar conta/aplicativo; webhook `…/mp-webhook` | mercadopago.com.br; cofre | Dono | Sim | checkout de teste gera entitlement |
 | 6 | Apple: contratos, bancário/fiscal, produtos, chave IAP | não confirmado | concluir no App Store Connect | App Store Connect | Dono | Sim | produtos aprovados; `payments-apple` valida JWS |

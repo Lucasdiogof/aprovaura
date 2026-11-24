@@ -18,8 +18,8 @@ Feita com o PAT do cofre (`supabase.aprovaura.production.pat`), só leitura, exc
 | Vazamento de senha (HIBP) | desligado | alerta do advisor; recurso de plano pago: não ligado |
 | Rotação de refresh token | ligada (reuso 10 s) | ok |
 | JWT | 3600 s | ok |
-| Limite de e-mails | 2/h | restritivo; ver pendências (SMTP) |
-| SMTP | `smtp.resend.com`, remetente `marketing@lucksrei.com` | já configurado antes; a chave Resend `unassigned` do cofre **não foi usada** |
+| Limite de e-mails | **15/h** (era 2; ver §10) | proporcional ao plano grátis da Resend |
+| SMTP | `smtp.resend.com`, remetente `AprovaAura <no-reply@lucksrei.com>` (alterado em 24/11, ver §10) | chave Resend `unassigned` validada como somente envio |
 | Captcha, hooks | desligados | ok |
 
 Nada de Auth foi alterado.
@@ -151,3 +151,13 @@ Impacto esperado: nenhuma mudança de app/loja; usuários logados há mais de 1 
 - Primeira chamada fria de `evaluate-essay` demorou >30 s uma vez (cold start intermitente; passou na repetição). Vale observar.
 - Armazenamento antigo do segredo no histórico da sessão não pode ser "apagado", mas deixou de ter valor.
 - `PUT /api-keys/legacy` e `PATCH …/signing-keys` não estão na documentação lida; foram aceitos pela API (200) e confirmados por GET.
+
+## 10. Resend e e-mails do Auth (24/11)
+**Chave:** `resend.unassigned.production.api-key` — aceita pela API e **restrita a envio** (suficiente para SMTP; não pedi chave completa). Titularidade: é a conta Resend da Lucksrei; o dono autorizou o uso nesta rodada. Domínios: não listáveis com esta chave; provado por envio que **`lucksrei.com` está verificado** e `aprovaura.lucksrei.com` não está autorizado.
+
+**Aplicado (Management API, sem custo):** SMTP Resend, remetente `AprovaAura <no-reply@lucksrei.com>`, `rate_limit_email_sent=15`, OTP 6 dígitos/3600 s, assuntos bilíngues e os dois templates (cadastro e recuperação com a variante de professor). `mailer_autoconfirm` **continua true**. Templates/script: `supabase/templates/`, `supabase/apply_auth_email_config.ps1` (id do cofre corrigido, 15/h).
+
+**Limites Resend (grátis):** 100/dia, 3000/mês, 10 req/s; compartilhados com a Lucksrei. Com 15/h o Supabase não passa de 360/dia, mas a Resend corta em 100/dia (envios acima falham sem custo). Para lançar com confirmação obrigatória em escala: plano pago ou chave/cota própria (decisão do dono).
+
+**Testes (`tool/qa/email_flow_check.py`, só contas temporárias `delivered+…@resend.dev`, apagadas):** recuperação PT/EN/ES, recuperação de conta antiga sem `lang`, definição de senha de professor (`partner`) e reenvio de confirmação de cadastro: **todas aceitas pelo SMTP (HTTP 200)**. Nenhum usuário real recebeu e-mail. Uma chamada de reenvio de cadastro estourou 60 s uma vez (intermitente) e passou ao repetir.
+**Não verificado:** a renderização final na caixa de entrada (Gmail/Outlook/dark mode) e a entrega real — o destino de teste da Resend não expõe o corpo e a chave não lê e-mails enviados. Recomendo 1 envio de conferência a um endereço do dono antes do lançamento (precisa da sua autorização do destinatário). Deploy de `admin-provision-partner` atualizado (grava `partner: true`).

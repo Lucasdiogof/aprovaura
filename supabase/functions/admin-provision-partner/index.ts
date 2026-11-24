@@ -50,7 +50,7 @@ Deno.serve(async (req) => {
     const pwd = crypto.randomUUID() + crypto.randomUUID(); // descartada: ninguém a conhece
     const lang = ['pt', 'en', 'es'].includes(String(b.lang)) ? String(b.lang) : 'pt';
     const r = await svc.auth.admin.createUser({
-      email, password: pwd, email_confirm: false, user_metadata: { lang, name },
+      email, password: pwd, email_confirm: false, user_metadata: { lang, name, partner: true },
     });
     if (r.error || !r.data.user) {
       const again = await svc.rpc('service_find_user_by_email', { p_email: email }); // corrida

@@ -31,6 +31,14 @@ T = {
     valid='El código es válido por 1 hora.', ignore='Si no lo pediste, ignora este correo: tu contraseña sigue igual.'),
  },
 }
+PARTNER = {  # professor cadastrado pelo administrador: define a senha pelo código (fluxo "Esqueci minha senha")
+  'pt': dict(title='Bem-vindo ao Portal do Professor', cta='Abrir o portal', intro='Você foi cadastrado como professor parceiro do Aprovaura. Para definir sua senha: abra o portal, toque em "Esqueci minha senha", informe este e-mail e digite o código abaixo.',
+    valid='O código vale por 1 hora. Se expirar, peça outro na mesma tela.', ignore='Se você não esperava este convite, pode ignorar este e-mail.'),
+  'en': dict(title='Welcome to the Teacher Portal', cta='Open the portal', intro='You have been registered as an Aprovaura partner teacher. To set your password: open the portal, tap "Forgot password", enter this email and type the code below.',
+    valid='The code is valid for 1 hour. If it expires, request another on the same screen.', ignore="If you weren't expecting this invitation, you can ignore this email."),
+  'es': dict(title='Bienvenido al Portal del Profesor', cta='Abrir el portal', intro='Te registraron como profesor asociado de Aprovaura. Para definir tu contraseña: abre el portal, toca "Olvidé mi contraseña", ingresa este correo y escribe el código de abajo.',
+    valid='El código es válido por 1 hora. Si expira, pide otro en la misma pantalla.', ignore='Si no esperabas esta invitación, puedes ignorar este correo.'),
+}
 FOOT = {'pt': 'Aprovaura é um produto Lucksrei Systems. Este é um e-mail automático, não responda.',
         'en': 'Aprovaura is a Lucksrei Systems product. This is an automated email, please do not reply.',
         'es': 'Aprovaura es un producto de Lucksrei Systems. Este es un correo automático, no respondas.'}
@@ -44,9 +52,16 @@ def block(d, lang):
 
 CODE = '''<div style="margin:22px 0;padding:18px 0;background:#F6F8FC;border:1px solid #DCDEEA;border-radius:14px;font-size:36px;line-height:42px;font-weight:700;letter-spacing:10px;text-align:center;color:#141A45;font-family:'Courier New',Courier,monospace;">{{ .Token }}</div>'''
 
+LINK = '<p style="margin:0 0 14px;text-align:center;"><a href="{{{{ .SiteURL }}}}/partners" style="display:inline-block;padding:12px 22px;background:#7B6CF2;color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none;border-radius:12px;">{cta}</a></p>'
+
 def cond(kind, key=None):
     def part(lang):
-        d = T[kind][lang]; return block(d, lang).replace('@@CODE@@', CODE) if key is None else d[key]
+        d = T[kind][lang]; out = block(d, lang).replace('@@CODE@@', CODE) if key is None else d[key]
+        if kind == 'recovery' and key is None:
+            pd = PARTNER[lang]
+            out = ('{{ if .Data.partner }}' + block(pd, lang).replace('@@CODE@@', CODE + LINK.format(cta=pd['cta']).replace('{{{{', '{{').replace('}}}}', '}}'))
+                   + '{{ else }}' + out + '{{ end }}')
+        return out
     return ('{{ if eq .Data.lang "en" }}' + part('en') + '{{ else if eq .Data.lang "es" }}' + part('es')
             + '{{ else }}' + part('pt') + '{{ end }}')
 
@@ -58,7 +73,7 @@ def page(kind):
     return f'''<div style="margin:0;padding:32px 16px;background:#F8FAFE;font-family:Arial,Helvetica,sans-serif;">
   <div style="max-width:440px;margin:0 auto;">
     <div style="text-align:center;padding:0 0 18px;">
-      <img src="{{ .SiteURL }}/email/aprovaura-mark.png" width="56" alt="Aprovaura" style="display:inline-block;border:0;height:auto;font-size:20px;font-weight:700;color:#7B6CF2;">
+      <img src="{{{{ .SiteURL }}}}/email/aprovaura-mark.png" width="56" alt="Aprovaura" style="display:inline-block;border:0;height:auto;font-size:20px;font-weight:700;color:#7B6CF2;">
       <div style="margin-top:8px;font-size:20px;font-weight:700;color:#7B6CF2;letter-spacing:.3px;">Aprovaura</div>
     </div>
     <div style="background:#FFFFFF;border:1px solid #E2DAF7;border-radius:20px;padding:30px 26px;">

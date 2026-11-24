@@ -41,7 +41,7 @@ if ($Smtp) {
   $body.smtp_pass = $key
   $body.smtp_admin_email = $Sender
   $body.smtp_sender_name = $SenderName
-  $body.rate_limit_email_sent = 30      # e-mails/h; o plano grátis do Resend (100/dia) é compartilhado com a Lucksrei
+  $body.rate_limit_email_sent = 15      # e-mails/h; plano grátis da Resend = 100/dia e 3000/mês, compartilhado com a Lucksrei
 }
 if ($Activate) {
   $body.mailer_autoconfirm = $false
