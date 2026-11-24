@@ -163,4 +163,73 @@ class PortalApi {
 
   Future<Map<String, dynamic>> partnerFinance({int limit = 25, int offset = 0}) =>
       _map('partner_finance', {'p_limit': limit, 'p_offset': offset});
+
+  // ----- Financeiro (Etapa 06) -----
+  Future<Map<String, dynamic>> financeDashboard(DateTime from, DateTime to) =>
+      _map('admin_finance_dashboard', {'p_from': _d(from), 'p_to': _d(to)});
+
+  Future<Map<String, dynamic>> payments({
+    String? search, String? provider, String? status, String? plan, String? partner, String? recon,
+    DateTime? from, DateTime? to, String sort = 'paid_at', String dir = 'desc', int limit = 25, int offset = 0,
+  }) =>
+      _map('admin_list_payments', {
+        'p_search': search, 'p_provider': provider, 'p_status': status, 'p_plan': plan, 'p_partner': partner,
+        'p_recon': recon, 'p_from': from == null ? null : _d(from), 'p_to': to == null ? null : _d(to),
+        'p_sort': sort, 'p_dir': dir, 'p_limit': limit, 'p_offset': offset,
+      });
+
+  Future<Map<String, dynamic>> payment(String id) => _map('admin_get_payment', {'p_id': id});
+
+  Future<Map<String, dynamic>> closing(DateTime competence, {String? search, int limit = 50, int offset = 0}) =>
+      _map('admin_partner_closing', {'p_competence': _d(competence), 'p_search': search, 'p_limit': limit, 'p_offset': offset});
+
+  Future<Map<String, dynamic>> partnerCommissions(String id, {int limit = 25, int offset = 0}) =>
+      _map('admin_partner_commissions', {'p_partner': id, 'p_limit': limit, 'p_offset': offset});
+
+  Future<Map<String, dynamic>> payouts({String? partner, String? status, int limit = 25, int offset = 0}) =>
+      _map('admin_list_payouts', {'p_partner': partner, 'p_status': status, 'p_limit': limit, 'p_offset': offset});
+
+  Future<void> registerPayout({
+    required String partner, required int cents, required DateTime competence, required DateTime paidAt,
+    String? note, String? reference, required String key,
+  }) =>
+      _rpc<dynamic>('admin_register_payout', {
+        'p_partner': partner, 'p_amount_cents': cents, 'p_competence': _d(competence),
+        'p_paid_at': paidAt.toUtc().toIso8601String(), 'p_note': note, 'p_reference': reference, 'p_idempotency_key': key,
+      });
+
+  Future<void> reversePayout(String id, String reason) =>
+      _rpc<dynamic>('admin_reverse_payout', {'p_payout': id, 'p_reason': reason});
+
+  Future<Map<String, dynamic>> partnerPix(String id) => _map('admin_get_partner_pix', {'p_partner': id});
+
+  Future<Map<String, dynamic>> expenses({DateTime? from, DateTime? to, String? category, int limit = 25, int offset = 0}) =>
+      _map('admin_list_expenses', {
+        'p_from': from == null ? null : _d(from), 'p_to': to == null ? null : _d(to),
+        'p_category': category, 'p_limit': limit, 'p_offset': offset,
+      });
+
+  Future<void> saveExpense({
+    String? id, required String description, required String category, required int cents,
+    required DateTime date, String? note,
+  }) =>
+      id == null
+          ? _rpc<dynamic>('admin_create_expense', {
+              'p_description': description, 'p_category': category, 'p_amount_cents': cents, 'p_date': _d(date), 'p_note': note})
+          : _rpc<dynamic>('admin_update_expense', {
+              'p_id': id, 'p_description': description, 'p_category': category, 'p_amount_cents': cents,
+              'p_date': _d(date), 'p_note': note});
+
+  Future<void> voidExpense(String id, String reason) => _rpc<dynamic>('admin_void_expense', {'p_id': id, 'p_reason': reason});
+
+  Future<void> addExpenseCategory(String name) => _rpc<dynamic>('admin_add_expense_category', {'p_name': name});
+
+  Future<String> financeExport(String kind, {DateTime? from, DateTime? to, String? partner, String? provider}) async =>
+      '${await _rpc<dynamic>('admin_finance_export', {
+        'p_kind': kind, 'p_from': from == null ? null : _d(from), 'p_to': to == null ? null : _d(to),
+        'p_partner': partner, 'p_provider': provider})}';
+
+  Future<String> partnerExport(String kind, {DateTime? from, DateTime? to}) async =>
+      '${await _rpc<dynamic>('partner_finance_export', {
+        'p_kind': kind, 'p_from': from == null ? null : _d(from), 'p_to': to == null ? null : _d(to)})}';
 }

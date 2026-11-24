@@ -243,6 +243,7 @@ class PortalShell extends StatelessWidget {
           _NavItem('/partners/users', Icons.people_outline_rounded, t('Usuários', 'Users', 'Usuarios')),
           _NavItem('/partners/teachers', Icons.school_outlined, t('Professores', 'Teachers', 'Profesores')),
           _NavItem('/partners/requests', Icons.swap_horiz_rounded, t('Solicitações', 'Requests', 'Solicitudes')),
+          _NavItem('/partners/finance', Icons.account_balance_wallet_outlined, t('Financeiro', 'Finance', 'Finanzas')),
           _NavItem('/partners/subscriptions', Icons.workspace_premium_outlined, t('Assinaturas', 'Subscriptions', 'Suscripciones')),
           _NavItem('/partners/audit', Icons.fact_check_outlined, t('Auditoria', 'Audit', 'Auditoría')),
           _NavItem('/partners/settings', Icons.tune_rounded, t('Configurações', 'Settings', 'Configuración')),

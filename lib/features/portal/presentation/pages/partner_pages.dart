@@ -504,10 +504,11 @@ class _StatsState extends State<PartnerStatsPage> with PeriodState {
 
 // ───────────────────────── Financeiro ─────────────────────────
 
-String _kindLabel(PortalStrings t, String k) => switch (k) {
+String ledgerKindLabel(PortalStrings t, String k) => switch (k) {
       'commission' => t('Comissão', 'Commission', 'Comisión'),
       'refund_adjustment' => t('Estorno', 'Refund adjustment', 'Reembolso'),
-      'manual_adjustment' => t('Ajuste', 'Adjustment', 'Ajuste'),
+      'fee_adjustment' => t('Ajuste de taxa', 'Fee adjustment', 'Ajuste de tarifa'),
+      'manual_adjustment' => t('Ajuste manual', 'Manual adjustment', 'Ajuste manual'),
       'payout' => t('Repasse', 'Payout', 'Pago'),
       'payout_reversal' => t('Repasse revertido', 'Payout reversed', 'Pago revertido'),
       _ => k,
@@ -528,7 +529,22 @@ class _FinanceState extends State<PartnerFinancePage> {
     final t = PortalStrings.watch(context);
     final api = context.read<PortalApi>();
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      PageHeader(title: t('Financeiro', 'Finance', 'Finanzas'), subtitle: t('Somente leitura', 'Read only', 'Solo lectura')),
+      PageHeader(
+        title: t('Financeiro', 'Finance', 'Finanzas'),
+        subtitle: t('Somente leitura', 'Read only', 'Solo lectura'),
+        actions: [
+          OutlinedButton.icon(
+            onPressed: () => exportCsv(context, () => api.partnerExport('commissions'), 'minhas-comissoes.csv'),
+            icon: const Icon(Icons.download_rounded, size: 18),
+            label: Text(t('Comissões CSV', 'Commissions CSV', 'Comisiones CSV')),
+          ),
+          OutlinedButton.icon(
+            onPressed: () => exportCsv(context, () => api.partnerExport('payouts'), 'meus-repasses.csv'),
+            icon: const Icon(Icons.download_rounded, size: 18),
+            label: Text(t('Repasses CSV', 'Payouts CSV', 'Pagos CSV')),
+          ),
+        ],
+      ),
       Loader<Map<String, dynamic>>(
         loader: () => api.partnerFinance(limit: _limit, offset: _offset),
         keys: [_offset],
@@ -553,7 +569,10 @@ class _FinanceState extends State<PartnerFinancePage> {
               ),
             _section(t('Resumo', 'Summary', 'Resumen'), [
               StatCard(label: t('Saldo a receber', 'Balance to receive', 'Saldo a recibir'), value: t.money(_n(s, 'balance_cents')), hint: t('Comissões + ajustes − repasses', 'Commissions + adjustments − payouts', 'Comisiones + ajustes − pagos')),
-              StatCard(label: t('Comissões confirmadas', 'Confirmed commissions', 'Comisiones confirmadas'), value: t.money(_n(s, 'commissions_cents')), hint: t('Só de pagamentos confirmados', 'From confirmed payments only', 'Solo de pagos confirmados')),
+              StatCard(label: t('Sua comissão', 'Your commission', 'Tu comisión'), value: t.bps(_n(p, 'commission_bps')), hint: t('Vale para pagamentos futuros', 'Applies to future payments', 'Vale para pagos futuros')),
+              StatCard(label: t('Comissões do mês', 'This month commissions', 'Comisiones del mes'), value: t.money(_n(s, 'month_commissions_cents'))),
+              StatCard(label: t('Pendente de conciliação', 'Pending reconciliation', 'Pendiente de conciliación'), value: t.money(_n(s, 'pending_reconciliation_cents')), hint: t('Libera após o provedor confirmar as taxas', 'Released once the provider confirms fees', 'Se libera cuando el proveedor confirma las tarifas')),
+              StatCard(label: t('Comissões confirmadas (total)', 'Confirmed commissions (total)', 'Comisiones confirmadas (total)'), value: t.money(_n(s, 'commissions_cents')), hint: t('Só de pagamentos confirmados', 'From confirmed payments only', 'Solo de pagos confirmados')),
               StatCard(label: t('Estornos e ajustes', 'Refunds and adjustments', 'Reembolsos y ajustes'), value: t.money(_n(s, 'adjustments_cents'))),
               StatCard(label: t('Total já recebido', 'Total received', 'Total recibido'), value: t.money(_n(s, 'received_cents'))),
               StatCard(label: t('Último repasse', 'Last payout', 'Último pago'), value: last == null ? '—' : t.money(_n(last, 'amount_cents')), hint: last == null ? null : t.dateOf(last['paid_at'])),
@@ -593,15 +612,17 @@ class _FinanceState extends State<PartnerFinancePage> {
                         PortalColumn(t('Competência', 'Competence', 'Competencia')),
                         PortalColumn(t('Valor', 'Amount', 'Valor')),
                         PortalColumn(t('Situação', 'Status', 'Estado')),
-                        PortalColumn(t('Data', 'Date', 'Fecha')),
+                        PortalColumn(t('Data do Pix', 'Pix date', 'Fecha del Pix')),
+                        PortalColumn(t('Referência', 'Reference', 'Referencia'), flex: 2),
                       ],
                       rows: [
                         for (final r in payouts)
                           [
                             Text('${r['competence']}'.substring(0, 7)),
                             Text(t.money(_n(r, 'amount_cents'))),
-                            StatusBadge(r['status'] == 'paid' ? t('Pago', 'Paid', 'Pagado') : t('Pendente', 'Pending', 'Pendiente'), tone: r['status'] == 'paid' ? Tone.good : Tone.warn),
+                            StatusBadge(r['status'] == 'paid' ? t('Pago', 'Paid', 'Pagado') : t('Revertido', 'Reversed', 'Revertido'), tone: r['status'] == 'paid' ? Tone.good : Tone.bad),
                             Text(t.dateOf(r['paid_at'])),
+                            Text('${r['reference'] ?? '—'}'),
                           ],
                       ],
                     ),
@@ -623,7 +644,7 @@ class _FinanceState extends State<PartnerFinancePage> {
                           for (final r in ledger)
                             [
                               Text(t.dateOf(r['at'])),
-                              Text(_kindLabel(t, '${r['kind']}')),
+                              Text(ledgerKindLabel(t, '${r['kind']}')),
                               Text(planLabel(t, r['plan'] as String?)),
                               Text(t.money(_n(r, 'amount_cents'))),
                             ],

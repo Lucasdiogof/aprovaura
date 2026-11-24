@@ -270,3 +270,46 @@ PAT do dono para deploy de `admin-provision-partner`; templates/SMTP Resend (§1
 
 ### 16.8 Checklist de QA futuro
 Link `?ref=` válido/inválido/inativo; login prévio + link; troca no dropdown; professor com <5 e ≥5 consentimentos; revogar consentimento; aluno de outro professor (42501); professor encerrado (só Financeiro/Parceria); PT/EN/ES, claro/escuro, mobile; F5 em `/partners/...`.
+
+## 17. Etapa 06 — Financeiro, comissões e repasses (2026-11-28)
+
+### 17.1 Arquitetura (sem segundo sistema)
+Mesma base de `20261124000400_finance.sql`: `payments` (snapshot imutável), `commission_ledger` (append-only), `payouts`. Nova migration `20261128000100_finance_admin.sql` (aplicada; rollback em `supabase/rollbacks`). Dinheiro **sempre em centavos `bigint`** (comissão = `floor(líquido × bps / 10000)`; nenhum float). Todos os números das telas vêm de RPCs; o Flutter só formata. Tabelas novas (travadas para o cliente): `payment_refunds`, `payment_adjustments`, `partner_commission_history`, `expense_categories`, `expenses`, `expense_history`; view interna `payments_eff` (valores efetivos = base + ajustes − reembolsos).
+
+### 17.2 Estados do pagamento
+`status`: confirmed → partially_refunded → refunded | charged_back. `reconciliation_status`: **pending** (taxa/imposto ESTIMADOS) → **reconciled** (oficiais do provedor, uma única vez). `settlement_status`: pending → settled (`settled_cents`/`settled_at` informados pelo provedor). Receita gerada ≠ pagamento confirmado ≠ liquidado ≠ comissão conquistada ≠ disponível ≠ repassado ≠ lucro: cada um tem campo/indicador próprio.
+
+### 17.3 Regras de comissão (corrigidas)
+- Professor, vínculo e **percentual são reconstruídos pelo histórico no instante do pagamento** (`partner_link_history`, `partner_commission_history` por trigger em `partners`; funções `_student_partner_at`, `_partner_bps_at`). Eventos atrasados/fora de ordem, renovações e mudança de percentual (50%→40% só vale para pagamentos novos) usam o estado da data do pagamento, nunca o estado atual. *Bug anterior corrigido:* o percentual e o professor atuais eram usados em pagamentos antigos.
+- Pagamento com taxa/imposto **estimado** grava a comissão provisória no pagamento mas **não lança no razão** (não é liberável); a conciliação lança a comissão definitiva e os reembolsos que chegaram antes. Comissão = 0 para trial/cortesia/professor/admin (só pagamentos reais entram em `payments`). Anual = comissão sobre o pagamento anual.
+- Ajuste posterior de taxa/imposto (`record_payment_adjustment`) gera lançamento `fee_adjustment` (± diferença da comissão), idempotente por `external_ref`.
+
+### 17.4 Reembolsos
+`record_payment_refund` aceita total, parcial, vários e chargeback, com taxa/imposto devolvidos opcionais. Comissão revertida = alvo cumulativo (`floor(comissão × reembolsado / bruto)`, integral no último) − já revertido: sem deriva de arredondamento e sem desconto duplo (idempotente por `external_ref`; sem ref só o saldo restante integral). Antes ou depois do repasse: lançamento negativo no razão (saldo pode ficar negativo e compensa as próximas comissões). Evento antes do pagamento ⇒ `P0040` (a integração reenfileira). Cancelamento de renovação ≠ reembolso: não gera ajuste; o Premium de outras fontes nunca é tocado aqui.
+
+### 17.5 Fechamento e repasse
+Competência = mês em America/Sao_Paulo. `admin_partner_closing(competência)` por professor: acumulado anterior, comissão do mês, ajustes, já repassado, **disponível = soma do razão até a competência**, situação (pago/parcial/pendente/negativo), Pix mascarado, pendente de conciliação. Nada é apagado ao virar o mês. **Registrar repasse** (`admin_register_payout`): valor padrão = disponível, parcial permitido, data do Pix, referência, observação, **chave de idempotência** (clique duplo não duplica), lock por professor, validação contra o disponível (P0041), auditoria e admin responsável. Efeito: lançamento negativo `payout` (nunca "update para zero"); comissões novas continuam somando. **Reverter** (`admin_reverse_payout`): motivo obrigatório (≥5), lançamento compensatório `payout_reversal`, original preservado, admin registrado — **não desfaz o Pix externo**. Chave Pix completa só por ação explícita e auditada (`admin_get_partner_pix`).
+
+### 17.6 Resultado (fórmulas)
+`líquida = bruto − reembolsos − taxas − impostos` · `receita Lucksrei = líquida − (comissões geradas − estornadas)` · `resultado = receita Lucksrei − despesas`. Por competência (data do pagamento/evento); a data do repasse não deduz de novo. **Fluxo de caixa informado** = recebido dos provedores − repasses pagos − despesas (separado do resultado). Impostos/taxas só aparecem se registrados; nada é estimado por padrão e há aviso quando o período tem taxas estimadas. Despesas não alteram comissões.
+
+### 17.7 Despesas
+Categorias iniciais (Supabase, Cloudflare, IA, Apple Developer, Google Play, e-mail, Marketing, Outros) + novas pelo admin. Criar/editar/excluir (anular) com `expense_history` imutável e auditoria. Sem ERP, notas fiscais ou conciliação bancária.
+
+### 17.8 RPCs
+Admin: `admin_finance_dashboard`, `admin_list_payments`, `admin_get_payment`, `admin_partner_closing`, `admin_partner_commissions`, `admin_list_payouts`, `admin_register_payout`, `admin_reverse_payout`, `admin_get_partner_pix`, `admin_create_expense`, `admin_update_expense`, `admin_void_expense`, `admin_add_expense_category`, `admin_list_expenses`, `admin_finance_export`. Professor: `partner_finance` (mesma fonte), `partner_finance_export`. Exportações CSV (pagamentos, comissões, repasses, despesas, resumo): texto livre com proteção contra injeção de fórmula (`_csv`), valores decimais exatos, sem Pix/segredos, limite de 20 000 linhas, respeitam os filtros.
+
+### 17.9 Contratos para a Etapa 07 (somente service_role)
+`record_confirmed_payment(provider, external_id, user, plan, gross, fee, tax, paid_at, raw, fee_source, tax_source)` · `record_payment_reconciliation(provider, external_id, fee, tax, settled_cents, settled_at)` · `record_payment_settlement(...)` · `record_payment_adjustment(provider, external_id, kind, delta, external_ref, note)` · `record_payment_refund(provider, external_id, at, charged_back, refund_cents, fee_refund, tax_refund, external_ref)`. Todos idempotentes (lock por pagamento). Se o provedor só entrega relatório posterior: registrar com `fee_source='estimated'` e conciliar quando o oficial chegar (o oficial prevalece). Admin não cria/edita pagamento de provedor pela UI.
+
+### 17.10 Segurança
+RLS ligada e `revoke` em todas as tabelas novas; RPCs `security definer` com `search_path` fixo, `require_admin()` ou identificação do professor por `auth.uid()`; paginação no servidor; professor só vê o próprio razão (nunca despesas/lucro/outros); parceria encerrada mantém o Financeiro. Triggers: pagamentos só mudam taxas na 1ª conciliação; razão e histórico imutáveis.
+
+### 17.11 Limitações e pendências
+- **Comprovantes (anexo) não implementados** (exigiria seletor de arquivos + bucket privado + políticas); o campo `reference` do Pix cobre o rastreio.
+- Ajuste de taxa não recalcula reembolsos já lançados (a diferença cai no próximo lançamento).
+- Estorno usa a competência da data do estorno.
+- Pendências externas: integrações reais (Etapa 07), PAT para a Edge Function de provisionamento, templates Resend, deploy da web. Código Flutter novo sem `flutter analyze`/testes (diretriz).
+
+### 17.12 Checklist de QA futuro
+Pagamento com professor → comissão; mudar % → pagamento antigo reprocessado mantém %; taxa estimada → conciliar; reembolso parcial/total/duplicado; repasse total/parcial/clique duplo/acima do saldo/reverter; novo saldo após repasse; exportações CSV com `=cmd()`; professor encerrado só Financeiro; isolamento entre professores; PT/EN/ES, claro/escuro, mobile.

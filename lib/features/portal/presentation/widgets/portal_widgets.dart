@@ -1,9 +1,12 @@
 import 'dart:async';
 
+import 'package:flutter/services.dart';
+
 import 'package:material_ui/material_ui.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/portal/data/portal_api.dart';
 import 'package:aura/features/portal/l10n/portal_strings.dart';
+import 'package:aura/features/portal/presentation/widgets/csv_download.dart';
 
 const double kWide = 900;
 
@@ -204,6 +207,9 @@ String errorText(PortalStrings t, Object e) {
     'P0051' || 'already_partner' => t('Este usuário já é professor ativo.', 'This user is already an active teacher.', 'Este usuario ya es profesor activo.'),
     'P0052' || 'code_in_use' => t('Este código de indicação já está em uso.', 'This referral code is already in use.', 'Este código de referencia ya está en uso.'),
     'P0053' => t('O aluno não tem professor.', 'The student has no teacher.', 'El alumno no tiene profesor.'),
+    'P0040' => t('Pagamento não encontrado.', 'Payment not found.', 'Pago no encontrado.'),
+    'P0041' => t('Valor acima do saldo disponível.', 'Amount exceeds the available balance.', 'Valor superior al saldo disponible.'),
+    'P0042' => t('Este repasse não pode ser revertido.', 'This payout cannot be reversed.', 'Este pago no puede revertirse.'),
     'P0060' => t('Filtro ou período inválido.', 'Invalid filter or period.', 'Filtro o periodo no válido.'),
     _ => t('Não foi possível concluir. Tente novamente.', 'Could not complete. Try again.', 'No se pudo completar. Inténtalo de nuevo.'),
   };
@@ -640,7 +646,7 @@ class BarChart extends StatelessWidget {
   }
 }
 
-enum Preset { today, d7, d30, month, lastMonth, custom }
+enum Preset { today, d7, d30, month, lastMonth, year, custom }
 
 /// Seletor de período compartilhado (painel do admin e do professor): mesmos
 /// atalhos, mesmo intervalo personalizado, mesmos rótulos.
@@ -662,6 +668,8 @@ mixin PeriodState<T extends StatefulWidget> on State<T> {
         return DateTimeRange(start: DateTime(now.year, now.month), end: today);
       case Preset.lastMonth:
         return DateTimeRange(start: DateTime(now.year, now.month - 1), end: DateTime(now.year, now.month, 0));
+      case Preset.year:
+        return DateTimeRange(start: DateTime(now.year), end: today);
       case Preset.custom:
         return customRange ?? DateTimeRange(start: today.subtract(const Duration(days: 29)), end: today);
     }
@@ -695,8 +703,30 @@ mixin PeriodState<T extends StatefulWidget> on State<T> {
           Preset.d30: t('Últimos 30 dias', 'Last 30 days', 'Últimos 30 días'),
           Preset.month: t('Mês atual', 'This month', 'Mes actual'),
           Preset.lastMonth: t('Mês anterior', 'Last month', 'Mes anterior'),
+          Preset.year: t('Ano atual', 'This year', 'Año actual'),
           Preset.custom: t('Personalizado…', 'Custom…', 'Personalizado…'),
         },
         onChanged: pickPreset,
       );
+}
+
+String providerLabel(String p) => switch (p) {
+      'apple' => 'Apple',
+      'google' => 'Google Play',
+      'mercadopago' => 'Mercado Pago',
+      _ => p,
+    };
+
+/// Exporta CSV: baixa no navegador (web) ou copia para a área de transferência.
+Future<void> exportCsv(BuildContext context, Future<String> Function() fetch, String name) async {
+  final t = PortalStrings.read(context);
+  final messenger = ScaffoldMessenger.of(context);
+  try {
+    final csv = await fetch();
+    if (await downloadCsv(name, csv)) return;
+    await Clipboard.setData(ClipboardData(text: csv));
+    messenger.showSnackBar(SnackBar(content: Text(t('CSV copiado.', 'CSV copied.', 'CSV copiado.'))));
+  } catch (e) {
+    messenger.showSnackBar(SnackBar(content: Text(errorText(t, e))));
+  }
 }
