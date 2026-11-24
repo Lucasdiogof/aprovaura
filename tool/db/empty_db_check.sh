@@ -5,7 +5,7 @@ set -u
 cd "$(dirname "$0")/../.."
 NAME=aura-empty-check
 docker rm -f $NAME >/dev/null 2>&1
-docker run -d --name $NAME -e POSTGRES_PASSWORD=x postgres:16-alpine >/dev/null
+docker run -d --name $NAME -p 127.0.0.1:${PORT:-55432}:5432 -e POSTGRES_PASSWORD=x postgres:16-alpine >/dev/null
 for i in $(seq 1 30); do docker exec $NAME pg_isready -U postgres >/dev/null 2>&1 && break; sleep 1; done
 sleep 2
 psqlx() { docker exec -i $NAME psql -U postgres -v ON_ERROR_STOP=1 -q "$@"; }
@@ -23,4 +23,4 @@ FILES="${BASE_FILES:-supabase/profiles_schema.sql supabase/catalog_schema.sql su
 for f in $FILES supabase/migrations/*.sql; do
   if psqlx -f - < "$f" >/tmp/empty_db_out.txt 2>&1; then echo "OK   $f"; else echo "FAIL $f"; head -5 /tmp/empty_db_out.txt; break; fi
 done
-docker rm -f $NAME >/dev/null 2>&1
+[ "${KEEP:-0}" = 1 ] || docker rm -f $NAME >/dev/null 2>&1
