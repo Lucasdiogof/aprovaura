@@ -1,43 +1,13 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/access/domain/entities/access_status.dart';
-import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
 import 'package:aura/features/paywall/presentation/widgets/paywall_common.dart';
 import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/shared/widgets/aura/aura_glyph.dart';
 
-/// Indicação discreta (só na Home) enquanto o acesso vem apenas do teste de
-/// 72h. O prazo é o que o servidor autorizou: nada aqui estende ou reinicia o
-/// teste. Some sozinho quando há assinatura, cortesia ou papel, e quando o
-/// modelo comercial está desligado.
-class TrialBanner extends StatelessWidget {
-  const TrialBanner({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<AccessCubit, AccessState>(
-      buildWhen: (a, b) => a.status != b.status,
-      builder: (context, state) {
-        final s = state.status;
-        final until = s.accessUntil;
-        if (!s.enforced || !s.allowed || !s.trialOnly || until == null) {
-          return const SizedBox.shrink();
-        }
-        final remaining = until.difference(DateTime.now());
-        if (remaining.isNegative) return const SizedBox.shrink();
-        return Padding(
-          padding: const EdgeInsets.only(bottom: AppSpacing.sm),
-          child: TrialSummaryCard(status: s),
-        );
-      },
-    );
-  }
-}
-
-/// Cartão do teste (Home e "Minha assinatura"): status, tempo restante, data de
+/// Cartão do teste (só em "Minha assinatura", no Perfil): status, tempo restante, data de
 /// expiração e atalho para conhecer os planos / assinar antes do fim.
 class TrialSummaryCard extends StatelessWidget {
   const TrialSummaryCard({required this.status, super.key});
