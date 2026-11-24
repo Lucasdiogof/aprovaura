@@ -10,6 +10,13 @@ abstract class AccessRepository {
   /// Motivo do bloqueio (só texto do paywall). Sem conexão: contexto vazio.
   Future<AccessContext> loadContext();
 
+  /// Documentos legais que exigem novo aceite. `null` = não foi possível saber
+  /// (sem conexão/erro): quem chama NUNCA bloqueia por isso.
+  Future<List<PendingLegal>?> loadPendingLegal() async => const [];
+
+  /// Registra o aceite dos documentos pendentes (servidor grava versão e data).
+  Future<bool> acceptLegal(List<PendingLegal> docs, String platform) async => true;
+
   /// Apaga a autorização e dicas locais (saída da conta / exclusão).
   Future<void> clear();
 }

@@ -50,6 +50,12 @@ class FakeAccessRepository implements AccessRepository {
   Future<AccessContext> loadContext() async => const AccessContext();
 
   @override
+  Future<List<PendingLegal>?> loadPendingLegal() async => const [];
+
+  @override
+  Future<bool> acceptLegal(List<PendingLegal> docs, String platform) async => true;
+
+  @override
   Future<void> clear() async {}
 }
 

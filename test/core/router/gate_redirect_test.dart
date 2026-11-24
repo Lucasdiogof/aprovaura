@@ -36,4 +36,14 @@ void main() {
     expect(r(AccessGate.open, '/conectar'), '/home');
     expect(r(AccessGate.open, '/atualizar'), '/home');
   });
+
+  test('reaceite legal: só aceite, documentos e portal; aceito libera', () {
+    for (final p in ['/home', '/assinatura', '/conectar', '/minha-assinatura']) {
+      expect(r(AccessGate.legalRequired, p), '/aceite-legal');
+    }
+    expect(r(AccessGate.legalRequired, '/aceite-legal'), isNull);
+    expect(r(AccessGate.legalRequired, '/privacidade'), isNull);
+    expect(r(AccessGate.legalRequired, '/partners/finance'), isNull);
+    expect(r(AccessGate.open, '/aceite-legal'), '/home');
+  });
 }

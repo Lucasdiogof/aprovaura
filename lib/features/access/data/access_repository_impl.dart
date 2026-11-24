@@ -134,6 +134,35 @@ class AccessRepositoryImpl implements AccessRepository {
   }
 
   @override
+  Future<List<PendingLegal>?> loadPendingLegal() async {
+    try {
+      final raw = await _client.rpc<dynamic>('get_legal_status').withRequestTimeout();
+      return (raw as List? ?? const [])
+          .whereType<Map<String, dynamic>>()
+          .where((d) => d['accepted'] != true && d['requires_reaccept'] == true)
+          .map((d) => PendingLegal(kind: '${d['kind']}', version: '${d['version']}', url: d['url'] as String?))
+          .toList();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  @override
+  Future<bool> acceptLegal(List<PendingLegal> docs, String platform) async {
+    try {
+      for (final d in docs) {
+        await _client
+            .rpc<dynamic>('record_legal_acceptance',
+                params: {'p_kind': d.kind, 'p_version': d.version, 'p_platform': platform})
+            .withRequestTimeout();
+      }
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  @override
   Future<void> clear() async {
     final keys = _prefs.getKeys().where((k) => k.startsWith(_root)).toList();
     for (final key in keys) {

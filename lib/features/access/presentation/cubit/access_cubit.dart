@@ -16,6 +16,7 @@ class AccessState extends Equatable {
     this.failure,
     this.resolved = false,
     this.context = const AccessContext(),
+    this.legalPending = const [],
   });
 
   final AccessStatus status;
@@ -30,22 +31,27 @@ class AccessState extends Equatable {
   /// Motivo do bloqueio (só orienta o texto do paywall).
   final AccessContext context;
 
+  /// Documentos que exigem novo aceite (vazio na maior parte do tempo).
+  final List<PendingLegal> legalPending;
+
   AccessState copyWith({
     AccessStatus? status,
     bool? loading,
     Failure? failure,
     bool? resolved,
     AccessContext? context,
+    List<PendingLegal>? legalPending,
   }) => AccessState(
     status: status ?? this.status,
     loading: loading ?? this.loading,
     failure: failure,
     resolved: resolved ?? this.resolved,
     context: context ?? this.context,
+    legalPending: legalPending ?? this.legalPending,
   );
 
   @override
-  List<Object?> get props => [status, loading, failure, resolved, context];
+  List<Object?> get props => [status, loading, failure, resolved, context, legalPending];
 }
 
 /// Estado central de papéis e acesso Premium e ÚNICO lugar que decide para
@@ -88,14 +94,20 @@ class AccessCubit extends Cubit<AccessState> {
       final ctx = status.isBlocked && !status.needsConnection && !status.fromOfflineGrant
           ? await _repository.loadContext()
           : const AccessContext();
+      // Só o servidor, com conexão, pode exigir novo aceite. Falha ou
+      // autorização offline mantêm o que já se sabia (nunca inventa bloqueio).
+      var legal = state.legalPending;
+      if (!status.needsConnection && !status.fromOfflineGrant) {
+        legal = await _repository.loadPendingLegal() ?? legal;
+      }
       if (isClosed) return;
-      emit(AccessState(status: status, resolved: true, context: ctx));
+      emit(AccessState(status: status, resolved: true, context: ctx, legalPending: legal));
       _armExpiry(status);
     } else if (result is Error<AccessStatus>) {
       // Erro que não é falta de conexão (ex.: 5xx): mantém o último estado
       // conhecido. A decisão real é do servidor (o gate barra o conteúdo);
       // o app não inventa bloqueio por falha técnica.
-      emit(AccessState(status: state.status, resolved: true, failure: result.failure, context: state.context));
+      emit(AccessState(status: state.status, resolved: true, failure: result.failure, context: state.context, legalPending: state.legalPending));
     }
   }
 
@@ -114,6 +126,14 @@ class AccessCubit extends Cubit<AccessState> {
     if (wait < const Duration(seconds: 5)) wait = const Duration(seconds: 5);
     if (wait > const Duration(hours: 12)) wait = const Duration(hours: 12);
     _expiry = Timer(wait, () => unawaited(refresh(force: true)));
+  }
+
+  /// Registra o aceite dos documentos pendentes; devolve false se falhou
+  /// (o usuário segue na tela de aceite e pode tentar de novo).
+  Future<bool> acceptLegal() async {
+    final ok = await _repository.acceptLegal(state.legalPending, _platform);
+    if (ok) await refresh(force: true);
+    return ok;
   }
 
   /// Saída da conta: esquece tudo da conta anterior.
@@ -137,6 +157,7 @@ class AccessCubit extends Cubit<AccessState> {
     if (!state.resolved) return AccessGate.resolving;
     if (updateRequired) return AccessGate.updateRequired;
     if (state.status.needsConnection) return AccessGate.connectionRequired;
+    if (state.legalPending.isNotEmpty) return AccessGate.legalRequired;
     if (state.status.isBlocked) return AccessGate.paywall;
     return AccessGate.open;
   }

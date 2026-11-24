@@ -10,6 +10,7 @@ import 'package:aura/core/router/app_route_observer.dart';
 import 'package:aura/features/access/domain/entities/access_status.dart';
 import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
 import 'package:aura/features/paywall/presentation/pages/access_gate_pages.dart';
+import 'package:aura/features/legal/presentation/pages/legal_acceptance_page.dart';
 import 'package:aura/features/paywall/presentation/pages/my_subscription_page.dart';
 import 'package:aura/features/paywall/presentation/pages/paywall_page.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
@@ -36,7 +37,7 @@ import 'package:aura/features/portal/presentation/pages/users_page.dart';
 /// `currentUser!` e `/onboarding` gravaria perfil sem dono. Importa também
 /// na web, onde qualquer URL pode ser aberta direto.
 const _authenticatedRoutes = {'/home', '/onboarding'};
-const _sessionOnlyRoutes = {'/assinatura', '/minha-assinatura', '/privacidade', '/verificando', '/conectar', '/atualizar'};
+const _sessionOnlyRoutes = {'/aceite-legal', '/assinatura', '/minha-assinatura', '/privacidade', '/verificando', '/conectar', '/atualizar'};
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -96,13 +97,16 @@ String? gateRedirect({
       if (location == '/verificando') {
         return to != null && to.startsWith('/') && !to.startsWith('//') ? to : '/home';
       }
-      return location == '/conectar' || location == '/atualizar' ? '/home' : null;
+      return location == '/conectar' || location == '/atualizar' || location == '/aceite-legal' ? '/home' : null;
     case AccessGate.paywall:
       return location == '/assinatura' || location == '/minha-assinatura' || location == '/privacidade' ? null : '/assinatura';
     case AccessGate.connectionRequired:
       return location == '/conectar' ? null : '/conectar';
     case AccessGate.updateRequired:
       return location == '/atualizar' ? null : '/atualizar';
+    case AccessGate.legalRequired:
+      // Ler documentos, sair e excluir a conta (rodapé da própria tela) nunca são barrados.
+      return location == '/aceite-legal' || location == '/privacidade' ? null : '/aceite-legal';
   }
 }
 
@@ -207,6 +211,7 @@ final GoRouter appRouter = GoRouter(
     ),
     GoRoute(path: '/verificando', builder: (_, _) => const AccessResolvingPage()),
     GoRoute(path: '/conectar', builder: (_, _) => const ConnectionRequiredPage()),
+    GoRoute(path: '/aceite-legal', builder: (_, _) => const LegalAcceptancePage()),
     GoRoute(path: '/atualizar', builder: (_, _) => const UpdateRequiredPage()),
     GoRoute(path: '/assinatura', builder: (_, _) => const PaywallPage()),
     GoRoute(path: '/minha-assinatura', builder: (_, _) => const MySubscriptionPage()),

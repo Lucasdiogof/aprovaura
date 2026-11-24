@@ -109,6 +109,22 @@ enum AccessGate {
   paywall,
   connectionRequired,
   updateRequired,
+
+  /// Uma nova versão de documento legal exige novo aceite (só quando o servidor
+  /// confirma `requires_reaccept`; nunca por falha de rede).
+  legalRequired,
+}
+
+/// Documento legal vigente que o usuário ainda não aceitou e cuja publicação
+/// marcou como "exige novo aceite".
+class PendingLegal extends Equatable {
+  const PendingLegal({required this.kind, required this.version, this.url});
+  final String kind;
+  final String version;
+  final String? url;
+
+  @override
+  List<Object?> get props => [kind, version, url];
 }
 
 /// Por que o paywall aparece (só escolhe o texto; nunca concede nada).

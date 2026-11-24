@@ -23,6 +23,20 @@ class _Repo implements AccessRepository {
     return context;
   }
 
+  List<PendingLegal>? legal = const [];
+  bool acceptOk = true;
+  int accepts = 0;
+
+  @override
+  Future<List<PendingLegal>?> loadPendingLegal() async => legal;
+
+  @override
+  Future<bool> acceptLegal(List<PendingLegal> docs, String platform) async {
+    accepts++;
+    if (acceptOk) legal = const [];
+    return acceptOk;
+  }
+
   @override
   Future<void> clear() async => clears++;
 }
@@ -108,6 +122,46 @@ void main() {
       expect(repo.refreshes, 2);
       await c.refresh(force: true);
       expect(repo.refreshes, 3);
+    });
+  });
+
+  group('AccessCubit reaceite legal', () {
+    const doc = PendingLegal(kind: 'terms', version: '2027-01-01');
+
+    test('servidor exige reaceite: gate legalRequired, antes do paywall; aceitar libera', () async {
+      final repo = _Repo(const Success(_blocked))..legal = [doc];
+      final c = AccessCubit(repo, version: '1.1.0');
+      await c.refresh(force: true);
+      expect(c.gate, AccessGate.legalRequired);
+      expect(await c.acceptLegal(), isTrue);
+      expect(c.gate, AccessGate.paywall);
+    });
+
+    test('falha ao consultar (null) NUNCA bloqueia e mantém o que já se sabia', () async {
+      final repo = _Repo(const Success(_allowed))..legal = null;
+      final c = AccessCubit(repo, version: '1.1.0');
+      await c.refresh(force: true);
+      expect(c.gate, AccessGate.open);
+      repo.legal = [doc];
+      await c.refresh(force: true);
+      repo.legal = null;
+      await c.refresh(force: true);
+      expect(c.gate, AccessGate.legalRequired);
+    });
+
+    test('aceite que falha mantém a tela de aceite', () async {
+      final repo = _Repo(const Success(_allowed))..legal = [doc]..acceptOk = false;
+      final c = AccessCubit(repo, version: '1.1.0');
+      await c.refresh(force: true);
+      expect(await c.acceptLegal(), isFalse);
+      expect(c.gate, AccessGate.legalRequired);
+    });
+
+    test('exigir conexão tem precedência e não consulta documentos', () async {
+      final repo = _Repo(const Success(AccessStatus.connectionRequired))..legal = [doc];
+      final c = AccessCubit(repo, version: '1.1.0');
+      await c.refresh(force: true);
+      expect(c.gate, AccessGate.connectionRequired);
     });
   });
 }
