@@ -32,6 +32,7 @@
 // submission nunca se perdem.
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.47.10';
+import { publishableKey, secretKey } from '../_shared/keys.ts';
 import { resolveEssayProvider } from '../_shared/essay_provider.ts';
 
 const MODEL = Deno.env.get('GEMINI_MODEL') ?? 'gemini-3.8-flash';
@@ -384,7 +385,17 @@ Deno.serve(async (req) => {
   if (!authHeader) return json({ error: 'missing authorization header' }, 401);
 
   const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-  const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
+  const anonKey = publishableKey();
+  // Autenticação PRIMEIRO (verify_jwt do gateway está desligado por causa do ES256).
+  // Client "como o chamador": nunca a service key. Toda regra de posse e
+  // de cota continua valendo exatamente como valeria para o app.
+  const caller = createClient(supabaseUrl, anonKey, {
+    global: { headers: { Authorization: authHeader } },
+  });
+
+  const { data: userData, error: userError } = await caller.auth.getUser();
+  if (userError || !userData?.user) return json({ error: 'invalid session' }, 401);
+
   // Interruptor de segurança: suspende a correção externa antes de qualquer cota ou envio.
   if (resolveEssayProvider(Deno.env.get('ESSAY_AI_PROVIDER')) === 'suspended') {
     return json({ error: 'provider suspended', reason: 'not_configured' }, 503);
@@ -409,15 +420,6 @@ Deno.serve(async (req) => {
   if (typeof submissionId !== 'string' || !submissionId) {
     return json({ error: 'missing submission_id' }, 400);
   }
-
-  // Client "como o chamador": nunca a service key. Toda regra de posse e
-  // de cota continua valendo exatamente como valeria para o app.
-  const caller = createClient(supabaseUrl, anonKey, {
-    global: { headers: { Authorization: authHeader } },
-  });
-
-  const { data: userData, error: userError } = await caller.auth.getUser();
-  if (userError || !userData?.user) return json({ error: 'invalid session' }, 401);
 
   // Reivindica a submission: posse, estado e cota são conferidos aqui, e a
   // cota é debitada ANTES de qualquer chamada ao provider.

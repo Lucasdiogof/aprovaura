@@ -9,6 +9,7 @@
 //    senha pelo fluxo "esqueci a senha" (e-mail do Auth). Nenhuma senha é guardada.
 // Deploy: supabase functions deploy admin-provision-partner (verify_jwt = true).
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.47.10';
+import { publishableKey, secretKey } from '../_shared/keys.ts';
 
 const ORIGINS = ['https://aprovaura.lucksrei.com'];
 const cors = (req: Request) => ({
@@ -28,7 +29,7 @@ Deno.serve(async (req) => {
   if (!auth) return json(req, 401, { error: 'unauthorized' });
 
   const url = Deno.env.get('SUPABASE_URL')!;
-  const caller = createClient(url, Deno.env.get('SUPABASE_ANON_KEY')!, { global: { headers: { Authorization: auth } } });
+  const caller = createClient(url, publishableKey(), { global: { headers: { Authorization: auth } } });
   const { error: adminErr } = await caller.rpc('admin_assert');
   if (adminErr) return json(req, adminErr.code === '42501' ? 403 : 401, { error: 'forbidden' });
 
@@ -39,7 +40,7 @@ Deno.serve(async (req) => {
   if (!/^[^@\s]{1,64}@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 254) return json(req, 400, { error: 'invalid_email' });
   if (name.length < 2 || name.length > 80) return json(req, 400, { error: 'invalid_name' });
 
-  const svc = createClient(url, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
+  const svc = createClient(url, secretKey());
   const found = await svc.rpc('service_find_user_by_email', { p_email: email });
   if (found.error) return json(req, 500, { error: 'lookup_failed' });
   let userId: string | null = found.data;
@@ -75,7 +76,7 @@ Deno.serve(async (req) => {
 
   let recovery = false;
   if (created) {
-    const anon = createClient(url, Deno.env.get('SUPABASE_ANON_KEY')!);
+    const anon = createClient(url, publishableKey());
     recovery = !(await anon.auth.resetPasswordForEmail(email)).error;
   }
   return json(req, 200, { partner_id: promoted.data, user_id: userId, created_account: created, recovery_sent: recovery });

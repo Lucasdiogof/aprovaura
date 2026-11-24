@@ -26,6 +26,7 @@
 // to double-delete.
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.47.10';
+import { publishableKey, secretKey } from '../_shared/keys.ts';
 
 Deno.serve(async (req) => {
   if (req.method !== 'POST') {
@@ -38,7 +39,7 @@ Deno.serve(async (req) => {
   }
 
   const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-  const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
+  const anonKey = publishableKey();
 
   // Client "as the caller": anon/publishable key + their JWT, never the
   // service/secret key.
@@ -57,8 +58,8 @@ Deno.serve(async (req) => {
   // format this is the service_role JWT, on one migrated to the new
   // publishable/secret key format it's the sb_secret_... value. Same env
   // var name either way; nothing to change here when a project migrates.
-  const secretKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
-  const adminClient = createClient(supabaseUrl, secretKey);
+  const serviceKey = secretKey();
+  const adminClient = createClient(supabaseUrl, serviceKey);
 
   const { error: deleteError } = await adminClient.auth.admin.deleteUser(userId);
   if (deleteError) {

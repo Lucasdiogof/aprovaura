@@ -1,9 +1,10 @@
 // Núcleo compartilhado das funções de pagamento (Etapa 07).
 // Segredos vêm só de variáveis de ambiente (Supabase Secrets) — nunca do cliente.
 import { createClient, SupabaseClient } from 'https://esm.sh/@supabase/supabase-js@2.47.10';
+import { publishableKey, secretKey } from './keys.ts';
 
 export const admin = (): SupabaseClient =>
-  createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
+  createClient(Deno.env.get('SUPABASE_URL')!, secretKey(),
     { auth: { persistSession: false } });
 
 export const json = (b: unknown, status = 200) =>
@@ -13,7 +14,7 @@ export const json = (b: unknown, status = 200) =>
 export async function caller(req: Request) {
   const auth = req.headers.get('Authorization');
   if (!auth) return null;
-  const c = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_ANON_KEY')!,
+  const c = createClient(Deno.env.get('SUPABASE_URL')!, publishableKey(),
     { global: { headers: { Authorization: auth } }, auth: { persistSession: false } });
   const { data, error } = await c.auth.getUser();
   return error || !data?.user ? null : { client: c, user: data.user };

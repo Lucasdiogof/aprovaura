@@ -86,7 +86,7 @@ Compatibilidade verificada: todos os clientes diretos (`tool/db/*.py`, auxiliare
 ### 8.3 PORTAL_BACK_URL — aplicado
 Secret definido como `https://aprovaura.lucksrei.com/partners` (rota real do portal). Único uso: `back_url` do checkout de cartão em `mp-checkout` (retorno nunca libera Premium; só o webhook). O padrão em código também foi corrigido (a função publicada ainda tem o padrão antigo, mas ele só vale sem o Secret; republicar na ativação).
 
-### 8.4 JWT Secret exposto — estratégia (NÃO executada)
+### 8.4 JWT Secret exposto — estratégia (SUPERADA: executada e concluída em 24/11, ver §9)
 **Risco real:** quem tiver o secret legado forja qualquer JWT (inclusive `role=service_role`) até ele ser revogado. Foi exibido só na saída da ferramenta da sessão (não gravado nem enviado); o risco é residual, mas a rotação continua recomendada antes de aceitar dinheiro/dados sensíveis.
 
 **Situação atual (medida):** 0 chaves de assinatura assimétricas (projeto 100% no secret legado HS256); chaves de API: `anon` e `service_role` legadas + 1 `publishable` + 1 `secret` (novo sistema).
@@ -108,3 +108,46 @@ Secret definido como `https://aprovaura.lucksrei.com/partners` (rota real do por
 4. Republicar as 7 Edge Functions (reinjeta chaves) e rodar `tool/qa/edge_smoke.py`, `rest_auth_tests.py` e `rest_negative_tests`.
 5. Plano de volta: antes do passo 3 dá para voltar a chave legada como "in use"; depois da revogação, não.
 Impacto esperado: nenhuma mudança de app/loja; usuários logados há mais de 1 h só renovam por refresh token (o refresh token não é JWT assinado pelo secret); pior caso, novo login. Executar fora de horário de pico e **só com sua autorização**.
+
+## 9. Rotação de chaves JWT — concluída (24/11, 3ª rodada)
+
+**Achado que corrige o §8.4:** a API de gestão (`/config/auth/signing-keys`, que só passei a consultar nesta rodada) mostrou que o projeto **já emitia tokens ES256** (chave `in_use`, criada em 13/08) e o secret HS256 legado estava só como `previously_used` (ainda aceito como verificador). Ou seja, a "migração" já existia; faltava **revogar o legado** e **desativar as chaves `anon`/`service_role`**. Os passos manuais no painel não foram necessários: tudo foi feito pela API de gestão com o PAT do cofre.
+
+### 9.1 Evidências antes de agir
+- **Web publicada** (`aprovaura.lucksrei.com/main.dart.js`): contém `sb_publishable_`, **zero** JWT HS256 embutido.
+- **Android/iOS:** `env_config.dart` nasceu em 14/08/2026 já com `SUPABASE_PUBLISHABLE_KEY` e nunca teve chave anon JWT no histórico do Git; todas as versões publicadas (1.0.x/1.1.0) usam a publishable. Não baixei os binários das lojas (limite desta verificação: é inferência pelo histórico + build).
+- **Dependências legadas:** só as 3 Edge Functions e `_shared/common.ts` (`SUPABASE_ANON_KEY`/`SERVICE_ROLE_KEY`). Nenhum JWT legado no repositório, CI, `env.json` ou cofre (o cofre só tem `secret-key`, `publishable-key`, `pat`, `db-url`). `tool/db/empty_db_check.sh` só cria papéis num banco local.
+
+### 9.2 Mudanças no código
+- `supabase/functions/_shared/keys.ts`: `publishableKey()`/`secretKey()` leem `SUPABASE_PUBLISHABLE_KEYS`/`SUPABASE_SECRET_KEYS` (chave `default`), com a legada só como reserva se a moderna faltar. Usado por `delete-account`, `evaluate-essay`, `admin-provision-partner` e `_shared/common.ts` (mp/apple/google/reconcile). Teste: `keys_test.ts`.
+- **`verify_jwt = false` nas 8 funções** (`config.toml`): o gateway só entende JWT legado e não autentica chaves `sb_*`. A autenticação passou a ser **explícita e anterior a qualquer efeito** dentro de cada função:
+  | Função | Autenticação no código |
+  |---|---|
+  | `delete-account` | `auth.getUser()` (GoTrue valida ES256) antes de apagar |
+  | `evaluate-essay` | `auth.getUser()` agora **antes** de ler o corpo, checar provedor ou cota |
+  | `mp-checkout` | `caller()` → `getUser()` |
+  | `admin-provision-partner` | RPC `admin_assert` com o JWT do chamador (403 a não-admin) |
+  | `mp-webhook` | HMAC oficial do Mercado Pago (inalterado) |
+  | `payments-apple` | JWS ES256 + cadeia fixada na raiz Apple; compra do app exige `getUser()` |
+  | `payments-google` | OIDC do Pub/Sub; compra do app exige `getUser()` |
+  | `payments-reconcile` | `x-cron-secret` em tempo constante |
+- Publicadas (v3 as de pagamento/provisionamento, `evaluate-essay` v21, `delete-account` v7), todas `verify_jwt=false`.
+
+### 9.3 Execução
+1. Funções migradas e publicadas **antes** de mexer nas chaves; smoke 19/19 e `auth_rotation_check.py` passaram.
+2. `PUT /api-keys/legacy?enabled=false` → chaves `anon`/`service_role` **desativadas** (reversível pelo painel, mas não usada como estratégia).
+3. Smoke + `auth_rotation_check.py` de novo: OK.
+4. `PATCH /config/auth/signing-keys/<HS256>` → `status: revoked`. Estado final: **ES256 `in_use`, HS256 `revoked`**. O secret comprometido **não é mais aceito** como verificador e não é o plano de rollback (voltar a ele reabriria a exposição; o rollback correto é gerar nova chave).
+5. Verificação final: smoke 19/19; `auth_rotation_check.py` todos OK (criar usuário temporário → login → refresh → `get_my_access` → RPC admin negada → Edge Functions autenticadas → `delete-account` real → usuário apagado). Usuários de teste são apagados no próprio script; nada real foi tocado.
+
+### 9.4 Testes
+`deno task check:functions` (tipos) e `deno task test:functions` 7/7 (6 anteriores + `keys_test`). **Não** rodei de novo os 103 testes REST autenticados, SQL nem os testes Flutter nesta rodada (nada de banco/Flutter mudou além do que o script de rotação cobre); recomenda-se rodar `rest_auth_tests.py` no próximo ciclo.
+
+### 9.5 Pós-rotação (como repetir a checagem)
+`SUPA_URL=… SUPA_PUB=<publishable> SUPA_SEC=<secret> python tool/qa/auth_rotation_check.py` (cria e apaga um usuário temporário) e `tool/qa/edge_smoke.py`.
+
+### 9.6 Observações
+- Sessões existentes não foram derrubadas (todos os tokens já eram ES256).
+- Primeira chamada fria de `evaluate-essay` demorou >30 s uma vez (cold start intermitente; passou na repetição). Vale observar.
+- Armazenamento antigo do segredo no histórico da sessão não pode ser "apagado", mas deixou de ter valor.
+- `PUT /api-keys/legacy` e `PATCH …/signing-keys` não estão na documentação lida; foram aceitos pela API (200) e confirmados por GET.

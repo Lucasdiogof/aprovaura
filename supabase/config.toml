@@ -424,3 +424,14 @@ verify_jwt = false
 verify_jwt = false
 [functions.payments-reconcile]
 verify_jwt = false
+
+# Rotação de chaves (24/11): o gateway só entende JWT legado; estas funções validam o chamador
+# DENTRO do código antes de qualquer efeito (getUser / RPC de admin) — ver docs/qa/SUPABASE_AUDITORIA.md §9.
+[functions.delete-account]
+verify_jwt = false
+[functions.evaluate-essay]
+verify_jwt = false
+[functions.mp-checkout]
+verify_jwt = false
+[functions.admin-provision-partner]
+verify_jwt = false
