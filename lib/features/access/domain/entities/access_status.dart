@@ -15,6 +15,7 @@ class AccessStatus extends Equatable {
     this.minVersion = const {},
     this.fromOfflineGrant = false,
     this.needsConnection = false,
+    this.authorizationExpiresAt,
   });
 
   /// Modelo comercial desligado: todos liberados (estado de hoje).
@@ -44,9 +45,18 @@ class AccessStatus extends Equatable {
   final bool fromOfflineGrant;
   final bool needsConnection;
 
+  /// Só offline: até quando a autorização local vale (não é o fim do Premium).
+  final DateTime? authorizationExpiresAt;
+
   bool get isBlocked => enforced && !allowed;
   bool get isStaff => isAdmin || isPartner;
   bool get isTrial => sources.contains('trial');
+
+  /// Só o teste de 72h sustenta o acesso (sem assinatura, cortesia ou papel).
+  bool get trialOnly =>
+      isTrial &&
+      !isStaff &&
+      !sources.any((s) => const {'apple', 'google', 'web', 'courtesy', 'transition'}.contains(s));
 
   factory AccessStatus.fromJson(Map<String, dynamic> json) {
     final roles = json['roles'];
@@ -86,7 +96,38 @@ class AccessStatus extends Equatable {
     minVersion,
     fromOfflineGrant,
     needsConnection,
+    authorizationExpiresAt,
   ];
+}
+
+/// Para onde o app deve estar agora, decidido num lugar só (roteador e telas
+/// leem isto; ninguém confere assinatura por conta própria).
+enum AccessGate {
+  /// Sessão aberta, mas o servidor ainda não respondeu.
+  resolving,
+  open,
+  paywall,
+  connectionRequired,
+  updateRequired,
+}
+
+/// Por que o paywall aparece (só escolhe o texto; nunca concede nada).
+enum BlockReason { none, trialExpired, subscriptionExpired, existingUser }
+
+class AccessContext {
+  const AccessContext({this.reason = BlockReason.none, this.pendingPayment = false});
+  final BlockReason reason;
+  final bool pendingPayment;
+
+  factory AccessContext.fromJson(Map<String, dynamic> j) => AccessContext(
+    reason: switch (j['reason']) {
+      'trial_expired' => BlockReason.trialExpired,
+      'subscription_expired' => BlockReason.subscriptionExpired,
+      'existing_user' => BlockReason.existingUser,
+      _ => BlockReason.none,
+    },
+    pendingPayment: j['pending_payment'] == true,
+  );
 }
 
 /// true se [current] ("1.0.4") é anterior a [minimum]; sem mínimo => false.

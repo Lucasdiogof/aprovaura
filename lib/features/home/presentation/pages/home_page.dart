@@ -12,6 +12,7 @@ import 'package:aura/features/home/presentation/widgets/daily_goal_card.dart';
 import 'package:aura/features/home/presentation/widgets/home_hero.dart';
 import 'package:aura/features/home/presentation/widgets/streak_card.dart';
 import 'package:aura/features/practice/presentation/widgets/practice_options_list.dart';
+import 'package:aura/features/paywall/presentation/widgets/trial_banner.dart';
 import 'package:aura/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_cubit.dart';
 import 'package:aura/features/streak/presentation/cubit/streak_state.dart';
@@ -98,6 +99,7 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                     const SizedBox(height: AppSpacing.lg),
+                    const TrialBanner(),
                     DailyGoalCard(strings: t, goal: dailyGoal),
                     const SizedBox(height: AppSpacing.sm),
                     StreakCard(

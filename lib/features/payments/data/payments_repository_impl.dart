@@ -63,6 +63,19 @@ class PaymentsRepositoryImpl implements PaymentsRepository {
   }
 
   @override
+  Future<Result<List<PaymentRecord>>> history() async {
+    try {
+      final r = await _client.rpc<dynamic>('get_my_payment_history').withRequestTimeout();
+      return Success([
+        for (final e in (r as List? ?? []))
+          if (PaymentRecord.fromJson(e as Map) != null) PaymentRecord.fromJson(e)!,
+      ]);
+    } catch (e) {
+      return Error(failureFromError(e));
+    }
+  }
+
+  @override
   Future<Result<List<StorePlan>>> storePlans(PurchaseConfig config) async {
     if (!_native) return const Success([]);
     try {
@@ -79,7 +92,7 @@ class PaymentsRepositoryImpl implements PaymentsRepository {
             final base = i == null ? null : d.productDetails.subscriptionOfferDetails?[i].basePlanId;
             if (base != o.basePlanId) continue;
           }
-          plans.add(StorePlan(o, d.price, d));
+          plans.add(StorePlan(o, d.price, d, d.rawPrice));
           break;
         }
       }

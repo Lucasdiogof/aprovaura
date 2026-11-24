@@ -21,13 +21,17 @@ PayProvider? _provider(Object? v) => switch (v) {
 /// Produto do catálogo (ids de loja). O preço aqui é só REFERÊNCIA — o app
 /// exibe o preço real devolvido pela loja (ou pelo servidor, no Mercado Pago).
 class PlanOffer extends Equatable {
-  const PlanOffer(this.plan, this.provider, this.productId, this.basePlanId);
+  const PlanOffer(this.plan, this.provider, this.productId, this.basePlanId, [this.priceCents]);
   final PayPlan plan;
   final PayProvider provider;
   final String productId;
   final String? basePlanId;
+
+  /// Valor do catálogo do servidor. Só é o preço mostrado no Mercado Pago
+  /// (o servidor cobra exatamente isto); Apple/Google mostram o preço da loja.
+  final int? priceCents;
   @override
-  List<Object?> get props => [plan, provider, productId, basePlanId];
+  List<Object?> get props => [plan, provider, productId, basePlanId, priceCents];
 }
 
 /// Configuração pública: o que está liberado e o catálogo (nada secreto).
@@ -51,6 +55,7 @@ class PurchaseConfig extends Equatable {
             _provider(c['provider'])!,
             c['product_id'] as String,
             c['base_plan_id'] as String?,
+            (c['reference_price_cents'] as num?)?.toInt(),
           ),
     ],
   );
@@ -60,9 +65,12 @@ class PurchaseConfig extends Equatable {
 
 /// Plano com o preço REAL já formatado pela loja (ex.: "R$ 19,90").
 class StorePlan extends Equatable {
-  const StorePlan(this.offer, this.priceLabel, this.handle);
+  const StorePlan(this.offer, this.priceLabel, this.handle, [this.value]);
   final PlanOffer offer;
   final String priceLabel;
+
+  /// Valor numérico da loja (só para calcular a economia do anual).
+  final double? value;
 
   /// Objeto opaco da loja (ProductDetails) para iniciar a compra.
   final Object handle;
@@ -174,6 +182,38 @@ class SubscriptionOverview extends Equatable {
   List<Object?> get props => [subscriptions, pending];
 }
 
+/// Linha do histórico de pagamentos do próprio usuário (valor bruto pago).
+class PaymentRecord extends Equatable {
+  const PaymentRecord({
+    required this.provider,
+    required this.plan,
+    required this.amountCents,
+    required this.status,
+    required this.paidAt,
+  });
+  final PayProvider provider;
+  final PayPlan plan;
+  final int amountCents;
+  final String status;
+  final DateTime paidAt;
+
+  static PaymentRecord? fromJson(Map j) {
+    final p = _provider(j['provider']), pl = _plan(j['plan']);
+    final at = DateTime.tryParse('${j['paid_at']}');
+    if (p == null || pl == null || at == null) return null;
+    return PaymentRecord(
+      provider: p,
+      plan: pl,
+      amountCents: (j['amount_cents'] as num).toInt(),
+      status: '${j['status']}',
+      paidAt: at,
+    );
+  }
+
+  @override
+  List<Object?> get props => [provider, plan, amountCents, status, paidAt];
+}
+
 /// Resultado de uma compra nativa já tratada pelo servidor.
 enum StoreOutcome { validated, pending, cancelled, conflict, failed }
 
@@ -181,6 +221,7 @@ abstract class PaymentsRepository {
   PayProvider get nativeProvider; // plataforma atual (web => mercadopago)
   Future<Result<PurchaseConfig>> config();
   Future<Result<SubscriptionOverview>> overview();
+  Future<Result<List<PaymentRecord>>> history();
 
   /// Preços reais da loja (nunca valores fixos).
   Future<Result<List<StorePlan>>> storePlans(PurchaseConfig config);

@@ -7,6 +7,9 @@ abstract class AccessRepository {
   /// concede o teste de 72h aqui, na primeira chamada elegível.
   Future<Result<AccessStatus>> refresh();
 
+  /// Motivo do bloqueio (só texto do paywall). Sem conexão: contexto vazio.
+  Future<AccessContext> loadContext();
+
   /// Apaga a autorização e dicas locais (saída da conta / exclusão).
   Future<void> clear();
 }

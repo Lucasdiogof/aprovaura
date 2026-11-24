@@ -203,13 +203,22 @@ class ProfileStrings {
   String get deleteAccountConfirmDescription => switch (language) {
     AppLanguage.portuguese =>
       'Todos os seus dados, progresso, favoritos e histórico serão '
-          'permanentemente removidos. Essa ação não pode ser desfeita.',
+          'permanentemente removidos. Essa ação não pode ser desfeita. '
+          'Atenção: excluir a conta NÃO cancela uma assinatura feita pela '
+          'Apple, pelo Google Play ou pelo Mercado Pago. Cancele-a antes, '
+          'nos ajustes da loja, para não continuar sendo cobrado(a).',
     AppLanguage.english =>
       'All your data, progress, favorites and history will be permanently '
-          'removed. This action cannot be undone.',
+          'removed. This action cannot be undone. Note: deleting the account '
+          'does NOT cancel a subscription made through Apple, Google Play or '
+          'Mercado Pago. Cancel it first in the store settings to avoid '
+          'further charges.',
     AppLanguage.spanish =>
       'Todos tus datos, progreso, favoritos e historial se eliminarán '
-          'permanentemente. Esta acción no se puede deshacer.',
+          'permanentemente. Esta acción no se puede deshacer. Atención: '
+          'eliminar la cuenta NO cancela una suscripción hecha con Apple, '
+          'Google Play o Mercado Pago. Cancélala antes en los ajustes de la '
+          'tienda para no seguir pagando.',
   };
 
   String get deleteAccountConfirmButton => switch (language) {

@@ -9,6 +9,7 @@ import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/partners/presentation/widgets/partner_link_tile.dart';
+import 'package:aura/features/paywall/presentation/widgets/my_subscription_tile.dart';
 import 'package:aura/features/profile/l10n/profile_strings.dart';
 import 'package:aura/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:aura/features/profile/presentation/cubit/profile_state.dart';
@@ -305,6 +306,7 @@ class _ProfileBody extends StatelessWidget {
                           subtitle: t.settingsRowSubtitle,
                           onTap: () => _openSettings(context),
                         ),
+                        const MySubscriptionTile(),
                         const PartnerLinkTile(),
                       ],
                     ),

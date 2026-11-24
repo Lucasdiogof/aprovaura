@@ -1,9 +1,17 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/router/app_route_observer.dart';
+import 'package:aura/features/access/domain/entities/access_status.dart';
+import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
+import 'package:aura/features/paywall/presentation/pages/access_gate_pages.dart';
+import 'package:aura/features/paywall/presentation/pages/my_subscription_page.dart';
+import 'package:aura/features/paywall/presentation/pages/paywall_page.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/auth/presentation/pages/email_verification_page.dart';
@@ -27,6 +35,38 @@ import 'package:aura/features/portal/presentation/pages/users_page.dart';
 /// `currentUser!` e `/onboarding` gravaria perfil sem dono. Importa também
 /// na web, onde qualquer URL pode ser aberta direto.
 const _authenticatedRoutes = {'/home', '/onboarding'};
+const _sessionOnlyRoutes = {'/assinatura', '/minha-assinatura', '/verificando', '/conectar', '/atualizar'};
+
+final rootNavigatorKey = GlobalKey<NavigatorState>();
+
+/// Faz o roteador reavaliar o redirect quando o PORTÃO de acesso muda (acesso
+/// vence, 402, pagamento confirmado, volta a conexão...). Ao entrar num
+/// bloqueio, também fecha o que foi empilhado por cima (telas de estudo,
+/// diálogos, folhas): voltar nunca reabre conteúdo bloqueado.
+class _AccessGateRefresh extends ChangeNotifier {
+  _AccessGateRefresh(AccessCubit cubit) : _cubit = cubit, _last = cubit.gate {
+    _sub = cubit.stream.listen((_) {
+      final g = _cubit.gate;
+      if (g == _last) return;
+      _last = g;
+      if (g == AccessGate.paywall ||
+          g == AccessGate.connectionRequired ||
+          g == AccessGate.updateRequired) {
+        rootNavigatorKey.currentState?.popUntil((r) => r.settings is Page<dynamic>);
+      }
+      notifyListeners();
+    });
+  }
+  final AccessCubit _cubit;
+  AccessGate _last;
+  late final StreamSubscription<AccessState> _sub;
+
+  @override
+  void dispose() {
+    _sub.cancel();
+    super.dispose();
+  }
+}
 
 /// [introSeen]: the animated presentation was already shown (or skipped) on
 /// this install. [setupPending]: the signed-in account still has to finish
@@ -36,9 +76,40 @@ const _authenticatedRoutes = {'/home', '/onboarding'};
 /// pedido antes do login (só aceito se for do portal: nunca redireciona para fora).
 bool isPortalPath(String? p) => p != null && (p == '/partners' || p.startsWith('/partners/'));
 
+/// Decisão ÚNICA de acesso para quem tem sessão. O portal (/partners) tem o
+/// próprio gate por papel e nunca é barrado pelo paywall. Com bloqueio só
+/// ficam acessíveis o destino do bloqueio e "Minha assinatura".
+String? gateRedirect({
+  required AccessGate gate,
+  required String location,
+  String? fullLocation,
+  String? to,
+}) {
+  if (isPortalPath(location)) return null;
+  switch (gate) {
+    case AccessGate.resolving:
+      if (location == '/verificando') return null;
+      final dest = Uri.encodeComponent(fullLocation ?? location);
+      return '/verificando?to=$dest';
+    case AccessGate.open:
+      if (location == '/verificando') {
+        return to != null && to.startsWith('/') && !to.startsWith('//') ? to : '/home';
+      }
+      return location == '/conectar' || location == '/atualizar' ? '/home' : null;
+    case AccessGate.paywall:
+      return location == '/assinatura' || location == '/minha-assinatura' ? null : '/assinatura';
+    case AccessGate.connectionRequired:
+      return location == '/conectar' ? null : '/conectar';
+    case AccessGate.updateRequired:
+      return location == '/atualizar' ? null : '/atualizar';
+  }
+}
+
 String? authRedirect({
   required bool hasSession,
   required String location,
+  AccessGate gate = AccessGate.open,
+  String? to,
   bool introSeen = true,
   bool setupPending = false,
   bool hasPendingSignup = false,
@@ -50,6 +121,11 @@ String? authRedirect({
   }
   if (hasSession && location == '/login' && isPortalPath(next)) return next;
   if (!hasSession && _authenticatedRoutes.contains(location)) return '/login';
+  if (!hasSession && _sessionOnlyRoutes.contains(location)) return '/login';
+  if (hasSession) {
+    final g = gateRedirect(gate: gate, location: location, fullLocation: fullLocation, to: to);
+    if (g != null) return g;
+  }
   // First run, signed out: the presentation comes before the login.
   if (!hasSession &&
       !introSeen &&
@@ -75,6 +151,8 @@ String _initialLocation() {
 }
 
 final GoRouter appRouter = GoRouter(
+  navigatorKey: rootNavigatorKey,
+  refreshListenable: _AccessGateRefresh(sl<AccessCubit>()),
   initialLocation: _initialLocation(),
   observers: [appRouteObserver],
   redirect: (context, state) {
@@ -82,6 +160,8 @@ final GoRouter appRouter = GoRouter(
     final store = IntroStore(sl<SharedPreferences>());
     return authRedirect(
       hasSession: user != null,
+      gate: sl<AccessCubit>().gate,
+      to: state.uri.queryParameters['to'],
       location: state.matchedLocation,
       next: state.uri.queryParameters['next'],
       fullLocation: state.uri.toString(),
@@ -124,6 +204,11 @@ final GoRouter appRouter = GoRouter(
         );
       },
     ),
+    GoRoute(path: '/verificando', builder: (_, __) => const AccessResolvingPage()),
+    GoRoute(path: '/conectar', builder: (_, __) => const ConnectionRequiredPage()),
+    GoRoute(path: '/atualizar', builder: (_, __) => const UpdateRequiredPage()),
+    GoRoute(path: '/assinatura', builder: (_, __) => const PaywallPage()),
+    GoRoute(path: '/minha-assinatura', builder: (_, __) => const MySubscriptionPage()),
     GoRoute(
       path: '/onboarding',
       builder: (context, state) => const OnboardingPage(),

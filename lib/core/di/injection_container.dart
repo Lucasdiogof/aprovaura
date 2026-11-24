@@ -15,6 +15,7 @@ import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/features/access/data/access_grant_verifier.dart';
 import 'package:aura/features/access/data/access_repository_impl.dart';
 import 'package:aura/features/access/domain/repositories/access_repository.dart';
+import 'package:aura/features/access/domain/entities/access_status.dart';
 import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
 import 'package:aura/features/payments/data/payments_repository_impl.dart';
 import 'package:aura/features/payments/domain/payments.dart';
@@ -185,6 +186,16 @@ void wireAccessSupport() {
     appRouter.go('/login');
   }());
   sl<ConnectionMonitor>().onReconnect(() => cubit.refresh(force: true));
+  // Atividade feita dentro de uma autorização válida e adiada pelo 402 (fila
+  // intacta) é enviada assim que o acesso reabre — nunca antes, nunca perdida.
+  var wasOpen = false;
+  cubit.stream.listen((_) {
+    final open = cubit.gate == AccessGate.open;
+    if (open && !wasOpen && sl.isRegistered<PendingSyncQueue>()) {
+      unawaited(sl<PendingSyncQueue>().flush());
+    }
+    wasOpen = open;
+  });
   sl<SupabaseClient>().auth.onAuthStateChange.listen((change) {
     switch (change.event) {
       case AuthChangeEvent.signedIn:

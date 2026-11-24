@@ -84,6 +84,12 @@ class AccessRepositoryImpl implements AccessRepository {
           isPartner: status.isPartner,
           sources: status.sources,
           fromOfflineGrant: true,
+          authorizationExpiresAt: payload['exp'] is num
+              ? DateTime.fromMillisecondsSinceEpoch(
+                  (payload['exp'] as num).toInt() * 1000,
+                  isUtc: true,
+                )
+              : null,
         );
       }
       if (result.rejection == GrantRejection.wrongAccount ||
@@ -106,6 +112,18 @@ class AccessRepositoryImpl implements AccessRepository {
     final now = _clock().toUtc().millisecondsSinceEpoch;
     final seen = _prefs.getInt(_seenKey(uid)) ?? 0;
     if (now > seen) await _prefs.setInt(_seenKey(uid), now);
+  }
+
+  @override
+  Future<AccessContext> loadContext() async {
+    try {
+      final raw = await _client
+          .rpc<dynamic>('get_my_access_context')
+          .withRequestTimeout();
+      return AccessContext.fromJson(Map<String, dynamic>.from(raw as Map));
+    } catch (_) {
+      return const AccessContext();
+    }
   }
 
   @override
