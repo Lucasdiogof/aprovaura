@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -133,17 +134,38 @@ class AccessRepositoryImpl implements AccessRepository {
     }
   }
 
+  static String _legalKey(String uid) => '${_root}legal.$uid';
+
+  /// O que o servidor confirmou fica guardado por conta: desconectar o aparelho
+  /// ou reiniciar offline NÃO apaga uma obrigação já conhecida. Sem resposta do
+  /// servidor e sem nada guardado, devolve null (nunca inventa bloqueio).
   @override
   Future<List<PendingLegal>?> loadPendingLegal() async {
+    final uid = _client.auth.currentUser?.id;
+    if (uid == null) return null;
     try {
       final raw = await _client.rpc<dynamic>('get_legal_status').withRequestTimeout();
-      return (raw as List? ?? const [])
+      final list = (raw as List? ?? const [])
           .whereType<Map<String, dynamic>>()
           .where((d) => d['accepted'] != true && d['requires_reaccept'] == true)
           .map((d) => PendingLegal(kind: '${d['kind']}', version: '${d['version']}', url: d['url'] as String?))
           .toList();
+      await _prefs.setString(
+        _legalKey(uid),
+        jsonEncode([for (final d in list) {'k': d.kind, 'v': d.version, 'u': d.url}]),
+      );
+      return list;
     } catch (_) {
-      return null;
+      final cached = _prefs.getString(_legalKey(uid));
+      if (cached == null) return null;
+      try {
+        return [
+          for (final e in (jsonDecode(cached) as List).whereType<Map<String, dynamic>>())
+            PendingLegal(kind: '${e['k']}', version: '${e['v']}', url: e['u'] as String?),
+        ];
+      } catch (_) {
+        return null;
+      }
     }
   }
 

@@ -94,12 +94,11 @@ class AccessCubit extends Cubit<AccessState> {
       final ctx = status.isBlocked && !status.needsConnection && !status.fromOfflineGrant
           ? await _repository.loadContext()
           : const AccessContext();
-      // Só o servidor, com conexão, pode exigir novo aceite. Falha ou
-      // autorização offline mantêm o que já se sabia (nunca inventa bloqueio).
+      // Só o servidor pode criar a obrigação de novo aceite; depois de confirmada
+      // ela não some por desconexão, reinício ou 5xx. Sem nada conhecido, nunca bloqueia.
       var legal = state.legalPending;
-      if (!status.needsConnection && !status.fromOfflineGrant) {
-        legal = await _repository.loadPendingLegal() ?? legal;
-      }
+      // Offline o repositório devolve a obrigação já confirmada antes (guardada por conta).
+      legal = await _repository.loadPendingLegal() ?? legal;
       if (isClosed) return;
       emit(AccessState(status: status, resolved: true, context: ctx, legalPending: legal));
       _armExpiry(status);
