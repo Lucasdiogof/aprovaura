@@ -9,7 +9,7 @@
 ## Testes negativos
 - **API anônima (PostgREST), `tool/db/rest_negative_tests.py`, 34/34 negados:** leitura de 17 tabelas sensíveis (financeiro, admins, aceites, redações, perfis, config), escrita em 5 e chamada de 13 RPCs administrativas/financeiras/de serviço.
 - **Banco (`sql_tests.py`):** anônimo e usuário comum não chamam `admin_*`, `record_confirmed_payment`, `publish_legal_version`; não leem `payments`, `commission_ledger`, `payouts`, `financial_report_imports`, `user_age_declarations`; professor não lê aluno de outro professor.
-- **Não coberto (sem PAT/painel):** Storage, Realtime, Edge Functions publicadas. Conferir no painel que não há bucket público nem tabela de conteúdo no Realtime.
+- **Storage, Realtime e Edge Functions:** conferidos com o PAT em 24/11 (0 buckets, 0 tabelas no Realtime, 8 funções com falha fechada). Detalhes em `SUPABASE_AUDITORIA.md`.
 - `app_pre_request` é concedida a `anon` por desenho (gancho do gate; retorna `void`; sem efeito).
 
 ## Exclusão de conta (contas de teste, transação revertida)
@@ -34,10 +34,11 @@ O servidor é a fonte: `publish_legal_version(..., requires_reaccept=true)` + `g
 - **consentimento**: sem faixa adulta o compartilhamento é recusado; adulto compartilha; o consentimento de um aluno não abre acesso a outro professor; revogação encerra a visibilidade na hora; declarar-se menor encerra mesmo com consentimento antigo gravado;
 - perfil e progresso alheios ilegíveis e inalteráveis; aluno não escreve em `app_admins`, `entitlements`, `partners` nem `commercial_config`.
 
-Produção (somente leitura, chave anônima): Storage sem buckets visíveis; Realtime exige credencial; `delete-account` exige JWT de usuário (401); as funções de pagamento ainda não estão publicadas (404). `AUTO_DEPLOY=false` confirmado no GitHub. Publicação automática independente do GitHub Actions (Cloudflare Workers Builds ligado ao Git) **não verificável sem acesso ao painel**: pendência do dono.
+Produção (somente leitura, chave anônima): Storage sem buckets visíveis; Realtime exige credencial; `delete-account` exige JWT de usuário (401); as funções de pagamento foram publicadas em 24/11 e recusam sem credencial (`edge_smoke.py` 19/19). `AUTO_DEPLOY=false` confirmado no GitHub. Publicação automática independente do GitHub Actions (Cloudflare Workers Builds ligado ao Git) **não verificável sem acesso ao painel**: pendência do dono.
 
 ### Achados
 1. **Corrigido:** padrão de `requires_reaccept = true` com zero aceites em produção forçaria reaceite a todos (migração `20261202000100`, aplicada).
 2. **Corrigido:** a obrigação de reaceite confirmada pelo servidor podia ser ignorada desconectando o aparelho; agora é guardada por conta (offline, 5xx e reinício não a apagam).
 3. **Aberto (conhecido, decisão de lançamento):** com o modelo comercial desligado, `questions.correct_index` é legível a qualquer um (política "publicly readable"); com o modelo ligado o gate responde 402 ao anônimo e o usuário autenticado continua lendo o gabarito (necessário ao offline). Mitigação definitiva = `check_answer` + `min_version_*`.
-4. **Recomendação:** o `web/_headers` não define Content-Security-Policy; adicionar exige teste com CanvasKit (`wasm-unsafe-eval`) e provedores de pagamento, então não foi aplicado às cegas.
+4. **Corrigido (24/11):** `refresh_broken_streak(p_user_id, p_today)` era executável por anon/authenticated e permitia zerar a sequência de outro usuário (migração `20261203000100`; ver `SUPABASE_AUDITORIA.md`).
+5. **Recomendação:** o `web/_headers` não define Content-Security-Policy; adicionar exige teste com CanvasKit (`wasm-unsafe-eval`) e provedores de pagamento, então não foi aplicado às cegas.

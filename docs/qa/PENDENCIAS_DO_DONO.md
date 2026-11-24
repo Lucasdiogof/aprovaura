@@ -6,8 +6,8 @@ Auditoria do cofre (Etapa 10C): para o AprovaAura existem apenas `supabase.aprov
 
 | # | Item | Estado atual | Falta | Onde | Quem | Bloqueia? | Como validar |
 |---|---|---|---|---|---|---|---|
-| 1 | PAT do Supabase | ausente para o projeto `cesuqfgrtcitatxvokez` | gerar e guardar no cofre (projeto aprovaura) | supabase.com › Account › Access Tokens; cofre | Dono | Sim | `supabase projects list` mostra o projeto |
-| 2 | Publicar Edge Functions (6 de pagamento/provisão + `evaluate-essay` com interruptor) | código pronto, nada publicado | rodar scripts com o PAT | CLI | Agente | Sim | `list_edge_functions`; chamada sem assinatura dá 401/400 |
+| 1 | PAT do Supabase | **FEITO (24/11)**: no cofre (`supabase.aprovaura.production.pat`), restrito ao projeto `cesuqfgrtcitatxvokez` | nada | cofre | — | Não | lista só o projeto aura; org retorna 403 |
+| 2 | Publicar Edge Functions | **FEITO (24/11)**: 7 publicadas (`evaluate-essay` v18 com interruptor + 6 de pagamento/provisão); falha fechada 19/19 | só os Secrets de cada provedor na ativação (`SUPABASE_AUDITORIA.md` §4) | CLI | Dono (valores) | Não | `tool/qa/edge_smoke.py` |
 | 3 | Resend: confirmar domínio e titularidade da chave `unassigned` | não confirmado | verificar SPF/DKIM; autorizar chave para o AprovaAura | resend.com; cofre | Dono | Sim | status `verified`; envio de teste |
 | 4 | Templates e SMTP no Auth | prontos, não aplicados | `apply_auth_email_config.ps1` com PAT | Auth | Agente | Sim | e-mail PT/EN/ES recebido |
 | 5 | Mercado Pago: titularidade das credenciais `unassigned`, app e webhook | não confirmado | confirmar conta/aplicativo; webhook `…/mp-webhook` | mercadopago.com.br; cofre | Dono | Sim | checkout de teste gera entitlement |
@@ -18,10 +18,10 @@ Auditoria do cofre (Etapa 10C): para o AprovaAura existem apenas `supabase.aprov
 | 10 | Provedor de IA (sair da camada gratuita) | Gemini gratuito | escolher provedor/custo; ou manter suspenso | `IA_REDACAO_E_MENORES.md` | Dono | Sim (para menores/lançamento) | teste cego com redações sintéticas |
 | 11 | Conta de revisão das lojas | não criada | agente cria; dono guarda a senha | lojas | Dono | Sim | revisor entra e vê o app completo |
 | 12 | Envio às lojas (Android/iOS) | AAB 1.1.0+8 compilado (não enviado); iOS sem Mac | certificados/assinatura, classificação etária, Data Safety/App Privacy, screenshots com dados demo | Play Console / Xcode | Dono | Sim | versões aprovadas |
-| 13 | `site_url` e redirects do Auth, publicação da web e do site comercial | não confirmados | conferir/publicar com autorização final | Auth › URL Configuration; Cloudflare | Dono | Sim | URLs respondem; links de e-mail abrem |
+| 13 | `site_url` e redirects do Auth | **conferido (24/11)**: `site_url` e allow-list coerentes com a Web (app usa código, sem deep link); publicação da web e do site comercial seguem fora | decidir senha mínima 8+ e SSL enforcement | Auth; Cloudflare | Dono | Não | `SUPABASE_AUDITORIA.md` §2 |
 | 14 | Amostras reais de relatórios (Apple, Google, MP) | formatos não validados | baixar um relatório de cada | consoles | Dono | Sim (conciliação) | importar sem divergência inexplicada |
-| 15 | Cron de conciliação e `CRON_SECRET` | agendador não criado | definir segredo e agendar | Supabase/GitHub | Agente (após item 2) | Sim | execuções registradas |
-| 16 | Storage/Realtime e backups do banco | não conferidos no painel | verificar buckets, Realtime e PITR | Dashboard | Dono | Não (recomendado) | sem bucket público; backup recente |
+| 15 | Cron de conciliação e `CRON_SECRET` | **viável sem custo** (`pg_cron`+`pg_net`); não criado de propósito (0 assinaturas, provedores desligados) | agendar só na ativação, com o procedimento de `SUPABASE_AUDITORIA.md` §6 | Supabase | Agente | Só na ativação | execuções registradas |
+| 16 | Storage/Realtime e backups do banco | **conferido (24/11)**: 0 buckets, 0 tabelas no Realtime, RLS em todas as tabelas; PITR desligado (pago) e SSL enforcement desligado | decidir PITR/SSL | Dashboard | Dono | Não | `SUPABASE_AUDITORIA.md` §3 |
 | 17 | Decisão final de ativação (passos 14 a 18) | NO-GO | autorizar ativação comercial, e-mail obrigatório e `min_version_*` | `PLANO_ATIVACAO_COMERCIAL.md` | Dono | Sim | passo a passo do plano |
 
 Mantidos desligados nesta etapa: monetização (`enforcement_enabled`), confirmação obrigatória de e-mail, provedores de pagamento, `AUTO_DEPLOY`.

@@ -37,7 +37,7 @@ for t in ("payments", "commission_ledger", "app_admins", "commercial_config", "l
 for fn, body in (("admin_finance_dashboard", {"p_from": "2026-01-01", "p_to": "2026-12-31"}),
                  ("admin_register_payout", {}), ("admin_import_report", {}), ("admin_apply_report", {}),
                  ("record_confirmed_payment", {}), ("record_payment_refund", {}), ("publish_legal_version", {}),
-                 ("get_my_access", {}), ("get_legal_status", {}), ("set_my_age_band", {"p_band": "adult"}),
+                 ("get_my_access", {}), ("refresh_broken_streak", {"p_user_id": "00000000-0000-4000-8000-000000000001", "p_today": "2099-01-01"}), ("get_legal_status", {}), ("set_my_age_band", {"p_band": "adult"}),
                  ("app_lock_tables", {}), ("app_grant_functions", {})):
     deny(f"anon chama {fn}", "POST", f"/rest/v1/rpc/{fn}", body)
 print(f"REST negative tests: {passed} passed, {len(failed)} failed")

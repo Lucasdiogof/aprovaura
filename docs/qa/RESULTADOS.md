@@ -4,11 +4,12 @@
 |---|---|---|
 | Análise estática | `flutter analyze` | Sem problemas |
 | Testes Flutter | `flutter test` | **1206 passaram · 0 falharam** (inclui `gate_redirect_test` e os testes novos do repositório de acesso) |
-| Edge Functions | `deno test --no-check --allow-all supabase/functions` (6 testes) | **6/6**; a checagem de tipos do Deno falha por erro interno de resolução de tipos neste ambiente, por isso `--no-check` |
-| SQL (produção, transação revertida) | `python tool/db/sql_tests.py` | **68 passaram · 0 falharam** |
+| Edge Functions | `deno task check:functions` e `deno task test:functions` (`deno.json` na raiz) | tipos OK em 8 funções + 2 testes; **6/6 com checagem completa** (o erro anterior era `nodeModulesDir`, resolvido) |
+| Edge Functions publicadas (smoke, produção) | `python tool/qa/edge_smoke.py` | **19/19** recusam sem credencial |
+| SQL (produção, transação revertida) | `python tool/db/sql_tests.py` | **71 passaram · 0 falharam** |
 | REST autenticado (Etapa 10B, stack Supabase local) | `python tool/qa/rest_auth_tests.py` | **103/103** |
 | Concorrência financeira (10B, Postgres descartável) | `python tool/db/concurrency_tests.py` | **22/22** |
-| REST anônimo | `python tool/db/rest_negative_tests.py` (precisa de `SUPA_URL` e `SUPA_ANON`) | **34/34 negados** |
+| REST anônimo | `python tool/db/rest_negative_tests.py` (precisa de `SUPA_URL` e `SUPA_ANON`) | **35/35 negados** (inclui `refresh_broken_streak`) |
 | Migrações do zero | `bash tool/db/empty_db_check.sh` (Docker, `postgres:16-alpine`) | 15/15 aplicadas (inclui `20261202000100`) |
 | Web | `flutter build web --release` | Compilou |
 | Android | `flutter build apk --debug` · `flutter build appbundle --release` | APK 183 MB · AAB 66 MB (1.1.0+8) |
@@ -45,7 +46,7 @@ Reexecutado depois da correção: admin 320 pt-BR claro (9 telas), admin 390 en 
 ## Lacunas conhecidas
 - Relógio adulterado e `popUntil` com diálogos abertos em dispositivo real: cobertos só por teste unitário/roteador.
 - Último administrador não removível: regra existe em trigger (`app_admins_protect_last`) e foi revisada no código; teste destrutivo exigiria banco descartável com um único admin.
-- Edge Functions com provedores reais (nenhuma credencial do AprovaAura disponível).
+- Edge Functions com provedores reais (nenhuma credencial do AprovaAura disponível). Auditoria do projeto Supabase: `SUPABASE_AUDITORIA.md`.
 - iOS não executado.
 
 ## Evidências (sem dados reais; usuários e valores fictícios do banco local)

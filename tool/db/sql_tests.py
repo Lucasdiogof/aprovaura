@@ -279,6 +279,17 @@ try:
        q("select status, display_name, pix_key from partners where id=%s", pid2)[0] == ("ended", "Professor removido", None))
     ok("excluir professor: comissões e repasses preservados", one("select count(*) from commission_ledger where partner_id=%s", pid2) > 0)
     as_service()
+
+    # Streak: refresh_broken_streak (SECURITY DEFINER, recebe user_id) não é chamável por anon/authenticated;
+    # o caminho legítimo (get_or_refresh_user_streak, como dono) continua funcionando.
+    ok("streak: anon não executa refresh_broken_streak", one("select has_function_privilege('anon','public.refresh_broken_streak(uuid,date)','execute')") is False)
+    ok("streak: authenticated não executa refresh_broken_streak", one("select has_function_privilege('authenticated','public.refresh_broken_streak(uuid,date)','execute')") is False)
+    su = new_user("streak")
+    q("insert into user_streaks (user_id, current_streak, last_activity_date) values (%s, 5, current_date - 10) on conflict (user_id) do update set current_streak=5, last_activity_date=current_date - 10", su)
+    as_user(su)
+    q("select get_or_refresh_user_streak()")
+    as_service()
+    ok("streak: caminho legítimo ainda zera sequência vencida", one("select current_streak from user_streaks where user_id=%s", su) == 0)
 finally:
     conn.rollback()
     conn.close()

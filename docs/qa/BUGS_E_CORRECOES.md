@@ -17,5 +17,6 @@
 | 13 | Home exibia cartão/banner Premium | pedido do dono (Premium só no Perfil) | removido da Home; permanece em Perfil > Minha assinatura |
 | 14 | Admin > Financeiro: exceção de layout com valor negativo | altura de barra negativa | `BarChart` com barra mínima |
 | 15 | `Select` do portal estourava em 320 px | largura do item mais largo | expande e trunca em telas estreitas |
+| 17 | `refresh_broken_streak` chamável por anon/authenticated (zerava sequência de qualquer usuário) | `SECURITY DEFINER` sem guarda de dono, com `EXECUTE` herdado | migração `20261203000100` revoga; teste SQL e REST de regressão |
 | 16 | Interruptor "Bloqueio emergencial" estourava 4,5 px em 320 px | texto sem `Flexible` | `Flexible` + reticências |
 
