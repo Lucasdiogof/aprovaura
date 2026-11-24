@@ -38,9 +38,9 @@ class AuthStrings {
   };
 
   String get passwordTooShort => switch (language) {
-    AppLanguage.portuguese => 'Use pelo menos 6 caracteres.',
-    AppLanguage.english => 'Use at least 6 characters.',
-    AppLanguage.spanish => 'Usa al menos 6 caracteres.',
+    AppLanguage.portuguese => 'Use pelo menos 8 caracteres.',
+    AppLanguage.english => 'Use at least 8 characters.',
+    AppLanguage.spanish => 'Usa al menos 8 caracteres.',
   };
 
   String get emailHint => switch (language) {

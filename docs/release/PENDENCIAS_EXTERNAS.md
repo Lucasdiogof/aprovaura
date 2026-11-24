@@ -91,7 +91,7 @@ Todos devem ser definidos como **Supabase Secrets** (nunca no repositório, nunc
 | Cartão recorrente | Código usa `preapproval` (checkout hospedado) | Confirmar que a conta tem Assinaturas habilitado | Conta MP | Dono | Sim (para plano recorrente web) | Assinatura de teste autorizada + cobrança aprovada concede acesso |
 | Pix | Só Pix AVULSO (30/365 dias, renovação manual); sem Pix recorrente automático | Confirmar Pix habilitado | Conta MP | Dono | Sim (para Pix) | Pix de teste aprovado/expirado/estornado |
 | Conciliação | `fee_details` dá taxa; imposto estimado; SOURCE_ID individual no relatório | Relatório de amostra | MP › Relatórios | Dono | Sim (antes de repasse) | Ver `RECONCILIATION.md` |
-| `PORTAL_BACK_URL` | Não definido | URL de retorno do checkout web | Secrets | Agente | Sim | Retorno nunca libera Premium (só consulta) |
+| `PORTAL_BACK_URL` | **Definido (24/11)**: `https://aprovaura.lucksrei.com/partners` | URL de retorno do checkout web | Secrets | Agente | Sim | Retorno nunca libera Premium (só consulta) |
 
 ## 6. Cloudflare / GitHub
 | Item | Estado atual | O que falta | Onde configurar | Quem executa | Bloqueia? | Como validar |

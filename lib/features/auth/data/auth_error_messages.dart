@@ -65,11 +65,11 @@ String authErrorMessage(AuthErrorKind kind) => switch ((
   (AuthErrorKind.emailTaken, AppLanguage.spanish) =>
     'Ya existe una cuenta con este correo. Inicia sesión o usa otro correo.',
   (AuthErrorKind.weakPassword, AppLanguage.portuguese) =>
-    'Senha muito fraca. Use pelo menos 6 caracteres.',
+    'Senha muito fraca. Use pelo menos 8 caracteres.',
   (AuthErrorKind.weakPassword, AppLanguage.english) =>
-    'Password too weak. Use at least 6 characters.',
+    'Password too weak. Use at least 8 characters.',
   (AuthErrorKind.weakPassword, AppLanguage.spanish) =>
-    'Contraseña muy débil. Usa al menos 6 caracteres.',
+    'Contraseña muy débil. Usa al menos 8 caracteres.',
   (AuthErrorKind.invalidEmail, AppLanguage.portuguese) =>
     'Esse e-mail não é válido. Confira e tente de novo.',
   (AuthErrorKind.invalidEmail, AppLanguage.english) =>

@@ -14,7 +14,7 @@ Feita com o PAT do cofre (`supabase.aprovaura.production.pat`), só leitura, exc
 | `uri_allow_list` | `https://aprovaura.lucksrei.com/` | suficiente: o app usa código de verificação, sem `redirectTo` nem deep link |
 | Cadastro | aberto; anônimos desligados; só provedor `email` | ok |
 | `mailer_autoconfirm` | **true** | confirmação obrigatória de e-mail **desligada**, como exigido; não alterado |
-| Senha | mínimo 6, sem exigência de classes | fraco; recomendação: 8+ (decisão do dono) |
+| Senha | **mínimo 8** (alterado em 24/11; antes 6), sem exigência de classes | Flutter (`minPasswordLength`, mensagens PT/EN/ES), `config.toml` e Auth alinhados |
 | Vazamento de senha (HIBP) | desligado | alerta do advisor; recurso de plano pago: não ligado |
 | Rotação de refresh token | ligada (reuso 10 s) | ok |
 | JWT | 3600 s | ok |
@@ -39,7 +39,7 @@ Nada de Auth foi alterado.
 `payments_ingest_event` não consulta `payment_providers_config.enabled` (só taxas): o interruptor bloqueia **o início de compra** (MP) e o desenho documentado é que reembolsos/cancelamentos de quem já assina continuem sendo processados com vendas suspensas. Antes da ativação, o que impede efeito real é a ausência dos Secrets e da configuração nos consoles.
 
 ## 4. Secrets
-Presentes: `SUPABASE_*` (padrão), `GEMINI_API_KEY`, `GEMINI_MODEL`. **Ausentes** (necessários só na ativação): `MP_ACCESS_TOKEN`, `MP_COLLECTOR_ID`, `MP_WEBHOOK_SECRET`, `MP_NOTIFICATION_URL`, `MP_ENV`, `PORTAL_BACK_URL` (o padrão da função aponta para `aprovaura.com/partners`, domínio diferente do `site_url`: **definir**), `APPLE_BUNDLE_ID`, `APPLE_IAP_ISSUER_ID`, `APPLE_IAP_KEY_ID`, `APPLE_IAP_PRIVATE_KEY`, `APPLE_ROOT_CA_PEM`, `GOOGLE_PACKAGE_NAME`, `GOOGLE_SA_JSON`, `GOOGLE_PUBSUB_AUDIENCE`, `GOOGLE_PUBSUB_SA_EMAIL`, `CRON_SECRET`, `ESSAY_AI_PROVIDER` (opcional; padrão `google`).
+Presentes: `SUPABASE_*` (padrão), `GEMINI_API_KEY`, `GEMINI_MODEL`. **Ausentes** (necessários só na ativação): `MP_ACCESS_TOKEN`, `MP_COLLECTOR_ID`, `MP_WEBHOOK_SECRET`, `MP_NOTIFICATION_URL`, `MP_ENV`, `APPLE_BUNDLE_ID`, `APPLE_IAP_ISSUER_ID`, `APPLE_IAP_KEY_ID`, `APPLE_IAP_PRIVATE_KEY`, `APPLE_ROOT_CA_PEM`, `GOOGLE_PACKAGE_NAME`, `GOOGLE_SA_JSON`, `GOOGLE_PUBSUB_AUDIENCE`, `GOOGLE_PUBSUB_SA_EMAIL`, `CRON_SECRET`, `ESSAY_AI_PROVIDER` (opcional; padrão `google`).
 
 ## 5. Edge Functions
 - **Checagem de tipos resolvida:** o erro era de configuração (`@types/node` não resolvido pelo `deno test` sem `nodeModulesDir`). `deno.json` na raiz com `nodeModulesDir: auto` e tarefas `deno task check:functions` (8 funções + 2 testes) e `deno task test:functions` (6/6 **com checagem completa**).
@@ -74,3 +74,37 @@ Alternativa sem extensões: Cloudflare Cron Trigger (gratuito) ou workflow agend
 | 5 | Agendar a conciliação (§6) só na ativação | Agente |
 | 6 | Conferir no painel o Cloudflare Workers Builds (publicação automática da Web fora do GitHub Actions) | Dono |
 | 7 | `check_answer` + retirada de `correct_index` + `min_version_*` no lançamento | Agente após decisão |
+
+## 8. Fechamento de segurança (24/11, 2ª rodada)
+
+### 8.1 Senha mínima 8 — aplicado
+Auth (`password_min_length` 6 → 8, via API de gestão), `supabase/config.toml`, `minPasswordLength` no Flutter e textos PT/EN/ES. Contas existentes não são afetadas (vale para cadastro/troca/recuperação). `mailer_autoconfirm` continua `true` (confirmação de e-mail desligada). Teste de cadastro atualizado (não executado nesta rodada).
+
+### 8.2 SSL obrigatório no banco — aplicado
+Compatibilidade verificada: todos os clientes diretos (`tool/db/*.py`, auxiliares de QA) usam `sslmode=require` ou `prefer` (negocia TLS); app, Web e Edge Functions falam com a API por HTTPS e não abrem conexão direta. Aplicado `ssl-enforcement`; conexão com TLS funciona e conexão com `sslmode=disable` é **recusada**. Reverter: `PUT /v1/projects/<ref>/ssl-enforcement` com `{"requestedConfig":{"database":false}}`.
+
+### 8.3 PORTAL_BACK_URL — aplicado
+Secret definido como `https://aprovaura.lucksrei.com/partners` (rota real do portal). Único uso: `back_url` do checkout de cartão em `mp-checkout` (retorno nunca libera Premium; só o webhook). O padrão em código também foi corrigido (a função publicada ainda tem o padrão antigo, mas ele só vale sem o Secret; republicar na ativação).
+
+### 8.4 JWT Secret exposto — estratégia (NÃO executada)
+**Risco real:** quem tiver o secret legado forja qualquer JWT (inclusive `role=service_role`) até ele ser revogado. Foi exibido só na saída da ferramenta da sessão (não gravado nem enviado); o risco é residual, mas a rotação continua recomendada antes de aceitar dinheiro/dados sensíveis.
+
+**Situação atual (medida):** 0 chaves de assinatura assimétricas (projeto 100% no secret legado HS256); chaves de API: `anon` e `service_role` legadas + 1 `publishable` + 1 `secret` (novo sistema).
+
+**Quem depende do secret legado:**
+| Consumidor | Usa | Impacto da rotação |
+|---|---|---|
+| App Flutter (Android/iOS/Web), CI, `env.json` | chave **publishable** (não é JWT legado) | **nenhum** na chave; apps publicados continuam |
+| Sessões de usuários (access/refresh JWT) | assinados pelo secret legado | invalidadas se o secret legado for **revogado**: usuários precisam entrar de novo |
+| Edge Functions | `SUPABASE_ANON_KEY`/`SERVICE_ROLE_KEY` injetadas (JWT legados) + `verify_jwt` | a plataforma reinjeta ao rotacionar; funções em execução usam as novas após novo deploy/reinício. Janela curta de 401 possível |
+| Scripts locais/QA | `secret-key` e `publishable-key` do cofre (novo sistema) | nenhum |
+| `tool/db/empty_db_check.sh` | cita service_role (local) | conferir antes |
+| Access token offline do Premium | RSA próprio no banco | **independente** do JWT Secret |
+
+**Procedimento recomendado (migração para JWT Signing Keys, sem derrubar usuários de uma vez):**
+1. Dashboard → Settings → JWT Keys → **Migrate JWT secret** (cria chave ES256 em standby; o secret legado continua válido como verificador). Não há endpoint na API de gestão (`/jwt-signing-keys` e `/config/auth/signing-keys` devolvem vazio/404), então é ação no painel.
+2. **Rotate** para a nova chave: novos tokens passam a ser ES256; sessões antigas (HS256) seguem válidas até expirarem (1 h) ou serem renovadas por refresh.
+3. Confirmar (smoke das Edge Functions + login real) e só então **revogar** o secret legado: é aqui que o vazamento deixa de valer; `anon`/`service_role` legados deixam de funcionar (nada do app usa; Edge Functions dependem do reinício do passo 4).
+4. Republicar as 7 Edge Functions (reinjeta chaves) e rodar `tool/qa/edge_smoke.py`, `rest_auth_tests.py` e `rest_negative_tests`.
+5. Plano de volta: antes do passo 3 dá para voltar a chave legada como "in use"; depois da revogação, não.
+Impacto esperado: nenhuma mudança de app/loja; usuários logados há mais de 1 h só renovam por refresh token (o refresh token não é JWT assinado pelo secret); pior caso, novo login. Executar fora de horário de pico e **só com sua autorização**.

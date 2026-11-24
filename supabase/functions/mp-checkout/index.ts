@@ -54,7 +54,7 @@ Deno.serve(async (req) => {
     const row = (await catalogRows(db, 'mercadopago')).find((c) => c.plan === b.plan);
     if (!row) return json({ error: 'plan' }, 422);
     const amount = Number(row.price_cents) / 100;
-    const origin = Deno.env.get('PORTAL_BACK_URL') ?? 'https://aprovaura.com/partners';
+    const origin = Deno.env.get('PORTAL_BACK_URL') ?? 'https://aprovaura.lucksrei.com/partners';
 
     const { data: old } = await db.from('mp_pending_charges').select('*').eq('user_id', me.user.id).eq('status', 'pending');
     for (const o of old ?? []) { // mesma tentativa reaproveitada; plano/método novo substitui a antiga

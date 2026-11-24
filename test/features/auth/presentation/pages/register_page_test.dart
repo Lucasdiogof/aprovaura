@@ -151,16 +151,16 @@ void main() {
       );
     });
 
-    testWidgets('a password under 6 characters is flagged while typing', (
+    testWidgets('a password under 8 characters is flagged while typing', (
       tester,
     ) async {
       await pumpRegisterPage(tester);
       await tester.enterText(field(3), 'abc');
       await tester.pump();
-      expect(find.text('Use pelo menos 6 caracteres.'), findsOneWidget);
-      await tester.enterText(field(3), 'abcdef');
+      expect(find.text('Use pelo menos 8 caracteres.'), findsOneWidget);
+      await tester.enterText(field(3), 'abcdefgh');
       await tester.pump();
-      expect(find.text('Use pelo menos 6 caracteres.'), findsNothing);
+      expect(find.text('Use pelo menos 8 caracteres.'), findsNothing);
     });
 
     group('username', () {

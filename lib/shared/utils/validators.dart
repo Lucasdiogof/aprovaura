@@ -17,7 +17,7 @@ bool doPasswordsMatch(String password, String confirmPassword) =>
 
 /// What Supabase Auth itself requires of a new password; checking it here
 /// turns the server's error into an inline hint while typing.
-const minPasswordLength = 6;
+const minPasswordLength = 8;
 
 bool isValidNewPassword(String value) => value.length >= minPasswordLength;
 
