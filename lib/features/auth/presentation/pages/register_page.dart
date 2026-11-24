@@ -49,13 +49,30 @@ class _RegisterPageState extends State<RegisterPage> {
   List<LegalDocument> _legalDocs = const [];
   bool _legalAccepted = false;
 
+  /// The legal documents could not be fetched: sign-up waits for a retry
+  /// instead of silently skipping an acceptance that may be required.
+  bool _legalFailed = false;
+  bool _legalLoading = true;
+
+  Future<void> _loadLegal() async {
+    setState(() {
+      _legalLoading = true;
+      _legalFailed = false;
+    });
+    final config = await sl<AuthRepository>().publicConfig();
+    if (!mounted) return;
+    setState(() {
+      _legalLoading = false;
+      _legalFailed = config == null;
+      _legalDocs = config?.legal ?? const [];
+    });
+  }
+
   @override
   void initState() {
     super.initState();
     _picker.load();
-    sl<AuthRepository>().legalDocuments().then((docs) {
-      if (mounted) setState(() => _legalDocs = docs);
-    });
+    _loadLegal();
     for (final controller in _fields) {
       controller.addListener(_formCubit.notifyFieldChanged);
     }
@@ -127,6 +144,8 @@ class _RegisterPageState extends State<RegisterPage> {
         isValidEmail(_emailController.text) &&
         isValidNewPassword(password) &&
         doPasswordsMatch(password, _confirmPasswordController.text) &&
+        !_legalFailed &&
+        !_legalLoading &&
         (_legalDocs.isEmpty || _legalAccepted);
   }
 
@@ -255,6 +274,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             onLegalChanged: (v) =>
                                 setState(() => _legalAccepted = v),
                             showLegalError: formState.submitted,
+                            legalFailed: _legalFailed,
+                            onRetryLegal: _loadLegal,
                           ),
                         ),
                       ),

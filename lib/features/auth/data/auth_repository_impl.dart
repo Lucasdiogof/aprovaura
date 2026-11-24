@@ -9,6 +9,7 @@ import 'package:aura/features/auth/data/auth_error_messages.dart';
 import 'package:aura/features/auth/data/pending_signup_store.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
 import 'package:aura/features/auth/domain/entities/legal_document.dart';
+import 'package:aura/features/auth/domain/entities/public_app_config.dart';
 import 'package:aura/features/auth/domain/entities/pending_signup.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:get_it/get_it.dart';
@@ -196,23 +197,28 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<List<LegalDocument>> legalDocuments() async {
+  Future<PublicAppConfig?> publicConfig() async {
     try {
       final raw = await _client
           .rpc<dynamic>('get_public_app_config')
           .timeout(const Duration(seconds: 8));
-      final legal = (raw as Map)['legal'];
-      return [
-        if (legal is List)
-          for (final d in legal)
-            LegalDocument(
-              kind: (d as Map)['kind'] as String,
-              version: d['version'] as String,
-              url: d['url'] as String,
-            ),
-      ];
+      final json = raw as Map;
+      final legal = json['legal'];
+      return PublicAppConfig(
+        enforced: json['enforced'] == true,
+        trialHours: (json['trial_hours'] as num?)?.toInt() ?? 72,
+        legal: [
+          if (legal is List)
+            for (final d in legal)
+              LegalDocument(
+                kind: (d as Map)['kind'] as String,
+                version: d['version'] as String,
+                url: d['url'] as String,
+              ),
+        ],
+      );
     } catch (_) {
-      return const [];
+      return null;
     }
   }
 

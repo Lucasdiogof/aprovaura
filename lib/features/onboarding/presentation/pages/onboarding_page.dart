@@ -1,4 +1,9 @@
+import 'dart:async';
+
 import 'package:material_ui/material_ui.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
+import 'package:aura/features/intro/data/intro_store.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
@@ -17,8 +22,23 @@ import 'package:aura/features/subjects/presentation/widgets/subject_multi_select
 import 'package:aura/shared/widgets/app_button.dart';
 import 'package:aura/shared/widgets/app_info_bottom_sheet.dart';
 
-class OnboardingPage extends StatelessWidget {
+class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
+
+  @override
+  State<OnboardingPage> createState() => _OnboardingPageState();
+}
+
+class _OnboardingPageState extends State<OnboardingPage> {
+  @override
+  void initState() {
+    super.initState();
+    // An interrupted setup resumes here (the router checks this flag).
+    final uid = sl<AuthRepository>().currentUser?.id;
+    if (uid != null) {
+      unawaited(IntroStore(sl<SharedPreferences>()).markSetupPending(uid));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +57,8 @@ class _OnboardingView extends StatelessWidget {
     if (!context.mounted) return;
     switch (result) {
       case Success():
-        context.go('/home');
+        await IntroStore(sl<SharedPreferences>()).clearSetupPending();
+        if (context.mounted) context.go('/home');
       case Error(:final failure):
         await AppInfoBottomSheet.showError(
           context,

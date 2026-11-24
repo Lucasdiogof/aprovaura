@@ -57,3 +57,11 @@ $now = Invoke-RestMethod -Method Get -Uri $url -Headers $headers
 'signup has {{ .Token }}: ' + ($now.mailer_templates_confirmation_content -like '*{{ .Token }}*')
 'recovery has {{ .Token }}: ' + ($now.mailer_templates_recovery_content -like '*{{ .Token }}*')
 'ConfirmationURL (deve ser False): ' + (($now.mailer_templates_confirmation_content + $now.mailer_templates_recovery_content) -like '*ConfirmationURL*')
+
+# O logotipo dos e-mails vem de {{ .SiteURL }}/email/aprovaura-mark.png (arquivo em web/email/,
+# publicado junto com a web). Avisa se ainda nao estiver no ar; sem ele o e-mail mostra o texto alternativo.
+if ($now.site_url) {
+  $logo = ($now.site_url.TrimEnd('/')) + '/email/aprovaura-mark.png'
+  try { $r = Invoke-WebRequest -Method Head -Uri $logo -UseBasicParsing; 'logo ' + $logo + ' -> ' + $r.StatusCode }
+  catch { 'AVISO: logo ainda nao publicado em ' + $logo + ' (publique a web antes do lancamento).' }
+}

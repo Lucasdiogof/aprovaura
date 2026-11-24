@@ -111,6 +111,12 @@ class EmailVerificationStrings {
     'Acepta para crear la cuenta.',
   );
 
+  String get legalLoadFailed => _t(
+    'Não foi possível carregar os termos. Conecte-se e tente de novo para criar a conta.',
+    'Could not load the terms. Connect and try again to create your account.',
+    'No se pudieron cargar los términos. Conéctate e intenta de nuevo para crear la cuenta.',
+  );
+
   String get legalAnd => _t(' e a ', ' and the ', ' y la ');
 
   // --- referral picker on sign-up ---

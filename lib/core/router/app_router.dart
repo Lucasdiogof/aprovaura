@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/router/app_route_observer.dart';
@@ -8,6 +9,8 @@ import 'package:aura/features/auth/presentation/pages/email_verification_page.da
 import 'package:aura/features/auth/presentation/pages/login_page.dart';
 import 'package:aura/features/auth/presentation/pages/register_page.dart';
 import 'package:aura/features/home/presentation/pages/home_shell_page.dart';
+import 'package:aura/features/intro/data/intro_store.dart';
+import 'package:aura/features/intro/presentation/pages/intro_page.dart';
 import 'package:aura/features/onboarding/presentation/pages/onboarding_page.dart';
 
 /// Rotas que só existem com sessão: sem ela, `/home` quebraria em
@@ -15,20 +18,51 @@ import 'package:aura/features/onboarding/presentation/pages/onboarding_page.dart
 /// na web, onde qualquer URL pode ser aberta direto.
 const _authenticatedRoutes = {'/home', '/onboarding'};
 
-String? authRedirect({required bool hasSession, required String location}) {
+/// [introSeen]: the animated presentation was already shown (or skipped) on
+/// this install. [setupPending]: the signed-in account still has to finish
+/// the personal setup. Both default to the "nothing special" value, so a
+/// caller that doesn't know about them keeps the old behaviour.
+String? authRedirect({
+  required bool hasSession,
+  required String location,
+  bool introSeen = true,
+  bool setupPending = false,
+  bool hasPendingSignup = false,
+}) {
   if (!hasSession && _authenticatedRoutes.contains(location)) return '/login';
-  if (hasSession && location == '/login') return '/home';
+  // First run, signed out: the presentation comes before the login.
+  if (!hasSession &&
+      !introSeen &&
+      !hasPendingSignup &&
+      location == '/login') {
+    return '/apresentacao';
+  }
+  if (hasSession && (location == '/login' || location == '/apresentacao')) {
+    return setupPending ? '/onboarding' : '/home';
+  }
+  if (hasSession && setupPending && location == '/home') return '/onboarding';
   return null;
 }
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/login',
   observers: [appRouteObserver],
-  redirect: (context, state) => authRedirect(
-    hasSession: sl<AuthRepository>().currentUser != null,
-    location: state.matchedLocation,
-  ),
+  redirect: (context, state) {
+    final user = sl<AuthRepository>().currentUser;
+    final store = IntroStore(sl<SharedPreferences>());
+    return authRedirect(
+      hasSession: user != null,
+      location: state.matchedLocation,
+      introSeen: store.introSeen,
+      hasPendingSignup: store.hasPendingSignup,
+      setupPending: user != null && store.setupPendingFor == user.id,
+    );
+  },
   routes: [
+    GoRoute(
+      path: '/apresentacao',
+      builder: (context, state) => const IntroPage(),
+    ),
     GoRoute(
       path: '/login',
       builder: (context, state) => BlocProvider(

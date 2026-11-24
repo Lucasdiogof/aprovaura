@@ -1,7 +1,7 @@
 # AprovaAura Premium + Partners — documento central
 
 > **Fonte de continuidade entre sessões e agentes.** Atualize-o em TODA etapa.
-> Estado em 2026-11-25: **Etapas 01 (fundação) e 02 (cadastro/autenticação/indicação) concluídas. O modelo comercial e a confirmação obrigatória de e-mail estão DESLIGADOS em produção.**
+> Estado em 2026-11-25: **Etapas 01 (fundação), 02 (cadastro/autenticação/indicação) e 03 (onboarding animado) concluídas. O modelo comercial e a confirmação obrigatória de e-mail estão DESLIGADOS em produção.**
 
 ## 1. Decisões comerciais definitivas
 - Premium **mensal R$ 19,90** e **anual R$ 190,00**. Mercado inicial: Brasil (BRL). **Sem plano gratuito permanente.**
@@ -116,7 +116,7 @@ Rollbacks em `supabase/rollbacks/*.down.sql` (os de 0200/0300/0400 apagam dados:
 - Cloudflare Workers Builds (integração Git) pode publicar sozinho a cada push, independente do GitHub Actions — **NÃO CONFIRMADO** (sem acesso ao painel).
 - `AUTO_DEPLOY` (variável do GitHub) foi posta em `false` na Etapa 01 para o push em `main` não publicar a web durante o desenvolvimento; **reativar (`true`) só no lançamento**. Deploy manual: `workflow_dispatch`.
 
-**Roadmap (dez etapas; numeração do plano do dono — ajustar se divergir):** 00 auditoria ✔; 01 fundação/segurança/monetização ✔; 02 cadastro, autenticação, Resend e indicação ✔ (este documento §13); 03 onboarding animado + paywall/tela de bloqueio; 04 pagamentos web (Mercado Pago) + webhooks; 05 Play Billing/StoreKit + recibos; 06 portais admin e professor (`/partners`, mesma conta); 07 notificações + contratos digitais; 08 turmas, questões autorais, rankings, chats; 09 endurecimento (gabaritos no servidor) + QA consolidado + lançamento.
+**Roadmap (dez etapas; numeração do plano do dono — ajustar se divergir):** 00 auditoria ✔; 01 fundação/segurança/monetização ✔; 02 cadastro, autenticação, Resend e indicação ✔ (este documento §13); 03 onboarding animado ✔ (§14); 04 paywall/tela de bloqueio + navegação por estado de acesso; 05 pagamentos web (Mercado Pago) + webhooks; 06 Play Billing/StoreKit + recibos; 07 portais admin e professor (`/partners`, mesma conta); 08 notificações + contratos digitais; 09 turmas, questões autorais, rankings, chats; 10 endurecimento (gabaritos no servidor) + QA consolidado + lançamento. (Numeração reorganizada em dez etapas contando a 00; ajustar se divergir do plano do dono.)
 
 **Checklist de QA/publicação (a executar na etapa final):** `flutter analyze` + testes; revisar código novo da Etapa 01 (escrito sem analyze); teste de ponta a ponta de `get_my_access`, trial, cortesia, gate 402 (com enforcement ligado em ambiente de teste), offline (relógio recuado, troca de conta, expiração), fila offline sob 402; testes das RPCs financeiras; builds Android/iOS/Web; revisão de strings PT/EN/ES e temas; atualizar política de privacidade e termos (assinatura, parceiros); ativar modelo; monitorar; manter `emergency_disable` à mão.
 
@@ -159,3 +159,40 @@ Tabelas `legal_documents` (versão vigente por tipo), `legal_acceptances` (aceit
 
 ### 13.9 Checklist de ativação coordenada
 (a) versão pública com `/confirmar-email` nas lojas e web; (b) `-Templates` e `-Smtp` aplicados e um e-mail real de signup/recovery recebido (Gmail e Apple Mail, PT/EN/ES); (c) limites de taxa configurados; (d) `admin_update_commercial_config({"email_verification_required": true})`; (e) `-Activate` (autoconfirm off); (f) testar cadastro novo, reenvio, código errado/expirado, corrigir e-mail, login de conta pendente, recuperação de senha; (g) legados (§13.5); (h) só então a ativação comercial (§9). Rollback: `-Activate` reverso (`mailer_autoconfirm=true` via painel) e `email_verification_required=false`.
+
+
+## 14. Etapa 03 — onboarding animado e experiência inicial (2026-11-25)
+
+### 14.1 Três fluxos distintos
+1. **Apresentação do produto** (`lib/features/intro/`, rota `/apresentacao`): cinco telas animadas, uma única vez por instalação/perfil de navegador, pulável.
+2. **Cadastro e confirmação de e-mail** (`/cadastro`, `/confirmar-email`, Etapa 02).
+3. **Configuração pessoal** (`lib/features/onboarding/`, rota `/onboarding`: objetivo, ano da prova, matérias) — intacta.
+
+Fluxo de um novo usuário: apresentação → (Criar minha conta | Já tenho conta) → cadastro → código de e-mail (quando a confirmação obrigatória estiver ativa) → configuração pessoal → `/home`. Hoje (autoconfirm ligado) o cadastro vai direto à configuração. O login fica a um toque em todas as telas da apresentação ("Já tenho conta").
+
+### 14.2 Telas
+1 Bem-vindo (logo + Aurudo acenando, partículas ambiente); 2 Pratique e evolua (Aurudo estudando, questão que se responde sozinha, chips de disciplinas/trilhas/dificuldade/simulados); 3 Aprenda com seus erros (anel de acertos, barras de evolução, meta diária, sequência de 7 dias, chips); 4 Aprimore suas redações (Aurudo pensando, folha que "se escreve", 5 barras de competências C1–C5, aviso "não é nota oficial nem garantia"); 5 Farme Aura (**`AurudoFarmAuraAnimation`**, barra de nível que sobe e vira Nível 4, "+10" Aura, chips de ganho/conquistas/sequência; CTA "Criar minha conta"). A linha do período experimental só aparece na tela 5 **se o servidor reportar o modelo comercial ativo** (`get_public_app_config`) e diz que o teste começa **após a confirmação do e-mail** — nunca que já começou. Sem o modelo ativo, mostra só "Sua jornada começa agora."
+
+### 14.3 Componentes reaproveitados / novos
+- **Reaproveitados (sem alteração):** `AurudoFarmAuraAnimation` (replay por `ValueKey` a cada chegada à tela 5), `AurudoIllustration` (acenando/estudando/pensando com suas animações próprias, só `animate: active`), `AuraParticles` (ambient), `AuraGlyph`, `AppLogo`, `AppButton`, `AppColors`/`AppSpacing`, `LocaleCubit`.
+- **Novos:** `IntroPage` (PageView, parallax/fade entre páginas, indicadores, gestos + botões + setas do teclado, seletor de idioma, "Pular"), `IntroScene` (relógio de animação por tela: roda **só enquanto a tela está visível**, volta a zero ao sair; sob redução de movimento mostra o estado final), `intro_visuals.dart` (5 visuais desenhados numa caixa 320×360 e escalados), `intro_common.dart`, `IntroStrings` (PT/EN/ES), `IntroStore`.
+- Animações nativas Flutter; nenhuma dependência nova. Layout largo (≥860 px): visual e texto lado a lado, conteúdo limitado a 1100 px.
+
+### 14.4 Persistência (`IntroStore`, SharedPreferences) — nunca concede Premium
+- `intro_seen_v1`: apresentação vista/pulada. Independente de trial/assinatura; **nenhuma flag local concede acesso** (o servidor decide).
+- `setup_pending_uid_v1`: a conta que entrou na configuração pessoal e não terminou; o router leva `/home` → `/onboarding` só para essa conta, e a flag é limpa ao concluir. Contas existentes nunca recebem a flag (não refazem a configuração). Nada de XP/progresso/trial é tocado.
+- Redirect (`authRedirect`): sem sessão e sem intro vista → `/apresentacao` (a menos que haja confirmação de e-mail pendente); com sessão, `/login` e `/apresentacao` → `/home` (ou `/onboarding` se pendente).
+
+### 14.5 Integração futura (paywall)
+O destino final do fluxo é a única linha `context.go('/home')` da configuração pessoal; a Etapa 04 pode trocar por uma decisão por estado de acesso (`AccessCubit`) sem mexer na apresentação, no cadastro ou na configuração. O CTA e a linha de teste já leem `get_public_app_config`.
+
+### 14.6 Correções de etapas anteriores
+- Etapa 02: a falha ao buscar documentos legais **não ignora mais o aceite** — o cadastro fica bloqueado com mensagem e "Tentar de novo" (`AuthRepository.publicConfig()` devolve `null` na falha; substitui `legalDocuments()`).
+- Etapa 02: logo oficial nos e-mails — `web/email/aprovaura-mark.png` (publicado junto com a web) referenciado como `{{ .SiteURL }}/email/aprovaura-mark.png`; **só funciona após o deploy da web** e se `site_url` do Auth for o domínio da web (o script avisa se o arquivo ainda não responde). Sem a imagem, o e-mail mostra o texto alternativo. Nenhuma URL foi inventada.
+- Etapa 02: a navegação inicial respeita a confirmação pendente (a apresentação não a atropela); recuperação de falhas de conexão na tela do código (erro de rede não conta tentativa; reenvio disponível).
+
+### 14.7 Pendências externas
+Publicar a web (o logo do e-mail depende disso) e conferir `site_url`; demais pendências da §13.8 continuam.
+
+### 14.8 Checklist de QA futuro (Etapa 03)
+Primeira abertura (Android/iOS/web) → apresentação; pular; reabrir (não repete); trocar idioma na apresentação; redução de movimento; fonte grande (sem corte); celular pequeno, tablet, desktop; claro/escuro; voltar/avançar por gesto, botão e teclado; replay da tela 5 ao voltar; cadastro novo → configuração → app; fechar o app no meio da configuração e reabrir (retoma); usuário existente (não vê configuração; vê apresentação uma vez); confirmação de e-mail pendente ao abrir; verificar consumo (nenhum controller rodando fora da tela visível).

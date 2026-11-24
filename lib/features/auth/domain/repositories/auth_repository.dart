@@ -2,6 +2,7 @@ import 'package:aura/core/error/result.dart';
 import 'package:aura/features/auth/domain/entities/app_user.dart';
 import 'package:aura/features/auth/domain/entities/legal_document.dart';
 import 'package:aura/features/auth/domain/entities/pending_signup.dart';
+import 'package:aura/features/auth/domain/entities/public_app_config.dart';
 
 abstract class AuthRepository {
   Future<Result<AppUser>> signIn({
@@ -41,9 +42,10 @@ abstract class AuthRepository {
     required String password,
   });
 
-  /// Current legal documents to accept on sign-up (empty if none published
-  /// or if the server can't be reached).
-  Future<List<LegalDocument>> legalDocuments();
+  /// Pre-login configuration (legal documents to accept, commercial state).
+  /// null when it could not be fetched: callers must NOT assume "nothing to
+  /// accept" then -- sign-up waits for a retry.
+  Future<PublicAppConfig?> publicConfig();
 
   /// The interrupted e-mail confirmation, if any.
   Future<PendingSignup?> pendingSignup();

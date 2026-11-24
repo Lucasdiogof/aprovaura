@@ -18,6 +18,8 @@ class RegisterExtras extends StatelessWidget {
     required this.legalAccepted,
     required this.onLegalChanged,
     required this.showLegalError,
+    this.legalFailed = false,
+    this.onRetryLegal,
     super.key,
   });
 
@@ -27,6 +29,8 @@ class RegisterExtras extends StatelessWidget {
   final bool legalAccepted;
   final ValueChanged<bool> onLegalChanged;
   final bool showLegalError;
+  final bool legalFailed;
+  final VoidCallback? onRetryLegal;
 
   Future<void> _open(String url) =>
       launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
@@ -93,6 +97,19 @@ class RegisterExtras extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 14),
+            ],
+            if (legalFailed) ...[
+              Text(
+                strings.legalLoadFailed,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Theme.of(context).colorScheme.error,
+                ),
+              ),
+              TextButton(
+                onPressed: onRetryLegal,
+                child: Text(strings.retry),
+              ),
             ],
             if (legalDocs.isNotEmpty) ...[
               Row(

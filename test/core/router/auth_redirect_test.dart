@@ -21,5 +21,40 @@ void main() {
       expect(authRedirect(hasSession: true, location: '/home'), isNull);
       expect(authRedirect(hasSession: true, location: '/onboarding'), isNull);
     });
+
+    test('first run signed out goes to the presentation before login', () {
+      expect(
+        authRedirect(hasSession: false, location: '/login', introSeen: false),
+        '/apresentacao',
+      );
+      expect(
+        authRedirect(
+          hasSession: false,
+          location: '/login',
+          introSeen: false,
+          hasPendingSignup: true,
+        ),
+        isNull,
+      );
+      expect(
+        authRedirect(hasSession: false, location: '/login', introSeen: true),
+        isNull,
+      );
+    });
+
+    test('an interrupted personal setup resumes; finished accounts do not', () {
+      expect(
+        authRedirect(hasSession: true, location: '/home', setupPending: true),
+        '/onboarding',
+      );
+      expect(
+        authRedirect(hasSession: true, location: '/home'),
+        isNull,
+      );
+      expect(
+        authRedirect(hasSession: true, location: '/apresentacao'),
+        '/home',
+      );
+    });
   });
 }
