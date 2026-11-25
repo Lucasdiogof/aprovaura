@@ -48,8 +48,15 @@ Deno.serve(async (req) => {
       const tx = await verifyJws(body.signedTransaction);
       const { data: t } = await db.from('purchase_account_tokens').select('token').eq('user_id', me.user.id).maybeSingle();
       if (!t || String(tx.appAccountToken ?? '').toLowerCase() !== t.token) return json({ error: 'account_mismatch' }, 403);
-      const ev = appleEvent(tx, null, 'SUBSCRIBED', null, 'apple:client:' + tx.transactionId, cat);
-      if (!ev) return json({ error: 'product' }, 422);
+      const clientEv = appleEvent(tx, null, 'SUBSCRIBED', null, 'apple:client:' + tx.transactionId, cat);
+      if (!clientEv) return json({ error: 'product' }, 422);
+      // A transação do app é só uma foto: reenviá-la (ex.: "Restaurar compras") NÃO pode reabrir uma assinatura
+      // cancelada nem apagar autoRenew. O estado vem da consulta OFICIAL à Apple; da transação só vem o pagamento.
+      let ev = clientEv;
+      try {
+        const off = await appleOfficialEvent(String(tx.originalTransactionId), clientEv.env, cat);
+        if (off) ev = { ...off, occurredAt: new Date(), payment: clientEv.payment };
+      } catch (e) { console.error('apple client official', (e as Error).message); } // sem a API: cai na transação
       const r = await ingest(db, ev);
       return r.status === 'processed' ? json({ ok: true }) : json({ error: r.status }, r.status === 'conflict' ? 409 : 500);
     }
