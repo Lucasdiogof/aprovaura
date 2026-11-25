@@ -48,3 +48,10 @@ Criar produto/base plans (sem ofertas), projeto/SA com papéis mínimos no app, 
 3. Adesão ao programa de 15% e conta bancária: pendência do dono (não confirmada).
 4. Secrets no Supabase (`GOOGLE_SA_JSON`, `GOOGLE_PUBSUB_*`) ainda **não** instalados; instalar junto com o RTDN.
 5. Nenhuma compra de teste feita: **nada homologado** neste serviço.
+
+## 7. Atualização 25/11 (noite)
+- Dono fez pré-pagamento de R$ 30,00 no Google Cloud (vira crédito; nenhum pagamento adicional será feito). Em seguida o aviso de pré-pagamento sumiu do console, mas `gcloud` ainda mostra a conta `OPEN=False` e o projeto `billingEnabled=false` (o crédito pode levar até 24h). **Pub/Sub segue não habilitado.**
+- Release 1.1.0+8 (versionCode 8) **está ao vivo na produção** (`tracks.get production`: status completed); faixa interna vazia. Assinaturas continuam em rascunho, então não há compra possível.
+- Criada a SA de push `aprovaura-pubsub-push@gen-lang-client-0711282501.iam.gserviceaccount.com` (sem papéis; será a identidade OIDC da assinatura push).
+- Secrets instalados no Supabase `cesuqfgrtcitatxvokez` (valores não impressos): `GOOGLE_SA_JSON`, `GOOGLE_PUBSUB_AUDIENCE` (URL da função), `GOOGLE_PUBSUB_SA_EMAIL`, `GOOGLE_PACKAGE_NAME`. `payments-google` rejeita chamada sem OIDC válido (401).
+- Pendente: faturamento ativo → habilitar só `pubsub`, tópico, permissão de publicação para `google-play-developer-notifications@system.gserviceaccount.com`, assinatura push com OIDC, alertas R$1/5/10, tópico no Play Console, notificação de teste.
