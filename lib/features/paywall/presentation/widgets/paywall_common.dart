@@ -29,6 +29,8 @@ class PaywallFrame extends StatelessWidget {
     this.aurudoSize = 150,
     this.showMark = true,
     this.showMascot = true,
+    this.particleStyle = AuraParticlesStyle.ambient,
+    this.particleCount = 6,
     this.bottom,
     this.onClose,
     super.key,
@@ -40,6 +42,10 @@ class PaywallFrame extends StatelessWidget {
 
   /// Telas de escolha de plano dispensam o mascote: o espaço vai para os planos.
   final bool showMascot;
+
+  /// Brilhos de fundo (a tela de sucesso usa o estilo burst, mais cheio).
+  final AuraParticlesStyle particleStyle;
+  final int particleCount;
 
   /// Pinned under the scrolling content, above the safe area (the main
   /// call to action of a success screen).
@@ -64,9 +70,9 @@ class PaywallFrame extends StatelessWidget {
         body: Stack(
           children: [
             if (particles)
-              const Positioned.fill(
+              Positioned.fill(
                 child: IgnorePointer(
-                  child: AuraParticles(style: AuraParticlesStyle.ambient, count: 6),
+                  child: AuraParticles(style: particleStyle, count: particleCount),
                 ),
               ),
             SafeArea(

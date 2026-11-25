@@ -16,6 +16,8 @@ import 'package:aura/features/paywall/presentation/widgets/paywall_common.dart';
 import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/shared/utils/external_link.dart';
 import 'package:aura/shared/widgets/app_button.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aura_particles.dart';
+import 'package:aura/shared/widgets/aura/aura_animated_border.dart';
 import 'package:aura/shared/widgets/aura_glow_button.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 
@@ -86,7 +88,6 @@ class _PaywallViewState extends State<_PaywallView> {
   _Variant _variant(AccessCubit access, PaymentsState pay, bool providerReady, bool hasPlans) {
     final st = access.state;
     if (pay.current != null && st.status.allowed && !st.status.isBlocked) return _Variant.active;
-    if (pay.phase == PayPhase.validating || pay.phase == PayPhase.purchasing) return _Variant.validating;
     if (pay.charge != null || pay.phase == PayPhase.pending || st.context.pendingPayment) return _Variant.pending;
     if (pay.phase == PayPhase.failed && pay.failure == null) return _Variant.declined;
     if (pay.phase == PayPhase.failed && pay.failure != null && !isConnectionFailure(pay.failure!)) {
@@ -227,7 +228,7 @@ class _PaywallViewState extends State<_PaywallView> {
         final variant = _variant(access, s, providerReady, options.isNotEmpty);
         final (title, body, pose) = _copy(t, variant);
         final sel = options.where((o) => o.plan == _plan).firstOrNull ?? options.firstOrNull;
-        final busy = variant == _Variant.validating;
+        final busy = s.phase == PayPhase.validating || s.phase == PayPhase.purchasing;
         final canBuy = providerReady && sel != null && variant != _Variant.pending && variant != _Variant.active && !busy;
         final monthly = options.where((o) => o.plan == PayPlan.monthly).firstOrNull;
         final annual = options.where((o) => o.plan == PayPlan.annual).firstOrNull;
@@ -254,16 +255,14 @@ class _PaywallViewState extends State<_PaywallView> {
         return PaywallFrame(
           pose: pose,
           showMark: false,
-          showMascot: variant == _Variant.active || !showPlans,
+          showMascot: false,
           bottom: pinnedCta,
           aurudoSize: variant == _Variant.active ? 200 : 168,
           onClose: voluntary ? () => (context.canPop() ? context.pop() : context.go('/home')) : null,
           children: [
             PaywallHeading(title: title, body: body),
             SizedBox(height: variant == _Variant.active ? AppSpacing.xxl : AppSpacing.xl),
-            if (variant == _Variant.validating)
-              const Center(child: SizedBox(height: 4, width: 160, child: LinearProgressIndicator()))
-            else if (variant == _Variant.active)
+            if (variant == _Variant.active)
               _ActiveCard(t: t, sub: s.current!, here: here, cubit: cubit)
             else ...[
               if (showPlans) ...[
@@ -429,21 +428,32 @@ class _PlanCard extends StatelessWidget {
       child: PaywallCard(
         highlighted: selected,
         onTap: onTap,
-        child: Row(children: [
-          Icon(selected ? Icons.radio_button_checked : Icons.radio_button_off, color: selected ? c.primary : c.textHint),
-          const SizedBox(width: AppSpacing.md),
-          Expanded(
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              if (badge != null)
-                Container(
-                  margin: const EdgeInsets.only(bottom: 6),
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          if (badge != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
                     color: c.auraViolet.withValues(alpha: 0.18),
                     borderRadius: BorderRadius.circular(AppRadius.pill),
                   ),
-                  child: Text(badge!, style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: c.primary)),
+                  // Sempre uma linha só: encolhe a fonte em telas estreitas em vez de quebrar.
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(badge!, maxLines: 1, softWrap: false,
+                        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: c.primary)),
+                  ),
                 ),
+              ),
+            ),
+          Row(children: [
+          Icon(selected ? Icons.radio_button_checked : Icons.radio_button_off, color: selected ? c.primary : c.textHint),
+          const SizedBox(width: AppSpacing.md),
+          Expanded(
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(annual ? t('Premium anual', 'Annual Premium', 'Premium anual') : t('Premium mensal', 'Monthly Premium', 'Premium mensual'),
                   style: TextStyle(fontWeight: FontWeight.w700, color: c.textPrimary)),
               Text(annual ? t('Cobrança uma vez por ano', 'Billed once a year', 'Cobro una vez al año') : t('Cobrança todo mês', 'Billed monthly', 'Cobro mensual'),
@@ -455,6 +465,7 @@ class _PlanCard extends StatelessWidget {
             Text(annual ? t('/ano', '/year', '/año') : t('/mês', '/month', '/mes'),
                 style: TextStyle(fontSize: 12, color: c.textSecondary)),
           ]),
+        ]),
         ]),
       ),
     );
@@ -619,22 +630,45 @@ class _Unlocked extends StatelessWidget {
   const _Unlocked({required this.t});
   final PortalStrings t;
 
+  static const _radius = 28.0;
+
   @override
   Widget build(BuildContext context) {
+    final c = context.colors;
     return PaywallFrame(
-      pose: AurudoPose.celebrating,
       showMark: false,
-      aurudoSize: 240,
+      showMascot: false,
+      particleStyle: AuraParticlesStyle.burst,
+      particleCount: 26,
       bottom: AuraGlowButton(
         label: t('Continuar estudando', 'Keep studying', 'Seguir estudiando'),
         onPressed: () => context.go('/home'),
       ),
       children: [
-        PaywallHeading(
-          title: t('Premium ativado!', 'Premium activated!', '¡Premium activado!'),
-          body: t('Pagamento confirmado. Seu acesso completo já está liberado e todo o seu progresso segue exatamente de onde você parou.',
-              'Payment confirmed. Your full access is unlocked and all your progress is right where you left it.',
-              'Pago confirmado. Tu acceso completo ya está habilitado y todo tu progreso sigue justo donde lo dejaste.'),
+        // Texto num painel com a mesma luz correndo da borda do botão e um halo suave.
+        DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(_radius),
+            boxShadow: [BoxShadow(color: c.auraViolet.withValues(alpha: 0.30), blurRadius: 36, spreadRadius: -4)],
+          ),
+          child: AuraAnimatedBorder(
+            active: true,
+            borderRadius: _radius,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl, vertical: AppSpacing.xxl),
+              decoration: BoxDecoration(color: c.surface, borderRadius: BorderRadius.circular(_radius)),
+              child: Column(children: [
+                Icon(Icons.auto_awesome, size: 44, color: c.auraViolet),
+                const SizedBox(height: AppSpacing.lg),
+                PaywallHeading(
+                  title: t('Premium ativado!', 'Premium activated!', '¡Premium activado!'),
+                  body: t('Pagamento confirmado. Seu acesso completo já está liberado e todo o seu progresso segue exatamente de onde você parou.',
+                      'Payment confirmed. Your full access is unlocked and all your progress is right where you left it.',
+                      'Pago confirmado. Tu acceso completo ya está habilitado y todo tu progreso sigue justo donde lo dejaste.'),
+                ),
+              ]),
+            ),
+          ),
         ),
       ],
     );
