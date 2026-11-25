@@ -28,6 +28,7 @@ class PaywallFrame extends StatelessWidget {
     this.particles = true,
     this.aurudoSize = 150,
     this.showMark = true,
+    this.showMascot = true,
     this.bottom,
     this.onClose,
     super.key,
@@ -36,6 +37,9 @@ class PaywallFrame extends StatelessWidget {
   /// The "A" monogram above the mascot. The purchase screens leave it out:
   /// Aurudo already carries the brand there.
   final bool showMark;
+
+  /// Telas de escolha de plano dispensam o mascote: o espaço vai para os planos.
+  final bool showMascot;
 
   /// Pinned under the scrolling content, above the safe area (the main
   /// call to action of a success screen).
@@ -85,6 +89,7 @@ class PaywallFrame extends StatelessWidget {
                                 const Center(child: AppLogo.mark(size: 44)),
                                 const SizedBox(height: AppSpacing.sm),
                               ],
+                              if (showMascot) ...[
                               Center(
                                 child: Stack(
                                   alignment: Alignment.center,
@@ -110,6 +115,8 @@ class PaywallFrame extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: AppSpacing.xl),
+                              ] else
+                                const SizedBox(height: AppSpacing.lg),
                               ...children,
                             ],
                           ),

@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:aura/core/theme/app_theme.dart';
+import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 import 'package:aura/features/paywall/presentation/widgets/paywall_common.dart';
 
 void main() {
@@ -26,5 +27,17 @@ void main() {
     await tester.pumpWidget(host(const PaywallLoading()));
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
     expect(find.text('Restaurar compras'), findsNothing);
+  });
+
+  testWidgets('sem mascote e com botão fixo no rodapé, fora da rolagem', (tester) async {
+    await tester.pumpWidget(host(const PaywallFrame(
+      particles: false,
+      showMascot: false,
+      bottom: Text('ASSINAR'),
+      children: [SizedBox(height: 2000, child: Text('planos'))],
+    )));
+    expect(find.byType(AurudoIllustration), findsNothing);
+    expect(find.descendant(of: find.byType(SingleChildScrollView), matching: find.text('ASSINAR')), findsNothing);
+    expect(find.text('ASSINAR'), findsOneWidget);
   });
 }

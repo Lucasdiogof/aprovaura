@@ -242,9 +242,20 @@ class _PaywallViewState extends State<_PaywallView> {
             variant != _Variant.active &&
             variant != _Variant.unavailable;
 
+        // Botão de assinar fixo no rodapé (fora da rolagem); some em Pix pendente e quando indisponível.
+        final pinnedCta = variant != _Variant.unavailable && showPlans && s.charge == null
+            ? AuraGlowButton(
+                label: _cta(t, web, sel, variant == _Variant.declined),
+                isLoading: busy,
+                onPressed: canBuy ? () => unawaited(_buy(cubit, sel, web)) : null,
+              )
+            : null;
+
         return PaywallFrame(
           pose: pose,
           showMark: false,
+          showMascot: variant == _Variant.active || !showPlans,
+          bottom: pinnedCta,
           aurudoSize: variant == _Variant.active ? 200 : 168,
           onClose: voluntary ? () => (context.canPop() ? context.pop() : context.go('/home')) : null,
           children: [
@@ -337,15 +348,6 @@ class _PaywallViewState extends State<_PaywallView> {
                     onPressed: () => unawaited(cubit.load()),
                   ),
                 )
-              else if (showPlans && s.charge == null)
-                Padding(
-                  padding: const EdgeInsets.only(top: AppSpacing.lg),
-                  child: AuraGlowButton(
-                    label: _cta(t, web, sel, variant == _Variant.declined),
-                    isLoading: busy,
-                    onPressed: canBuy ? () => unawaited(_buy(cubit, sel, web)) : null,
-                  ),
-                ),
             ],
             if (variant != _Variant.active) ...[
             const SizedBox(height: AppSpacing.md),
