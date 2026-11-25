@@ -100,14 +100,37 @@ cartão mensal/anual reais de teste, Pix de teste (QR, copia e cola, expiração
 2. Habilitar **só** a linha `mercadopago/sandbox` em `payment_providers_config` durante a janela de teste e desabilitar ao final. Atenção: o acesso concedido por compra de teste é real dentro do app (entitlement `sandbox:`), então a janela deve ser curta e só com conta de teste.
 3. Executar a matriz da seção 7 com cartões e usuários de teste oficiais; registrar resultado de cada linha aqui. Voltar `MP_ENV` e os secrets de teste ao estado anterior.
 
-## 11. Rodada de homologação sandbox (24/11/2026) — resultado
+## 11. Homologação sandbox real (24–25/11/2026)
 
-**Isolamento Payhip (novo, no código):** a aplicação do Mercado Pago é compartilhada com o Payhip. `processPayment` e `processAuthorizedPayment` só processam cobrança cujo `external_reference` é um token de `purchase_account_tokens`; qualquer outra origem retorna `foreign` e não gera evento, pagamento, comissão nem acesso. Cobertos por 2 testes Deno (25/25).
+Ambiente: aplicação **AprovaAura Sandbox** (id 6563506927463430), vendedor de teste 3869775433, comprador de teste 3870142095 (credenciais só no cofre `mercadopago.aprovaura.sandbox.*`). Janela controlada: segredos instalados, provedor sandbox ligado, testes, e **estado seguro restaurado** (ver 11.4).
 
-**Pagamento sandbox NÃO homologado.** Resultado real das tentativas com a API:
-- As credenciais "de teste" cadastradas (`TEST-…`) pertencem à conta real (id 207507198), não a uma conta vendedora de teste.
-- Pix com e-mail aleatório: 400 `2034 Invalid users involved`. Pix e cartão com comprador de teste criado via API: 403 `4390 Payer email forbidden`. Token de cartão foi gerado normalmente (cartão de teste do MP).
-- Conclusão: vendedor real + comprador de teste não combinam. É preciso um par **vendedor de teste + comprador de teste** (mesmo país), usando o Access Token APP_USR do **vendedor de teste**.
-- Nada foi simulado; nenhuma cobrança real; segredos `MP_ACCESS_TOKEN`/`MP_WEBHOOK_SECRET`/`MP_ENV` seguem ausentes no Supabase (provedor desligado).
+### 11.1 Efetivamente homologado no Mercado Pago real (sandbox)
+| Item | Resultado |
+|---|---|
+| Titularidade das credenciais | `/users/me` = vendedor de teste 3869775433 (não a conta real) |
+| Webhook (modo teste e produção da app sandbox) | configurado; eventos Pagamentos (legacy), Planos e assinaturas, Contestações |
+| HMAC real | "Simular notificação" do painel: notificação assinada pelo MP → `200 OK`; sem assinatura e com assinatura errada → `401` |
+| Cartão recorrente mensal (R$ 19,90) | assinatura criada e autorizada, 1ª cobrança `approved/accredited` |
+| Cartão recorrente anual (R$ 190,00) | idem, frequência 12 meses |
+| Processamento → assinatura/entitlement | `provider_subscriptions` ativa em ambiente `sandbox`; `get_my_access` → `has_access=true` (fontes `web`, `external_ref sandbox:pre:…`) |
+| Idempotência | mesmo evento entregue 2× → 1 registro em `payment_events`, 2 entitlements |
+| Cancelamento | assinatura cancelada no MP + evento → estado `canceled` (acesso até o fim do período) |
+| Recusa de cartão (titular OTHE/CONT/FUND) | MP recusa na criação da assinatura (`CC_VAL_433`): nada concedido |
+| Sandbox não gera receita/comissão | `payments` do MP = 0 e `commission_ledger` = 0 após as cobranças aprovadas |
+| Assinatura de outra origem (Payhip simulado, `external_reference` desconhecido) | evento `wait_first_payment`: nenhuma assinatura criada |
 
-**Procedimento para o dono (painel Mercado Pago Developers):** Suas integrações → aplicação → Testes → Contas de teste → criar conta **Vendedor** (Brasil) e **Comprador** (Brasil); abrir os três pontos da conta vendedora → "Gerar nova senha"; logar nela (usuário/senha da tela; se pedir código, são 6 dígitos enviados ao e-mail de teste) em janela anônima, abrir Developers e copiar o Access Token APP_USR dessa conta e criar o webhook de teste com a assinatura secreta. Guardar tudo no cofre (`mercadopago.aprovaura.sandbox.*`). Depois a Claude instala os segredos por janela controlada e roda a matriz (Pix/cartão, mensal/anual, aprovado/pendente/recusado, cancelamento, reembolso).
+### 11.2 Bug real achado e corrigido
+Pagamentos da conta vendedora de **teste** chegam com `live_mode: true`. O código decidia o ambiente por `live_mode` e rejeitava (`collector_mismatch`, 500). Agora o ambiente sai da **conta recebedora** (`envOf`): `MP_COLLECTOR_ID`+`live_mode` → produção; `MP_SANDBOX_COLLECTOR_ID` → sandbox; qualquer outra → recusa. Teste Deno novo (26/26). Funções reimplantadas.
+
+### 11.3 NÃO homologado de ponta a ponta (validado só com mocks/SQL)
+- **Pix (mensal 30d / anual 365d):** o `POST /v1/payments` do sandbox responde `401 Unauthorized use of live credentials` com a conta vendedora de teste. Fluxo de Pix coberto só por testes Deno (API simulada), SQL e widget Flutter.
+- **Reembolso/chargeback:** `POST /v1/payments/{id}/refunds` também `401`; reversão coberta só por mocks e SQL.
+- **Pagamento pendente (CONT) e checkout hospedado do cartão:** o MP só deixa o próprio pagador autorizar assinatura criada pelo `mp-checkout`; a assinatura foi criada pela API com cartão de teste (mesmo `external_reference` do usuário). O redirecionamento do checkout hospedado não foi exercitado.
+- **Entrega automática de webhook do MP para pagamentos reais de teste:** nenhuma chegou sozinha na janela; os eventos foram entregues com a assinatura HMAC calculada pelo segredo do cofre (HMAC do MP provado pelo simulador). Reconciliação (`payments-reconcile`) cobre a perda de eventos; cron segue desligado.
+- **Financeiro/comissão reais:** sandbox não grava (comportamento correto); regras financeiras validadas por SQL (83/83).
+
+### 11.4 Estado seguro final
+Provedor `mercadopago` sandbox/produção `enabled=false`; secrets `MP_ACCESS_TOKEN`, `MP_WEBHOOK_SECRET`, `MP_ENV` removidos (restam `MP_COLLECTOR_ID`, `MP_SANDBOX_COLLECTOR_ID=3869775433`, `MP_NOTIFICATION_URL`, `PORTAL_BACK_URL`); usuário efêmero, assinaturas e eventos sandbox apagados (4 linhas de auditoria em `entitlement_events` do usuário apagado permanecem); assinaturas de teste canceladas no MP. Monetização, e-mail obrigatório, provedores comerciais, AUTO_DEPLOY e cron inalterados/desativados. Payhip intocado.
+
+### 11.5 Pendências do dono
+Credencial de produção real do AprovaAura (conta/app própria ou decisão de reutilizar Lucksrei - Payhip com isolamento por `external_reference`), investigar com o suporte do MP o 401 do Pix/reembolso no sandbox, e teste real de Pix de valor mínimo quando for autorizado.

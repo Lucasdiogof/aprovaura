@@ -30,11 +30,14 @@ export async function verifySignature(req: Request, dataId: string) {
   return timingEqual([...mac].map((b) => b.toString(16).padStart(2, '0')).join(''), parts.v1);
 }
 
-// Falha fechada e ambientes separados: pagamento real (live_mode) só vale para a conta recebedora de PRODUÇÃO
-// (MP_COLLECTOR_ID); pagamento de teste só para a conta vendedora de TESTE (MP_SANDBOX_COLLECTOR_ID). Sem o id, nada é aceito.
-function assertCollector(p: any) {
-  const c = Deno.env.get(p.live_mode ? 'MP_COLLECTOR_ID' : 'MP_SANDBOX_COLLECTOR_ID');
-  if (!c || String(p.collector_id) !== c) throw new Error('collector_mismatch');
+// Falha fechada e ambientes separados, decididos pela CONTA RECEBEDORA (nunca só por live_mode: a conta vendedora de teste
+// do Mercado Pago opera com live_mode=true). MP_COLLECTOR_ID + live_mode → produção; MP_SANDBOX_COLLECTOR_ID → sandbox.
+function envOf(p: any): 'production' | 'sandbox' {
+  const id = String(p.collector_id);
+  const prod = Deno.env.get('MP_COLLECTOR_ID'), sbx = Deno.env.get('MP_SANDBOX_COLLECTOR_ID');
+  if (prod && id === prod && p.live_mode) return 'production';
+  if (sbx && id === sbx) return 'sandbox';
+  throw new Error('collector_mismatch');
 }
 
 async function plans(db: SupabaseClient) {
@@ -71,13 +74,12 @@ async function ownToken(db: SupabaseClient, token: unknown) {
 /** Pix avulso: aprovado concede período fixo; estorno/chargeback reverte. */
 export async function processPayment(db: SupabaseClient, id: string | number) {
   const p = await mp(`/v1/payments/${id}`);
-  assertCollector(p);
+  const env = envOf(p);
   if (p.payment_method_id !== 'pix') return await processCardReversal(db, p); // aprovação do cartão chega por authorized_payments
   const cat = await plans(db);
   const row = cat.find((c) => Number(c.price_cents) === cents(p.transaction_amount));
   if (!(await ownToken(db, p.external_reference))) return 'foreign';
   if (!row || p.currency_id !== 'BRL') return 'invalid';
-  const env = p.live_mode ? 'production' : 'sandbox';
   const base = { provider: 'mercadopago' as const, env: env as Ev['env'], occurredAt: new Date(p.date_last_updated ?? Date.now()),
     token: p.external_reference, ref: 'pix:' + p.id, plan: row.plan as Ev['plan'] };
   let ev: Ev;
@@ -134,12 +136,12 @@ export async function processAuthorizedPayment(db: SupabaseClient, id: string | 
   const a = await mp(`/authorized_payments/${id}`);
   if (a.payment?.status !== 'approved') return a.payment?.status ?? 'pending';
   const pay = await mp(`/v1/payments/${a.payment.id}`);
-  assertCollector(pay);
+  const env = envOf(pay);
   const pre = await mp(`/preapproval/${a.preapproval_id}`);
   const row = (await plans(db)).find((c) => Number(c.price_cents) === cents(pay.transaction_amount));
   if (!(await ownToken(db, pre.external_reference))) return 'foreign';
   if (!row || pay.currency_id !== 'BRL') return 'invalid';
-  const r = await ingest(db, { provider: 'mercadopago', env: pay.live_mode ? 'production' : 'sandbox',
+  const r = await ingest(db, { provider: 'mercadopago', env,
     eventId: `mp:auth:${a.id}:approved`, type: 'card_paid', occurredAt: new Date(pay.date_approved ?? Date.now()),
     token: pre.external_reference, ref: 'pre:' + pre.id, plan: row.plan as Ev['plan'], state: 'active',
     end: pre.next_payment_date ? new Date(pre.next_payment_date) : null, autoRenew: pre.status === 'authorized',

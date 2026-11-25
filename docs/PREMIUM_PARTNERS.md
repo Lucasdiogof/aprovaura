@@ -454,3 +454,5 @@ A etapa 10 do roteiro **não** está marcada como concluída: há bloqueadores d
 - **Bug corrigido:** os templates gerados tinham `{ .SiteURL }` (chaves simples, por causa do f-string) e a **logo nunca apareceria**. Corrigido; logo pública: `https://aprovaura.lucksrei.com/email/aprovaura-mark.png` (HTTP 200, `image/png`).
 - **Confirmação obrigatória de e-mail continua desligada** (`mailer_autoconfirm=true`).
 - A flag `partner` é removida automaticamente na primeira senha definida (gatilho `clear_partner_invite_flag_trg`, migration `20261204000100`); depois disso o professor recebe o e-mail de recuperação normal.
+
+- **Mercado Pago (25/11):** homologado em sandbox real o cartão recorrente (mensal e anual), webhook com HMAC, concessão de acesso (`sandbox:` não gera receita nem comissão) e isolamento do Payhip; ambiente passa a ser decidido pela conta recebedora (`envOf`), não por `live_mode`. Pix e reembolso seguem só validados em mocks (401 do sandbox). Detalhes em `docs/qa/MERCADOPAGO_HOMOLOGACAO.md` §11. Tudo desligado novamente.

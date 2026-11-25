@@ -59,11 +59,11 @@ Deno.test('Pix anual: bruto integral de R$ 190,00 e plano annual', () => withEnv
   try { await processPayment(db, 112); eq([rpcs[0].p_plan, rpcs[0].p_payment.gross_cents], ['annual', 19000], 'anual'); } finally { api.restore(); }
 }));
 
-Deno.test('live_mode=false vira sandbox (financeiro do banco ignora sandbox)', () => withEnv(async () => {
+Deno.test('conta de teste (mesmo com live_mode=true, como no MP real) vira sandbox; live_mode=false vira sandbox (financeiro do banco ignora sandbox)', () => withEnv(async () => {
   const api = stubApi({ '/v1/payments/113': pix({ id: 113, live_mode: false, collector_id: 555 }) }); const { db, rpcs } = fakeDb();
   try { await processPayment(db, 113); eq(rpcs[0].p_env, 'sandbox', 'ambiente'); } finally { api.restore(); }
   // ambientes separados: teste com a conta de produção (ou real com a de teste) é recusado
-  for (const o of [{ live_mode: false, collector_id: 207507198 }, { live_mode: true, collector_id: 555 }]) {
+  for (const o of [{ live_mode: false, collector_id: 207507198 }, { live_mode: true, collector_id: 999 }]) {
     const a2 = stubApi({ '/v1/payments/113': pix({ id: 113, ...o }) }); let e = '';
     try { await processPayment(fakeDb().db, 113); } catch (x) { e = (x as Error).message; } finally { a2.restore(); }
     eq(e, 'collector_mismatch', 'mistura de ambientes ' + JSON.stringify(o));
@@ -187,4 +187,9 @@ Deno.test('pagamento de outra origem (Payhip, mesma conta MP) é ignorado', () =
 Deno.test('pagamento sem external_reference é ignorado como de outra origem', () => withEnv(async () => {
   const api = stubApi({ '/v1/payments/131': pix({ id: 131, external_reference: null }) }); const { db, rpcs } = fakeDb();
   try { eq(await processPayment(db, 131), 'foreign', 'resultado'); eq(rpcs.length, 0, 'nada ingerido'); } finally { api.restore(); }
+}));
+
+Deno.test('vendedor de teste do MP opera com live_mode=true: ambiente sandbox pela conta recebedora', () => withEnv(async () => {
+  const api = stubApi({ '/v1/payments/140': pix({ id: 140, live_mode: true, collector_id: 555 }) }); const { db, rpcs } = fakeDb();
+  try { await processPayment(db, 140); eq(rpcs[0].p_env, 'sandbox', 'ambiente'); } finally { api.restore(); }
 }));
