@@ -68,3 +68,26 @@ Criar produto/base plans (sem ofertas), projeto/SA com papéis mínimos no app, 
 **Homologação em dispositivo — bloqueada por login:** emulador `emulator-5554` (Play Store, Android 37) tem o app instalado, mas **nenhuma conta Google**. Compras exigem o app instalado pela Play (assinatura Play App Signing) com a conta de teste licenciado `lucasdiogo1234@gmail.com`; login é ação exclusiva do dono. Após o login: instalar pela Play, ativar os planos (rascunho → ativo) e executar a matriz de compra.
 
 **R$ 30 do pré-pagamento (Google Cloud) — pesquisa, nada solicitado:** a documentação do Cloud Billing diz que pré-pagamentos de contas pós-pagas são reembolsados se não usados no fechamento da conta; fóruns de usuários no Brasil relatam contas presas em "fechada" após pré-pagamento e suporte indisponível para contas em teste gratuito; um staff do AI Studio disse não reembolsar créditos não usados (outro produto). Caminho provável: aguardar até 24 h; depois Cloud Billing → Pagamentos/Visão geral para ver o saldo e a opção de reembolso, e abrir caso de suporte de faturamento. **Não encerrar a conta nem pedir reembolso sem autorização do dono.** Se o Google exigir R$ 200, a integração Pub/Sub fica pendente (sem pagamento adicional).
+
+## 9. Homologação REAL em dispositivo (25/11 madrugada) — compras de teste licenciado
+Ambiente: emulador `emulator-5554` (Play Store, Android 37), conta de teste licenciado do dono, APK release sideload (versionCode 8, assinado com a chave de upload, `BILLING_TEST_ENTRY=true`, **só para teste**; produção não foi alterada e nenhuma versão nova foi publicada). Produto `aprovaura_premium`, planos `monthly`/`annual` ativados para o teste. Verificado pela **API oficial** (`subscriptionsv2`) e pelo banco. Cartões de teste do Google Play: nenhum valor real foi cobrado (e-mails do Google: "assinatura de teste… não haverá cobrança").
+
+| Cenário | Resultado | Evidência |
+|---|---|---|
+| Consulta de produtos / preços localizados | OK: R$ 19,90/mês e R$ 190,00/ano, "economize 20%" | tela do paywall |
+| Mensal, cartão aprovado | OK: ACTIVE, ack **após** persistir, entitlement `active`, ambiente `sandbox` | API + banco |
+| Duplicidade (já assinante) | OK: paywall mostra "Seu Premium está ativo"; sem segunda compra | tela |
+| Renovação (mensal, ciclo acelerado 5 min) | OK: renovou, e-mail de renovação do Google, período avançou | API + banco |
+| Cancelar renovação | OK: `auto_renew=false`, acesso até o fim do período | API + banco |
+| Expiração | OK via conciliação: `expired` e acesso removido | banco |
+| Restaurar compras | OK com assinatura vigente. **Achado:** após expirar, "Restaurar" não recebe compra e não atualiza o estado; quem corrige é a conciliação (`payments-reconcile`) | tela + banco |
+| Anual, cartão **recusado** | OK: erro do Play, app mostra "O pagamento não foi concluído" + "Tentar novamente", nenhuma assinatura criada | tela + banco |
+| Anual, cartão aprovado (após recusa, mesma tela) | OK: "Premium ativado!", ACTIVE, ack, plano `annual`, R$ 190, entitlement `active` | API + banco + e-mail |
+| Revogação/estorno (API `subscriptionsv2:revoke`, reembolso total) | OK: Google estornou R$ 190,00 (e-mail de cancelamento do pedido); após a conciliação, assinatura e entitlement `expired`, `auto_renew=false` | API + banco + e-mail |
+| Financeiro (sandbox) | 0 pagamentos e 0 comissões gerados (receita/comissão só em `production`) | banco |
+
+**Mocks (não contam como homologação):** duplicidade de eventos, conta divergente, produto desconhecido, `linkedPurchaseToken`, estados carência/retenção — cobertos só pelos 10 testes locais da seção 8.
+
+**Não executado (documentado):** cartão "aprova e depois estorna" (pendente) e trocar de conta Google (só há uma conta de teste) — pendentes; carência/retenção (account hold) exigem renovação com falha de pagamento, não reproduzida; reinstalação e PT/EN/ES, claro/escuro e offline do paywall — não verificados nesta rodada; RTDN/Pub/Sub — bloqueado por faturamento Google Cloud (sem pagamento adicional).
+
+**Estado seguro restaurado:** provedor `google` em `payment_providers_config` = `enabled=false`; `commercial_config.enforcement_enabled=false`; cron de conciliação desabilitado (executada só uma vez manualmente); nenhuma assinatura de teste ativa; app de produção sem UI de compra. O APK de teste não foi distribuído.
