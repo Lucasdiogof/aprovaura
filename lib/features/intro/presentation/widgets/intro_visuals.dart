@@ -29,7 +29,7 @@ class IntroWelcomeVisual extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            const IntroGlow(size: 320),
+            const IntroGlow(size: 330),
             if (active)
               const Positioned.fill(
                 child: AuraParticles(
@@ -40,17 +40,15 @@ class IntroWelcomeVisual extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                introPop(introSeg(t, 0, 0.5), const AppLogo.mark(size: 58)),
-                const SizedBox(height: 6),
                 AurudoIllustration(
                   pose: AurudoPose.neutral,
-                  size: 200,
+                  size: 236,
                   animate: active,
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: 22),
                 introPop(
-                  introSeg(t, 0.35, 0.9),
-                  const AppLogo.text(width: 150),
+                  introSeg(t, 0.3, 0.85),
+                  const AppLogo.text(width: 176),
                 ),
               ],
             ),
@@ -87,21 +85,14 @@ class IntroPracticeVisual extends StatelessWidget {
         return SizedBox.fromSize(
           size: kIntroBox,
           child: Stack(
-            alignment: Alignment.topCenter,
+            alignment: Alignment.center,
             children: [
-              const Positioned(
-                top: 10,
-                child: IntroGlow(size: 280, opacity: 0.2),
-              ),
+              const IntroGlow(size: 320, opacity: 0.2),
               Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  AurudoIllustration(
-                    pose: AurudoPose.studying,
-                    size: 108,
-                    animate: active,
-                  ),
-                  const SizedBox(height: 4),
                   IntroCard(
+                    width: 304,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -110,13 +101,14 @@ class IntroPracticeVisual extends StatelessWidget {
                           Text(
                             t.sampleQuestion,
                             style: TextStyle(
-                              fontSize: 13,
+                              fontSize: 15,
+                              height: 1.3,
                               fontWeight: FontWeight.w700,
                               color: c.textPrimary,
                             ),
                           ),
                         ),
-                        const SizedBox(height: 8),
+                        const SizedBox(height: 14),
                         for (var i = 0; i < 3; i++)
                           introPop(
                             introSeg(p, 0.14 + i * 0.09, 0.32 + i * 0.09),
@@ -130,7 +122,7 @@ class IntroPracticeVisual extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 24),
                   introChips(p, 0.7, [
                     (t.t2Subjects, Icons.menu_book_rounded),
                     (t.t2Paths, Icons.route_rounded),
@@ -166,8 +158,8 @@ class _Option extends StatelessWidget {
     return Opacity(
       opacity: 1 - 0.45 * dim,
       child: Container(
-        margin: const EdgeInsets.only(bottom: 6),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+        margin: const EdgeInsets.only(bottom: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
           color: Color.lerp(c.surface, c.success.withValues(alpha: 0.12), good),
           borderRadius: BorderRadius.circular(12),
@@ -221,7 +213,7 @@ class IntroProgressVisual extends StatelessWidget {
   final bool active;
   final IntroStrings strings;
 
-  static const _bars = [0.38, 0.55, 0.48, 0.7, 0.82, 0.92];
+  static const _bars = [0.42, 0.58, 0.5, 0.72, 0.66, 0.86, 0.95];
 
   @override
   Widget build(BuildContext context) {
@@ -236,24 +228,22 @@ class IntroProgressVisual extends StatelessWidget {
         return SizedBox.fromSize(
           size: kIntroBox,
           child: Stack(
-            alignment: Alignment.topCenter,
+            alignment: Alignment.center,
             children: [
-              const Positioned(
-                top: 0,
-                child: IntroGlow(size: 300, opacity: 0.18),
-              ),
+              const IntroGlow(size: 320, opacity: 0.18),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   introPop(
                     introSeg(p, 0, 0.15),
                     IntroCard(
+                      width: 304,
                       child: Column(
                         children: [
                           Row(
                             children: [
                               SizedBox.square(
-                                dimension: 86,
+                                dimension: 92,
                                 child: CustomPaint(
                                   painter: _RingPainter(
                                     progress: 0.82 * ring,
@@ -261,21 +251,33 @@ class IntroProgressVisual extends StatelessWidget {
                                     colors: [c.auraViolet, c.auraCyan],
                                   ),
                                   child: Center(
-                                    child: Text(
-                                      '${(82 * ring).round()}%',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w800,
-                                        fontSize: 18,
-                                        color: c.textPrimary,
-                                      ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          '${(82 * ring).round()}%',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w800,
+                                            fontSize: 19,
+                                            color: c.textPrimary,
+                                          ),
+                                        ),
+                                        Text(
+                                          t.accuracy,
+                                          style: TextStyle(
+                                            fontSize: 10.5,
+                                            color: c.textSecondary,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
                               ),
-                              const SizedBox(width: 14),
+                              const SizedBox(width: 18),
                               Expanded(
                                 child: SizedBox(
-                                  height: 86,
+                                  height: 92,
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
@@ -285,32 +287,15 @@ class IntroProgressVisual extends StatelessWidget {
                                             padding: const EdgeInsets.symmetric(
                                               horizontal: 2.5,
                                             ),
-                                            child: FractionallySizedBox(
-                                              heightFactor: math.max(
-                                                0.04,
-                                                _bars[i] *
-                                                    introSeg(
-                                                      p,
-                                                      0.15 + i * 0.07,
-                                                      0.5 + i * 0.07,
-                                                    ),
-                                              ),
-                                              alignment: Alignment.bottomCenter,
-                                              child: DecoratedBox(
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
-                                                  gradient: LinearGradient(
-                                                    begin:
-                                                        Alignment.bottomCenter,
-                                                    end: Alignment.topCenter,
-                                                    colors: [
-                                                      c.auraViolet,
-                                                      c.auraCyan,
-                                                    ],
+                                            child: _Bar(
+                                              fraction:
+                                                  _bars[i] *
+                                                  introSeg(
+                                                    p,
+                                                    0.15 + i * 0.06,
+                                                    0.5 + i * 0.06,
                                                   ),
-                                                ),
-                                              ),
+                                              highlight: i == _bars.length - 1,
                                             ),
                                           ),
                                         ),
@@ -320,13 +305,13 @@ class IntroProgressVisual extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 12),
+                          const SizedBox(height: 20),
                           Row(
                             children: [
                               Text(
                                 t.goalDone,
                                 style: TextStyle(
-                                  fontSize: 12,
+                                  fontSize: 12.5,
                                   fontWeight: FontWeight.w600,
                                   color: c.textSecondary,
                                 ),
@@ -335,24 +320,16 @@ class IntroProgressVisual extends StatelessWidget {
                               Text(
                                 '${(75 * goal).round()}%',
                                 style: TextStyle(
-                                  fontSize: 12,
+                                  fontSize: 12.5,
                                   fontWeight: FontWeight.w700,
                                   color: c.textPrimary,
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 5),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(6),
-                            child: LinearProgressIndicator(
-                              minHeight: 8,
-                              value: 0.75 * goal,
-                              backgroundColor: c.border,
-                              valueColor: AlwaysStoppedAnimation(c.primary),
-                            ),
-                          ),
-                          const SizedBox(height: 12),
+                          const SizedBox(height: 8),
+                          _GradientBar(value: 0.75 * goal, height: 8),
+                          const SizedBox(height: 18),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -371,7 +348,7 @@ class IntroProgressVisual extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 14),
+                  const SizedBox(height: 24),
                   introChips(p, 0.7, [
                     (t.t3Review, Icons.replay_rounded),
                     (t.t3Stats, Icons.insights_rounded),
@@ -384,6 +361,78 @@ class IntroProgressVisual extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+/// One column of the weekly chart: a faint full-height track with the
+/// gradient fill rising inside it; the latest day is brighter and glows.
+class _Bar extends StatelessWidget {
+  const _Bar({required this.fraction, required this.highlight});
+
+  final double fraction;
+  final bool highlight;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: c.surfaceElevated,
+        borderRadius: BorderRadius.circular(6),
+      ),
+      child: FractionallySizedBox(
+        heightFactor: math.max(0.05, fraction),
+        alignment: Alignment.bottomCenter,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6),
+            gradient: LinearGradient(
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              colors: [c.auraViolet, c.auraCyan],
+            ),
+            boxShadow: highlight
+                ? [
+                    BoxShadow(
+                      color: c.auraCyan.withValues(alpha: 0.45),
+                      blurRadius: 10,
+                    ),
+                  ]
+                : null,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// A rounded progress bar filled with the app's violet-to-cyan gradient.
+class _GradientBar extends StatelessWidget {
+  const _GradientBar({required this.value, required this.height});
+
+  final double value;
+  final double height;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Container(
+      height: height,
+      decoration: BoxDecoration(
+        color: c.surfaceElevated,
+        borderRadius: BorderRadius.circular(height),
+      ),
+      child: FractionallySizedBox(
+        widthFactor: value.clamp(0.0, 1.0),
+        alignment: Alignment.centerLeft,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(height),
+            gradient: LinearGradient(colors: [c.auraViolet, c.auraCyan]),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -441,7 +490,7 @@ class _RingPainter extends CustomPainter {
       false,
       Paint()
         ..style = PaintingStyle.stroke
-        ..strokeWidth = 9
+        ..strokeWidth = 10
         ..color = track,
     );
     canvas.drawArc(
@@ -451,7 +500,7 @@ class _RingPainter extends CustomPainter {
       false,
       Paint()
         ..style = PaintingStyle.stroke
-        ..strokeWidth = 9
+        ..strokeWidth = 10
         ..strokeCap = StrokeCap.round
         ..shader = SweepGradient(
           startAngle: -math.pi / 2,
@@ -479,7 +528,9 @@ class IntroEssayVisual extends StatelessWidget {
   final bool active;
   final IntroStrings strings;
 
-  static const _levels = [0.8, 0.68, 0.9, 0.74, 0.85];
+  /// Sample points per ENEM competency (each out of 200): an illustration of
+  /// the breakdown, not a real result.
+  static const _points = [160, 120, 180, 140, 160];
 
   @override
   Widget build(BuildContext context) {
@@ -492,117 +543,125 @@ class IntroEssayVisual extends StatelessWidget {
         return SizedBox.fromSize(
           size: kIntroBox,
           child: Stack(
-            alignment: Alignment.topCenter,
+            alignment: Alignment.center,
             children: [
-              const Positioned(
-                top: 10,
-                child: IntroGlow(size: 280, opacity: 0.2),
-              ),
-              Column(
-                children: [
-                  AurudoIllustration(
-                    pose: AurudoPose.thinking,
-                    size: 112,
-                    animate: active,
-                  ),
-                  const SizedBox(height: 4),
-                  IntroCard(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
+              const IntroGlow(size: 320, opacity: 0.2),
+              introPop(
+                introSeg(p, 0, 0.15),
+                IntroCard(
+                  width: 304,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: c.auraViolet.withValues(alpha: 0.16),
+                              borderRadius: BorderRadius.circular(9),
+                            ),
+                            child: Icon(
                               Icons.edit_note_rounded,
-                              size: 18,
+                              size: 19,
                               color: c.auraViolet,
                             ),
-                            const SizedBox(width: 6),
-                            Text(
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
                               t.essayTheme,
                               style: TextStyle(
-                                fontSize: 12,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w700,
                                 color: c.textPrimary,
                               ),
                             ),
-                            const Spacer(),
-                            introPop(
-                              introSeg(p, 0.5, 0.65),
-                              Icon(
-                                Icons.auto_awesome_rounded,
-                                size: 16,
-                                color: c.auraCyan,
-                              ),
-                              dy: 0,
+                          ),
+                          introPop(
+                            introSeg(p, 0.5, 0.65),
+                            Icon(
+                              Icons.auto_awesome_rounded,
+                              size: 18,
+                              color: c.auraCyan,
                             ),
-                          ],
-                        ),
-                        const SizedBox(height: 8),
-                        for (var i = 0; i < 4; i++)
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 5),
-                            child: FractionallySizedBox(
-                              widthFactor:
-                                  (i == 3 ? 0.55 : 1.0) *
-                                  introSeg(p, i * 0.09, 0.2 + i * 0.09),
-                              alignment: Alignment.centerLeft,
-                              child: Container(
-                                height: 6,
+                            dy: 0,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 14),
+                      Divider(height: 1, color: c.border),
+                      const SizedBox(height: 14),
+                      for (var i = 0; i < 5; i++)
+                        Padding(
+                          padding: EdgeInsets.only(bottom: i == 4 ? 0 : 14),
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 30,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 3,
+                                ),
+                                alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                  color: c.border,
-                                  borderRadius: BorderRadius.circular(4),
+                                  color: c.surfaceElevated,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Text(
+                                  'C${i + 1}',
+                                  style: TextStyle(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color.lerp(
+                                      c.auraViolet,
+                                      c.auraCyan,
+                                      i / 4,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
-                        const SizedBox(height: 6),
-                        for (var i = 0; i < 5; i++)
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 5),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: 26,
-                                  child: Text(
-                                    'C${i + 1}',
-                                    style: TextStyle(
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w700,
-                                      color: c.textSecondary,
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(5),
-                                    child: LinearProgressIndicator(
-                                      minHeight: 7,
-                                      value:
-                                          _levels[i] *
-                                          introSeg(
-                                            p,
-                                            0.4 + i * 0.08,
-                                            0.7 + i * 0.08,
-                                          ),
-                                      backgroundColor: c.border,
-                                      valueColor: AlwaysStoppedAnimation(
-                                        Color.lerp(
-                                          c.auraViolet,
-                                          c.auraCyan,
-                                          i / 4,
-                                        )!,
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: _GradientBar(
+                                  value:
+                                      _points[i] /
+                                      200 *
+                                      introSeg(
+                                        p,
+                                        0.25 + i * 0.08,
+                                        0.6 + i * 0.08,
                                       ),
+                                  height: 8,
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              SizedBox(
+                                width: 28,
+                                child: Opacity(
+                                  opacity: introSeg(
+                                    p,
+                                    0.45 + i * 0.08,
+                                    0.65 + i * 0.08,
+                                  ),
+                                  child: Text(
+                                    '${_points[i]}',
+                                    textAlign: TextAlign.end,
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                      color: c.textPrimary,
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                      ],
-                    ),
+                        ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ],
           ),
@@ -670,16 +729,16 @@ class _IntroFarmVisualState extends State<IntroFarmVisual> {
                 child: widget.active
                     ? AurudoFarmAuraAnimation(
                         key: ValueKey('farm-$_plays'),
-                        size: 215,
+                        size: 200,
                       )
                     : const AurudoIllustration(
                         pose: AurudoPose.farmingAura,
-                        size: 215,
+                        size: 200,
                         animate: false,
                       ),
               ),
               Positioned(
-                top: 214,
+                top: 204,
                 child: IntroCard(
                   width: 280,
                   child: Column(
@@ -739,7 +798,9 @@ class _IntroFarmVisualState extends State<IntroFarmVisual> {
                 ),
               ),
               Positioned(
-                top: 290,
+                top: 282,
+                left: 0,
+                right: 0,
                 child: introChips(p, 0.6, [
                   (t.t5Gain, Icons.bolt_rounded),
                   (t.t5Achievements, Icons.emoji_events_rounded),

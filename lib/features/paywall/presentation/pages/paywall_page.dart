@@ -16,7 +16,7 @@ import 'package:aura/features/paywall/presentation/widgets/paywall_common.dart';
 import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/shared/utils/external_link.dart';
 import 'package:aura/shared/widgets/app_button.dart';
-import 'package:aura/shared/widgets/aura/aura_glyph.dart';
+import 'package:aura/shared/widgets/aura_glow_button.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 
 /// Tela de assinatura Premium. Obrigatória quando o acesso está bloqueado
@@ -139,9 +139,9 @@ class _PaywallViewState extends State<_PaywallView> {
     ),
     _Variant.voluntary => (
       t('Seja Premium', 'Go Premium', 'Hazte Premium'),
-      t('Assine quando quiser e garanta a continuidade dos seus estudos sem interrupção.',
-          'Subscribe whenever you like and keep your studies going without interruption.',
-          'Suscríbete cuando quieras y asegura la continuidad de tus estudios sin interrupciones.'),
+      t('Tudo para estudar com constância, em um só plano.',
+          'Everything you need to study consistently, in one plan.',
+          'Todo lo que necesitas para estudiar con constancia, en un solo plan.'),
       AurudoPose.farmingAura,
     ),
     _Variant.pending => (
@@ -174,19 +174,20 @@ class _PaywallViewState extends State<_PaywallView> {
     ),
     _Variant.active => (
       t('Seu Premium está ativo', 'Your Premium is active', 'Tu Premium está activo'),
-      t('Você já tem uma assinatura vigente. Não é preciso assinar de novo.',
-          'You already have an active subscription. There is no need to subscribe again.',
-          'Ya tienes una suscripción vigente. No hace falta suscribirse de nuevo.'),
+      t('Sua assinatura está vigente e todo o conteúdo está liberado. Não é preciso assinar de novo.',
+          'Your subscription is current and all the content is unlocked. There is no need to subscribe again.',
+          'Tu suscripción está vigente y todo el contenido está habilitado. No hace falta suscribirse de nuevo.'),
       AurudoPose.celebrating,
     ),
   };
 
-  List<String> _benefits(PortalStrings t) => [
-    t('Banco completo de questões e simulados', 'Full question bank and mock exams', 'Banco completo de preguntas y simulacros'),
-    t('Redações com rascunhos salvos', 'Essays with saved drafts', 'Redacciones con borradores guardados'),
-    t('Revisão dos seus erros e favoritos', 'Review of your mistakes and favorites', 'Revisión de tus errores y favoritos'),
-    t('Mapas, atualidades e trilhas por disciplina', 'Maps, current affairs and subject tracks', 'Mapas, actualidades y rutas por asignatura'),
-    t('Uma conta no Android, iOS e Web', 'One account on Android, iOS and Web', 'Una cuenta en Android, iOS y Web'),
+  List<(IconData, String)> _benefits(PortalStrings t) => [
+    (Icons.quiz_rounded, t('Banco completo de questões e simulados', 'Full question bank and mock exams', 'Banco completo de preguntas y simulacros')),
+    (Icons.edit_note_rounded, t('Redações com rascunhos salvos', 'Essays with saved drafts', 'Redacciones con borradores guardados')),
+    (Icons.replay_rounded, t('Revisão dos seus erros e favoritos', 'Review of your mistakes and favorites', 'Revisión de tus errores y favoritos')),
+    (Icons.map_rounded, t('Mapas, atualidades e trilhas por disciplina', 'Maps, current affairs and subject tracks', 'Mapas, actualidades y rutas por asignatura')),
+    (Icons.insights_rounded, t('Estatísticas, metas diárias e sequência de estudos', 'Stats, daily goals and study streak', 'Estadísticas, metas diarias y racha de estudio')),
+    (Icons.devices_rounded, t('Uma conta no Android, iOS e Web, sempre sincronizada', 'One account on Android, iOS and Web, always in sync', 'Una cuenta en Android, iOS y Web, siempre sincronizada')),
   ];
 
   Future<void> _buy(PaymentsCubit cubit, _PlanOption? sel, bool web) async {
@@ -239,10 +240,12 @@ class _PaywallViewState extends State<_PaywallView> {
 
         return PaywallFrame(
           pose: pose,
+          showMark: false,
+          aurudoSize: variant == _Variant.active ? 200 : 168,
           onClose: voluntary ? () => (context.canPop() ? context.pop() : context.go('/home')) : null,
           children: [
             PaywallHeading(title: title, body: body),
-            const SizedBox(height: AppSpacing.xl),
+            SizedBox(height: variant == _Variant.active ? AppSpacing.xxl : AppSpacing.xl),
             if (s.phase == PayPhase.loading || s.phase == PayPhase.idle)
               const Center(child: SizedBox(height: 4, width: 160, child: LinearProgressIndicator()))
             else if (variant == _Variant.validating)
@@ -252,14 +255,22 @@ class _PaywallViewState extends State<_PaywallView> {
             else ...[
               if (showPlans) ...[
                 ..._benefits(t).map((b) => Padding(
-                  padding: const EdgeInsets.only(bottom: AppSpacing.sm),
-                  child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    const Padding(padding: EdgeInsets.only(top: 2), child: AuraGlyph(size: 16)),
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                    Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: context.colors.auraViolet.withValues(alpha: 0.14),
+                        borderRadius: BorderRadius.circular(AppRadius.sm - 2),
+                      ),
+                      child: Icon(b.$1, size: 17, color: context.colors.auraViolet),
+                    ),
                     const SizedBox(width: AppSpacing.md),
-                    Expanded(child: Text(b, style: TextStyle(color: context.colors.textPrimary, height: 1.3))),
+                    Expanded(child: Text(b.$2, style: TextStyle(fontSize: 14.5, color: context.colors.textPrimary, height: 1.3))),
                   ]),
                 )),
-                const SizedBox(height: AppSpacing.lg),
+                const SizedBox(height: AppSpacing.xl),
                 if (annual != null)
                   _PlanCard(
                     t: t,
@@ -327,13 +338,14 @@ class _PaywallViewState extends State<_PaywallView> {
               else if (showPlans && s.charge == null)
                 Padding(
                   padding: const EdgeInsets.only(top: AppSpacing.lg),
-                  child: AppButton(
+                  child: AuraGlowButton(
                     label: _cta(t, web, sel, variant == _Variant.declined),
                     isLoading: busy,
                     onPressed: canBuy ? () => unawaited(_buy(cubit, sel, web)) : null,
                   ),
                 ),
             ],
+            if (variant != _Variant.active) ...[
             const SizedBox(height: AppSpacing.md),
             Wrap(alignment: WrapAlignment.center, children: [
               if (!web)
@@ -346,7 +358,10 @@ class _PaywallViewState extends State<_PaywallView> {
                 child: Text(t('Minha assinatura', 'My subscription', 'Mi suscripción')),
               ),
             ]),
+            // Terms, sign-out and account deletion live in Profile; a status
+            // screen for an active Premium doesn't repeat them.
             const AccountFooter(),
+            ],
           ],
         );
       }),
@@ -362,7 +377,7 @@ class _PaywallViewState extends State<_PaywallView> {
           : t('Assinar com cartão · ${sel.label}', 'Subscribe by card · ${sel.label}', 'Suscribirse con tarjeta · ${sel.label}');
     }
     final base = t('Assinar $plan · ${sel.label}', 'Subscribe $plan · ${sel.label}', 'Suscribirse $plan · ${sel.label}');
-    return retry ? t('Tentar novamente · ${sel.label}', 'Try again · ${sel.label}', 'Intentar de nuevo · ${sel.label}') : base;
+    return retry ? t('Tentar novamente', 'Try again', 'Intentar de nuevo') : base;
   }
 
   String _terms(PortalStrings t, PayProvider here, PayPlan plan) {
@@ -518,7 +533,7 @@ class _PendingCharge extends StatelessWidget {
             'Completa la suscripción en el checkout oficial de Mercado Pago. Luego vuelve aquí y toca verificar: el acceso solo se libera cuando el servidor lo confirme.')),
         const SizedBox(height: AppSpacing.md),
         if (charge.checkoutUrl != null)
-          AppButton(
+          AuraGlowButton(
             label: t('Abrir checkout', 'Open checkout', 'Abrir checkout'),
             onPressed: () => unawaited(openExternalLink(context, charge.checkoutUrl!)),
           ),
@@ -540,22 +555,55 @@ class _ActiveCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final c = context.colors;
     final info = manageFor(t, sub, here);
-    return PaywallCard(
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        Text(t('Provedor: ${providerName(t, sub.provider)}', 'Provider: ${providerName(t, sub.provider)}',
-            'Proveedor: ${providerName(t, sub.provider)}'), style: const TextStyle(fontWeight: FontWeight.w700)),
-        const SizedBox(height: AppSpacing.sm),
-        Text(info.text),
-        if (info.url != null)
-          TextButton(
-            onPressed: () => unawaited(openExternalLink(context, info.url!)),
-            child: Text(t('Gerenciar assinatura', 'Manage subscription', 'Gestionar suscripción')),
-          ),
-        TextButton(
-          onPressed: () => context.push('/minha-assinatura'),
-          child: Text(t('Ver detalhes', 'See details', 'Ver detalles')),
+    final manage = info.url;
+    final details = t('Ver detalhes', 'See details', 'Ver detalles');
+    return Container(
+      padding: const EdgeInsets.all(AppSpacing.xl),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(AppRadius.lg),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [c.auraViolet.withValues(alpha: 0.16), c.surface],
         ),
+        border: Border.all(color: c.primary.withValues(alpha: 0.35)),
+      ),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        Row(children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(shape: BoxShape.circle, color: c.success.withValues(alpha: 0.16)),
+            child: Icon(Icons.verified_rounded, color: c.success),
+          ),
+          const SizedBox(width: AppSpacing.md),
+          Expanded(
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(t('Assinatura via', 'Subscribed via', 'Suscripción vía'),
+                  style: TextStyle(fontSize: 12, color: c.textSecondary)),
+              Text(providerName(t, sub.provider),
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: c.textPrimary)),
+            ]),
+          ),
+        ]),
+        const SizedBox(height: AppSpacing.lg),
+        Text(info.text, style: TextStyle(fontSize: 14, height: 1.4, color: c.textSecondary)),
+        const SizedBox(height: AppSpacing.xl),
+        if (manage != null) ...[
+          AuraGlowButton(
+            label: t('Gerenciar assinatura', 'Manage subscription', 'Gestionar suscripción'),
+            onPressed: () => unawaited(openExternalLink(context, manage)),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          TextButton(
+            style: TextButton.styleFrom(minimumSize: const Size.fromHeight(44)),
+            onPressed: () => context.push('/minha-assinatura'),
+            child: Text(details),
+          ),
+        ] else
+          AuraGlowButton(label: details, onPressed: () => context.push('/minha-assinatura')),
       ]),
     );
   }
@@ -571,18 +619,18 @@ class _Unlocked extends StatelessWidget {
   Widget build(BuildContext context) {
     return PaywallFrame(
       pose: AurudoPose.celebrating,
-      aurudoSize: 180,
+      showMark: false,
+      aurudoSize: 240,
+      bottom: AuraGlowButton(
+        label: t('Continuar estudando', 'Keep studying', 'Seguir estudiando'),
+        onPressed: () => context.go('/home'),
+      ),
       children: [
         PaywallHeading(
           title: t('Premium ativado!', 'Premium activated!', '¡Premium activado!'),
-          body: t('Pagamento confirmado. Sua conta e todo o seu progresso estão do jeito que você deixou. Bons estudos!',
-              'Payment confirmed. Your account and all your progress are just as you left them. Happy studying!',
-              'Pago confirmado. Tu cuenta y todo tu progreso están como los dejaste. ¡Buenos estudios!'),
-        ),
-        const SizedBox(height: AppSpacing.xxl),
-        AppButton(
-          label: t('Continuar estudando', 'Keep studying', 'Seguir estudiando'),
-          onPressed: () => context.go('/home'),
+          body: t('Pagamento confirmado. Seu acesso completo já está liberado e todo o seu progresso segue exatamente de onde você parou.',
+              'Payment confirmed. Your full access is unlocked and all your progress is right where you left it.',
+              'Pago confirmado. Tu acceso completo ya está habilitado y todo tu progreso sigue justo donde lo dejaste.'),
         ),
       ],
     );

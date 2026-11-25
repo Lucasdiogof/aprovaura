@@ -10,6 +10,7 @@ import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aura_particles.dart';
+import 'package:aura/features/intro/presentation/widgets/intro_common.dart';
 import 'package:aura/features/payments/domain/payments.dart';
 import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/features/profile/presentation/widgets/delete_account_tile.dart';
@@ -26,9 +27,19 @@ class PaywallFrame extends StatelessWidget {
     this.pose = AurudoPose.neutral,
     this.particles = true,
     this.aurudoSize = 150,
+    this.showMark = true,
+    this.bottom,
     this.onClose,
     super.key,
   });
+
+  /// The "A" monogram above the mascot. The purchase screens leave it out:
+  /// Aurudo already carries the brand there.
+  final bool showMark;
+
+  /// Pinned under the scrolling content, above the safe area (the main
+  /// call to action of a success screen).
+  final Widget? bottom;
 
   /// Só quando a tela é uma visita voluntária (acesso já liberado, ex.: teste
   /// querendo assinar antes do fim). Em bloqueio é nulo: não há como voltar.
@@ -67,27 +78,71 @@ class PaywallFrame extends StatelessWidget {
                 ),
               ),
             SafeArea(
-              child: Center(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: AppSpacing.pageHorizontal,
-                    vertical: AppSpacing.xxl,
-                  ),
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 520),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        const Center(child: AppLogo.mark(size: 44)),
-                        const SizedBox(height: AppSpacing.sm),
-                        Center(child: AurudoIllustration(pose: pose, size: aurudoSize)),
-                        const SizedBox(height: AppSpacing.lg),
-                        ...children,
-                      ],
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Center(
+                      child: SingleChildScrollView(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: AppSpacing.pageHorizontal,
+                          vertical: AppSpacing.xxl,
+                        ),
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 520),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              if (showMark) ...[
+                                const Center(child: AppLogo.mark(size: 44)),
+                                const SizedBox(height: AppSpacing.sm),
+                              ],
+                              Center(
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  clipBehavior: Clip.none,
+                                  children: [
+                                    // The halo may exceed the mascot's box
+                                    // without taking layout space.
+                                    Positioned.fill(
+                                      child: OverflowBox(
+                                        maxWidth: aurudoSize * 1.7,
+                                        maxHeight: aurudoSize * 1.7,
+                                        child: IntroGlow(
+                                          size: aurudoSize * 1.7,
+                                          opacity: 0.20,
+                                        ),
+                                      ),
+                                    ),
+                                    AurudoIllustration(
+                                      pose: pose,
+                                      size: aurudoSize,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(height: AppSpacing.xl),
+                              ...children,
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  if (bottom != null)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(
+                        AppSpacing.pageHorizontal,
+                        AppSpacing.sm,
+                        AppSpacing.pageHorizontal,
+                        AppSpacing.xl,
+                      ),
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 520),
+                        child: bottom,
+                      ),
+                    ),
+                ],
               ),
             ),
           ],
@@ -270,7 +325,7 @@ class PaywallCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.colors;
     return Material(
-      color: c.surface,
+      color: highlighted ? Color.alphaBlend(c.primary.withValues(alpha: 0.08), c.surface) : c.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppRadius.lg),
         side: BorderSide(color: highlighted ? c.primary : c.border, width: highlighted ? 2 : 1),

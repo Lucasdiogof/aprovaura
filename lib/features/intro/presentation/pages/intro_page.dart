@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
@@ -13,6 +14,7 @@ import 'package:aura/features/auth/domain/entities/public_app_config.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/intro/data/intro_store.dart';
 import 'package:aura/features/intro/l10n/intro_strings.dart';
+import 'package:aura/features/intro/presentation/widgets/intro_common.dart';
 import 'package:aura/features/intro/presentation/widgets/intro_visuals.dart';
 import 'package:aura/shared/widgets/app_button.dart';
 
@@ -430,19 +432,41 @@ class _SlideLayout extends StatelessWidget {
             ),
           );
         }
+        // The text block has one fixed height so titles sit at the same
+        // place on every slide; the visual takes the rest, scaled to it and
+        // resting just above the text instead of floating mid-screen.
+        final textHeight = math.min(196.0, box.maxHeight * 0.46);
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
-              Expanded(child: Center(child: scaled)),
-              const SizedBox(height: 8),
-              ConstrainedBox(
-                constraints: BoxConstraints(maxHeight: box.maxHeight * 0.42),
+              Expanded(
+                child: LayoutBuilder(
+                  builder: (context, area) {
+                    final scale = math
+                        .min(
+                          area.maxWidth / kIntroBox.width,
+                          area.maxHeight / kIntroBox.height,
+                        )
+                        .clamp(0.6, 1.2);
+                    return Align(
+                      alignment: const Alignment(0, 0.7),
+                      child: SizedBox(
+                        width: kIntroBox.width * scale,
+                        height: kIntroBox.height * scale,
+                        child: FittedBox(fit: BoxFit.contain, child: visual),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(height: 12),
+              SizedBox(
+                height: textHeight,
                 child: SingleChildScrollView(
                   child: text(CrossAxisAlignment.center),
                 ),
               ),
-              const SizedBox(height: 4),
             ],
           ),
         );
