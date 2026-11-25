@@ -17,7 +17,7 @@ import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_seque
 /// mascot view (see [aurudoReactionHasOwnParticles]).
 AuraParticlesStyle? _particlesStyleFor(AurudoReactionType type) =>
     switch (type) {
-      // Brings its own particles, on its own clock (AurudoFarmAuraAnimation):
+      // Brings its own particles, on its own clock (AurudoFarmHandsAnimation):
       // a second set here would double them.
       AurudoReactionType.perfectFarmAura => null,
       // Its progress ring (AurudoDailyGoalEffect) lights its own sparkles

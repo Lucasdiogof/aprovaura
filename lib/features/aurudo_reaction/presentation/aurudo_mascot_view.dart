@@ -5,7 +5,7 @@ import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_ty
 import 'package:aura/features/aurudo_reaction/domain/entities/essay_reaction_tier.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_celebrating_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_daily_goal_effect.dart';
-import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_hands_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_level_up_effect.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_streak_effect.dart';
 import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
@@ -15,7 +15,7 @@ import 'package:aura/shared/widgets/aura/aurudo_illustration.dart';
 /// Rive/Lottie asset exists: the character itself never fakes an
 /// articulated gesture, only the surrounding scene (particles, halo) does
 /// that work -- see [AurudoReactionStage]. Two exceptions: `perfectFarmAura`,
-/// which [AurudoMascotView] hands to [AurudoFarmAuraAnimation], and any
+/// which [AurudoMascotView] hands to [AurudoFarmHandsAnimation], and any
 /// single-pose sequence ending on [AurudoPose.celebrating], handed to
 /// [AurudoCelebratingAnimation] -- both real cut-out layers; their pose here
 /// is each animation's fallback. `dailyGoalComplete` shares the still pose,
@@ -166,7 +166,7 @@ class _AurudoMascotViewState extends State<AurudoMascotView> {
     // The signature reaction has its own renderer (all its motion lives
     // there); every other reaction keeps its still pose(s) below.
     if (widget.type == AurudoReactionType.perfectFarmAura) {
-      return AurudoFarmAuraAnimation(size: widget.size, instant: _reduced);
+      return AurudoFarmHandsAnimation(size: widget.size, instant: _reduced);
     }
     // A level up keeps the celebrating mascot exactly as approved, with
     // its own ascension scene around him -- what tells it apart from

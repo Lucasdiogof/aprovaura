@@ -232,7 +232,7 @@ class IdleChoreography {
 /// It moves the whole character, never a limb. The mascot's poses are flat
 /// images, and faking an articulated gesture out of one reads as broken;
 /// drifting reads as floating, which is what he is doing anyway. Real
-/// articulation needs cut-out layers -- see AurudoFarmAuraAnimation, which
+/// articulation needs cut-out layers -- see AurudoFarmHandsAnimation, which
 /// has them -- or a rigged asset.
 ///
 /// It reads the clock of the frame, not one of its own, so two of them on

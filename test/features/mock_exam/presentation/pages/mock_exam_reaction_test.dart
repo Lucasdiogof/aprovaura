@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_hands_animation.dart';
 import 'package:aura/core/loading/app_blocking_loading_cubit.dart';
 import 'package:aura/core/di/injection_container.dart';
 import 'package:aura/core/error/result.dart';
@@ -183,7 +183,7 @@ void main() {
       stubResult(_result(correct: 10));
       await pumpResult(tester);
 
-      expect(find.byType(AurudoFarmAuraAnimation), findsOneWidget);
+      expect(find.byType(AurudoFarmHandsAnimation), findsOneWidget);
       expect(find.text('Perfeito!'), findsOneWidget);
     });
 
@@ -194,7 +194,7 @@ void main() {
       stubResult(_result(correct: 8));
       await pumpResult(tester);
 
-      expect(find.byType(AurudoFarmAuraAnimation), findsNothing);
+      expect(find.byType(AurudoFarmHandsAnimation), findsNothing);
       expect(find.text('Bom desempenho'), findsOneWidget);
     });
 
@@ -224,7 +224,7 @@ void main() {
       );
 
       // Perfect stays the scene; the level is a badge beside it.
-      expect(find.byType(AurudoFarmAuraAnimation), findsOneWidget);
+      expect(find.byType(AurudoFarmHandsAnimation), findsOneWidget);
       expect(find.text('Perfeito!'), findsOneWidget);
       expect(find.text('Nível 8'), findsOneWidget);
     });
@@ -244,7 +244,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(AurudoFarmAuraAnimation), findsOneWidget);
+      expect(find.byType(AurudoFarmHandsAnimation), findsOneWidget);
       expect(find.byType(AurudoAchievementBadge), findsNWidgets(2));
       expect(find.text('Nível 8'), findsOneWidget);
       expect(find.text('7 dias seguidos'), findsOneWidget);

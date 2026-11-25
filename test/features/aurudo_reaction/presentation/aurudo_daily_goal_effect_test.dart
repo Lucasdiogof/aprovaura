@@ -6,7 +6,7 @@ import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_ty
 import 'package:aura/features/aurudo_reaction/presentation/aura_particles.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_celebrating_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_daily_goal_effect.dart';
-import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_hands_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_level_up_effect.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_mascot_view.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_stage.dart';
@@ -34,13 +34,13 @@ void main() {
         findsOneWidget,
       );
       // Never the 100% animation: that one stays reserved for perfect.
-      expect(find.byType(AurudoFarmAuraAnimation), findsNothing);
+      expect(find.byType(AurudoFarmHandsAnimation), findsNothing);
       await tester.pump(const Duration(seconds: 2));
     });
 
     testWidgets('every other reaction keeps its own renderer', (tester) async {
       final expected = <AurudoReactionType, Type>{
-        AurudoReactionType.perfectFarmAura: AurudoFarmAuraAnimation,
+        AurudoReactionType.perfectFarmAura: AurudoFarmHandsAnimation,
         AurudoReactionType.levelUp: AurudoLevelUpEffect,
         AurudoReactionType.streakMilestone: AurudoStreakEffect,
         AurudoReactionType.great: AurudoCelebratingAnimation,

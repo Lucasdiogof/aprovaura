@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:material_ui/material_ui.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aura_particles.dart';
-import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_hands_animation.dart';
 import 'package:aura/features/intro/l10n/intro_strings.dart';
 import 'package:aura/features/intro/presentation/widgets/intro_common.dart';
 import 'package:aura/features/intro/presentation/widgets/intro_scene.dart';
@@ -726,16 +726,14 @@ class _IntroFarmVisualState extends State<IntroFarmVisual> {
               ),
               Positioned(
                 top: 0,
-                child: widget.active
-                    ? AurudoFarmAuraAnimation(
-                        key: ValueKey('farm-$_plays'),
-                        size: 200,
-                      )
-                    : const AurudoIllustration(
-                        pose: AurudoPose.farmingAura,
-                        size: 200,
-                        animate: false,
-                      ),
+                child: AurudoFarmHandsAnimation(
+                  // Loops while the slide is on screen; a new key replays
+                  // the entrance each time it comes back.
+                  key: ValueKey('farm-${widget.active}-$_plays'),
+                  size: 200,
+                  loop: true,
+                  instant: !widget.active,
+                ),
               ),
               Positioned(
                 top: 204,

@@ -5,7 +5,7 @@ import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction.da
 import 'package:aura/features/aurudo_reaction/domain/entities/aurudo_reaction_type.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aura_particles.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_celebrating_animation.dart';
-import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_aura_animation.dart';
+import 'package:aura/features/aurudo_reaction/presentation/aurudo_farm_hands_animation.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_level_up_effect.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_mascot_view.dart';
 import 'package:aura/features/aurudo_reaction/presentation/aurudo_reaction_stage.dart';
@@ -52,7 +52,7 @@ void main() {
       await tester.pumpApp(
         const AurudoMascotView(type: AurudoReactionType.perfectFarmAura),
       );
-      expect(find.byType(AurudoFarmAuraAnimation), findsOneWidget);
+      expect(find.byType(AurudoFarmHandsAnimation), findsOneWidget);
       expect(find.byType(AurudoLevelUpEffect), findsNothing);
       await tester.pump(const Duration(seconds: 3));
     });
