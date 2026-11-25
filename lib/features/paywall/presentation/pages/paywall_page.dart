@@ -218,6 +218,10 @@ class _PaywallViewState extends State<_PaywallView> {
       child: Builder(builder: (context) {
         final s = pay.state;
         if (_unlocked || s.phase == PayPhase.success) return _Unlocked(t: t);
+        // Nada de componentes pela metade: só um loader até as assinaturas carregarem.
+        if (s.phase == PayPhase.loading || s.phase == PayPhase.idle) {
+          return PaywallLoading(onClose: voluntary ? () => (context.canPop() ? context.pop() : context.go('/home')) : null);
+        }
         final options = _options(s, t, here);
         final providerReady = s.canBuy(here);
         final variant = _variant(access, s, providerReady, options.isNotEmpty);
@@ -246,9 +250,7 @@ class _PaywallViewState extends State<_PaywallView> {
           children: [
             PaywallHeading(title: title, body: body),
             SizedBox(height: variant == _Variant.active ? AppSpacing.xxl : AppSpacing.xl),
-            if (s.phase == PayPhase.loading || s.phase == PayPhase.idle)
-              const Center(child: SizedBox(height: 4, width: 160, child: LinearProgressIndicator()))
-            else if (variant == _Variant.validating)
+            if (variant == _Variant.validating)
               const Center(child: SizedBox(height: 4, width: 160, child: LinearProgressIndicator()))
             else if (variant == _Variant.active)
               _ActiveCard(t: t, sub: s.current!, here: here, cubit: cubit)
@@ -358,9 +360,9 @@ class _PaywallViewState extends State<_PaywallView> {
                 child: Text(t('Minha assinatura', 'My subscription', 'Mi suscripción')),
               ),
             ]),
-            // Terms, sign-out and account deletion live in Profile; a status
-            // screen for an active Premium doesn't repeat them.
-            const AccountFooter(),
+            // Visita voluntária: tela focada na assinatura (privacidade e termos apenas; sair e excluir conta
+            // ficam no Perfil). Em bloqueio não há Perfil, então o rodapé completo continua aqui.
+            AccountFooter(showSignOut: !voluntary, showDelete: !voluntary),
             ],
           ],
         );

@@ -65,18 +65,6 @@ class PaywallFrame extends StatelessWidget {
                   child: AuraParticles(style: AuraParticlesStyle.ambient, count: 6),
                 ),
               ),
-            if (onClose != null)
-              Positioned(
-                top: 0,
-                right: 0,
-                child: SafeArea(
-                  child: IconButton(
-                    tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
-                    icon: const Icon(Icons.close),
-                    onPressed: onClose,
-                  ),
-                ),
-              ),
             SafeArea(
               child: Column(
                 children: [
@@ -145,6 +133,19 @@ class PaywallFrame extends StatelessWidget {
                 ],
               ),
             ),
+            // Por último no Stack: acima do conteúdo rolável, senão ele engole o toque do X.
+            if (onClose != null)
+              Positioned(
+                top: 0,
+                right: 0,
+                child: SafeArea(
+                  child: IconButton(
+                    tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
+                    icon: const Icon(Icons.close),
+                    onPressed: onClose,
+                  ),
+                ),
+              ),
           ],
         ),
       ),
@@ -243,8 +244,9 @@ ManageInfo manageFor(PortalStrings t, SubscriptionInfo sub, PayProvider here) {
 /// Operações essenciais da conta que o bloqueio NUNCA tira: termos,
 /// privacidade, excluir conta, sair e trocar de conta.
 class AccountFooter extends StatefulWidget {
-  const AccountFooter({this.showDelete = true, super.key});
+  const AccountFooter({this.showDelete = true, this.showSignOut = true, super.key});
   final bool showDelete;
+  final bool showSignOut;
 
   @override
   State<AccountFooter> createState() => _AccountFooterState();
@@ -301,11 +303,12 @@ class _AccountFooterState extends State<AccountFooter> {
                 );
               },
             ),
-            TextButton(
-              style: style,
-              onPressed: signOut,
-              child: Text(t('Sair / trocar de conta', 'Sign out / switch account', 'Salir / cambiar de cuenta')),
-            ),
+            if (widget.showSignOut)
+              TextButton(
+                style: style,
+                onPressed: signOut,
+                child: Text(t('Sair / trocar de conta', 'Sign out / switch account', 'Salir / cambiar de cuenta')),
+              ),
           ],
         ),
         if (showDelete) const DeleteAccountTile(),
@@ -334,6 +337,39 @@ class PaywallCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppRadius.lg),
         onTap: onTap,
         child: Padding(padding: const EdgeInsets.all(AppSpacing.lg), child: child),
+      ),
+    );
+  }
+}
+
+/// Carregando o estado da assinatura: só um indicador, sem componentes parciais.
+class PaywallLoading extends StatelessWidget {
+  const PaywallLoading({this.onClose, super.key});
+  final VoidCallback? onClose;
+
+  @override
+  Widget build(BuildContext context) {
+    return PopScope(
+      canPop: onClose != null,
+      child: Scaffold(
+        backgroundColor: context.colors.background,
+        body: Stack(
+          children: [
+            const Center(child: CircularProgressIndicator()),
+            if (onClose != null)
+              Positioned(
+                top: 0,
+                right: 0,
+                child: SafeArea(
+                  child: IconButton(
+                    tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
+                    icon: const Icon(Icons.close),
+                    onPressed: onClose,
+                  ),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
