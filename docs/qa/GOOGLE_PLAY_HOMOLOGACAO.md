@@ -32,3 +32,19 @@ Produto `aprovaura_premium` com base plans `monthly` (R$ 19,90, 30 dias) e `annu
 
 ## 5. Próximos passos do agente após 4.1–4.3
 Criar produto/base plans (sem ofertas), projeto/SA com papéis mínimos no app, convidar a SA no Play Console, tópico/assinatura Pub/Sub push com OIDC, instalar secrets, build AAB para faixa interna (versionCode > o publicado), compras de teste (aprovada/recusada/pendente/cancelamento/renovação acelerada/grace/hold/reembolso), conciliação com relatórios oficiais, restaurar estado seguro.
+
+## 6. Atualização 25/11 (tarde) — configuração no Play Console concluída até onde não há bloqueio externo
+**Feito (verificado):**
+- Perfil de pagamentos criado pelo dono (organização, perfil público do comerciante). Subscrições liberadas no Aprovaura.
+- Conta de serviço `aprovaura-play-billing@…` convidada **só no app Aprovaura**, com 4 autorizações: ver informações do app, qualidade, **Ver dados financeiros** e **Gerir encomendas e subscrições** (nada de admin, nada de editar catálogo). Estado: *Ativa*. Teste real: token OAuth obtido e `androidpublisher` respondeu (listar subscrições = 204; criar edição = 200). Escrever no catálogo pela API deu 403, como esperado pelo mínimo privilégio — catálogo foi feito pela interface.
+- Produto **`aprovaura_premium`** criado, com base plans (ambos **RASCUNHO**, sem ofertas, só Brasil): `monthly` P1M R$ 19,90, tolerância 7 dias, suspensão de conta 53 dias, resubscrever permitido; `annual` P1Y R$ 190,00, tolerância 14 dias. Nomes/vantagens em pt-BR, en-US e es-419. Confirmado por leitura via API (`subscriptions.get`).
+- Observação: no Play o preço digitado "19,90" foi arredondado para 19,99 no diálogo em lote; corrigido na célula (19,90).
+- **Testador licenciado:** lista de e-mail "Aprovaura testadores" (1 e-mail do dono) marcada em *Teste da licença*; lista é da conta (vale para todos os apps), a lista "Equipe interna Tech" não foi alterada.
+- Release 1.1.0+8 enviada pelo dono direto à produção; está **em revisão** ("Alterações em revisão"). Não toquei.
+
+**Ainda bloqueado:**
+1. **Faturamento Google Cloud**: a conta de teste gratuito existe (`010256-B4B60C-BBCEE4`), mas `gcloud` a mostra `OPEN=False` e o projeto `billingEnabled=false`; o teste gratuito provavelmente não foi concluído (verificação do cartão/dados pelo dono). Sem isso não habilito Pub/Sub, tópico, assinatura push nem alertas de orçamento (R$1/5/10). Nada com custo foi habilitado.
+2. Ativar os base plans e comprar só faz sentido com o app publicado/aprovado (ou na faixa interna) e a conta de teste no aparelho. Ativação do produto adiada para a fase de teste.
+3. Adesão ao programa de 15% e conta bancária: pendência do dono (não confirmada).
+4. Secrets no Supabase (`GOOGLE_SA_JSON`, `GOOGLE_PUBSUB_*`) ainda **não** instalados; instalar junto com o RTDN.
+5. Nenhuma compra de teste feita: **nada homologado** neste serviço.
