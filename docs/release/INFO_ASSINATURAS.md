@@ -6,7 +6,7 @@
 | Item | Valor |
 |---|---|
 | Mensal | R$ 19,90 |
-| Anual | R$ 190,00 (cerca de 20% menos que 12 × R$ 19,90 = R$ 238,80) |
+| Anual | R$ 190,00 (cerca de 20% menos que 12 × R$ 19,90 = R$ 238,80). **Apple: R$ 189,90** (a App Store não tem o ponto R$ 190,00); o app sempre mostra o preço da loja |
 | Teste | 72 horas, a partir da confirmação do e-mail; sem cartão; sem cobrança automática |
 | Usuários já existentes | Não recebem teste novo |
 | Android | Google Play Billing |

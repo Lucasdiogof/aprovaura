@@ -13,7 +13,7 @@
 | Migrações do zero | `bash tool/db/empty_db_check.sh` (Docker, `postgres:16-alpine`) | 15/15 aplicadas (inclui `20261202000100`) |
 | Web | `flutter build web --release` | Compilou |
 | Android | `flutter build apk --debug` · `flutter build appbundle --release` | APK 183 MB · AAB 66 MB (1.1.0+8) |
-| iOS | — | Não executado (sem Mac/Xcode) |
+| iOS | `flutter build ios --release/--simulator` (Flutter 3.47.4, Xcode 27.2) | Compilou; instalado no iPhone e no simulador (ver `APPLE_STOREKIT_HOMOLOGACAO.md`) |
 
 ## O que os testes cobrem (mapa pedido na Etapa 10)
 - **Acesso** (`access_cubit_test`, `access_repository_impl_test` novo na 10B: reaceite persistido por conta, offline/5xx não apagam): resolving, aberto, paywall, motivo, conexão exigida, versão mínima, erro sem inventar bloqueio, reset de conta, intervalo, reaceite legal (4 casos).
@@ -54,3 +54,6 @@ Reexecutado depois da correção: admin 320 pt-BR claro (9 telas), admin 390 en 
 
 ## Google Play Billing — fechamento (25/11)
 OFICIAL no emulador: aprova-e-estorna, carência, retenção, recuperação, reinstalação (dados mantidos), restauração corrigida, paywall PT/EN/ES e claro. SIMULADO: isolamento entre usuários (SQL), conta divergente e `linkedPurchaseToken` (mock Deno). Pendente: RTDN (Cloud sem faturamento), 2ª conta de teste, reinstalação limpa, avisos "sem conexão" no restaurar offline. Detalhes: `docs/qa/GOOGLE_PLAY_HOMOLOGACAO.md` §10.
+
+## Apple StoreKit (25/11)
+OFICIAL no Sandbox (iPhone + App Store Server API + banco): compra mensal, renovação automática, mudança mensal→anual (vale na renovação), cancelamento da renovação, notificações V2 automáticas (`subscribed`, `did_renew`, `did_change_renewal_pref`, `did_change_renewal_status`), isolamento entre usuários (403 com transação real da Apple), `refresh`/restauração pelo estado oficial. Zero pagamento/comissão. SIMULADO: eventos Apple em Deno (8), notificação perdida (banco alterado à mão). Não exercidos: reembolso/revogação e carência/falha de pagamento (Sandbox não gera), expiração e restauração pós-expiração (aguardando vencimento). Detalhes: `docs/qa/APPLE_STOREKIT_HOMOLOGACAO.md`. Testes: Flutter 1211, Deno 46.

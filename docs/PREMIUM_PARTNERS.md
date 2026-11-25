@@ -4,7 +4,7 @@
 > Estado em 2026-11-30: **Etapas 01 a 08 concluídas em código (08 = paywall e integração final, §19). O modelo comercial e a confirmação obrigatória de e-mail estão DESLIGADOS em produção.**
 
 ## 1. Decisões comerciais definitivas
-- Premium **mensal R$ 19,90** e **anual R$ 190,00**. Mercado inicial: Brasil (BRL). **Sem plano gratuito permanente.**
+- Premium **mensal R$ 19,90** e **anual R$ 190,00** (**exceção por plataforma: anual na App Store = R$ 189,90**, ponto de preço mais próximo disponível). Mercado inicial: Brasil (BRL). **Sem plano gratuito permanente.**
 - Novos usuários: **72h de Premium** após confirmar o e-mail (uma vez por pessoa). Usuários existentes na transição: **sem teste**.
 - Admin: Premium permanente enquanto tiver o papel. Professor parceiro ativo: Premium grátis enquanto durar a parceria. Cortesia: concedida manualmente por admin.
 - Pagamento: Android = Google Play Billing; iOS = Apple StoreKit; Web = Mercado Pago (Pix quando suportado). **Conta única** nas 3 plataformas e no futuro portal.
@@ -458,3 +458,6 @@ A etapa 10 do roteiro **não** está marcada como concluída: há bloqueadores d
 - **Mercado Pago (25/11):** homologado em sandbox real o cartão recorrente (mensal e anual), webhook com HMAC, concessão de acesso (`sandbox:` não gera receita nem comissão) e isolamento do Payhip; ambiente passa a ser decidido pela conta recebedora (`envOf`), não por `live_mode`. Pix e reembolso seguem só validados em mocks (401 do sandbox). Detalhes em `docs/qa/MERCADOPAGO_HOMOLOGACAO.md` §11. Tudo desligado novamente.
 
 - **Google Play (25/11):** homologado em Play Billing real de teste (mensal, anual, recusa, carência, retenção, recuperação, estorno, restauração) — ver `docs/qa/GOOGLE_PLAY_HOMOLOGACAO.md` §9–10. Compras de teste são `sandbox:` e não geram receita nem comissão; reembolsos/chargebacks reais entram pela conciliação (`voidedpurchases`) ou RTDN (pendente). Taxa/imposto da Google não são presumidos.
+
+## 21. Apple StoreKit — homologação no Sandbox (25/11/2026)
+Produtos (`aprovaura_premium_monthly`/`_annual`, grupo AprovaAura Premium), chave IAP, Secrets e notificação V2 Sandbox configurados; compra, renovação, troca de plano, cancelamento, isolamento entre usuários e restauração pelo estado oficial validados no Sandbox oficial; `payments-apple` ganhou a ação `refresh` e passou a usar o estado oficial no caminho de verificação do app (corrige reabertura de assinatura cancelada). Catálogo: só a linha Apple anual vale 18990 centavos; Google e Mercado Pago seguem 19000. Sandbox não gera receita nem comissão (confirmado: 0 linhas). Reembolso/revogação e carência só simulados. Detalhes e limites: `docs/qa/APPLE_STOREKIT_HOMOLOGACAO.md`. Roadmap: etapa 7 (Apple) com homologação Sandbox feita; falta ativação comercial (decisão do dono), relatórios financeiros reais e submissão da primeira assinatura junto da nova versão.
