@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:aura/core/config/env_config.dart';
 import 'package:aura/features/access/presentation/cubit/access_cubit.dart';
 import 'package:aura/features/paywall/presentation/widgets/paywall_common.dart';
 import 'package:aura/features/portal/l10n/portal_strings.dart';
@@ -15,7 +16,15 @@ class MySubscriptionTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = PortalStrings.watch(context);
     final s = context.watch<AccessCubit>().state.status;
-    if (!s.enforced) return const SizedBox.shrink();
+    if (!s.enforced) {
+      if (!EnvConfig.billingTestEntry) return const SizedBox.shrink();
+      return SettingsTile(
+        icon: Icons.workspace_premium_outlined,
+        title: 'Assinatura (teste interno)',
+        subtitle: 'Somente build de teste: abre o paywall',
+        onTap: () => context.push('/assinatura'),
+      );
+    }
     final until = s.accessUntil;
     final subtitle = s.isAdmin
         ? t('Benefício administrativo', 'Administrative benefit', 'Beneficio administrativo')

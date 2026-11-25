@@ -6,6 +6,9 @@ class EnvConfig {
     'SUPABASE_PUBLISHABLE_KEY',
   );
 
+  /// Só builds da faixa interna (--dart-define=BILLING_TEST_ENTRY=true): abre o paywall sem a monetização ligada.
+  static const bool billingTestEntry = bool.fromEnvironment('BILLING_TEST_ENTRY');
+
   static void validate() {
     if (supabaseUrl.isEmpty) {
       throw StateError(
