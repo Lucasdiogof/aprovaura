@@ -15,6 +15,7 @@ import 'package:aura/features/paywall/presentation/widgets/trial_banner.dart';
 import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/shared/utils/external_link.dart';
 import 'package:aura/shared/widgets/app_button.dart';
+import 'package:aura/shared/widgets/aura_glow_button.dart';
 import 'package:aura/shared/widgets/modern_app_bar.dart';
 
 /// "Minha assinatura": situação real do acesso (todas as fontes), assinaturas
@@ -115,8 +116,23 @@ class _ViewState extends State<_View> {
               'Acceso temporal para quienes ya usaban AprovaAura.'));
     }
 
+    final manageUrl = live.map((x) => manageFor(t, x, here).url).whereType<String>().firstOrNull;
     return Scaffold(
       backgroundColor: context.colors.background,
+      bottomNavigationBar: manageUrl == null
+          ? null
+          : SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(AppSpacing.pageHorizontal, AppSpacing.sm, AppSpacing.pageHorizontal, AppSpacing.lg),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 640),
+                  child: AuraGlowButton(
+                    label: t('Gerenciar assinatura', 'Manage subscription', 'Gestionar suscripción'),
+                    onPressed: () => unawaited(openExternalLink(context, manageUrl)),
+                  ),
+                ),
+              ),
+            ),
       body: Column(children: [
         ModernAppBar(
           title: t('Minha assinatura', 'My subscription', 'Mi suscripción'),
@@ -131,16 +147,14 @@ class _ViewState extends State<_View> {
                 padding: const EdgeInsets.all(AppSpacing.pageHorizontal),
                 children: [
                   // Status geral.
+                  if (st.enforced)
                   PaywallCard(
                     highlighted: st.allowed,
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Text(
-                        !st.enforced
-                            ? t('Todos os recursos estão liberados no momento.', 'All features are available right now.',
-                                'Todos los recursos están disponibles por ahora.')
-                            : st.allowed
-                                ? t('Premium ativo', 'Premium active', 'Premium activo')
-                                : t('Sem Premium ativo', 'No active Premium', 'Sin Premium activo'),
+                        st.allowed
+                            ? t('Premium ativo', 'Premium active', 'Premium activo')
+                            : t('Sem Premium ativo', 'No active Premium', 'Sin Premium activo'),
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: context.colors.textPrimary),
                       ),
                       if (st.enforced && st.allowed && st.accessUntil != null && !st.indefinite)
@@ -232,7 +246,8 @@ class _ViewState extends State<_View> {
                     },
                   ),
                   const SizedBox(height: AppSpacing.lg),
-                  const AccountFooter(),
+                  // Sair e excluir conta ficam no Perfil; aqui só os documentos legais da assinatura.
+                  const AccountFooter(showSignOut: false, showDelete: false),
                 ],
               ),
             ),
@@ -299,11 +314,6 @@ class _SubscriptionCard extends StatelessWidget {
           row(context, t('Ambiente', 'Environment', 'Entorno'), t('Teste (sandbox)', 'Test (sandbox)', 'Prueba (sandbox)')),
         const SizedBox(height: 6),
         Text(info.text, style: const TextStyle(fontSize: 13)),
-        if (info.url != null)
-          TextButton(
-            onPressed: () => unawaited(openExternalLink(context, info.url!)),
-            child: Text(t('Gerenciar assinatura', 'Manage subscription', 'Gestionar suscripción')),
-          ),
         if (sub.provider == PayProvider.mercadopago && here == PayProvider.mercadopago && renews)
           TextButton(
             onPressed: onCancelCard,

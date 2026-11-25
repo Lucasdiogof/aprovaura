@@ -226,6 +226,8 @@ class _PaywallViewState extends State<_PaywallView> {
         final options = _options(s, t, here);
         final providerReady = s.canBuy(here);
         final variant = _variant(access, s, providerReady, options.isNotEmpty);
+        // Já assinante: a tela é "Minha assinatura" (não existe uma tela "Premium ativo" separada).
+        if (variant == _Variant.active) return const _GoToMySubscription();
         final (title, body, pose) = _copy(t, variant);
         final sel = options.where((o) => o.plan == _plan).firstOrNull ?? options.firstOrNull;
         final busy = s.phase == PayPhase.validating || s.phase == PayPhase.purchasing;
@@ -262,9 +264,7 @@ class _PaywallViewState extends State<_PaywallView> {
           children: [
             PaywallHeading(title: title, body: body),
             SizedBox(height: variant == _Variant.active ? AppSpacing.xxl : AppSpacing.xl),
-            if (variant == _Variant.active)
-              _ActiveCard(t: t, sub: s.current!, here: here, cubit: cubit)
-            else ...[
+            ...[
               if (showPlans) ...[
                 ..._benefits(t).map((b) => Padding(
                   padding: const EdgeInsets.only(bottom: 10),
@@ -561,67 +561,24 @@ class _PendingCharge extends StatelessWidget {
   }
 }
 
-class _ActiveCard extends StatelessWidget {
-  const _ActiveCard({required this.t, required this.sub, required this.here, required this.cubit});
-  final PortalStrings t;
-  final SubscriptionInfo sub;
-  final PayProvider here;
-  final PaymentsCubit cubit;
+/// Troca o paywall por "Minha assinatura" (a volta devolve ao Perfil).
+class _GoToMySubscription extends StatefulWidget {
+  const _GoToMySubscription();
+  @override
+  State<_GoToMySubscription> createState() => _GoToMySubscriptionState();
+}
+
+class _GoToMySubscriptionState extends State<_GoToMySubscription> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) context.pushReplacement('/minha-assinatura');
+    });
+  }
 
   @override
-  Widget build(BuildContext context) {
-    final c = context.colors;
-    final info = manageFor(t, sub, here);
-    final manage = info.url;
-    final details = t('Ver detalhes', 'See details', 'Ver detalles');
-    return Container(
-      padding: const EdgeInsets.all(AppSpacing.xl),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppRadius.lg),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [c.auraViolet.withValues(alpha: 0.16), c.surface],
-        ),
-        border: Border.all(color: c.primary.withValues(alpha: 0.35)),
-      ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        Row(children: [
-          Container(
-            width: 44,
-            height: 44,
-            decoration: BoxDecoration(shape: BoxShape.circle, color: c.success.withValues(alpha: 0.16)),
-            child: Icon(Icons.verified_rounded, color: c.success),
-          ),
-          const SizedBox(width: AppSpacing.md),
-          Expanded(
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(t('Assinatura via', 'Subscribed via', 'Suscripción vía'),
-                  style: TextStyle(fontSize: 12, color: c.textSecondary)),
-              Text(providerName(t, sub.provider),
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: c.textPrimary)),
-            ]),
-          ),
-        ]),
-        const SizedBox(height: AppSpacing.lg),
-        Text(info.text, style: TextStyle(fontSize: 14, height: 1.4, color: c.textSecondary)),
-        const SizedBox(height: AppSpacing.xl),
-        if (manage != null) ...[
-          AuraGlowButton(
-            label: t('Gerenciar assinatura', 'Manage subscription', 'Gestionar suscripción'),
-            onPressed: () => unawaited(openExternalLink(context, manage)),
-          ),
-          const SizedBox(height: AppSpacing.sm),
-          TextButton(
-            style: TextButton.styleFrom(minimumSize: const Size.fromHeight(44)),
-            onPressed: () => context.push('/minha-assinatura'),
-            child: Text(details),
-          ),
-        ] else
-          AuraGlowButton(label: details, onPressed: () => context.push('/minha-assinatura')),
-      ]),
-    );
-  }
+  Widget build(BuildContext context) => const PaywallLoading();
 }
 
 /// Confirmação visual: só existe depois que o servidor confirmou e o acesso
