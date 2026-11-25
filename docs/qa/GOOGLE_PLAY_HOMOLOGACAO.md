@@ -18,6 +18,13 @@ Produto `aprovaura_premium` com base plans `monthly` (R$ 19,90, 30 dias) e `annu
 - Secrets exigidos no Supabase (ainda ausentes): `GOOGLE_SA_JSON`, `GOOGLE_PUBSUB_AUDIENCE`, `GOOGLE_PUBSUB_SA_EMAIL` (e opcional `GOOGLE_PACKAGE_NAME`).
 - **Nada disso foi homologado.** Sem compra real de teste, tudo segue "validado só em mocks/SQL".
 
+## 3b. Google Cloud preparado (25/11, sem custo)
+- `gcloud` autenticado como a conta do dono. Criar projeto novo falhou (cota de projetos excedida); reaproveitado o projeto **Aura** (`gen-lang-client-0711282501`, sem faturamento) que já era do AprovaAura.
+- API habilitada: **Google Play Android Developer API** (`androidpublisher`, gratuita). Nenhum outro serviço habilitado; **faturamento não vinculado**.
+- Conta de serviço exclusiva `aprovaura-play-billing@gen-lang-client-0711282501.iam.gserviceaccount.com`, **sem nenhum papel IAM no projeto** (as permissões virão do convite no Play Console, restritas ao app). Chave JSON guardada só no cofre: `googleplay.aprovaura.production.service-account-json` / `…service-account-email` (nada em arquivo; o arquivo temporário foi apagado).
+- **Pub/Sub/RTDN: não habilitado** (projeto sem faturamento; depende de autorização do dono).
+- **Perfil de pagamentos:** o formulário fica em iframe do Google fora do alcance das ferramentas e exige CNPJ/conta bancária/endereço (não digitados pelo agente). Continua pendente do dono.
+
 ## 4. O que o dono precisa fazer (indispensável)
 1. Play Console → Configurar → Perfil de pagamentos → **Criar perfil de pagamentos** (dados fiscais/bancários do titular; o agente não insere dados pessoais/financeiros). Declarar o estatuto de comerciante.
 2. Autorizar (ou recusar) vincular faturamento no Google Cloud: o Pub/Sub para RTDN normalmente exige conta de faturamento no projeto; há cota gratuita, mas **nenhum faturamento será vinculado sem autorização**. Alternativa sem Pub/Sub: depender só da verificação pelo app + conciliação periódica (RTDN fica de fora).
