@@ -171,10 +171,10 @@ class PaymentsRepositoryImpl implements PaymentsRepository {
     if (!_native) return const Success(null);
     try {
       _listen();
-      if (nativeProvider == PayProvider.google) {
-        // A loja não devolve nada para assinatura expirada/cancelada/revogada: o servidor relê o estado OFICIAL.
-        await _client.functions.invoke('payments-google', body: {'action': 'refresh'}).withRequestTimeout();
-      }
+      // A loja não devolve nada para assinatura expirada/cancelada/revogada: o servidor relê o estado OFICIAL.
+      await _client.functions
+          .invoke(nativeProvider == PayProvider.apple ? 'payments-apple' : 'payments-google', body: {'action': 'refresh'})
+          .withRequestTimeout();
       await InAppPurchase.instance.restorePurchases(); // o servidor revalida cada comprovante
       return const Success(null);
     } catch (e) {

@@ -3,7 +3,7 @@
 // (POST {signedTransaction} COM JWT do usuário). O cliente nunca confirma pagamento: aqui o
 // backend valida e só então grava o entitlement.
 import { admin, caller, catalogRows, ingest, json } from '../_shared/common.ts';
-import { appleEvent, verifyJws } from '../_shared/apple.ts';
+import { appleEvent, appleOfficialEvent, verifyJws } from '../_shared/apple.ts';
 
 Deno.serve(async (req) => {
   if (req.method !== 'POST') return json({ error: 'method' }, 405);
@@ -23,6 +23,23 @@ Deno.serve(async (req) => {
       const r = await ingest(db, ev);
       // 5xx faz a Apple reenviar; "conflict" é definitivo (não reenviar).
       return r.status === 'failed' ? json({ error: 'failed' }, 500) : json({ ok: true, status: r.status });
+    }
+    // "Restaurar compras": o StoreKit só devolve o que está vigente; o servidor relê o estado OFICIAL
+    // (inclusive expirado/revogado) das assinaturas Apple já ligadas à conta do usuário.
+    if (body.action === 'refresh') {
+      const me = await caller(req);
+      if (!me) return json({ error: 'unauthorized' }, 401);
+      const { data: subs } = await db.from('provider_subscriptions').select('original_ref,environment')
+        .eq('provider', 'apple').eq('user_id', me.user.id);
+      let ok = 0, failed = 0;
+      for (const s of subs ?? []) {
+        try {
+          const ev = await appleOfficialEvent(s.original_ref, s.environment, cat);
+          if (ev) await ingest(db, { ...ev, occurredAt: new Date() });
+          ok++;
+        } catch (e) { failed++; console.error('apple refresh', (e as Error).message); }
+      }
+      return failed && !ok ? json({ error: 'upstream' }, 502) : json({ ok: true, refreshed: ok, failed });
     }
     // Verificação vinda do app (usuário autenticado).
     if (body.signedTransaction) {

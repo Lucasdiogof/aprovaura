@@ -88,9 +88,9 @@ class IntroStrings {
     'Mejora tus redacciones',
   );
   String get t4Body => _t(
-    'Escolha um tema, escreva e receba uma correção assistida por IA, com base nas competências do ENEM e feedback para evoluir.',
-    'Pick a topic, write, and get AI-assisted feedback based on the ENEM competencies, to help you improve.',
-    'Elige un tema, escribe y recibe una corrección asistida por IA, basada en las competencias del ENEM, con feedback para mejorar.',
+    'Escolha um tema, escreva e treine com base nas competências do ENEM para evoluir a cada redação.',
+    'Pick a topic, write, and practice with the ENEM competencies in mind to improve with every essay.',
+    'Elige un tema, escribe y practica con las competencias del ENEM para mejorar en cada redacción.',
   );
   String get t4Note => _t(
     'Apoio ao estudo: não é nota oficial nem garantia de aprovação.',

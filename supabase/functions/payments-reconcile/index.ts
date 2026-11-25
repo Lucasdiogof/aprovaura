@@ -3,7 +3,7 @@
 // webhooks (idempotente). Lote pequeno e intervalo mínimo de 12 h por assinatura (ver
 // service_subscriptions_to_check): respeita limites de API e não roda a cada abertura do app.
 import { admin, catalogRows, ingest, json, timingEqual } from '../_shared/common.ts';
-import { appleEvent, appleLookup } from '../_shared/apple.ts';
+import { appleOfficialEvent } from '../_shared/apple.ts';
 import { applyGoogleVoided, listVoided, processGoogleToken } from '../_shared/google.ts';
 import { reconcileMpPending, reconcilePreapproval } from '../_shared/mp.ts';
 
@@ -27,10 +27,7 @@ Deno.serve(async (req) => {
   for (const s of subs) {
     try {
       if (s.provider === 'apple') {
-        const { status, tx, ren } = await appleLookup(s.original_ref, s.environment);
-        const type = status === 2 ? 'EXPIRED' : status === 4 ? 'DID_FAIL_TO_RENEW' : status === 5 ? 'REVOKE' : 'RECON';
-        const ev = appleEvent(tx, ren, type, status === 4 ? 'GRACE_PERIOD' : null,
-          `recon:apple:${s.original_ref}:${status}:${tx.expiresDate}`, appleCat);
+        const ev = await appleOfficialEvent(s.original_ref, s.environment, appleCat);
         if (ev) await ingest(db, { ...ev, occurredAt: new Date() });
       } else if (s.provider === 'google') {
         await processGoogleToken(db, s.original_ref, `recon:google:${s.original_ref}:${new Date().toISOString().slice(0, 13)}`, new Date());

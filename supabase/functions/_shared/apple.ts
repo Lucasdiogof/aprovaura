@@ -82,3 +82,11 @@ export async function appleLookup(originalTransactionId: string, env: 'sandbox' 
   return { status: last.status as number, tx: await verifyJws(last.signedTransactionInfo),
            ren: last.signedRenewalInfo ? await verifyJws(last.signedRenewalInfo) : null };
 }
+
+/** Estado OFICIAL (App Store Server API) → evento normalizado. Usado pela conciliação e pelo "Restaurar compras". */
+export async function appleOfficialEvent(originalRef: string, env: 'sandbox' | 'production', cat: Cat): Promise<Ev | null> {
+  const { status, tx, ren } = await appleLookup(originalRef, env);
+  const type = status === 2 ? 'EXPIRED' : status === 4 ? 'DID_FAIL_TO_RENEW' : status === 5 ? 'REVOKE' : 'RECON';
+  return appleEvent(tx, ren, type, status === 4 ? 'GRACE_PERIOD' : null,
+    `recon:apple:${originalRef}:${status}:${tx.expiresDate}`, cat);
+}
