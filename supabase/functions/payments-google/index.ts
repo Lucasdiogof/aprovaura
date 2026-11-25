@@ -1,7 +1,7 @@
 // Google Play: RTDN via Pub/Sub push (autenticado por OIDC) e verificação pós-compra vinda do
 // app (JWT do usuário). O estado é SEMPRE relido na Developer API; a mensagem só avisa.
 import { admin, caller, ingest, json } from '../_shared/common.ts';
-import { PKG, processGoogleToken, verifyPubsub } from '../_shared/google.ts';
+import { applyGoogleVoided, PKG, processGoogleToken, verifyPubsub } from '../_shared/google.ts';
 
 Deno.serve(async (req) => {
   if (req.method !== 'POST') return json({ error: 'method' }, 405);
@@ -21,16 +21,32 @@ Deno.serve(async (req) => {
       }
       if (n.voidedPurchaseNotification) { // reembolso/chargeback/revogação
         const v = n.voidedPurchaseNotification;
-        const { data: sub } = await db.from('provider_subscriptions').select('plan,environment')
-          .eq('provider', 'google').eq('original_ref', v.purchaseToken).maybeSingle();
-        if (!sub) return json({ ok: true, ignored: 'unknown_token' });
-        const r = await ingest(db, { provider: 'google', env: sub.environment, eventId: id, type: 'voided', occurredAt: at,
-          ref: v.purchaseToken, plan: sub.plan, state: 'refunded', end: new Date(),
-          refund: { external_id: v.orderId, at: at.toISOString(), charged_back: v.refundType === 2,
-                    external_ref: 'google-void:' + v.orderId } });
+        const r = await applyGoogleVoided(db, { purchaseToken: v.purchaseToken, orderId: v.orderId, chargeback: v.refundType === 2 },
+          'google:void:' + v.orderId, at);
+        if (r.status === 'unknown_token') return json({ ok: true, ignored: 'unknown_token' });
         return r.status === 'failed' ? json({ error: 'failed' }, 500) : json({ ok: true, status: r.status });
       }
       return json({ ok: true, ignored: 'type' }); // testNotification etc.
+    }
+    if (body.action === 'refresh') { // "Restaurar compras": relê o estado OFICIAL das assinaturas do próprio usuário
+      const me = await caller(req);
+      if (!me) return json({ error: 'unauthorized' }, 401);
+      const { data: t } = await db.from('purchase_account_tokens').select('token').eq('user_id', me.user.id).maybeSingle();
+      const since = new Date(Date.now() - 90 * 864e5).toISOString();
+      const { data: subs } = await db.from('provider_subscriptions').select('id,original_ref,last_checked_at')
+        .eq('user_id', me.user.id).eq('provider', 'google').neq('state', 'refunded')
+        .or(`state.neq.expired,period_end.gte.${since}`).order('created_at', { ascending: false }).limit(5);
+      let ok = 0, failed = 0;
+      for (const s of subs ?? []) {
+        if (s.last_checked_at && Date.now() - Date.parse(s.last_checked_at) < 15_000) { ok++; continue; } // limite de API
+        try {
+          await processGoogleToken(db, s.original_ref, `google:refresh:${s.original_ref}:${new Date().toISOString().slice(0, 16)}`,
+            new Date(), t?.token); // conta divergente nunca é gravada
+          await db.rpc('service_mark_checked', { p_id: s.id });
+          ok++;
+        } catch (e) { failed++; console.error('refresh', (e as Error).message); }
+      }
+      return failed && !ok ? json({ error: 'upstream' }, 502) : json({ ok: true, refreshed: ok, failed });
     }
     if (body.purchaseToken) { // do app
       const me = await caller(req);

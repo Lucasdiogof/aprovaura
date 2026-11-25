@@ -118,3 +118,33 @@ Deno.test('linkedPurchaseToken: encerra a assinatura antiga e vigora a nova', ()
   eq([rpcs[0].p_original_ref, rpcs[0].p_state, rpcs[0].p_event_id], ['OLD', 'expired', 'google:replaced:NEW'], 'antiga encerrada');
   eq([rpcs[1].p_original_ref, rpcs[1].p_state], ['NEW', 'active'], 'nova vigente');
 }));
+
+// ---- Compras anuladas (alternativa ao RTDN) e paginação ----
+Deno.test('applyGoogleVoided: token conhecido → refunded com reembolso; desconhecido → ignorado', async () => {
+  const { applyGoogleVoided } = await import('./google.ts');
+  const rpcs: any[] = [];
+  const mk = (row: unknown) => ({
+    from: () => ({ select: () => ({ eq: () => ({ eq: () => ({ maybeSingle: () => Promise.resolve({ data: row }) }) }) }) }),
+    rpc: (_n: string, a: any) => { rpcs.push(a); return Promise.resolve({ data: { status: 'processed' }, error: null }); },
+  }) as any;
+  eq((await applyGoogleVoided(mk(null), { purchaseToken: 'T', orderId: 'O', chargeback: false }, 'id', new Date())).status, 'unknown_token', 'desconhecido');
+  eq(rpcs.length, 0, 'sem ingest');
+  await applyGoogleVoided(mk({ plan: 'annual', environment: 'production' }), { purchaseToken: 'T', orderId: 'O', chargeback: true }, 'google:void:O', new Date());
+  eq([rpcs[0].p_state, rpcs[0].p_event_id, rpcs[0].p_refund.charged_back, rpcs[0].p_refund.external_ref], ['refunded', 'google:void:O', true, 'google-void:O'], 'refund');
+});
+
+Deno.test('listVoided: segue as páginas até acabar e tenta de novo em 503', async () => {
+  const { listVoided } = await import('./google.ts');
+  Deno.env.set('GOOGLE_SA_JSON', JSON.stringify({ client_email: 'sa@x.iam', private_key: await pem() }));
+  const orig = globalThis.fetch; let n = 0, fail = true;
+  globalThis.fetch = ((url: string) => {
+    const u = String(url);
+    if (u.includes('oauth2.googleapis.com')) return Promise.resolve(new Response(JSON.stringify({ access_token: 't' })));
+    n++;
+    if (fail) { fail = false; return Promise.resolve(new Response('x', { status: 503 })); }
+    return Promise.resolve(new Response(JSON.stringify(u.includes('token=P2')
+      ? { voidedPurchases: [{ orderId: 'B' }] } : { voidedPurchases: [{ orderId: 'A' }], tokenPagination: { nextPageToken: 'P2' } })));
+  }) as typeof fetch;
+  try { eq((await listVoided(0)).map((v: any) => v.orderId), ['A', 'B'], 'páginas'); eq(n, 3, '503 + 2 páginas'); }
+  finally { globalThis.fetch = orig; Deno.env.delete('GOOGLE_SA_JSON'); }
+});

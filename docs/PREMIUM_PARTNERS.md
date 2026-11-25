@@ -456,3 +456,5 @@ A etapa 10 do roteiro **não** está marcada como concluída: há bloqueadores d
 - A flag `partner` é removida automaticamente na primeira senha definida (gatilho `clear_partner_invite_flag_trg`, migration `20261204000100`); depois disso o professor recebe o e-mail de recuperação normal.
 
 - **Mercado Pago (25/11):** homologado em sandbox real o cartão recorrente (mensal e anual), webhook com HMAC, concessão de acesso (`sandbox:` não gera receita nem comissão) e isolamento do Payhip; ambiente passa a ser decidido pela conta recebedora (`envOf`), não por `live_mode`. Pix e reembolso seguem só validados em mocks (401 do sandbox). Detalhes em `docs/qa/MERCADOPAGO_HOMOLOGACAO.md` §11. Tudo desligado novamente.
+
+- **Google Play (25/11):** homologado em Play Billing real de teste (mensal, anual, recusa, carência, retenção, recuperação, estorno, restauração) — ver `docs/qa/GOOGLE_PLAY_HOMOLOGACAO.md` §9–10. Compras de teste são `sandbox:` e não geram receita nem comissão; reembolsos/chargebacks reais entram pela conciliação (`voidedpurchases`) ou RTDN (pendente). Taxa/imposto da Google não são presumidos.

@@ -20,14 +20,49 @@ async function accessToken(): Promise<string> {
   return (await r.json()).access_token;
 }
 
-const api = async (path: string, init?: RequestInit) =>
-  fetch(`https://androidpublisher.googleapis.com/androidpublisher/v3/applications/${PKG()}/${path}`,
-    { ...init, headers: { Authorization: 'Bearer ' + await accessToken(), 'content-type': 'application/json' } });
+// Falhas temporárias (429/5xx): até 3 tentativas com espera crescente; demais erros sobem ao chamador.
+const api = async (path: string, init?: RequestInit) => {
+  let r!: Response;
+  for (let i = 0; i < 3; i++) {
+    r = await fetch(`https://androidpublisher.googleapis.com/androidpublisher/v3/applications/${PKG()}/${path}`,
+      { ...init, headers: { Authorization: 'Bearer ' + await accessToken(), 'content-type': 'application/json' } });
+    if (r.status !== 429 && r.status < 500) break;
+    await new Promise((res) => setTimeout(res, 400 * (i + 1) ** 2));
+  }
+  return r;
+};
 
 export async function fetchSubscription(token: string) {
   const r = await api(`purchases/subscriptionsv2/tokens/${encodeURIComponent(token)}`);
   if (!r.ok) throw new Error('google_api_' + r.status);
   return await r.json();
+}
+
+/** Compras anuladas (reembolso/chargeback/revogação) desde `sinceMs` — alternativa ao RTDN. Máx. 5 páginas por rodada. */
+export async function listVoided(sinceMs: number) {
+  const out: any[] = [];
+  let page = '';
+  for (let i = 0; i < 5; i++) {
+    const r = await api(`purchases/voidedpurchases?startTime=${sinceMs}&maxResults=100&type=1` +
+      (page ? `&token=${encodeURIComponent(page)}` : ''));
+    if (!r.ok) throw new Error('google_api_' + r.status);
+    const j = await r.json();
+    out.push(...(j.voidedPurchases ?? []));
+    page = j.tokenPagination?.nextPageToken ?? '';
+    if (!page) break;
+  }
+  return out;
+}
+
+/** Aplica uma compra anulada (RTDN ou lista oficial): idempotente pelo eventId. */
+export async function applyGoogleVoided(db: SupabaseClient, v: { purchaseToken: string; orderId: string; chargeback: boolean },
+                                        eventId: string, at: Date) {
+  const { data: sub } = await db.from('provider_subscriptions').select('plan,environment')
+    .eq('provider', 'google').eq('original_ref', v.purchaseToken).maybeSingle();
+  if (!sub) return { status: 'unknown_token' };
+  return await ingest(db, { provider: 'google', env: sub.environment, eventId, type: 'voided', occurredAt: at,
+    ref: v.purchaseToken, plan: sub.plan, state: 'refunded', end: new Date(),
+    refund: { external_id: v.orderId, at: at.toISOString(), charged_back: v.chargeback, external_ref: 'google-void:' + v.orderId } });
 }
 
 /** Autentica o push do Pub/Sub (OIDC do service account configurado) — sem isso, nada é processado. */

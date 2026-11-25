@@ -106,6 +106,8 @@ class PaymentsCubit extends Cubit<PaymentsState> {
     if (r is Error<void>) {
       return emit(state.copyWith(phase: PayPhase.failed, failure: r.failure));
     }
+    await _refreshAccess(); // estado oficial já relido no servidor (expiração/cancelamento/revogação)
+    if (isClosed) return;
     // Sem compras para restaurar a loja não responde: encerra a espera.
     _restoreTimer?.cancel();
     _restoreTimer = Timer(const Duration(seconds: 10), () {

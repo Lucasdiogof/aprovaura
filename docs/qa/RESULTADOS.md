@@ -51,3 +51,6 @@ Reexecutado depois da correção: admin 320 pt-BR claro (9 telas), admin 390 en 
 
 ## Evidências (sem dados reais; usuários e valores fictícios do banco local)
 `docs/qa/evidencias/10b-*`: paywall 320 es escuro; questão 390 en escuro; Financeiro (admin), Alunos (professor) e Configurações (admin) em 320 pt-BR claro após a correção.
+
+## Google Play Billing — fechamento (25/11)
+OFICIAL no emulador: aprova-e-estorna, carência, retenção, recuperação, reinstalação (dados mantidos), restauração corrigida, paywall PT/EN/ES e claro. SIMULADO: isolamento entre usuários (SQL), conta divergente e `linkedPurchaseToken` (mock Deno). Pendente: RTDN (Cloud sem faturamento), 2ª conta de teste, reinstalação limpa, avisos "sem conexão" no restaurar offline. Detalhes: `docs/qa/GOOGLE_PLAY_HOMOLOGACAO.md` §10.

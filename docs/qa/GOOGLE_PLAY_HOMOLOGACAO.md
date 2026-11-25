@@ -91,3 +91,38 @@ Ambiente: emulador `emulator-5554` (Play Store, Android 37), conta de teste lice
 **Não executado (documentado):** cartão "aprova e depois estorna" (pendente) e trocar de conta Google (só há uma conta de teste) — pendentes; carência/retenção (account hold) exigem renovação com falha de pagamento, não reproduzida; reinstalação e PT/EN/ES, claro/escuro e offline do paywall — não verificados nesta rodada; RTDN/Pub/Sub — bloqueado por faturamento Google Cloud (sem pagamento adicional).
 
 **Estado seguro restaurado:** provedor `google` em `payment_providers_config` = `enabled=false`; `commercial_config.enforcement_enabled=false`; cron de conciliação desabilitado (executada só uma vez manualmente); nenhuma assinatura de teste ativa; app de produção sem UI de compra. O APK de teste não foi distribuído.
+
+## 10. Fechamento da homologação Google Play (25/11, tarde) — correções e cenários restantes
+Legenda: **OFICIAL** = Google Play real (cartões de teste de licença, API `subscriptionsv2`, e-mails do Google) no emulador; **SIMULADO** = mock/SQL; **NÃO FEITO** = documentado.
+
+### 10.1 Correções
+1. **Restaurar compras após expiração/cancelamento/revogação** — a loja não devolve nada para assinatura que não está vigente, então o estado só mudava no cron. Agora `payments-google` aceita `{action:'refresh'}` (JWT do usuário): relê na API oficial até 5 assinaturas Google **do próprio usuário** (ativas ou expiradas nos últimos 90 dias), com limite de 15 s por assinatura, e o app chama isso antes de `restorePurchases` e relê o estado. Funciona mesmo com o provedor desligado. Verificado OFICIAL (ver 10.2).
+2. **Conciliação (alternativa ao RTDN)** — `payments-reconcile`: até 4 lotes de 50 por execução; todo item tentado recebe `last_checked_at` (falha persistente não trava a fila; retenta após ≥12 h); Google em retenção/pausa (`expired` há ≤60 dias) passa a ser relido (permite recuperação); **novo**: lista oficial de compras anuladas (`voidedpurchases`, janela de 3 dias, até 5 páginas) aplica reembolso/chargeback de forma idempotente (`google:void:<orderId>`), igual ao RTDN. A chamada à API do Google tenta até 3 vezes em 429/5xx. Autenticação: `x-cron-secret` com comparação em tempo constante; logs sem token/ref.
+3. **Trava de homologação por usuário** (migration `20261205000200`): tabela `payment_test_users` (RLS sem policies) + `payment_provider_allowed()`; `get_purchase_config` só marca o provedor como habilitado para todos se estiver ligado em **production**; o ambiente **sandbox** vale só para usuários da lista; `get_purchase_account_token` recusa (`purchases_disabled`) quem não é elegível. Verificado SIMULADO por SQL (usuário aleatório: 0 assinaturas, sem acesso às tabelas, config `false`, token recusado). Lista contém 1 usuário (dono).
+4. **BILLING_TEST_ENTRY** — só existe por `--dart-define`; builds de loja/CI (`deploy.yml`) não o definem; teste `test/core/billing_test_entry_default_test.dart` garante `false` por padrão.
+
+### 10.2 Matriz executada (OFICIAL, emulador, Google Play Billing real)
+| Cenário | Resultado |
+|---|---|
+| Cartão "aprova e depois estorna" (mensal) | Compra aprovada; a renovação foi revertida pelo Google → `EXPIRED` sem carência; app/banco sem acesso; sem receita (sandbox). Restaurar corrigiu o banco (`active`→`expired`) sem cron |
+| Carência (cartão principal trocado para "recusado sempre" antes da renovação) | API `IN_GRACE_PERIOD` (+5 min de acesso); com Restaurar o banco foi para `grace` com o novo fim; app manteve Premium |
+| Retenção da conta | API `ON_HOLD`; Restaurar → banco `expired`, sem acesso, paywall normal |
+| Recuperação | Cartão corrigido no Play → `ACTIVE` (novo ciclo); Restaurar → banco `active`; app "Premium ativado!" |
+| Reinstalação | Desinstalado mantendo dados (`pm uninstall -k`) e reinstalado: Premium continua; **NÃO FEITO:** reinstalação com dados limpos (exige login humano) |
+| Restaurar após expiração/cancelamento | Corrige o banco na hora (3 vezes, inclusive com provedor desligado) |
+| Estorno por API (`:revoke`) | já na seção 9 |
+| Troca de conta Google | **NÃO FEITO** (só existe 1 conta de teste licenciada); proteção coberta por `obfuscatedExternalAccountId` + `account_mismatch` (MOCK) |
+| Isolamento entre usuários | SIMULADO (SQL com `sub` aleatório) + `refresh` filtra por `user_id`; sem 2º usuário real |
+
+### 10.3 Paywall (emulador)
+- **PT, EN e ES** (escuro) e **PT claro**: textos, "Melhor valor · economize 20%", preços R$ 190,00/ano e R$ 19,90/mês, periodicidade e aviso de renovação conferidos; estados: ativo ("Seu Premium está ativo" PT/EN), recusado (PT/ES), carregando ("Confirmando seu pagamento…"), indisponível (provedor desligado), vazio ("Nenhuma compra encontrada para restaurar").
+- **Offline** (Wi-Fi e dados desligados): paywall mostra o erro com "Tentar novamente" e nenhum acesso é liberado. **Achado aberto:** em "Restaurar compras" sem rede a tela mostrou "O pagamento não foi concluído" (variante genérica) em vez do aviso "Sem conexão"; correção pendente (baixo risco; não bloqueia a homologação).
+- **Achado aberto:** na variante sem assinatura o botão X do paywall não respondeu ao toque no emulador (o botão voltar do Android fecha); verificar em aparelho.
+- **Não verificado:** claro em EN/ES, escuro/claro em 320 px, leitura de tela.
+
+### 10.4 Regressão
+`flutter analyze`: sem problemas. `flutter test`: 1212 testes passaram. Deno: 12 testes (MOCK) passaram, incluindo anulações e paginação com retentativa em 503.
+
+### 10.5 Pendências e estado final
+- Pub/Sub/RTDN: **pendente** (faturamento Google Cloud fechado; nenhum pagamento adicional). Conciliação periódica pronta, porém **sem agendamento** (o projeto não tem `pg_cron`; execução manual com `x-cron-secret`).
+- Estado seguro: nenhum provedor habilitado, `enforcement_enabled=false`, nenhuma assinatura de teste ativa, nenhuma versão publicada, APK de teste só no emulador. Tema do app restaurado para Automático e idioma para Português.
