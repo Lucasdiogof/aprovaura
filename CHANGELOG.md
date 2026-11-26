@@ -4,6 +4,9 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Added (essay feedback: multi-provider, inactive)
+- Essay correction can use two independent free-tier AI providers (Groq primary, Cloudflare Workers AI secondary; Gemini kept, disabled) with silent automatic fallback, circuit breaker, Retry-After handling, per-provider free-allowance caps and admin RPCs to reorder or disable providers without a release. Failed corrections no longer consume the daily limit. Still switched off (`ESSAY_AI_PROVIDER=disabled`). See `docs/qa/IA_CORRECAO_MULTIPROVEDOR.md`.
+
 ### Added (Etapas 08–09: commercial preparation, inactive in production)
 - Mandatory paywall flow, access gate and "My subscription" (Etapa 08).
 - Versioned legal documents (effective date, languages, acceptance history, `publish_legal_version`), declared age range and safe-by-default teacher stat sharing (adults only), "Privacy and terms" screen in Profile.

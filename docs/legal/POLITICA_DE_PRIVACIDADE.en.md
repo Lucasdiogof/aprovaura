@@ -48,7 +48,7 @@ These providers process data on our behalf, as necessary:
 |---|---|
 | **Supabase** (database, authentication, functions, storage) | account, profile, progress, answers, essays, teacher link, consents, payment records (amounts and transaction IDs, no card) and acceptances |
 | **Cloudflare** (web hosting and content delivery) | network data needed to deliver the web app (such as IP), served content |
-| **Google Gemini** (AI API) | only topic, supporting texts, essay text and criteria, **without your identifiers** |
+| **Free AI providers** (Groq and Cloudflare Workers AI; Google Gemini only if enabled) | only topic, supporting texts, essay text and criteria, **without your identifiers** |
 | **Resend** (transactional e-mail) | your e-mail and the message content (for example, the confirmation code) |
 | **Apple (App Store)** and **Google Play** | data of the purchase/subscription made in the respective store, under their policies; we do not see your card |
 | **Mercado Pago** | web payment data (card or Pix), processed by Mercado Pago; we do not see your card |
@@ -56,18 +56,17 @@ These providers process data on our behalf, as necessary:
 
 We may also disclose data when required by law or authority order.
 
-## 5. Essay feedback and Google Gemini
+## 5. Essay feedback and AI providers
 
-- **Current status: AI essay feedback is temporarily suspended and no essay is sent to AI providers.** It will be reactivated only after notice here and with a solution compatible with the provider's terms and a teenage audience. AI is used **only** for essay correction (no chatbot), limited to **3 corrections per day** per user (configurable).
-- When reactivated, feedback will use the Google Gemini API (integration kept). We send it **without identifiers**: no name, e-mail, account ID or username. The essay text, however, is content **you wrote**; avoid including personal data about yourself or others.
-- **Google's conditions on use and retention of this data depend on the service tier contracted.** On the free tier, according to Google's documentation, content may be used to improve Google products and may be read by human reviewers, and Google advises not to submit personal or confidential data. On the paid tier, Google states that it does not use content to improve products, but logs data for a limited period for abuse prevention and legal obligations. **We do not guarantee that content is not used for training** while the free tier applies.
-- Owner decision (2026-11-24): no paid AI contract. The free tier will **not be used with real users' essays** while sending is suspended; before reactivation this section will state the tier and provider actually used.
-- The score is **study support and a practice estimate, not an official score**. If you prefer, do not use AI feedback: the rest of the app does not depend on it.
-- Google's terms require users aged 18 or over and bar apps likely accessed by minors. Since AprovaAura serves students of all ages (including teenagers), **sending remains suspended** until a compatible solution exists.
+- **Current status: AI essay feedback is switched off and no essay is sent to AI providers.** It will be switched on only after it is validated and this text is updated. AI is used **exclusively** to give essay feedback: there is no chatbot or free conversation. The limit is **3 corrections per day** per user, shared across all providers.
+- When switched on, feedback uses **free-tier AI providers**, in priority order, switching automatically if the first is unavailable or out of allowance: **Groq** and **Cloudflare Workers AI**. **Google Gemini** stays integrated but **disabled by default**, because Google's free-tier terms require users aged 18 or over and allow content to be used to improve products. You do not need to know which provider processed your essay; the choice is internal.
+- We send it **without identifiers**: no name, e-mail, account ID or username. The essay text, however, is content **you wrote**; avoid including personal data of yours or of others. We do not log the essay text or the full AI response; we keep only usage counts and error codes, without content.
+- According to the official documentation read on 2026-11-26: Cloudflare states that content sent to Workers AI is not used to train models and is not retained after the response; Groq states that inputs and outputs are not retained by default, with logs possibly kept up to 30 days for reliability and abuse prevention. These providers may process data outside Brazil. **[LAWYER-PENDING: read the Groq Services Agreement/DPA and Cloudflare terms regarding minors and the LGPD before enabling for teenagers.]**
+- The score is **study support and a practice estimate, not an official ENEM score**. If you prefer, do not use AI feedback: the rest of the app does not depend on it.
 
 ## 6. International transfer
 
-Our providers (such as Supabase, Cloudflare, Google, Resend, Apple and Mercado Pago) may process data in other countries, including outside Brazil. We carry out the transfer in line with the LGPD (arts. 33 et seq.), with the providers' contractual and security safeguards. **[PENDENTE-DONO: confirm transfer mechanism and each provider's regions.]**
+Our providers (such as Supabase, Cloudflare, Groq, Google, Resend, Apple and Mercado Pago) may process data in other countries, including outside Brazil. We carry out the transfer in line with the LGPD (arts. 33 et seq.), with the providers' contractual and security safeguards. **[PENDENTE-DONO: confirm transfer mechanism and each provider's regions.]**
 
 ## 7. Retention
 
@@ -75,7 +74,7 @@ Our providers (such as Supabase, Cloudflare, Google, Resend, Apple and Mercado P
 - **Access logs**: **6 months**, by legal obligation (Brazilian Internet Civil Framework, art. 15).
 - **Financial data** (amounts, dates, transaction IDs): **anonymized and preserved** for the period required by legal/tax obligation. Exact period: **[PENDENTE-DONO/accountant: tax retention period]**.
 - **Acceptance records**: for as long as needed to prove consent and compliance. **[PENDENTE-DONO: period]**.
-- Data sent to Google Gemini: subject to Google's rules (section 5); we do not control the period.
+- Data sent to AI providers: not retained by default according to each provider's documentation (Groq may keep logs up to 30 days); we do not control that period.
 
 ## 8. Account deletion
 

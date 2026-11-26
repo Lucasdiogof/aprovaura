@@ -1,98 +1,63 @@
 # evaluate-essay
 
-Corrige uma redação enviada: lê a submission, pede ao Gemini uma avaliação
-em JSON estruturado e grava o resultado através das RPCs de `essays.sql`.
+Corrige uma redação enviada: lê a submission, corrige com o primeiro provedor de IA **gratuito** disponível
+(com fallback automático para o seguinte) e grava o resultado pelas RPCs de `essays.sql`.
 
-A função não decide nada sozinha. Posse, cota diária, idempotência, nota e
-crédito de Aura vivem no banco; aqui só há orquestração e a conversa com o
-provider.
+A função não decide nada sozinha. Posse, cota diária, idempotência, nota e crédito de Aura vivem no banco;
+aqui só há orquestração. Documento completo (provedores, limites, estimativa, testes, pendências):
+[`docs/qa/IA_CORRECAO_MULTIPROVEDOR.md`](../../../docs/qa/IA_CORRECAO_MULTIPROVEDOR.md).
 
-## O que precisa ser configurado à mão
+## Estado
 
-1. **Chave do Gemini**, criada no Google AI Studio num projeto **free tier,
-   sem billing habilitado** (com billing ativo, estourar o free tier vira
-   cobrança em vez de erro):
+**Desativada.** Todos os provedores nascem desligados no banco e o interruptor global está em
+`ESSAY_AI_PROVIDER=disabled`. Sem provedor ligado e com chave, a função responde `503` **antes** de debitar
+cota ou tocar na submission.
 
-   ```bash
-   npx.cmd supabase secrets set GEMINI_API_KEY=...
-   ```
+## Configuração
 
-   A chave só existe no ambiente desta função. Não está no repositório, no
-   Flutter, no banco, em teste nem em log.
+Secrets (nunca no repositório, no app, no banco ou em log; cópia no cofre global):
 
-2. **Deploy**:
+```bash
+npx.cmd supabase secrets set GROQ_API_KEY=...
+npx.cmd supabase secrets set CLOUDFLARE_AI_TOKEN=... CLOUDFLARE_ACCOUNT_ID=...
+npx.cmd supabase secrets set GEMINI_API_KEY=...        # opcional; provedor desligado por padrão
+npx.cmd supabase secrets set ESSAY_AI_PROVIDER=multi   # ou =disabled para suspender TUDO
+npx.cmd supabase functions deploy evaluate-essay
+```
 
-   ```bash
-   npx.cmd supabase functions deploy evaluate-essay
-   ```
-
-3. Opcional — trocar de modelo sem mexer no código:
-
-   ```bash
-   npx.cmd supabase secrets set GEMINI_MODEL=outro-modelo
-   ```
-
-Sem `GEMINI_API_KEY` a função responde `503 not_configured` e **não toca na
-submission**: nada é debitado, nada falha no histórico.
-
-## Privacidade — importante antes de publicar
-
-A documentação atual do Gemini diz que, **no free tier, o conteúdo enviado
-pode ser usado pelo Google para melhorar os produtos deles**.
-
-Por isso o prompt leva apenas o necessário para corrigir:
-
-- o tema e a proposta;
-- os textos motivadores;
-- o texto da redação;
-- a rubrica de correção.
-
-Não vai nome, e-mail, `user_id`, `submission_id` nem qualquer identificador
-interno — nem no prompt, nem nos logs. O corpo da redação e a resposta
-completa do provider também não são logados; o log de erro guarda só o
-código do motivo (`rate_limited`, `invalid_output`, ...).
-
-**Isto precisa constar na Política de Privacidade antes da publicação**: o
-texto da redação é enviado a um provedor externo (Google) que, no plano
-gratuito, pode usá-lo para treinar/melhorar seus produtos.
-
-## Custo
-
-Somente a modalidade Standard do free tier. Sem batch pago, sem grounding,
-sem fallback para provider pago. Se o free tier acabar ou o rate limit
-bater, a tentativa vira `failed` (erro recuperável) e a pessoa tenta de
-novo depois — a redação e a submission nunca se perdem.
-
-O teto de 3 correções por usuário por dia é do banco
-(`essay_daily_evaluation_limit()`), não desta função, e é contado por
-submission distinta: retentar a mesma redação no mesmo dia não gasta cota
-nova.
+Quem roda, em que ordem, modelo, timeouts, tetos gratuitos e breaker ficam na tabela `essay_ai_providers`
+(sem deploy), pelas RPCs administrativas `admin_essay_ai_overview`, `admin_essay_ai_set` e
+`admin_essay_ai_set_order`. Só planos gratuitos: nunca habilitar faturamento nos provedores.
 
 ## Contrato
 
 `POST` com `Authorization: Bearer <jwt do usuário>` e corpo
-`{ "submission_id": "<uuid>", "locale": "pt-BR" | "en" | "es" }`.
-
-`locale` é o idioma do app: a correção (resumos, pontos fortes, o que
-melhorar, comentário geral) e os títulos das competências saem nele. A
-redação pode estar em qualquer idioma; a C1 avalia a norma padrão do idioma
-em que ela foi escrita, e outro idioma nunca zera nota nem conta como fuga
-ao tema. Sem `locale` (app antigo), fica em português. Prompt `essay-enem-v2`.
+`{ "submission_id": "<uuid>", "locale": "pt-BR" | "en" | "es" }`. Prompt `essay-enem-v3`; o idioma do
+`locale` é o da correção, a redação pode estar em qualquer idioma.
 
 | Resposta | Situação |
 |---|---|
-| `200 {status: "evaluated", total_score}` | corrigida e gravada |
+| `200 {status: "evaluated", total_score}` | corrigida e gravada (provider/model/prompt_version na avaliação) |
 | `409 {reason}` | `already_evaluated`, `already_evaluating`, `daily_limit_reached` |
 | `404 {reason: "not_found"}` | a submission não é sua ou não existe |
-| `502 {status: "failed", reason}` | `rate_limited`, `provider_unavailable`, `invalid_output` |
-| `503 {reason: "not_configured"}` | falta a `GEMINI_API_KEY` |
+| `502 {status: "failed", reason: "provider_unavailable"}` | todos os provedores falharam; texto salvo, **cota devolvida** |
+| `503 {reason: "provider_unavailable"}` | sem provedor elegível agora (franquia/breaker); nada foi debitado |
+| `503 {reason: "not_configured"}` | suspensa ou sem chaves |
 
-Uma correção que fica presa em `evaluating` (a function morre no meio, um
-deploy acontece durante a chamada) é enterrada pelo próprio banco na
-tentativa seguinte, passado `essay_evaluation_stale_after()` — sem isso o
-índice de "uma correção em voo por usuário" travaria a feature inteira
-para aquela pessoa.
+O app recebe sempre o mesmo motivo para qualquer falha; o detalhe (código, modelo, latência) fica no banco.
 
-`prompt_version` atual: **`essay-enem-v1`**, gravado em cada avaliação junto
-com provider e modelo — quando o prompt ou o modelo mudarem, dá para saber
-de onde veio cada nota antiga.
+## Privacidade e custo
+
+O prompt leva só tema, proposta, textos motivadores e redação, sem nome, e-mail, `user_id` ou
+`submission_id`. Redação e resposta do provedor não são logadas (só o código do motivo e contagens de uso).
+O Gemini no plano gratuito exige 18+ e usa o conteúdo para melhorar produtos: por isso fica desligado.
+A política de privacidade (`docs/legal`) descreve o processamento por IA.
+
+## Testes
+
+```bash
+deno task test:functions     # adaptadores, validação, fallback, breaker lógico
+docker exec -i aura-empty-check psql -U postgres -v ON_ERROR_STOP=1 -q < tool/db/essay_ai_sql_tests.sql
+```
+
+O segundo roda num Postgres descartável criado por `tool/db/empty_db_check.sh` (`KEEP=1`).

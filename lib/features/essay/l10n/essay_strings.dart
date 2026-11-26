@@ -443,23 +443,26 @@ class EssayStrings {
 
   String get evaluationUnavailable => switch (language) {
     AppLanguage.portuguese =>
-      'A correção está indisponível no momento. Seu texto está salvo — '
-          'tente de novo daqui a pouco.',
+      'Não foi possível corrigir sua redação agora. Seu texto está salvo. '
+          'Tente novamente em alguns instantes.',
     AppLanguage.english =>
-      'Marking is unavailable right now. Your text is saved -- try again '
-          'in a little while.',
+      "We couldn't mark your essay right now. Your text is saved. Please "
+          'try again in a few moments.',
     AppLanguage.spanish =>
-      'La corrección no está disponible en este momento. Tu texto está '
-          'guardado — intenta de nuevo en un rato.',
+      'No fue posible corregir tu redacción ahora. Tu texto está guardado. '
+          'Inténtalo de nuevo en unos instantes.',
   };
 
   String get evaluationInvalidOutput => switch (language) {
     AppLanguage.portuguese =>
-      'Não conseguimos concluir esta correção. Você pode tentar de novo.',
+      'Não foi possível corrigir sua redação agora. Seu texto está salvo. '
+          'Tente novamente em alguns instantes.',
     AppLanguage.english =>
-      "We couldn't finish this marking. You can try again.",
+      "We couldn't mark your essay right now. Your text is saved. Please "
+          'try again in a few moments.',
     AppLanguage.spanish =>
-      'No pudimos terminar esta corrección. Puedes intentar de nuevo.',
+      'No fue posible corregir tu redacción ahora. Tu texto está guardado. '
+          'Inténtalo de nuevo en unos instantes.',
   };
 
   String get evaluationNotConfigured => switch (language) {

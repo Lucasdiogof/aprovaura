@@ -1,0 +1,10 @@
+drop trigger if exists essay_release_quota_on_failure on essay_submissions;
+drop function if exists essay_release_quota_on_failure();
+drop function if exists admin_essay_ai_set_order(text[], text);
+drop function if exists admin_essay_ai_set(text, jsonb, text);
+drop function if exists admin_essay_ai_overview();
+drop function if exists essay_ai_report(text, boolean, text, integer, bigint, boolean, integer);
+drop function if exists essay_ai_plan();
+drop function if exists _essay_ai_day(text);
+drop table if exists essay_ai_usage;
+drop table if exists essay_ai_providers;

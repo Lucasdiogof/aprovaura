@@ -70,8 +70,8 @@ We may grant courtesy access periods (for example through referrals or promotion
 
 ## 12. Artificial intelligence and essay feedback
 
-- When reactivated, essay feedback uses **artificial intelligence** (Google Gemini API). The score and comments are **study support and a practice estimate, not an official score**, nor an opinion of an exam board or teacher, and may contain errors or inaccuracies.
-- For feedback, we send to Google's API only the topic, supporting texts, essay text and criteria, **without your identifiers** (name, e-mail, account ID). Details and the provider's data-use conditions are in the Privacy Policy.
+- When switched on, essay feedback uses **artificial intelligence** (external free-tier providers, chosen automatically). The score and comments are **study support and a practice estimate, not an official score**, nor an opinion of an exam board or teacher, and may contain errors or inaccuracies.
+- For feedback, we send the provider only the topic, supporting texts, essay text and criteria, **without your identifiers** (name, e-mail, account ID). Details and data-use conditions are in the Privacy Policy.
 - Do not include personal data about yourself or others, or sensitive or confidential information, in your essay.
 - AI feedback is **temporarily suspended**: no essay is sent to AI providers. It serves **only** essay correction (no chatbot), limited to **3 corrections per day**. It will be reactivated only with a solution compatible with the provider's terms and with a teenage audience, after notice in these Terms and the Privacy Policy.
 

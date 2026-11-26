@@ -70,8 +70,8 @@ Podemos conceder períodos de acesso de cortesia (por exemplo, por indicação o
 ## 12. Inteligência artificial e correção de redação
 
 - **A correção por IA está temporariamente suspensa.** Enquanto durar, nenhuma redação é enviada a provedores de IA; você pode escrever e salvar redações normalmente. A IA serve **somente** para corrigir redações (não há chatbot), com limite de **3 correções por dia**.
-- Quando reativada, a correção de redação usa **inteligência artificial** (API Google Gemini). A nota e os comentários são **apoio ao estudo e uma estimativa de treino, não uma nota oficial** nem um parecer de banca ou de professor, e podem conter erros ou imprecisões.
-- Para a correção, enviamos à API do Google apenas o tema, os textos de apoio, o texto da redação e os critérios, **sem seus identificadores** (nome, e-mail, ID de conta). Detalhes e condições de uso de dados do provedor estão na Política de Privacidade.
+- Quando ativada, a correção de redação usa **inteligência artificial** (provedores externos em plano gratuito, escolhidos automaticamente). A nota e os comentários são **apoio ao estudo e uma estimativa de treino, não uma nota oficial** nem um parecer de banca ou de professor, e podem conter erros ou imprecisões.
+- Para a correção, enviamos ao provedor apenas o tema, os textos de apoio, o texto da redação e os critérios, **sem seus identificadores** (nome, e-mail, ID de conta). Detalhes e condições de uso de dados estão na Política de Privacidade.
 - Não envie na redação dados pessoais seus ou de terceiros, nem informações sensíveis ou confidenciais.
 - A reativação só ocorrerá com solução compatível com os termos do provedor e com o público adolescente, e após aviso nestes Termos e na Política de Privacidade.
 

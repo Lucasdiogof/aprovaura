@@ -47,7 +47,7 @@ Estes provedores tratam dados em nosso nome, na medida necessária:
 |---|---|
 | **Supabase** (banco, autenticação, funções, armazenamento) | conta, perfil, progresso, respostas, redações, vínculo com professor, consentimentos, registros de pagamento (valores e IDs de transação, sem cartão) e aceites |
 | **Cloudflare** (hospedagem web e entrega de conteúdo) | dados de rede necessários para entregar o app web (como IP), conteúdo servido |
-| **Google Gemini** (API de IA) | apenas tema, textos de apoio, texto da redação e critérios, **sem seus identificadores** |
+| **Provedores de IA gratuitos** (Groq e Cloudflare Workers AI; Google Gemini só se for habilitado) | apenas tema, textos de apoio, texto da redação e critérios, **sem seus identificadores** |
 | **Resend** (e-mails transacionais) | seu e-mail e o conteúdo da mensagem (por exemplo, o código de confirmação) |
 | **Apple (App Store)** e **Google Play** | dados da compra/assinatura feita na respectiva loja, conforme as políticas delas; não vemos seu cartão |
 | **Mercado Pago** | dados de pagamento na web (cartão ou Pix), tratados pelo Mercado Pago; não vemos seu cartão |
@@ -55,18 +55,17 @@ Estes provedores tratam dados em nosso nome, na medida necessária:
 
 Também podemos divulgar dados quando a lei ou ordem de autoridade exigir.
 
-## 5. Correção de redação e Google Gemini
+## 5. Correção de redação e provedores de IA
 
-- **Situação atual: a correção de redação por IA está temporariamente suspensa e nenhuma redação é enviada a provedores de IA.** O recurso só será reativado depois de avisarmos aqui e de existir solução compatível com os termos do provedor e com o público adolescente. A IA serve **exclusivamente** para corrigir redações: não há chatbot nem conversa livre. O limite é de **3 correções por dia** por usuário (configurável).
-- Quando reativada, a correção usará a API do Google Gemini (integração mantida). Enviamos **sem identificadores**: nenhum nome, e-mail, ID de conta ou nome de usuário. O texto da redação, porém, é conteúdo que **você escreveu**; evite incluir dados pessoais seus ou de terceiros.
-- **As condições do Google sobre uso e retenção desses dados dependem da camada contratada**. Na camada gratuita, segundo a documentação do Google, o conteúdo pode ser usado para melhorar produtos do Google e pode ser lido por revisores humanos, e a Google recomenda não enviar dados pessoais ou confidenciais. Na camada paga, o Google afirma que não usa o conteúdo para melhorar produtos, mas registra dados por período limitado para prevenção de abuso e obrigações legais. **Não garantimos que o conteúdo não seja usado para treinamento** enquanto aplicável a camada gratuita.
-- Decisão do dono (24/11/2026): sem contratação de IA paga. Portanto a camada gratuita **não será usada com redações de usuários reais** enquanto o envio estiver suspenso; antes de reativar, esta seção será atualizada com a camada e o provedor efetivos.
-- A nota é **apoio ao estudo e estimativa de treino, não nota oficial**. Se preferir, não use a correção por IA: o restante do app não depende dela.
-- Os termos do Google exigem 18 anos ou mais e vedam apps provavelmente acessados por menores. Como o AprovaAura atende estudantes de todas as idades (inclusive adolescentes), **o envio permanece suspenso** até haver solução compatível.
+- **Situação atual: a correção de redação por IA está desativada e nenhuma redação é enviada a provedores de IA.** O recurso só será ativado depois de homologado e de atualizarmos este texto. A IA serve **exclusivamente** para corrigir redações: não há chatbot nem conversa livre. O limite é de **3 correções por dia** por usuário, somado entre todos os provedores.
+- Quando ativada, a correção usa **provedores de IA em plano gratuito**, em ordem de prioridade, com troca automática se o primeiro estiver indisponível ou sem franquia: **Groq** e **Cloudflare Workers AI**. O **Google Gemini** permanece integrado, mas **desabilitado por padrão**, porque os termos do plano gratuito do Google exigem 18 anos ou mais e permitem o uso do conteúdo para melhorar produtos. Você não precisa saber qual provedor processou a sua redação; a escolha é interna.
+- Enviamos **sem identificadores**: nenhum nome, e-mail, ID de conta ou nome de usuário. O texto da redação, porém, é conteúdo que **você escreveu**; evite incluir dados pessoais seus ou de terceiros. Não registramos em nossos logs o texto da redação nem a resposta completa da IA; guardamos apenas contagens de uso e códigos de erro, sem conteúdo.
+- Segundo a documentação oficial consultada em 26/11/2026: a Cloudflare informa que o conteúdo enviado ao Workers AI não é usado para treinar modelos e não é retido após a resposta; a Groq informa que, por padrão, entradas e saídas não são retidas, podendo haver logs por até 30 dias para confiabilidade e prevenção de abuso. Esses provedores podem processar dados fora do Brasil. **[PENDENTE-ADVOGADO: ler o Groq Services Agreement/DPA e os termos da Cloudflare quanto a menores de idade e LGPD antes de ativar para o público adolescente.]**
+- A nota é **apoio ao estudo e estimativa de treino, não nota oficial do ENEM**. Se preferir, não use a correção por IA: o restante do app não depende dela.
 
 ## 6. Transferência internacional
 
-Nossos provedores (como Supabase, Cloudflare, Google, Resend, Apple e Mercado Pago) podem processar dados em outros países, inclusive fora do Brasil. Fazemos a transferência conforme a LGPD (arts. 33 e seguintes), com as garantias contratuais e de segurança dos provedores. **[PENDENTE-DONO: confirmar mecanismo de transferência e regiões de cada provedor.]**
+Nossos provedores (como Supabase, Cloudflare, Groq, Google, Resend, Apple e Mercado Pago) podem processar dados em outros países, inclusive fora do Brasil. Fazemos a transferência conforme a LGPD (arts. 33 e seguintes), com as garantias contratuais e de segurança dos provedores. **[PENDENTE-DONO: confirmar mecanismo de transferência e regiões de cada provedor.]**
 
 ## 7. Retenção
 
@@ -74,7 +73,7 @@ Nossos provedores (como Supabase, Cloudflare, Google, Resend, Apple e Mercado Pa
 - **Registros de acesso**: **6 meses**, por obrigação legal (Marco Civil da Internet, art. 15).
 - **Dados financeiros** (valores, datas, IDs de transação): **anonimizados e preservados** pelo prazo exigido por obrigação legal/fiscal. Prazo exato: **[PENDENTE-DONO/contador: prazo de guarda fiscal]**.
 - **Registro de aceites**: pelo tempo necessário para comprovar o consentimento e o cumprimento de obrigações. **[PENDENTE-DONO: prazo]**.
-- Dados enviados ao Google Gemini: sujeitos às regras do Google (item 5); não controlamos o prazo.
+- Dados enviados aos provedores de IA: sem retenção por padrão, segundo a documentação de cada um (a Groq pode manter logs por até 30 dias); não controlamos esse prazo.
 
 ## 8. Exclusão de conta
 

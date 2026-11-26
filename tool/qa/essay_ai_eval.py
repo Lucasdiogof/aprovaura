@@ -1,4 +1,5 @@
-"""Avaliação técnica da IA de correção (Etapa 10C, serviço 3) com redações SINTÉTICAS.
+"""[OBSOLETO: o prompt/schema saíram de evaluate-essay/index.ts; use tool/qa/essay_ai_compare.ts]
+Avaliação técnica da IA de correção (Etapa 10C, serviço 3) com redações SINTÉTICAS.
 
 Usa o prompt e o schema REAIS de supabase/functions/evaluate-essay/index.ts (lidos do arquivo) e chama o
 Gemini direto, fora do app e do banco: nada de usuário, redação real ou dado pessoal. Mede nota por

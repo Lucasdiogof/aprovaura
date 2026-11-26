@@ -9,7 +9,7 @@
 |---|---|---|---|
 | Supabase | Banco, Auth, Edge Functions, Storage | Todos os dados da conta e de uso (abaixo) | NV (região do projeto) |
 | Cloudflare | Hospedagem web/Worker, entrega | Registros de acesso (IP, requisição) | NV |
-| Google Gemini | Avaliação de redações | Tema, textos de apoio, texto da redação, critérios — SEM identificadores (V). Camada gratuita; **envio suspenso** (`ESSAY_AI_PROVIDER=disabled`): hoje nenhum dado de redação sai para o Google | Qualquer país onde o Google opere (camada paga) |
+| Groq / Cloudflare Workers AI (Google Gemini preservado, desligado) | Avaliação de redações | Tema, textos de apoio, texto da redação, critérios — SEM identificadores (V). Planos gratuitos; **envio suspenso** (`ESSAY_AI_PROVIDER=disabled`): hoje nenhum dado de redação sai. Sem retenção por padrão segundo a documentação (Groq: logs até 30 dias) | Fora do Brasil possível; ver `IA_CORRECAO_MULTIPROVEDOR.md` |
 | Resend | E-mail transacional (configurado em 24/11, remetente no-reply@lucksrei.com, chave só de envio) | E-mail do usuário, código de confirmação | NV |
 | Apple / Google Play | Cobrança in-app | O app não vê cartão; recebe ids de transação (V) | — |
 | Mercado Pago | Cobrança web | Sem PAN/CVV no app (V); `external_reference` opaco | — |

@@ -70,8 +70,8 @@ Podemos conceder períodos de acceso de cortesía (por ejemplo, por recomendaci�
 
 ## 12. Inteligencia artificial y corrección de redacciones
 
-- Al reactivarse, la corrección de redacciones usa **inteligencia artificial** (API de Google Gemini). La nota y los comentarios son **apoyo al estudio y una estimación de práctica, no una nota oficial**, ni un dictamen de un tribunal examinador o de un profesor, y pueden contener errores o imprecisiones.
-- Para la corrección enviamos a la API de Google solo el tema, los textos de apoyo, el texto de la redacción y los criterios, **sin tus identificadores** (nombre, correo, ID de cuenta). Los detalles y las condiciones de uso de datos del proveedor están en la Política de Privacidad.
+- Al activarse, la corrección de redacciones usa **inteligencia artificial** (proveedores externos en plan gratuito, elegidos automáticamente). La nota y los comentarios son **apoyo al estudio y una estimación de práctica, no una nota oficial** ni un dictamen de tribunal o profesor, y pueden contener errores o imprecisiones.
+- Para la corrección, enviamos al proveedor solo el tema, los textos de apoyo, el texto de la redacción y los criterios, **sin tus identificadores** (nombre, correo, ID de cuenta). Los detalles y condiciones de uso de datos están en la Política de Privacidad.
 - No incluyas en la redacción datos personales tuyos o de terceros, ni información sensible o confidencial.
 - La corrección por IA está **temporalmente suspendida**: ninguna redacción se envía a proveedores de IA. Sirve **solo** para corregir redacciones (sin chatbot), con límite de **3 correcciones por día**. Se reactivará solo con una solución compatible con los términos del proveedor y con el público adolescente, previo aviso en estos Términos y en la Política de Privacidad.
 

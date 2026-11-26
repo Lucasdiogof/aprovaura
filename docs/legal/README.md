@@ -32,7 +32,7 @@ Dados do responsável (Termos e Política):
 Decisões bloqueadoras:
 6. Idade mínima do serviço. **Decidido (24/11): app NÃO restrito a 18+** (público ENEM/vestibular, inclui adolescentes). Resta definir o piso (hoje o app aceita a faixa "menor de 13") com advogado
 7. Regras para menores de 18 anos; uso por menores de 12 e consentimento dos responsáveis; vínculo com professor para menores; assinatura por menores (Family Sharing/Ask to Buy, Family Link)
-8. Gemini: **decidido (24/11)**: integração mantida, envio SUSPENSO até haver solução compatível com termos do provedor e adolescentes; sem IA paga; sem novos provedores; IA só para correção de redação (sem chatbot), 3/dia. Minutas já refletem isso
+8. IA da redação: **atualizado em 26/11**: multi-provedor gratuito com fallback (Groq + Cloudflare Workers AI; Gemini preservado e desligado por padrão), envio SUSPENSO até homologação real e parecer sobre menores; sem IA paga; IA só para correção de redação (sem chatbot), 3/dia. Minutas atualizadas (seção 5); texto do site só muda na ativação. Ver `docs/qa/IA_CORRECAO_MULTIPROVEDOR.md`.
 9. Informar na Política a camada/provedor efetivos **somente ao reativar o envio** (hoje: suspenso, nada é enviado)
 10. Prazo de guarda fiscal dos dados financeiros (contador)
 11. Prazo de guarda do registro de aceites
