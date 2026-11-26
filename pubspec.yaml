@@ -72,13 +72,10 @@ dev_dependencies:
   bloc_test: ^10.0.0
   mocktail: ^1.0.4
 
-# Launcher icons are generated from the Aprovaura app-icon master: the
-# official "A" symbol on solid #0B0F1A, full-bleed, no corner radius (each OS
-# applies its own mask). Android's adaptive foreground is the symbol alone,
-# on transparency, already placed inside the 66dp safe circle -- so the
-# plugin's default 16% inset is turned off (it would shrink it twice).
-# Master + foreground are derived by aprovaura-brand/gerar_assets.py; an
-# official 1024 master can replace aprovaura_app_icon_1024.png as-is.
+# Launcher icons (so o icone de instalacao) vem de tool/gen_app_icon.py: o "A"
+# oficial sobre degrade escuro sutil, sem cantos (cada SO aplica a mascara).
+# Android adaptive: foreground = so o A, transparente, ja posicionado na safe
+# zone (inset do plugin = 0 para nao encolher duas vezes); background = degrade.
 # Web/PWA icons are not generated here: they are committed under web/icons.
 flutter_launcher_icons:
   android: true
@@ -87,7 +84,7 @@ flutter_launcher_icons:
   min_sdk_android: 21
   remove_alpha_ios: true
   background_color_ios: "#0B0F1A"
-  adaptive_icon_background: "#0B0F1A"
+  adaptive_icon_background: "lib/assets/branding/aprovaura_adaptive_background.png"
   adaptive_icon_foreground: "lib/assets/branding/aprovaura_adaptive_foreground.png"
   adaptive_icon_foreground_inset: 0
 
