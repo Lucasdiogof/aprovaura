@@ -1,0 +1,378 @@
+{
+ "inep-matriz-enem": {
+  "nome": "INEP — Matriz de Referência do ENEM",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "bncc": {
+  "nome": "MEC — Base Nacional Comum Curricular",
+  "http": 403,
+  "consultado_em": "2026-11-27",
+  "classificacao": "indisponivel",
+  "licenca": "licenca_nao_confirmada",
+  "nota": "403 ao acesso automatizado (anti-bot); NÃO contornado. Alternativa oficial a tentar manualmente: portal do MEC (gov.br/mec). Uso restrito a matriz curricular, sem reprodução."
+ },
+ "ibge": {
+  "nome": "IBGE — Dados e indicadores",
+  "http": 403,
+  "consultado_em": "2026-11-27",
+  "classificacao": "indisponivel",
+  "licenca": "licenca_nao_confirmada",
+  "nota": "403 ao acesso automatizado; não contornado. Dados do IBGE só entram com data e verificação manual por pessoa (portal/SIDRA)."
+ },
+ "bcb": {
+  "nome": "Banco Central do Brasil",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "tesouro-transparente": {
+  "nome": "Tesouro Nacional — Tesouro Transparente",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "stn-mcasp": {
+  "nome": "STN — Manual de Contabilidade Aplicada ao Setor Público (MCASP)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "cfc-nbc-tsp": {
+  "nome": "CFC — NBC TSP (normas do setor público)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "cpc-pronunciamentos": {
+  "nome": "CPC — Pronunciamentos Contábeis",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "cgu-publicacoes": {
+  "nome": "CGU — publicações e referenciais",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "tcu-orientacoes": {
+  "nome": "TCU — orientações e publicações",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "conarq": {
+  "nome": "CONARQ / Arquivo Nacional",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "manual-redacao-presidencia": {
+  "nome": "Presidência da República — Manual de Redação",
+  "http": 404,
+  "consultado_em": "2026-11-27",
+  "classificacao": "indisponivel",
+  "licenca": "licenca_nao_confirmada",
+  "nota": "404 na URL cadastrada; URL canônica a localizar manualmente (Planalto/Centro de Estudos). Questões de redação oficial seguem em revisão especializada humana."
+ },
+ "planalto-cf88": {
+  "nome": "Constituição Federal de 1988 (compilada)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-cp": {
+  "nome": "Código Penal (Decreto-Lei 2.848/1940)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-cpp": {
+  "nome": "Código de Processo Penal (Decreto-Lei 3.689/1941)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-cc": {
+  "nome": "Código Civil (Lei 10.406/2002)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-cpc": {
+  "nome": "Código de Processo Civil (Lei 13.105/2015)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-ctn": {
+  "nome": "Código Tributário Nacional (Lei 5.172/1966)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-clt": {
+  "nome": "CLT (Decreto-Lei 5.452/1943)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-codigo-eleitoral": {
+  "nome": "Código Eleitoral (Lei 4.737/1965)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lei14133": {
+  "nome": "Lei de Licitações e Contratos (Lei 14.133/2021)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lei8112": {
+  "nome": "Estatuto dos Servidores Federais (Lei 8.112/1990)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lei9784": {
+  "nome": "Processo Administrativo Federal (Lei 9.784/1999)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lei8429": {
+  "nome": "Improbidade Administrativa (Lei 8.429/1992)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lrf": {
+  "nome": "Lei de Responsabilidade Fiscal (LC 101/2000)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lei4320": {
+  "nome": "Normas de Direito Financeiro (Lei 4.320/1964)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lei6938": {
+  "nome": "Política Nacional do Meio Ambiente (Lei 6.938/1981)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lei8213": {
+  "nome": "Benefícios da Previdência Social (Lei 8.213/1991)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lei4595": {
+  "nome": "Sistema Financeiro Nacional (Lei 4.595/1964)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lgpd": {
+  "nome": "LGPD (Lei 13.709/2018)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-cdc": {
+  "nome": "Código de Defesa do Consumidor (Lei 8.078/1990)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-ldb": {
+  "nome": "LDB (Lei 9.394/1996)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-eca": {
+  "nome": "ECA (Lei 8.069/1990)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-pne": {
+  "nome": "Plano Nacional de Educação (Lei 13.005/2014)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lbi": {
+  "nome": "Lei Brasileira de Inclusão (Lei 13.146/2015)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lei8080": {
+  "nome": "Lei Orgânica da Saúde (Lei 8.080/1990)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-lei8159": {
+  "nome": "Política Nacional de Arquivos (Lei 8.159/1991)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "planalto-decreto1171": {
+  "nome": "Código de Ética do Servidor (Decreto 1.171/1994)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "stf-jurisprudencia": {
+  "nome": "STF — súmulas e jurisprudência",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "stj-jurisprudencia": {
+  "nome": "STJ — súmulas",
+  "http": 404,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": "urllib=404, mas curl com redirecionamento=200 (comportamento diferente por cliente); conteúdo de súmulas NÃO conferido por revisão. Jurídico segue em revisão humana."
+ },
+ "tst-jurisprudencia": {
+  "nome": "TST — súmulas e orientações",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "tse-legislacao": {
+  "nome": "TSE — legislação e resoluções eleitorais",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_confirmada",
+  "nota": ""
+ },
+ "onu-oea-tratados": {
+  "nome": "ONU / OEA — textos de tratados de direitos humanos",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "nist-publicacoes": {
+  "nome": "NIST — publicações (CSRC)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "rfc-editor": {
+  "nome": "RFC Editor — RFCs",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "bancas-programas": {
+  "nome": "Conteúdos programáticos de bancas (CEBRASPE, FGV, FCC, VUNESP, CESGRANRIO etc.)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ },
+ "vestibulares-programas": {
+  "nome": "Programas/lista de leituras de vestibulares próprios (Fuvest, Unicamp, Unesp, UERJ, UFRGS, UFG)",
+  "http": 200,
+  "consultado_em": "2026-11-27",
+  "classificacao": "acessivel_nao_revisada",
+  "licenca": "licenca_nao_confirmada",
+  "nota": ""
+ }
+}

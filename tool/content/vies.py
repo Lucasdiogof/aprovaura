@@ -47,7 +47,7 @@ def merge():
     prev = {r["id"]: r for r in lines(REG)} if os.path.exists(REG) else {}
     for r in regs:  # preserva decisão cega já registrada
         p = prev.get(r["id"])
-        if p and p["alternativas"] == r["alternativas"] and p["status"] in ("aprovada", "rejeitada_cega"): r["status"] = p["status"]; r["resolucao_cega"] = p.get("resolucao_cega")
+        if p and p["alternativas"] == r["alternativas"] and p["status"] in ("aprovada_ia", "pendente_revisao_humana", "rejeitada_cega"): r["status"] = p["status"]; r["resolucao_cega"] = p.get("resolucao_cega")
     if regs:
         regs.sort(key=lambda r: r["id"]); open(REG, "w", encoding="utf-8", newline="\n").write("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in regs))
     print(f"arquivos ok={ok} pendentes={len(pend)} erro={len(erros)} propostas={len(regs)}", dict(collections.Counter(r["status"] for r in regs)))
@@ -57,35 +57,46 @@ def merge():
 
 def blind_export():
     os.makedirs(BIN, exist_ok=True); os.makedirs(BOUT, exist_ok=True)
-    regs = [r for r in lines(REG) if r["status"] == "aguardando_validacao_cega"]
+    ex_p = os.path.join(D, "state", "vies", "blind", "exported.json")
+    done = set(json.load(open(ex_p))) if os.path.exists(ex_p) else set()
+    regs = [r for r in lines(REG) if r["status"] == "aguardando_validacao_cega" and r["id"] not in done]
     leg = {json.loads(l)["id"]: json.loads(l) for l in open(os.path.join(D, "state", "legacy_full.jsonl"), encoding="utf-8")}
     by = collections.defaultdict(list)
     for r in regs: by[r["materia"]].append({"id": r["id"], "materia": r["materia"], "prompt": leg[r["id"]]["prompt"], "alternativas": r["alternativas"]})
+    leva = len(glob.glob(os.path.join(BIN, "*.jsonl"))) and max(int(re.search(r"_L(\d+)_", os.path.basename(f)).group(1)) for f in glob.glob(os.path.join(BIN, "*.jsonl"))) + 1 or 1
     n = 0
     for m, L in by.items():
         k = -(-len(L) // 70); s = -(-len(L) // k)
         for i in range(k):
-            open(os.path.join(BIN, f"{m}_{i+1:02d}.jsonl"), "w", encoding="utf-8", newline="\n").write("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in L[i*s:(i+1)*s])); n += 1
-    print(len(regs), "questões ->", n, "arquivos cegos")
+            conteudo = "".join(json.dumps(x, ensure_ascii=False) + "\n" for x in L[i*s:(i+1)*s])
+            open(os.path.join(BIN, f"{m}_L{leva}_{i+1:02d}.jsonl"), "w", encoding="utf-8", newline="\n").write(conteudo); n += 1
+    json.dump(sorted(done | {r["id"] for r in regs}), open(ex_p, "w"))
+    print(len(regs), f"questões -> {n} arquivos cegos (leva {leva})")
+
+
+BLOQUEIO = {"ambigua", "alternativas_equivalentes", "referencia_inexistente", "desatualizada", "duplicata_provavel", "gabarito_duvidoso"}
 
 
 def ingest_blind():
+    """Concordância cega confirma o GABARITO; não detecta ambiguidade (auditado: 17/17 itens 'ambigua' passaram). Itens com flag de BLOQUEIO
+    ficam 'pendente_revisao_humana' mesmo com concordância; 'aprovada_ia' = concordância cega + sem flag de bloqueio (não é revisão humana)."""
+    fl = {r["id"]: set(r["flags"]) for r in lines(os.path.join(D, "registro", "backfill_categorias.jsonl"))}
     regs = {r["id"]: r for r in lines(REG)}; res = {}
     for f in glob.glob(os.path.join(BOUT, "*.jsonl")):
         for r in lines(f): res[r["id"]] = r
     c = collections.Counter()
     for i, r in regs.items():
-        if r["status"] != "aguardando_validacao_cega" or i not in res: continue
+        if r["status"] not in ("aguardando_validacao_cega", "aprovada") or i not in res: continue
         b = res[i]; r["resolucao_cega"] = {"resposta": b.get("resposta"), "unica": b.get("unica_correta", True), "nota": b.get("nota", "")}
         ok = b.get("resposta") == r["correct_index"] and b.get("unica_correta", True) is True
-        r["status"] = "aprovada" if ok else "rejeitada_cega"; c[r["status"]] += 1
+        r["status"] = ("pendente_revisao_humana" if fl.get(i, set()) & BLOQUEIO else "aprovada_ia") if ok else "rejeitada_cega"; c[r["status"]] += 1
     open(REG, "w", encoding="utf-8", newline="\n").write("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in sorted(regs.values(), key=lambda r: r["id"])))
     print(dict(c), "| total:", dict(collections.Counter(r["status"] for r in regs.values())))
 
 
 def report():
     regs = lines(REG); print(dict(collections.Counter(r["status"] for r in regs)))
-    ap = [r for r in regs if r["status"] == "aprovada"]
+    ap = [r for r in regs if r["status"] == "aprovada_ia"]
     if ap:
         import statistics as st
         print("aprovadas: razão mediana antes→depois:", round(st.median(razao(r["alternativas_antes"], r["correct_index"]) for r in ap), 2), "→", round(st.median(razao(r["alternativas"], r["correct_index"]) for r in ap), 2),

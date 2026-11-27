@@ -1,1 +1,4 @@
 {"quando":"2026-11-27","tipo":"backfill_id_corrigido","arquivo":"geografia_03","detalhe":"2 ids com final transcrito errado pelo agente, corrigidos por prefixo único"}
+{"quando":"2026-11-27","tipo":"enunciado_dependente_de_contexto","id":"4899e949","detalhe":"enunciado \"por sua vez\" depende de contexto ausente; alternativas reescritas mas enunciado precisa de revisão","origem":"agente vies biologia_04"}
+{"quando":"2026-11-27","tipo":"vies_conteudo_correta_alterado","id":"f7fd527f","detalhe":"correta reescrita para sair de ambiguidade (servos); muda levemente o conteúdo avaliado; exige revisão humana antes de aplicar","origem":"agente vies historia_03"}
+{"quando":"2026-11-27","tipo":"vies_questao_ambigua_removida_opcao","id":"5e0815e0","detalhe":"baterias: opção D também era verdadeira; removida/substituída na proposta","origem":"agente vies quimica_01"}
