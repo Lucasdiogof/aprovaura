@@ -17,11 +17,11 @@ class MultipleChoiceStrings {
   /// queued, so it must not read as "will sync later".
   String get answerNotSavedNotice => switch (language) {
     AppLanguage.portuguese =>
-      'Sem conexão: esta resposta não foi registrada no seu progresso.',
+      'Não foi possível registrar esta resposta no seu progresso.',
     AppLanguage.english =>
-      'No connection: this answer was not recorded in your progress.',
+      'Could not record this answer in your progress.',
     AppLanguage.spanish =>
-      'Sin conexión: esta respuesta no se registró en tu progreso.',
+      'No se pudo registrar esta respuesta en tu progreso.',
   };
 
   /// Offline: the answer is kept on the device and sent later.

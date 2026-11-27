@@ -103,10 +103,13 @@ class _PracticePageState extends State<PracticePage> {
     return Scaffold(
       backgroundColor: context.colors.background,
       body: SafeArea(
-        child: CustomScrollView(
+        child: LayoutBuilder(builder: (context, box) {
+          // Centered column on wide screens (web); 24 on phones.
+          final side = ((box.maxWidth - 760) / 2).clamp(0.0, double.infinity) + 24;
+          return CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
+              padding: EdgeInsets.fromLTRB(side, 24, side, 0),
               sliver: SliverToBoxAdapter(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -130,13 +133,13 @@ class _PracticePageState extends State<PracticePage> {
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+              padding: EdgeInsets.fromLTRB(side, 0, side, 24),
               sliver: SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 200,
                   mainAxisSpacing: 12,
                   crossAxisSpacing: 12,
-                  childAspectRatio: 1.05,
+                  mainAxisExtent: 152,
                 ),
                 delegate: SliverChildBuilderDelegate(
                   // Redação is one of the subjects (last unless picked as
@@ -157,7 +160,8 @@ class _PracticePageState extends State<PracticePage> {
               ),
             ),
           ],
-        ),
+          );
+        }),
       ),
     );
   }

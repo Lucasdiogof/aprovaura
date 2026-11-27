@@ -452,7 +452,10 @@ class _FinishedViewState extends State<_FinishedView> {
 
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(vertical: 24),
-      child: AurudoReactionStage(
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 480),
+          child: AurudoReactionStage(
         reaction: reaction,
         instant: _instant,
         headline: _FinishedHeadline(
@@ -480,6 +483,8 @@ class _FinishedViewState extends State<_FinishedView> {
           strings: strings,
           tier: tier,
           isCorrectionMode: widget.isCorrectionMode,
+        ),
+      ),
         ),
       ),
     );
