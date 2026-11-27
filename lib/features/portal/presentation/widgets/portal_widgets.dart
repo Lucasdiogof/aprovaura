@@ -10,7 +10,17 @@ import 'package:aura/features/portal/presentation/widgets/csv_download.dart';
 
 const double kWide = 900;
 
-/// Título de página com ações à direita.
+/// Largura máxima do conteúdo (monitores grandes aproveitam a área; abaixo disso ocupa tudo).
+const double kContentMax = 1680;
+
+/// Altura única dos controles de barra de ferramentas (busca, seletores, botões).
+const double kControlH = 44;
+
+/// Espaçamentos do portal: entre seções, entre cards e padding interno.
+const double kSectionGap = 28;
+const double kCardGap = 16;
+
+/// Título de página com ações à direita (largura proporcional ao texto).
 class PageHeader extends StatelessWidget {
   const PageHeader({required this.title, this.subtitle, this.actions = const [], super.key});
   final String title;
@@ -20,32 +30,68 @@ class PageHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    final titleBlock = Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
+      Text(title, style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800, color: c.textPrimary)),
+      if (subtitle != null)
+        Padding(
+          padding: const EdgeInsets.only(top: 4),
+          child: Text(subtitle!, style: TextStyle(fontSize: 14, color: c.textSecondary)),
+        ),
+    ]);
+    final acts = Wrap(spacing: 8, runSpacing: 8, alignment: WrapAlignment.end, children: actions);
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Wrap(
-        spacing: 12,
-        runSpacing: 8,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        alignment: WrapAlignment.spaceBetween,
-        children: [
-          Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-            Text(title, style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800, color: c.textPrimary)),
+      padding: const EdgeInsets.only(bottom: 24),
+      child: LayoutBuilder(builder: (context, box) {
+        if (actions.isEmpty) return titleBlock;
+        if (box.maxWidth < 640) {
+          return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            titleBlock,
+            const SizedBox(height: 12),
+            Align(alignment: Alignment.centerLeft, child: acts),
+          ]);
+        }
+        return Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          Expanded(child: titleBlock),
+          const SizedBox(width: 16),
+          ConstrainedBox(constraints: BoxConstraints(maxWidth: box.maxWidth * 0.65), child: acts),
+        ]);
+      }),
+    );
+  }
+}
+
+/// Título de seção dentro de uma página (sempre a mesma tipografia e espaçamento).
+class SectionHeader extends StatelessWidget {
+  const SectionHeader(this.title, {this.subtitle, this.trailing, super.key});
+  final String title;
+  final String? subtitle;
+  final Widget? trailing;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Padding(
+      padding: const EdgeInsets.only(top: kSectionGap - 8, bottom: 12),
+      child: Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
+        Expanded(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text(title, style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: c.textPrimary)),
             if (subtitle != null)
               Padding(
                 padding: const EdgeInsets.only(top: 2),
-                child: Text(subtitle!, style: TextStyle(color: c.textSecondary)),
+                child: Text(subtitle!, style: TextStyle(fontSize: 13, color: c.textSecondary)),
               ),
           ]),
-          if (actions.isNotEmpty) Wrap(spacing: 8, runSpacing: 8, children: actions),
-        ],
-      ),
+        ),
+        ?trailing,
+      ]),
     );
   }
 }
 
 /// Superfície padrão (card).
 class Panel extends StatelessWidget {
-  const Panel({required this.child, this.title, this.trailing, this.padding = 16, super.key});
+  const Panel({required this.child, this.title, this.trailing, this.padding = 20, super.key});
   final Widget child;
   final String? title;
   final Widget? trailing;
@@ -59,7 +105,7 @@ class Panel extends StatelessWidget {
       padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
         color: c.surface,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(14),
         border: Border.all(color: c.border),
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -81,55 +127,84 @@ class Panel extends StatelessWidget {
 }
 
 class StatCard extends StatelessWidget {
-  const StatCard({required this.label, required this.value, this.hint, this.icon, super.key});
+  const StatCard({required this.label, required this.value, this.hint, this.icon, this.tone, super.key});
   final String label;
   final String value;
   final String? hint;
   final IconData? icon;
 
+  /// Realça o valor (ex.: atenção em âmbar). Neutro por padrão.
+  final Tone? tone;
+
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    final valueColor = switch (tone) {
+      Tone.good => c.success,
+      Tone.warn => c.warning,
+      Tone.bad => c.error,
+      _ => c.textPrimary,
+    };
     return Container(
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         color: c.surface,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(14),
         border: Border.all(color: c.border),
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start, children: [
         Row(children: [
-          if (icon != null) ...[Icon(icon, size: 16, color: c.primary), const SizedBox(width: 6)],
+          if (icon != null) ...[Icon(icon, size: 16, color: c.primary), const SizedBox(width: 8)],
           Expanded(
             child: Text(label,
-                maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 12, color: c.textSecondary)),
+                maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 13, color: c.textSecondary)),
           ),
         ]),
-        const SizedBox(height: 6),
-        Text(value, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: c.textPrimary)),
+        const SizedBox(height: 8),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          alignment: Alignment.centerLeft,
+          child: Text(value, style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800, color: valueColor)),
+        ),
         if (hint != null)
           Padding(
-            padding: const EdgeInsets.only(top: 2),
-            child: Text(hint!, style: TextStyle(fontSize: 11, color: c.textHint)),
+            padding: const EdgeInsets.only(top: 4),
+            child: Text(hint!, style: TextStyle(fontSize: 12, color: c.textHint)),
           ),
       ]),
     );
   }
 }
 
-/// Grade responsiva de cards (colunas conforme a largura).
+/// Grade responsiva de cards: colunas conforme a largura, linhas com a MESMA altura
+/// e a última linha alinhada às mesmas colunas das demais.
 class CardGrid extends StatelessWidget {
-  const CardGrid({required this.children, this.minWidth = 200, super.key});
+  const CardGrid({required this.children, this.minWidth = 220, this.maxColumns = 6, super.key});
   final List<Widget> children;
   final double minWidth;
+  final int maxColumns;
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(builder: (context, box) {
-        final cols = (box.maxWidth / minWidth).floor().clamp(1, 6);
-        final w = (box.maxWidth - (cols - 1) * 12) / cols;
-        return Wrap(spacing: 12, runSpacing: 12, children: [
-          for (final ch in children) SizedBox(width: w, child: ch),
-        ]);
+        final fit = (box.maxWidth / minWidth).floor().clamp(1, maxColumns);
+        // Poucos cards ocupam a largura toda em vez de deixar um vazio à direita.
+        final cols = children.length < fit && children.isNotEmpty ? children.length : fit;
+        final rows = <Widget>[];
+        for (var i = 0; i < children.length; i += cols) {
+          final slice = children.skip(i).take(cols).toList();
+          rows.add(Padding(
+            padding: EdgeInsets.only(top: i == 0 ? 0 : kCardGap),
+            child: IntrinsicHeight(
+              child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                for (var j = 0; j < cols; j++) ...[
+                  if (j > 0) const SizedBox(width: kCardGap),
+                  Expanded(child: j < slice.length ? slice[j] : const SizedBox.shrink()),
+                ],
+              ]),
+            ),
+          ));
+        }
+        return Column(children: rows);
       });
 }
 
@@ -151,12 +226,12 @@ class StatusBadge extends StatelessWidget {
       Tone.neutral => c.textSecondary,
     };
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.14),
         borderRadius: BorderRadius.circular(100),
       ),
-      child: Text(label, style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: color)),
+      child: Text(label, maxLines: 1, softWrap: false, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: color)),
     );
   }
 }
@@ -318,9 +393,10 @@ class Skeleton extends StatelessWidget {
 }
 
 class EmptyState extends StatelessWidget {
-  const EmptyState({required this.message, this.icon = Icons.inbox_outlined, super.key});
+  const EmptyState({required this.message, this.icon = Icons.inbox_outlined, this.action, super.key});
   final String message;
   final IconData icon;
+  final Widget? action;
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -328,9 +404,10 @@ class EmptyState extends StatelessWidget {
       padding: const EdgeInsets.all(32),
       child: Center(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Icon(icon, size: 36, color: c.textHint),
+          Icon(icon, size: 40, color: c.textHint),
           const SizedBox(height: 8),
           Text(message, textAlign: TextAlign.center, style: TextStyle(color: c.textSecondary)),
+          if (action != null) ...[const SizedBox(height: 12), action!],
         ]),
       ),
     );
@@ -355,36 +432,52 @@ class PortalTable extends StatelessWidget {
     final c = context.colors;
     return LayoutBuilder(builder: (context, box) {
       if (box.maxWidth >= kWide) {
-        return Column(children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            child: Row(children: [
-              for (final col in columns)
-                Expanded(
-                  flex: col.flex,
-                  child: Text(col.label,
-                      style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: c.textHint)),
-                ),
-            ]),
-          ),
-          Divider(height: 1, color: c.border),
-          for (var i = 0; i < rows.length; i++) ...[
-            InkWell(
-              onTap: onTap == null ? null : () => onTap!(i),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: DecoratedBox(
+            decoration: BoxDecoration(border: Border.all(color: c.border), borderRadius: BorderRadius.circular(12)),
+            child: Column(children: [
+              Container(
+                color: c.secondary.withValues(alpha: 0.5),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 child: Row(children: [
-                  for (var j = 0; j < columns.length; j++)
+                  for (final col in columns)
                     Expanded(
-                      flex: columns[j].flex,
-                      child: Align(alignment: Alignment.centerLeft, child: rows[i][j]),
+                      flex: col.flex,
+                      child: Text(col.label.toUpperCase(),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              fontSize: 11, fontWeight: FontWeight.w700, letterSpacing: 0.6, color: c.textSecondary)),
                     ),
                 ]),
               ),
-            ),
-            Divider(height: 1, color: c.border),
-          ],
-        ]);
+              for (var i = 0; i < rows.length; i++) ...[
+                Divider(height: 1, color: c.border),
+                InkWell(
+                  onTap: onTap == null ? null : () => onTap!(i),
+                  hoverColor: c.primary.withValues(alpha: 0.05),
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(minHeight: 56),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                      child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                        for (var j = 0; j < columns.length; j++)
+                          Expanded(
+                            flex: columns[j].flex,
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Padding(padding: const EdgeInsets.only(right: 12), child: rows[i][j]),
+                            ),
+                          ),
+                      ]),
+                    ),
+                  ),
+                ),
+              ],
+            ]),
+          ),
+        );
       }
       return Column(children: [
         for (var i = 0; i < rows.length; i++)
@@ -394,7 +487,7 @@ class PortalTable extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               onTap: onTap == null ? null : () => onTap!(i),
               child: Container(
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
                   border: Border.all(color: c.border),
                   borderRadius: BorderRadius.circular(12),
@@ -406,7 +499,7 @@ class PortalTable extends StatelessWidget {
                       child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                         SizedBox(
                           width: 110,
-                          child: Text(columns[j].label, style: TextStyle(fontSize: 11, color: c.textHint)),
+                          child: Text(columns[j].label, style: TextStyle(fontSize: 12, color: c.textHint)),
                         ),
                         Expanded(child: Align(alignment: Alignment.centerLeft, child: rows[i][j])),
                       ]),
@@ -454,7 +547,8 @@ class Pager extends StatelessWidget {
 
 /// Campo de busca com atraso (não consulta a cada tecla).
 class SearchBox extends StatefulWidget {
-  const SearchBox({required this.hint, required this.onChanged, this.initial = '', super.key});
+  const SearchBox({required this.hint, required this.onChanged, this.initial = '', this.width = 320, super.key});
+  final double? width;
   final String hint;
   final String initial;
   final void Function(String) onChanged;
@@ -475,13 +569,15 @@ class _SearchBoxState extends State<SearchBox> {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-        width: 260,
+        width: widget.width,
+        height: kControlH,
         child: TextField(
           controller: _ctrl,
+          textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(
             hintText: widget.hint,
-            prefixIcon: const Icon(Icons.search_rounded),
-            isDense: true,
+            prefixIcon: const Icon(Icons.search_rounded, size: 20),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 12),
           ),
           onChanged: (v) {
             _timer?.cancel();
@@ -509,6 +605,7 @@ class Select<T> extends StatelessWidget {
         value: value,
         isDense: true,
         isExpanded: narrow,
+        borderRadius: BorderRadius.circular(10),
         items: [
           for (final e in items.entries)
             DropdownMenuItem<T>(value: e.key, child: Text(e.value, overflow: TextOverflow.ellipsis)),
@@ -519,12 +616,71 @@ class Select<T> extends StatelessWidget {
       ),
     );
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      height: kControlH,
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(border: Border.all(color: c.border), borderRadius: BorderRadius.circular(10)),
       child: Row(mainAxisSize: narrow ? MainAxisSize.max : MainAxisSize.min, children: [
-        Text('$label: ', style: TextStyle(fontSize: 12, color: c.textHint)),
+        Text('$label: ', style: TextStyle(fontSize: 13, color: c.textSecondary)),
         if (narrow) Expanded(child: dropdown) else dropdown,
       ]),
+    );
+  }
+}
+
+/// Barra de ferramentas: busca + filtros alinhados na mesma altura; quebra em linhas coerentes.
+class FilterBar extends StatelessWidget {
+  const FilterBar({required this.children, this.trailing, super.key});
+  final List<Widget> children;
+  final Widget? trailing;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.only(bottom: 16),
+        child: Wrap(spacing: 12, runSpacing: 12, crossAxisAlignment: WrapCrossAlignment.center, children: [
+          ...children,
+          ?trailing,
+        ]),
+      );
+}
+
+/// Abas de navegação em página: sublinhado no item ativo (substitui botões soltos).
+class PortalTabs<T> extends StatelessWidget {
+  const PortalTabs({required this.tabs, required this.value, required this.onChanged, super.key});
+  final Map<T, String> tabs;
+  final T value;
+  final void Function(T) onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Container(
+      decoration: BoxDecoration(border: Border(bottom: BorderSide(color: c.border))),
+      margin: const EdgeInsets.only(bottom: 20),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(children: [
+          for (final e in tabs.entries)
+            InkWell(
+              onTap: () => onChanged(e.key),
+              child: Container(
+                height: 44,
+                padding: const EdgeInsets.symmetric(horizontal: 18),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(color: e.key == value ? c.primary : Colors.transparent, width: 2),
+                  ),
+                ),
+                child: Text(e.value,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: e.key == value ? FontWeight.w700 : FontWeight.w500,
+                      color: e.key == value ? c.primary : c.textSecondary,
+                    )),
+              ),
+            ),
+        ]),
+      ),
     );
   }
 }

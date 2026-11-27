@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/portal/data/portal_api.dart';
 import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/features/portal/presentation/pages/partner_pages.dart';
@@ -65,13 +66,57 @@ Widget _reconBadge(PortalStrings t, Map<dynamic, dynamic> p) => p['reconciliatio
 String _settle(PortalStrings t, Map<dynamic, dynamic> p) =>
     p['settlement_status'] == 'settled' ? t('Liquidado', 'Settled', 'Liquidado') : t('Aguardando', 'Awaiting', 'Pendiente');
 
-Widget _section(String title, List<Widget> cards) => Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Padding(padding: const EdgeInsets.only(bottom: 8), child: Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800))),
-        CardGrid(children: cards),
+/// Bloco com título e grade de cards de mesma altura. [scope] diz se os valores
+/// são "no período" ou "saldo atual" (nunca misturados no mesmo bloco).
+Widget _section(String title, List<Widget> cards, {String? scope}) => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      SectionHeader(title, subtitle: scope),
+      CardGrid(children: cards),
+    ]);
+
+/// Card com explicação em Tooltip (fórmulas e ressalvas financeiras).
+Widget _stat(String label, String value, {String? hint, String? tip, Tone? tone, IconData? icon}) {
+  final card = StatCard(label: label, value: value, hint: hint, tone: tone, icon: icon);
+  return tip == null ? card : Tooltip(message: tip, child: card);
+}
+
+/// Botão de barra de ferramentas na altura padrão dos controles.
+Widget _toolButton({required VoidCallback? onPressed, required IconData icon, required String label, bool primary = false}) => SizedBox(
+      height: kControlH,
+      child: primary
+          ? ElevatedButton.icon(onPressed: onPressed, icon: Icon(icon, size: 18), label: Text(label))
+          : OutlinedButton.icon(onPressed: onPressed, icon: Icon(icon, size: 18), label: Text(label)),
+    );
+
+/// Composição da receita: linha por componente com barra proporcional ao bruto (dados reais).
+class _CompositionRow extends StatelessWidget {
+  const _CompositionRow({required this.label, required this.cents, required this.base, required this.money, this.strong = false, this.negative = false});
+  final String label;
+  final num cents, base;
+  final String Function(num) money;
+  final bool strong, negative;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final frac = base <= 0 ? 0.0 : (cents.abs() / base).clamp(0, 1).toDouble();
+    final color = negative ? c.warning : (strong ? c.success : c.primary);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(children: [
+        Expanded(flex: 3, child: Text(label, style: TextStyle(fontWeight: strong ? FontWeight.w700 : FontWeight.w500, color: c.textPrimary))),
+        Expanded(
+          flex: 4,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: LinearProgressIndicator(value: frac, minHeight: 8, color: color, backgroundColor: c.secondary),
+          ),
+        ),
+        const SizedBox(width: 12),
+        SizedBox(width: 120, child: Text(money(negative ? -cents.abs() : cents), textAlign: TextAlign.right, style: TextStyle(fontWeight: strong ? FontWeight.w800 : FontWeight.w600, color: c.textPrimary))),
       ]),
     );
+  }
+}
 
 DateTime _month(DateTime d, [int add = 0]) => DateTime(d.year, d.month + add);
 String _ym(DateTime d) => '${d.month.toString().padLeft(2, '0')}/${d.year}';
@@ -90,22 +135,16 @@ class _AdminFinanceState extends State<AdminFinancePage> {
   @override
   Widget build(BuildContext context) {
     final t = PortalStrings.watch(context);
-    final names = [
-      t('Visão geral', 'Overview', 'Resumen'),
-      t('Pagamentos', 'Payments', 'Pagos'),
-      t('Repasses', 'Payouts', 'Pagos a profesores'),
-      t('Despesas', 'Expenses', 'Gastos'),
-      t('Conciliação', 'Reconciliation', 'Conciliación'),
-    ];
+    final tabs = {
+      0: t('Visão geral', 'Overview', 'Resumen'),
+      1: t('Pagamentos', 'Payments', 'Pagos'),
+      2: t('Repasses', 'Payouts', 'Pagos a profesores'),
+      3: t('Despesas', 'Expenses', 'Gastos'),
+      4: t('Conciliação', 'Reconciliation', 'Conciliación'),
+    };
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       PageHeader(title: t('Financeiro', 'Finance', 'Finanzas')),
-      Padding(
-        padding: const EdgeInsets.only(bottom: 16),
-        child: Wrap(spacing: 8, runSpacing: 8, children: [
-          for (var i = 0; i < names.length; i++)
-            ChoiceChip(label: Text(names[i]), selected: _tab == i, onSelected: (_) => setState(() => _tab = i)),
-        ]),
-      ),
+      PortalTabs<int>(tabs: tabs, value: _tab, onChanged: (i) => setState(() => _tab = i)),
       switch (_tab) {
         0 => const _OverviewTab(),
         1 => const _PaymentsTab(),
@@ -132,17 +171,16 @@ class _OverviewTabState extends State<_OverviewTab> with PeriodState {
     final api = context.read<PortalApi>();
     final r = range;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: const EdgeInsets.only(bottom: 12),
-        child: Wrap(spacing: 10, runSpacing: 10, crossAxisAlignment: WrapCrossAlignment.center, children: [
+      FilterBar(
+        trailing: _toolButton(
+          onPressed: () => exportCsv(context, () => api.financeExport('summary', from: r.start, to: r.end), 'resumo-financeiro.csv'),
+          icon: Icons.download_rounded,
+          label: t('Exportar resumo', 'Export summary', 'Exportar resumen'),
+        ),
+        children: [
           periodSelect(t),
-          Text('${t.date(r.start)} – ${t.date(r.end)}'),
-          OutlinedButton.icon(
-            onPressed: () => exportCsv(context, () => api.financeExport('summary', from: r.start, to: r.end), 'resumo-financeiro.csv'),
-            icon: const Icon(Icons.download_rounded, size: 18),
-            label: Text(t('Exportar resumo', 'Export summary', 'Exportar resumen')),
-          ),
-        ]),
+          Text('${t.date(r.start)} – ${t.date(r.end)}', style: TextStyle(color: context.colors.textSecondary)),
+        ],
       ),
       Loader<Map<String, dynamic>>(
         loader: () => api.financeDashboard(r.start, r.end),
@@ -167,31 +205,46 @@ class _OverviewTabState extends State<_OverviewTab> with PeriodState {
                   )),
                 ),
               ),
-            _section(t('Receita (por competência)', 'Revenue (accrual)', 'Ingresos (devengado)'), [
-              StatCard(icon: Icons.payments_outlined, label: t('Faturamento bruto', 'Gross revenue', 'Facturación bruta'), value: t.money(_n(x, 'gross_cents')), hint: '${t.number(_n(x, 'payments_count'))} ${t('pagamentos confirmados', 'confirmed payments', 'pagos confirmados')}'),
-              StatCard(label: t('Reembolsos e estornos', 'Refunds and chargebacks', 'Reembolsos y contracargos'), value: t.money(-_n(x, 'refunds_cents')), hint: '${t.number(_n(x, 'refunds_count'))} ${t('eventos', 'events', 'eventos')}'),
-              StatCard(label: t('Taxas das plataformas', 'Platform fees', 'Tarifas de plataformas'), value: t.money(-_n(x, 'fees_cents'))),
-              StatCard(label: t('Impostos sobre vendas', 'Sales taxes', 'Impuestos sobre ventas'), value: t.money(-_n(x, 'taxes_cents')), hint: t('Somente os registrados', 'Only those recorded', 'Solo los registrados')),
-              StatCard(label: t('Receita líquida', 'Net revenue', 'Ingresos netos'), value: t.money(_n(x, 'net_cents')), hint: t('Após taxas, impostos e reembolsos — não é lucro', 'After fees, taxes and refunds — not profit', 'Tras tarifas, impuestos y reembolsos — no es ganancia')),
-            ]),
-            _section(t('Comissões de professores', 'Teacher commissions', 'Comisiones de profesores'), [
-              StatCard(label: t('Geradas', 'Generated', 'Generadas'), value: t.money(_n(x, 'commissions_generated_cents'))),
-              StatCard(label: t('Estornadas', 'Reversed', 'Revertidas'), value: t.money(-_n(x, 'commissions_reversed_cents'))),
-              StatCard(label: t('Comissões líquidas', 'Net commissions', 'Comisiones netas'), value: t.money(_n(x, 'commissions_net_cents'))),
-              StatCard(label: t('A repassar (saldo atual)', 'To pay out (current balance)', 'Por pagar (saldo actual)'), value: t.money(_n(x, 'commissions_pending_payout_cents')), hint: t('Todos os professores, hoje', 'All teachers, today', 'Todos los profesores, hoy')),
-              StatCard(label: t('Repassadas no período', 'Paid out in period', 'Pagadas en el periodo'), value: t.money(_n(x, 'commissions_paid_cents'))),
-              StatCard(label: t('Pendentes de conciliação', 'Pending reconciliation', 'Pendientes de conciliación'), value: t.money(_n(x, 'pending_reconciliation_commission_cents')), hint: t('Ainda não liberadas', 'Not yet released', 'Aún no liberadas')),
-            ]),
+            _section(t('Indicadores principais', 'Key indicators', 'Indicadores principales'), [
+              _stat(t('Faturamento bruto', 'Gross revenue', 'Facturación bruta'), t.money(_n(x, 'gross_cents')), icon: Icons.payments_outlined, hint: '${t.number(_n(x, 'payments_count'))} ${t('pagamentos confirmados', 'confirmed payments', 'pagos confirmados')}'),
+              _stat(t('Receita líquida', 'Net revenue', 'Ingresos netos'), t.money(_n(x, 'net_cents')), hint: t('Após taxas, impostos e reembolsos — não é lucro', 'After fees, taxes and refunds — not profit', 'Tras tarifas, impuestos y reembolsos — no es ganancia'), tip: t('Líquida = bruto − reembolsos − taxas − impostos. Receita não é lucro.', 'Net = gross − refunds − fees − taxes. Revenue is not profit.', 'Neta = bruto − reembolsos − tarifas − impuestos. Ingreso no es ganancia.')),
+              _stat(t('Comissões dos professores', 'Teacher commissions', 'Comisiones de profesores'), t.money(_n(x, 'commissions_net_cents')), hint: t('Geradas − estornadas', 'Generated − reversed', 'Generadas − revertidas')),
+              _stat(t('Receita da Lucksrei', 'Lucksrei revenue', 'Ingresos de Lucksrei'), t.money(_n(x, 'lucksrei_cents')), hint: t('Líquida − comissões líquidas (antes das despesas)', 'Net − net commissions (before expenses)', 'Neta − comisiones netas (antes de gastos)')),
+            ], scope: t('No período selecionado, por competência', 'In the selected period, accrual', 'En el periodo seleccionado, devengado')),
+            SectionHeader(t('Composição da receita', 'Revenue composition', 'Composición de los ingresos'), subtitle: t('No período · barras proporcionais ao faturamento bruto', 'In the period · bars proportional to gross revenue', 'En el periodo · barras proporcionales a la facturación bruta')),
+            Panel(
+              child: Column(children: [
+                _CompositionRow(label: t('Faturamento bruto', 'Gross revenue', 'Facturación bruta'), cents: _n(x, 'gross_cents'), base: _n(x, 'gross_cents'), money: t.money),
+                _CompositionRow(label: t('Reembolsos e estornos', 'Refunds and chargebacks', 'Reembolsos y contracargos'), cents: _n(x, 'refunds_cents'), base: _n(x, 'gross_cents'), money: t.money, negative: true),
+                _CompositionRow(label: t('Taxas das plataformas', 'Platform fees', 'Tarifas de plataformas'), cents: _n(x, 'fees_cents'), base: _n(x, 'gross_cents'), money: t.money, negative: true),
+                _CompositionRow(label: t('Impostos sobre vendas (só os registrados)', 'Sales taxes (recorded only)', 'Impuestos sobre ventas (solo registrados)'), cents: _n(x, 'taxes_cents'), base: _n(x, 'gross_cents'), money: t.money, negative: true),
+                Divider(color: context.colors.border),
+                _CompositionRow(label: t('Receita líquida', 'Net revenue', 'Ingresos netos'), cents: _n(x, 'net_cents'), base: _n(x, 'gross_cents'), money: t.money, strong: true),
+              ]),
+            ),
+            _section(t('Comissões dos professores', 'Teacher commissions', 'Comisiones de profesores'), [
+              _stat(t('Geradas', 'Generated', 'Generadas'), t.money(_n(x, 'commissions_generated_cents'))),
+              _stat(t('Estornadas', 'Reversed', 'Revertidas'), t.money(-_n(x, 'commissions_reversed_cents'))),
+              _stat(t('Comissões líquidas', 'Net commissions', 'Comisiones netas'), t.money(_n(x, 'commissions_net_cents'))),
+              _stat(t('Repassadas', 'Paid out', 'Pagadas'), t.money(_n(x, 'commissions_paid_cents'))),
+              _stat(t('Pendentes de conciliação', 'Pending reconciliation', 'Pendientes de conciliación'), t.money(_n(x, 'pending_reconciliation_commission_cents')), hint: t('Ainda não liberadas', 'Not yet released', 'Aún no liberadas'), tone: _n(x, 'pending_reconciliation_commission_cents') > 0 ? Tone.warn : null),
+            ], scope: t('No período selecionado', 'In the selected period', 'En el periodo seleccionado')),
+            _section(t('Saldo a repassar', 'Balance to pay out', 'Saldo por pagar'), [
+              _stat(t('A repassar', 'To pay out', 'Por pagar'), t.money(_n(x, 'commissions_pending_payout_cents')), hint: t('Todos os professores, hoje', 'All teachers, today', 'Todos los profesores, hoy'), tip: t('Saldo atual: não depende do período escolhido. O repasse é manual por Pix.', 'Current balance: independent of the chosen period. Payouts are manual via Pix.', 'Saldo actual: no depende del periodo elegido. El pago es manual por Pix.')),
+            ], scope: t('Saldo atual (hoje)', 'Current balance (today)', 'Saldo actual (hoy)')),
             _section(t('Resultado da Lucksrei', 'Lucksrei result', 'Resultado de Lucksrei'), [
-              StatCard(label: t('Receita da Lucksrei', 'Lucksrei revenue', 'Ingresos de Lucksrei'), value: t.money(_n(x, 'lucksrei_cents')), hint: t('Líquida − comissões líquidas', 'Net − net commissions', 'Neta − comisiones netas')),
-              StatCard(label: t('Despesas operacionais', 'Operating expenses', 'Gastos operativos'), value: t.money(-_n(x, 'expenses_cents'))),
-              StatCard(icon: Icons.account_balance_outlined, label: t('Resultado líquido', 'Net result', 'Resultado neto'), value: t.money(_n(x, 'result_cents')), hint: t('Receita da Lucksrei − despesas', 'Lucksrei revenue − expenses', 'Ingresos de Lucksrei − gastos')),
-            ]),
+              _stat(t('Receita da Lucksrei', 'Lucksrei revenue', 'Ingresos de Lucksrei'), t.money(_n(x, 'lucksrei_cents')), hint: t('Líquida − comissões líquidas', 'Net − net commissions', 'Neta − comisiones netas')),
+              _stat(t('Despesas operacionais', 'Operating expenses', 'Gastos operativos'), t.money(-_n(x, 'expenses_cents'))),
+              _stat(t('Resultado líquido', 'Net result', 'Resultado neto'), t.money(_n(x, 'result_cents')), icon: Icons.account_balance_outlined, hint: t('Receita da Lucksrei − despesas', 'Lucksrei revenue − expenses', 'Ingresos de Lucksrei − gastos'), tone: _n(x, 'result_cents') < 0 ? Tone.bad : null),
+            ], scope: t('No período selecionado', 'In the selected period', 'En el periodo seleccionado')),
             _section(t('Provedores e caixa', 'Providers and cash', 'Proveedores y caja'), [
-              StatCard(label: t('Recebido dos provedores', 'Received from providers', 'Recibido de proveedores'), value: t.money(_n(x, 'received_from_providers_cents')), hint: t('Liquidações informadas no período', 'Settlements reported in the period', 'Liquidaciones informadas en el periodo')),
-              StatCard(label: t('Aguardando liquidação', 'Awaiting settlement', 'Pendiente de liquidación'), value: t.money(_n(x, 'awaiting_settlement_cents')), hint: '${t.number(_n(x, 'awaiting_settlement_count'))} ${t('pagamentos (todos os períodos)', 'payments (all periods)', 'pagos (todos los periodos)')}'),
-              StatCard(label: t('Fluxo de caixa informado', 'Reported cash flow', 'Flujo de caja informado'), value: t.money(_n(x, 'cash_flow_cents')), hint: t('Recebido − repasses − despesas', 'Received − payouts − expenses', 'Recibido − pagos − gastos')),
-            ]),
+              _stat(t('Recebido dos provedores', 'Received from providers', 'Recibido de proveedores'), t.money(_n(x, 'received_from_providers_cents')), hint: t('Liquidações informadas no período', 'Settlements reported in the period', 'Liquidaciones informadas en el periodo')),
+              _stat(t('Fluxo de caixa informado', 'Reported cash flow', 'Flujo de caja informado'), t.money(_n(x, 'cash_flow_cents')), hint: t('Recebido − repasses − despesas', 'Received − payouts − expenses', 'Recibido − pagos − gastos')),
+            ], scope: t('Caixa no período', 'Cash in the period', 'Caja en el periodo')),
+            _section(t('Aguardando liquidação', 'Awaiting settlement', 'Pendiente de liquidación'), [
+              _stat(t('Aguardando liquidação', 'Awaiting settlement', 'Pendiente de liquidación'), t.money(_n(x, 'awaiting_settlement_cents')), hint: '${t.number(_n(x, 'awaiting_settlement_count'))} ${t('pagamentos (todos os períodos)', 'payments (all periods)', 'pagos (todos los periodos)')}'),
+            ], scope: t('Saldo atual (todos os períodos)', 'Current balance (all periods)', 'Saldo actual (todos los periodos)')),
+            SectionHeader(t('Evolução e detalhamento', 'Trends and breakdown', 'Evolución y detalle'), subtitle: t('No período selecionado', 'In the selected period', 'En el periodo seleccionado')),
             Panel(
               title: t('Evolução diária', 'Daily evolution', 'Evolución diaria'),
               child: series.isEmpty
@@ -277,14 +330,18 @@ class _OverviewTabState extends State<_OverviewTab> with PeriodState {
               ),
             ],
             const SizedBox(height: 16),
-            Text(
+            Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Icon(Icons.info_outline_rounded, size: 16, color: context.colors.textHint),
+              const SizedBox(width: 8),
+              Expanded(child: Text(
               t(
                 'Fórmulas: líquida = bruto − reembolsos − taxas − impostos. Receita da Lucksrei = líquida − comissões líquidas (comissão gerada − estornada). Resultado = receita da Lucksrei − despesas. A data do repasse não deduz a comissão de novo (ela já foi reconhecida ao ser gerada). Impostos e taxas aparecem só quando registrados; nada é estimado por padrão.',
                 'Formulas: net = gross − refunds − fees − taxes. Lucksrei revenue = net − net commissions (generated − reversed). Result = Lucksrei revenue − expenses. The payout date never deducts a commission again (already recognised when generated). Taxes and fees show only when recorded; nothing is estimated by default.',
                 'Fórmulas: neta = bruto − reembolsos − tarifas − impuestos. Ingresos de Lucksrei = neta − comisiones netas (generada − revertida). Resultado = ingresos de Lucksrei − gastos. La fecha del pago no deduce otra vez la comisión (ya reconocida al generarse). Impuestos y tarifas solo aparecen si están registrados; nada se estima por defecto.',
               ),
-              style: const TextStyle(fontSize: 11),
-            ),
+              style: TextStyle(fontSize: 12, color: context.colors.textSecondary),
+            )),
+            ]),
           ]);
         },
       ),
@@ -327,7 +384,7 @@ class _PaymentsTabState extends State<_PaymentsTab> {
     String? n(String v) => v.isEmpty ? null : v;
     return Panel(
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Wrap(spacing: 10, runSpacing: 10, crossAxisAlignment: WrapCrossAlignment.center, children: [
+        FilterBar(children: [
           SearchBox(hint: t('ID externo, nome ou e-mail', 'External ID, name or e-mail', 'ID externo, nombre o correo'), onChanged: (v) => _set(() => _search = v)),
           Select<String>(label: t('Provedor', 'Provider', 'Proveedor'), value: _provider, items: {
             '': t('Todos', 'All', 'Todos'), 'apple': 'Apple', 'google': 'Google Play', 'mercadopago': 'Mercado Pago'}, onChanged: (v) => _set(() => _provider = v)),
@@ -350,10 +407,10 @@ class _PaymentsTabState extends State<_PaymentsTab> {
               onChanged: (v) => _set(() => _partner = v),
             ),
           ),
-          OutlinedButton.icon(
+          _toolButton(
             onPressed: _pickRange,
-            icon: const Icon(Icons.date_range_rounded, size: 18),
-            label: Text(_from == null ? t('Período', 'Period', 'Periodo') : '${t.date(_from)} – ${t.date(_to)}'),
+            icon: Icons.date_range_rounded,
+            label: _from == null ? t('Período', 'Period', 'Periodo') : '${t.date(_from)} – ${t.date(_to)}',
           ),
           if (_from != null)
             IconButton(tooltip: t('Limpar', 'Clear', 'Limpiar'), onPressed: () => _set(() { _from = null; _to = null; }), icon: const Icon(Icons.close_rounded)),
@@ -365,14 +422,13 @@ class _PaymentsTabState extends State<_PaymentsTab> {
             onPressed: () => _set(() => _dir = _dir == 'desc' ? 'asc' : 'desc'),
             icon: Icon(_dir == 'desc' ? Icons.arrow_downward_rounded : Icons.arrow_upward_rounded),
           ),
-          OutlinedButton.icon(
+          _toolButton(
             onPressed: () => exportCsv(context, () => api.financeExport('payments', from: _from, to: _to, provider: n(_provider),
                 partner: _partner.length == 36 ? _partner : null), 'pagamentos.csv'),
-            icon: const Icon(Icons.download_rounded, size: 18),
-            label: const Text('CSV'),
+            icon: Icons.download_rounded,
+            label: 'CSV',
           ),
         ]),
-        const SizedBox(height: 12),
         Loader<Map<String, dynamic>>(
           loader: () => api.payments(search: n(_search), provider: n(_provider), status: n(_status), plan: n(_plan),
               partner: n(_partner), recon: n(_recon), from: _from, to: _to, sort: _sort, dir: _dir, limit: _limit, offset: _offset),
@@ -405,7 +461,10 @@ class _PaymentsTabState extends State<_PaymentsTab> {
                         Text('${r['user_email'] ?? ''}', style: const TextStyle(fontSize: 12)),
                       ]),
                       Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                        Text(providerLabel('${r['provider']}')),
+                        Row(mainAxisSize: MainAxisSize.min, children: [
+                          Text(providerLabel('${r['provider']}'), style: const TextStyle(fontWeight: FontWeight.w600)),
+                          if (r['environment'] != null) ...[const SizedBox(width: 6), StatusBadge('${r['environment']}', tone: r['environment'] == 'production' ? Tone.info : Tone.neutral)],
+                        ]),
                         Text('${planLabel(t, r['plan'] as String?)} · ${r['external_id']}', style: const TextStyle(fontSize: 11)),
                       ]),
                       Text(t.money(_n(r, 'gross_cents'))),
@@ -418,7 +477,7 @@ class _PaymentsTabState extends State<_PaymentsTab> {
                       Wrap(spacing: 4, runSpacing: 4, children: [
                         StatusBadge(_payStatus(t, '${r['status']}'), tone: _payTone('${r['status']}')),
                         _reconBadge(t, r),
-                        Text(_settle(t, r), style: const TextStyle(fontSize: 11)),
+                        StatusBadge(_settle(t, r), tone: r['settlement_status'] == 'settled' ? Tone.good : Tone.neutral),
                       ]),
                     ],
                 ],
@@ -545,9 +604,9 @@ class _PayoutsTabState extends State<_PayoutsTab> {
     final months = [for (var i = 0; i < 18; i++) _month(DateTime.now(), -i)];
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Panel(
-        title: t('Fechamento mensal', 'Monthly closing', 'Cierre mensual'),
+        title: t('Valores a repassar — fechamento mensal', 'Amounts to pay out — monthly closing', 'Valores por pagar — cierre mensual'),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Wrap(spacing: 10, runSpacing: 10, crossAxisAlignment: WrapCrossAlignment.center, children: [
+          FilterBar(children: [
             Select<String>(
               label: t('Competência', 'Competence', 'Competencia'),
               value: _ym(_comp),
@@ -555,18 +614,17 @@ class _PayoutsTabState extends State<_PayoutsTab> {
               onChanged: (v) => setState(() => _comp = months.firstWhere((m) => _ym(m) == v)),
             ),
             SearchBox(hint: t('Professor', 'Teacher', 'Profesor'), onChanged: (v) => setState(() => _search = v)),
-            OutlinedButton.icon(
+            _toolButton(
               onPressed: () => exportCsv(context, () => api.financeExport('commissions'), 'comissoes.csv'),
-              icon: const Icon(Icons.download_rounded, size: 18),
-              label: Text(t('Comissões CSV', 'Commissions CSV', 'Comisiones CSV')),
+              icon: Icons.download_rounded,
+              label: t('Comissões CSV', 'Commissions CSV', 'Comisiones CSV'),
             ),
-            OutlinedButton.icon(
+            _toolButton(
               onPressed: () => exportCsv(context, () => api.financeExport('payouts'), 'repasses.csv'),
-              icon: const Icon(Icons.download_rounded, size: 18),
-              label: Text(t('Repasses CSV', 'Payouts CSV', 'Pagos CSV')),
+              icon: Icons.download_rounded,
+              label: t('Repasses CSV', 'Payouts CSV', 'Pagos CSV'),
             ),
           ]),
-          const SizedBox(height: 12),
           Loader<Map<String, dynamic>>(
             loader: () => api.closing(_comp, search: _search.isEmpty ? null : _search, limit: 100),
             keys: [_comp, _search, _reload],
@@ -584,9 +642,10 @@ class _PayoutsTabState extends State<_PayoutsTab> {
               }
               return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text('${t('Total disponível', 'Total available', 'Total disponible')}: ${t.money(_n(d, 'sum_available_cents'))}',
-                      style: const TextStyle(fontWeight: FontWeight.w800)),
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: CardGrid(maxColumns: 3, children: [
+                    StatCard(label: t('Total disponível para repassar', 'Total available to pay out', 'Total disponible para pagar'), value: t.money(_n(d, 'sum_available_cents')), hint: t('Até a competência escolhida', 'Up to the chosen competence', 'Hasta la competencia elegida'), icon: Icons.account_balance_wallet_outlined),
+                  ]),
                 ),
                 PortalTable(
                   columns: [
@@ -613,7 +672,7 @@ class _PayoutsTabState extends State<_PayoutsTab> {
                         Text(t.money(_n(r, 'adjustments_cents'))),
                         Text(t.money(_n(r, 'paid_cents'))),
                         Text(t.money(_n(r, 'available')), style: const TextStyle(fontWeight: FontWeight.w800)),
-                        Text(state(r)),
+                        StatusBadge(state(r), tone: _n(r, 'available') < 0 ? Tone.bad : (_n(r, 'available') > 0 ? Tone.warn : Tone.good)),
                         Wrap(spacing: 4, runSpacing: 4, children: [
                           if (r['has_pix'] == true)
                             IconButton(tooltip: t('Copiar chave Pix', 'Copy Pix key', 'Copiar clave Pix'), onPressed: () => _copyPix(api, r), icon: const Icon(Icons.copy_rounded, size: 18)),
@@ -630,23 +689,24 @@ class _PayoutsTabState extends State<_PayoutsTab> {
                       ],
                   ],
                 ),
-                const SizedBox(height: 6),
+                const SizedBox(height: 10),
                 Text(
                   t(
                     'Disponível = tudo o que foi conquistado até esta competência menos repasses já registrados. O portal só REGISTRA o Pix que você fez no banco; nada é enviado automaticamente. Saldos antigos nunca são apagados ao virar o mês.',
                     'Available = everything earned up to this competence minus payouts already registered. The portal only RECORDS the Pix you made at your bank; nothing is sent automatically. Old balances are never erased when the month turns.',
                     'Disponible = todo lo ganado hasta esta competencia menos los pagos ya registrados. El portal solo REGISTRA el Pix que hiciste en el banco; nada se envía automáticamente. Los saldos antiguos nunca se borran al cambiar de mes.',
                   ),
-                  style: const TextStyle(fontSize: 11),
+                  style: TextStyle(fontSize: 12, color: context.colors.textSecondary),
                 ),
               ]);
             },
           ),
         ]),
       ),
-      const SizedBox(height: 16),
+      const SizedBox(height: kSectionGap),
       Panel(
-        title: t('Histórico de repasses', 'Payout history', 'Historial de pagos'),
+        title: t('Repasses registrados (histórico)', 'Registered payouts (history)', 'Pagos registrados (historial)'),
+        trailing: Text(t('Registro manual do Pix feito no banco', 'Manual record of the Pix made at the bank', 'Registro manual del Pix hecho en el banco'), style: TextStyle(fontSize: 12, color: context.colors.textSecondary)),
         child: Loader<Map<String, dynamic>>(
           loader: () => api.payouts(limit: 25, offset: _histOffset),
           keys: [_reload, _histOffset],
@@ -963,11 +1023,11 @@ class _ExpensesTabState extends State<_ExpensesTab> with PeriodState {
             if (done == true) setState(() => _reload++);
           }
           return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Wrap(spacing: 10, runSpacing: 10, crossAxisAlignment: WrapCrossAlignment.center, children: [
+            FilterBar(children: [
               periodSelect(t),
               Select<String>(label: t('Categoria', 'Category', 'Categoría'), value: _cat, items: {'': t('Todas', 'All', 'Todas'), for (final c in cats) '${c['id']}': '${c['name']}'}, onChanged: (v) => setState(() { _cat = v; _offset = 0; })),
-              ElevatedButton.icon(onPressed: () => edit(), icon: const Icon(Icons.add_rounded, size: 18), label: Text(t('Nova despesa', 'New expense', 'Nuevo gasto'))),
-              OutlinedButton.icon(
+              _toolButton(primary: true, onPressed: () => edit(), icon: Icons.add_rounded, label: t('Nova despesa', 'New expense', 'Nuevo gasto')),
+              _toolButton(
                 onPressed: () async {
                   final c = TextEditingController();
                   final name = await showDialog<String>(
@@ -985,18 +1045,19 @@ class _ExpensesTabState extends State<_ExpensesTab> with PeriodState {
                     setState(() => _reload++);
                   }
                 },
-                icon: const Icon(Icons.label_outline_rounded, size: 18),
-                label: Text(t('Categoria', 'Category', 'Categoría')),
+                icon: Icons.label_outline_rounded,
+                label: t('Categoria', 'Category', 'Categoría'),
               ),
-              OutlinedButton.icon(
+              _toolButton(
                 onPressed: () => exportCsv(context, () => api.financeExport('expenses', from: r.start, to: r.end), 'despesas.csv'),
-                icon: const Icon(Icons.download_rounded, size: 18),
-                label: const Text('CSV'),
+                icon: Icons.download_rounded,
+                label: 'CSV',
               ),
             ]),
-            const SizedBox(height: 8),
-            Text('${t('Total no período', 'Total in period', 'Total en el periodo')}: ${t.money(_n(d, 'sum_cents'))}', style: const TextStyle(fontWeight: FontWeight.w800)),
-            const SizedBox(height: 8),
+            CardGrid(maxColumns: 3, children: [
+              StatCard(label: t('Total no período', 'Total in period', 'Total en el periodo'), value: t.money(_n(d, 'sum_cents')), icon: Icons.receipt_long_outlined),
+            ]),
+            const SizedBox(height: kCardGap),
             if (rows.isEmpty)
               EmptyState(message: t('Nenhuma despesa no período.', 'No expenses in the period.', 'Sin gastos en el periodo.'))
             else ...[
@@ -1041,7 +1102,7 @@ class _ExpensesTabState extends State<_ExpensesTab> with PeriodState {
               t('Despesas reduzem o lucro da Lucksrei; nunca alteram comissões de professores.',
                   'Expenses reduce Lucksrei profit; they never change teacher commissions.',
                   'Los gastos reducen la ganancia de Lucksrei; nunca alteran las comisiones de profesores.'),
-              style: const TextStyle(fontSize: 11),
+              style: TextStyle(fontSize: 12, color: context.colors.textSecondary),
             ),
           ]);
         },

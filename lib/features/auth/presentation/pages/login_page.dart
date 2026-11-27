@@ -95,6 +95,9 @@ class _LoginPageState extends State<LoginPage> {
 
   void _createAccount() => context.push('/cadastro');
 
+  bool _fromPortal(BuildContext context) =>
+      isPortalPath(GoRouterState.of(context).uri.queryParameters['next']);
+
   @override
   Widget build(BuildContext context) {
     final t = AuthStrings(context.watch<LocaleCubit>().state);
@@ -116,8 +119,9 @@ class _LoginPageState extends State<LoginPage> {
                   context,
                   title: t.accountNotFoundTitle,
                   description: t.accountNotFoundDescription,
-                  secondaryActionLabel: t.createAccountAction,
-                  onSecondaryAction: _createAccount,
+                  // O portal (/partners) é só para contas convidadas: sem atalho de cadastro.
+                  secondaryActionLabel: _fromPortal(context) ? null : t.createAccountAction,
+                  onSecondaryAction: _fromPortal(context) ? null : _createAccount,
                 );
               } else {
                 AppInfoBottomSheet.showError(context, description: message);
@@ -139,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   AuthHeader(
                     layout: LoginForm.layout,
-                    subtitle: t.signInSubtitle,
+                    subtitle: _fromPortal(context) ? t.partnerSignInSubtitle : t.signInSubtitle,
                   ),
                   AuthCard(
                     layout: LoginForm.layout,
@@ -157,12 +161,14 @@ class _LoginPageState extends State<LoginPage> {
                       isLoading: isSigningIn,
                     ),
                   ),
-                  SizedBox(height: LoginForm.layout.cardToPrompt),
-                  AuthSwitchPrompt(
-                    question: t.createAccountQuestion,
-                    action: t.createAccountAction,
-                    onTap: _createAccount,
-                  ),
+                  if (!_fromPortal(context)) ...[
+                    SizedBox(height: LoginForm.layout.cardToPrompt),
+                    AuthSwitchPrompt(
+                      question: t.createAccountQuestion,
+                      action: t.createAccountAction,
+                      onTap: _createAccount,
+                    ),
+                  ],
                 ],
               );
             },

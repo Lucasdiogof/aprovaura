@@ -223,6 +223,12 @@ class _NavItem {
   final String label;
 }
 
+/// Rótulo de grupo do menu lateral (só administração).
+class _NavGroup {
+  const _NavGroup(this.label);
+  final String label;
+}
+
 /// Layout administrativo: barra lateral (gaveta em telas estreitas) + cabeçalho.
 class PortalShell extends StatelessWidget {
   const PortalShell({
@@ -237,15 +243,18 @@ class PortalShell extends StatelessWidget {
   final Future<void> Function() signOut;
   final Widget child;
 
-  List<_NavItem> _items(PortalStrings t, bool partnerActive) => admin
+  List<Object> _items(PortalStrings t, bool partnerActive) => admin
       ? [
+          _NavGroup(t('Gestão', 'Management', 'Gestión')),
           _NavItem('/partners', Icons.dashboard_outlined, t('Visão geral', 'Overview', 'Resumen')),
           _NavItem('/partners/users', Icons.people_outline_rounded, t('Usuários', 'Users', 'Usuarios')),
           _NavItem('/partners/teachers', Icons.school_outlined, t('Professores', 'Teachers', 'Profesores')),
           _NavItem('/partners/requests', Icons.swap_horiz_rounded, t('Solicitações', 'Requests', 'Solicitudes')),
+          _NavGroup(t('Comercial', 'Commercial', 'Comercial')),
           _NavItem('/partners/finance', Icons.account_balance_wallet_outlined, t('Financeiro', 'Finance', 'Finanzas')),
           _NavItem('/partners/subscriptions', Icons.workspace_premium_outlined, t('Assinaturas', 'Subscriptions', 'Suscripciones')),
           _NavItem('/partners/integrations', Icons.hub_outlined, t('Integrações', 'Integrations', 'Integraciones')),
+          _NavGroup(t('Sistema', 'System', 'Sistema')),
           _NavItem('/partners/essay-ai', Icons.edit_note_rounded, t('Correção por IA', 'AI feedback', 'Corrección por IA')),
           _NavItem('/partners/audit', Icons.fact_check_outlined, t('Auditoria', 'Audit', 'Auditoría')),
           _NavItem('/partners/settings', Icons.tune_rounded, t('Configurações', 'Settings', 'Configuración')),
@@ -273,13 +282,53 @@ class PortalShell extends StatelessWidget {
     final email = context.select((PortalSession s) => s.state.email);
     final partnerActive = context.select((PortalSession s) => s.state.partnerActive);
 
+    Widget navItem(_NavItem i, {required bool inDrawer}) {
+      final active = _active(i.path);
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 1),
+        child: Material(
+          color: active ? c.primary.withValues(alpha: 0.14) : Colors.transparent,
+          borderRadius: BorderRadius.circular(10),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(10),
+            hoverColor: c.primary.withValues(alpha: 0.07),
+            onTap: () {
+              if (inDrawer) Navigator.pop(context);
+              context.go(i.path);
+            },
+            child: SizedBox(
+              height: 40,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Row(children: [
+                  Icon(i.icon, size: 20, color: active ? c.primary : c.textSecondary),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(i.label,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: active ? FontWeight.w700 : FontWeight.w500,
+                          color: active ? c.primary : c.textPrimary,
+                        )),
+                  ),
+                  if (i.path == '/partners/requests' && pending > 0) StatusBadge('$pending', tone: Tone.warn),
+                ]),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     Widget nav({required bool inDrawer}) => Container(
-          width: 240,
-          color: c.surface,
+          width: 252,
+          decoration: BoxDecoration(color: c.surface, border: Border(right: BorderSide(color: c.border))),
           child: SafeArea(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
+                padding: const EdgeInsets.fromLTRB(24, 20, 20, 8),
                 child: Row(children: [
                   const AppLogo.mark(size: 30),
                   const SizedBox(width: 10),
@@ -290,59 +339,67 @@ class PortalShell extends StatelessWidget {
                 ]),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                padding: const EdgeInsets.fromLTRB(24, 0, 20, 12),
                 child: StatusBadge(
                   admin ? t('Administração', 'Administration', 'Administración') : t('Professor', 'Teacher', 'Profesor'),
                   tone: Tone.info,
                 ),
               ),
-              for (final i in _items(t, partnerActive))
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(12),
-                    onTap: () {
-                      if (inDrawer) Navigator.pop(context);
-                      context.go(i.path);
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                      decoration: BoxDecoration(
-                        color: _active(i.path) ? c.primary.withValues(alpha: 0.14) : null,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Row(children: [
-                        Icon(i.icon, size: 20, color: _active(i.path) ? c.primary : c.textSecondary),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Text(i.label,
-                              style: TextStyle(
-                                fontWeight: _active(i.path) ? FontWeight.w700 : FontWeight.w500,
-                                color: _active(i.path) ? c.primary : c.textPrimary,
-                              )),
-                        ),
-                        if (i.path == '/partners/requests' && pending > 0)
-                          StatusBadge('$pending', tone: Tone.warn),
+              Expanded(
+                child: ListView(padding: EdgeInsets.zero, children: [
+                  for (final i in _items(t, partnerActive))
+                    if (i is _NavGroup)
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(24, 14, 20, 6),
+                        child: Text(i.label.toUpperCase(),
+                            style: TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.w700, letterSpacing: 0.8, color: c.textHint)),
+                      )
+                    else
+                      navItem(i as _NavItem, inDrawer: inDrawer),
+                ]),
+              ),
+              Divider(height: 1, color: c.border),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Row(children: [
+                    CircleAvatar(
+                      radius: 16,
+                      backgroundColor: c.primary.withValues(alpha: 0.16),
+                      child: Text((email ?? '?').substring(0, 1).toUpperCase(),
+                          style: TextStyle(fontWeight: FontWeight.w800, color: c.primary)),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        Text(
+                            admin
+                                ? t('Administrador', 'Administrator', 'Administrador')
+                                : t('Professor', 'Teacher', 'Profesor'),
+                            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: c.textPrimary)),
+                        if (email != null)
+                          Text(email, maxLines: 1, overflow: TextOverflow.ellipsis,
+                              style: TextStyle(fontSize: 12, color: c.textSecondary)),
                       ]),
                     ),
+                  ]),
+                  const SizedBox(height: 8),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: TextButton.icon(
+                      onPressed: () => context.go('/home'),
+                      icon: const Icon(Icons.phone_iphone_rounded, size: 18),
+                      label: Text(t('Abrir o aplicativo', 'Open the app', 'Abrir la aplicación')),
+                    ),
                   ),
-                ),
-              const Spacer(),
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  if (email != null)
-                    Text(email, maxLines: 1, overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 12, color: c.textSecondary)),
-                  TextButton.icon(
-                    onPressed: () => context.go('/home'),
-                    icon: const Icon(Icons.phone_iphone_rounded, size: 18),
-                    label: Text(t('Abrir o aplicativo', 'Open the app', 'Abrir la aplicación')),
-                  ),
-                  TextButton.icon(
-                    onPressed: signOut,
-                    icon: const Icon(Icons.logout_rounded, size: 18),
-                    label: Text(t('Sair', 'Sign out', 'Salir')),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: TextButton.icon(
+                      onPressed: signOut,
+                      icon: const Icon(Icons.logout_rounded, size: 18),
+                      label: Text(t('Sair', 'Sign out', 'Salir')),
+                    ),
                   ),
                 ]),
               ),
@@ -399,9 +456,10 @@ class PortalShell extends StatelessWidget {
             header,
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.all(20),
-                child: Center(
-                  child: ConstrainedBox(constraints: const BoxConstraints(maxWidth: 1280), child: child),
+                padding: EdgeInsets.all(wide ? 28 : 16),
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: ConstrainedBox(constraints: const BoxConstraints(maxWidth: kContentMax), child: child),
                 ),
               ),
             ),

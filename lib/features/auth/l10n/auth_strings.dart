@@ -167,6 +167,12 @@ class AuthStrings {
     AppLanguage.spanish => 'Entra para continuar tus estudios.',
   };
 
+  String get partnerSignInSubtitle => switch (language) {
+    AppLanguage.portuguese => 'Portal do professor parceiro. Entre com a conta do seu convite.',
+    AppLanguage.english => 'Partner teacher portal. Sign in with your invited account.',
+    AppLanguage.spanish => 'Portal del profesor asociado. Entra con la cuenta de tu invitación.',
+  };
+
   String get registerSubtitle => switch (language) {
     AppLanguage.portuguese => 'Leva menos de um minuto para começar a estudar.',
     AppLanguage.english => 'It takes less than a minute to start studying.',

@@ -11,7 +11,8 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.47.10';
 import { publishableKey, secretKey } from '../_shared/keys.ts';
 
-const ORIGINS = ['https://aprovaura.lucksrei.com'];
+// QA_ORIGIN (opcional) só existe no ambiente local de QA; em produção a lista é só a web oficial.
+const ORIGINS = ['https://aprovaura.lucksrei.com', ...(Deno.env.get('QA_ORIGIN') ? [Deno.env.get('QA_ORIGIN')!] : [])];
 const cors = (req: Request) => ({
   'Access-Control-Allow-Origin': ORIGINS.includes(req.headers.get('Origin') ?? '')
     ? req.headers.get('Origin')! : ORIGINS[0],

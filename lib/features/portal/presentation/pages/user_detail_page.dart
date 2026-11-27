@@ -65,7 +65,7 @@ class _Detail extends StatelessWidget {
           if (roles['student'] == true) StatusBadge(t('Aluno', 'Student', 'Alumno')),
         ],
       ),
-      _section(t('Conta', 'Account', 'Cuenta'), [
+      _section(t('Dados pessoais', 'Personal data', 'Datos personales'), [
         KeyValue('ID', SelectableText(id)),
         KeyValue('E-mail', Text('${acc['email']}')),
         KeyValue(t('Usuário', 'Username', 'Usuario'), Text(acc['username'] == null ? '—' : '@${acc['username']}')),
@@ -85,7 +85,7 @@ class _Detail extends StatelessWidget {
         KeyValue(t('Meta, ano da prova', 'Goal, exam year', 'Meta, año del examen'), Text('${acc['goal'] ?? '—'} · ${acc['exam_year'] ?? '—'}')),
       ]),
       _section(
-        'Premium',
+        t('Acesso e assinatura', 'Access and subscription', 'Acceso y suscripción'),
         [
           KeyValue(t('Situação', 'Status', 'Estado'), accessSummary(t, access)),
           KeyValue(t('Vigência', 'Valid until', 'Vigencia'),
@@ -144,15 +144,6 @@ class _Detail extends StatelessWidget {
               'Apple, Google and Mercado Pago purchases only change through the provider; the portal never edits them.',
               'Las compras de Apple, Google y Mercado Pago solo cambian por el proveedor; el portal no las edita.'),
               style: const TextStyle(fontSize: 11)),
-          const SizedBox(height: 8),
-          ElevatedButton.icon(
-            onPressed: () async {
-              final done = await showDialog<bool>(context: context, builder: (_) => _GrantDialog(userId: id, api: context.read<PortalApi>()));
-              if (done == true) await reload();
-            },
-            icon: const Icon(Icons.card_giftcard_rounded, size: 18),
-            label: Text(t('Conceder Premium (cortesia)', 'Grant Premium (courtesy)', 'Conceder Premium (cortesía)')),
-          ),
           const SizedBox(height: 12),
           Text(t('Histórico de concessões e revogações', 'Grant and revoke history', 'Historial de concesiones y revocaciones'),
               style: const TextStyle(fontWeight: FontWeight.w700)),
@@ -170,32 +161,13 @@ class _Detail extends StatelessWidget {
               ),
         ],
       ),
-      _section(t('Professor indicador', 'Referring teacher', 'Profesor que lo recomendó'), [
+      _section(t('Indicação', 'Referral', 'Referido'), [
         KeyValue(
           t('Professor atual', 'Current teacher', 'Profesor actual'),
           partner['current'] == null
               ? Text(t('Sem professor', 'No teacher', 'Sin profesor'))
               : Text('${(partner['current'] as Map)['display_name']} · ${t('desde', 'since', 'desde')} ${t.dateOf((partner['current'] as Map)['linked_at'])} · ${(partner['current'] as Map)['source']}'),
         ),
-        Wrap(spacing: 8, children: [
-          OutlinedButton(
-            onPressed: () async {
-              final done = await showDialog<bool>(
-                context: context,
-                builder: (_) => _LinkDialog(
-                  userId: id,
-                  hasCurrent: partner['current'] != null,
-                  api: context.read<PortalApi>(),
-                  session: context.read<PortalSession>(),
-                ),
-              );
-              if (done == true) await reload();
-            },
-            child: Text(partner['current'] == null
-                ? t('Vincular a um professor', 'Link to a teacher', 'Vincular a un profesor')
-                : t('Alterar / remover vínculo', 'Change / remove link', 'Cambiar / quitar vínculo')),
-          ),
-        ]),
         const SizedBox(height: 8),
         Text(t('Histórico de vinculações', 'Link history', 'Historial de vínculos'), style: const TextStyle(fontWeight: FontWeight.w700)),
         if (_l(partner['history']).isEmpty)
@@ -223,7 +195,7 @@ class _Detail extends StatelessWidget {
               ),
             ),
       ]),
-      _section(t('Estatísticas', 'Statistics', 'Estadísticas'), [
+      _section(t('Estudo', 'Study', 'Estudio'), [
         CardGrid(minWidth: 150, children: [
           StatCard(label: t('Questões respondidas', 'Questions answered', 'Preguntas respondidas'), value: t.number(stats['answered'] as num)),
           StatCard(
@@ -301,11 +273,40 @@ class _Detail extends StatelessWidget {
             ],
           ),
       ]),
+      _section(t('Ações administrativas', 'Administrative actions', 'Acciones administrativas'), [
+        Wrap(spacing: kCardGap, runSpacing: kCardGap, children: [
+          ElevatedButton.icon(
+            onPressed: () async {
+              final done = await showDialog<bool>(context: context, builder: (_) => _GrantDialog(userId: id, api: context.read<PortalApi>()));
+              if (done == true) await reload();
+            },
+            icon: const Icon(Icons.card_giftcard_rounded, size: 18),
+            label: Text(t('Conceder Premium (cortesia)', 'Grant Premium (courtesy)', 'Conceder Premium (cortesía)')),
+          ),
+          OutlinedButton(
+            onPressed: () async {
+              final done = await showDialog<bool>(
+                context: context,
+                builder: (_) => _LinkDialog(
+                  userId: id,
+                  hasCurrent: partner['current'] != null,
+                  api: context.read<PortalApi>(),
+                  session: context.read<PortalSession>(),
+                ),
+              );
+              if (done == true) await reload();
+            },
+            child: Text(partner['current'] == null
+                ? t('Vincular a um professor', 'Link to a teacher', 'Vincular a un profesor')
+                : t('Alterar / remover vínculo', 'Change / remove link', 'Cambiar / quitar vínculo')),
+          ),
+        ]),
+      ]),
     ]);
   }
 
   Widget _section(String title, List<Widget> children) => Padding(
-        padding: const EdgeInsets.only(bottom: 16),
+        padding: const EdgeInsets.only(bottom: kCardGap),
         child: Panel(title: title, child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: children)),
       );
 }

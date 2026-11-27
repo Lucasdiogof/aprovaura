@@ -49,58 +49,80 @@ class _Body extends StatelessWidget {
     final trials = _n(u, 'trials_total');
     final conv = trials == 0 ? null : _n(u, 'paid_users_ever') / trials;
     final totalUsers = _n(u, 'total');
+    final inPeriod = t('no período', 'in period', 'en el periodo');
 
-    Widget section(String title, List<Widget> cards) => Padding(
-          padding: const EdgeInsets.only(bottom: 20),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800)),
-            ),
-            CardGrid(children: cards),
-          ]),
-        );
+    Widget section(String title, List<Widget> cards, {String? subtitle}) =>
+        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          SectionHeader(title, subtitle: subtitle),
+          CardGrid(children: cards),
+        ]);
 
     List<String> labels() => [for (final p in series) t.dateOf(p['date'])];
 
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      section(t('Usuários', 'Users', 'Usuarios'), [
-        StatCard(icon: Icons.people_outline_rounded, label: t('Total de usuários', 'Total users', 'Total de usuarios'), value: t.number(totalUsers)),
+      CardGrid(minWidth: 240, maxColumns: 4, children: [
+        StatCard(
+          icon: Icons.people_outline_rounded,
+          label: t('Total de usuários', 'Total users', 'Total de usuarios'),
+          value: t.number(totalUsers),
+          hint: '${t.number(_n(u, 'new_in_period'))} ${t('novos', 'new', 'nuevos')} $inPeriod',
+        ),
+        StatCard(
+          icon: Icons.workspace_premium_outlined,
+          label: t('Assinantes Premium pagos', 'Paid Premium subscribers', 'Suscriptores Premium de pago'),
+          value: t.number(_n(u, 'paid_active')),
+        ),
+        StatCard(
+          icon: Icons.school_outlined,
+          label: t('Professores parceiros ativos', 'Active partner teachers', 'Profesores socios activos'),
+          value: t.number(_n(u, 'partners_active')),
+          hint: '${t.number(_n(u, 'partners_inactive'))} ${t('inativos', 'inactive', 'inactivos')}',
+        ),
+        StatCard(
+          icon: Icons.account_balance_wallet_outlined,
+          label: t('Receita da Lucksrei', 'Lucksrei revenue', 'Ingresos de Lucksrei'),
+          value: t.money(_n(f, 'lucksrei_cents')),
+          hint: t('Período; não é lucro.', 'Period; not profit.', 'Periodo; no es ganancia.'),
+        ),
+      ]),
+      section(t('Usuários e crescimento', 'Users and growth', 'Usuarios y crecimiento'), [
         StatCard(icon: Icons.person_add_alt_rounded, label: t('Novos no período', 'New in period', 'Nuevos en el periodo'), value: t.number(_n(u, 'new_in_period'))),
-        StatCard(icon: Icons.mark_email_read_outlined, label: t('E-mails verificados', 'Verified e-mails', 'Correos verificados'), value: t.number(_n(u, 'verified_emails')), hint: t('Prova real de posse do e-mail', 'Proven mailbox ownership', 'Prueba real del correo')),
         StatCard(icon: Icons.bolt_rounded, label: t('Ativos no período', 'Active in period', 'Activos en el periodo'), value: t.number(_n(u, 'active_in_period')), hint: t('Estudo ou uso do app', 'Studying or app use', 'Estudio o uso de la app')),
         StatCard(icon: Icons.person_outline_rounded, label: t('Alunos com indicação', 'Students with referral', 'Alumnos con referido'), value: t.number(_n(u, 'students_with_referral'))),
         StatCard(icon: Icons.person_off_outlined, label: t('Sem indicação', 'Without referral', 'Sin referido'), value: t.number(_n(u, 'students_without_referral'))),
+        StatCard(icon: Icons.mark_email_read_outlined, label: t('E-mails verificados', 'Verified e-mails', 'Correos verificados'), value: t.number(_n(u, 'verified_emails')), hint: t('Prova real de posse do e-mail', 'Proven mailbox ownership', 'Prueba real del correo')),
       ]),
-      section(t('Acesso Premium', 'Premium access', 'Acceso Premium'), [
-        StatCard(icon: Icons.workspace_premium_outlined, label: t('Premium ativo', 'Active Premium', 'Premium activo'), value: t.number(_n(u, 'premium_active')), hint: t('Inclui administradores e professores', 'Includes admins and teachers', 'Incluye administradores y profesores')),
-        StatCard(label: t('Assinantes pagos', 'Paid subscribers', 'Suscriptores de pago'), value: t.number(_n(u, 'paid_active'))),
+      section(t('Assinaturas', 'Subscriptions', 'Suscripciones'), [
+        StatCard(label: t('Assinantes pagos', 'Paid subscribers', 'Suscriptores de pago'), value: t.number(_n(u, 'paid_active')), tone: Tone.good),
         StatCard(label: t('Em período de teste', 'In trial', 'En prueba'), value: t.number(_n(u, 'trial_active'))),
         StatCard(label: t('Testes expirados', 'Expired trials', 'Pruebas expiradas'), value: t.number(_n(u, 'trials_expired'))),
         StatCard(label: t('Assinaturas expiradas', 'Expired subscriptions', 'Suscripciones expiradas'), value: t.number(_n(u, 'subscriptions_expired'))),
         StatCard(label: t('Premium por cortesia', 'Courtesy Premium', 'Premium de cortesía'), value: t.number(_n(u, 'courtesy_active'))),
-        StatCard(label: t('Professores ativos', 'Active teachers', 'Profesores activos'), value: t.number(_n(u, 'partners_active'))),
-        StatCard(label: t('Professores inativos', 'Inactive teachers', 'Profesores inactivos'), value: t.number(_n(u, 'partners_inactive'))),
+        StatCard(label: t('Premium ativo (total)', 'Active Premium (total)', 'Premium activo (total)'), value: t.number(_n(u, 'premium_active')), hint: t('Inclui administradores e professores', 'Includes admins and teachers', 'Incluye administradores y profesores')),
         StatCard(label: t('Conversão em assinatura', 'Subscription conversion', 'Conversión a suscripción'), value: t.percent(conv), hint: t('Assinantes ÷ quem teve teste', 'Subscribers ÷ trial users', 'Suscriptores ÷ con prueba')),
       ]),
-      section(t('Estudo', 'Study', 'Estudio'), [
-        StatCard(label: t('Questões respondidas', 'Questions answered', 'Preguntas respondidas'), value: t.number(_n(s, 'questions_total')), hint: '${t.number(_n(s, 'questions_in_period'))} ${t('no período', 'in period', 'en el periodo')}'),
-        StatCard(label: t('Média de acertos', 'Average accuracy', 'Promedio de aciertos'), value: t.percent(s['accuracy_total'] as num?), hint: '${t.percent(s['accuracy_in_period'] as num?)} ${t('no período', 'in period', 'en el periodo')}'),
-        StatCard(label: t('Redações corrigidas', 'Essays graded', 'Redacciones corregidas'), value: t.number(_n(s, 'essays_evaluated_total')), hint: '${t.number(_n(s, 'essays_evaluated_in_period'))} ${t('no período', 'in period', 'en el periodo')}'),
-        StatCard(label: t('Simulados realizados', 'Mock exams taken', 'Simulacros realizados'), value: t.number(_n(s, 'mock_exams_finished_total')), hint: '${t.number(_n(s, 'mock_exams_finished_in_period'))} ${t('no período', 'in period', 'en el periodo')}'),
+      section(t('Engajamento', 'Engagement', 'Participación'), [
+        StatCard(label: t('Questões respondidas', 'Questions answered', 'Preguntas respondidas'), value: t.number(_n(s, 'questions_total')), hint: '${t.number(_n(s, 'questions_in_period'))} $inPeriod'),
+        StatCard(label: t('Média de acertos', 'Average accuracy', 'Promedio de aciertos'), value: t.percent(s['accuracy_total'] as num?), hint: '${t.percent(s['accuracy_in_period'] as num?)} $inPeriod'),
+        StatCard(label: t('Simulados realizados', 'Mock exams taken', 'Simulacros realizados'), value: t.number(_n(s, 'mock_exams_finished_total')), hint: '${t.number(_n(s, 'mock_exams_finished_in_period'))} $inPeriod'),
+        StatCard(label: t('Redações corrigidas', 'Essays graded', 'Redacciones corregidas'), value: t.number(_n(s, 'essays_evaluated_total')), hint: '${t.number(_n(s, 'essays_evaluated_in_period'))} $inPeriod'),
       ]),
-      section(t('Financeiro (período)', 'Finance (period)', 'Finanzas (periodo)'), [
-        StatCard(label: t('Faturamento bruto', 'Gross revenue', 'Facturación bruta'), value: t.money(_n(f, 'gross_cents')), hint: '${t.number(_n(f, 'payments_count'))} ${t('pagamentos', 'payments', 'pagos')}'),
-        StatCard(label: t('Taxas', 'Fees', 'Tarifas'), value: t.money(_n(f, 'fee_cents'))),
-        StatCard(label: t('Impostos registrados', 'Recorded taxes', 'Impuestos registrados'), value: t.money(_n(f, 'tax_cents'))),
-        StatCard(label: t('Receita líquida', 'Net revenue', 'Ingresos netos'), value: t.money(_n(f, 'net_cents'))),
-        StatCard(label: t('Comissões de professores', 'Teacher commissions', 'Comisiones de profesores'), value: t.money(_n(f, 'commission_cents'))),
-        StatCard(label: t('Receita da Lucksrei', 'Lucksrei revenue', 'Ingresos de Lucksrei'), value: t.money(_n(f, 'lucksrei_cents')), hint: t('Antes de despesas operacionais; não é lucro.', 'Before operating expenses; not profit.', 'Antes de gastos operativos; no es ganancia.')),
-        StatCard(label: t('Repasses pendentes', 'Pending payouts', 'Pagos pendientes'), value: t.money(_n(f, 'pending_payouts_cents')), hint: t('Saldo atual de todos os professores', 'Current balance, all teachers', 'Saldo actual de todos los profesores')),
-        StatCard(label: t('Repasses realizados', 'Payouts made', 'Pagos realizados'), value: t.money(_n(f, 'paid_payouts_cents'))),
-      ]),
+      section(
+        t('Financeiro', 'Finance', 'Finanzas'),
+        subtitle: t('Valores do período selecionado.', 'Values for the selected period.', 'Valores del periodo seleccionado.'),
+        [
+          StatCard(label: t('Faturamento bruto', 'Gross revenue', 'Facturación bruta'), value: t.money(_n(f, 'gross_cents')), hint: '${t.number(_n(f, 'payments_count'))} ${t('pagamentos', 'payments', 'pagos')}'),
+          StatCard(label: t('Receita líquida', 'Net revenue', 'Ingresos netos'), value: t.money(_n(f, 'net_cents'))),
+          StatCard(label: t('Comissões de professores', 'Teacher commissions', 'Comisiones de profesores'), value: t.money(_n(f, 'commission_cents'))),
+          StatCard(label: t('Receita da Lucksrei', 'Lucksrei revenue', 'Ingresos de Lucksrei'), value: t.money(_n(f, 'lucksrei_cents')), hint: t('Antes de despesas operacionais; não é lucro.', 'Before operating expenses; not profit.', 'Antes de gastos operativos; no es ganancia.')),
+          StatCard(label: t('Taxas', 'Fees', 'Tarifas'), value: t.money(_n(f, 'fee_cents'))),
+          StatCard(label: t('Impostos registrados', 'Recorded taxes', 'Impuestos registrados'), value: t.money(_n(f, 'tax_cents'))),
+          StatCard(label: t('Repasses pendentes', 'Pending payouts', 'Pagos pendientes'), value: t.money(_n(f, 'pending_payouts_cents')), hint: t('Saldo atual de todos os professores', 'Current balance, all teachers', 'Saldo actual de todos los profesores')),
+          StatCard(label: t('Repasses realizados', 'Payouts made', 'Pagos realizados'), value: t.money(_n(f, 'paid_payouts_cents'))),
+        ],
+      ),
+      SectionHeader(t('Evolução diária', 'Daily evolution', 'Evolución diaria')),
       Panel(
-        title: t('Evolução diária', 'Daily evolution', 'Evolución diaria'),
         child: series.isEmpty
             ? EmptyState(message: t('Sem dados no período.', 'No data in the period.', 'Sin datos en el periodo.'))
             : LayoutBuilder(builder: (context, box) {
@@ -111,7 +133,7 @@ class _Body extends StatelessWidget {
                 ];
                 final wide = box.maxWidth >= kWide;
                 Widget one(int i) => Padding(
-                      padding: const EdgeInsets.only(bottom: 16, right: 12),
+                      padding: const EdgeInsets.only(bottom: kCardGap, right: kCardGap),
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                         Padding(padding: const EdgeInsets.only(bottom: 6), child: Text(chart[i].$1, style: const TextStyle(fontWeight: FontWeight.w600))),
                         BarChart(values: chart[i].$2, labels: labels(), format: chart[i].$3),

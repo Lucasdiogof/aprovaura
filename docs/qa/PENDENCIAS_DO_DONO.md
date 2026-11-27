@@ -42,3 +42,23 @@ Auditoria do cofre (Etapa 10C): para o AprovaAura existem apenas `supabase.aprov
 
 Mantidos desligados nesta etapa: monetização (`enforcement_enabled`), confirmação obrigatória de e-mail, provedores de pagamento, `AUTO_DEPLOY`.
 | 6 | Google Play Billing | **parcial**: produto `aprovaura_premium` (monthly/annual, rascunho), SA ativa, secrets no Supabase, testador licenciado. Sem RTDN (Cloud `billingEnabled=false` mesmo após pré-pagamento de R$ 30; Pub/Sub pendente, **sem pagamento adicional**). Compras de teste reais homologadas no emulador (mensal, anual, recusa, renovação, cancelamento, expiração, restauração, estorno) — ver seção 9; fechamento em seção 10 (carência, retenção, recuperação, reinstalação, restaurar corrigido); faltam RTDN, 2ª conta de teste e reinstalação com dados limpos | entrar com a conta de teste no emulador (Play Store) ou aparelho; aguardar crédito do Cloud (até 24h); decidir sobre R$ 30 se não liberar | Emulador/Play Console/Google Cloud | Dono | Sim | `docs/qa/GOOGLE_PLAY_HOMOLOGACAO.md` |
+
+## Melhorias planejadas (depois da homologação manual; NÃO implementar antes)
+Registrado em 27/11/2026. Não altera o fluxo de testes atual nem abre sprint. Fica **depois da homologação manual** e **antes de fechar a experiência comercial de cadastro**. Não renumera o roadmap oficial de dez etapas.
+
+### F1. Login social (Google e Apple) e identificação do professor indicador
+1. **Cadastro e login com Google e Apple**
+   - Criar conta e entrar com Google e com Apple, integrados ao Auth existente.
+   - Conta e progresso preservados qualquer que seja o método de login.
+   - Sem duplicidade quando o mesmo e-mail já existir (vincular a identidade à conta existente).
+2. **Pergunta no primeiro acesso à Home** (só se ainda não houver indicação registrada): BottomSheet "Você foi indicado por algum professor?"
+   - **Sim, fui indicado:** lista pesquisável de professores parceiros ativos; o aluno escolhe quem indicou.
+   - **Não fui indicado:** registra que o cadastro não tem indicação e segue normalmente.
+   - Visual simples, bonito e na identidade do AprovaAura.
+3. **Regras**
+   - Perguntar **uma única vez**; nunca se a indicação já veio por link.
+   - Escolha do professor grava o vínculo no backend, preservando as regras de indicação, comissões e proteção contra alteração indevida.
+   - Sem autovinculação nem indicação inválida.
+   - E-mail não confirmado: o vínculo só vale após a confirmação (regra atual).
+   - Escolher professor **nunca é obrigatório** para usar o app.
+4. **Execução:** somente após o dono concluir a homologação manual e autorizar.

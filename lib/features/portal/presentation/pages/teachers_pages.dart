@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:aura/core/l10n/app_language.dart';
+import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/features/portal/data/portal_api.dart';
 import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/features/portal/presentation/widgets/portal_widgets.dart';
@@ -23,6 +24,82 @@ Tone partnerTone(String s) => switch (s) {
 
 String referralLink(String code) => 'https://aprovaura.lucksrei.com/?ref=$code';
 
+/// Botões da página/diálogos: largura do texto, altura única dos controles.
+const _kBtnSize = Size(0, kControlH);
+const _kDialogW = 480.0;
+final _emailRe = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
+
+Map<String, String> _pixTypes(PortalStrings t) =>
+    {'': '—', 'cpf': 'CPF', 'cnpj': 'CNPJ', 'email': 'E-mail', 'phone': t('Telefone', 'Phone', 'Teléfono'), 'random': t('Aleatória', 'Random', 'Aleatoria')};
+
+String _invalidPct(PortalStrings t) => t('Informe um percentual entre 0 e 100.', 'Enter a percentage between 0 and 100.', 'Indica un porcentaje entre 0 y 100.');
+
+String _pixTogether(PortalStrings t) => t('Informe o tipo e a chave Pix juntos.', 'Provide the Pix type and key together.', 'Indica tipo y clave Pix juntos.');
+
+/// Campo de diálogo com mensagem de erro inline.
+class _Input extends StatelessWidget {
+  const _Input({required this.label, required this.controller, this.error, this.hint, this.keyboard});
+  final String label;
+  final TextEditingController controller;
+  final String? error;
+  final String? hint;
+  final TextInputType? keyboard;
+  @override
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.only(bottom: 12),
+        child: TextField(
+          controller: controller,
+          keyboardType: keyboard,
+          decoration: InputDecoration(labelText: label, hintText: hint, errorText: error, isDense: true),
+        ),
+      );
+}
+
+class _FormSection extends StatelessWidget {
+  const _FormSection(this.title, this.children);
+  final String title;
+  final List<Widget> children;
+  @override
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(title, style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, letterSpacing: 0.4, color: context.colors.primary)),
+          const SizedBox(height: 4),
+          Divider(height: 16, color: context.colors.border),
+          ...children,
+        ]),
+      );
+}
+
+class _DialogFrame extends StatelessWidget {
+  const _DialogFrame({required this.title, required this.children, required this.busy, required this.actionLabel, required this.onSubmit});
+  final String title;
+  final List<Widget> children;
+  final bool busy;
+  final String actionLabel;
+  final VoidCallback onSubmit;
+  @override
+  Widget build(BuildContext context) {
+    final t = PortalStrings.watch(context);
+    return AlertDialog(
+      title: Text(title),
+      content: SizedBox(
+        width: _kDialogW,
+        child: SingleChildScrollView(child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: children)),
+      ),
+      actionsPadding: const EdgeInsets.fromLTRB(24, 0, 24, 20),
+      actions: [
+        TextButton(
+          style: TextButton.styleFrom(minimumSize: _kBtnSize),
+          onPressed: busy ? null : () => Navigator.pop(context, false),
+          child: Text(t('Cancelar', 'Cancel', 'Cancelar')),
+        ),
+        ElevatedButton(style: ElevatedButton.styleFrom(minimumSize: _kBtnSize), onPressed: busy ? null : onSubmit, child: Text(actionLabel)),
+      ],
+    );
+  }
+}
+
 class TeachersPage extends StatefulWidget {
   const TeachersPage({super.key});
   @override
@@ -36,27 +113,27 @@ class _TeachersPageState extends State<TeachersPage> {
   int _offset = 0;
   int _reload = 0;
 
+  Future<void> _create(PortalApi api) async {
+    final done = await showDialog<bool>(context: context, builder: (_) => _CreateDialog(api: api));
+    if (done == true) setState(() => _reload++);
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = PortalStrings.watch(context);
     final api = context.read<PortalApi>();
+    final c = context.colors;
+    Widget newButton() => ElevatedButton.icon(
+          style: ElevatedButton.styleFrom(minimumSize: _kBtnSize),
+          onPressed: () => _create(api),
+          icon: const Icon(Icons.person_add_alt_1_rounded, size: 18),
+          label: Text(t('Novo professor', 'New teacher', 'Nuevo profesor')),
+        );
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      PageHeader(
-        title: t('Professores parceiros', 'Partner teachers', 'Profesores asociados'),
-        actions: [
-          ElevatedButton.icon(
-            onPressed: () async {
-              final done = await showDialog<bool>(context: context, builder: (_) => _CreateDialog(api: api));
-              if (done == true) setState(() => _reload++);
-            },
-            icon: const Icon(Icons.person_add_alt_1_rounded, size: 18),
-            label: Text(t('Novo professor', 'New teacher', 'Nuevo profesor')),
-          ),
-        ],
-      ),
+      PageHeader(title: t('Professores parceiros', 'Partner teachers', 'Profesores asociados'), actions: [newButton()]),
       Panel(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Wrap(spacing: 10, runSpacing: 10, children: [
+          FilterBar(children: [
             SearchBox(
               hint: t('Nome, e-mail ou código', 'Name, e-mail or code', 'Nombre, correo o código'),
               onChanged: (v) => setState(() {
@@ -80,38 +157,41 @@ class _TeachersPageState extends State<TeachersPage> {
               }),
             ),
           ]),
-          const SizedBox(height: 12),
           Loader<Map<String, dynamic>>(
             loader: () => api.partners(search: _search.isEmpty ? null : _search, status: _status.isEmpty ? null : _status, limit: _limit, offset: _offset),
             keys: [_search, _status, _offset, _reload],
             builder: (context, d, _) {
               final rows = (d['rows'] as List).map((e) => Map<String, dynamic>.from(e as Map)).toList();
               if (rows.isEmpty) {
+                final filtered = _search.isNotEmpty || _status.isNotEmpty;
                 return EmptyState(
                   icon: Icons.school_outlined,
-                  message: t('Nenhum professor cadastrado ainda.', 'No teachers registered yet.', 'Aún no hay profesores registrados.'),
+                  message: filtered
+                      ? t('Nenhum professor encontrado com esses filtros.', 'No teachers match these filters.', 'Ningún profesor coincide con estos filtros.')
+                      : t('Nenhum professor cadastrado ainda.', 'No teachers registered yet.', 'Aún no hay profesores registrados.'),
+                  action: filtered ? null : newButton(),
                 );
               }
               return Column(children: [
                 PortalTable(
                   columns: [
-                    PortalColumn(t('Professor', 'Teacher', 'Profesor'), flex: 3),
-                    PortalColumn(t('Código', 'Code', 'Código')),
-                    PortalColumn(t('Situação', 'Status', 'Estado')),
+                    PortalColumn(t('Professor', 'Teacher', 'Profesor'), flex: 4),
+                    PortalColumn(t('Situação', 'Status', 'Estado'), flex: 2),
+                    PortalColumn(t('Código', 'Code', 'Código'), flex: 2),
                     PortalColumn(t('Alunos', 'Students', 'Alumnos')),
                     PortalColumn(t('Comissão', 'Commission', 'Comisión')),
-                    PortalColumn(t('Saldo pendente', 'Pending balance', 'Saldo pendiente')),
+                    PortalColumn(t('Saldo pendente', 'Pending balance', 'Saldo pendiente'), flex: 2),
                   ],
                   onTap: (i) => context.go('/partners/teachers/${rows[i]['id']}'),
                   rows: [
                     for (final r in rows)
                       [
                         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                          Text('${r['display_name']}', style: const TextStyle(fontWeight: FontWeight.w700)),
-                          Text('${r['email']}', style: const TextStyle(fontSize: 12)),
+                          Text('${r['display_name']}', maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.w700, color: c.textPrimary)),
+                          Text('${r['email']}', maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 12, color: c.textSecondary)),
                         ]),
-                        Text('${r['referral_code']}'),
                         StatusBadge(partnerStatusLabel(t, '${r['status']}'), tone: partnerTone('${r['status']}')),
+                        Text('${r['referral_code']}', style: const TextStyle(fontFeatures: [FontFeature.tabularFigures()])),
                         Text(t.number(r['students'] as num)),
                         Text(t.bps(r['commission_bps'] as num)),
                         Text(t.money(r['balance_cents'] as num)),
@@ -143,6 +223,7 @@ class _CreateDialogState extends State<_CreateDialog> {
   final _pix = TextEditingController();
   String _pixType = '';
   bool _busy = false;
+  String? _emailErr, _nameErr, _bpsErr, _pixErr;
 
   @override
   void dispose() {
@@ -157,18 +238,13 @@ class _CreateDialogState extends State<_CreateDialog> {
     final email = _email.text.trim().toLowerCase();
     final name = _name.text.trim();
     final pct = _bps.text.trim().isEmpty ? null : double.tryParse(_bps.text.trim().replaceAll(',', '.'));
-    if (!RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$').hasMatch(email) || name.length < 2 || (_bps.text.trim().isNotEmpty && (pct == null || pct < 0 || pct > 100))) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(t('Confira e-mail, nome e percentual.', 'Check e-mail, name and percentage.', 'Revisa correo, nombre y porcentaje.')),
-      ));
-      return;
-    }
-    if ((_pixType.isEmpty) != _pix.text.trim().isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(t('Informe o tipo e a chave Pix juntos.', 'Provide the Pix type and key together.', 'Indica tipo y clave Pix juntos.')),
-      ));
-      return;
-    }
+    setState(() {
+      _emailErr = _emailRe.hasMatch(email) ? null : t('Informe um e-mail válido.', 'Enter a valid e-mail.', 'Indica un correo válido.');
+      _nameErr = name.length >= 2 ? null : t('Informe o nome (mínimo 2 letras).', 'Enter the name (at least 2 letters).', 'Indica el nombre (mínimo 2 letras).');
+      _bpsErr = _bps.text.trim().isNotEmpty && (pct == null || pct < 0 || pct > 100) ? _invalidPct(t) : null;
+      _pixErr = _pixType.isEmpty != _pix.text.trim().isEmpty ? _pixTogether(t) : null;
+    });
+    if (_emailErr != null || _nameErr != null || _bpsErr != null || _pixErr != null) return;
     final ok = await confirmDialog(
       context,
       title: t('Cadastrar professor?', 'Register teacher?', '¿Registrar profesor?'),
@@ -210,33 +286,34 @@ class _CreateDialogState extends State<_CreateDialog> {
   @override
   Widget build(BuildContext context) {
     final t = PortalStrings.watch(context);
-    return AlertDialog(
-      title: Text(t('Novo professor parceiro', 'New partner teacher', 'Nuevo profesor asociado')),
-      content: SizedBox(
-        width: 440,
-        child: SingleChildScrollView(
-          child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Field(label: 'E-mail', controller: _email, keyboard: TextInputType.emailAddress),
-            Field(label: t('Nome exibido nas indicações', 'Name shown in referrals', 'Nombre mostrado en referidos'), controller: _name),
-            Field(label: t('Código de indicação (opcional)', 'Referral code (optional)', 'Código de referencia (opcional)'), controller: _code, hint: 'AB12CD'),
-            Field(label: t('Comissão % (vazio = padrão)', 'Commission % (empty = default)', 'Comisión % (vacío = predeterminada)'), controller: _bps, keyboard: TextInputType.number),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Select<String>(
-                label: t('Tipo de chave Pix', 'Pix key type', 'Tipo de clave Pix'),
-                value: _pixType,
-                items: {'': '—', 'cpf': 'CPF', 'cnpj': 'CNPJ', 'email': 'E-mail', 'phone': t('Telefone', 'Phone', 'Teléfono'), 'random': t('Aleatória', 'Random', 'Aleatoria')},
-                onChanged: (v) => setState(() => _pixType = v),
-              ),
+    return _DialogFrame(
+      title: t('Novo professor parceiro', 'New partner teacher', 'Nuevo profesor asociado'),
+      busy: _busy,
+      actionLabel: t('Cadastrar', 'Register', 'Registrar'),
+      onSubmit: _submit,
+      children: [
+        _FormSection(t('Identificação', 'Identification', 'Identificación'), [
+          _Input(label: t('Nome exibido nas indicações', 'Name shown in referrals', 'Nombre mostrado en referidos'), controller: _name, error: _nameErr),
+        ]),
+        _FormSection(t('Dados de acesso', 'Access details', 'Datos de acceso'), [
+          _Input(label: 'E-mail', controller: _email, error: _emailErr, keyboard: TextInputType.emailAddress),
+        ]),
+        _FormSection(t('Parceria e indicação', 'Partnership and referral', 'Alianza y referidos'), [
+          _Input(label: t('Comissão % (vazio = padrão)', 'Commission % (empty = default)', 'Comisión % (vacío = predeterminada)'), controller: _bps, error: _bpsErr, keyboard: TextInputType.number),
+          _Input(label: t('Código de indicação (opcional)', 'Referral code (optional)', 'Código de referencia (opcional)'), controller: _code, hint: 'AB12CD'),
+        ]),
+        _FormSection(t('Dados financeiros (opcional)', 'Financial details (optional)', 'Datos financieros (opcional)'), [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Select<String>(
+              label: t('Tipo de chave Pix', 'Pix key type', 'Tipo de clave Pix'),
+              value: _pixType,
+              items: _pixTypes(t),
+              onChanged: (v) => setState(() => _pixType = v),
             ),
-            const SizedBox(height: 8),
-            Field(label: t('Chave Pix', 'Pix key', 'Clave Pix'), controller: _pix),
-          ]),
-        ),
-      ),
-      actions: [
-        TextButton(onPressed: _busy ? null : () => Navigator.pop(context, false), child: Text(t('Cancelar', 'Cancel', 'Cancelar'))),
-        ElevatedButton(onPressed: _busy ? null : _submit, child: Text(t('Cadastrar', 'Register', 'Registrar'))),
+          ),
+          _Input(label: t('Chave Pix', 'Pix key', 'Clave Pix'), controller: _pix, error: _pixErr),
+        ]),
       ],
     );
   }
@@ -281,12 +358,14 @@ class _TeacherBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = PortalStrings.watch(context);
+    final c = context.colors;
     final p = Map<String, dynamic>.from(data['partner'] as Map);
     final st = Map<String, dynamic>.from(data['stats'] as Map);
     final students = (data['students'] as List).map((e) => Map<String, dynamic>.from(e as Map)).toList();
     final history = (data['history'] as List).map((e) => Map<String, dynamic>.from(e as Map)).toList();
     final status = '${p['status']}';
     final link = referralLink('${p['referral_code']}');
+    final hintStyle = TextStyle(fontSize: 12, color: c.textHint);
 
     Future<void> setStatus(String s, String title, String msg) async {
       final ok = await confirmDialog(context, title: title, message: msg, action: t('Confirmar', 'Confirm', 'Confirmar'), danger: s != 'active');
@@ -303,6 +382,7 @@ class _TeacherBody extends StatelessWidget {
         actions: [
           StatusBadge(partnerStatusLabel(t, status), tone: partnerTone(status)),
           OutlinedButton(
+            style: OutlinedButton.styleFrom(minimumSize: _kBtnSize),
             onPressed: () async {
               final done = await showDialog<bool>(context: context, builder: (_) => _EditDialog(api: api, partner: p));
               if (done == true) await reload();
@@ -311,6 +391,7 @@ class _TeacherBody extends StatelessWidget {
           ),
           if (status == 'active')
             OutlinedButton(
+              style: OutlinedButton.styleFrom(minimumSize: _kBtnSize),
               onPressed: () => setStatus(
                 'ended',
                 t('Encerrar parceria?', 'End partnership?', '¿Terminar alianza?'),
@@ -324,6 +405,7 @@ class _TeacherBody extends StatelessWidget {
             )
           else
             ElevatedButton(
+              style: ElevatedButton.styleFrom(minimumSize: _kBtnSize),
               onPressed: () => setStatus(
                 'active',
                 t('Reativar parceria?', 'Reactivate partnership?', '¿Reactivar alianza?'),
@@ -334,9 +416,26 @@ class _TeacherBody extends StatelessWidget {
         ],
       ),
       Panel(
-        title: t('Dados da parceria', 'Partnership details', 'Datos de la alianza'),
+        title: t('Parceria', 'Partnership', 'Alianza'),
         child: Column(children: [
-          KeyValue(t('Código de indicação', 'Referral code', 'Código de referencia'), Text('${p['referral_code']}')),
+          KeyValue(t('Situação', 'Status', 'Estado'), Align(alignment: Alignment.centerLeft, child: StatusBadge(partnerStatusLabel(t, status), tone: partnerTone(status)))),
+          KeyValue(t('Comissão individual', 'Individual commission', 'Comisión individual'), Text(t.bps(p['commission_bps'] as num))),
+          KeyValue(t('Início', 'Started', 'Inicio'), Text(t.dateOf(p['started_at']))),
+          if (p['ended_at'] != null) KeyValue(t('Encerramento', 'Ended', 'Terminada'), Text(t.dateOf(p['ended_at']))),
+          KeyValue(
+            t('Conta (usuário)', 'Account (user)', 'Cuenta (usuario)'),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton(onPressed: () => context.go('/partners/users/${p['user_id']}'), child: Text(t('Abrir conta', 'Open account', 'Abrir cuenta'))),
+            ),
+          ),
+        ]),
+      ),
+      const SizedBox(height: kCardGap),
+      Panel(
+        title: t('Indicação', 'Referral', 'Referidos'),
+        child: Column(children: [
+          KeyValue(t('Código de indicação', 'Referral code', 'Código de referencia'), Text('${p['referral_code']}', style: const TextStyle(fontWeight: FontWeight.w700))),
           KeyValue(
             t('Link de indicação', 'Referral link', 'Enlace de referencia'),
             Row(children: [
@@ -361,65 +460,66 @@ class _TeacherBody extends StatelessWidget {
                 'Whoever opens this link and signs up sees the teacher pre-selected and can change it.',
                 'Quien abre este enlace y se registra ve al profesor preseleccionado y puede cambiarlo.',
               ),
-              style: const TextStyle(fontSize: 11),
+              style: hintStyle,
             ),
           ),
-          KeyValue(t('Comissão individual', 'Individual commission', 'Comisión individual'), Text(t.bps(p['commission_bps'] as num))),
+        ]),
+      ),
+      const SizedBox(height: kCardGap),
+      Panel(
+        title: t('Financeiro', 'Financial', 'Financiero'),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          CardGrid(minWidth: 170, children: [
+            StatCard(label: t('Faturamento gerado', 'Revenue generated', 'Facturación generada'), value: t.money(st['gross_cents'] as num)),
+            StatCard(label: t('Comissões', 'Commissions', 'Comisiones'), value: t.money(st['commission_cents'] as num)),
+            StatCard(label: t('Saldo pendente', 'Pending balance', 'Saldo pendiente'), value: t.money(st['balance_cents'] as num)),
+            StatCard(label: t('Repassado', 'Paid out', 'Pagado'), value: t.money(st['paid_out_cents'] as num)),
+          ]),
+          const SizedBox(height: kCardGap),
           KeyValue(
             t('Chave Pix', 'Pix key', 'Clave Pix'),
             Text(p['pix_key'] == null ? t('Não cadastrada', 'Not registered', 'No registrada') : '${p['pix_key_type']} · ${p['pix_key']}'),
           ),
-          KeyValue(t('Início', 'Started', 'Inicio'), Text(t.dateOf(p['started_at']))),
-          if (p['ended_at'] != null) KeyValue(t('Encerramento', 'Ended', 'Terminada'), Text(t.dateOf(p['ended_at']))),
-          KeyValue(t('Conta (usuário)', 'Account (user)', 'Cuenta (usuario)'),
-              TextButton(onPressed: () => context.go('/partners/users/${p['user_id']}'), child: Text(t('Abrir conta', 'Open account', 'Abrir cuenta')))),
         ]),
       ),
-      const SizedBox(height: 16),
-      CardGrid(minWidth: 170, children: [
-        StatCard(label: t('Alunos vinculados', 'Linked students', 'Alumnos vinculados'), value: t.number(st['students'] as num)),
-        StatCard(label: t('Alunos pagantes', 'Paying students', 'Alumnos de pago'), value: t.number(st['paying_students'] as num)),
-        StatCard(label: t('Faturamento gerado', 'Revenue generated', 'Facturación generada'), value: t.money(st['gross_cents'] as num)),
-        StatCard(label: t('Comissões', 'Commissions', 'Comisiones'), value: t.money(st['commission_cents'] as num)),
-        StatCard(label: t('Saldo pendente', 'Pending balance', 'Saldo pendiente'), value: t.money(st['balance_cents'] as num)),
-        StatCard(label: t('Repassado', 'Paid out', 'Pagado'), value: t.money(st['paid_out_cents'] as num)),
-      ]),
-      const SizedBox(height: 16),
+      const SizedBox(height: kCardGap),
       Panel(
         title: t('Alunos vinculados', 'Linked students', 'Alumnos vinculados'),
-        child: students.isEmpty
-            ? EmptyState(message: t('Nenhum aluno vinculado.', 'No linked students.', 'Sin alumnos vinculados.'))
-            : PortalTable(
-                columns: [
-                  PortalColumn(t('Aluno', 'Student', 'Alumno'), flex: 2),
-                  PortalColumn(t('Vinculado em', 'Linked on', 'Vinculado el')),
-                  PortalColumn(t('Origem', 'Source', 'Origen')),
-                ],
-                onTap: (i) => context.go('/partners/users/${students[i]['id']}'),
-                rows: [
-                  for (final s in students)
-                    [
-                      Text('${s['name'] ?? '—'}${s['username'] == null ? '' : ' · @${s['username']}'}'),
-                      Text(t.dateOf(s['linked_at'])),
-                      Text('${s['source']}'),
-                    ],
-                ],
-              ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          CardGrid(minWidth: 170, children: [
+            StatCard(label: t('Alunos vinculados', 'Linked students', 'Alumnos vinculados'), value: t.number(st['students'] as num)),
+            StatCard(label: t('Alunos pagantes', 'Paying students', 'Alumnos de pago'), value: t.number(st['paying_students'] as num)),
+          ]),
+          const SizedBox(height: kCardGap),
+          if (students.isEmpty)
+            EmptyState(icon: Icons.groups_outlined, message: t('Nenhum aluno vinculado.', 'No linked students.', 'Sin alumnos vinculados.'))
+          else
+            PortalTable(
+              columns: [
+                PortalColumn(t('Aluno', 'Student', 'Alumno'), flex: 2),
+                PortalColumn(t('Vinculado em', 'Linked on', 'Vinculado el')),
+                PortalColumn(t('Origem', 'Source', 'Origen')),
+              ],
+              onTap: (i) => context.go('/partners/users/${students[i]['id']}'),
+              rows: [
+                for (final s in students)
+                  [
+                    Text('${s['name'] ?? '—'}${s['username'] == null ? '' : ' · @${s['username']}'}'),
+                    Text(t.dateOf(s['linked_at'])),
+                    Text('${s['source']}'),
+                  ],
+              ],
+            ),
+        ]),
       ),
-      const SizedBox(height: 16),
+      const SizedBox(height: kCardGap),
       Panel(
         title: t('Histórico da parceria', 'Partnership history', 'Historial de la alianza'),
         child: history.isEmpty
-            ? EmptyState(message: t('Sem registros.', 'No records.', 'Sin registros.'))
+            ? EmptyState(icon: Icons.history_rounded, message: t('Sem registros.', 'No records.', 'Sin registros.'))
             : Column(children: [
                 for (final h in history)
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 3),
-                      child: Text('${t.dateTimeOf(h['at'])} · ${h['action']} · ${h['actor_name'] ?? '—'}', style: const TextStyle(fontSize: 12)),
-                    ),
-                  ),
+                  KeyValue(t.dateTimeOf(h['at']), Text('${h['action']} · ${h['actor_name'] ?? '—'}')),
               ]),
       ),
     ]);
@@ -441,6 +541,7 @@ class _EditDialogState extends State<_EditDialog> {
   late final _pix = TextEditingController(text: '${widget.partner['pix_key'] ?? ''}');
   late String _pixType = '${widget.partner['pix_key_type'] ?? ''}';
   bool _busy = false;
+  String? _bpsErr, _pixErr;
 
   @override
   void dispose() {
@@ -453,12 +554,11 @@ class _EditDialogState extends State<_EditDialog> {
   Future<void> _save() async {
     final t = PortalStrings.read(context);
     final pct = double.tryParse(_bps.text.trim().replaceAll(',', '.'));
-    if (pct == null || pct < 0 || pct > 100 || (_pixType.isEmpty) != _pix.text.trim().isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(t('Confira o percentual e a chave Pix.', 'Check the percentage and Pix key.', 'Revisa el porcentaje y la clave Pix.')),
-      ));
-      return;
-    }
+    setState(() {
+      _bpsErr = pct == null || pct < 0 || pct > 100 ? _invalidPct(t) : null;
+      _pixErr = _pixType.isEmpty != _pix.text.trim().isEmpty ? _pixTogether(t) : null;
+    });
+    if (_bpsErr != null || _pixErr != null) return;
     final ok = await confirmDialog(
       context,
       title: t('Salvar alterações?', 'Save changes?', '¿Guardar cambios?'),
@@ -472,7 +572,7 @@ class _EditDialogState extends State<_EditDialog> {
       () => widget.api.updatePartner('${widget.partner['id']}', {
         'display_name': _name.text.trim(),
         'referral_code': _code.text.trim().toUpperCase(),
-        'commission_bps': (pct * 100).round(),
+        'commission_bps': (pct! * 100).round(),
         'pix_key_type': _pixType,
         'pix_key': _pix.text.trim(),
       }),
@@ -489,32 +589,31 @@ class _EditDialogState extends State<_EditDialog> {
   @override
   Widget build(BuildContext context) {
     final t = PortalStrings.watch(context);
-    return AlertDialog(
-      title: Text(t('Editar professor', 'Edit teacher', 'Editar profesor')),
-      content: SizedBox(
-        width: 440,
-        child: SingleChildScrollView(
-          child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Field(label: t('Nome exibido nas indicações', 'Name shown in referrals', 'Nombre mostrado en referidos'), controller: _name),
-            Field(label: t('Código de indicação', 'Referral code', 'Código de referencia'), controller: _code),
-            Field(label: t('Comissão %', 'Commission %', 'Comisión %'), controller: _bps, keyboard: TextInputType.number),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Select<String>(
-                label: t('Tipo de chave Pix', 'Pix key type', 'Tipo de clave Pix'),
-                value: _pixType,
-                items: {'': '—', 'cpf': 'CPF', 'cnpj': 'CNPJ', 'email': 'E-mail', 'phone': t('Telefone', 'Phone', 'Teléfono'), 'random': t('Aleatória', 'Random', 'Aleatoria')},
-                onChanged: (v) => setState(() => _pixType = v),
-              ),
+    return _DialogFrame(
+      title: t('Editar professor', 'Edit teacher', 'Editar profesor'),
+      busy: _busy,
+      actionLabel: t('Salvar', 'Save', 'Guardar'),
+      onSubmit: _save,
+      children: [
+        _FormSection(t('Identificação', 'Identification', 'Identificación'), [
+          _Input(label: t('Nome exibido nas indicações', 'Name shown in referrals', 'Nombre mostrado en referidos'), controller: _name),
+        ]),
+        _FormSection(t('Parceria e indicação', 'Partnership and referral', 'Alianza y referidos'), [
+          _Input(label: t('Comissão %', 'Commission %', 'Comisión %'), controller: _bps, error: _bpsErr, keyboard: TextInputType.number),
+          _Input(label: t('Código de indicação', 'Referral code', 'Código de referencia'), controller: _code),
+        ]),
+        _FormSection(t('Dados financeiros', 'Financial details', 'Datos financieros'), [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Select<String>(
+              label: t('Tipo de chave Pix', 'Pix key type', 'Tipo de clave Pix'),
+              value: _pixType,
+              items: _pixTypes(t),
+              onChanged: (v) => setState(() => _pixType = v),
             ),
-            const SizedBox(height: 8),
-            Field(label: t('Chave Pix', 'Pix key', 'Clave Pix'), controller: _pix),
-          ]),
-        ),
-      ),
-      actions: [
-        TextButton(onPressed: _busy ? null : () => Navigator.pop(context, false), child: Text(t('Cancelar', 'Cancel', 'Cancelar'))),
-        ElevatedButton(onPressed: _busy ? null : _save, child: Text(t('Salvar', 'Save', 'Guardar'))),
+          ),
+          _Input(label: t('Chave Pix', 'Pix key', 'Clave Pix'), controller: _pix, error: _pixErr),
+        ]),
       ],
     );
   }
