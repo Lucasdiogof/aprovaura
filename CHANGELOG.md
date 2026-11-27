@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Docs
+- `docs/release/AUDITORIA_LANCAMENTO_COMERCIAL.md`: consolidated launch audit with per-area classification and the exact list of owner-side blockers.
+
+### Changed
+- Essay score note now states the official ENEM requires an essay in Portuguese (PT/EN/ES).
+
 ### Added (essay feedback: multi-provider, inactive)
 - Essay correction can use two independent free-tier AI providers (Groq primary, Cloudflare Workers AI secondary; Gemini kept, disabled) with silent automatic fallback, circuit breaker, Retry-After handling, per-provider free-allowance caps and admin RPCs to reorder or disable providers without a release. Failed corrections no longer consume the daily limit. Technically homologated with real calls and synthetic essays (ENEM 2026 Cartilha rules: total off-topic = 0, tangential caps C2/C3/C5 at 40) and admin screen (Portal → AI feedback) added; deployed but still switched off (`ESSAY_AI_PROVIDER=disabled`, providers disabled). See `docs/qa/IA_CORRECAO_MULTIPROVEDOR.md`.
 

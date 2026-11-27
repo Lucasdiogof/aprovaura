@@ -485,12 +485,14 @@ class EssayStrings {
 
   String get estimatedScoreNote => switch (language) {
     AppLanguage.portuguese =>
-      'Estimativa de treino, feita por IA. Não é a nota oficial do ENEM.',
+      'Estimativa de treino, feita por IA. Não é a nota oficial do ENEM, '
+          'que exige redação em português.',
     AppLanguage.english =>
-      'A practice estimate, produced by AI. Not an official ENEM score.',
+      'A practice estimate, produced by AI. Not an official ENEM score: the '
+          'real exam requires an essay in Portuguese.',
     AppLanguage.spanish =>
-      'Estimación de práctica, generada por IA. No es la nota oficial '
-          'del ENEM.',
+      'Estimación de práctica, generada por IA. No es la nota oficial del '
+          'ENEM, que exige la redacción en portugués.',
   };
 
   String outOf(int max) => switch (language) {
