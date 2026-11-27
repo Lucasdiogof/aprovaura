@@ -164,6 +164,15 @@ class PortalApi {
   Future<Map<String, dynamic>> partnerFinance({int limit = 25, int offset = 0}) =>
       _map('partner_finance', {'p_limit': limit, 'p_offset': offset});
 
+  // ----- Correção de redação por IA (provedores gratuitos, fallback) -----
+  Future<Map<String, dynamic>> essayAiOverview() => _map('admin_essay_ai_overview');
+
+  Future<void> essayAiSet(String provider, Map<String, dynamic> patch, {String? note}) =>
+      _rpc<dynamic>('admin_essay_ai_set', {'p_provider': provider, 'p_patch': patch, 'p_note': note});
+
+  Future<void> essayAiSetOrder(List<String> order, {String? note}) =>
+      _rpc<dynamic>('admin_essay_ai_set_order', {'p_order': order, 'p_note': note});
+
   // ----- Integrações de pagamento (Etapa 07) -----
   Future<Map<String, dynamic>> paymentsStatus() => _map('admin_payments_status');
 

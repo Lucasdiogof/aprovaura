@@ -24,6 +24,7 @@ import 'package:aura/features/intro/presentation/pages/intro_page.dart';
 import 'package:aura/features/onboarding/presentation/pages/onboarding_page.dart';
 import 'package:aura/features/portal/presentation/pages/admin_pages.dart';
 import 'package:aura/features/portal/presentation/pages/dashboard_page.dart';
+import 'package:aura/features/portal/presentation/pages/essay_ai_page.dart';
 import 'package:aura/features/portal/presentation/pages/finance_pages.dart';
 import 'package:aura/features/portal/presentation/pages/integrations_page.dart';
 import 'package:aura/features/portal/presentation/pages/partner_pages.dart';
@@ -233,6 +234,7 @@ final GoRouter appRouter = GoRouter(
         GoRoute(path: '/partners/stats', builder: (_, _) => partnerOnlyActive(const PartnerStatsPage())),
         GoRoute(path: '/partners/finance', builder: (_, _) => const FinanceHome()),
         GoRoute(path: '/partners/integrations', builder: (_, _) => const IntegrationsPage()),
+        GoRoute(path: '/partners/essay-ai', builder: (_, _) => const EssayAiPage()),
         GoRoute(path: '/partners/finance/payments/:id', builder: (_, state) => PaymentDetailPage(id: state.pathParameters['id']!)),
         GoRoute(path: '/partners/finance/teachers/:id', builder: (_, state) => PartnerCommissionsPage(id: state.pathParameters['id']!)),
         GoRoute(path: '/partners/referrals', builder: (_, _) => partnerOnlyActive(const PartnerReferralsPage())),

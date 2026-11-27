@@ -5,7 +5,7 @@ All notable changes to this project are documented in this file.
 ## [Unreleased]
 
 ### Added (essay feedback: multi-provider, inactive)
-- Essay correction can use two independent free-tier AI providers (Groq primary, Cloudflare Workers AI secondary; Gemini kept, disabled) with silent automatic fallback, circuit breaker, Retry-After handling, per-provider free-allowance caps and admin RPCs to reorder or disable providers without a release. Failed corrections no longer consume the daily limit. Still switched off (`ESSAY_AI_PROVIDER=disabled`). See `docs/qa/IA_CORRECAO_MULTIPROVEDOR.md`.
+- Essay correction can use two independent free-tier AI providers (Groq primary, Cloudflare Workers AI secondary; Gemini kept, disabled) with silent automatic fallback, circuit breaker, Retry-After handling, per-provider free-allowance caps and admin RPCs to reorder or disable providers without a release. Failed corrections no longer consume the daily limit. Technically homologated with real calls and synthetic essays (ENEM 2026 Cartilha rules: total off-topic = 0, tangential caps C2/C3/C5 at 40) and admin screen (Portal → AI feedback) added; deployed but still switched off (`ESSAY_AI_PROVIDER=disabled`, providers disabled). See `docs/qa/IA_CORRECAO_MULTIPROVEDOR.md`.
 
 ### Added (Etapas 08–09: commercial preparation, inactive in production)
 - Mandatory paywall flow, access gate and "My subscription" (Etapa 08).

@@ -43,13 +43,15 @@ alter table essay_ai_usage enable row level security;   -- sem policy: só servi
 
 -- Limites gratuitos: Groq gpt-oss-120b 1.000 req/dia e 200K tokens/dia; Cloudflare Workers AI 10.000
 -- neurons/dia (no plano Free, estourar dá ERRO, nunca cobrança); Gemini free depende do painel do projeto.
--- Os tetos abaixo deixam ~10% de margem e podem ser ajustados por admin_essay_ai_set.
+-- Groq: ~10% de margem. Cloudflare: 6.000 de 10.000 neurons (a franquia é da CONTA, compartilhada com qualquer outro uso de Workers AI nela) e podem ser ajustados por admin_essay_ai_set.
 insert into essay_ai_providers (provider, enabled, priority, model, budget_unit, daily_budget, daily_request_limit, reset_tz)
 values
   ('groq',       false, 1, 'openai/gpt-oss-120b',                     'tokens',   180000, 900,  'UTC'),
-  ('cloudflare', false, 2, '@cf/meta/llama-3.3-70b-instruct-fp8-fast', 'neurons',  9000,   2000, 'UTC'),
+  ('cloudflare', false, 2, '@cf/meta/llama-3.3-70b-instruct-fp8-fast', 'neurons',  6000,   2000, 'UTC'),
   ('google',     false, 3, 'gemini-3.8-flash',                        'requests', 200,    200,  'America/Los_Angeles')
 on conflict (provider) do nothing;
+-- Medido na homologação: Llama 3.3 leva 19-27 s por correção; 60 s de folga (prazo global da função: 100 s).
+update essay_ai_providers set timeout_ms = 60000 where provider = 'cloudflare' and timeout_ms = 40000;
 
 -- 2. Funções do orquestrador (somente service_role) ---------------------------------------------------
 create or replace function _essay_ai_day(p_tz text) returns date
@@ -153,9 +155,17 @@ begin
         'today', jsonb_build_object('requests', coalesce(t.requests, 0), 'successes', coalesce(t.successes, 0),
           'failures', coalesce(t.failures, 0), 'fallbacks', coalesce(t.fallbacks, 0),
           'cost_used', coalesce(t.cost_used, 0),
-          'budget_used_pct', case when p.daily_budget > 0 then round(100.0 * coalesce(t.cost_used, 0) / p.daily_budget, 1) end),
+          'budget_used_pct', case when p.daily_budget > 0 then round(100.0 * coalesce(t.cost_used, 0) / p.daily_budget, 1) end,
+          'budget_left', greatest(p.daily_budget - coalesce(t.cost_used, 0), 0),
+          -- capacidade restante em correções: franquia sobrando / custo médio medido (ou estimativa inicial)
+          'capacity_left', least(
+            greatest(p.daily_budget - coalesce(t.cost_used, 0), 0)
+              / greatest(coalesce(case when w.successes > 0 then w.cost / w.successes end,
+                                  case p.budget_unit when 'tokens' then 3000 when 'neurons' then 220 else 1 end), 1),
+            greatest(p.daily_request_limit - coalesce(t.requests, 0), 0))::int),
         'last_7_days', jsonb_build_object('successes', coalesce(w.successes, 0), 'failures', coalesce(w.failures, 0),
           'fallbacks', coalesce(w.fallbacks, 0),
+          'avg_cost', case when coalesce(w.successes, 0) > 0 then round(w.cost / w.successes) end,
           'avg_latency_ms', case when coalesce(w.successes, 0) > 0 then round(w.latency / w.successes) end)
       ) order by p.priority, p.provider)
       from (select e.*, row_number() over (partition by e.enabled order by e.priority, e.provider) rn
@@ -163,7 +173,7 @@ begin
       left join essay_ai_usage t on t.provider = p.provider and t.day = _essay_ai_day(p.reset_tz)
       left join lateral (
         select sum(u.successes) successes, sum(u.failures) failures, sum(u.fallbacks) fallbacks,
-               sum(u.latency_ms_total)::numeric latency
+               sum(u.latency_ms_total)::numeric latency, sum(u.cost_used)::numeric cost
         from essay_ai_usage u where u.provider = p.provider and u.day >= _essay_ai_day(p.reset_tz) - 6
       ) w on true
     ), '[]'::jsonb));

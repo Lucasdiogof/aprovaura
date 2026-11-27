@@ -1,7 +1,7 @@
 // Orquestração: percorre os provedores elegíveis na ordem do plano (vem do banco), cada um no máximo
 // uma vez (sem loop de fallback), respeitando um prazo global. O primeiro resultado VÁLIDO encerra: nada
 // de chamada duplicada. Nenhum texto de redação ou resposta passa por log/relatório daqui.
-import { Evaluation, FailReason, Locale, ProviderError, validateEvaluation } from './contract.ts';
+import { Evaluation, FailReason, Locale, looksLikeInjection, ProviderError, validateEvaluation } from './contract.ts';
 import type { Adapter, ProviderName } from './providers.ts';
 
 export type PlanItem = { provider: ProviderName; model: string; timeout_ms: number };
@@ -43,7 +43,7 @@ export async function runCorrection(
         { model: item.model, system: input.system, user: input.user, timeoutMs: Math.min(item.timeout_ms, remaining) },
         deps.fetchFn,
       );
-      const evaluation = validateEvaluation(raw, input.locale);
+      const evaluation = validateEvaluation(raw, input.locale, { injection: looksLikeInjection(input.user) });
       await deps.report(item.provider, { ok: true, latencyMs: now() - t0, cost, fallback: failedBefore }).catch(() => {});
       return { ok: true, evaluation, provider: item.provider, model: item.model, attempts };
     } catch (e) {

@@ -98,7 +98,7 @@ select _t('correção presa não gera débito duplo', (select used = 1 from get_
 -- concluída pelo Plano B conta UMA correção
 select complete_essay_evaluation('00000000-0000-0000-0000-0000000000c1',
   '{"c1":{"score":120},"c2":{"score":120},"c3":{"score":120},"c4":{"score":120},"c5":{"score":120},"competencies":[],"general_feedback":"ok"}'::jsonb,
-  'cloudflare', '@cf/meta/llama-3.3-70b-instruct-fp8-fast', 'essay-enem-v3');
+  'cloudflare', '@cf/meta/llama-3.3-70b-instruct-fp8-fast', 'essay-enem-v4');
 select _t('fallback concluído = 1 correção no limite', (select used = 1 from get_essay_quota()));
 select _t('provider/model gravados na avaliação', (select provider = 'cloudflare' from essay_evaluations where submission_id = '00000000-0000-0000-0000-0000000000c1'));
 select _t('duplicata não regrava nem recobra',
@@ -118,11 +118,11 @@ do $$ begin
 end $$;
 select complete_essay_evaluation('00000000-0000-0000-0000-0000000000c2',
   '{"c1":{"score":80},"c2":{"score":80},"c3":{"score":80},"c4":{"score":80},"c5":{"score":80},"competencies":[],"general_feedback":"ok"}'::jsonb,
-  'groq', 'openai/gpt-oss-120b', 'essay-enem-v3');
+  'groq', 'openai/gpt-oss-120b', 'essay-enem-v4');
 select count(*) from start_essay_evaluation('00000000-0000-0000-0000-0000000000d3');
 select complete_essay_evaluation('00000000-0000-0000-0000-0000000000d3',
   '{"c1":{"score":80},"c2":{"score":80},"c3":{"score":80},"c4":{"score":80},"c5":{"score":80},"competencies":[],"general_feedback":"ok"}'::jsonb,
-  'cloudflare', '@cf/meta/llama-3.3-70b-instruct-fp8-fast', 'essay-enem-v3');
+  'cloudflare', '@cf/meta/llama-3.3-70b-instruct-fp8-fast', 'essay-enem-v4');
 select _t('três correções (A, B e A de novo) = limite diário atingido', (select used = 3 and total = 3 from get_essay_quota()));
 do $$ begin
   begin perform start_essay_evaluation('00000000-0000-0000-0000-0000000000d4'); raise exception 'quarta aceita';

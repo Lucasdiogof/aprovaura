@@ -75,6 +75,10 @@ if (providers.length === 0) {
   Deno.exit(0);
 }
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+// Groq free: 8.000 tokens/min -> ~40 s entre redações; Cloudflare aceita ~300 req/min.
+const PAUSE: Record<string, number> = { groq: 40_000, cloudflare: 3_000, google: 6_000 };
+const DUMP = Deno.env.get('DUMP_DIR');
+if (DUMP) Deno.mkdirSync(DUMP, { recursive: true });
 const rows: string[] = [];
 const stats: Record<string, { ok: number; n: number; ms: number; cost: number }> = {};
 
@@ -91,6 +95,7 @@ for (const p of providers) {
         const ev = validateEvaluation(raw, 'pt-BR');
         const s = ev.scores;
         stats[p].ok++; stats[p].ms += Date.now() - t0; stats[p].cost += cost;
+        if (DUMP) Deno.writeTextFileSync(`${DUMP}/${p}_${c.name.replaceAll(' ', '_')}_${r}.json`, JSON.stringify({ cost, ms: Date.now() - t0, payload: ev.payload }, null, 1));
         rows.push(`${p.padEnd(10)} ${c.name.padEnd(22)} C1-5: ${[s.c1, s.c2, s.c3, s.c4, s.c5].join('/').padEnd(19)} total ${String(ev.total).padStart(4)}  desvio=${ev.payload.possible_theme_deviation}  insuf=${ev.payload.insufficient_text}  ${Date.now() - t0}ms  custo~${cost}`);
       } catch (e) {
         const reason = e instanceof ProviderError ? e.reason : 'unexpected';
@@ -100,7 +105,7 @@ for (const p of providers) {
           continue outer;
         }
       }
-      await sleep(4000);
+      await sleep(PAUSE[p]);
     }
   }
 }

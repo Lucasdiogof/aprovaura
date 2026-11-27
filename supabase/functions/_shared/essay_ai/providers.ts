@@ -110,7 +110,9 @@ export const cloudflare: Adapter = async (a, f = fetch) => {
   const r = p?.result ?? p;
   const [rin, rout] = NEURONS_PER_K[a.model] ?? [31.818, 204.805];
   const u = r?.usage ?? {};
-  const cost = Math.ceil(((Number(u.prompt_tokens) || 3000) * rin + (Number(u.completion_tokens) || 2500) * rout) / 1000);
+  // A própria resposta traz os neurons gastos (medido); sem ele, estima pelos tokens.
+  const cost = Number(u.neurons) > 0 ? Math.ceil(Number(u.neurons))
+    : Math.ceil(((Number(u.prompt_tokens) || 3000) * rin + (Number(u.completion_tokens) || 2500) * rout) / 1000);
   const content = r?.response ?? r?.choices?.[0]?.message?.content;
   if (r?.choices?.[0]?.finish_reason === 'length') throw new ProviderError('invalid_output');
   return { raw: parseJsonContent(content), cost };

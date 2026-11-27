@@ -32,7 +32,7 @@ Quem roda, em que ordem, modelo, timeouts, tetos gratuitos e breaker ficam na ta
 ## Contrato
 
 `POST` com `Authorization: Bearer <jwt do usuário>` e corpo
-`{ "submission_id": "<uuid>", "locale": "pt-BR" | "en" | "es" }`. Prompt `essay-enem-v3`; o idioma do
+`{ "submission_id": "<uuid>", "locale": "pt-BR" | "en" | "es" }`. Prompt `essay-enem-v4` (regras da Cartilha ENEM 2026); o idioma do
 `locale` é o da correção, a redação pode estar em qualquer idioma.
 
 | Resposta | Situação |
