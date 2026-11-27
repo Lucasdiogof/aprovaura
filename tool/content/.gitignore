@@ -1,3 +1,5 @@
 state/existing_questions.jsonl
 state/db_check_output.txt
 __pycache__/
+state/legacy_full.jsonl
+state/backfill/
