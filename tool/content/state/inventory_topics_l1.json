@@ -1,0 +1,1903 @@
+{
+ "geografia": {
+  "roots": [
+   "Brasil",
+   "América do Sul",
+   "América do Norte",
+   "Europa",
+   "África",
+   "Ásia",
+   "Oceania",
+   "Mundo"
+  ],
+  "tops": [
+   [
+    "Território",
+    5,
+    0
+   ],
+   [
+    "Hidrografia",
+    55,
+    11
+   ],
+   [
+    "Relevo",
+    5,
+    0
+   ],
+   [
+    "Biomas e vegetação",
+    5,
+    0
+   ],
+   [
+    "Clima",
+    5,
+    0
+   ],
+   [
+    "Cidades",
+    5,
+    0
+   ],
+   [
+    "Geografia humana",
+    5,
+    0
+   ],
+   [
+    "Geografia econômica",
+    5,
+    0
+   ],
+   [
+    "Estados",
+    61,
+    1
+   ],
+   [
+    "Relevo do Brasil",
+    0,
+    0
+   ],
+   [
+    "Indústria do Brasil",
+    12,
+    0
+   ],
+   [
+    "Agricultura do Brasil",
+    5,
+    0
+   ],
+   [
+    "Urbanização do Brasil",
+    13,
+    0
+   ],
+   [
+    "Biomas do Brasil",
+    0,
+    0
+   ],
+   [
+    "População do Brasil",
+    12,
+    0
+   ],
+   [
+    "Energia do Brasil",
+    13,
+    0
+   ],
+   [
+    "Questão ambiental do Brasil",
+    13,
+    0
+   ],
+   [
+    "Portos do Brasil",
+    0,
+    0
+   ],
+   [
+    "Relevo",
+    5,
+    0
+   ],
+   [
+    "Biomas",
+    5,
+    0
+   ],
+   [
+    "Divisões administrativas",
+    5,
+    0
+   ],
+   [
+    "Pontos turísticos",
+    5,
+    0
+   ],
+   [
+    "Países",
+    0,
+    0
+   ],
+   [
+    "Rios",
+    0,
+    0
+   ],
+   [
+    "Capitais",
+    0,
+    0
+   ],
+   [
+    "Cidades",
+    0,
+    0
+   ],
+   [
+    "Bandeiras",
+    0,
+    0
+   ],
+   [
+    "Biomas da América do Sul",
+    0,
+    0
+   ],
+   [
+    "Países",
+    0,
+    0
+   ],
+   [
+    "Rios",
+    0,
+    0
+   ],
+   [
+    "Capitais",
+    0,
+    0
+   ],
+   [
+    "Cidades",
+    0,
+    0
+   ],
+   [
+    "Bandeiras",
+    0,
+    0
+   ],
+   [
+    "Estados Unidos",
+    5,
+    0
+   ],
+   [
+    "Relevo da América do Norte",
+    0,
+    0
+   ],
+   [
+    "Lagos e mares",
+    5,
+    0
+   ],
+   [
+    "Montanhas e cordilheiras",
+    5,
+    0
+   ],
+   [
+    "Regiões",
+    5,
+    0
+   ],
+   [
+    "Geografia histórica",
+    5,
+    0
+   ],
+   [
+    "Pontos turísticos",
+    5,
+    0
+   ],
+   [
+    "Países",
+    0,
+    0
+   ],
+   [
+    "Rios",
+    0,
+    0
+   ],
+   [
+    "Capitais",
+    0,
+    0
+   ],
+   [
+    "Cidades",
+    0,
+    0
+   ],
+   [
+    "Bandeiras",
+    0,
+    0
+   ],
+   [
+    "Lagos",
+    5,
+    0
+   ],
+   [
+    "Desertos",
+    5,
+    0
+   ],
+   [
+    "Relevo",
+    5,
+    0
+   ],
+   [
+    "Regiões africanas",
+    5,
+    0
+   ],
+   [
+    "Países",
+    0,
+    0
+   ],
+   [
+    "Rios",
+    0,
+    0
+   ],
+   [
+    "Capitais",
+    0,
+    0
+   ],
+   [
+    "Cidades",
+    0,
+    0
+   ],
+   [
+    "Bandeiras",
+    0,
+    0
+   ],
+   [
+    "Mares",
+    5,
+    0
+   ],
+   [
+    "Cordilheiras",
+    5,
+    0
+   ],
+   [
+    "Desertos",
+    5,
+    0
+   ],
+   [
+    "Oriente Médio",
+    5,
+    0
+   ],
+   [
+    "Sudeste Asiático",
+    5,
+    0
+   ],
+   [
+    "Sul da Ásia",
+    5,
+    0
+   ],
+   [
+    "Ásia Central",
+    5,
+    0
+   ],
+   [
+    "Países",
+    0,
+    0
+   ],
+   [
+    "Rios",
+    0,
+    0
+   ],
+   [
+    "Capitais",
+    0,
+    0
+   ],
+   [
+    "Cidades",
+    0,
+    0
+   ],
+   [
+    "Bandeiras",
+    0,
+    0
+   ],
+   [
+    "Países",
+    0,
+    0
+   ],
+   [
+    "Capitais",
+    0,
+    0
+   ],
+   [
+    "Cidades",
+    0,
+    0
+   ],
+   [
+    "Bandeiras",
+    0,
+    0
+   ],
+   [
+    "Relevo da Oceania",
+    0,
+    0
+   ],
+   [
+    "Continentes",
+    5,
+    0
+   ],
+   [
+    "Oceanos",
+    5,
+    0
+   ],
+   [
+    "Mares",
+    5,
+    0
+   ],
+   [
+    "Grandes cordilheiras",
+    5,
+    0
+   ],
+   [
+    "Desertos",
+    5,
+    0
+   ],
+   [
+    "Ilhas",
+    5,
+    0
+   ],
+   [
+    "Vulcões",
+    5,
+    0
+   ],
+   [
+    "Linhas imaginárias",
+    6,
+    0
+   ],
+   [
+    "Países do mundo",
+    0,
+    0
+   ],
+   [
+    "Capitais do mundo",
+    0,
+    0
+   ],
+   [
+    "Grandes cidades",
+    0,
+    0
+   ],
+   [
+    "Bandeiras do mundo",
+    0,
+    0
+   ],
+   [
+    "Estreitos",
+    0,
+    0
+   ],
+   [
+    "Relevo do mundo",
+    0,
+    0
+   ],
+   [
+    "Solos do mundo",
+    0,
+    0
+   ],
+   [
+    "Grandes rios",
+    0,
+    0
+   ],
+   [
+    "Correntes marítimas",
+    0,
+    0
+   ],
+   [
+    "Agricultura mundial",
+    5,
+    0
+   ],
+   [
+    "Climas do mundo",
+    5,
+    0
+   ],
+   [
+    "Biomas do mundo",
+    0,
+    0
+   ],
+   [
+    "Geopolítica e globalização",
+    13,
+    0
+   ]
+  ]
+ },
+ "matematica": {
+  "roots": [
+   "Fundamentos",
+   "Razão, proporção e porcentagem",
+   "Álgebra",
+   "Funções",
+   "Geometria",
+   "Sequências e progressões",
+   "Probabilidade",
+   "Análise combinatória",
+   "Estatística",
+   "Matemática financeira",
+   "Conjuntos",
+   "Raciocínio lógico",
+   "Conteúdos avançados"
+  ],
+  "tops": [
+   [
+    "Números (naturais, inteiros, racionais, irracionais, reais)",
+    6,
+    0
+   ],
+   [
+    "Operações básicas e ordem das operações",
+    6,
+    0
+   ],
+   [
+    "Frações",
+    6,
+    0
+   ],
+   [
+    "Números decimais",
+    5,
+    0
+   ],
+   [
+    "Potenciação e radiciação",
+    5,
+    0
+   ],
+   [
+    "Divisibilidade",
+    22,
+    4
+   ],
+   [
+    "Razão, proporção e porcentagem",
+    6,
+    0
+   ],
+   [
+    "Expressões algébricas",
+    6,
+    0
+   ],
+   [
+    "Produtos notáveis",
+    5,
+    0
+   ],
+   [
+    "Fatoração",
+    5,
+    0
+   ],
+   [
+    "Equações",
+    26,
+    5
+   ],
+   [
+    "Sistemas de equações",
+    5,
+    0
+   ],
+   [
+    "Inequações",
+    5,
+    0
+   ],
+   [
+    "Polinômios",
+    6,
+    0
+   ],
+   [
+    "Funções",
+    8,
+    0
+   ],
+   [
+    "Geometria plana",
+    9,
+    0
+   ],
+   [
+    "Geometria espacial",
+    6,
+    0
+   ],
+   [
+    "Geometria analítica",
+    5,
+    0
+   ],
+   [
+    "Trigonometria",
+    6,
+    0
+   ],
+   [
+    "Sequências e progressões",
+    7,
+    0
+   ],
+   [
+    "Probabilidade",
+    9,
+    0
+   ],
+   [
+    "Análise combinatória",
+    7,
+    0
+   ],
+   [
+    "Estatística",
+    7,
+    0
+   ],
+   [
+    "Matemática financeira",
+    6,
+    0
+   ],
+   [
+    "Conjuntos",
+    6,
+    0
+   ],
+   [
+    "Raciocínio lógico",
+    5,
+    0
+   ],
+   [
+    "Conteúdos avançados",
+    5,
+    0
+   ]
+  ]
+ },
+ "historia": {
+  "roots": [
+   "História do Brasil",
+   "Antiguidade",
+   "Idade Média",
+   "Idade Moderna",
+   "Idade Contemporânea",
+   "História da América",
+   "História da África",
+   "Grandes temas históricos"
+  ],
+  "tops": [
+   [
+    "Povos indígenas",
+    6,
+    0
+   ],
+   [
+    "Brasil Colonial",
+    8,
+    0
+   ],
+   [
+    "Independência do Brasil",
+    6,
+    0
+   ],
+   [
+    "Brasil Império",
+    6,
+    0
+   ],
+   [
+    "República Velha",
+    6,
+    0
+   ],
+   [
+    "Era Vargas",
+    59,
+    4
+   ],
+   [
+    "República de 1946",
+    6,
+    0
+   ],
+   [
+    "Ditadura Militar",
+    6,
+    0
+   ],
+   [
+    "Nova República",
+    6,
+    0
+   ],
+   [
+    "Antiguidade",
+    9,
+    0
+   ],
+   [
+    "Idade Média",
+    9,
+    0
+   ],
+   [
+    "Idade Moderna",
+    10,
+    0
+   ],
+   [
+    "Idade Contemporânea",
+    12,
+    0
+   ],
+   [
+    "História da América",
+    9,
+    0
+   ],
+   [
+    "História da África",
+    10,
+    0
+   ],
+   [
+    "Grandes temas históricos",
+    9,
+    0
+   ]
+  ]
+ },
+ "portugues": {
+  "roots": [
+   "Interpretação de texto",
+   "Gramática",
+   "Sintaxe",
+   "Ortografia e acentuação",
+   "Concordância e regência",
+   "Semântica",
+   "Redação",
+   "Literatura"
+  ],
+  "tops": [
+   [
+    "Compreensão textual",
+    6,
+    0
+   ],
+   [
+    "Tema e assunto",
+    6,
+    0
+   ],
+   [
+    "Ideia principal",
+    5,
+    0
+   ],
+   [
+    "Informações explícitas",
+    6,
+    0
+   ],
+   [
+    "Informações implícitas",
+    5,
+    0
+   ],
+   [
+    "Inferência",
+    6,
+    0
+   ],
+   [
+    "Intenção do autor",
+    6,
+    0
+   ],
+   [
+    "Argumentação",
+    7,
+    0
+   ],
+   [
+    "Fato × opinião",
+    6,
+    0
+   ],
+   [
+    "Coesão e coerência textual",
+    6,
+    0
+   ],
+   [
+    "Gramática",
+    9,
+    0
+   ],
+   [
+    "Sintaxe",
+    12,
+    0
+   ],
+   [
+    "Ortografia e acentuação",
+    9,
+    0
+   ],
+   [
+    "Concordância verbal",
+    6,
+    0
+   ],
+   [
+    "Concordância nominal",
+    6,
+    0
+   ],
+   [
+    "Regência verbal",
+    6,
+    0
+   ],
+   [
+    "Regência nominal",
+    6,
+    0
+   ],
+   [
+    "Crase",
+    24,
+    4
+   ],
+   [
+    "Semântica",
+    11,
+    0
+   ],
+   [
+    "Redação",
+    11,
+    0
+   ],
+   [
+    "Literatura",
+    10,
+    0
+   ]
+  ]
+ },
+ "biologia": {
+  "roots": [
+   "Citologia",
+   "Genética e Biotecnologia",
+   "Ecologia",
+   "Corpo Humano e Fisiologia",
+   "Botânica",
+   "Zoologia",
+   "Microbiologia e Saúde",
+   "Evolução"
+  ],
+  "tops": [
+   [
+    "Membrana plasmática",
+    25,
+    5
+   ],
+   [
+    "Organelas",
+    40,
+    8
+   ],
+   [
+    "Ciclo celular, mitose e meiose",
+    5,
+    0
+   ],
+   [
+    "Conceitos fundamentais",
+    30,
+    6
+   ],
+   [
+    "Leis de Mendel e padrões de herança",
+    37,
+    7
+   ],
+   [
+    "Cadeias e teias alimentares",
+    22,
+    4
+   ],
+   [
+    "Relações ecológicas",
+    35,
+    7
+   ],
+   [
+    "Impactos ambientais",
+    25,
+    5
+   ],
+   [
+    "Sistema cardiovascular",
+    35,
+    7
+   ],
+   [
+    "Sistema nervoso",
+    25,
+    5
+   ],
+   [
+    "Sistema digestório",
+    5,
+    0
+   ],
+   [
+    "Sistema endócrino",
+    5,
+    0
+   ],
+   [
+    "Sistema imunológico",
+    5,
+    0
+   ],
+   [
+    "Botânica",
+    9,
+    0
+   ],
+   [
+    "Zoologia",
+    8,
+    0
+   ],
+   [
+    "Microbiologia e Saúde",
+    8,
+    0
+   ],
+   [
+    "Evolução",
+    10,
+    0
+   ]
+  ]
+ },
+ "fisica": {
+  "roots": [
+   "Mecânica",
+   "Termologia e Termodinâmica",
+   "Ondulatória",
+   "Óptica",
+   "Eletricidade",
+   "Magnetismo e Eletromagnetismo",
+   "Fluidos",
+   "Física Moderna"
+  ],
+  "tops": [
+   [
+    "Cinemática",
+    38,
+    6
+   ],
+   [
+    "Dinâmica",
+    47,
+    7
+   ],
+   [
+    "Trabalho e energia",
+    7,
+    0
+   ],
+   [
+    "Gravitação",
+    7,
+    0
+   ],
+   [
+    "Termologia e Termodinâmica",
+    11,
+    0
+   ],
+   [
+    "Ondulatória",
+    12,
+    0
+   ],
+   [
+    "Espelhos esféricos",
+    31,
+    5
+   ],
+   [
+    "Lentes",
+    30,
+    5
+   ],
+   [
+    "Eletricidade",
+    14,
+    0
+   ],
+   [
+    "Magnetismo e Eletromagnetismo",
+    10,
+    0
+   ],
+   [
+    "Fluidos",
+    9,
+    0
+   ],
+   [
+    "Física Moderna",
+    10,
+    0
+   ]
+  ]
+ },
+ "quimica": {
+  "roots": [
+   "Fundamentos da Química",
+   "Ligações e Estrutura",
+   "Estequiometria",
+   "Soluções",
+   "Físico-Química",
+   "Química Inorgânica",
+   "Química Orgânica",
+   "Química Ambiental e Cotidiano"
+  ],
+  "tops": [
+   [
+    "Estrutura atômica",
+    28,
+    5
+   ],
+   [
+    "Modelos atômicos",
+    23,
+    4
+   ],
+   [
+    "Tabela periódica",
+    39,
+    7
+   ],
+   [
+    "Ligações e Estrutura",
+    8,
+    0
+   ],
+   [
+    "Estequiometria",
+    12,
+    0
+   ],
+   [
+    "Soluções",
+    11,
+    0
+   ],
+   [
+    "Físico-Química",
+    11,
+    0
+   ],
+   [
+    "Química Inorgânica",
+    8,
+    0
+   ],
+   [
+    "Cadeias carbônicas",
+    6,
+    0
+   ],
+   [
+    "Funções orgânicas",
+    55,
+    10
+   ],
+   [
+    "Nomenclatura",
+    6,
+    0
+   ],
+   [
+    "Isomeria",
+    6,
+    0
+   ],
+   [
+    "Reações orgânicas",
+    6,
+    0
+   ],
+   [
+    "Polímeros",
+    5,
+    0
+   ],
+   [
+    "Química Ambiental e Cotidiano",
+    10,
+    0
+   ]
+  ]
+ },
+ "filosofia": {
+  "roots": [
+   "Helenismo e Idade Média",
+   "Lógica e conhecimento",
+   "Filosofia contemporânea",
+   "Filosofia antiga",
+   "Filosofia política",
+   "Ética",
+   "Introdução à filosofia",
+   "Filosofia moderna"
+  ],
+  "tops": [
+   [
+    "Filosofia medieval",
+    6,
+    0
+   ],
+   [
+    "Escolas helenísticas",
+    6,
+    0
+   ],
+   [
+    "Teoria do conhecimento",
+    8,
+    0
+   ],
+   [
+    "Lógica e argumentação",
+    8,
+    0
+   ],
+   [
+    "Nietzsche",
+    6,
+    0
+   ],
+   [
+    "Existencialismo",
+    6,
+    0
+   ],
+   [
+    "Escola de Frankfurt",
+    6,
+    0
+   ],
+   [
+    "Sócrates e os sofistas",
+    6,
+    0
+   ],
+   [
+    "Pré-socráticos",
+    6,
+    0
+   ],
+   [
+    "Aristóteles",
+    7,
+    0
+   ],
+   [
+    "Platão",
+    6,
+    0
+   ],
+   [
+    "Maquiavel e o poder",
+    6,
+    0
+   ],
+   [
+    "Contratualistas",
+    7,
+    0
+   ],
+   [
+    "Teorias éticas",
+    7,
+    0
+   ],
+   [
+    "Ética e moral",
+    6,
+    0
+   ],
+   [
+    "Mito e logos",
+    6,
+    0
+   ],
+   [
+    "O que é filosofia",
+    6,
+    0
+   ],
+   [
+    "Kant e o Iluminismo",
+    6,
+    0
+   ],
+   [
+    "Racionalismo",
+    6,
+    0
+   ],
+   [
+    "Empirismo",
+    6,
+    0
+   ]
+  ]
+ },
+ "sociologia": {
+  "roots": [
+   "Introdução à sociologia",
+   "Clássicos da sociologia",
+   "Cultura e sociedade",
+   "Trabalho e sociedade",
+   "Desigualdades sociais",
+   "Poder, Estado e política",
+   "Cidadania e movimentos sociais",
+   "Sociedade contemporânea"
+  ],
+  "tops": [
+   [
+    "Senso comum e imaginação sociológica",
+    7,
+    0
+   ],
+   [
+    "Surgimento da sociologia",
+    6,
+    0
+   ],
+   [
+    "Émile Durkheim",
+    7,
+    0
+   ],
+   [
+    "Max Weber",
+    6,
+    0
+   ],
+   [
+    "Karl Marx",
+    6,
+    0
+   ],
+   [
+    "Cultura e etnocentrismo",
+    7,
+    0
+   ],
+   [
+    "Indústria cultural e mídia",
+    7,
+    0
+   ],
+   [
+    "Socialização e instituições",
+    6,
+    0
+   ],
+   [
+    "Taylorismo, fordismo e toyotismo",
+    6,
+    0
+   ],
+   [
+    "Trabalho e modos de produção",
+    6,
+    0
+   ],
+   [
+    "Classes e estratificação",
+    7,
+    0
+   ],
+   [
+    "Gênero e desigualdade",
+    6,
+    0
+   ],
+   [
+    "Desigualdade racial",
+    6,
+    0
+   ],
+   [
+    "Democracia e participação",
+    6,
+    0
+   ],
+   [
+    "Estado e poder",
+    6,
+    0
+   ],
+   [
+    "Movimentos sociais",
+    6,
+    0
+   ],
+   [
+    "Cidadania e direitos",
+    6,
+    0
+   ],
+   [
+    "Globalização",
+    6,
+    0
+   ],
+   [
+    "Pensamento social brasileiro",
+    6,
+    0
+   ],
+   [
+    "Consumo e sociedade em rede",
+    7,
+    0
+   ]
+  ]
+ },
+ "literatura": {
+  "roots": [
+   "Teoria literária",
+   "Vozes da literatura brasileira",
+   "Romantismo",
+   "Realismo e fim do século XIX",
+   "Era colonial",
+   "Literatura portuguesa",
+   "Geração de 45 e contemporâneos",
+   "Modernismo"
+  ],
+  "tops": [
+   [
+    "Versificação",
+    6,
+    0
+   ],
+   [
+    "Figuras de linguagem",
+    8,
+    0
+   ],
+   [
+    "Gêneros literários",
+    8,
+    0
+   ],
+   [
+    "Cordel e literatura popular",
+    6,
+    0
+   ],
+   [
+    "Literatura afro-brasileira e indígena",
+    6,
+    0
+   ],
+   [
+    "Prosa romântica",
+    6,
+    0
+   ],
+   [
+    "Poesia romântica",
+    6,
+    0
+   ],
+   [
+    "Parnasianismo e Simbolismo",
+    6,
+    0
+   ],
+   [
+    "Realismo e Machado de Assis",
+    7,
+    0
+   ],
+   [
+    "Naturalismo",
+    6,
+    0
+   ],
+   [
+    "Arcadismo",
+    6,
+    0
+   ],
+   [
+    "Barroco",
+    6,
+    0
+   ],
+   [
+    "Quinhentismo",
+    6,
+    0
+   ],
+   [
+    "Fernando Pessoa",
+    6,
+    0
+   ],
+   [
+    "Trovadorismo e Classicismo",
+    6,
+    0
+   ],
+   [
+    "Geração de 45",
+    6,
+    0
+   ],
+   [
+    "Literatura contemporânea",
+    6,
+    0
+   ],
+   [
+    "Semana de 22 e primeira geração",
+    7,
+    0
+   ],
+   [
+    "Geração de 30",
+    6,
+    0
+   ],
+   [
+    "Pré-Modernismo",
+    6,
+    0
+   ]
+  ]
+ },
+ "ingles": {
+  "roots": [
+   "Expressões idiomáticas",
+   "Estratégias de leitura",
+   "Interpretação de textos",
+   "Vocabulário em contexto",
+   "Gramática e estrutura da frase",
+   "Gêneros textuais",
+   "Cultura e linguagem funcional",
+   "Coesão e coerência"
+  ],
+  "tops": [
+   [
+    "Phrasal verbs",
+    6,
+    0
+   ],
+   [
+    "Idioms comuns",
+    7,
+    0
+   ],
+   [
+    "Identificando a ideia central",
+    6,
+    0
+   ],
+   [
+    "Skimming e scanning",
+    6,
+    0
+   ],
+   [
+    "Textos de opinião e argumentativos",
+    6,
+    0
+   ],
+   [
+    "Trechos literários",
+    8,
+    0
+   ],
+   [
+    "Textos informativos e científicos",
+    6,
+    0
+   ],
+   [
+    "Deduzindo sentido pelo contexto",
+    6,
+    0
+   ],
+   [
+    "Sinônimos e antônimos",
+    6,
+    0
+   ],
+   [
+    "Cognatos e falsos cognatos",
+    6,
+    0
+   ],
+   [
+    "Comparativo e superlativo",
+    6,
+    0
+   ],
+   [
+    "Tempos verbais",
+    7,
+    0
+   ],
+   [
+    "Verbos modais",
+    7,
+    0
+   ],
+   [
+    "Quadrinhos e tirinhas",
+    6,
+    0
+   ],
+   [
+    "Notícias e textos jornalísticos",
+    7,
+    0
+   ],
+   [
+    "Anúncios e infográficos",
+    6,
+    0
+   ],
+   [
+    "Países de língua inglesa",
+    6,
+    0
+   ],
+   [
+    "Linguagem funcional do dia a dia",
+    6,
+    0
+   ],
+   [
+    "Conectores e conjunções",
+    6,
+    0
+   ],
+   [
+    "Referência pronominal",
+    7,
+    0
+   ]
+  ]
+ },
+ "espanhol": {
+  "roots": [
+   "Interpretação de textos",
+   "Cultura e linguagem funcional",
+   "Expressões idiomáticas",
+   "Vocabulário em contexto",
+   "Gramática e estrutura da frase",
+   "Gêneros textuais",
+   "Estratégias de leitura",
+   "Coesão e coerência"
+  ],
+  "tops": [
+   [
+    "Textos de opinião e argumentativos",
+    6,
+    0
+   ],
+   [
+    "Trechos literários",
+    6,
+    0
+   ],
+   [
+    "Textos informativos e científicos",
+    6,
+    0
+   ],
+   [
+    "Países de língua espanhola",
+    6,
+    0
+   ],
+   [
+    "Linguagem funcional do dia a dia",
+    6,
+    0
+   ],
+   [
+    "Modismos comuns",
+    6,
+    0
+   ],
+   [
+    "Perífrases verbais",
+    6,
+    0
+   ],
+   [
+    "Falsos amigos com o português",
+    7,
+    0
+   ],
+   [
+    "Deduzindo sentido pelo contexto",
+    6,
+    0
+   ],
+   [
+    "Sinônimos e antônimos",
+    6,
+    0
+   ],
+   [
+    "Pretérito perfeito simples e composto",
+    8,
+    0
+   ],
+   [
+    "Comparativo e superlativo",
+    6,
+    0
+   ],
+   [
+    "Ser e estar",
+    6,
+    0
+   ],
+   [
+    "Notícias e textos jornalísticos",
+    7,
+    0
+   ],
+   [
+    "Anúncios e infográficos",
+    6,
+    0
+   ],
+   [
+    "Quadrinhos e tirinhas",
+    6,
+    0
+   ],
+   [
+    "Identificando a ideia central",
+    7,
+    0
+   ],
+   [
+    "Skimming e scanning",
+    6,
+    0
+   ],
+   [
+    "Conectores e conjunções",
+    8,
+    0
+   ],
+   [
+    "Referência pronominal",
+    6,
+    0
+   ]
+  ]
+ },
+ "artes": {
+  "roots": [
+   "Linguagens artísticas",
+   "Movimentos artísticos brasileiros",
+   "Movimentos artísticos internacionais",
+   "Música",
+   "Arquitetura e patrimônio",
+   "Cultura popular e folclore",
+   "Cinema e audiovisual",
+   "Arte e sociedade"
+  ],
+  "tops": [
+   [
+    "Artes visuais",
+    8,
+    0
+   ],
+   [
+    "Artes cênicas",
+    6,
+    0
+   ],
+   [
+    "Barroco",
+    6,
+    0
+   ],
+   [
+    "Arte contemporânea brasileira",
+    6,
+    0
+   ],
+   [
+    "Modernismo",
+    6,
+    0
+   ],
+   [
+    "Impressionismo",
+    6,
+    0
+   ],
+   [
+    "Vanguardas europeias",
+    6,
+    0
+   ],
+   [
+    "Renascimento",
+    6,
+    0
+   ],
+   [
+    "História da música popular brasileira",
+    6,
+    0
+   ],
+   [
+    "Elementos da música",
+    6,
+    0
+   ],
+   [
+    "Patrimônio cultural e preservação",
+    8,
+    0
+   ],
+   [
+    "Arquitetura brasileira",
+    6,
+    0
+   ],
+   [
+    "Festas e tradições populares",
+    6,
+    0
+   ],
+   [
+    "Artesanato e cultura material",
+    6,
+    0
+   ],
+   [
+    "História do cinema",
+    6,
+    0
+   ],
+   [
+    "Cinema brasileiro",
+    6,
+    0
+   ],
+   [
+    "Linguagem cinematográfica",
+    7,
+    0
+   ],
+   [
+    "Arte digital e novas mídias",
+    7,
+    0
+   ],
+   [
+    "Indústria cultural",
+    6,
+    0
+   ],
+   [
+    "Arte engajada e política",
+    6,
+    0
+   ]
+  ]
+ },
+ "educacao_fisica": {
+  "roots": [
+   "Danças e atividades rítmicas",
+   "Esportes individuais",
+   "Esportes coletivos",
+   "Educação Física, lazer e políticas",
+   "Esporte, sociedade e mídia",
+   "Corpo, movimento e saúde",
+   "Lutas e artes marciais",
+   "Jogos e brincadeiras populares"
+  ],
+  "tops": [
+   [
+    "Danças urbanas e contemporâneas",
+    6,
+    0
+   ],
+   [
+    "Danças brasileiras",
+    6,
+    0
+   ],
+   [
+    "Atletismo",
+    6,
+    0
+   ],
+   [
+    "Ginástica",
+    6,
+    0
+   ],
+   [
+    "Natação e esportes aquáticos",
+    6,
+    0
+   ],
+   [
+    "Voleibol",
+    6,
+    0
+   ],
+   [
+    "Basquetebol e handebol",
+    7,
+    0
+   ],
+   [
+    "Futebol e futsal",
+    7,
+    0
+   ],
+   [
+    "Lazer, políticas públicas e direito ao esporte",
+    6,
+    0
+   ],
+   [
+    "História da Educação Física no Brasil",
+    6,
+    0
+   ],
+   [
+    "Esporte paralímpico e inclusão",
+    7,
+    0
+   ],
+   [
+    "Esporte e mídia",
+    6,
+    0
+   ],
+   [
+    "Megaeventos esportivos",
+    6,
+    0
+   ],
+   [
+    "Capacidades físicas",
+    7,
+    0
+   ],
+   [
+    "Sistema cardiorrespiratório e exercício",
+    7,
+    0
+   ],
+   [
+    "Alimentação, hidratação e atividade física",
+    8,
+    0
+   ],
+   [
+    "Lutas de origem oriental",
+    6,
+    0
+   ],
+   [
+    "Capoeira e lutas brasileiras",
+    6,
+    0
+   ],
+   [
+    "Jogos indígenas e de matriz africana",
+    6,
+    0
+   ],
+   [
+    "Jogos e brincadeiras do Brasil",
+    6,
+    0
+   ]
+  ]
+ }
+}

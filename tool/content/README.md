@@ -128,3 +128,7 @@ acentuação. Revise cada caso antes de gerar o `update`.
 
 A correção de 2026-09-27 está em `supabase/content_acentos_ptbr.sql`. O gerador dela conferiu que,
 tirando os acentos, o texto novo é idêntico ao original.
+
+## Expansão do acervo (nov/2026)
+Pipeline, matriz, fontes, agentes e lotes: ver `docs/content/` (`ROADMAP_EXPANSAO.md`, `agentes/INDICE_AGENTES.md`) e `tool/content/pipeline/SCHEMA.md`.
+Testes: `python -m unittest discover -s tool/content/pipeline` e `-s tool/content/agents`. Migration: `tool/db/content_classification_check.sh` (Docker, descartável).

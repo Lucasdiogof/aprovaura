@@ -1,0 +1,3418 @@
+{
+ "existentes": {
+  "portugues": {
+   "nome": "Português",
+   "area": "Linguagens",
+   "categorias": [
+    "E",
+    "V",
+    "C"
+   ],
+   "meta": 1200
+  },
+  "literatura": {
+   "nome": "Literatura",
+   "area": "Linguagens",
+   "categorias": [
+    "E",
+    "V"
+   ],
+   "meta": 450
+  },
+  "artes": {
+   "nome": "Artes",
+   "area": "Linguagens",
+   "categorias": [
+    "E",
+    "V"
+   ],
+   "meta": 300
+  },
+  "educacao_fisica": {
+   "nome": "Educação Física",
+   "area": "Linguagens",
+   "categorias": [
+    "E",
+    "V"
+   ],
+   "meta": 300
+  },
+  "ingles": {
+   "nome": "Inglês",
+   "area": "Linguagens",
+   "categorias": [
+    "E",
+    "V",
+    "C"
+   ],
+   "meta": 600
+  },
+  "espanhol": {
+   "nome": "Espanhol",
+   "area": "Linguagens",
+   "categorias": [
+    "E",
+    "V"
+   ],
+   "meta": 400
+  },
+  "historia": {
+   "nome": "História",
+   "area": "Humanas",
+   "categorias": [
+    "E",
+    "V"
+   ],
+   "meta": 900
+  },
+  "geografia": {
+   "nome": "Geografia",
+   "area": "Humanas",
+   "categorias": [
+    "E",
+    "V"
+   ],
+   "meta": 900
+  },
+  "filosofia": {
+   "nome": "Filosofia",
+   "area": "Humanas",
+   "categorias": [
+    "E",
+    "V"
+   ],
+   "meta": 400
+  },
+  "sociologia": {
+   "nome": "Sociologia",
+   "area": "Humanas",
+   "categorias": [
+    "E",
+    "V"
+   ],
+   "meta": 400
+  },
+  "biologia": {
+   "nome": "Biologia",
+   "area": "Natureza",
+   "categorias": [
+    "E",
+    "V"
+   ],
+   "meta": 800
+  },
+  "fisica": {
+   "nome": "Física",
+   "area": "Natureza",
+   "categorias": [
+    "E",
+    "V"
+   ],
+   "meta": 700
+  },
+  "quimica": {
+   "nome": "Química",
+   "area": "Natureza",
+   "categorias": [
+    "E",
+    "V"
+   ],
+   "meta": 700
+  },
+  "matematica": {
+   "nome": "Matemática",
+   "area": "Matemática e Raciocínio",
+   "categorias": [
+    "E",
+    "V",
+    "C"
+   ],
+   "meta": 1500
+  },
+  "atualidades": {
+   "nome": "Atualidades",
+   "area": "Humanas",
+   "categorias": [
+    "E",
+    "V",
+    "C"
+   ],
+   "meta": 600
+  },
+  "redacao": {
+   "nome": "Redação",
+   "area": "Linguagens",
+   "categorias": [
+    "E",
+    "V",
+    "C"
+   ],
+   "meta": 0
+  }
+ },
+ "novas": [
+  {
+   "slug": "raciocinio_logico",
+   "nome": "Raciocínio Lógico",
+   "area": "Matemática e Raciocínio",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 450,
+   "descricao": "Lógica proposicional, argumentação, sequências e análise combinatória aplicada a provas de concurso.",
+   "competencias": "Traduzir enunciados em proposições; avaliar validade de argumentos; contar casos",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "raciocinio_logico.proposicoes_conectivos",
+     "nome": "Proposições e conectivos",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "raciocinio_logico.tabela_verdade",
+     "nome": "Tabelas-verdade e equivalências",
+     "nivel": "fundamental",
+     "prerequisitos": [
+      "raciocinio_logico.proposicoes_conectivos"
+     ]
+    },
+    {
+     "id": "raciocinio_logico.negacao",
+     "nome": "Negação de proposições e quantificadores",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "raciocinio_logico.tabela_verdade"
+     ]
+    },
+    {
+     "id": "raciocinio_logico.argumentos_validade",
+     "nome": "Argumentos e validade",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "raciocinio_logico.tabela_verdade"
+     ]
+    },
+    {
+     "id": "raciocinio_logico.diagramas_conjuntos",
+     "nome": "Diagramas lógicos e conjuntos",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "raciocinio_logico.sequencias_padroes",
+     "nome": "Sequências e padrões",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "raciocinio_logico.analise_combinatoria",
+     "nome": "Análise combinatória e probabilidade",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "raciocinio_logico.problemas_verdade_mentira",
+     "nome": "Problemas de verdade/mentira e associação",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "raciocinio_logico.argumentos_validade"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "informatica",
+   "nome": "Informática",
+   "area": "Tecnologia e Computação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 450,
+   "descricao": "Noções de informática cobradas em concursos: SO, editores, planilhas, internet, segurança básica.",
+   "competencias": "Operar conceitos de software/hardware; reconhecer funções de planilha; boas práticas de segurança",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "informatica.hardware_software",
+     "nome": "Hardware e software",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "informatica.windows_arquivos",
+     "nome": "Sistemas operacionais e gerenciamento de arquivos",
+     "nivel": "fundamental",
+     "prerequisitos": [
+      "informatica.hardware_software"
+     ]
+    },
+    {
+     "id": "informatica.editores_texto",
+     "nome": "Editores de texto",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "informatica.planilhas",
+     "nome": "Planilhas eletrônicas e fórmulas",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "informatica.internet_navegadores",
+     "nome": "Internet, navegadores e e-mail",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "informatica.seguranca_basica",
+     "nome": "Segurança básica, malware e backup",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "informatica.nuvem_colaboracao",
+     "nome": "Armazenamento em nuvem e colaboração",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "matematica_financeira",
+   "nome": "Matemática Financeira",
+   "area": "Matemática e Raciocínio",
+   "categorias": [
+    "C",
+    "E"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 450,
+   "descricao": "Juros, descontos, equivalência de capitais, amortização e análise de investimentos.",
+   "competencias": "Calcular juros e prazos; comparar alternativas financeiras",
+   "fontes": [
+    "bancas-programas",
+    "bcb"
+   ],
+   "topicos": [
+    {
+     "id": "matematica_financeira.porcentagem_variacao",
+     "nome": "Porcentagem e variação",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "matematica_financeira.juros_simples",
+     "nome": "Juros simples",
+     "nivel": "fundamental",
+     "prerequisitos": [
+      "matematica_financeira.porcentagem_variacao"
+     ]
+    },
+    {
+     "id": "matematica_financeira.juros_compostos",
+     "nome": "Juros compostos",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "matematica_financeira.juros_simples"
+     ]
+    },
+    {
+     "id": "matematica_financeira.descontos",
+     "nome": "Descontos simples e compostos",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "matematica_financeira.juros_compostos"
+     ]
+    },
+    {
+     "id": "matematica_financeira.taxas_equivalentes",
+     "nome": "Taxas equivalentes, nominais e efetivas",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "matematica_financeira.juros_compostos"
+     ]
+    },
+    {
+     "id": "matematica_financeira.series_pagamentos",
+     "nome": "Séries de pagamentos",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "matematica_financeira.taxas_equivalentes"
+     ]
+    },
+    {
+     "id": "matematica_financeira.sistemas_amortizacao",
+     "nome": "Sistemas de amortização (SAC, Price)",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "matematica_financeira.series_pagamentos"
+     ]
+    },
+    {
+     "id": "matematica_financeira.vpl_tir",
+     "nome": "Valor presente líquido e taxa interna de retorno",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "matematica_financeira.series_pagamentos"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "estatistica",
+   "nome": "Estatística",
+   "area": "Matemática e Raciocínio",
+   "categorias": [
+    "E",
+    "V",
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 550,
+   "descricao": "Estatística descritiva, probabilidade e inferência básica; leitura crítica de gráficos e tabelas.",
+   "competencias": "Interpretar dados; calcular medidas; avaliar probabilidades",
+   "fontes": [
+    "inep-matriz-enem",
+    "bancas-programas",
+    "ibge"
+   ],
+   "topicos": [
+    {
+     "id": "estatistica.leitura_graficos",
+     "nome": "Leitura de gráficos e tabelas",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "estatistica.media_mediana_moda",
+     "nome": "Média, mediana e moda",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "estatistica.dispersao",
+     "nome": "Variância e desvio padrão",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "estatistica.media_mediana_moda"
+     ]
+    },
+    {
+     "id": "estatistica.probabilidade_basica",
+     "nome": "Probabilidade básica",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "estatistica.probabilidade_condicional",
+     "nome": "Probabilidade condicional e Bayes",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "estatistica.probabilidade_basica"
+     ]
+    },
+    {
+     "id": "estatistica.distribuicoes",
+     "nome": "Distribuição binomial e normal",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "estatistica.probabilidade_condicional"
+     ]
+    },
+    {
+     "id": "estatistica.amostragem_inferencia",
+     "nome": "Amostragem e inferência",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "estatistica.dispersao"
+     ]
+    },
+    {
+     "id": "estatistica.correlacao_regressao",
+     "nome": "Correlação e regressão simples",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "estatistica.dispersao"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "educacao_financeira",
+   "nome": "Educação Financeira",
+   "area": "Matemática e Raciocínio",
+   "categorias": [
+    "E",
+    "C"
+   ],
+   "decisao": "incluir-meta-reduzida",
+   "fase": "2",
+   "meta": 250,
+   "descricao": "Orçamento pessoal, consumo, crédito, poupança, investimento e inflação (tema transversal da BNCC).",
+   "competencias": "Planejar orçamento; comparar crédito; reconhecer riscos",
+   "fontes": [
+    "bncc",
+    "bcb"
+   ],
+   "topicos": [
+    {
+     "id": "educacao_financeira.orcamento",
+     "nome": "Orçamento e planejamento",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "educacao_financeira.inflacao_poder_compra",
+     "nome": "Inflação e poder de compra",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "educacao_financeira.credito_juros",
+     "nome": "Crédito, juros e endividamento",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "educacao_financeira.poupanca_investimentos",
+     "nome": "Poupança e investimentos",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "educacao_financeira.previdencia_seguros",
+     "nome": "Previdência e seguros",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "educacao_financeira.consumo_consciente",
+     "nome": "Consumo consciente e fraudes",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "dir_constitucional",
+   "nome": "Direito Constitucional",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 900,
+   "descricao": "Princípios, direitos fundamentais, organização do Estado e dos Poderes, controle de constitucionalidade.",
+   "competencias": "Aplicar texto constitucional; identificar competência e garantia",
+   "fontes": [
+    "planalto-cf88",
+    "stf-jurisprudencia",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_constitucional.principios_fundamentais",
+     "nome": "Princípios fundamentais (arts. 1º a 4º)",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_constitucional.direitos_garantias",
+     "nome": "Direitos e garantias fundamentais (art. 5º)",
+     "nivel": "fundamental",
+     "prerequisitos": [
+      "dir_constitucional.principios_fundamentais"
+     ]
+    },
+    {
+     "id": "dir_constitucional.direitos_sociais_nacionalidade",
+     "nome": "Direitos sociais, nacionalidade e direitos políticos",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_constitucional.direitos_garantias"
+     ]
+    },
+    {
+     "id": "dir_constitucional.organizacao_estado",
+     "nome": "Organização político-administrativa",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_constitucional.poder_legislativo",
+     "nome": "Poder Legislativo e processo legislativo",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_constitucional.organizacao_estado"
+     ]
+    },
+    {
+     "id": "dir_constitucional.poder_executivo",
+     "nome": "Poder Executivo",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_constitucional.organizacao_estado"
+     ]
+    },
+    {
+     "id": "dir_constitucional.poder_judiciario",
+     "nome": "Poder Judiciário e funções essenciais",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_constitucional.organizacao_estado"
+     ]
+    },
+    {
+     "id": "dir_constitucional.controle_constitucionalidade",
+     "nome": "Controle de constitucionalidade",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_constitucional.poder_judiciario"
+     ]
+    },
+    {
+     "id": "dir_constitucional.ordem_economica_social",
+     "nome": "Ordem econômica, financeira e social",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_constitucional.tributacao_orcamento_cf",
+     "nome": "Sistema tributário e orçamento na CF",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_constitucional.ordem_economica_social"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "dir_administrativo",
+   "nome": "Direito Administrativo",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 900,
+   "descricao": "Princípios, organização administrativa, atos, poderes, serviços, agentes, responsabilidade civil, improbidade e processo administrativo.",
+   "competencias": "Classificar atos e entes; aplicar Lei 9.784 e Lei 8.112",
+   "fontes": [
+    "planalto-cf88",
+    "planalto-lei9784",
+    "planalto-lei8112",
+    "planalto-lei8429",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_administrativo.principios_adm",
+     "nome": "Princípios da Administração Pública",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_administrativo.organizacao_administrativa",
+     "nome": "Organização administrativa (direta e indireta)",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_administrativo.atos_administrativos",
+     "nome": "Atos administrativos",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_administrativo.principios_adm"
+     ]
+    },
+    {
+     "id": "dir_administrativo.poderes_administrativos",
+     "nome": "Poderes administrativos",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_administrativo.principios_adm"
+     ]
+    },
+    {
+     "id": "dir_administrativo.servicos_publicos",
+     "nome": "Serviços públicos e concessões",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_administrativo.organizacao_administrativa"
+     ]
+    },
+    {
+     "id": "dir_administrativo.agentes_publicos",
+     "nome": "Agentes públicos e Lei 8.112/90",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_administrativo.responsabilidade_civil_estado",
+     "nome": "Responsabilidade civil do Estado",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_administrativo.improbidade",
+     "nome": "Improbidade administrativa",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_administrativo.principios_adm"
+     ]
+    },
+    {
+     "id": "dir_administrativo.processo_administrativo",
+     "nome": "Processo administrativo federal (Lei 9.784/99)",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_administrativo.controle_adm",
+     "nome": "Controle da Administração",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_administrativo.atos_administrativos"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "dir_penal",
+   "nome": "Direito Penal",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 800,
+   "descricao": "Teoria da lei penal, crime, pena, extinção da punibilidade e parte especial do Código Penal.",
+   "competencias": "Subsumir fatos a tipos penais; aplicar institutos da parte geral",
+   "fontes": [
+    "planalto-cp",
+    "stf-jurisprudencia",
+    "stj-jurisprudencia",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_penal.principios_lei_penal",
+     "nome": "Princípios e aplicação da lei penal",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_penal.teoria_crime",
+     "nome": "Teoria do crime (fato típico, ilicitude, culpabilidade)",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_penal.principios_lei_penal"
+     ]
+    },
+    {
+     "id": "dir_penal.tentativa_concurso",
+     "nome": "Iter criminis, tentativa e concurso de pessoas",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_penal.teoria_crime"
+     ]
+    },
+    {
+     "id": "dir_penal.penas",
+     "nome": "Penas, dosimetria e execução",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_penal.teoria_crime"
+     ]
+    },
+    {
+     "id": "dir_penal.extincao_punibilidade",
+     "nome": "Extinção da punibilidade e prescrição",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_penal.penas"
+     ]
+    },
+    {
+     "id": "dir_penal.crimes_pessoa",
+     "nome": "Crimes contra a pessoa",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_penal.teoria_crime"
+     ]
+    },
+    {
+     "id": "dir_penal.crimes_patrimonio",
+     "nome": "Crimes contra o patrimônio",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_penal.teoria_crime"
+     ]
+    },
+    {
+     "id": "dir_penal.crimes_adm_publica",
+     "nome": "Crimes contra a Administração Pública",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_penal.teoria_crime"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "dir_proc_penal",
+   "nome": "Direito Processual Penal",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 600,
+   "descricao": "Inquérito, ação penal, provas, prisões, procedimentos e recursos.",
+   "competencias": "Identificar fase, competência e nulidade",
+   "fontes": [
+    "planalto-cpp",
+    "stf-jurisprudencia",
+    "stj-jurisprudencia",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_proc_penal.principios_inquerito",
+     "nome": "Princípios e inquérito policial",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_proc_penal.acao_penal",
+     "nome": "Ação penal",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_proc_penal.principios_inquerito"
+     ]
+    },
+    {
+     "id": "dir_proc_penal.competencia",
+     "nome": "Competência e jurisdição",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_proc_penal.provas",
+     "nome": "Provas",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_proc_penal.prisoes_cautelares",
+     "nome": "Prisões e medidas cautelares",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_proc_penal.provas"
+     ]
+    },
+    {
+     "id": "dir_proc_penal.procedimentos_juri",
+     "nome": "Procedimentos e Tribunal do Júri",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_proc_penal.acao_penal"
+     ]
+    },
+    {
+     "id": "dir_proc_penal.nulidades_recursos",
+     "nome": "Nulidades e recursos",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_proc_penal.procedimentos_juri"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "dir_civil",
+   "nome": "Direito Civil",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 700,
+   "descricao": "Parte geral, obrigações, contratos, responsabilidade civil, coisas, família e sucessões.",
+   "competencias": "Aplicar o Código Civil a casos",
+   "fontes": [
+    "planalto-cc",
+    "stj-jurisprudencia",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_civil.lindb_pessoas",
+     "nome": "LINDB e pessoas naturais e jurídicas",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_civil.bens_fatos_juridicos",
+     "nome": "Bens e fatos jurídicos",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_civil.lindb_pessoas"
+     ]
+    },
+    {
+     "id": "dir_civil.prescricao_decadencia",
+     "nome": "Prescrição e decadência",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_civil.bens_fatos_juridicos"
+     ]
+    },
+    {
+     "id": "dir_civil.obrigacoes",
+     "nome": "Obrigações",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_civil.contratos",
+     "nome": "Contratos",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_civil.obrigacoes"
+     ]
+    },
+    {
+     "id": "dir_civil.responsabilidade_civil",
+     "nome": "Responsabilidade civil",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_civil.obrigacoes"
+     ]
+    },
+    {
+     "id": "dir_civil.direito_coisas",
+     "nome": "Direito das coisas",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_civil.familia_sucessoes",
+     "nome": "Família e sucessões",
+     "nivel": "avançado",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "dir_proc_civil",
+   "nome": "Direito Processual Civil",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 650,
+   "descricao": "CPC/2015: normas gerais, partes, atos, tutelas, procedimento comum, recursos, execução.",
+   "competencias": "Aplicar prazos e institutos do CPC",
+   "fontes": [
+    "planalto-cpc",
+    "stj-jurisprudencia",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_proc_civil.normas_fundamentais",
+     "nome": "Normas fundamentais e jurisdição",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_proc_civil.partes_litisconsorcio",
+     "nome": "Partes, procuradores e litisconsórcio",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_proc_civil.normas_fundamentais"
+     ]
+    },
+    {
+     "id": "dir_proc_civil.atos_prazos",
+     "nome": "Atos processuais e prazos",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_proc_civil.tutelas_provisorias",
+     "nome": "Tutelas provisórias",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_proc_civil.procedimento_comum",
+     "nome": "Procedimento comum",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_proc_civil.atos_prazos"
+     ]
+    },
+    {
+     "id": "dir_proc_civil.provas_sentenca",
+     "nome": "Provas, sentença e coisa julgada",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_proc_civil.procedimento_comum"
+     ]
+    },
+    {
+     "id": "dir_proc_civil.recursos_civeis",
+     "nome": "Recursos",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_proc_civil.provas_sentenca"
+     ]
+    },
+    {
+     "id": "dir_proc_civil.execucao_cumprimento",
+     "nome": "Cumprimento de sentença e execução",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_proc_civil.provas_sentenca"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "dir_tributario",
+   "nome": "Direito Tributário",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 650,
+   "descricao": "Sistema tributário, competência, obrigação e crédito tributário, limitações ao poder de tributar.",
+   "competencias": "Aplicar CTN e CF",
+   "fontes": [
+    "planalto-ctn",
+    "planalto-cf88",
+    "stf-jurisprudencia",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_tributario.sistema_tributario",
+     "nome": "Sistema tributário e espécies",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_tributario.limitacoes_poder",
+     "nome": "Limitações ao poder de tributar",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_tributario.sistema_tributario"
+     ]
+    },
+    {
+     "id": "dir_tributario.competencia_tributaria",
+     "nome": "Competência tributária e repartição",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_tributario.sistema_tributario"
+     ]
+    },
+    {
+     "id": "dir_tributario.obrigacao_tributaria",
+     "nome": "Obrigação tributária",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_tributario.credito_tributario",
+     "nome": "Crédito tributário (constituição, suspensão, extinção)",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_tributario.obrigacao_tributaria"
+     ]
+    },
+    {
+     "id": "dir_tributario.impostos_especie",
+     "nome": "Impostos em espécie",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_tributario.competencia_tributaria"
+     ]
+    },
+    {
+     "id": "dir_tributario.processo_tributario",
+     "nome": "Administração e processo tributário",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_tributario.credito_tributario"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "dir_trabalho",
+   "nome": "Direito do Trabalho",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 650,
+   "descricao": "Relação de emprego, contrato, jornada, remuneração, estabilidades, FGTS, rescisão e direito coletivo.",
+   "competencias": "Aplicar CLT e CF",
+   "fontes": [
+    "planalto-clt",
+    "planalto-cf88",
+    "tst-jurisprudencia",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_trabalho.relacao_emprego",
+     "nome": "Relação de emprego e sujeitos",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_trabalho.contrato_trabalho",
+     "nome": "Contrato de trabalho",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_trabalho.relacao_emprego"
+     ]
+    },
+    {
+     "id": "dir_trabalho.jornada_descansos",
+     "nome": "Jornada, descansos e férias",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_trabalho.contrato_trabalho"
+     ]
+    },
+    {
+     "id": "dir_trabalho.remuneracao_fgts",
+     "nome": "Remuneração, salário e FGTS",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_trabalho.contrato_trabalho"
+     ]
+    },
+    {
+     "id": "dir_trabalho.extincao_contrato",
+     "nome": "Extinção do contrato e verbas rescisórias",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_trabalho.remuneracao_fgts"
+     ]
+    },
+    {
+     "id": "dir_trabalho.estabilidades_seguranca",
+     "nome": "Estabilidades e segurança do trabalho",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_trabalho.contrato_trabalho"
+     ]
+    },
+    {
+     "id": "dir_trabalho.direito_coletivo",
+     "nome": "Direito coletivo do trabalho",
+     "nivel": "avançado",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "dir_proc_trabalho",
+   "nome": "Direito Processual do Trabalho",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 450,
+   "descricao": "Organização da Justiça do Trabalho, competência, procedimentos e recursos trabalhistas.",
+   "competencias": "Identificar prazo, competência e recurso",
+   "fontes": [
+    "planalto-clt",
+    "tst-jurisprudencia",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_proc_trabalho.justica_trabalho",
+     "nome": "Organização e competência da Justiça do Trabalho",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_proc_trabalho.reclamacao_audiencia",
+     "nome": "Reclamação, audiência e revelia",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_proc_trabalho.justica_trabalho"
+     ]
+    },
+    {
+     "id": "dir_proc_trabalho.provas_trabalhistas",
+     "nome": "Provas no processo do trabalho",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_proc_trabalho.reclamacao_audiencia"
+     ]
+    },
+    {
+     "id": "dir_proc_trabalho.procedimentos_rito",
+     "nome": "Procedimentos (ordinário, sumaríssimo)",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_proc_trabalho.reclamacao_audiencia"
+     ]
+    },
+    {
+     "id": "dir_proc_trabalho.recursos_trabalhistas",
+     "nome": "Recursos trabalhistas",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_proc_trabalho.procedimentos_rito"
+     ]
+    },
+    {
+     "id": "dir_proc_trabalho.execucao_trabalhista",
+     "nome": "Execução trabalhista",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_proc_trabalho.recursos_trabalhistas"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "dir_eleitoral",
+   "nome": "Direito Eleitoral",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 350,
+   "descricao": "Direitos políticos, partidos, registro de candidaturas, propaganda, justiça eleitoral e crimes eleitorais.",
+   "competencias": "Aplicar Código Eleitoral e leis esparsas",
+   "fontes": [
+    "planalto-codigo-eleitoral",
+    "tse-legislacao",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_eleitoral.justica_eleitoral",
+     "nome": "Justiça Eleitoral e organização",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_eleitoral.partidos_candidaturas",
+     "nome": "Partidos e candidaturas",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_eleitoral.justica_eleitoral"
+     ]
+    },
+    {
+     "id": "dir_eleitoral.elegibilidade_inelegibilidade",
+     "nome": "Elegibilidade e inelegibilidades",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_eleitoral.partidos_candidaturas"
+     ]
+    },
+    {
+     "id": "dir_eleitoral.propaganda_financiamento",
+     "nome": "Propaganda e financiamento de campanha",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_eleitoral.partidos_candidaturas"
+     ]
+    },
+    {
+     "id": "dir_eleitoral.crimes_eleitorais",
+     "nome": "Crimes eleitorais e processo",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_eleitoral.justica_eleitoral"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "dir_ambiental",
+   "nome": "Direito Ambiental",
+   "area": "Direito",
+   "categorias": [
+    "C",
+    "E"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 350,
+   "descricao": "Princípios, PNMA, licenciamento, áreas protegidas, responsabilidade ambiental.",
+   "competencias": "Aplicar Lei 6.938 e CF art. 225",
+   "fontes": [
+    "planalto-cf88",
+    "planalto-lei6938",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_ambiental.principios_ambientais",
+     "nome": "Princípios e art. 225 da CF",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_ambiental.pnma_sisnama",
+     "nome": "PNMA e SISNAMA",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_ambiental.principios_ambientais"
+     ]
+    },
+    {
+     "id": "dir_ambiental.licenciamento",
+     "nome": "Licenciamento ambiental",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_ambiental.pnma_sisnama"
+     ]
+    },
+    {
+     "id": "dir_ambiental.areas_protegidas",
+     "nome": "Unidades de conservação e áreas protegidas",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_ambiental.responsabilidade_ambiental",
+     "nome": "Responsabilidade civil, administrativa e penal ambiental",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_ambiental.pnma_sisnama"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "dir_empresarial",
+   "nome": "Direito Empresarial",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 400,
+   "descricao": "Empresário, sociedades, títulos de crédito, recuperação e falência.",
+   "competencias": "Distinguir tipos societários e títulos",
+   "fontes": [
+    "planalto-cc",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_empresarial.empresario_estabelecimento",
+     "nome": "Empresário e estabelecimento",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_empresarial.sociedades",
+     "nome": "Sociedades empresárias",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_empresarial.empresario_estabelecimento"
+     ]
+    },
+    {
+     "id": "dir_empresarial.titulos_credito",
+     "nome": "Títulos de crédito",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_empresarial.contratos_empresariais",
+     "nome": "Contratos empresariais",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_empresarial.recuperacao_falencia",
+     "nome": "Recuperação judicial e falência",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_empresarial.sociedades"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "dir_previdenciario",
+   "nome": "Direito Previdenciário",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 400,
+   "descricao": "Seguridade social, RGPS, benefícios, custeio e RPPS.",
+   "competencias": "Aplicar Leis 8.212/8.213 e emendas",
+   "fontes": [
+    "planalto-lei8213",
+    "planalto-cf88",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_previdenciario.seguridade_principios",
+     "nome": "Seguridade social e princípios",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_previdenciario.segurados_dependentes",
+     "nome": "Segurados e dependentes",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_previdenciario.seguridade_principios"
+     ]
+    },
+    {
+     "id": "dir_previdenciario.beneficios_rgps",
+     "nome": "Benefícios do RGPS",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_previdenciario.segurados_dependentes"
+     ]
+    },
+    {
+     "id": "dir_previdenciario.custeio",
+     "nome": "Custeio da seguridade",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_previdenciario.seguridade_principios"
+     ]
+    },
+    {
+     "id": "dir_previdenciario.rpps",
+     "nome": "Regimes próprios de previdência",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "dir_previdenciario.beneficios_rgps"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "direitos_humanos",
+   "nome": "Direitos Humanos",
+   "area": "Direito",
+   "categorias": [
+    "E",
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 450,
+   "descricao": "Teoria geral, tratados, sistemas global e interamericano, grupos vulneráveis.",
+   "competencias": "Relacionar tratados e Constituição",
+   "fontes": [
+    "planalto-cf88",
+    "onu-oea-tratados",
+    "inep-matriz-enem",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "direitos_humanos.teoria_geral_dh",
+     "nome": "Teoria geral e gerações de direitos",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "direitos_humanos.sistema_global",
+     "nome": "Sistema global (ONU)",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "direitos_humanos.teoria_geral_dh"
+     ]
+    },
+    {
+     "id": "direitos_humanos.sistema_interamericano",
+     "nome": "Sistema interamericano",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "direitos_humanos.teoria_geral_dh"
+     ]
+    },
+    {
+     "id": "direitos_humanos.dh_brasil",
+     "nome": "Direitos humanos na ordem constitucional brasileira",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "direitos_humanos.teoria_geral_dh"
+     ]
+    },
+    {
+     "id": "direitos_humanos.grupos_vulneraveis",
+     "nome": "Grupos vulneráveis e proteção",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "direitos_humanos.dh_brasil"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "legislacao_especifica",
+   "nome": "Legislação Específica",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir-meta-reduzida",
+   "fase": "3",
+   "meta": 300,
+   "descricao": "Legislação de carreira/órgão (estatutos, leis orgânicas); conteúdo só com texto oficial verificável.",
+   "competencias": "Localizar e aplicar o dispositivo",
+   "fontes": [
+    "planalto-lei8112",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "legislacao_especifica.estatutos_servidores",
+     "nome": "Estatutos de servidores públicos",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "legislacao_especifica.leis_organicas",
+     "nome": "Leis orgânicas e carreiras",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "legislacao_especifica.lai_lgpd",
+     "nome": "Lei de Acesso à Informação e LGPD",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "dir_consumidor",
+   "nome": "Direito do Consumidor",
+   "area": "Direito",
+   "categorias": [
+    "C",
+    "E"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 300,
+   "descricao": "CDC: relação de consumo, responsabilidade, práticas abusivas, proteção contratual.",
+   "competencias": "Aplicar Lei 8.078/90",
+   "fontes": [
+    "planalto-cdc",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_consumidor.relacao_consumo",
+     "nome": "Relação de consumo e princípios",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_consumidor.responsabilidade_produto_servico",
+     "nome": "Responsabilidade pelo fato e vício",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_consumidor.relacao_consumo"
+     ]
+    },
+    {
+     "id": "dir_consumidor.praticas_abusivas",
+     "nome": "Práticas comerciais e publicidade",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "dir_consumidor.relacao_consumo"
+     ]
+    },
+    {
+     "id": "dir_consumidor.protecao_contratual",
+     "nome": "Proteção contratual e cobrança",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "dir_internacional_publico",
+   "nome": "Direito Internacional Público",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir-meta-reduzida",
+   "fase": "3",
+   "meta": 200,
+   "descricao": "Fontes, sujeitos, tratados, responsabilidade internacional.",
+   "competencias": "Distinguir fontes e sujeitos",
+   "fontes": [
+    "onu-oea-tratados",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "dir_internacional_publico.fontes_dip",
+     "nome": "Fontes e tratados",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_internacional_publico.sujeitos_dip",
+     "nome": "Sujeitos e organizações internacionais",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "dir_internacional_publico.responsabilidade_dip",
+     "nome": "Responsabilidade internacional do Estado",
+     "nivel": "avançado",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "dir_financeiro",
+   "nome": "Direito Financeiro",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "agrupar:afo",
+   "fase": "-",
+   "meta": 0,
+   "descricao": "Lei 4.320/64 e LRF tratadas como parte de AFO/Finanças Públicas para não duplicar entidade.",
+   "competencias": "",
+   "fontes": [],
+   "topicos": []
+  },
+  {
+   "slug": "dir_militar",
+   "nome": "Direito Militar",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "adiar",
+   "fase": "-",
+   "meta": 0,
+   "descricao": "Nicho (PM/CBM/Forças) com legislação estadual variável; exige fontes por ente. Nenhuma matéria vazia será criada.",
+   "competencias": "",
+   "fontes": [],
+   "topicos": []
+  },
+  {
+   "slug": "criminologia",
+   "nome": "Criminologia",
+   "area": "Direito",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "adiar",
+   "fase": "-",
+   "meta": 0,
+   "descricao": "Cobrada em carreiras policiais/MP; fontes livres insuficientes para meta mínima agora; reavaliar após Penal/Proc. Penal.",
+   "competencias": "",
+   "fontes": [],
+   "topicos": []
+  },
+  {
+   "slug": "adm_geral",
+   "nome": "Administração Geral",
+   "area": "Gestão",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 650,
+   "descricao": "Teorias, funções administrativas, estrutura organizacional, liderança, cultura.",
+   "competencias": "Relacionar teorias a práticas",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "adm_geral.teorias_administrativas",
+     "nome": "Teorias da administração",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "adm_geral.planejamento_estrategico",
+     "nome": "Planejamento e estratégia",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "adm_geral.organizacao_estrutura",
+     "nome": "Organização e estruturas",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "adm_geral.direcao_lideranca",
+     "nome": "Direção, liderança e motivação",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "adm_geral.controle_desempenho",
+     "nome": "Controle e desempenho",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "adm_geral.cultura_mudanca",
+     "nome": "Cultura e mudança organizacional",
+     "nivel": "avançado",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "adm_publica",
+   "nome": "Administração Pública",
+   "area": "Gestão",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 550,
+   "descricao": "Modelos de gestão pública, reforma gerencial, governança, transparência.",
+   "competencias": "Distinguir patrimonialismo, burocracia e gerencialismo",
+   "fontes": [
+    "planalto-cf88",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "adm_publica.modelos_gestao_publica",
+     "nome": "Modelos: patrimonialista, burocrático, gerencial",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "adm_publica.reforma_gerencial",
+     "nome": "Reforma gerencial e agências",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "adm_publica.modelos_gestao_publica"
+     ]
+    },
+    {
+     "id": "adm_publica.governo_eletronico",
+     "nome": "Governo digital e transparência",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "adm_publica.accountability",
+     "nome": "Accountability e controle social",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "etica_servico_publico",
+   "nome": "Ética no Serviço Público",
+   "area": "Gestão",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 350,
+   "descricao": "Decreto 1.171/94 (Código de Ética), Lei 8.112 deveres e proibições, conflito de interesses.",
+   "competencias": "Aplicar normas éticas a casos",
+   "fontes": [
+    "planalto-lei8112",
+    "planalto-decreto1171",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "etica_servico_publico.etica_conceitos",
+     "nome": "Ética e moral",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "etica_servico_publico.codigo_etica_decreto1171",
+     "nome": "Código de Ética (Decreto 1.171/94)",
+     "nivel": "fundamental",
+     "prerequisitos": [
+      "etica_servico_publico.etica_conceitos"
+     ]
+    },
+    {
+     "id": "etica_servico_publico.conflito_interesses",
+     "nome": "Conflito de interesses e comissões de ética",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "arquivologia",
+   "nome": "Arquivologia",
+   "area": "Gestão",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 400,
+   "descricao": "Princípios, gestão documental, classificação, avaliação, preservação e Lei 8.159/91.",
+   "competencias": "Aplicar ciclo de vida dos documentos",
+   "fontes": [
+    "planalto-lei8159",
+    "conarq",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "arquivologia.conceitos_arquivo",
+     "nome": "Conceitos e princípios arquivísticos",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "arquivologia.ciclo_vital",
+     "nome": "Gestão documental e teoria das três idades",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "arquivologia.conceitos_arquivo"
+     ]
+    },
+    {
+     "id": "arquivologia.classificacao_avaliacao",
+     "nome": "Classificação e avaliação",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "arquivologia.ciclo_vital"
+     ]
+    },
+    {
+     "id": "arquivologia.preservacao_digital",
+     "nome": "Preservação e documentos digitais",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "arquivologia.ciclo_vital"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "gestao_pessoas",
+   "nome": "Gestão de Pessoas",
+   "area": "Gestão",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 450,
+   "descricao": "Recrutamento, treinamento, desempenho, remuneração, clima e comportamento organizacional.",
+   "competencias": "Escolher prática de GP adequada",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "gestao_pessoas.gp_estrategica",
+     "nome": "Gestão estratégica de pessoas",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "gestao_pessoas.recrutamento_selecao",
+     "nome": "Recrutamento e seleção",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "gestao_pessoas.treinamento_desenvolvimento",
+     "nome": "Treinamento e desenvolvimento",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "gestao_pessoas.avaliacao_desempenho",
+     "nome": "Avaliação de desempenho",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "gestao_pessoas.comportamento_organizacional",
+     "nome": "Comportamento organizacional e clima",
+     "nivel": "avançado",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "gestao_projetos",
+   "nome": "Gestão de Projetos",
+   "area": "Gestão",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 400,
+   "descricao": "Ciclo de vida, escopo, prazo, custo, riscos e metodologias (conceitos gerais; sem copiar guias pagos).",
+   "competencias": "Planejar e controlar projetos",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "gestao_projetos.ciclo_vida_projeto",
+     "nome": "Ciclo de vida e partes interessadas",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "gestao_projetos.escopo_prazo_custo",
+     "nome": "Escopo, prazo e custo (EAP, cronograma, EVM)",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "gestao_projetos.ciclo_vida_projeto"
+     ]
+    },
+    {
+     "id": "gestao_projetos.riscos_qualidade",
+     "nome": "Riscos e qualidade",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "gestao_projetos.ciclo_vida_projeto"
+     ]
+    },
+    {
+     "id": "gestao_projetos.metodos_ageis",
+     "nome": "Métodos ágeis e híbridos",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "adm_materiais",
+   "nome": "Administração de Materiais",
+   "area": "Gestão",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 350,
+   "descricao": "Gestão de estoques, classificação ABC, compras e patrimônio.",
+   "competencias": "Calcular estoques e classificar itens",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "adm_materiais.classificacao_abc",
+     "nome": "Classificação de materiais e curva ABC",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "adm_materiais.gestao_estoques",
+     "nome": "Gestão de estoques (lote econômico, ponto de pedido)",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "adm_materiais.classificacao_abc"
+     ]
+    },
+    {
+     "id": "adm_materiais.compras_patrimonio",
+     "nome": "Compras e gestão patrimonial",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "logistica",
+   "nome": "Logística",
+   "area": "Gestão",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 300,
+   "descricao": "Cadeia de suprimentos, transporte, armazenagem e indicadores.",
+   "competencias": "Escolher modal e dimensionar armazenagem",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "logistica.cadeia_suprimentos",
+     "nome": "Cadeia de suprimentos",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "logistica.transportes_modais",
+     "nome": "Transporte e modais",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "logistica.armazenagem_distribuicao",
+     "nome": "Armazenagem e distribuição",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "licitacoes_contratos",
+   "nome": "Licitações e Contratos",
+   "area": "Gestão",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 600,
+   "descricao": "Lei 14.133/2021: modalidades, fases, contratação direta, contratos e sanções.",
+   "competencias": "Aplicar Lei 14.133 (vigência verificada)",
+   "fontes": [
+    "planalto-lei14133",
+    "tcu-orientacoes",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "licitacoes_contratos.principios_licitacao",
+     "nome": "Princípios e agentes da licitação",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "licitacoes_contratos.modalidades_criterios",
+     "nome": "Modalidades e critérios de julgamento",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "licitacoes_contratos.principios_licitacao"
+     ]
+    },
+    {
+     "id": "licitacoes_contratos.fases_licitacao",
+     "nome": "Fases do processo licitatório",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "licitacoes_contratos.modalidades_criterios"
+     ]
+    },
+    {
+     "id": "licitacoes_contratos.contratacao_direta",
+     "nome": "Dispensa e inexigibilidade",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "licitacoes_contratos.principios_licitacao"
+     ]
+    },
+    {
+     "id": "licitacoes_contratos.contratos_adm",
+     "nome": "Contratos administrativos",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "licitacoes_contratos.fases_licitacao"
+     ]
+    },
+    {
+     "id": "licitacoes_contratos.sancoes_nulidades",
+     "nome": "Sanções, nulidades e controle",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "licitacoes_contratos.contratos_adm"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "gestao_processos_qualidade",
+   "nome": "Gestão de Processos e Qualidade",
+   "area": "Gestão",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 300,
+   "descricao": "BPM, mapeamento, indicadores, ferramentas da qualidade.",
+   "competencias": "Modelar e melhorar processos",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "gestao_processos_qualidade.mapeamento_processos",
+     "nome": "Mapeamento e modelagem de processos",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "gestao_processos_qualidade.ferramentas_qualidade",
+     "nome": "Ferramentas da qualidade (PDCA, Pareto, Ishikawa)",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "gestao_processos_qualidade.indicadores_melhoria",
+     "nome": "Indicadores e melhoria contínua",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "governanca_controle",
+   "nome": "Governança, Riscos e Controle",
+   "area": "Gestão",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 350,
+   "descricao": "Governança pública, gestão de riscos, controle interno e externo, integridade.",
+   "competencias": "Distinguir linhas de defesa e instâncias",
+   "fontes": [
+    "planalto-cf88",
+    "cgu-publicacoes",
+    "tcu-orientacoes",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "governanca_controle.governanca_publica",
+     "nome": "Governança pública",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "governanca_controle.gestao_riscos",
+     "nome": "Gestão de riscos",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "governanca_controle.controle_interno_externo",
+     "nome": "Controle interno e externo",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "governanca_controle.integridade_compliance",
+     "nome": "Integridade e compliance",
+     "nivel": "avançado",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "politicas_publicas",
+   "nome": "Políticas Públicas",
+   "area": "Gestão",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "3",
+   "meta": 250,
+   "descricao": "Ciclo das políticas públicas, avaliação, atores e instrumentos.",
+   "competencias": "Identificar etapa do ciclo e instrumento",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "politicas_publicas.ciclo_politicas",
+     "nome": "Ciclo de políticas públicas",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "politicas_publicas.avaliacao_politicas",
+     "nome": "Monitoramento e avaliação",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "politicas_publicas.atores_instrumentos",
+     "nome": "Atores e instrumentos",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "contabilidade_geral",
+   "nome": "Contabilidade Geral",
+   "area": "Finanças",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 800,
+   "descricao": "Patrimônio, escrituração, demonstrações contábeis, CPC, análise de balanços.",
+   "competencias": "Registrar fatos e elaborar demonstrações; sem copiar normas pagas",
+   "fontes": [
+    "cpc-pronunciamentos",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "contabilidade_geral.patrimonio_equacao",
+     "nome": "Patrimônio e equação fundamental",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "contabilidade_geral.escrituracao_debito_credito",
+     "nome": "Escrituração e contas",
+     "nivel": "fundamental",
+     "prerequisitos": [
+      "contabilidade_geral.patrimonio_equacao"
+     ]
+    },
+    {
+     "id": "contabilidade_geral.estoques_inventario",
+     "nome": "Estoques e custo das mercadorias",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "contabilidade_geral.escrituracao_debito_credito"
+     ]
+    },
+    {
+     "id": "contabilidade_geral.demonstracoes",
+     "nome": "Demonstrações contábeis (BP, DRE, DFC, DMPL)",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "contabilidade_geral.escrituracao_debito_credito"
+     ]
+    },
+    {
+     "id": "contabilidade_geral.depreciacao_ativos",
+     "nome": "Depreciação e ativo imobilizado",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "contabilidade_geral.demonstracoes"
+     ]
+    },
+    {
+     "id": "contabilidade_geral.analise_balancos",
+     "nome": "Análise das demonstrações",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "contabilidade_geral.demonstracoes"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "contabilidade_publica",
+   "nome": "Contabilidade Pública",
+   "area": "Finanças",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 650,
+   "descricao": "Princípios, plano de contas, variações patrimoniais, demonstrações do setor público (MCASP/NBC TSP).",
+   "competencias": "Classificar fatos pelo regime patrimonial/orçamentário",
+   "fontes": [
+    "stn-mcasp",
+    "cfc-nbc-tsp",
+    "planalto-lei4320",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "contabilidade_publica.campo_aplicacao_principios",
+     "nome": "Campo de aplicação e princípios",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "contabilidade_publica.receita_despesa_orcamentaria",
+     "nome": "Receita e despesa orçamentárias",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "contabilidade_publica.campo_aplicacao_principios"
+     ]
+    },
+    {
+     "id": "contabilidade_publica.vpa_vpd",
+     "nome": "Variações patrimoniais",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "contabilidade_publica.receita_despesa_orcamentaria"
+     ]
+    },
+    {
+     "id": "contabilidade_publica.demonstracoes_setor_publico",
+     "nome": "Demonstrações aplicadas ao setor público",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "contabilidade_publica.vpa_vpd"
+     ]
+    },
+    {
+     "id": "contabilidade_publica.patrimonio_publico",
+     "nome": "Patrimônio e dívida pública",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "economia",
+   "nome": "Economia",
+   "area": "Finanças",
+   "categorias": [
+    "E",
+    "V",
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 900,
+   "descricao": "Micro, macro, economia brasileira, setor externo, política monetária e fiscal.",
+   "competencias": "Interpretar indicadores e modelos",
+   "fontes": [
+    "inep-matriz-enem",
+    "bcb",
+    "ibge",
+    "tesouro-transparente",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "economia.conceitos_escassez",
+     "nome": "Conceitos básicos, escassez e fluxo circular",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "economia.oferta_demanda",
+     "nome": "Oferta, demanda e elasticidade",
+     "nivel": "fundamental",
+     "prerequisitos": [
+      "economia.conceitos_escassez"
+     ]
+    },
+    {
+     "id": "economia.estruturas_mercado",
+     "nome": "Estruturas e falhas de mercado",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "economia.oferta_demanda"
+     ]
+    },
+    {
+     "id": "economia.teoria_consumidor_firma",
+     "nome": "Teoria do consumidor e da firma",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "economia.oferta_demanda"
+     ]
+    },
+    {
+     "id": "economia.contas_nacionais",
+     "nome": "Contas nacionais, PIB e inflação",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "economia.politica_monetaria_fiscal",
+     "nome": "Política monetária e fiscal",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "economia.contas_nacionais"
+     ]
+    },
+    {
+     "id": "economia.setor_externo",
+     "nome": "Setor externo e câmbio",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "economia.contas_nacionais"
+     ]
+    },
+    {
+     "id": "economia.economia_brasileira",
+     "nome": "Economia brasileira",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "afo",
+   "nome": "Administração Financeira e Orçamentária",
+   "area": "Finanças",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 650,
+   "descricao": "Orçamento público (Lei 4.320, LRF), ciclo orçamentário, receitas, despesas, responsabilidade fiscal. Agrupa Direito Financeiro e Finanças Públicas.",
+   "competencias": "Classificar receitas/despesas; aplicar limites da LRF",
+   "fontes": [
+    "planalto-cf88",
+    "planalto-lei4320",
+    "planalto-lrf",
+    "tesouro-transparente",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "afo.principios_orcamentarios",
+     "nome": "Princípios orçamentários",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "afo.ppa_ldo_loa",
+     "nome": "PPA, LDO e LOA",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "afo.principios_orcamentarios"
+     ]
+    },
+    {
+     "id": "afo.receita_publica",
+     "nome": "Receita pública",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "afo.despesa_publica",
+     "nome": "Despesa pública e estágios",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "afo.creditos_adicionais",
+     "nome": "Créditos adicionais",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "afo.ppa_ldo_loa"
+     ]
+    },
+    {
+     "id": "afo.lrf",
+     "nome": "Lei de Responsabilidade Fiscal",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "afo.ppa_ldo_loa"
+     ]
+    },
+    {
+     "id": "afo.divida_publica_afo",
+     "nome": "Dívida pública e resultado fiscal",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "afo.lrf"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "auditoria",
+   "nome": "Auditoria",
+   "area": "Finanças",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 450,
+   "descricao": "Auditoria governamental e independente, normas, riscos, materialidade, evidências, relatórios.",
+   "competencias": "Planejar e avaliar trabalho de auditoria",
+   "fontes": [
+    "cgu-publicacoes",
+    "tcu-orientacoes",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "auditoria.conceitos_auditoria",
+     "nome": "Conceitos e tipos de auditoria",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "auditoria.planejamento_riscos",
+     "nome": "Planejamento, risco e materialidade",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "auditoria.conceitos_auditoria"
+     ]
+    },
+    {
+     "id": "auditoria.evidencias_papeis",
+     "nome": "Evidências e papéis de trabalho",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "auditoria.planejamento_riscos"
+     ]
+    },
+    {
+     "id": "auditoria.relatorios_opiniao",
+     "nome": "Relatórios e opinião",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "auditoria.evidencias_papeis"
+     ]
+    },
+    {
+     "id": "auditoria.controles_internos_aud",
+     "nome": "Controles internos",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "contabilidade_custos",
+   "nome": "Contabilidade de Custos e Gerencial",
+   "area": "Finanças",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 400,
+   "descricao": "Classificação de custos, métodos de custeio, ponto de equilíbrio, orçamento empresarial.",
+   "competencias": "Calcular custos e margem",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "contabilidade_custos.classificacao_custos",
+     "nome": "Classificação e terminologia de custos",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "contabilidade_custos.custeio_absorcao_variavel",
+     "nome": "Custeio por absorção e variável",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "contabilidade_custos.classificacao_custos"
+     ]
+    },
+    {
+     "id": "contabilidade_custos.ponto_equilibrio",
+     "nome": "Ponto de equilíbrio e margem de contribuição",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "contabilidade_custos.custeio_absorcao_variavel"
+     ]
+    },
+    {
+     "id": "contabilidade_custos.custeio_abc_padrao",
+     "nome": "Custeio ABC e custo-padrão",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "contabilidade_custos.custeio_absorcao_variavel"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "conhecimentos_bancarios",
+   "nome": "Conhecimentos Bancários e SFN",
+   "area": "Finanças",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 450,
+   "descricao": "SFN, BCB, CMN, produtos bancários, mercado financeiro e prevenção à lavagem de dinheiro.",
+   "competencias": "Reconhecer produtos e regras do SFN",
+   "fontes": [
+    "bcb",
+    "planalto-lei4595",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "conhecimentos_bancarios.estrutura_sfn",
+     "nome": "Estrutura do Sistema Financeiro Nacional",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "conhecimentos_bancarios.produtos_bancarios",
+     "nome": "Produtos e serviços bancários",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "conhecimentos_bancarios.mercado_capitais",
+     "nome": "Mercado de capitais e de câmbio",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "conhecimentos_bancarios.pld_etica_bancaria",
+     "nome": "Prevenção à lavagem de dinheiro e ética",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "seguranca_informacao",
+   "nome": "Segurança da Informação",
+   "area": "Tecnologia e Computação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 550,
+   "descricao": "Princípios CID, criptografia, ameaças, controles, gestão de incidentes, LGPD.",
+   "competencias": "Escolher controle adequado",
+   "fontes": [
+    "nist-publicacoes",
+    "planalto-lgpd",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "seguranca_informacao.principios_cid",
+     "nome": "Confidencialidade, integridade e disponibilidade",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "seguranca_informacao.criptografia",
+     "nome": "Criptografia, hash e certificação digital",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "seguranca_informacao.principios_cid"
+     ]
+    },
+    {
+     "id": "seguranca_informacao.ameacas_malware",
+     "nome": "Ameaças, ataques e malware",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "seguranca_informacao.principios_cid"
+     ]
+    },
+    {
+     "id": "seguranca_informacao.controles_acesso",
+     "nome": "Controles de acesso e autenticação",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "seguranca_informacao.principios_cid"
+     ]
+    },
+    {
+     "id": "seguranca_informacao.gestao_incidentes",
+     "nome": "Gestão de riscos e incidentes",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "seguranca_informacao.ameacas_malware"
+     ]
+    },
+    {
+     "id": "seguranca_informacao.lgpd",
+     "nome": "LGPD",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "banco_dados",
+   "nome": "Banco de Dados",
+   "area": "Tecnologia e Computação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 550,
+   "descricao": "Modelagem, SQL, normalização, transações e noções de BI/NoSQL.",
+   "competencias": "Escrever consultas e projetar esquemas",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "banco_dados.modelo_er",
+     "nome": "Modelo entidade-relacionamento",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "banco_dados.sql_basico",
+     "nome": "SQL: consultas e junções",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "banco_dados.normalizacao",
+     "nome": "Normalização",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "banco_dados.modelo_er"
+     ]
+    },
+    {
+     "id": "banco_dados.transacoes_acid",
+     "nome": "Transações e ACID",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "banco_dados.indices_desempenho",
+     "nome": "Índices e desempenho",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "banco_dados.sql_basico"
+     ]
+    },
+    {
+     "id": "banco_dados.nosql_bi",
+     "nome": "NoSQL e data warehouse",
+     "nivel": "avançado",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "redes",
+   "nome": "Redes de Computadores",
+   "area": "Tecnologia e Computação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 500,
+   "descricao": "Modelos OSI/TCP-IP, endereçamento, roteamento, protocolos de aplicação e Wi-Fi.",
+   "competencias": "Diagnosticar camada e protocolo",
+   "fontes": [
+    "rfc-editor",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "redes.modelos_osi_tcpip",
+     "nome": "Modelos OSI e TCP/IP",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "redes.enderecamento_ip",
+     "nome": "Endereçamento IP e sub-redes",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "redes.modelos_osi_tcpip"
+     ]
+    },
+    {
+     "id": "redes.protocolos_aplicacao",
+     "nome": "Protocolos de aplicação (HTTP, DNS, SMTP)",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "redes.modelos_osi_tcpip"
+     ]
+    },
+    {
+     "id": "redes.roteamento_comutacao",
+     "nome": "Roteamento e comutação",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "redes.enderecamento_ip"
+     ]
+    },
+    {
+     "id": "redes.redes_sem_fio_seguranca",
+     "nome": "Redes sem fio e segurança de rede",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "logica_programacao",
+   "nome": "Lógica de Programação e Algoritmos",
+   "area": "Tecnologia e Computação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 600,
+   "descricao": "Algoritmos, estruturas de controle, estruturas de dados, complexidade e POO. Agrupa Algoritmos.",
+   "competencias": "Ler e escrever algoritmos",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "logica_programacao.variaveis_tipos",
+     "nome": "Variáveis, tipos e operadores",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "logica_programacao.estruturas_controle",
+     "nome": "Estruturas de controle",
+     "nivel": "fundamental",
+     "prerequisitos": [
+      "logica_programacao.variaveis_tipos"
+     ]
+    },
+    {
+     "id": "logica_programacao.funcoes_recursao",
+     "nome": "Funções e recursão",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "logica_programacao.estruturas_controle"
+     ]
+    },
+    {
+     "id": "logica_programacao.estruturas_dados",
+     "nome": "Estruturas de dados (listas, pilhas, filas, árvores)",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "logica_programacao.funcoes_recursao"
+     ]
+    },
+    {
+     "id": "logica_programacao.complexidade",
+     "nome": "Complexidade de algoritmos",
+     "nivel": "avançado",
+     "prerequisitos": [
+      "logica_programacao.estruturas_dados"
+     ]
+    },
+    {
+     "id": "logica_programacao.poo",
+     "nome": "Orientação a objetos",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "engenharia_software",
+   "nome": "Engenharia de Software",
+   "area": "Tecnologia e Computação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 500,
+   "descricao": "Processos, requisitos, projeto, UML, testes, métodos ágeis e qualidade.",
+   "competencias": "Escolher modelo e prática",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "engenharia_software.processos_software",
+     "nome": "Processos e ciclo de vida",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "engenharia_software.requisitos",
+     "nome": "Engenharia de requisitos",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "engenharia_software.processos_software"
+     ]
+    },
+    {
+     "id": "engenharia_software.uml_projeto",
+     "nome": "UML e padrões de projeto",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "engenharia_software.requisitos"
+     ]
+    },
+    {
+     "id": "engenharia_software.testes",
+     "nome": "Testes de software",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "engenharia_software.agil_devops",
+     "nome": "Métodos ágeis e DevOps",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "sistemas_operacionais",
+   "nome": "Sistemas Operacionais",
+   "area": "Tecnologia e Computação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 350,
+   "descricao": "Processos, memória, arquivos, Linux e Windows.",
+   "competencias": "Relacionar conceito a comportamento do SO",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "sistemas_operacionais.processos_threads",
+     "nome": "Processos e threads",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "sistemas_operacionais.escalonamento_memoria",
+     "nome": "Escalonamento e memória",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "sistemas_operacionais.processos_threads"
+     ]
+    },
+    {
+     "id": "sistemas_operacionais.sistemas_arquivos",
+     "nome": "Sistemas de arquivos",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "sistemas_operacionais.linux_comandos",
+     "nome": "Linux: comandos e permissões",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "arquitetura_computadores",
+   "nome": "Arquitetura de Computadores",
+   "area": "Tecnologia e Computação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 300,
+   "descricao": "CPU, memória, E/S, representação numérica e desempenho.",
+   "competencias": "Converter bases e avaliar desempenho",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "arquitetura_computadores.representacao_numerica",
+     "nome": "Sistemas de numeração e representação",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "arquitetura_computadores.cpu_memoria",
+     "nome": "CPU, pipeline e hierarquia de memória",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "arquitetura_computadores.entrada_saida_barramentos",
+     "nome": "Entrada/saída e barramentos",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "governanca_ti",
+   "nome": "Governança de TI",
+   "area": "Tecnologia e Computação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "2",
+   "meta": 350,
+   "descricao": "COBIT, ITIL, gestão de serviços e contratações de TI (conceitos gerais).",
+   "competencias": "Distinguir frameworks e processos",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "governanca_ti.conceitos_governanca_ti",
+     "nome": "Conceitos de governança e gestão de TI",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "governanca_ti.gestao_servicos",
+     "nome": "Gestão de serviços de TI",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "governanca_ti.contratacao_ti",
+     "nome": "Contratação de soluções de TI",
+     "nivel": "avançado",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "computacao_nuvem",
+   "nome": "Computação em Nuvem",
+   "area": "Tecnologia e Computação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir-meta-reduzida",
+   "fase": "3",
+   "meta": 200,
+   "descricao": "Modelos IaaS/PaaS/SaaS, virtualização, contêineres.",
+   "competencias": "Escolher modelo de serviço",
+   "fontes": [
+    "nist-publicacoes",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "computacao_nuvem.modelos_servico",
+     "nome": "Modelos de serviço e implantação",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "computacao_nuvem.virtualizacao_conteineres",
+     "nome": "Virtualização e contêineres",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "ciencia_dados_ia",
+   "nome": "Ciência de Dados e Inteligência Artificial",
+   "area": "Tecnologia e Computação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir-meta-reduzida",
+   "fase": "3",
+   "meta": 250,
+   "descricao": "Mineração de dados, aprendizado de máquina, ética em IA.",
+   "competencias": "Distinguir técnicas e métricas",
+   "fontes": [
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "ciencia_dados_ia.mineracao_dados",
+     "nome": "Mineração de dados e BI",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "ciencia_dados_ia.aprendizado_maquina",
+     "nome": "Aprendizado de máquina",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "ciencia_dados_ia.etica_ia",
+     "nome": "Ética e uso responsável de IA",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "pedagogia",
+   "nome": "Pedagogia",
+   "area": "Educação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 550,
+   "descricao": "Fundamentos, teorias da aprendizagem, currículo e avaliação.",
+   "competencias": "Relacionar teoria e prática",
+   "fontes": [
+    "bncc",
+    "planalto-ldb",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "pedagogia.fundamentos_historicos",
+     "nome": "Fundamentos históricos e filosóficos da educação",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "pedagogia.teorias_aprendizagem",
+     "nome": "Teorias da aprendizagem",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "pedagogia.curriculo_bncc",
+     "nome": "Currículo e BNCC",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "pedagogia.avaliacao_aprendizagem",
+     "nome": "Avaliação da aprendizagem",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "pedagogia.projeto_politico_pedagogico",
+     "nome": "Projeto político-pedagógico",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "didatica",
+   "nome": "Didática",
+   "area": "Educação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 400,
+   "descricao": "Planejamento, métodos, recursos e mediação do ensino.",
+   "competencias": "Planejar aulas",
+   "fontes": [
+    "bncc",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "didatica.planejamento_ensino",
+     "nome": "Planejamento de ensino",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "didatica.metodos_estrategias",
+     "nome": "Métodos e estratégias",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "didatica.relacao_professor_aluno",
+     "nome": "Mediação e relação professor-aluno",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "legislacao_educacional",
+   "nome": "Legislação Educacional",
+   "area": "Educação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 450,
+   "descricao": "LDB (Lei 9.394/96), ECA, PNE e diretrizes.",
+   "competencias": "Aplicar LDB e PNE",
+   "fontes": [
+    "planalto-ldb",
+    "planalto-cf88",
+    "planalto-eca",
+    "planalto-pne",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "legislacao_educacional.educacao_na_cf",
+     "nome": "Educação na Constituição",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "legislacao_educacional.ldb_estrutura",
+     "nome": "LDB: organização da educação nacional",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "legislacao_educacional.educacao_na_cf"
+     ]
+    },
+    {
+     "id": "legislacao_educacional.eca_educacao",
+     "nome": "ECA e direito à educação",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "legislacao_educacional.pne",
+     "nome": "Plano Nacional de Educação",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "redacao_oficial",
+   "nome": "Redação Oficial",
+   "area": "Educação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir",
+   "fase": "1",
+   "meta": 350,
+   "descricao": "Manual de Redação da Presidência: ofícios, memorandos, pronomes de tratamento, padrão ofício.",
+   "competencias": "Redigir documentos oficiais",
+   "fontes": [
+    "manual-redacao-presidencia",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "redacao_oficial.principios_redacao_oficial",
+     "nome": "Princípios e características",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "redacao_oficial.padrao_oficio",
+     "nome": "Padrão ofício e documentos",
+     "nivel": "intermediário",
+     "prerequisitos": [
+      "redacao_oficial.principios_redacao_oficial"
+     ]
+    },
+    {
+     "id": "redacao_oficial.pronomes_fechos",
+     "nome": "Pronomes de tratamento e fechos",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "redacao_oficial.correspondencia_digital",
+     "nome": "Correspondência eletrônica e atos normativos",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "psicologia_educacao",
+   "nome": "Psicologia da Educação",
+   "area": "Educação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir-meta-reduzida",
+   "fase": "3",
+   "meta": 250,
+   "descricao": "Desenvolvimento humano, aprendizagem e motivação.",
+   "competencias": "Associar teoria a situações escolares",
+   "fontes": [
+    "bncc",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "psicologia_educacao.desenvolvimento_humano",
+     "nome": "Desenvolvimento humano",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "psicologia_educacao.aprendizagem_motivacao",
+     "nome": "Aprendizagem e motivação",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "educacao_inclusiva",
+   "nome": "Educação Inclusiva",
+   "area": "Educação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir-meta-reduzida",
+   "fase": "3",
+   "meta": 250,
+   "descricao": "Política de educação especial na perspectiva inclusiva, AEE, Lei Brasileira de Inclusão.",
+   "competencias": "Aplicar LBI e política nacional",
+   "fontes": [
+    "planalto-lbi",
+    "planalto-ldb",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "educacao_inclusiva.politica_inclusiva",
+     "nome": "Política nacional e LBI",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "educacao_inclusiva.aee_adaptacoes",
+     "nome": "AEE e adaptações curriculares",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "gestao_escolar",
+   "nome": "Gestão Escolar",
+   "area": "Educação",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir-meta-reduzida",
+   "fase": "3",
+   "meta": 250,
+   "descricao": "Gestão democrática, conselhos, financiamento e PPP.",
+   "competencias": "Aplicar gestão democrática",
+   "fontes": [
+    "planalto-ldb",
+    "planalto-pne",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "gestao_escolar.gestao_democratica",
+     "nome": "Gestão democrática",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "gestao_escolar.financiamento_educacao",
+     "nome": "Financiamento da educação",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  },
+  {
+   "slug": "saude_publica_sus",
+   "nome": "Saúde Pública e SUS",
+   "area": "Saúde e Sociedade",
+   "categorias": [
+    "C"
+   ],
+   "decisao": "incluir-meta-reduzida",
+   "fase": "3",
+   "meta": 300,
+   "descricao": "Lacuna identificada: Leis 8.080/90 e 8.142/90, princípios do SUS, atenção básica, vigilância.",
+   "competencias": "Aplicar leis orgânicas do SUS",
+   "fontes": [
+    "planalto-lei8080",
+    "bancas-programas"
+   ],
+   "topicos": [
+    {
+     "id": "saude_publica_sus.principios_sus",
+     "nome": "Princípios e organização do SUS",
+     "nivel": "fundamental",
+     "prerequisitos": []
+    },
+    {
+     "id": "saude_publica_sus.atencao_vigilancia",
+     "nome": "Atenção básica e vigilância em saúde",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    },
+    {
+     "id": "saude_publica_sus.financiamento_controle_social",
+     "nome": "Financiamento e controle social",
+     "nivel": "intermediário",
+     "prerequisitos": []
+    }
+   ]
+  }
+ ]
+}

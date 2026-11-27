@@ -1,0 +1,237 @@
+{
+ "inep-matriz-enem": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem"
+ },
+ "bncc": {
+  "status": 403,
+  "consultado_em": "2026-11-27",
+  "url_final": "http://basenacionalcomum.mec.gov.br/"
+ },
+ "ibge": {
+  "status": 403,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.ibge.gov.br/"
+ },
+ "bcb": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.bcb.gov.br/"
+ },
+ "tesouro-transparente": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.tesourotransparente.gov.br/"
+ },
+ "stn-mcasp": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.tesourotransparente.gov.br/publicacoes/manual-de-contabilidade-aplicada-ao-setor-publico-mcasp/2025/26"
+ },
+ "cfc-nbc-tsp": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://cfc.org.br/"
+ },
+ "cpc-pronunciamentos": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.cpc.org.br/CPC"
+ },
+ "cgu-publicacoes": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.gov.br/cgu/pt-br"
+ },
+ "tcu-orientacoes": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://portal.tcu.gov.br/"
+ },
+ "conarq": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.gov.br/conarq/pt-br"
+ },
+ "manual-redacao-presidencia": {
+  "status": 404,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.gov.br/planalto/pt-br/acesso-a-informacao/manual-de-redacao"
+ },
+ "planalto-cf88": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm"
+ },
+ "planalto-cp": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del2848compilado.htm"
+ },
+ "planalto-cpp": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del3689compilado.htm"
+ },
+ "planalto-cc": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm"
+ },
+ "planalto-cpc": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
+ },
+ "planalto-ctn": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm"
+ },
+ "planalto-clt": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm"
+ },
+ "planalto-codigo-eleitoral": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l4737compilado.htm"
+ },
+ "planalto-lei14133": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm"
+ },
+ "planalto-lei8112": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l8112cons.htm"
+ },
+ "planalto-lei9784": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l9784.htm"
+ },
+ "planalto-lei8429": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l8429.htm"
+ },
+ "planalto-lrf": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp101.htm"
+ },
+ "planalto-lei4320": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l4320.htm"
+ },
+ "planalto-lei6938": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l6938.htm"
+ },
+ "planalto-lei8213": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l8213cons.htm"
+ },
+ "planalto-lei4595": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l4595.htm"
+ },
+ "planalto-lgpd": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+ },
+ "planalto-cdc": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+ },
+ "planalto-ldb": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l9394.htm"
+ },
+ "planalto-eca": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l8069.htm"
+ },
+ "planalto-pne": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l13005.htm"
+ },
+ "planalto-lbi": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm"
+ },
+ "planalto-lei8080": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l8080.htm"
+ },
+ "planalto-lei8159": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/leis/l8159.htm"
+ },
+ "planalto-decreto1171": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.planalto.gov.br/ccivil_03/decreto/d1171.htm"
+ },
+ "stf-jurisprudencia": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://portal.stf.jus.br/jurisprudencia/sumulas.asp"
+ },
+ "stj-jurisprudencia": {
+  "status": 404,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.stj.jus.br/sites/portalp/Jurisprudencia/Sumulas"
+ },
+ "tst-jurisprudencia": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://jurisprudencia.tst.jus.br/?tipoJuris=SUM&orgao=TST&pesquisar=1"
+ },
+ "tse-legislacao": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.tse.jus.br/legislacao"
+ },
+ "onu-oea-tratados": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.un.org/en/about-us/universal-declaration-of-human-rights"
+ },
+ "nist-publicacoes": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://csrc.nist.gov/publications"
+ },
+ "rfc-editor": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.rfc-editor.org/"
+ },
+ "bancas-programas": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.cebraspe.org.br/concursos/"
+ },
+ "vestibulares-programas": {
+  "status": 200,
+  "consultado_em": "2026-11-27",
+  "url_final": "https://www.fuvest.br"
+ }
+}

@@ -1,0 +1,72 @@
+OK   supabase/essays.sql
+OK   supabase/xp_schema.sql
+OK   supabase/quiz_xp_ledger.sql
+OK   supabase/streaks_schema.sql
+OK   supabase/favorites_schema.sql
+OK   supabase/error_review_schema.sql
+OK   supabase/mock_exams.sql
+OK   supabase/question_reports.sql
+OK   supabase/migrations/20261124000100_access_roles_config.sql
+OK   supabase/migrations/20261124000200_partners.sql
+OK   supabase/migrations/20261124000300_entitlements_trial_offline.sql
+OK   supabase/migrations/20261124000400_finance.sql
+OK   supabase/migrations/20261124000500_enforcement_gate_essay.sql
+OK   supabase/migrations/20261125000100_email_proof_legal_referral.sql
+OK   supabase/migrations/20261125000200_discard_unconfirmed_signup.sql
+OK   supabase/migrations/20261126000100_admin_portal.sql
+OK   supabase/migrations/20261127000100_partner_portal.sql
+OK   supabase/migrations/20261128000100_finance_admin.sql
+OK   supabase/migrations/20261129000100_payment_integrations.sql
+OK   supabase/migrations/20261130000100_paywall_account_deletion.sql
+OK   supabase/migrations/20261201000100_legal_versions_age_sharing.sql
+OK   supabase/migrations/20261201000200_financial_report_import.sql
+OK   supabase/migrations/20261202000100_legal_reaccept_default_off.sql
+OK   supabase/migrations/20261203000100_revoke_refresh_broken_streak.sql
+OK   supabase/migrations/20261204000100_clear_partner_invite_flag.sql
+OK   supabase/migrations/20261205000200_google_billing_homologation.sql
+OK   supabase/migrations/20261206000100_apple_annual_price.sql
+OK   supabase/migrations/20261207000100_essay_ai_providers.sql
+OK   supabase/migrations/20261208000100_auto_share_study_stats.sql
+OK   supabase/migrations/20261209000100_content_classification.sql
+--- testes
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ content_classification_tests OK
+
+--- export de lotes (staging)
+                177
+
+                                 0
+
+--- rollback
+     0
+
+--- reaplicando
+psql:<stdin>:107: NOTICE:  policy "content categories are publicly readable" for relation "content_categories" does not exist, skipping
+psql:<stdin>:109: NOTICE:  policy "question categories are publicly readable" for relation "question_categories" does not exist, skipping
+psql:<stdin>:111: NOTICE:  policy "node categories are publicly readable" for relation "catalog_node_categories" does not exist, skipping
+REAPLICOU_OK

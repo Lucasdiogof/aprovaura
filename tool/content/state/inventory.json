@@ -1,0 +1,251 @@
+{
+ "data_consulta": "2026-11-27",
+ "fonte": "producao cesuqfgrtcitatxvokez (somente leitura)",
+ "totais": {
+  "questoes": 2609,
+  "nos": 572,
+  "folhas": 468,
+  "materias": 14
+ },
+ "por_materia": {
+  "geografia": {
+   "nodes": 127,
+   "leaves": 115,
+   "questions": 388,
+   "facil": 142,
+   "medio": 180,
+   "dificil": 66,
+   "leaves_sem_questao": 45
+  },
+  "matematica": {
+   "nodes": 39,
+   "leaves": 34,
+   "questions": 200,
+   "facil": 82,
+   "medio": 69,
+   "dificil": 49,
+   "leaves_sem_questao": 0
+  },
+  "historia": {
+   "nodes": 28,
+   "leaves": 25,
+   "questions": 177,
+   "facil": 79,
+   "medio": 48,
+   "dificil": 50,
+   "leaves_sem_questao": 0
+  },
+  "portugues": {
+   "nodes": 27,
+   "leaves": 24,
+   "questions": 169,
+   "facil": 59,
+   "medio": 63,
+   "dificil": 47,
+   "leaves_sem_questao": 0
+  },
+  "biologia": {
+   "nodes": 75,
+   "leaves": 62,
+   "questions": 329,
+   "facil": 70,
+   "medio": 201,
+   "dificil": 58,
+   "leaves_sem_questao": 0
+  },
+  "fisica": {
+   "nodes": 37,
+   "leaves": 31,
+   "questions": 226,
+   "facil": 59,
+   "medio": 98,
+   "dificil": 69,
+   "leaves_sem_questao": 0
+  },
+  "quimica": {
+   "nodes": 43,
+   "leaves": 37,
+   "questions": 234,
+   "facil": 92,
+   "medio": 83,
+   "dificil": 59,
+   "leaves_sem_questao": 0
+  },
+  "filosofia": {
+   "nodes": 28,
+   "leaves": 20,
+   "questions": 127,
+   "facil": 40,
+   "medio": 43,
+   "dificil": 44,
+   "leaves_sem_questao": 0
+  },
+  "sociologia": {
+   "nodes": 28,
+   "leaves": 20,
+   "questions": 126,
+   "facil": 40,
+   "medio": 42,
+   "dificil": 44,
+   "leaves_sem_questao": 0
+  },
+  "literatura": {
+   "nodes": 28,
+   "leaves": 20,
+   "questions": 126,
+   "facil": 41,
+   "medio": 43,
+   "dificil": 42,
+   "leaves_sem_questao": 0
+  },
+  "ingles": {
+   "nodes": 28,
+   "leaves": 20,
+   "questions": 127,
+   "facil": 40,
+   "medio": 44,
+   "dificil": 43,
+   "leaves_sem_questao": 0
+  },
+  "espanhol": {
+   "nodes": 28,
+   "leaves": 20,
+   "questions": 127,
+   "facil": 40,
+   "medio": 44,
+   "dificil": 43,
+   "leaves_sem_questao": 0
+  },
+  "artes": {
+   "nodes": 28,
+   "leaves": 20,
+   "questions": 126,
+   "facil": 40,
+   "medio": 44,
+   "dificil": 42,
+   "leaves_sem_questao": 0
+  },
+  "educacao_fisica": {
+   "nodes": 28,
+   "leaves": 20,
+   "questions": 127,
+   "facil": 42,
+   "medio": 42,
+   "dificil": 43,
+   "leaves_sem_questao": 0
+  }
+ },
+ "gabarito": {
+  "2": 684,
+  "3": 637,
+  "1": 648,
+  "0": 640
+ },
+ "gabarito_e_maior_alternativa": 1621,
+ "problemas": {
+  "explicacao_curta(<60)": 227,
+  "sem_explicacao": 7,
+  "alternativas_duplicadas": 35
+ },
+ "grupos_duplicados_exatos": 2,
+ "questoes_em_duplicatas": 4,
+ "traducoes_questoes": [
+  {
+   "locale": "es",
+   "n": 2609
+  },
+  {
+   "locale": "en",
+   "n": 2609
+  }
+ ],
+ "traducoes_nos": [
+  {
+   "locale": "es",
+   "n": 572
+  },
+  {
+   "locale": "en",
+   "n": 572
+  }
+ ],
+ "dossies": [
+  {
+   "area": "brasil",
+   "status": "current",
+   "n": 1
+  },
+  {
+   "area": "cienciaTecnologia",
+   "status": "current",
+   "n": 1
+  },
+  {
+   "area": "economia",
+   "status": "current",
+   "n": 1
+  },
+  {
+   "area": "meioAmbiente",
+   "status": "current",
+   "n": 1
+  },
+  {
+   "area": "mundoGeopolitica",
+   "status": "current",
+   "n": 1
+  },
+  {
+   "area": "saude",
+   "status": "current",
+   "n": 1
+  },
+  {
+   "area": "sociedade",
+   "status": "current",
+   "n": 1
+  }
+ ],
+ "dossie_questoes": [
+  {
+   "n": 35,
+   "sem_expl": 0
+  }
+ ],
+ "traducoes_dossies": [
+  {
+   "locale": "en",
+   "n": 7
+  },
+  {
+   "locale": "es",
+   "n": 7
+  }
+ ],
+ "redacao_temas": [
+  {
+   "source_type": "practice",
+   "is_active": true,
+   "n": 5
+  }
+ ],
+ "simulados": [
+  {
+   "n": 24
+  }
+ ],
+ "uso_usuarios": [
+  {
+   "progresso": 375,
+   "favoritos": 2,
+   "reportes": 0,
+   "itens_simulado": 280
+  }
+ ],
+ "regioes_mapa": [
+  {
+   "subject": "geografia",
+   "r": 1499
+  }
+ ]
+}

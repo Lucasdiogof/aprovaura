@@ -1,0 +1,364 @@
+# Matriz curricular das matérias NOVAS (as 16 existentes vêm do banco; ver gen_matrix.py).
+# M|slug|Nome|área|cats(E=ENEM V=Vestibulares C=Concursos)|decisão|fase|meta_questões_aprovadas|descrição|competências|fontes(ids de sources.json)
+# T|id_topico|Nome|nível(F/I/A)|pré-requisitos (ids separados por vírgula)
+# Decisão: incluir | incluir-meta-reduzida | agrupar:<slug destino> | adiar. Só 'incluir*' gera matéria; nada de matéria vazia.
+M|raciocinio_logico|Raciocínio Lógico|Matemática e Raciocínio|C|incluir|1|450|Lógica proposicional, argumentação, sequências e análise combinatória aplicada a provas de concurso.|Traduzir enunciados em proposições; avaliar validade de argumentos; contar casos|bancas-programas
+T|proposicoes_conectivos|Proposições e conectivos|F|
+T|tabela_verdade|Tabelas-verdade e equivalências|F|proposicoes_conectivos
+T|negacao|Negação de proposições e quantificadores|I|tabela_verdade
+T|argumentos_validade|Argumentos e validade|I|tabela_verdade
+T|diagramas_conjuntos|Diagramas lógicos e conjuntos|F|
+T|sequencias_padroes|Sequências e padrões|F|
+T|analise_combinatoria|Análise combinatória e probabilidade|I|
+T|problemas_verdade_mentira|Problemas de verdade/mentira e associação|A|argumentos_validade
+M|informatica|Informática|Tecnologia e Computação|C|incluir|1|450|Noções de informática cobradas em concursos: SO, editores, planilhas, internet, segurança básica.|Operar conceitos de software/hardware; reconhecer funções de planilha; boas práticas de segurança|bancas-programas
+T|hardware_software|Hardware e software|F|
+T|windows_arquivos|Sistemas operacionais e gerenciamento de arquivos|F|hardware_software
+T|editores_texto|Editores de texto|F|
+T|planilhas|Planilhas eletrônicas e fórmulas|I|
+T|internet_navegadores|Internet, navegadores e e-mail|F|
+T|seguranca_basica|Segurança básica, malware e backup|I|
+T|nuvem_colaboracao|Armazenamento em nuvem e colaboração|I|
+M|matematica_financeira|Matemática Financeira|Matemática e Raciocínio|C,E|incluir|1|450|Juros, descontos, equivalência de capitais, amortização e análise de investimentos.|Calcular juros e prazos; comparar alternativas financeiras|bancas-programas,bcb
+T|porcentagem_variacao|Porcentagem e variação|F|
+T|juros_simples|Juros simples|F|porcentagem_variacao
+T|juros_compostos|Juros compostos|I|juros_simples
+T|descontos|Descontos simples e compostos|I|juros_compostos
+T|taxas_equivalentes|Taxas equivalentes, nominais e efetivas|I|juros_compostos
+T|series_pagamentos|Séries de pagamentos|A|taxas_equivalentes
+T|sistemas_amortizacao|Sistemas de amortização (SAC, Price)|A|series_pagamentos
+T|vpl_tir|Valor presente líquido e taxa interna de retorno|A|series_pagamentos
+M|estatistica|Estatística|Matemática e Raciocínio|E,V,C|incluir|1|550|Estatística descritiva, probabilidade e inferência básica; leitura crítica de gráficos e tabelas.|Interpretar dados; calcular medidas; avaliar probabilidades|inep-matriz-enem,bancas-programas,ibge
+T|leitura_graficos|Leitura de gráficos e tabelas|F|
+T|media_mediana_moda|Média, mediana e moda|F|
+T|dispersao|Variância e desvio padrão|I|media_mediana_moda
+T|probabilidade_basica|Probabilidade básica|F|
+T|probabilidade_condicional|Probabilidade condicional e Bayes|I|probabilidade_basica
+T|distribuicoes|Distribuição binomial e normal|A|probabilidade_condicional
+T|amostragem_inferencia|Amostragem e inferência|A|dispersao
+T|correlacao_regressao|Correlação e regressão simples|A|dispersao
+M|educacao_financeira|Educação Financeira|Matemática e Raciocínio|E,C|incluir-meta-reduzida|2|250|Orçamento pessoal, consumo, crédito, poupança, investimento e inflação (tema transversal da BNCC).|Planejar orçamento; comparar crédito; reconhecer riscos|bncc,bcb
+T|orcamento|Orçamento e planejamento|F|
+T|inflacao_poder_compra|Inflação e poder de compra|F|
+T|credito_juros|Crédito, juros e endividamento|I|
+T|poupanca_investimentos|Poupança e investimentos|I|
+T|previdencia_seguros|Previdência e seguros|I|
+T|consumo_consciente|Consumo consciente e fraudes|F|
+M|dir_constitucional|Direito Constitucional|Direito|C|incluir|1|900|Princípios, direitos fundamentais, organização do Estado e dos Poderes, controle de constitucionalidade.|Aplicar texto constitucional; identificar competência e garantia|planalto-cf88,stf-jurisprudencia,bancas-programas
+T|principios_fundamentais|Princípios fundamentais (arts. 1º a 4º)|F|
+T|direitos_garantias|Direitos e garantias fundamentais (art. 5º)|F|principios_fundamentais
+T|direitos_sociais_nacionalidade|Direitos sociais, nacionalidade e direitos políticos|I|direitos_garantias
+T|organizacao_estado|Organização político-administrativa|I|
+T|poder_legislativo|Poder Legislativo e processo legislativo|I|organizacao_estado
+T|poder_executivo|Poder Executivo|I|organizacao_estado
+T|poder_judiciario|Poder Judiciário e funções essenciais|I|organizacao_estado
+T|controle_constitucionalidade|Controle de constitucionalidade|A|poder_judiciario
+T|ordem_economica_social|Ordem econômica, financeira e social|I|
+T|tributacao_orcamento_cf|Sistema tributário e orçamento na CF|A|ordem_economica_social
+M|dir_administrativo|Direito Administrativo|Direito|C|incluir|1|900|Princípios, organização administrativa, atos, poderes, serviços, agentes, responsabilidade civil, improbidade e processo administrativo.|Classificar atos e entes; aplicar Lei 9.784 e Lei 8.112|planalto-cf88,planalto-lei9784,planalto-lei8112,planalto-lei8429,bancas-programas
+T|principios_adm|Princípios da Administração Pública|F|
+T|organizacao_administrativa|Organização administrativa (direta e indireta)|F|
+T|atos_administrativos|Atos administrativos|I|principios_adm
+T|poderes_administrativos|Poderes administrativos|I|principios_adm
+T|servicos_publicos|Serviços públicos e concessões|I|organizacao_administrativa
+T|agentes_publicos|Agentes públicos e Lei 8.112/90|I|
+T|responsabilidade_civil_estado|Responsabilidade civil do Estado|I|
+T|improbidade|Improbidade administrativa|A|principios_adm
+T|processo_administrativo|Processo administrativo federal (Lei 9.784/99)|I|
+T|controle_adm|Controle da Administração|A|atos_administrativos
+M|dir_penal|Direito Penal|Direito|C|incluir|1|800|Teoria da lei penal, crime, pena, extinção da punibilidade e parte especial do Código Penal.|Subsumir fatos a tipos penais; aplicar institutos da parte geral|planalto-cp,stf-jurisprudencia,stj-jurisprudencia,bancas-programas
+T|principios_lei_penal|Princípios e aplicação da lei penal|F|
+T|teoria_crime|Teoria do crime (fato típico, ilicitude, culpabilidade)|I|principios_lei_penal
+T|tentativa_concurso|Iter criminis, tentativa e concurso de pessoas|I|teoria_crime
+T|penas|Penas, dosimetria e execução|I|teoria_crime
+T|extincao_punibilidade|Extinção da punibilidade e prescrição|A|penas
+T|crimes_pessoa|Crimes contra a pessoa|I|teoria_crime
+T|crimes_patrimonio|Crimes contra o patrimônio|I|teoria_crime
+T|crimes_adm_publica|Crimes contra a Administração Pública|I|teoria_crime
+M|dir_proc_penal|Direito Processual Penal|Direito|C|incluir|1|600|Inquérito, ação penal, provas, prisões, procedimentos e recursos.|Identificar fase, competência e nulidade|planalto-cpp,stf-jurisprudencia,stj-jurisprudencia,bancas-programas
+T|principios_inquerito|Princípios e inquérito policial|F|
+T|acao_penal|Ação penal|I|principios_inquerito
+T|competencia|Competência e jurisdição|I|
+T|provas|Provas|I|
+T|prisoes_cautelares|Prisões e medidas cautelares|A|provas
+T|procedimentos_juri|Procedimentos e Tribunal do Júri|A|acao_penal
+T|nulidades_recursos|Nulidades e recursos|A|procedimentos_juri
+M|dir_civil|Direito Civil|Direito|C|incluir|1|700|Parte geral, obrigações, contratos, responsabilidade civil, coisas, família e sucessões.|Aplicar o Código Civil a casos|planalto-cc,stj-jurisprudencia,bancas-programas
+T|lindb_pessoas|LINDB e pessoas naturais e jurídicas|F|
+T|bens_fatos_juridicos|Bens e fatos jurídicos|I|lindb_pessoas
+T|prescricao_decadencia|Prescrição e decadência|I|bens_fatos_juridicos
+T|obrigacoes|Obrigações|I|
+T|contratos|Contratos|I|obrigacoes
+T|responsabilidade_civil|Responsabilidade civil|I|obrigacoes
+T|direito_coisas|Direito das coisas|I|
+T|familia_sucessoes|Família e sucessões|A|
+M|dir_proc_civil|Direito Processual Civil|Direito|C|incluir|1|650|CPC/2015: normas gerais, partes, atos, tutelas, procedimento comum, recursos, execução.|Aplicar prazos e institutos do CPC|planalto-cpc,stj-jurisprudencia,bancas-programas
+T|normas_fundamentais|Normas fundamentais e jurisdição|F|
+T|partes_litisconsorcio|Partes, procuradores e litisconsórcio|I|normas_fundamentais
+T|atos_prazos|Atos processuais e prazos|I|
+T|tutelas_provisorias|Tutelas provisórias|I|
+T|procedimento_comum|Procedimento comum|I|atos_prazos
+T|provas_sentenca|Provas, sentença e coisa julgada|A|procedimento_comum
+T|recursos_civeis|Recursos|A|provas_sentenca
+T|execucao_cumprimento|Cumprimento de sentença e execução|A|provas_sentenca
+M|dir_tributario|Direito Tributário|Direito|C|incluir|1|650|Sistema tributário, competência, obrigação e crédito tributário, limitações ao poder de tributar.|Aplicar CTN e CF|planalto-ctn,planalto-cf88,stf-jurisprudencia,bancas-programas
+T|sistema_tributario|Sistema tributário e espécies|F|
+T|limitacoes_poder|Limitações ao poder de tributar|I|sistema_tributario
+T|competencia_tributaria|Competência tributária e repartição|I|sistema_tributario
+T|obrigacao_tributaria|Obrigação tributária|I|
+T|credito_tributario|Crédito tributário (constituição, suspensão, extinção)|A|obrigacao_tributaria
+T|impostos_especie|Impostos em espécie|A|competencia_tributaria
+T|processo_tributario|Administração e processo tributário|A|credito_tributario
+M|dir_trabalho|Direito do Trabalho|Direito|C|incluir|1|650|Relação de emprego, contrato, jornada, remuneração, estabilidades, FGTS, rescisão e direito coletivo.|Aplicar CLT e CF|planalto-clt,planalto-cf88,tst-jurisprudencia,bancas-programas
+T|relacao_emprego|Relação de emprego e sujeitos|F|
+T|contrato_trabalho|Contrato de trabalho|I|relacao_emprego
+T|jornada_descansos|Jornada, descansos e férias|I|contrato_trabalho
+T|remuneracao_fgts|Remuneração, salário e FGTS|I|contrato_trabalho
+T|extincao_contrato|Extinção do contrato e verbas rescisórias|A|remuneracao_fgts
+T|estabilidades_seguranca|Estabilidades e segurança do trabalho|I|contrato_trabalho
+T|direito_coletivo|Direito coletivo do trabalho|A|
+M|dir_proc_trabalho|Direito Processual do Trabalho|Direito|C|incluir|1|450|Organização da Justiça do Trabalho, competência, procedimentos e recursos trabalhistas.|Identificar prazo, competência e recurso|planalto-clt,tst-jurisprudencia,bancas-programas
+T|justica_trabalho|Organização e competência da Justiça do Trabalho|F|
+T|reclamacao_audiencia|Reclamação, audiência e revelia|I|justica_trabalho
+T|provas_trabalhistas|Provas no processo do trabalho|I|reclamacao_audiencia
+T|procedimentos_rito|Procedimentos (ordinário, sumaríssimo)|I|reclamacao_audiencia
+T|recursos_trabalhistas|Recursos trabalhistas|A|procedimentos_rito
+T|execucao_trabalhista|Execução trabalhista|A|recursos_trabalhistas
+M|dir_eleitoral|Direito Eleitoral|Direito|C|incluir|2|350|Direitos políticos, partidos, registro de candidaturas, propaganda, justiça eleitoral e crimes eleitorais.|Aplicar Código Eleitoral e leis esparsas|planalto-codigo-eleitoral,tse-legislacao,bancas-programas
+T|justica_eleitoral|Justiça Eleitoral e organização|F|
+T|partidos_candidaturas|Partidos e candidaturas|I|justica_eleitoral
+T|elegibilidade_inelegibilidade|Elegibilidade e inelegibilidades|A|partidos_candidaturas
+T|propaganda_financiamento|Propaganda e financiamento de campanha|I|partidos_candidaturas
+T|crimes_eleitorais|Crimes eleitorais e processo|A|justica_eleitoral
+M|dir_ambiental|Direito Ambiental|Direito|C,E|incluir|2|350|Princípios, PNMA, licenciamento, áreas protegidas, responsabilidade ambiental.|Aplicar Lei 6.938 e CF art. 225|planalto-cf88,planalto-lei6938,bancas-programas
+T|principios_ambientais|Princípios e art. 225 da CF|F|
+T|pnma_sisnama|PNMA e SISNAMA|I|principios_ambientais
+T|licenciamento|Licenciamento ambiental|I|pnma_sisnama
+T|areas_protegidas|Unidades de conservação e áreas protegidas|I|
+T|responsabilidade_ambiental|Responsabilidade civil, administrativa e penal ambiental|A|pnma_sisnama
+M|dir_empresarial|Direito Empresarial|Direito|C|incluir|2|400|Empresário, sociedades, títulos de crédito, recuperação e falência.|Distinguir tipos societários e títulos|planalto-cc,bancas-programas
+T|empresario_estabelecimento|Empresário e estabelecimento|F|
+T|sociedades|Sociedades empresárias|I|empresario_estabelecimento
+T|titulos_credito|Títulos de crédito|I|
+T|contratos_empresariais|Contratos empresariais|I|
+T|recuperacao_falencia|Recuperação judicial e falência|A|sociedades
+M|dir_previdenciario|Direito Previdenciário|Direito|C|incluir|2|400|Seguridade social, RGPS, benefícios, custeio e RPPS.|Aplicar Leis 8.212/8.213 e emendas|planalto-lei8213,planalto-cf88,bancas-programas
+T|seguridade_principios|Seguridade social e princípios|F|
+T|segurados_dependentes|Segurados e dependentes|I|seguridade_principios
+T|beneficios_rgps|Benefícios do RGPS|I|segurados_dependentes
+T|custeio|Custeio da seguridade|I|seguridade_principios
+T|rpps|Regimes próprios de previdência|A|beneficios_rgps
+M|direitos_humanos|Direitos Humanos|Direito|E,C|incluir|2|450|Teoria geral, tratados, sistemas global e interamericano, grupos vulneráveis.|Relacionar tratados e Constituição|planalto-cf88,onu-oea-tratados,inep-matriz-enem,bancas-programas
+T|teoria_geral_dh|Teoria geral e gerações de direitos|F|
+T|sistema_global|Sistema global (ONU)|I|teoria_geral_dh
+T|sistema_interamericano|Sistema interamericano|I|teoria_geral_dh
+T|dh_brasil|Direitos humanos na ordem constitucional brasileira|I|teoria_geral_dh
+T|grupos_vulneraveis|Grupos vulneráveis e proteção|I|dh_brasil
+M|legislacao_especifica|Legislação Específica|Direito|C|incluir-meta-reduzida|3|300|Legislação de carreira/órgão (estatutos, leis orgânicas); conteúdo só com texto oficial verificável.|Localizar e aplicar o dispositivo|planalto-lei8112,bancas-programas
+T|estatutos_servidores|Estatutos de servidores públicos|I|
+T|leis_organicas|Leis orgânicas e carreiras|I|
+T|lai_lgpd|Lei de Acesso à Informação e LGPD|I|
+M|dir_consumidor|Direito do Consumidor|Direito|C,E|incluir|2|300|CDC: relação de consumo, responsabilidade, práticas abusivas, proteção contratual.|Aplicar Lei 8.078/90|planalto-cdc,bancas-programas
+T|relacao_consumo|Relação de consumo e princípios|F|
+T|responsabilidade_produto_servico|Responsabilidade pelo fato e vício|I|relacao_consumo
+T|praticas_abusivas|Práticas comerciais e publicidade|I|relacao_consumo
+T|protecao_contratual|Proteção contratual e cobrança|I|
+M|dir_internacional_publico|Direito Internacional Público|Direito|C|incluir-meta-reduzida|3|200|Fontes, sujeitos, tratados, responsabilidade internacional.|Distinguir fontes e sujeitos|onu-oea-tratados,bancas-programas
+T|fontes_dip|Fontes e tratados|I|
+T|sujeitos_dip|Sujeitos e organizações internacionais|I|
+T|responsabilidade_dip|Responsabilidade internacional do Estado|A|
+M|dir_financeiro|Direito Financeiro|Direito|C|agrupar:afo|-|0|Lei 4.320/64 e LRF tratadas como parte de AFO/Finanças Públicas para não duplicar entidade.||
+M|dir_militar|Direito Militar|Direito|C|adiar|-|0|Nicho (PM/CBM/Forças) com legislação estadual variável; exige fontes por ente. Nenhuma matéria vazia será criada.||
+M|criminologia|Criminologia|Direito|C|adiar|-|0|Cobrada em carreiras policiais/MP; fontes livres insuficientes para meta mínima agora; reavaliar após Penal/Proc. Penal.||
+M|adm_geral|Administração Geral|Gestão|C|incluir|1|650|Teorias, funções administrativas, estrutura organizacional, liderança, cultura.|Relacionar teorias a práticas|bancas-programas
+T|teorias_administrativas|Teorias da administração|F|
+T|planejamento_estrategico|Planejamento e estratégia|I|
+T|organizacao_estrutura|Organização e estruturas|I|
+T|direcao_lideranca|Direção, liderança e motivação|I|
+T|controle_desempenho|Controle e desempenho|I|
+T|cultura_mudanca|Cultura e mudança organizacional|A|
+M|adm_publica|Administração Pública|Gestão|C|incluir|1|550|Modelos de gestão pública, reforma gerencial, governança, transparência.|Distinguir patrimonialismo, burocracia e gerencialismo|planalto-cf88,bancas-programas
+T|modelos_gestao_publica|Modelos: patrimonialista, burocrático, gerencial|F|
+T|reforma_gerencial|Reforma gerencial e agências|I|modelos_gestao_publica
+T|governo_eletronico|Governo digital e transparência|I|
+T|accountability|Accountability e controle social|I|
+M|etica_servico_publico|Ética no Serviço Público|Gestão|C|incluir|1|350|Decreto 1.171/94 (Código de Ética), Lei 8.112 deveres e proibições, conflito de interesses.|Aplicar normas éticas a casos|planalto-lei8112,planalto-decreto1171,bancas-programas
+T|etica_conceitos|Ética e moral|F|
+T|codigo_etica_decreto1171|Código de Ética (Decreto 1.171/94)|F|etica_conceitos
+T|conflito_interesses|Conflito de interesses e comissões de ética|I|
+M|arquivologia|Arquivologia|Gestão|C|incluir|1|400|Princípios, gestão documental, classificação, avaliação, preservação e Lei 8.159/91.|Aplicar ciclo de vida dos documentos|planalto-lei8159,conarq,bancas-programas
+T|conceitos_arquivo|Conceitos e princípios arquivísticos|F|
+T|ciclo_vital|Gestão documental e teoria das três idades|I|conceitos_arquivo
+T|classificacao_avaliacao|Classificação e avaliação|I|ciclo_vital
+T|preservacao_digital|Preservação e documentos digitais|A|ciclo_vital
+M|gestao_pessoas|Gestão de Pessoas|Gestão|C|incluir|2|450|Recrutamento, treinamento, desempenho, remuneração, clima e comportamento organizacional.|Escolher prática de GP adequada|bancas-programas
+T|gp_estrategica|Gestão estratégica de pessoas|F|
+T|recrutamento_selecao|Recrutamento e seleção|I|
+T|treinamento_desenvolvimento|Treinamento e desenvolvimento|I|
+T|avaliacao_desempenho|Avaliação de desempenho|I|
+T|comportamento_organizacional|Comportamento organizacional e clima|A|
+M|gestao_projetos|Gestão de Projetos|Gestão|C|incluir|2|400|Ciclo de vida, escopo, prazo, custo, riscos e metodologias (conceitos gerais; sem copiar guias pagos).|Planejar e controlar projetos|bancas-programas
+T|ciclo_vida_projeto|Ciclo de vida e partes interessadas|F|
+T|escopo_prazo_custo|Escopo, prazo e custo (EAP, cronograma, EVM)|I|ciclo_vida_projeto
+T|riscos_qualidade|Riscos e qualidade|I|ciclo_vida_projeto
+T|metodos_ageis|Métodos ágeis e híbridos|I|
+M|adm_materiais|Administração de Materiais|Gestão|C|incluir|2|350|Gestão de estoques, classificação ABC, compras e patrimônio.|Calcular estoques e classificar itens|bancas-programas
+T|classificacao_abc|Classificação de materiais e curva ABC|F|
+T|gestao_estoques|Gestão de estoques (lote econômico, ponto de pedido)|I|classificacao_abc
+T|compras_patrimonio|Compras e gestão patrimonial|I|
+M|logistica|Logística|Gestão|C|incluir|2|300|Cadeia de suprimentos, transporte, armazenagem e indicadores.|Escolher modal e dimensionar armazenagem|bancas-programas
+T|cadeia_suprimentos|Cadeia de suprimentos|F|
+T|transportes_modais|Transporte e modais|I|
+T|armazenagem_distribuicao|Armazenagem e distribuição|I|
+M|licitacoes_contratos|Licitações e Contratos|Gestão|C|incluir|1|600|Lei 14.133/2021: modalidades, fases, contratação direta, contratos e sanções.|Aplicar Lei 14.133 (vigência verificada)|planalto-lei14133,tcu-orientacoes,bancas-programas
+T|principios_licitacao|Princípios e agentes da licitação|F|
+T|modalidades_criterios|Modalidades e critérios de julgamento|I|principios_licitacao
+T|fases_licitacao|Fases do processo licitatório|I|modalidades_criterios
+T|contratacao_direta|Dispensa e inexigibilidade|I|principios_licitacao
+T|contratos_adm|Contratos administrativos|A|fases_licitacao
+T|sancoes_nulidades|Sanções, nulidades e controle|A|contratos_adm
+M|gestao_processos_qualidade|Gestão de Processos e Qualidade|Gestão|C|incluir|2|300|BPM, mapeamento, indicadores, ferramentas da qualidade.|Modelar e melhorar processos|bancas-programas
+T|mapeamento_processos|Mapeamento e modelagem de processos|F|
+T|ferramentas_qualidade|Ferramentas da qualidade (PDCA, Pareto, Ishikawa)|F|
+T|indicadores_melhoria|Indicadores e melhoria contínua|I|
+M|governanca_controle|Governança, Riscos e Controle|Gestão|C|incluir|2|350|Governança pública, gestão de riscos, controle interno e externo, integridade.|Distinguir linhas de defesa e instâncias|planalto-cf88,cgu-publicacoes,tcu-orientacoes,bancas-programas
+T|governanca_publica|Governança pública|I|
+T|gestao_riscos|Gestão de riscos|I|
+T|controle_interno_externo|Controle interno e externo|I|
+T|integridade_compliance|Integridade e compliance|A|
+M|politicas_publicas|Políticas Públicas|Gestão|C|incluir|3|250|Ciclo das políticas públicas, avaliação, atores e instrumentos.|Identificar etapa do ciclo e instrumento|bancas-programas
+T|ciclo_politicas|Ciclo de políticas públicas|F|
+T|avaliacao_politicas|Monitoramento e avaliação|I|
+T|atores_instrumentos|Atores e instrumentos|I|
+M|contabilidade_geral|Contabilidade Geral|Finanças|C|incluir|1|800|Patrimônio, escrituração, demonstrações contábeis, CPC, análise de balanços.|Registrar fatos e elaborar demonstrações; sem copiar normas pagas|cpc-pronunciamentos,bancas-programas
+T|patrimonio_equacao|Patrimônio e equação fundamental|F|
+T|escrituracao_debito_credito|Escrituração e contas|F|patrimonio_equacao
+T|estoques_inventario|Estoques e custo das mercadorias|I|escrituracao_debito_credito
+T|demonstracoes|Demonstrações contábeis (BP, DRE, DFC, DMPL)|I|escrituracao_debito_credito
+T|depreciacao_ativos|Depreciação e ativo imobilizado|I|demonstracoes
+T|analise_balancos|Análise das demonstrações|A|demonstracoes
+M|contabilidade_publica|Contabilidade Pública|Finanças|C|incluir|1|650|Princípios, plano de contas, variações patrimoniais, demonstrações do setor público (MCASP/NBC TSP).|Classificar fatos pelo regime patrimonial/orçamentário|stn-mcasp,cfc-nbc-tsp,planalto-lei4320,bancas-programas
+T|campo_aplicacao_principios|Campo de aplicação e princípios|F|
+T|receita_despesa_orcamentaria|Receita e despesa orçamentárias|I|campo_aplicacao_principios
+T|vpa_vpd|Variações patrimoniais|I|receita_despesa_orcamentaria
+T|demonstracoes_setor_publico|Demonstrações aplicadas ao setor público|A|vpa_vpd
+T|patrimonio_publico|Patrimônio e dívida pública|I|
+M|economia|Economia|Finanças|E,V,C|incluir|1|900|Micro, macro, economia brasileira, setor externo, política monetária e fiscal.|Interpretar indicadores e modelos|inep-matriz-enem,bcb,ibge,tesouro-transparente,bancas-programas
+T|conceitos_escassez|Conceitos básicos, escassez e fluxo circular|F|
+T|oferta_demanda|Oferta, demanda e elasticidade|F|conceitos_escassez
+T|estruturas_mercado|Estruturas e falhas de mercado|I|oferta_demanda
+T|teoria_consumidor_firma|Teoria do consumidor e da firma|A|oferta_demanda
+T|contas_nacionais|Contas nacionais, PIB e inflação|F|
+T|politica_monetaria_fiscal|Política monetária e fiscal|I|contas_nacionais
+T|setor_externo|Setor externo e câmbio|I|contas_nacionais
+T|economia_brasileira|Economia brasileira|I|
+M|afo|Administração Financeira e Orçamentária|Finanças|C|incluir|1|650|Orçamento público (Lei 4.320, LRF), ciclo orçamentário, receitas, despesas, responsabilidade fiscal. Agrupa Direito Financeiro e Finanças Públicas.|Classificar receitas/despesas; aplicar limites da LRF|planalto-cf88,planalto-lei4320,planalto-lrf,tesouro-transparente,bancas-programas
+T|principios_orcamentarios|Princípios orçamentários|F|
+T|ppa_ldo_loa|PPA, LDO e LOA|I|principios_orcamentarios
+T|receita_publica|Receita pública|I|
+T|despesa_publica|Despesa pública e estágios|I|
+T|creditos_adicionais|Créditos adicionais|A|ppa_ldo_loa
+T|lrf|Lei de Responsabilidade Fiscal|A|ppa_ldo_loa
+T|divida_publica_afo|Dívida pública e resultado fiscal|A|lrf
+M|auditoria|Auditoria|Finanças|C|incluir|2|450|Auditoria governamental e independente, normas, riscos, materialidade, evidências, relatórios.|Planejar e avaliar trabalho de auditoria|cgu-publicacoes,tcu-orientacoes,bancas-programas
+T|conceitos_auditoria|Conceitos e tipos de auditoria|F|
+T|planejamento_riscos|Planejamento, risco e materialidade|I|conceitos_auditoria
+T|evidencias_papeis|Evidências e papéis de trabalho|I|planejamento_riscos
+T|relatorios_opiniao|Relatórios e opinião|I|evidencias_papeis
+T|controles_internos_aud|Controles internos|I|
+M|contabilidade_custos|Contabilidade de Custos e Gerencial|Finanças|C|incluir|2|400|Classificação de custos, métodos de custeio, ponto de equilíbrio, orçamento empresarial.|Calcular custos e margem|bancas-programas
+T|classificacao_custos|Classificação e terminologia de custos|F|
+T|custeio_absorcao_variavel|Custeio por absorção e variável|I|classificacao_custos
+T|ponto_equilibrio|Ponto de equilíbrio e margem de contribuição|I|custeio_absorcao_variavel
+T|custeio_abc_padrao|Custeio ABC e custo-padrão|A|custeio_absorcao_variavel
+M|conhecimentos_bancarios|Conhecimentos Bancários e SFN|Finanças|C|incluir|2|450|SFN, BCB, CMN, produtos bancários, mercado financeiro e prevenção à lavagem de dinheiro.|Reconhecer produtos e regras do SFN|bcb,planalto-lei4595,bancas-programas
+T|estrutura_sfn|Estrutura do Sistema Financeiro Nacional|F|
+T|produtos_bancarios|Produtos e serviços bancários|I|
+T|mercado_capitais|Mercado de capitais e de câmbio|I|
+T|pld_etica_bancaria|Prevenção à lavagem de dinheiro e ética|I|
+M|seguranca_informacao|Segurança da Informação|Tecnologia e Computação|C|incluir|1|550|Princípios CID, criptografia, ameaças, controles, gestão de incidentes, LGPD.|Escolher controle adequado|nist-publicacoes,planalto-lgpd,bancas-programas
+T|principios_cid|Confidencialidade, integridade e disponibilidade|F|
+T|criptografia|Criptografia, hash e certificação digital|I|principios_cid
+T|ameacas_malware|Ameaças, ataques e malware|I|principios_cid
+T|controles_acesso|Controles de acesso e autenticação|I|principios_cid
+T|gestao_incidentes|Gestão de riscos e incidentes|A|ameacas_malware
+T|lgpd|LGPD|I|
+M|banco_dados|Banco de Dados|Tecnologia e Computação|C|incluir|1|550|Modelagem, SQL, normalização, transações e noções de BI/NoSQL.|Escrever consultas e projetar esquemas|bancas-programas
+T|modelo_er|Modelo entidade-relacionamento|F|
+T|sql_basico|SQL: consultas e junções|F|
+T|normalizacao|Normalização|I|modelo_er
+T|transacoes_acid|Transações e ACID|I|
+T|indices_desempenho|Índices e desempenho|A|sql_basico
+T|nosql_bi|NoSQL e data warehouse|A|
+M|redes|Redes de Computadores|Tecnologia e Computação|C|incluir|1|500|Modelos OSI/TCP-IP, endereçamento, roteamento, protocolos de aplicação e Wi-Fi.|Diagnosticar camada e protocolo|rfc-editor,bancas-programas
+T|modelos_osi_tcpip|Modelos OSI e TCP/IP|F|
+T|enderecamento_ip|Endereçamento IP e sub-redes|I|modelos_osi_tcpip
+T|protocolos_aplicacao|Protocolos de aplicação (HTTP, DNS, SMTP)|I|modelos_osi_tcpip
+T|roteamento_comutacao|Roteamento e comutação|A|enderecamento_ip
+T|redes_sem_fio_seguranca|Redes sem fio e segurança de rede|I|
+M|logica_programacao|Lógica de Programação e Algoritmos|Tecnologia e Computação|C|incluir|1|600|Algoritmos, estruturas de controle, estruturas de dados, complexidade e POO. Agrupa Algoritmos.|Ler e escrever algoritmos|bancas-programas
+T|variaveis_tipos|Variáveis, tipos e operadores|F|
+T|estruturas_controle|Estruturas de controle|F|variaveis_tipos
+T|funcoes_recursao|Funções e recursão|I|estruturas_controle
+T|estruturas_dados|Estruturas de dados (listas, pilhas, filas, árvores)|I|funcoes_recursao
+T|complexidade|Complexidade de algoritmos|A|estruturas_dados
+T|poo|Orientação a objetos|I|
+M|engenharia_software|Engenharia de Software|Tecnologia e Computação|C|incluir|2|500|Processos, requisitos, projeto, UML, testes, métodos ágeis e qualidade.|Escolher modelo e prática|bancas-programas
+T|processos_software|Processos e ciclo de vida|F|
+T|requisitos|Engenharia de requisitos|I|processos_software
+T|uml_projeto|UML e padrões de projeto|I|requisitos
+T|testes|Testes de software|I|
+T|agil_devops|Métodos ágeis e DevOps|I|
+M|sistemas_operacionais|Sistemas Operacionais|Tecnologia e Computação|C|incluir|2|350|Processos, memória, arquivos, Linux e Windows.|Relacionar conceito a comportamento do SO|bancas-programas
+T|processos_threads|Processos e threads|F|
+T|escalonamento_memoria|Escalonamento e memória|I|processos_threads
+T|sistemas_arquivos|Sistemas de arquivos|I|
+T|linux_comandos|Linux: comandos e permissões|I|
+M|arquitetura_computadores|Arquitetura de Computadores|Tecnologia e Computação|C|incluir|2|300|CPU, memória, E/S, representação numérica e desempenho.|Converter bases e avaliar desempenho|bancas-programas
+T|representacao_numerica|Sistemas de numeração e representação|F|
+T|cpu_memoria|CPU, pipeline e hierarquia de memória|I|
+T|entrada_saida_barramentos|Entrada/saída e barramentos|I|
+M|governanca_ti|Governança de TI|Tecnologia e Computação|C|incluir|2|350|COBIT, ITIL, gestão de serviços e contratações de TI (conceitos gerais).|Distinguir frameworks e processos|bancas-programas
+T|conceitos_governanca_ti|Conceitos de governança e gestão de TI|F|
+T|gestao_servicos|Gestão de serviços de TI|I|
+T|contratacao_ti|Contratação de soluções de TI|A|
+M|computacao_nuvem|Computação em Nuvem|Tecnologia e Computação|C|incluir-meta-reduzida|3|200|Modelos IaaS/PaaS/SaaS, virtualização, contêineres.|Escolher modelo de serviço|nist-publicacoes,bancas-programas
+T|modelos_servico|Modelos de serviço e implantação|F|
+T|virtualizacao_conteineres|Virtualização e contêineres|I|
+M|ciencia_dados_ia|Ciência de Dados e Inteligência Artificial|Tecnologia e Computação|C|incluir-meta-reduzida|3|250|Mineração de dados, aprendizado de máquina, ética em IA.|Distinguir técnicas e métricas|bancas-programas
+T|mineracao_dados|Mineração de dados e BI|I|
+T|aprendizado_maquina|Aprendizado de máquina|I|
+T|etica_ia|Ética e uso responsável de IA|F|
+M|pedagogia|Pedagogia|Educação|C|incluir|1|550|Fundamentos, teorias da aprendizagem, currículo e avaliação.|Relacionar teoria e prática|bncc,planalto-ldb,bancas-programas
+T|fundamentos_historicos|Fundamentos históricos e filosóficos da educação|F|
+T|teorias_aprendizagem|Teorias da aprendizagem|I|
+T|curriculo_bncc|Currículo e BNCC|I|
+T|avaliacao_aprendizagem|Avaliação da aprendizagem|I|
+T|projeto_politico_pedagogico|Projeto político-pedagógico|I|
+M|didatica|Didática|Educação|C|incluir|1|400|Planejamento, métodos, recursos e mediação do ensino.|Planejar aulas|bncc,bancas-programas
+T|planejamento_ensino|Planejamento de ensino|F|
+T|metodos_estrategias|Métodos e estratégias|I|
+T|relacao_professor_aluno|Mediação e relação professor-aluno|I|
+M|legislacao_educacional|Legislação Educacional|Educação|C|incluir|1|450|LDB (Lei 9.394/96), ECA, PNE e diretrizes.|Aplicar LDB e PNE|planalto-ldb,planalto-cf88,planalto-eca,planalto-pne,bancas-programas
+T|educacao_na_cf|Educação na Constituição|F|
+T|ldb_estrutura|LDB: organização da educação nacional|I|educacao_na_cf
+T|eca_educacao|ECA e direito à educação|I|
+T|pne|Plano Nacional de Educação|I|
+M|redacao_oficial|Redação Oficial|Educação|C|incluir|1|350|Manual de Redação da Presidência: ofícios, memorandos, pronomes de tratamento, padrão ofício.|Redigir documentos oficiais|manual-redacao-presidencia,bancas-programas
+T|principios_redacao_oficial|Princípios e características|F|
+T|padrao_oficio|Padrão ofício e documentos|I|principios_redacao_oficial
+T|pronomes_fechos|Pronomes de tratamento e fechos|F|
+T|correspondencia_digital|Correspondência eletrônica e atos normativos|I|
+M|psicologia_educacao|Psicologia da Educação|Educação|C|incluir-meta-reduzida|3|250|Desenvolvimento humano, aprendizagem e motivação.|Associar teoria a situações escolares|bncc,bancas-programas
+T|desenvolvimento_humano|Desenvolvimento humano|I|
+T|aprendizagem_motivacao|Aprendizagem e motivação|I|
+M|educacao_inclusiva|Educação Inclusiva|Educação|C|incluir-meta-reduzida|3|250|Política de educação especial na perspectiva inclusiva, AEE, Lei Brasileira de Inclusão.|Aplicar LBI e política nacional|planalto-lbi,planalto-ldb,bancas-programas
+T|politica_inclusiva|Política nacional e LBI|I|
+T|aee_adaptacoes|AEE e adaptações curriculares|I|
+M|gestao_escolar|Gestão Escolar|Educação|C|incluir-meta-reduzida|3|250|Gestão democrática, conselhos, financiamento e PPP.|Aplicar gestão democrática|planalto-ldb,planalto-pne,bancas-programas
+T|gestao_democratica|Gestão democrática|F|
+T|financiamento_educacao|Financiamento da educação|I|
+M|saude_publica_sus|Saúde Pública e SUS|Saúde e Sociedade|C|incluir-meta-reduzida|3|300|Lacuna identificada: Leis 8.080/90 e 8.142/90, princípios do SUS, atenção básica, vigilância.|Aplicar leis orgânicas do SUS|planalto-lei8080,bancas-programas
+T|principios_sus|Princípios e organização do SUS|F|
+T|atencao_vigilancia|Atenção básica e vigilância em saúde|I|
+T|financiamento_controle_social|Financiamento e controle social|I|
