@@ -65,15 +65,7 @@ class ModernAppBar extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 24,
-                      height: 1.1,
-                      fontWeight: FontWeight.w700,
-                      color: context.colors.textPrimary,
-                    ),
-                  ),
+                  _buildTitle(context),
                   if (subtitle != null) ...[
                     const SizedBox(height: 6),
                     Text(
@@ -90,6 +82,29 @@ class ModernAppBar extends StatelessWidget {
             ?trailing,
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildTitle(BuildContext context) {
+    final text = Text(
+      title,
+      style: TextStyle(
+        fontSize: 24,
+        height: 1.1,
+        fontWeight: FontWeight.w700,
+        color: context.colors.textPrimary,
+      ),
+    );
+    // Single-line title next to the back button: centre the glyphs on the
+    // arrow (the 1.1 line box sits high, so the text needs a small nudge).
+    // Titles with a subtitle keep the top anchoring described above.
+    if (!showBackButton || subtitle != null) return text;
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: 32),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Transform.translate(offset: const Offset(0, 4.8), child: text),
       ),
     );
   }
