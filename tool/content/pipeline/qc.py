@@ -134,20 +134,48 @@ print(json.dumps([i for i, x in enumerate(v) if eq(x, c)]))
 _DENY = re.compile(r"(import\s+(os|sys|subprocess|socket|shutil|pathlib|requests|urllib)|__import__|open\s*\(|eval\s*\(|exec\s*\(|input\s*\()")
 
 
+def _rodar_sandbox(codigo, timeout):
+    """Docker descartável sem rede/FS/credenciais; código entra por stdin. Retorna (rc, stdout, stderr)."""
+    import uuid
+    nome = "aura-verif-" + uuid.uuid4().hex[:10]
+    payload = json.dumps({"codigo": codigo})
+    cmd = ["docker", "run", "--rm", "-i", "--name", nome, "--network", "none", "--read-only", "--cap-drop", "ALL",
+           "--security-opt", "no-new-privileges", "--memory", "256m", "--memory-swap", "256m", "--cpus", "1",
+           "--pids-limit", "64", "--tmpfs", "/tmp:size=16m,noexec", "aura-verif", "python", "-I", "-c", _WRAP_STDIN]
+    try:
+        r = subprocess.run(cmd, input=payload, capture_output=True, text=True, encoding="utf-8", timeout=timeout)
+    except subprocess.TimeoutExpired:
+        subprocess.run(["docker", "kill", nome], capture_output=True)
+        return None, "", "timeout"
+    except FileNotFoundError:
+        return -1, "", "sandbox_indisponivel"
+    if r.returncode == 125 or "Unable to find image" in r.stderr or "Cannot connect" in r.stderr:
+        return -1, "", "sandbox_indisponivel"
+    return r.returncode, r.stdout, r.stderr
+
+
+_WRAP_STDIN = _WRAP.replace('json.load(open(sys.argv[1], encoding="utf-8"))', 'json.load(sys.stdin)')
+
+
 def verificar_calculo(q, timeout=30):
-    """Executa `verificacao.codigo` em subprocesso isolado (-I, timeout). Retorna (erros, avisos)."""
+    """Executa `verificacao.codigo` em sandbox Docker (ver tool/content/sandbox). Retorna (erros, avisos)."""
     v = q.get("verificacao")
     if not v: return [], []
     if v.get("tipo") != "python" or not isinstance(v.get("codigo"), str): return ["verificacao_invalida"], []
     if _DENY.search(v["codigo"]): return ["verificacao_codigo_proibido"], []
-    with tempfile.TemporaryDirectory() as td:
-        pj, pw = os.path.join(td, "v.json"), os.path.join(td, "w.py")
-        json.dump({"codigo": v["codigo"]}, open(pj, "w", encoding="utf-8")); open(pw, "w", encoding="utf-8").write(_WRAP)
-        try:
-            r = subprocess.run([sys.executable, "-I", pw, pj], capture_output=True, text=True, timeout=timeout, cwd=td)
-        except subprocess.TimeoutExpired: return ["verificacao_timeout"], []
-    if r.returncode != 0: return ["verificacao_erro_execucao:" + (r.stderr.strip().splitlines() or ["?"])[-1][:120]], []
-    try: idx = json.loads(r.stdout.strip().splitlines()[-1])
+    if os.environ.get("AURA_SANDBOX") == "local":  # INSEGURO: só depuração
+        with tempfile.TemporaryDirectory() as td:
+            pj, pw = os.path.join(td, "v.json"), os.path.join(td, "w.py")
+            json.dump({"codigo": v["codigo"]}, open(pj, "w", encoding="utf-8")); open(pw, "w", encoding="utf-8").write(_WRAP)
+            try: r = subprocess.run([sys.executable, "-I", pw, pj], capture_output=True, text=True, timeout=timeout, cwd=td)
+            except subprocess.TimeoutExpired: return ["verificacao_timeout"], []
+        rc, out, err = r.returncode, r.stdout, r.stderr
+    else:
+        rc, out, err = _rodar_sandbox(v["codigo"], timeout)
+        if rc is None: return ["verificacao_timeout"], []
+        if rc == -1: return ["verificacao_sandbox_indisponivel"], []
+    if rc != 0: return ["verificacao_erro_execucao:" + (err.strip().splitlines() or ["?"])[-1][:120]], []
+    try: idx = json.loads(out.strip().splitlines()[-1])
     except Exception: return ["verificacao_saida_invalida"], []
     if idx != [q["gabarito"]]: return [f"verificacao_diverge:calculo_aponta={idx}_gabarito={q['gabarito']}"], []
     return [], []

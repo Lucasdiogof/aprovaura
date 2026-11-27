@@ -68,4 +68,21 @@ class Dedupe(unittest.TestCase):
         self.assertIsNone(ix.query("Qual é a capital do Brasil e qual é a sua principal função política no país?")[0])
     def test_jaccard(self): self.assertEqual(jaccard(shingles("a b c d"), shingles("a b c d")), 1.0)
 
+
+class Sandbox(unittest.TestCase):
+    """Código hostil (que escapa do regex _DENY) precisa falhar DENTRO do contêiner."""
+    def _v(self, corpo): return qc.verificar_calculo(q(verificacao=dict(tipo="python", codigo=corpo + "\nvalores=[1,2,3,4]\ncorreta=1")), timeout=20)[0]
+    def test_sem_rede(self):
+        e = self._v("__builtins__['__imp'+'ort__']('socket').create_connection(('1.1.1.1',53),3)")
+        self.assertTrue(e and ("OSError" in e[0] or "Network" in e[0] or "unreachable" in e[0] or "gaierror" in e[0]), e)
+    def test_disco_somente_leitura(self):
+        e = self._v("__builtins__['op'+'en']('/x.txt','w').write('a')")
+        self.assertTrue(e and "Read-only" in e[0], e)
+    def test_nao_enxerga_host(self):
+        e = self._v("o=__builtins__['__imp'+'ort__']('os'); assert not o.path.exists('/Users') and not o.path.exists('/c')")
+        self.assertFalse([x for x in e if x.startswith('verificacao_erro')], e)  # asserts internos passaram
+    def test_loop_infinito_morre(self):
+        self.assertEqual(self._v("while True: pass"), ["verificacao_timeout"])
+
+
 if __name__ == "__main__": unittest.main()
