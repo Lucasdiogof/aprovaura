@@ -228,7 +228,15 @@ class _PaywallViewState extends State<_PaywallView> {
         final variant = _variant(access, s, providerReady, options.isNotEmpty);
         // Já assinante: a tela é "Minha assinatura" (não existe uma tela "Premium ativo" separada).
         if (variant == _Variant.active) return const _GoToMySubscription();
-        final (title, body, pose) = _copy(t, variant);
+        var (title, body, pose) = _copy(t, variant);
+        // Sem falha de carregamento: nenhuma forma de pagamento está ativa neste app (ainda não é erro de rede).
+        final notOffered = variant == _Variant.unavailable && s.failure == null;
+        if (notOffered) {
+          title = t('Assinaturas ainda não disponíveis', 'Subscriptions not available yet', 'Suscripciones aún no disponibles');
+          body = t('A assinatura Premium ainda não está aberta neste aplicativo. Nada foi cobrado e o seu acesso e o seu progresso continuam como estão.',
+              'Premium subscriptions are not open in this app yet. Nothing was charged and your access and progress stay as they are.',
+              'La suscripción Premium aún no está abierta en esta aplicación. No se cobró nada y tu acceso y tu progreso siguen como están.');
+        }
         final sel = options.where((o) => o.plan == _plan).firstOrNull ?? options.firstOrNull;
         final busy = s.phase == PayPhase.validating || s.phase == PayPhase.purchasing;
         final canBuy = providerReady && sel != null && variant != _Variant.pending && variant != _Variant.active && !busy;
@@ -262,6 +270,22 @@ class _PaywallViewState extends State<_PaywallView> {
           aurudoSize: variant == _Variant.active ? 200 : 168,
           onClose: voluntary ? () => (context.canPop() ? context.pop() : context.go('/home')) : null,
           children: [
+            if (variant == _Variant.unavailable)
+              Padding(
+                padding: const EdgeInsets.only(bottom: AppSpacing.lg),
+                child: Center(
+                  child: Container(
+                    width: 72,
+                    height: 72,
+                    decoration: BoxDecoration(
+                      color: context.colors.auraViolet.withValues(alpha: 0.14),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(notOffered ? Icons.lock_clock_rounded : Icons.cloud_off_rounded,
+                        size: 34, color: context.colors.auraViolet),
+                  ),
+                ),
+              ),
             PaywallHeading(title: title, body: body),
             SizedBox(height: variant == _Variant.active ? AppSpacing.xxl : AppSpacing.xl),
             ...[
@@ -343,7 +367,7 @@ class _PaywallViewState extends State<_PaywallView> {
                 Padding(
                   padding: const EdgeInsets.only(top: AppSpacing.sm),
                   child: AppButton(
-                    label: t('Tentar de novo', 'Try again', 'Intentar de nuevo'),
+                    label: notOffered ? t('Verificar de novo', 'Check again', 'Verificar de nuevo') : t('Tentar de novo', 'Try again', 'Intentar de nuevo'),
                     onPressed: () => unawaited(cubit.load()),
                   ),
                 )
@@ -363,7 +387,7 @@ class _PaywallViewState extends State<_PaywallView> {
             ]),
             // Visita voluntária: tela focada na assinatura (privacidade e termos apenas; sair e excluir conta
             // ficam no Perfil). Em bloqueio não há Perfil, então o rodapé completo continua aqui.
-            AccountFooter(showSignOut: !voluntary, showDelete: !voluntary),
+            AccountFooter(showSignOut: !voluntary, showDelete: !voluntary, showLegal: variant != _Variant.unavailable),
             ],
           ],
         );

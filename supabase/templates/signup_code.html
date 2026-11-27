@@ -5,18 +5,18 @@
       <div style="margin-top:8px;font-size:20px;font-weight:700;color:#7B6CF2;letter-spacing:.3px;">Aprovaura</div>
     </div>
     <div style="background:#FFFFFF;border:1px solid #E2DAF7;border-radius:20px;padding:30px 26px;">
-{{ if eq .Data.lang "en" }}<p style="margin:0 0 6px;font-size:20px;font-weight:700;color:#141A45;">Confirm your email</p>
-<p style="margin:0 0 4px;font-size:15px;line-height:22px;color:#3B4163;">Enter the code below in the app to confirm your account and start studying.</p>
+{{ if eq .Data.lang "en" }}<p style="margin:0 0 14px;font-size:20px;font-weight:700;color:#141A45;">Confirm your email</p>
+<p style="margin:0 0 20px;font-size:15px;line-height:24px;color:#3B4163;">Enter the code below in the app to confirm your account and start studying.</p>
 <div style="margin:22px 0;padding:18px 0;background:#F6F8FC;border:1px solid #DCDEEA;border-radius:14px;font-size:36px;line-height:42px;font-weight:700;letter-spacing:10px;text-align:center;color:#141A45;font-family:'Courier New',Courier,monospace;">{{ .Token }}</div>
-<p style="margin:0 0 8px;font-size:13px;line-height:19px;color:#6B7090;">The code is valid for 1 hour.</p>
-<p style="margin:0;font-size:13px;line-height:19px;color:#6B7090;">If you didn't create an Aprovaura account, you can safely ignore this email.</p>{{ else if eq .Data.lang "es" }}<p style="margin:0 0 6px;font-size:20px;font-weight:700;color:#141A45;">Confirma tu correo</p>
-<p style="margin:0 0 4px;font-size:15px;line-height:22px;color:#3B4163;">Ingresa el código de abajo en la app para confirmar tu cuenta y empezar a estudiar.</p>
+<p style="margin:0 0 12px;font-size:13px;line-height:20px;color:#6B7090;">The code is valid for 6 hours.</p>
+<p style="margin:0;font-size:13px;line-height:19px;color:#6B7090;">If you didn't create an Aprovaura account, you can safely ignore this email.</p>{{ else if eq .Data.lang "es" }}<p style="margin:0 0 14px;font-size:20px;font-weight:700;color:#141A45;">Confirma tu correo</p>
+<p style="margin:0 0 20px;font-size:15px;line-height:24px;color:#3B4163;">Ingresa el código de abajo en la app para confirmar tu cuenta y empezar a estudiar.</p>
 <div style="margin:22px 0;padding:18px 0;background:#F6F8FC;border:1px solid #DCDEEA;border-radius:14px;font-size:36px;line-height:42px;font-weight:700;letter-spacing:10px;text-align:center;color:#141A45;font-family:'Courier New',Courier,monospace;">{{ .Token }}</div>
-<p style="margin:0 0 8px;font-size:13px;line-height:19px;color:#6B7090;">El código es válido por 1 hora.</p>
-<p style="margin:0;font-size:13px;line-height:19px;color:#6B7090;">Si no creaste una cuenta en Aprovaura, puedes ignorar este correo con tranquilidad.</p>{{ else }}<p style="margin:0 0 6px;font-size:20px;font-weight:700;color:#141A45;">Confirme seu e-mail</p>
-<p style="margin:0 0 4px;font-size:15px;line-height:22px;color:#3B4163;">Use o código abaixo no aplicativo para confirmar sua conta e começar a estudar.</p>
+<p style="margin:0 0 12px;font-size:13px;line-height:20px;color:#6B7090;">El código es válido por 6 horas.</p>
+<p style="margin:0;font-size:13px;line-height:19px;color:#6B7090;">Si no creaste una cuenta en Aprovaura, puedes ignorar este correo con tranquilidad.</p>{{ else }}<p style="margin:0 0 14px;font-size:20px;font-weight:700;color:#141A45;">Confirme seu e-mail</p>
+<p style="margin:0 0 20px;font-size:15px;line-height:24px;color:#3B4163;">Use o código abaixo no aplicativo para confirmar sua conta e começar a estudar.</p>
 <div style="margin:22px 0;padding:18px 0;background:#F6F8FC;border:1px solid #DCDEEA;border-radius:14px;font-size:36px;line-height:42px;font-weight:700;letter-spacing:10px;text-align:center;color:#141A45;font-family:'Courier New',Courier,monospace;">{{ .Token }}</div>
-<p style="margin:0 0 8px;font-size:13px;line-height:19px;color:#6B7090;">O código vale por 1 hora.</p>
+<p style="margin:0 0 12px;font-size:13px;line-height:20px;color:#6B7090;">O código vale por 6 horas.</p>
 <p style="margin:0;font-size:13px;line-height:19px;color:#6B7090;">Se você não criou uma conta no Aprovaura, pode ignorar este e-mail com segurança.</p>{{ end }}
     </div>
     <p style="margin:18px 8px 0;text-align:center;font-size:12px;line-height:18px;color:#8A8EA8;">{{ if eq .Data.lang "en" }}Aprovaura is a Lucksrei Systems product. This is an automated email, please do not reply.{{ else if eq .Data.lang "es" }}Aprovaura es un producto de Lucksrei Systems. Este es un correo automático, no respondas.{{ else }}Aprovaura é um produto Lucksrei Systems. Este é um e-mail automático, não responda.{{ end }}</p>

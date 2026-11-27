@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/core/theme/app_spacing.dart';
 import 'package:aura/features/atualidades/presentation/pages/atualidades_areas_page.dart';
 import 'package:aura/features/catalog/presentation/pages/catalog_list_page.dart';
 import 'package:aura/features/essay/presentation/pages/essay_themes_page.dart';
@@ -104,12 +105,12 @@ class _PracticePageState extends State<PracticePage> {
       backgroundColor: context.colors.background,
       body: SafeArea(
         child: LayoutBuilder(builder: (context, box) {
-          // Centered column on wide screens (web); 24 on phones.
-          final side = ((box.maxWidth - 760) / 2).clamp(0.0, double.infinity) + 24;
+          // Mesma margem lateral do Início e do Perfil: a tela ocupa a largura toda.
+          const side = AppSpacing.pageHorizontal;
           return CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: EdgeInsets.fromLTRB(side, 24, side, 0),
+              padding: const EdgeInsets.fromLTRB(side, 24, side, 0),
               sliver: SliverToBoxAdapter(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,10 +134,10 @@ class _PracticePageState extends State<PracticePage> {
               ),
             ),
             SliverPadding(
-              padding: EdgeInsets.fromLTRB(side, 0, side, 24),
+              padding: const EdgeInsets.fromLTRB(side, 0, side, 24),
               sliver: SliverGrid(
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 200,
+                  maxCrossAxisExtent: 280,
                   mainAxisSpacing: 12,
                   crossAxisSpacing: 12,
                   mainAxisExtent: 152,

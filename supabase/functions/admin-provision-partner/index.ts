@@ -6,7 +6,8 @@
 // 3) a parceria é criada por admin_promote_partner COM o JWT do admin, para a
 //    auditoria registrar o ator correto;
 // 4) conta nova nasce com senha aleatória descartada; o professor define a própria
-//    senha pelo fluxo "esqueci a senha" (e-mail do Auth). Nenhuma senha é guardada.
+//    senha pelo botão do e-mail de convite (/convite?th=...: abre a tela de senha e já
+//    entra logado). Nenhuma senha é guardada.
 // Deploy: supabase functions deploy admin-provision-partner (verify_jwt = true).
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.47.10';
 import { publishableKey, secretKey } from '../_shared/keys.ts';
@@ -41,6 +42,11 @@ Deno.serve(async (req) => {
   if (!/^[^@\s]{1,64}@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 254) return json(req, 400, { error: 'invalid_email' });
   if (name.length < 2 || name.length > 80) return json(req, 400, { error: 'invalid_name' });
 
+  // Nome de usuário (mesma regra do app: 3 a 20 de A-Z a-z 0-9 . _). Só vale para conta NOVA;
+  // numa conta existente o usuário mantém o dele. O professor pode trocá-lo depois em "Minha conta".
+  const username = String(b.username ?? '').trim();
+  if (username && !/^[A-Za-z0-9._]{3,20}$/.test(username)) return json(req, 400, { error: 'invalid_username' });
+
   const svc = createClient(url, secretKey());
   const found = await svc.rpc('service_find_user_by_email', { p_email: email });
   if (found.error) return json(req, 500, { error: 'lookup_failed' });
@@ -48,10 +54,15 @@ Deno.serve(async (req) => {
   let created = false;
 
   if (!userId) {
+    if (!username) return json(req, 400, { error: 'invalid_username' });
+    const free = await svc.rpc('is_username_available', { p_username: username });
+    if (free.error) return json(req, 500, { error: 'lookup_failed' });
+    if (!free.data) return json(req, 409, { error: 'username_in_use' });
     const pwd = crypto.randomUUID() + crypto.randomUUID(); // descartada: ninguém a conhece
     const lang = ['pt', 'en', 'es'].includes(String(b.lang)) ? String(b.lang) : 'pt';
     const r = await svc.auth.admin.createUser({
-      email, password: pwd, email_confirm: false, user_metadata: { lang, name, partner: true },
+      // invite=true só vale para o e-mail de convite abaixo (botão em vez de código); é apagado logo depois.
+      email, password: pwd, email_confirm: false, user_metadata: { lang, name, username, partner: true, invite: true },
     });
     if (r.error || !r.data.user) {
       const again = await svc.rpc('service_find_user_by_email', { p_email: email }); // corrida
@@ -79,6 +90,8 @@ Deno.serve(async (req) => {
   if (created) {
     const anon = createClient(url, publishableKey());
     recovery = !(await anon.auth.resetPasswordForEmail(email)).error;
+    // O e-mail já foi montado: o "esqueci a senha" futuro volta a mandar o código normal.
+    await svc.auth.admin.updateUserById(userId!, { user_metadata: { invite: false } });
   }
   return json(req, 200, { partner_id: promoted.data, user_id: userId, created_account: created, recovery_sent: recovery });
 });

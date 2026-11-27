@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/theme/app_colors.dart';
+import 'package:aura/shared/utils/validators.dart';
 import 'package:aura/features/portal/data/portal_api.dart';
 import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/features/portal/presentation/widgets/portal_widgets.dart';
@@ -219,16 +220,17 @@ class _CreateDialog extends StatefulWidget {
 class _CreateDialogState extends State<_CreateDialog> {
   final _email = TextEditingController();
   final _name = TextEditingController();
+  final _user = TextEditingController();
   final _code = TextEditingController();
   final _bps = TextEditingController();
   final _pix = TextEditingController();
   String _pixType = '';
   bool _busy = false;
-  String? _emailErr, _nameErr, _bpsErr, _pixErr;
+  String? _emailErr, _nameErr, _userErr, _bpsErr, _pixErr;
 
   @override
   void dispose() {
-    for (final c in [_email, _name, _code, _bps, _pix]) {
+    for (final c in [_email, _name, _user, _code, _bps, _pix]) {
       c.dispose();
     }
     super.dispose();
@@ -238,21 +240,23 @@ class _CreateDialogState extends State<_CreateDialog> {
     final t = PortalStrings.read(context);
     final email = _email.text.trim().toLowerCase();
     final name = _name.text.trim();
+    final username = _user.text.trim();
     final pct = _bps.text.trim().isEmpty ? null : double.tryParse(_bps.text.trim().replaceAll(',', '.'));
     setState(() {
       _emailErr = _emailRe.hasMatch(email) ? null : t('Informe um e-mail válido.', 'Enter a valid e-mail.', 'Indica un correo válido.');
       _nameErr = name.length >= 2 ? null : t('Informe o nome (mínimo 2 letras).', 'Enter the name (at least 2 letters).', 'Indica el nombre (mínimo 2 letras).');
+      _userErr = usernameProblem(username) == null ? null : t('Use 3 a 20 letras, números, ponto ou _.', 'Use 3 to 20 letters, numbers, dot or _.', 'Usa 3 a 20 letras, números, punto o _.');
       _bpsErr = _bps.text.trim().isNotEmpty && (pct == null || pct < 0 || pct > 100) ? _invalidPct(t) : null;
       _pixErr = _pixType.isEmpty != _pix.text.trim().isEmpty ? _pixTogether(t) : null;
     });
-    if (_emailErr != null || _nameErr != null || _bpsErr != null || _pixErr != null) return;
+    if (_emailErr != null || _nameErr != null || _userErr != null || _bpsErr != null || _pixErr != null) return;
     final ok = await confirmDialog(
       context,
       title: t('Cadastrar professor?', 'Register teacher?', '¿Registrar profesor?'),
       message: t(
-        'Se o e-mail já tem conta, ela será reutilizada sem alterar a senha. Se não tiver, uma conta é criada e o professor define a própria senha pelo e-mail de recuperação.',
-        'If the e-mail already has an account it is reused without changing the password. Otherwise an account is created and the teacher sets their own password via the recovery e-mail.',
-        'Si el correo ya tiene cuenta, se reutiliza sin cambiar la contraseña. Si no, se crea una cuenta y el profesor define su contraseña con el correo de recuperación.',
+        'Se o e-mail já tem conta, ela será reutilizada sem alterar a senha. Se não tiver, uma conta é criada e o professor recebe um e-mail com um botão para criar a própria senha.',
+        'If the e-mail already has an account it is reused without changing the password. Otherwise an account is created and the teacher gets an e-mail with a button to create their own password.',
+        'Si el correo ya tiene cuenta, se reutiliza sin cambiar la contraseña. Si no, se crea una cuenta y el profesor recibe un correo con un botón para crear su contraseña.',
       ),
       action: t('Cadastrar', 'Register', 'Registrar'),
     );
@@ -263,6 +267,7 @@ class _CreateDialogState extends State<_CreateDialog> {
       final r = await widget.api.provisionPartner(
         email: email,
         name: name,
+        username: username,
         lang: switch (lang) { AppLanguage.english => 'en', AppLanguage.spanish => 'es', _ => 'pt' },
         code: _code.text.trim().isEmpty ? null : _code.text.trim().toUpperCase(),
         bps: pct == null ? null : (pct * 100).round(),
@@ -295,6 +300,7 @@ class _CreateDialogState extends State<_CreateDialog> {
       children: [
         _FormSection(t('Identificação', 'Identification', 'Identificación'), [
           _Input(label: t('Nome exibido nas indicações', 'Name shown in referrals', 'Nombre mostrado en referidos'), controller: _name, error: _nameErr),
+          _Input(label: t('Nome de usuário (o professor pode alterar depois)', 'Username (the teacher can change it later)', 'Nombre de usuario (el profesor puede cambiarlo después)'), controller: _user, error: _userErr, hint: 'professor.nome'),
         ]),
         _FormSection(t('Dados de acesso', 'Access details', 'Datos de acceso'), [
           _Input(label: 'E-mail', controller: _email, error: _emailErr, keyboard: TextInputType.emailAddress),

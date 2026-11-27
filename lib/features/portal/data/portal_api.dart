@@ -91,12 +91,12 @@ class PortalApi {
 
   /// Cria (ou reutiliza) a conta pelo e-mail e cria a parceria. Edge Function.
   Future<Map<String, dynamic>> provisionPartner({
-    required String email, required String name, required String lang,
+    required String email, required String name, required String username, required String lang,
     String? code, int? bps, String? pixType, String? pixKey,
   }) async {
     try {
       final r = await _client.functions.invoke('admin-provision-partner', body: {
-        'email': email, 'display_name': name, 'lang': lang, 'referral_code': code,
+        'email': email, 'display_name': name, 'username': username, 'lang': lang, 'referral_code': code,
         'commission_bps': bps, 'pix_key_type': pixType, 'pix_key': pixKey,
       });
       return Map<String, dynamic>.from(r.data as Map);

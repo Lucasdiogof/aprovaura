@@ -273,6 +273,48 @@ class AuthStrings {
     AppLanguage.spanish => 'Enviar de nuevo en ${seconds}s',
   };
 
+  String get inviteOpening => switch (language) {
+    AppLanguage.portuguese => 'Abrindo seu convite…',
+    AppLanguage.english => 'Opening your invitation…',
+    AppLanguage.spanish => 'Abriendo tu invitación…',
+  };
+
+  String get inviteTitle => switch (language) {
+    AppLanguage.portuguese => 'Bem-vindo! Crie sua senha',
+    AppLanguage.english => 'Welcome! Create your password',
+    AppLanguage.spanish => '¡Bienvenido! Crea tu contraseña',
+  };
+
+  String get inviteDescription => switch (language) {
+    AppLanguage.portuguese => 'Escolha a senha da sua conta. Depois disso você já entra no portal.',
+    AppLanguage.english => 'Choose your account password. You will be signed in to the portal right after.',
+    AppLanguage.spanish => 'Elige la contraseña de tu cuenta. Después entrarás al portal.',
+  };
+
+  String get inviteSubmit => switch (language) {
+    AppLanguage.portuguese => 'Salvar e entrar',
+    AppLanguage.english => 'Save and sign in',
+    AppLanguage.spanish => 'Guardar y entrar',
+  };
+
+  String get inviteInvalidTitle => switch (language) {
+    AppLanguage.portuguese => 'Convite expirado ou já usado',
+    AppLanguage.english => 'Invitation expired or already used',
+    AppLanguage.spanish => 'Invitación vencida o ya usada',
+  };
+
+  String get inviteInvalidDescription => switch (language) {
+    AppLanguage.portuguese => 'Peça um novo convite ao administrador ou entre com a sua conta.',
+    AppLanguage.english => 'Ask the administrator for a new invitation or sign in with your account.',
+    AppLanguage.spanish => 'Pide una nueva invitación al administrador o entra con tu cuenta.',
+  };
+
+  String get inviteGoToLogin => switch (language) {
+    AppLanguage.portuguese => 'Ir para o login',
+    AppLanguage.english => 'Go to sign in',
+    AppLanguage.spanish => 'Ir al inicio de sesión',
+  };
+
   String get newPasswordTitle => switch (language) {
     AppLanguage.portuguese => 'Crie sua nova senha',
     AppLanguage.english => 'Create your new password',

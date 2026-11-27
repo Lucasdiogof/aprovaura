@@ -124,9 +124,10 @@ class ProgressRepositoryImpl implements ProgressRepository {
           )
           .withRequestTimeout();
       return const Success(null);
-    } catch (error) {
-      final failure = failureFromError(error);
-      return isConnectionFailure(failure) ? queue() : Error(failure);
+    } catch (_) {
+      // Qualquer falha (rede ou servidor): a resposta fica guardada no aparelho e a fila reenvia no próximo
+      // momento oportuno (reconexão, abertura do app), com limite de tentativas. O aluno não vê erro.
+      return queue();
     }
   }
 

@@ -19,9 +19,12 @@ import 'package:aura/shared/widgets/app_logo.dart';
 enum PortalRole { loading, admin, partner, denied, error }
 
 class PortalSessionState {
-  const PortalSessionState(this.role, {this.email, this.pending = 0, this.partnerActive = true});
+  const PortalSessionState(this.role, {this.email, this.name, this.pending = 0, this.partnerActive = true});
   final PortalRole role;
   final String? email;
+
+  /// Nome do perfil (o que o administrador digitou no cadastro do professor).
+  final String? name;
   final int pending;
 
   /// Professor com parceria ativa. Encerrado/suspenso: só Financeiro e Minha parceria.
@@ -47,18 +50,19 @@ class PortalSession extends Cubit<PortalSessionState> {
       final me = await api.me();
       final roles = Map<String, dynamic>.from(me['roles'] as Map);
       final email = _client.auth.currentUser?.email;
+      final name = await _profileName();
       if (roles['admin'] == true) {
         var pending = 0;
         try {
           pending = await api.pendingRequests();
         } catch (_) {}
-        emit(PortalSessionState(PortalRole.admin, email: email, pending: pending));
+        emit(PortalSessionState(PortalRole.admin, email: email, name: name, pending: pending));
       } else if (roles['partner'] == true) {
         var active = true;
         try {
           active = (await api.partnerMe())['active'] == true;
         } catch (_) {}
-        emit(PortalSessionState(PortalRole.partner, email: email, partnerActive: active));
+        emit(PortalSessionState(PortalRole.partner, email: email, name: name, partnerActive: active));
       } else {
         emit(PortalSessionState(PortalRole.denied, email: email));
       }
@@ -67,11 +71,23 @@ class PortalSession extends Cubit<PortalSessionState> {
     }
   }
 
+  Future<String?> _profileName() async {
+    try {
+      final uid = _client.auth.currentUser?.id;
+      if (uid == null) return null;
+      final row = await _client.from('profiles').select('name').eq('id', uid).maybeSingle();
+      final n = (row?['name'] as String?)?.trim();
+      return n == null || n.isEmpty ? null : n;
+    } catch (_) {
+      return null; // sem nome, o rodapé mostra só o papel
+    }
+  }
+
   Future<void> refreshPending() async {
     if (state.role != PortalRole.admin) return;
     try {
       final n = await api.pendingRequests();
-      emit(PortalSessionState(PortalRole.admin, email: state.email, pending: n));
+      emit(PortalSessionState(PortalRole.admin, email: state.email, name: state.name, pending: n));
     } catch (_) {}
   }
 
@@ -281,6 +297,7 @@ class PortalShell extends StatelessWidget {
     final wide = MediaQuery.sizeOf(context).width >= kWide;
     final pending = context.select((PortalSession s) => s.state.pending);
     final email = context.select((PortalSession s) => s.state.email);
+    final name = context.select((PortalSession s) => s.state.name);
     final partnerActive = context.select((PortalSession s) => s.state.partnerActive);
 
     Widget navItem(_NavItem i, {required bool inDrawer}) {
@@ -368,16 +385,19 @@ class PortalShell extends StatelessWidget {
                     CircleAvatar(
                       radius: 16,
                       backgroundColor: c.primary.withValues(alpha: 0.16),
-                      child: Text((email ?? '?').substring(0, 1).toUpperCase(),
+                      child: Text((name ?? email ?? '?').substring(0, 1).toUpperCase(),
                           style: TextStyle(fontWeight: FontWeight.w800, color: c.primary)),
                     ),
                     const SizedBox(width: 10),
                     Expanded(
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                         Text(
-                            admin
-                                ? t('Administrador', 'Administrator', 'Administrador')
-                                : t('Professor', 'Teacher', 'Profesor'),
+                            name ??
+                                (admin
+                                    ? t('Administrador', 'Administrator', 'Administrador')
+                                    : t('Professor', 'Teacher', 'Profesor')),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: c.textPrimary)),
                         if (email != null)
                           Text(email, maxLines: 1, overflow: TextOverflow.ellipsis,

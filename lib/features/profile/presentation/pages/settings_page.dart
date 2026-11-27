@@ -1,5 +1,8 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aura/core/l10n/app_language.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
@@ -32,6 +35,7 @@ class SettingsPage extends StatelessWidget {
             child: ListView(
               padding: const EdgeInsets.all(AppSpacing.pageHorizontal),
               children: [
+                _PortalEntry(language: t.language),
                 SectionLabel(t.appearanceSectionLabel),
                 BlocBuilder<ThemeCubit, ThemeMode>(
                   builder: (context, mode) => ProfileRow(
@@ -83,6 +87,63 @@ class SettingsPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// Atalho para o portal (/partners) só para quem é professor parceiro ou administrador:
+/// o papel vem do servidor (get_my_access); sem rede ou sem papel, nada aparece.
+class _PortalEntry extends StatefulWidget {
+  const _PortalEntry({required this.language});
+  final AppLanguage language;
+
+  @override
+  State<_PortalEntry> createState() => _PortalEntryState();
+}
+
+class _PortalEntryState extends State<_PortalEntry> {
+  bool? _admin; // null = sem acesso ao portal
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  Future<void> _load() async {
+    try {
+      final me = await Supabase.instance.client.rpc<dynamic>('get_my_access');
+      final roles = (me as Map)['roles'] as Map;
+      if (!mounted) return;
+      if (roles['admin'] == true) {
+        setState(() => _admin = true);
+      } else if (roles['partner'] == true) {
+        setState(() => _admin = false);
+      }
+    } catch (_) {}
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final admin = _admin;
+    if (admin == null) return const SizedBox.shrink();
+    final (section, label) = switch (widget.language) {
+      AppLanguage.portuguese => ('Portal', admin ? 'Portal administrativo' : 'Portal do professor'),
+      AppLanguage.english => ('Portal', admin ? 'Admin portal' : 'Teacher portal'),
+      AppLanguage.spanish => ('Portal', admin ? 'Portal administrativo' : 'Portal del profesor'),
+    };
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SectionLabel(section),
+        ProfileRow(
+          icon: Icons.dashboard_outlined,
+          label: label,
+          trailing: Icon(Icons.chevron_right, color: context.colors.textSecondary),
+          onTap: () => context.go('/partners'),
+        ),
+        const SizedBox(height: AppSpacing.xl),
+      ],
     );
   }
 }

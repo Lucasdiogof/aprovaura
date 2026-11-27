@@ -16,6 +16,7 @@ import 'package:aura/features/paywall/presentation/pages/paywall_page.dart';
 import 'package:aura/features/auth/domain/repositories/auth_repository.dart';
 import 'package:aura/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:aura/features/auth/presentation/pages/email_verification_page.dart';
+import 'package:aura/features/auth/presentation/pages/invite_page.dart';
 import 'package:aura/features/auth/presentation/pages/login_page.dart';
 import 'package:aura/features/auth/presentation/pages/register_page.dart';
 import 'package:aura/features/home/presentation/pages/home_shell_page.dart';
@@ -122,6 +123,8 @@ String? authRedirect({
   String? next,
   String? fullLocation,
 }) {
+  // Botão do e-mail de convite: a própria tela troca a sessão e decide o destino.
+  if (location == '/convite') return null;
   if (!hasSession && isPortalPath(location)) {
     return '/login?next=${Uri.encodeComponent(fullLocation ?? location)}';
   }
@@ -152,7 +155,7 @@ String _initialLocation() {
   if (!kIsWeb) return '/login';
   final u = Uri.base;
   if (u.fragment.startsWith('/')) return u.fragment;
-  if (isPortalPath(u.path)) return '${u.path}${u.hasQuery ? '?${u.query}' : ''}';
+  if (isPortalPath(u.path) || u.path == '/convite') return '${u.path}${u.hasQuery ? '?${u.query}' : ''}';
   return '/login';
 }
 
@@ -187,6 +190,10 @@ final GoRouter appRouter = GoRouter(
         create: (_) => sl<AuthCubit>(),
         child: const LoginPage(),
       ),
+    ),
+    GoRoute(
+      path: '/convite',
+      builder: (context, state) => InvitePage(tokenHash: state.uri.queryParameters['th']),
     ),
     GoRoute(
       path: '/cadastro',

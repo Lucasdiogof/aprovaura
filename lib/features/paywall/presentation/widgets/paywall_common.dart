@@ -257,8 +257,11 @@ ManageInfo manageFor(PortalStrings t, SubscriptionInfo sub, PayProvider here) {
 /// Operações essenciais da conta que o bloqueio NUNCA tira: termos,
 /// privacidade, excluir conta, sair e trocar de conta.
 class AccountFooter extends StatefulWidget {
-  const AccountFooter({this.showDelete = true, this.showSignOut = true, super.key});
+  const AccountFooter({this.showDelete = true, this.showSignOut = true, this.showLegal = true, super.key});
   final bool showDelete;
+
+  /// Política de privacidade e Termos de uso.
+  final bool showLegal;
   final bool showSignOut;
 
   @override
@@ -299,11 +302,13 @@ class _AccountFooterState extends State<AccountFooter> {
         Wrap(
           alignment: WrapAlignment.center,
           children: [
+            if (widget.showLegal)
             TextButton(
               style: style,
               onPressed: () => openExternalLink(context, AppInfo.privacyPolicyUrl),
               child: Text(t('Política de privacidade', 'Privacy policy', 'Política de privacidad')),
             ),
+            if (widget.showLegal)
             FutureBuilder(
               future: _config,
               builder: (context, snap) {

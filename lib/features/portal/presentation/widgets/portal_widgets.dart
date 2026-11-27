@@ -294,6 +294,8 @@ String errorText(PortalStrings t, Object e) {
     'P0032' => t('Só cortesias podem ser revogadas aqui; compras são do provedor.', 'Only courtesies can be revoked here; purchases belong to the provider.', 'Solo las cortesías se pueden revocar aquí; las compras son del proveedor.'),
     'P0050' => t('Dados inválidos. Confira os campos.', 'Invalid data. Check the fields.', 'Datos no válidos. Revisa los campos.'),
     'P0051' || 'already_partner' => t('Este usuário já é professor ativo.', 'This user is already an active teacher.', 'Este usuario ya es profesor activo.'),
+    'username_in_use' => t('Este nome de usuário já está em uso.', 'This username is already taken.', 'Este nombre de usuario ya está en uso.'),
+    'invalid_username' => t('Nome de usuário inválido (3 a 20 letras, números, ponto ou _).', 'Invalid username (3 to 20 letters, numbers, dot or _).', 'Nombre de usuario inválido (3 a 20 letras, números, punto o _).'),
     'P0052' || 'code_in_use' => t('Este código de indicação já está em uso.', 'This referral code is already in use.', 'Este código de referencia ya está en uso.'),
     'P0053' => t('O aluno não tem professor.', 'The student has no teacher.', 'El alumno no tiene profesor.'),
     'P0040' => t('Pagamento não encontrado.', 'Payment not found.', 'Pago no encontrado.'),

@@ -62,3 +62,6 @@ Registrado em 27/11/2026. Não altera o fluxo de testes atual nem abre sprint. F
    - E-mail não confirmado: o vínculo só vale após a confirmação (regra atual).
    - Escolher professor **nunca é obrigatório** para usar o app.
 4. **Execução:** somente após o dono concluir a homologação manual e autorizar.
+
+### F2. Dados de repasse do professor: Pix ou conta bancária
+Hoje o cadastro do professor só aceita chave Pix (tipo + chave, opcional). Também: tirar o seletor "Tipo de chave Pix"; basta um campo único para a chave (CPF, telefone, e-mail ou aleatória). Melhoria pedida pelo dono durante a homologação: permitir também **conta bancária** (banco, agência, conta, tipo, titular e CPF/CNPJ), para consultar na hora de pagar. Exige mudança de banco (migration) e das telas de cadastro/detalhe do professor. Execução só após a homologação manual e com autorização.

@@ -286,6 +286,18 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<Result<void>> verifyRecoveryToken({required String tokenHash}) async {
+    try {
+      await _client.auth.verifyOTP(type: OtpType.recovery, tokenHash: tokenHash);
+      return const Success(null);
+    } on AuthException catch (e) {
+      return Error(_failureFrom(e));
+    } catch (_) {
+      return Error(UnexpectedFailure());
+    }
+  }
+
+  @override
   Future<Result<void>> updatePassword({required String newPassword}) async {
     try {
       await _client.auth.updateUser(UserAttributes(password: newPassword));

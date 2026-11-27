@@ -64,6 +64,9 @@ abstract class AuthRepository {
     required String code,
   });
 
+  /// Opens the session of an invite e-mail button (token hash, no code typed).
+  Future<Result<void>> verifyRecoveryToken({required String tokenHash});
+
   /// Sets the password of the session [verifyRecoveryCode] opened.
   Future<Result<void>> updatePassword({required String newPassword});
 

@@ -35,13 +35,10 @@ class ModernAppBar extends StatelessWidget {
           ],
         ),
         child: Row(
-          // Top, not centre: a two-line title (long title, or one with a
-          // subtitle) used to pull the back button down into the middle of
-          // that taller block, so it read as off-centre and small next to
-          // it. Anchoring both to the top keeps the button the same
-          // standard size and position regardless of how tall the text
-          // block ends up.
-          crossAxisAlignment: CrossAxisAlignment.start,
+          // Sem subtítulo: seta e título centralizados pelo próprio layout (sem "empurrões" em pixels, que
+          // variam com a fonte de cada plataforma). Com subtítulo: tudo no topo, e o título ganha só o
+          // espaço que falta para a linha dele ficar na altura do centro da seta.
+          crossAxisAlignment: subtitle == null ? CrossAxisAlignment.center : CrossAxisAlignment.start,
           children: [
             if (showBackButton) ...[
               // A proper round IconButton, standard Material style -- not
@@ -96,16 +93,12 @@ class ModernAppBar extends StatelessWidget {
         color: context.colors.textPrimary,
       ),
     );
-    // Single-line title next to the back button: centre the glyphs on the
-    // arrow (the 1.1 line box sits high, so the text needs a small nudge).
-    // Titles with a subtitle keep the top anchoring described above.
-    if (!showBackButton || subtitle != null) return text;
-    return ConstrainedBox(
-      constraints: const BoxConstraints(minHeight: 32),
-      child: Align(
-        alignment: Alignment.centerLeft,
-        child: Transform.translate(offset: const Offset(0, 4.8), child: text),
-      ),
-    );
+    if (!showBackButton || subtitle == null) {
+      return text;
+    }
+    // Linha do título = 24 * 1.1; a seta ocupa 32: centraliza a linha na seta.
+    return Padding(padding: const EdgeInsets.only(top: (_backSize - 24 * 1.1) / 2), child: text);
   }
+
+  static const _backSize = 32.0;
 }

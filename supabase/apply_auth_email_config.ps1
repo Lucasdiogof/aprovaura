@@ -27,7 +27,7 @@ if ($Templates) {
   $body.mailer_subjects_recovery = ('Aprovaura: c{0}digo de recupera{1}{2}o / recovery code' -f [char]0xF3,[char]0xE7,[char]0xE3)
   $body.mailer_templates_recovery_content = [IO.File]::ReadAllText((Join-Path $t 'recovery_code.html'), [Text.Encoding]::UTF8)
   $body.mailer_otp_length = 6
-  $body.mailer_otp_exp = 3600
+  $body.mailer_otp_exp = 21600
 }
 if ($Smtp) {
   # A chave do Resend (somente envio) vem do cofre global e nunca é impressa.
