@@ -1,9 +1,11 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:aura/core/config/app_info.dart';
 import 'package:aura/core/l10n/locale_cubit.dart';
 import 'package:aura/core/theme/app_colors.dart';
 import 'package:aura/core/theme/app_spacing.dart';
+import 'package:aura/features/portal/l10n/portal_strings.dart';
 import 'package:aura/features/profile/l10n/profile_strings.dart';
 import 'package:aura/features/profile/presentation/widgets/profile_row.dart';
 import 'package:aura/shared/widgets/app_logo.dart';
@@ -48,6 +50,16 @@ class AboutPage extends StatelessWidget {
                   ),
                   onTap: () =>
                       openExternalLink(context, AppInfo.privacyPolicyUrl),
+                ),
+                const SizedBox(height: AppSpacing.sm),
+                ProfileRow(
+                  icon: Icons.description_outlined,
+                  label: PortalStrings.watch(context)(
+                    'Privacidade e termos',
+                    'Privacy and terms',
+                    'Privacidad y términos',
+                  ),
+                  onTap: () => context.push('/privacidade'),
                 ),
                 const SizedBox(height: AppSpacing.sm),
                 ProfileRow(
