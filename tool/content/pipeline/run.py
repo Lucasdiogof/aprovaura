@@ -41,7 +41,7 @@ def cmd_ingest(lote):
     qs = load(lote); mats = qc.carregar_curriculo(); fontes = qc.fontes_texto_oficial(); novos = alt = 0
     for f in sorted(glob.glob(os.path.join(bdir(lote), "autoria", "*.jsonl"))):
         area = os.path.basename(f)[:-6]
-        if area in ("redacao_propostas", "teoria"): continue
+        if area in ("redacao_propostas", "teoria") or area.endswith("_teoria"): continue
         for raw in read_jsonl(f):
             q = qc.normalizar(raw); q["area"] = area; q["hash"] = qc.content_hash(q)
             q.pop("estado", None)

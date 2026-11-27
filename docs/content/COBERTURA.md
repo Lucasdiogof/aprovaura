@@ -5,64 +5,67 @@ Gerado por `python tool/content/pipeline/run.py report` em 2026-11-27. **Planeja
 ## Totais únicos
 
 - Acervo ativo hoje (produção, 2026-11-27): **2609** questões (legado; sem classificação por categoria; origem 'legado não registrado').
-- Questões novas produzidas nos lotes: **305** (únicas por id).
+- Questões novas produzidas nos lotes: **960** (únicas por id).
 - Aprovadas e publicáveis (todos os gates, ficam em staging): **177**.
 - Aprovadas na validação automatizada, **revisão especializada humana pendente**: **89**.
-- Rejeitadas: **39** · em andamento (rascunho/aguardando/em revisão): **0** · desatualizadas: 0.
+- Rejeitadas: **47** · em andamento (rascunho/aguardando/em revisão): **647** · desatualizadas: 0.
 - Total único potencial no catálogo se tudo for autorizado: 2609 + 177 (+ 89 após revisão humana).
 
 ## Por matéria (novas, estado atual)
 
 | Matéria | publicável | espec. pendente | rejeitada | outras |
 |---|---:|---:|---:|---:|
-| adm_geral | 6 | 0 | 0 | 0 |
-| adm_publica | 5 | 0 | 0 | 0 |
-| afo | 0 | 4 | 1 | 0 |
-| arquivologia | 2 | 0 | 2 | 0 |
-| artes | 4 | 0 | 0 | 0 |
-| atualidades | 4 | 0 | 1 | 0 |
-| banco_dados | 5 | 0 | 1 | 0 |
-| biologia | 7 | 0 | 3 | 0 |
-| contabilidade_geral | 5 | 0 | 1 | 0 |
-| contabilidade_publica | 0 | 4 | 0 | 0 |
-| dir_administrativo | 0 | 11 | 0 | 0 |
+| adm_geral | 6 | 0 | 0 | 12 |
+| adm_publica | 5 | 0 | 0 | 12 |
+| afo | 0 | 4 | 1 | 15 |
+| arquivologia | 2 | 0 | 6 | 7 |
+| artes | 4 | 0 | 0 | 7 |
+| atualidades | 4 | 0 | 1 | 12 |
+| banco_dados | 5 | 0 | 1 | 16 |
+| biologia | 7 | 0 | 3 | 15 |
+| contabilidade_geral | 5 | 0 | 1 | 16 |
+| contabilidade_publica | 0 | 4 | 0 | 14 |
+| didatica | 0 | 0 | 0 | 11 |
+| dir_administrativo | 0 | 11 | 0 | 20 |
 | dir_ambiental | 0 | 1 | 2 | 0 |
-| dir_civil | 0 | 6 | 1 | 0 |
-| dir_constitucional | 0 | 9 | 2 | 0 |
+| dir_civil | 0 | 6 | 1 | 14 |
+| dir_constitucional | 0 | 9 | 2 | 20 |
 | dir_consumidor | 0 | 3 | 1 | 0 |
-| dir_penal | 0 | 8 | 1 | 0 |
-| dir_proc_civil | 0 | 6 | 1 | 0 |
-| dir_proc_penal | 0 | 6 | 1 | 0 |
-| dir_trabalho | 0 | 7 | 0 | 0 |
-| dir_tributario | 0 | 7 | 0 | 0 |
+| dir_penal | 0 | 8 | 1 | 14 |
+| dir_proc_civil | 0 | 6 | 1 | 13 |
+| dir_proc_penal | 0 | 6 | 1 | 12 |
+| dir_trabalho | 0 | 7 | 0 | 13 |
+| dir_tributario | 0 | 7 | 0 | 14 |
 | direitos_humanos | 0 | 2 | 1 | 0 |
-| economia | 4 | 0 | 2 | 0 |
+| economia | 4 | 0 | 2 | 22 |
 | educacao_financeira | 4 | 0 | 0 | 0 |
-| educacao_fisica | 2 | 0 | 1 | 0 |
-| espanhol | 5 | 0 | 0 | 0 |
-| estatistica | 8 | 0 | 2 | 0 |
-| etica_servico_publico | 0 | 4 | 0 | 0 |
-| filosofia | 4 | 0 | 1 | 0 |
-| fisica | 10 | 0 | 0 | 0 |
-| geografia | 7 | 0 | 0 | 0 |
-| gestao_projetos | 2 | 0 | 1 | 0 |
-| historia | 8 | 0 | 0 | 0 |
-| informatica | 3 | 0 | 0 | 0 |
-| ingles | 5 | 0 | 2 | 0 |
-| legislacao_educacional | 0 | 3 | 1 | 0 |
-| licitacoes_contratos | 0 | 6 | 0 | 0 |
-| literatura | 5 | 0 | 0 | 0 |
-| logica_programacao | 3 | 0 | 2 | 0 |
-| matematica | 10 | 0 | 2 | 0 |
-| matematica_financeira | 9 | 0 | 1 | 0 |
-| pedagogia | 5 | 0 | 0 | 0 |
-| portugues | 12 | 0 | 0 | 0 |
-| quimica | 7 | 0 | 3 | 0 |
-| raciocinio_logico | 11 | 0 | 1 | 0 |
-| redacao_oficial | 0 | 2 | 1 | 0 |
-| redes | 5 | 0 | 0 | 0 |
-| seguranca_informacao | 5 | 0 | 0 | 0 |
-| sociologia | 5 | 0 | 0 | 0 |
+| educacao_fisica | 2 | 0 | 1 | 7 |
+| espanhol | 5 | 0 | 0 | 10 |
+| estatistica | 8 | 0 | 2 | 23 |
+| etica_servico_publico | 0 | 4 | 0 | 10 |
+| filosofia | 4 | 0 | 1 | 8 |
+| fisica | 10 | 0 | 1 | 14 |
+| geografia | 7 | 0 | 0 | 16 |
+| gestao_pessoas | 0 | 0 | 0 | 10 |
+| gestao_projetos | 2 | 0 | 1 | 10 |
+| governanca_controle | 0 | 0 | 0 | 8 |
+| historia | 8 | 0 | 0 | 17 |
+| informatica | 3 | 0 | 0 | 23 |
+| ingles | 5 | 0 | 2 | 11 |
+| legislacao_educacional | 0 | 3 | 2 | 10 |
+| licitacoes_contratos | 0 | 6 | 0 | 12 |
+| literatura | 5 | 0 | 0 | 10 |
+| logica_programacao | 3 | 0 | 2 | 14 |
+| matematica | 10 | 0 | 2 | 15 |
+| matematica_financeira | 9 | 0 | 1 | 22 |
+| pedagogia | 5 | 0 | 0 | 12 |
+| portugues | 12 | 0 | 2 | 12 |
+| quimica | 7 | 0 | 3 | 15 |
+| raciocinio_logico | 11 | 0 | 1 | 23 |
+| redacao_oficial | 0 | 2 | 1 | 11 |
+| redes | 5 | 0 | 0 | 15 |
+| seguranca_informacao | 5 | 0 | 0 | 22 |
+| sociologia | 5 | 0 | 0 | 8 |
 
 ## Por categoria (questões únicas; uma questão em 2 categorias aparece nas duas linhas mas conta 1 no total)
 
@@ -85,8 +88,8 @@ Gerado por `python tool/content/pipeline/run.py report` em 2026-11-27. **Planeja
 | Origem | n |
 |---|---:|
 | legado_nao_registrado | 2609 |
-| autoral | 200 |
-| autoral_baseada_em_referencias | 105 |
+| autoral | 576 |
+| autoral_baseada_em_referencias | 384 |
 | oficial_autorizada | 0 |
 
 ## Motivos de rejeição (etapa)
@@ -94,8 +97,9 @@ Gerado por `python tool/content/pipeline/run.py report` em 2026-11-27. **Planeja
 | Etapa | n |
 |---|---:|
 | revisao_pedagogica | 30 |
-| validacao_estrutural | 8 |
+| validacao_estrutural | 15 |
 | resolucao_independente | 1 |
+| deduplicacao | 1 |
 
 ## Metas (ver MATRIZ_CURRICULAR.md)
 

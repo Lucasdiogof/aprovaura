@@ -27,3 +27,7 @@ Legenda: ✅ concluído e verificado · 🟡 parcial · ⬜ não iniciado. Plane
 - Jurídico/contábil-normativo/redação oficial **nunca** ficam publicáveis sem revisão humana especializada (89 em espera). A conferência de dispositivos foi via WebFetch (resumo por modelo) — não substitui jurista.
 - Rejeitadas incluem pareceres "ajustar" (explicação posicional, dificuldade, distratores): voltam em lote novo.
 - Meta 20.000+ aprovadas: estoque real hoje = 2.609 (legado) + 177 em staging; faltam ~17 mil.
+
+## Atualização 2026-11-27 (retomada)
+- lote-0002: autoria íntegra (655 q; 647 aguardando revisão, 8 rejeitadas no ingest, 0 duplicatas); 13 enchimentos de distratores removidos; **conferência de fontes, validação cega e revisão independente ainda pendentes**.
+- lote-0003: autoria vazia (interrompida sem arquivos); a refazer. Plano: `tool/content/plans/2026-11-27-retomada-lote-0002-0003.md`.
