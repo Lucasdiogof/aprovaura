@@ -1,3 +1,4 @@
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
@@ -114,7 +115,7 @@ class _UsersPageState extends State<UsersPage> {
                 height: kControlH,
                 child: TextButton.icon(
                   onPressed: _clear,
-                  icon: const Icon(Icons.filter_alt_off_outlined, size: 18),
+                  icon: const Icon(LucideIcons.funnelX, size: 18),
                   label: Text(t('Limpar filtros', 'Clear filters', 'Limpiar filtros')),
                 ),
               )
@@ -171,7 +172,7 @@ class _UsersPageState extends State<UsersPage> {
             height: kControlH,
             child: OutlinedButton.icon(
               onPressed: _pickRange,
-              icon: const Icon(Icons.date_range_rounded, size: 18),
+              icon: const Icon(LucideIcons.calendarRange, size: 18),
               label: Text(_from == null
                   ? t('Data de cadastro', 'Sign-up date', 'Fecha de registro')
                   : '${t.date(_from)} – ${t.date(_to)}'),
@@ -191,7 +192,7 @@ class _UsersPageState extends State<UsersPage> {
           ),
           _iconBtn(
             t('Inverter ordem', 'Reverse order', 'Invertir orden'),
-            _dir == 'desc' ? Icons.arrow_downward_rounded : Icons.arrow_upward_rounded,
+            _dir == 'desc' ? LucideIcons.arrowDown : LucideIcons.arrowUp,
             () => _set(() => _dir = _dir == 'desc' ? 'asc' : 'desc'),
           ),
         ],
@@ -226,7 +227,7 @@ class _UsersPageState extends State<UsersPage> {
               count,
               Panel(
                 child: EmptyState(
-                  icon: Icons.search_off_rounded,
+                  icon: LucideIcons.searchX,
                   message: t('Nenhum usuário encontrado.', 'No users found.', 'No se encontraron usuarios.'),
                   action: _filtered
                       ? OutlinedButton(onPressed: _clear, child: Text(t('Limpar filtros', 'Clear filters', 'Limpiar filtros')))
@@ -280,7 +281,7 @@ class _UsersPageState extends State<UsersPage> {
                 'App activity = last known app open (≠ last sign-in, ≠ study). Shows after the next open of the updated app.',
                 'Actividad en la app = última apertura conocida (≠ último acceso, ≠ estudio). Aparece tras la próxima apertura de la app actualizada.',
               ),
-              style: TextStyle(fontSize: 11, color: c.textHint),
+              style: TextStyle(fontSize: 11, color: c.muted),
             ),
           ]);
         },

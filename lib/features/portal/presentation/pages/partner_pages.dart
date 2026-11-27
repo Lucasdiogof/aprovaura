@@ -1,3 +1,4 @@
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -106,10 +107,10 @@ class _OverviewState extends State<PartnerOverviewPage> with PeriodState {
           final shared = u['suppressed'] != true;
           return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             _section(t('Indicações e assinaturas', 'Referrals and subscriptions', 'Referidos y suscripciones'), [
-              StatCard(icon: Icons.people_outline_rounded, label: t('Alunos indicados', 'Referred students', 'Alumnos referidos'), value: t.number(students)),
-              StatCard(icon: Icons.person_add_alt_rounded, label: t('Novos no período', 'New in period', 'Nuevos en el periodo'), value: t.number(_n(c, 'new_in_period'))),
-              StatCard(icon: Icons.mark_email_read_outlined, label: t('E-mails verificados', 'Verified e-mails', 'Correos verificados'), value: t.number(_n(c, 'verified_emails'))),
-              StatCard(icon: Icons.workspace_premium_outlined, label: t('Assinantes ativos', 'Active subscribers', 'Suscriptores activos'), value: t.number(_n(c, 'subscribers')), hint: '${t.number(_n(c, 'monthly'))} ${t('mensal', 'monthly', 'mensual')} · ${t.number(_n(c, 'annual'))} ${t('anual', 'annual', 'anual')}'),
+              StatCard(icon: LucideIcons.users, label: t('Alunos indicados', 'Referred students', 'Alumnos referidos'), value: t.number(students)),
+              StatCard(icon: LucideIcons.userPlus, label: t('Novos no período', 'New in period', 'Nuevos en el periodo'), value: t.number(_n(c, 'new_in_period'))),
+              StatCard(icon: LucideIcons.mailCheck, label: t('E-mails verificados', 'Verified e-mails', 'Correos verificados'), value: t.number(_n(c, 'verified_emails'))),
+              StatCard(icon: LucideIcons.creditCard, label: t('Assinantes ativos', 'Active subscribers', 'Suscriptores activos'), value: t.number(_n(c, 'subscribers')), hint: '${t.number(_n(c, 'monthly'))} ${t('mensal', 'monthly', 'mensual')} · ${t.number(_n(c, 'annual'))} ${t('anual', 'annual', 'anual')}'),
               StatCard(label: t('Em experiência gratuita', 'In free trial', 'En prueba gratuita'), value: t.number(_n(c, 'trial'))),
               StatCard(label: t('Experiência encerrada', 'Trial ended', 'Prueba terminada'), value: t.number(_n(c, 'trial_expired'))),
               StatCard(label: t('Assinatura expirada', 'Subscription expired', 'Suscripción expirada'), value: t.number(_n(c, 'subscription_expired'))),
@@ -130,7 +131,7 @@ class _OverviewState extends State<PartnerOverviewPage> with PeriodState {
                   ]
                 : [_SuppressedCard(u: u)]),
             _section(t('Financeiro', 'Finance', 'Finanzas'), [
-              StatCard(icon: Icons.percent_rounded, label: t('Sua comissão', 'Your commission', 'Tu comisión'), value: t.bps(_n(f, 'commission_bps'))),
+              StatCard(icon: LucideIcons.percent, label: t('Sua comissão', 'Your commission', 'Tu comisión'), value: t.bps(_n(f, 'commission_bps'))),
               StatCard(label: t('Saldo a receber', 'Balance to receive', 'Saldo a recibir'), value: t.money(_n(f, 'balance_cents'))),
               StatCard(label: t('Comissões no período', 'Commissions in period', 'Comisiones en el periodo'), value: t.money(_n(f, 'commissions_period_cents'))),
               StatCard(label: t('Total já recebido', 'Total received', 'Total recibido'), value: t.money(_n(f, 'received_cents'))),
@@ -176,7 +177,7 @@ class _SuppressedCard extends StatelessWidget {
     final min = _n(u, 'min_cohort').toInt();
     return Panel(
       child: EmptyState(
-        icon: Icons.lock_outline_rounded,
+        icon: LucideIcons.lock,
         message: t(
           'As estatísticas de estudo só aparecem quando pelo menos $min alunos vinculados compartilham seus dados (hoje: ${_n(u, 'consented').toInt()} de ${_n(u, 'total').toInt()}). Isso protege a privacidade de cada aluno.',
           'Study statistics only appear when at least $min linked students share their data (today: ${_n(u, 'consented').toInt()} of ${_n(u, 'total').toInt()}). This protects each student\'s privacy.',
@@ -247,7 +248,7 @@ class _StudentsState extends State<PartnerStudentsPage> {
             IconButton(
               tooltip: t('Inverter ordem', 'Reverse order', 'Invertir orden'),
               onPressed: () => _set(() => _dir = _dir == 'desc' ? 'asc' : 'desc'),
-              icon: Icon(_dir == 'desc' ? Icons.arrow_downward_rounded : Icons.arrow_upward_rounded),
+              icon: Icon(_dir == 'desc' ? LucideIcons.arrowDown : LucideIcons.arrowUp),
             ),
           ]),
           const SizedBox(height: 12),
@@ -336,7 +337,7 @@ class PartnerStudentDetailPage extends StatelessWidget {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       TextButton.icon(
         onPressed: () => context.go('/partners/students'),
-        icon: const Icon(Icons.arrow_back_rounded, size: 18),
+        icon: const Icon(LucideIcons.arrowLeft, size: 18),
         label: Text(t('Meus alunos', 'My students', 'Mis alumnos')),
       ),
       Loader<Map<String, dynamic>>(
@@ -365,7 +366,7 @@ class PartnerStudentDetailPage extends StatelessWidget {
             if (st == null)
               Panel(
                 child: EmptyState(
-                  icon: Icons.lock_outline_rounded,
+                  icon: LucideIcons.lock,
                   message: t(
                     'Este aluno não autorizou o compartilhamento de estatísticas de estudo (ou revogou a autorização). Os dados individuais ficam ocultos.',
                     'This student has not allowed (or has revoked) sharing study statistics. Individual data stays hidden.',
@@ -535,12 +536,12 @@ class _FinanceState extends State<PartnerFinancePage> {
         actions: [
           OutlinedButton.icon(
             onPressed: () => exportCsv(context, () => api.partnerExport('commissions'), 'minhas-comissoes.csv'),
-            icon: const Icon(Icons.download_rounded, size: 18),
+            icon: const Icon(LucideIcons.download, size: 18),
             label: Text(t('Comissões CSV', 'Commissions CSV', 'Comisiones CSV')),
           ),
           OutlinedButton.icon(
             onPressed: () => exportCsv(context, () => api.partnerExport('payouts'), 'meus-repasses.csv'),
-            icon: const Icon(Icons.download_rounded, size: 18),
+            icon: const Icon(LucideIcons.download, size: 18),
             label: Text(t('Repasses CSV', 'Payouts CSV', 'Pagos CSV')),
           ),
         ],
@@ -741,17 +742,17 @@ class ReferralCard extends StatelessWidget {
         Wrap(spacing: 8, runSpacing: 8, children: [
           OutlinedButton.icon(
             onPressed: () => _copy(context, code, t('Código copiado.', 'Code copied.', 'Código copiado.')),
-            icon: const Icon(Icons.copy_rounded, size: 18),
+            icon: const Icon(LucideIcons.copy, size: 18),
             label: Text(t('Copiar código', 'Copy code', 'Copiar código')),
           ),
           OutlinedButton.icon(
             onPressed: () => _copy(context, link, t('Link copiado.', 'Link copied.', 'Enlace copiado.')),
-            icon: const Icon(Icons.link_rounded, size: 18),
+            icon: const Icon(LucideIcons.link, size: 18),
             label: Text(t('Copiar link', 'Copy link', 'Copiar enlace')),
           ),
           ElevatedButton.icon(
             onPressed: () => _share(context, t),
-            icon: const Icon(Icons.share_rounded, size: 18),
+            icon: const Icon(LucideIcons.share2, size: 18),
             label: Text(t('Compartilhar', 'Share', 'Compartir')),
           ),
         ]),

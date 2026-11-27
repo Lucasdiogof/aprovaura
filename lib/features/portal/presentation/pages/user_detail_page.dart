@@ -1,3 +1,4 @@
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -21,7 +22,7 @@ class UserDetailPage extends StatelessWidget {
         alignment: Alignment.centerLeft,
         child: TextButton.icon(
           onPressed: () => context.go('/partners/users'),
-          icon: const Icon(Icons.arrow_back_rounded, size: 18),
+          icon: const Icon(LucideIcons.arrowLeft, size: 18),
           label: Text(t('Usuários', 'Users', 'Usuarios')),
         ),
       ),
@@ -245,7 +246,7 @@ class _Detail extends StatelessWidget {
       _section(t('Financeiro', 'Finance', 'Finanzas'), [
         if (_l(fin['payments']).isEmpty)
           EmptyState(
-            icon: Icons.receipt_long_outlined,
+            icon: LucideIcons.receipt,
             message: t('Nenhum pagamento registrado.', 'No payments recorded.', 'Sin pagos registrados.'),
           )
         else
@@ -280,7 +281,7 @@ class _Detail extends StatelessWidget {
               final done = await showDialog<bool>(context: context, builder: (_) => _GrantDialog(userId: id, api: context.read<PortalApi>()));
               if (done == true) await reload();
             },
-            icon: const Icon(Icons.card_giftcard_rounded, size: 18),
+            icon: const Icon(LucideIcons.gift, size: 18),
             label: Text(t('Conceder Premium (cortesia)', 'Grant Premium (courtesy)', 'Conceder Premium (cortesía)')),
           ),
           OutlinedButton(

@@ -1,3 +1,4 @@
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:aura/core/theme/app_colors.dart';
@@ -75,7 +76,7 @@ class _ReconcileTabState extends State<ReconcileTab> {
             SectionHeader(t('Situação da conciliação', 'Reconciliation status', 'Estado de la conciliación'),
                 subtitle: t('Todos os relatórios importados', 'All imported reports', 'Todos los informes importados')),
             CardGrid(children: [
-              StatCard(icon: Icons.upload_file_outlined, label: t('Relatórios importados', 'Imported reports', 'Informes importados'), value: t.number(rows.length), hint: '${t.number(sum('line_count'))} ${t('linhas', 'lines', 'líneas')}'),
+              StatCard(icon: LucideIcons.fileUp, label: t('Relatórios importados', 'Imported reports', 'Informes importados'), value: t.number(rows.length), hint: '${t.number(sum('line_count'))} ${t('linhas', 'lines', 'líneas')}'),
               StatCard(label: t('Prontas para conciliar', 'Ready to reconcile', 'Listas para conciliar'), value: t.number(sum('matched')), tone: toApply > 0 ? Tone.good : null, hint: t('Conferem com o sistema', 'Match the system', 'Coinciden con el sistema')),
               StatCard(label: t('Divergências', 'Divergences', 'Divergencias'), value: t.number(divergent), tone: divergent > 0 ? Tone.warn : null, hint: t('Valores diferentes do sistema', 'Differ from the system', 'Difieren del sistema')),
               StatCard(label: t('Sem par (pendentes)', 'Unmatched (pending)', 'Sin par (pendientes)'), value: t.number(unmatched), tone: unmatched > 0 ? Tone.warn : null, hint: t('Sem pagamento correspondente', 'No matching payment', 'Sin pago correspondiente')),
@@ -130,7 +131,7 @@ class _ReconcileTabState extends State<ReconcileTab> {
       Panel(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Icon(Icons.warning_amber_rounded, size: 18, color: c.warning),
+            Icon(LucideIcons.triangleAlert, size: 18, color: c.warning),
             const SizedBox(width: 8),
             Expanded(
               child: Text(t(
@@ -153,7 +154,7 @@ class _ReconcileTabState extends State<ReconcileTab> {
             SizedBox(
               height: kControlH,
               child: OutlinedButton.icon(
-                icon: const Icon(Icons.calendar_month_outlined, size: 18),
+                icon: const Icon(LucideIcons.calendar, size: 18),
                 label: Text('${_month.month.toString().padLeft(2, '0')}/${_month.year}'),
                 onPressed: () async {
                   final d = await showDatePicker(

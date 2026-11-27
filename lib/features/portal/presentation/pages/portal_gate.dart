@@ -1,3 +1,4 @@
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -131,7 +132,7 @@ class _PortalGateState extends State<PortalGate> {
               return const Scaffold(body: Center(child: CircularProgressIndicator()));
             case PortalRole.error:
               return _Message(
-                icon: Icons.cloud_off_rounded,
+                icon: LucideIcons.cloudOff,
                 title: PortalStrings.watch(context)('Sem conexão', 'No connection', 'Sin conexión'),
                 body: PortalStrings.watch(context)(
                   'Não foi possível confirmar suas permissões no servidor.',
@@ -143,7 +144,7 @@ class _PortalGateState extends State<PortalGate> {
               );
             case PortalRole.denied:
               return _Message(
-                icon: Icons.lock_outline_rounded,
+                icon: LucideIcons.lock,
                 title: PortalStrings.watch(context)('Acesso restrito', 'Restricted access', 'Acceso restringido'),
                 body: PortalStrings.watch(context)(
                   'Esta conta não tem permissão para o portal. O aplicativo continua disponível normalmente.',
@@ -246,28 +247,28 @@ class PortalShell extends StatelessWidget {
   List<Object> _items(PortalStrings t, bool partnerActive) => admin
       ? [
           _NavGroup(t('Gestão', 'Management', 'Gestión')),
-          _NavItem('/partners', Icons.dashboard_outlined, t('Visão geral', 'Overview', 'Resumen')),
-          _NavItem('/partners/users', Icons.people_outline_rounded, t('Usuários', 'Users', 'Usuarios')),
-          _NavItem('/partners/teachers', Icons.school_outlined, t('Professores', 'Teachers', 'Profesores')),
-          _NavItem('/partners/requests', Icons.swap_horiz_rounded, t('Solicitações', 'Requests', 'Solicitudes')),
+          _NavItem('/partners', LucideIcons.layoutDashboard, t('Visão geral', 'Overview', 'Resumen')),
+          _NavItem('/partners/users', LucideIcons.users, t('Usuários', 'Users', 'Usuarios')),
+          _NavItem('/partners/teachers', LucideIcons.graduationCap, t('Professores', 'Teachers', 'Profesores')),
+          _NavItem('/partners/requests', LucideIcons.clipboardList, t('Solicitações', 'Requests', 'Solicitudes')),
           _NavGroup(t('Comercial', 'Commercial', 'Comercial')),
-          _NavItem('/partners/finance', Icons.account_balance_wallet_outlined, t('Financeiro', 'Finance', 'Finanzas')),
-          _NavItem('/partners/subscriptions', Icons.workspace_premium_outlined, t('Assinaturas', 'Subscriptions', 'Suscripciones')),
-          _NavItem('/partners/integrations', Icons.hub_outlined, t('Integrações', 'Integrations', 'Integraciones')),
+          _NavItem('/partners/finance', LucideIcons.wallet, t('Financeiro', 'Finance', 'Finanzas')),
+          _NavItem('/partners/subscriptions', LucideIcons.creditCard, t('Assinaturas', 'Subscriptions', 'Suscripciones')),
+          _NavItem('/partners/integrations', LucideIcons.plug, t('Integrações', 'Integrations', 'Integraciones')),
           _NavGroup(t('Sistema', 'System', 'Sistema')),
-          _NavItem('/partners/essay-ai', Icons.edit_note_rounded, t('Correção por IA', 'AI feedback', 'Corrección por IA')),
-          _NavItem('/partners/audit', Icons.fact_check_outlined, t('Auditoria', 'Audit', 'Auditoría')),
-          _NavItem('/partners/settings', Icons.tune_rounded, t('Configurações', 'Settings', 'Configuración')),
+          _NavItem('/partners/essay-ai', LucideIcons.sparkles, t('Correção por IA', 'AI feedback', 'Corrección por IA')),
+          _NavItem('/partners/audit', LucideIcons.shieldCheck, t('Auditoria', 'Audit', 'Auditoría')),
+          _NavItem('/partners/settings', LucideIcons.settings, t('Configurações', 'Settings', 'Configuración')),
         ]
       : [
           if (partnerActive) ...[
-            _NavItem('/partners', Icons.dashboard_outlined, t('Visão geral', 'Overview', 'Resumen')),
-            _NavItem('/partners/students', Icons.people_outline_rounded, t('Meus alunos', 'My students', 'Mis alumnos')),
-            _NavItem('/partners/stats', Icons.insights_outlined, t('Estatísticas', 'Statistics', 'Estadísticas')),
+            _NavItem('/partners', LucideIcons.layoutDashboard, t('Visão geral', 'Overview', 'Resumen')),
+            _NavItem('/partners/students', LucideIcons.users, t('Meus alunos', 'My students', 'Mis alumnos')),
+            _NavItem('/partners/stats', LucideIcons.chartLine, t('Estatísticas', 'Statistics', 'Estadísticas')),
           ],
-          _NavItem('/partners/finance', Icons.account_balance_wallet_outlined, t('Financeiro', 'Finance', 'Finanzas')),
-          if (partnerActive) _NavItem('/partners/referrals', Icons.share_outlined, t('Minhas indicações', 'My referrals', 'Mis referidos')),
-          _NavItem('/partners/me', Icons.badge_outlined, t('Minha parceria', 'My partnership', 'Mi alianza')),
+          _NavItem('/partners/finance', LucideIcons.wallet, t('Financeiro', 'Finance', 'Finanzas')),
+          if (partnerActive) _NavItem('/partners/referrals', LucideIcons.share2, t('Minhas indicações', 'My referrals', 'Mis referidos')),
+          _NavItem('/partners/me', LucideIcons.idCard, t('Minha parceria', 'My partnership', 'Mi alianza')),
         ];
 
   bool _active(String path) =>
@@ -287,7 +288,7 @@ class PortalShell extends StatelessWidget {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 1),
         child: Material(
-          color: active ? c.primary.withValues(alpha: 0.14) : Colors.transparent,
+          color: active ? c.primary.withValues(alpha: 0.12) : Colors.transparent,
           borderRadius: BorderRadius.circular(10),
           child: InkWell(
             borderRadius: BorderRadius.circular(10),
@@ -301,7 +302,7 @@ class PortalShell extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Row(children: [
-                  Icon(i.icon, size: 20, color: active ? c.primary : c.textSecondary),
+                  Icon(i.icon, size: 18, color: active ? c.primary : c.textSecondary),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Text(i.label,
@@ -350,10 +351,10 @@ class PortalShell extends StatelessWidget {
                   for (final i in _items(t, partnerActive))
                     if (i is _NavGroup)
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(24, 14, 20, 6),
+                        padding: const EdgeInsets.fromLTRB(24, 22, 20, 8),
                         child: Text(i.label.toUpperCase(),
                             style: TextStyle(
-                                fontSize: 11, fontWeight: FontWeight.w700, letterSpacing: 0.8, color: c.textHint)),
+                                fontSize: 11, fontWeight: FontWeight.w700, letterSpacing: 1.0, color: c.muted)),
                       )
                     else
                       navItem(i as _NavItem, inDrawer: inDrawer),
@@ -389,7 +390,7 @@ class PortalShell extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: TextButton.icon(
                       onPressed: () => context.go('/home'),
-                      icon: const Icon(Icons.phone_iphone_rounded, size: 18),
+                      icon: const Icon(LucideIcons.externalLink, size: 18),
                       label: Text(t('Abrir o aplicativo', 'Open the app', 'Abrir la aplicación')),
                     ),
                   ),
@@ -397,7 +398,7 @@ class PortalShell extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: TextButton.icon(
                       onPressed: signOut,
-                      icon: const Icon(Icons.logout_rounded, size: 18),
+                      icon: const Icon(LucideIcons.logOut, size: 18),
                       label: Text(t('Sair', 'Sign out', 'Salir')),
                     ),
                   ),
@@ -418,7 +419,7 @@ class PortalShell extends StatelessWidget {
           Builder(
             builder: (ctx) => IconButton(
               tooltip: t('Menu', 'Menu', 'Menú'),
-              icon: const Icon(Icons.menu_rounded),
+              icon: const Icon(LucideIcons.menu),
               onPressed: () => Scaffold.of(ctx).openDrawer(),
             ),
           ),
@@ -436,8 +437,8 @@ class PortalShell extends StatelessWidget {
         IconButton(
           tooltip: t('Alternar tema', 'Toggle theme', 'Cambiar tema'),
           icon: Icon(Theme.of(context).brightness == Brightness.dark
-              ? Icons.light_mode_outlined
-              : Icons.dark_mode_outlined),
+              ? LucideIcons.sun
+              : LucideIcons.moon),
           onPressed: () => context.read<ThemeCubit>().setMode(
                 Theme.of(context).brightness == Brightness.dark ? ThemeMode.light : ThemeMode.dark,
               ),
@@ -446,7 +447,9 @@ class PortalShell extends StatelessWidget {
       ]),
     );
 
-    return Scaffold(
+    return Theme(
+      data: portalTheme(context),
+      child: Scaffold(
       backgroundColor: c.background,
       drawer: wide ? null : Drawer(child: nav(inDrawer: true)),
       body: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
@@ -466,6 +469,8 @@ class PortalShell extends StatelessWidget {
           ]),
         ),
       ]),
+    ),
     );
   }
 }
+

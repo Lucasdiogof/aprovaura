@@ -1,3 +1,4 @@
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aura/core/theme/app_colors.dart';
@@ -171,12 +172,12 @@ class _EssayAiPageState extends State<EssayAiPage> {
         Wrap(spacing: 4, runSpacing: 4, crossAxisAlignment: WrapCrossAlignment.center, children: [
           IconButton(
             tooltip: t('Subir prioridade', 'Move up', 'Subir prioridad'),
-            icon: const Icon(Icons.arrow_upward_rounded),
+            icon: const Icon(LucideIcons.arrowUp),
             onPressed: i == 0 ? null : () => _move(context, api, t, all, i, -1, reload),
           ),
           IconButton(
             tooltip: t('Descer prioridade', 'Move down', 'Bajar prioridad'),
-            icon: const Icon(Icons.arrow_downward_rounded),
+            icon: const Icon(LucideIcons.arrowDown),
             onPressed: i == all.length - 1 ? null : () => _move(context, api, t, all, i, 1, reload),
           ),
           TextButton(

@@ -1,3 +1,4 @@
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'dart:math';
 
 import 'package:flutter/services.dart';
@@ -174,7 +175,7 @@ class _OverviewTabState extends State<_OverviewTab> with PeriodState {
       FilterBar(
         trailing: _toolButton(
           onPressed: () => exportCsv(context, () => api.financeExport('summary', from: r.start, to: r.end), 'resumo-financeiro.csv'),
-          icon: Icons.download_rounded,
+          icon: LucideIcons.download,
           label: t('Exportar resumo', 'Export summary', 'Exportar resumen'),
         ),
         children: [
@@ -206,7 +207,7 @@ class _OverviewTabState extends State<_OverviewTab> with PeriodState {
                 ),
               ),
             _section(t('Indicadores principais', 'Key indicators', 'Indicadores principales'), [
-              _stat(t('Faturamento bruto', 'Gross revenue', 'Facturación bruta'), t.money(_n(x, 'gross_cents')), icon: Icons.payments_outlined, hint: '${t.number(_n(x, 'payments_count'))} ${t('pagamentos confirmados', 'confirmed payments', 'pagos confirmados')}'),
+              _stat(t('Faturamento bruto', 'Gross revenue', 'Facturación bruta'), t.money(_n(x, 'gross_cents')), icon: LucideIcons.banknote, hint: '${t.number(_n(x, 'payments_count'))} ${t('pagamentos confirmados', 'confirmed payments', 'pagos confirmados')}'),
               _stat(t('Receita líquida', 'Net revenue', 'Ingresos netos'), t.money(_n(x, 'net_cents')), hint: t('Após taxas, impostos e reembolsos — não é lucro', 'After fees, taxes and refunds — not profit', 'Tras tarifas, impuestos y reembolsos — no es ganancia'), tip: t('Líquida = bruto − reembolsos − taxas − impostos. Receita não é lucro.', 'Net = gross − refunds − fees − taxes. Revenue is not profit.', 'Neta = bruto − reembolsos − tarifas − impuestos. Ingreso no es ganancia.')),
               _stat(t('Comissões dos professores', 'Teacher commissions', 'Comisiones de profesores'), t.money(_n(x, 'commissions_net_cents')), hint: t('Geradas − estornadas', 'Generated − reversed', 'Generadas − revertidas')),
               _stat(t('Receita da Lucksrei', 'Lucksrei revenue', 'Ingresos de Lucksrei'), t.money(_n(x, 'lucksrei_cents')), hint: t('Líquida − comissões líquidas (antes das despesas)', 'Net − net commissions (before expenses)', 'Neta − comisiones netas (antes de gastos)')),
@@ -235,7 +236,7 @@ class _OverviewTabState extends State<_OverviewTab> with PeriodState {
             _section(t('Resultado da Lucksrei', 'Lucksrei result', 'Resultado de Lucksrei'), [
               _stat(t('Receita da Lucksrei', 'Lucksrei revenue', 'Ingresos de Lucksrei'), t.money(_n(x, 'lucksrei_cents')), hint: t('Líquida − comissões líquidas', 'Net − net commissions', 'Neta − comisiones netas')),
               _stat(t('Despesas operacionais', 'Operating expenses', 'Gastos operativos'), t.money(-_n(x, 'expenses_cents'))),
-              _stat(t('Resultado líquido', 'Net result', 'Resultado neto'), t.money(_n(x, 'result_cents')), icon: Icons.account_balance_outlined, hint: t('Receita da Lucksrei − despesas', 'Lucksrei revenue − expenses', 'Ingresos de Lucksrei − gastos'), tone: _n(x, 'result_cents') < 0 ? Tone.bad : null),
+              _stat(t('Resultado líquido', 'Net result', 'Resultado neto'), t.money(_n(x, 'result_cents')), icon: LucideIcons.landmark, hint: t('Receita da Lucksrei − despesas', 'Lucksrei revenue − expenses', 'Ingresos de Lucksrei − gastos'), tone: _n(x, 'result_cents') < 0 ? Tone.bad : null),
             ], scope: t('No período selecionado', 'In the selected period', 'En el periodo seleccionado')),
             _section(t('Provedores e caixa', 'Providers and cash', 'Proveedores y caja'), [
               _stat(t('Recebido dos provedores', 'Received from providers', 'Recibido de proveedores'), t.money(_n(x, 'received_from_providers_cents')), hint: t('Liquidações informadas no período', 'Settlements reported in the period', 'Liquidaciones informadas en el periodo')),
@@ -331,7 +332,7 @@ class _OverviewTabState extends State<_OverviewTab> with PeriodState {
             ],
             const SizedBox(height: 16),
             Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Icon(Icons.info_outline_rounded, size: 16, color: context.colors.textHint),
+              Icon(LucideIcons.info, size: 16, color: context.colors.muted),
               const SizedBox(width: 8),
               Expanded(child: Text(
               t(
@@ -409,23 +410,23 @@ class _PaymentsTabState extends State<_PaymentsTab> {
           ),
           _toolButton(
             onPressed: _pickRange,
-            icon: Icons.date_range_rounded,
+            icon: LucideIcons.calendarRange,
             label: _from == null ? t('Período', 'Period', 'Periodo') : '${t.date(_from)} – ${t.date(_to)}',
           ),
           if (_from != null)
-            IconButton(tooltip: t('Limpar', 'Clear', 'Limpiar'), onPressed: () => _set(() { _from = null; _to = null; }), icon: const Icon(Icons.close_rounded)),
+            IconButton(tooltip: t('Limpar', 'Clear', 'Limpiar'), onPressed: () => _set(() { _from = null; _to = null; }), icon: const Icon(LucideIcons.x)),
           Select<String>(label: t('Ordenar', 'Sort', 'Ordenar'), value: _sort, items: {
             'paid_at': t('Data', 'Date', 'Fecha'), 'gross': t('Bruto', 'Gross', 'Bruto'), 'net': t('Líquido', 'Net', 'Neto'),
             'commission': t('Comissão', 'Commission', 'Comisión')}, onChanged: (v) => _set(() => _sort = v)),
           IconButton(
             tooltip: t('Inverter ordem', 'Reverse order', 'Invertir orden'),
             onPressed: () => _set(() => _dir = _dir == 'desc' ? 'asc' : 'desc'),
-            icon: Icon(_dir == 'desc' ? Icons.arrow_downward_rounded : Icons.arrow_upward_rounded),
+            icon: Icon(_dir == 'desc' ? LucideIcons.arrowDown : LucideIcons.arrowUp),
           ),
           _toolButton(
             onPressed: () => exportCsv(context, () => api.financeExport('payments', from: _from, to: _to, provider: n(_provider),
                 partner: _partner.length == 36 ? _partner : null), 'pagamentos.csv'),
-            icon: Icons.download_rounded,
+            icon: LucideIcons.download,
             label: 'CSV',
           ),
         ]),
@@ -500,7 +501,7 @@ class PaymentDetailPage extends StatelessWidget {
     final t = PortalStrings.watch(context);
     final api = context.read<PortalApi>();
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      TextButton.icon(onPressed: () => context.go('/partners/finance'), icon: const Icon(Icons.arrow_back_rounded, size: 18), label: Text(t('Financeiro', 'Finance', 'Finanzas'))),
+      TextButton.icon(onPressed: () => context.go('/partners/finance'), icon: const Icon(LucideIcons.arrowLeft, size: 18), label: Text(t('Financeiro', 'Finance', 'Finanzas'))),
       Loader<Map<String, dynamic>>(
         loader: () => api.payment(id),
         keys: [id],
@@ -616,12 +617,12 @@ class _PayoutsTabState extends State<_PayoutsTab> {
             SearchBox(hint: t('Professor', 'Teacher', 'Profesor'), onChanged: (v) => setState(() => _search = v)),
             _toolButton(
               onPressed: () => exportCsv(context, () => api.financeExport('commissions'), 'comissoes.csv'),
-              icon: Icons.download_rounded,
+              icon: LucideIcons.download,
               label: t('Comissões CSV', 'Commissions CSV', 'Comisiones CSV'),
             ),
             _toolButton(
               onPressed: () => exportCsv(context, () => api.financeExport('payouts'), 'repasses.csv'),
-              icon: Icons.download_rounded,
+              icon: LucideIcons.download,
               label: t('Repasses CSV', 'Payouts CSV', 'Pagos CSV'),
             ),
           ]),
@@ -644,7 +645,7 @@ class _PayoutsTabState extends State<_PayoutsTab> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12),
                   child: CardGrid(maxColumns: 3, children: [
-                    StatCard(label: t('Total disponível para repassar', 'Total available to pay out', 'Total disponible para pagar'), value: t.money(_n(d, 'sum_available_cents')), hint: t('Até a competência escolhida', 'Up to the chosen competence', 'Hasta la competencia elegida'), icon: Icons.account_balance_wallet_outlined),
+                    StatCard(label: t('Total disponível para repassar', 'Total available to pay out', 'Total disponible para pagar'), value: t.money(_n(d, 'sum_available_cents')), hint: t('Até a competência escolhida', 'Up to the chosen competence', 'Hasta la competencia elegida'), icon: LucideIcons.wallet),
                   ]),
                 ),
                 PortalTable(
@@ -675,7 +676,7 @@ class _PayoutsTabState extends State<_PayoutsTab> {
                         StatusBadge(state(r), tone: _n(r, 'available') < 0 ? Tone.bad : (_n(r, 'available') > 0 ? Tone.warn : Tone.good)),
                         Wrap(spacing: 4, runSpacing: 4, children: [
                           if (r['has_pix'] == true)
-                            IconButton(tooltip: t('Copiar chave Pix', 'Copy Pix key', 'Copiar clave Pix'), onPressed: () => _copyPix(api, r), icon: const Icon(Icons.copy_rounded, size: 18)),
+                            IconButton(tooltip: t('Copiar chave Pix', 'Copy Pix key', 'Copiar clave Pix'), onPressed: () => _copyPix(api, r), icon: const Icon(LucideIcons.copy, size: 18)),
                           if (_n(r, 'available') > 0)
                             ElevatedButton(
                               onPressed: () async {
@@ -832,7 +833,7 @@ class _PayoutDialogState extends State<_PayoutDialog> {
                 final d = await showDatePicker(context: context, initialDate: _date, firstDate: DateTime(2025), lastDate: DateTime.now());
                 if (d != null) setState(() => _date = d);
               },
-              icon: const Icon(Icons.event_rounded, size: 18),
+              icon: const Icon(LucideIcons.calendar, size: 18),
               label: Text('${t('Data do Pix', 'Pix date', 'Fecha del Pix')}: ${t.date(_date)}'),
             ),
             const SizedBox(height: 10),
@@ -924,7 +925,7 @@ class _PartnerCommissionsState extends State<PartnerCommissionsPage> {
     final t = PortalStrings.watch(context);
     final api = context.read<PortalApi>();
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      TextButton.icon(onPressed: () => context.go('/partners/finance'), icon: const Icon(Icons.arrow_back_rounded, size: 18), label: Text(t('Financeiro', 'Finance', 'Finanzas'))),
+      TextButton.icon(onPressed: () => context.go('/partners/finance'), icon: const Icon(LucideIcons.arrowLeft, size: 18), label: Text(t('Financeiro', 'Finance', 'Finanzas'))),
       Loader<Map<String, dynamic>>(
         loader: () => api.partnerCommissions(widget.id, limit: _limit, offset: _offset),
         keys: [widget.id, _offset],
@@ -941,7 +942,7 @@ class _PartnerCommissionsState extends State<PartnerCommissionsPage> {
               actions: [
                 OutlinedButton.icon(
                   onPressed: () => exportCsv(context, () => api.financeExport('commissions', partner: widget.id), 'comissoes-professor.csv'),
-                  icon: const Icon(Icons.download_rounded, size: 18),
+                  icon: const Icon(LucideIcons.download, size: 18),
                   label: const Text('CSV'),
                 ),
               ],
@@ -1026,7 +1027,7 @@ class _ExpensesTabState extends State<_ExpensesTab> with PeriodState {
             FilterBar(children: [
               periodSelect(t),
               Select<String>(label: t('Categoria', 'Category', 'Categoría'), value: _cat, items: {'': t('Todas', 'All', 'Todas'), for (final c in cats) '${c['id']}': '${c['name']}'}, onChanged: (v) => setState(() { _cat = v; _offset = 0; })),
-              _toolButton(primary: true, onPressed: () => edit(), icon: Icons.add_rounded, label: t('Nova despesa', 'New expense', 'Nuevo gasto')),
+              _toolButton(primary: true, onPressed: () => edit(), icon: LucideIcons.plus, label: t('Nova despesa', 'New expense', 'Nuevo gasto')),
               _toolButton(
                 onPressed: () async {
                   final c = TextEditingController();
@@ -1045,17 +1046,17 @@ class _ExpensesTabState extends State<_ExpensesTab> with PeriodState {
                     setState(() => _reload++);
                   }
                 },
-                icon: Icons.label_outline_rounded,
+                icon: LucideIcons.tag,
                 label: t('Categoria', 'Category', 'Categoría'),
               ),
               _toolButton(
                 onPressed: () => exportCsv(context, () => api.financeExport('expenses', from: r.start, to: r.end), 'despesas.csv'),
-                icon: Icons.download_rounded,
+                icon: LucideIcons.download,
                 label: 'CSV',
               ),
             ]),
             CardGrid(maxColumns: 3, children: [
-              StatCard(label: t('Total no período', 'Total in period', 'Total en el periodo'), value: t.money(_n(d, 'sum_cents')), icon: Icons.receipt_long_outlined),
+              StatCard(label: t('Total no período', 'Total in period', 'Total en el periodo'), value: t.money(_n(d, 'sum_cents')), icon: LucideIcons.receipt),
             ]),
             const SizedBox(height: kCardGap),
             if (rows.isEmpty)
@@ -1077,10 +1078,10 @@ class _ExpensesTabState extends State<_ExpensesTab> with PeriodState {
                       Text('${e['description']}${e['note'] == null ? '' : '\n${e['note']}'}'),
                       Text(t.money(_n(e, 'amount_cents'))),
                       Row(mainAxisSize: MainAxisSize.min, children: [
-                        IconButton(tooltip: t('Editar', 'Edit', 'Editar'), onPressed: () => edit(e), icon: const Icon(Icons.edit_outlined, size: 18)),
+                        IconButton(tooltip: t('Editar', 'Edit', 'Editar'), onPressed: () => edit(e), icon: const Icon(LucideIcons.pencil, size: 18)),
                         IconButton(
                           tooltip: t('Excluir', 'Delete', 'Eliminar'),
-                          icon: const Icon(Icons.delete_outline_rounded, size: 18),
+                          icon: const Icon(LucideIcons.trash2, size: 18),
                           onPressed: () async {
                             final ok = await confirmDialog(context,
                                 title: t('Excluir despesa?', 'Delete expense?', '¿Eliminar gasto?'),
@@ -1175,7 +1176,7 @@ class _ExpenseDialogState extends State<_ExpenseDialog> {
                 final d = await showDatePicker(context: context, initialDate: _date, firstDate: DateTime(2020), lastDate: DateTime.now().add(const Duration(days: 1)));
                 if (d != null) setState(() => _date = d);
               },
-              icon: const Icon(Icons.event_rounded, size: 18),
+              icon: const Icon(LucideIcons.calendar, size: 18),
               label: Text('${t('Data', 'Date', 'Fecha')}: ${t.date(_date)}'),
             ),
             const SizedBox(height: 10),

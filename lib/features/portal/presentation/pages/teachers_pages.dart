@@ -1,3 +1,4 @@
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -126,7 +127,7 @@ class _TeachersPageState extends State<TeachersPage> {
     Widget newButton() => ElevatedButton.icon(
           style: ElevatedButton.styleFrom(minimumSize: _kBtnSize),
           onPressed: () => _create(api),
-          icon: const Icon(Icons.person_add_alt_1_rounded, size: 18),
+          icon: const Icon(LucideIcons.userPlus, size: 18),
           label: Text(t('Novo professor', 'New teacher', 'Nuevo profesor')),
         );
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -165,7 +166,7 @@ class _TeachersPageState extends State<TeachersPage> {
               if (rows.isEmpty) {
                 final filtered = _search.isNotEmpty || _status.isNotEmpty;
                 return EmptyState(
-                  icon: Icons.school_outlined,
+                  icon: LucideIcons.graduationCap,
                   message: filtered
                       ? t('Nenhum professor encontrado com esses filtros.', 'No teachers match these filters.', 'Ningún profesor coincide con estos filtros.')
                       : t('Nenhum professor cadastrado ainda.', 'No teachers registered yet.', 'Aún no hay profesores registrados.'),
@@ -336,7 +337,7 @@ class _TeacherDetailPageState extends State<TeacherDetailPage> {
         alignment: Alignment.centerLeft,
         child: TextButton.icon(
           onPressed: () => context.go('/partners/teachers'),
-          icon: const Icon(Icons.arrow_back_rounded, size: 18),
+          icon: const Icon(LucideIcons.arrowLeft, size: 18),
           label: Text(t('Professores', 'Teachers', 'Profesores')),
         ),
       ),
@@ -365,7 +366,7 @@ class _TeacherBody extends StatelessWidget {
     final history = (data['history'] as List).map((e) => Map<String, dynamic>.from(e as Map)).toList();
     final status = '${p['status']}';
     final link = referralLink('${p['referral_code']}');
-    final hintStyle = TextStyle(fontSize: 12, color: c.textHint);
+    final hintStyle = TextStyle(fontSize: 12, color: c.muted);
 
     Future<void> setStatus(String s, String title, String msg) async {
       final ok = await confirmDialog(context, title: title, message: msg, action: t('Confirmar', 'Confirm', 'Confirmar'), danger: s != 'active');
@@ -442,7 +443,7 @@ class _TeacherBody extends StatelessWidget {
               Expanded(child: SelectableText(link)),
               IconButton(
                 tooltip: t('Copiar', 'Copy', 'Copiar'),
-                icon: const Icon(Icons.copy_rounded, size: 18),
+                icon: const Icon(LucideIcons.copy, size: 18),
                 onPressed: () async {
                   await Clipboard.setData(ClipboardData(text: link));
                   if (context.mounted) {
@@ -492,7 +493,7 @@ class _TeacherBody extends StatelessWidget {
           ]),
           const SizedBox(height: kCardGap),
           if (students.isEmpty)
-            EmptyState(icon: Icons.groups_outlined, message: t('Nenhum aluno vinculado.', 'No linked students.', 'Sin alumnos vinculados.'))
+            EmptyState(icon: LucideIcons.users, message: t('Nenhum aluno vinculado.', 'No linked students.', 'Sin alumnos vinculados.'))
           else
             PortalTable(
               columns: [
@@ -516,7 +517,7 @@ class _TeacherBody extends StatelessWidget {
       Panel(
         title: t('Histórico da parceria', 'Partnership history', 'Historial de la alianza'),
         child: history.isEmpty
-            ? EmptyState(icon: Icons.history_rounded, message: t('Sem registros.', 'No records.', 'Sin registros.'))
+            ? EmptyState(icon: LucideIcons.history, message: t('Sem registros.', 'No records.', 'Sin registros.'))
             : Column(children: [
                 for (final h in history)
                   KeyValue(t.dateTimeOf(h['at']), Text('${h['action']} · ${h['actor_name'] ?? '—'}')),

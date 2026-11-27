@@ -1,3 +1,4 @@
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
@@ -12,6 +13,19 @@ const double kWide = 900;
 
 /// Largura máxima do conteúdo (monitores grandes aproveitam a área; abaixo disso ocupa tudo).
 const double kContentMax = 1680;
+
+/// Tokens do portal derivados do tema (nunca cores fixas): texto auxiliar legível e borda discreta.
+extension PortalTokens on AppColors {
+  /// Texto auxiliar: entre o hint e o secundário (o hint puro ficava apagado demais).
+  Color get muted => Color.lerp(textHint, textSecondary, 0.6)!;
+
+  /// Borda de cartões: mais suave que a borda de campos.
+  Color get hairline => border.withValues(alpha: 0.65);
+}
+
+/// Plural simples nos 3 idiomas ("1 novo" / "2 novos").
+String plural(PortalStrings t, num n, {required String one, required String many, required String oneEn, required String manyEn, required String oneEs, required String manyEs}) =>
+    '${t.number(n)} ${n == 1 ? t(one, oneEn, oneEs) : t(many, manyEn, manyEs)}';
 
 /// Altura única dos controles de barra de ferramentas (busca, seletores, botões).
 const double kControlH = 44;
@@ -106,7 +120,7 @@ class Panel extends StatelessWidget {
       decoration: BoxDecoration(
         color: c.surface,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: c.border),
+        border: Border.all(color: c.hairline),
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         if (title != null)
@@ -115,7 +129,7 @@ class Panel extends StatelessWidget {
             child: Row(children: [
               Expanded(
                 child: Text(title!,
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16, color: c.textPrimary)),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16, letterSpacing: -0.1, color: c.textPrimary)),
               ),
               ?trailing,
             ]),
@@ -150,11 +164,11 @@ class StatCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: c.surface,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: c.border),
+        border: Border.all(color: c.hairline),
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start, children: [
         Row(children: [
-          if (icon != null) ...[Icon(icon, size: 16, color: c.primary), const SizedBox(width: 8)],
+          if (icon != null) ...[Icon(icon, size: 16, color: c.muted), const SizedBox(width: 8)],
           Expanded(
             child: Text(label,
                 maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 13, color: c.textSecondary)),
@@ -169,7 +183,7 @@ class StatCard extends StatelessWidget {
         if (hint != null)
           Padding(
             padding: const EdgeInsets.only(top: 4),
-            child: Text(hint!, style: TextStyle(fontSize: 12, color: c.textHint)),
+            child: Text(hint!, style: TextStyle(fontSize: 12, color: c.muted)),
           ),
       ]),
     );
@@ -363,7 +377,7 @@ class _LoaderState<T> extends State<Loader<T>> {
     if (_loading) return const Skeleton();
     return Panel(
       child: Column(children: [
-        Icon(Icons.error_outline_rounded, color: context.colors.error),
+        Icon(LucideIcons.circleAlert, color: context.colors.error),
         const SizedBox(height: 8),
         Text(errorText(t, _error!), textAlign: TextAlign.center),
         const SizedBox(height: 8),
@@ -393,7 +407,7 @@ class Skeleton extends StatelessWidget {
 }
 
 class EmptyState extends StatelessWidget {
-  const EmptyState({required this.message, this.icon = Icons.inbox_outlined, this.action, super.key});
+  const EmptyState({required this.message, this.icon = LucideIcons.inbox, this.action, super.key});
   final String message;
   final IconData icon;
   final Widget? action;
@@ -404,7 +418,7 @@ class EmptyState extends StatelessWidget {
       padding: const EdgeInsets.all(32),
       child: Center(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Icon(icon, size: 40, color: c.textHint),
+          Icon(icon, size: 40, color: c.muted),
           const SizedBox(height: 8),
           Text(message, textAlign: TextAlign.center, style: TextStyle(color: c.textSecondary)),
           if (action != null) ...[const SizedBox(height: 12), action!],
@@ -499,7 +513,7 @@ class PortalTable extends StatelessWidget {
                       child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                         SizedBox(
                           width: 110,
-                          child: Text(columns[j].label, style: TextStyle(fontSize: 12, color: c.textHint)),
+                          child: Text(columns[j].label, style: TextStyle(fontSize: 12, color: c.muted)),
                         ),
                         Expanded(child: Align(alignment: Alignment.centerLeft, child: rows[i][j])),
                       ]),
@@ -533,12 +547,12 @@ class Pager extends StatelessWidget {
         IconButton(
           tooltip: t('Anterior', 'Previous', 'Anterior'),
           onPressed: offset > 0 ? () => onPage((offset - limit).clamp(0, total)) : null,
-          icon: const Icon(Icons.chevron_left_rounded),
+          icon: const Icon(LucideIcons.chevronLeft),
         ),
         IconButton(
           tooltip: t('Próxima', 'Next', 'Siguiente'),
           onPressed: offset + limit < total ? () => onPage(offset + limit) : null,
-          icon: const Icon(Icons.chevron_right_rounded),
+          icon: const Icon(LucideIcons.chevronRight),
         ),
       ]),
     );
@@ -576,7 +590,7 @@ class _SearchBoxState extends State<SearchBox> {
           textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(
             hintText: widget.hint,
-            prefixIcon: const Icon(Icons.search_rounded, size: 20),
+            prefixIcon: const Icon(LucideIcons.search, size: 20),
             contentPadding: const EdgeInsets.symmetric(horizontal: 12),
           ),
           onChanged: (v) {
@@ -685,6 +699,218 @@ class PortalTabs<T> extends StatelessWidget {
   }
 }
 
+/// Ícone em fundo suave (usar só nos indicadores principais, não em todo ícone do sistema).
+class IconChip extends StatelessWidget {
+  const IconChip(this.icon, {this.tone = Tone.info, this.size = 40, super.key});
+  final IconData icon;
+  final Tone tone;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final color = switch (tone) {
+      Tone.good => c.success,
+      Tone.warn => c.warning,
+      Tone.bad => c.error,
+      Tone.neutral => c.textSecondary,
+      Tone.info => c.primary,
+    };
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(color: color.withValues(alpha: 0.13), borderRadius: BorderRadius.circular(size / 3.2)),
+      child: Icon(icon, size: size * 0.5, color: color),
+    );
+  }
+}
+
+/// Indicador principal: número grande, ícone suave e legenda opcional.
+class HeroStat extends StatelessWidget {
+  const HeroStat({required this.label, required this.value, required this.icon, this.hint, this.tone = Tone.info, super.key});
+  final String label;
+  final String value;
+  final String? hint;
+  final IconData icon;
+  final Tone tone;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Container(
+      padding: const EdgeInsets.all(22),
+      decoration: BoxDecoration(
+        color: c.surface,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: c.hairline),
+      ),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Row(children: [
+          IconChip(icon, tone: tone),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(label,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 13.5, fontWeight: FontWeight.w600, color: c.textSecondary)),
+          ),
+        ]),
+        const SizedBox(height: 18),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          alignment: Alignment.centerLeft,
+          child: Text(value,
+              style: TextStyle(fontSize: 34, height: 1.05, fontWeight: FontWeight.w800, letterSpacing: -0.8, color: c.textPrimary)),
+        ),
+        if (hint != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: Text(hint!, style: TextStyle(fontSize: 12.5, color: c.muted)),
+          ),
+      ]),
+    );
+  }
+}
+
+/// Uma métrica dentro de um [MetricPanel] (rótulo, valor e nota).
+class Metric {
+  const Metric(this.label, this.value, {this.hint, this.tone});
+  final String label;
+  final String value;
+  final String? hint;
+  final Tone? tone;
+}
+
+/// Painel único que agrupa métricas relacionadas (no lugar de vários cards isolados).
+/// [footer] recebe, por exemplo, uma [DistributionBar].
+class MetricPanel extends StatelessWidget {
+  const MetricPanel({required this.title, required this.metrics, this.subtitle, this.footer, this.icon, this.columns = 4, super.key});
+  final String title;
+  final String? subtitle;
+  final IconData? icon;
+  final List<Metric> metrics;
+  final Widget? footer;
+
+  /// Colunas máximas em tela larga (reduz sozinho em telas menores).
+  final int columns;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Container(
+      padding: const EdgeInsets.all(22),
+      decoration: BoxDecoration(
+        color: c.surface,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: c.hairline),
+      ),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Row(children: [
+          if (icon != null) ...[Icon(icon, size: 18, color: c.primary), const SizedBox(width: 10)],
+          Expanded(
+            child: Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: c.textPrimary)),
+          ),
+        ]),
+        if (subtitle != null)
+          Padding(padding: const EdgeInsets.only(top: 4), child: Text(subtitle!, style: TextStyle(fontSize: 13, color: c.muted))),
+        const SizedBox(height: 18),
+        Builder(builder: (context) {
+          final w = MediaQuery.sizeOf(context).width;
+          final cols = (w >= 1200 ? columns : (w >= kWide ? (columns < 3 ? columns : 3) : 2)).clamp(1, metrics.length);
+          final rows = <Widget>[];
+          for (var i = 0; i < metrics.length; i += cols) {
+            final slice = metrics.skip(i).take(cols).toList();
+            rows.add(Padding(
+              padding: EdgeInsets.only(top: i == 0 ? 0 : 20),
+              child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                for (var j = 0; j < cols; j++) ...[
+                  if (j > 0) const SizedBox(width: 20),
+                  Expanded(child: j < slice.length ? _MetricCell(slice[j]) : const SizedBox.shrink()),
+                ],
+              ]),
+            ));
+          }
+          return Column(children: rows);
+        }),
+        if (footer != null) ...[const SizedBox(height: 20), footer!],
+      ]),
+    );
+  }
+}
+
+class _MetricCell extends StatelessWidget {
+  const _MetricCell(this.m);
+  final Metric m;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final color = switch (m.tone) {
+      Tone.good => c.success,
+      Tone.warn => c.warning,
+      Tone.bad => c.error,
+      _ => c.textPrimary,
+    };
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text(m.label, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 13, color: c.textSecondary)),
+      const SizedBox(height: 4),
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Text(m.value, style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800, letterSpacing: -0.4, color: color)),
+      ),
+      if (m.hint != null)
+        Padding(padding: const EdgeInsets.only(top: 2), child: Text(m.hint!, style: TextStyle(fontSize: 12, color: c.muted))),
+    ]);
+  }
+}
+
+/// Barra segmentada de distribuição (só com valores reais) e legenda.
+class DistributionBar extends StatelessWidget {
+  const DistributionBar({required this.segments, super.key});
+  final List<({String label, num value, Tone tone})> segments;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final t = PortalStrings.watch(context);
+    final total = segments.fold<num>(0, (a, e) => a + e.value);
+    if (total <= 0) {
+      return Text(t('Sem dados para distribuir ainda.', 'No data to distribute yet.', 'Aún no hay datos que distribuir.'),
+          style: TextStyle(fontSize: 12.5, color: c.muted));
+    }
+    Color colorOf(Tone tone) => switch (tone) {
+          Tone.good => c.success,
+          Tone.warn => c.warning,
+          Tone.bad => c.error,
+          Tone.neutral => c.textSecondary.withValues(alpha: 0.55),
+          Tone.info => c.primary,
+        };
+    final shown = segments.where((e) => e.value > 0).toList();
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      ClipRRect(
+        borderRadius: BorderRadius.circular(6),
+        child: SizedBox(
+          height: 10,
+          child: Row(children: [
+            for (final e in shown)
+              Expanded(flex: (e.value * 1000).round().clamp(1, 1 << 30), child: Container(height: 10, color: colorOf(e.tone))),
+          ]),
+        ),
+      ),
+      const SizedBox(height: 12),
+      Wrap(spacing: 18, runSpacing: 6, children: [
+        for (final e in segments)
+          Row(mainAxisSize: MainAxisSize.min, children: [
+            Container(width: 8, height: 8, decoration: BoxDecoration(color: colorOf(e.tone), shape: BoxShape.circle)),
+            const SizedBox(width: 6),
+            Text('${e.label} · ${t.number(e.value)}', style: TextStyle(fontSize: 12.5, color: c.textSecondary)),
+          ]),
+      ]),
+    ]);
+  }
+}
+
 class KeyValue extends StatelessWidget {
   const KeyValue(this.label, this.value, {super.key});
   final String label;
@@ -788,11 +1014,7 @@ class BarChart extends StatelessWidget {
                     // Valor negativo (estorno/saldo) vira barra mínima: altura negativa quebra o layout.
                     height: max <= 0 || values[i] <= 0 ? 2 : (values[i] / max * (height - 4)).toDouble() + 2,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [c.auraViolet, c.auraCyan],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                      ),
+                      color: c.primary.withValues(alpha: 0.85),
                       borderRadius: const BorderRadius.vertical(top: Radius.circular(3)),
                     ),
                   ),
@@ -803,8 +1025,8 @@ class BarChart extends StatelessWidget {
       ),
       const SizedBox(height: 4),
       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text(labels.isEmpty ? '' : labels.first, style: TextStyle(fontSize: 10, color: c.textHint)),
-        Text(labels.isEmpty ? '' : labels.last, style: TextStyle(fontSize: 10, color: c.textHint)),
+        Text(labels.isEmpty ? '' : labels.first, style: TextStyle(fontSize: 10, color: c.muted)),
+        Text(labels.isEmpty ? '' : labels.last, style: TextStyle(fontSize: 10, color: c.muted)),
       ]),
     ]);
   }
@@ -893,4 +1115,47 @@ Future<void> exportCsv(BuildContext context, Future<String> Function() fetch, St
   } catch (e) {
     messenger.showSnackBar(SnackBar(content: Text(errorText(t, e))));
   }
+}
+
+/// Tema do portal: refina botões, campos, diálogos e tooltips SÓ dentro do /partners
+/// (o aplicativo do aluno não é afetado). Parte do tema do app, sem cores fixas.
+ThemeData portalTheme(BuildContext context) {
+  final base = Theme.of(context);
+  final c = context.colors;
+  final shape = WidgetStatePropertyAll<OutlinedBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)));
+  ButtonStyle refine(ButtonStyle? s, {double h = kControlH}) => (s ?? const ButtonStyle()).merge(ButtonStyle(
+        minimumSize: WidgetStatePropertyAll(Size(0, h)),
+        shape: shape,
+        elevation: const WidgetStatePropertyAll(0),
+        textStyle: const WidgetStatePropertyAll(TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+        padding: const WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 18)),
+      ));
+  OutlineInputBorder border(Color color, [double w = 1]) =>
+      OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: color, width: w));
+  return base.copyWith(
+    elevatedButtonTheme: ElevatedButtonThemeData(style: refine(base.elevatedButtonTheme.style)),
+    filledButtonTheme: FilledButtonThemeData(style: refine(base.filledButtonTheme.style)),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+        style: refine(base.outlinedButtonTheme.style).merge(ButtonStyle(side: WidgetStatePropertyAll(BorderSide(color: c.border))))),
+    textButtonTheme: TextButtonThemeData(style: refine(base.textButtonTheme.style, h: 40)),
+    inputDecorationTheme: base.inputDecorationTheme.copyWith(
+      border: border(c.border),
+      enabledBorder: border(c.border),
+      focusedBorder: border(c.primary, 1.6),
+      errorBorder: border(c.error),
+      focusedErrorBorder: border(c.error, 1.6),
+      hintStyle: TextStyle(color: c.muted, fontSize: 14),
+      labelStyle: TextStyle(color: c.textSecondary),
+    ),
+    dialogTheme: base.dialogTheme.copyWith(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16), side: BorderSide(color: c.hairline)),
+      titleTextStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: c.textPrimary),
+    ),
+    tooltipTheme: base.tooltipTheme.copyWith(
+      waitDuration: const Duration(milliseconds: 350),
+      textStyle: const TextStyle(fontSize: 12, color: Colors.white),
+      decoration: BoxDecoration(color: const Color(0xFF111827), borderRadius: BorderRadius.circular(8)),
+    ),
+    dividerTheme: DividerThemeData(color: c.hairline, space: 1, thickness: 1),
+  );
 }

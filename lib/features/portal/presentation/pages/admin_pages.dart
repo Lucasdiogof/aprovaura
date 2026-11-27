@@ -1,3 +1,4 @@
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'dart:convert';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -122,7 +123,7 @@ class _RequestsPageState extends State<RequestsPage> {
             final rows = _rows(d['rows']);
             if (rows.isEmpty) {
               return EmptyState(
-                icon: Icons.swap_horiz_rounded,
+                icon: LucideIcons.clipboardList,
                 message: t('Nenhuma solicitação nesta situação.', 'No requests in this status.', 'Sin solicitudes en este estado.'),
               );
             }
@@ -169,7 +170,7 @@ class _RequestsPageState extends State<RequestsPage> {
                           : Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                               Text('${t.dateOf(r['reviewed_at'])} · ${r['reviewer_name'] ?? '—'}', style: _small(context)),
                               if (r['review_note'] != null)
-                                Text('${r['review_note']}', style: TextStyle(fontSize: _kSmallText, color: c.textHint)),
+                                Text('${r['review_note']}', style: TextStyle(fontSize: _kSmallText, color: c.muted)),
                             ]),
                     ],
                 ],
@@ -281,7 +282,7 @@ class _SubscriptionsPageState extends State<SubscriptionsPage> {
               final rows = _rows(d['rows']);
               if (rows.isEmpty) {
                 return EmptyState(
-                  icon: Icons.workspace_premium_outlined,
+                  icon: LucideIcons.creditCard,
                   message: t('Nenhum registro para estes filtros.', 'No records for these filters.', 'Sin registros para estos filtros.'),
                 );
               }
@@ -548,11 +549,11 @@ class _SettingsBodyState extends State<_SettingsBody> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        if (locked) ...[Icon(Icons.lock_outline_rounded, size: 16, color: c.textHint), const SizedBox(width: 8)],
+        if (locked) ...[Icon(LucideIcons.lock, size: 16, color: c.muted), const SizedBox(width: 8)],
         Expanded(
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(label, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: locked ? c.textSecondary : c.textPrimary)),
-            if (desc != null) Text(desc, style: TextStyle(fontSize: _kSmallText, color: c.textHint)),
+            if (desc != null) Text(desc, style: TextStyle(fontSize: _kSmallText, color: c.muted)),
           ]),
         ),
         const SizedBox(width: 12),
@@ -563,7 +564,7 @@ class _SettingsBodyState extends State<_SettingsBody> {
 
   Widget _note(BuildContext context, String text) => Padding(
         padding: const EdgeInsets.only(top: 8),
-        child: Text(text, style: TextStyle(fontSize: _kHintText, color: context.colors.textHint)),
+        child: Text(text, style: TextStyle(fontSize: _kHintText, color: context.colors.muted)),
       );
 
   Widget _grid(List<Widget> children) => LayoutBuilder(builder: (context, box) {
@@ -642,7 +643,7 @@ class _SettingsBodyState extends State<_SettingsBody> {
           ),
           const SizedBox(height: 8),
           Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Icon(Icons.lock_outline_rounded, size: 16, color: colors.textHint),
+            Icon(LucideIcons.lock, size: 16, color: colors.muted),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
@@ -808,7 +809,7 @@ class _AuditPageState extends State<AuditPage> {
                   _to = r.end;
                 });
               },
-              icon: const Icon(Icons.date_range_rounded, size: 18),
+              icon: const Icon(LucideIcons.calendarRange, size: 18),
               label: Text(_from == null ? t('Período', 'Period', 'Periodo') : '${t.date(_from)} – ${t.date(_to)}'),
             ),
           ),
@@ -819,7 +820,7 @@ class _AuditPageState extends State<AuditPage> {
                 _from = null;
                 _to = null;
               }),
-              icon: const Icon(Icons.close_rounded),
+              icon: const Icon(LucideIcons.x),
             ),
         ],
       ),
@@ -838,7 +839,7 @@ class _AuditPageState extends State<AuditPage> {
           builder: (context, d, _) {
             final rows = _rows(d['rows']);
             if (rows.isEmpty) {
-              return EmptyState(icon: Icons.fact_check_outlined, message: t('Nenhum registro encontrado.', 'No records found.', 'No se encontraron registros.'));
+              return EmptyState(icon: LucideIcons.shieldCheck, message: t('Nenhum registro encontrado.', 'No records found.', 'No se encontraron registros.'));
             }
             return Column(children: [
               PortalTable(
@@ -865,7 +866,7 @@ class _AuditPageState extends State<AuditPage> {
                       StatusBadge(t('Registrada', 'Recorded', 'Registrada'), tone: Tone.good),
                       Row(children: [
                         Expanded(child: Text('${r['note'] ?? t('Ver detalhes', 'View details', 'Ver detalles')}', maxLines: 2, overflow: TextOverflow.ellipsis)),
-                        const Icon(Icons.chevron_right_rounded, size: 18),
+                        const Icon(LucideIcons.chevronRight, size: 18),
                       ]),
                     ],
                 ],

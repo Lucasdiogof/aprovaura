@@ -1,3 +1,4 @@
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:aura/features/portal/data/portal_api.dart';
@@ -51,75 +52,130 @@ class _Body extends StatelessWidget {
     final totalUsers = _n(u, 'total');
     final inPeriod = t('no período', 'in period', 'en el periodo');
 
-    Widget section(String title, List<Widget> cards, {String? subtitle}) =>
-        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          SectionHeader(title, subtitle: subtitle),
-          CardGrid(children: cards),
-        ]);
-
+    String new1(num n) => plural(t, n, one: 'novo', many: 'novos', oneEn: 'new', manyEn: 'new', oneEs: 'nuevo', manyEs: 'nuevos');
     List<String> labels() => [for (final p in series) t.dateOf(p['date'])];
+    final pctStudents = totalUsers == 0 ? null : _n(u, 'students_with_referral') / totalUsers;
+
+    Widget twoCols(Widget a, Widget b) => LayoutBuilder(
+          builder: (context, box) => box.maxWidth >= kWide
+              ? IntrinsicHeight(
+                  child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                    Expanded(child: a),
+                    const SizedBox(width: kCardGap),
+                    Expanded(child: b),
+                  ]),
+                )
+              : Column(children: [a, const SizedBox(height: kCardGap), b]),
+        );
 
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      CardGrid(minWidth: 240, maxColumns: 4, children: [
-        StatCard(
-          icon: Icons.people_outline_rounded,
+      CardGrid(minWidth: 260, maxColumns: 4, children: [
+        HeroStat(
+          icon: LucideIcons.users,
           label: t('Total de usuários', 'Total users', 'Total de usuarios'),
           value: t.number(totalUsers),
-          hint: '${t.number(_n(u, 'new_in_period'))} ${t('novos', 'new', 'nuevos')} $inPeriod',
+          hint: '${new1(_n(u, 'new_in_period'))} $inPeriod',
         ),
-        StatCard(
-          icon: Icons.workspace_premium_outlined,
+        HeroStat(
+          icon: LucideIcons.creditCard,
+          tone: Tone.good,
           label: t('Assinantes Premium pagos', 'Paid Premium subscribers', 'Suscriptores Premium de pago'),
           value: t.number(_n(u, 'paid_active')),
+          hint: t('Compra real em Apple, Google ou Web', 'Real purchase on Apple, Google or Web', 'Compra real en Apple, Google o Web'),
         ),
-        StatCard(
-          icon: Icons.school_outlined,
+        HeroStat(
+          icon: LucideIcons.graduationCap,
           label: t('Professores parceiros ativos', 'Active partner teachers', 'Profesores socios activos'),
           value: t.number(_n(u, 'partners_active')),
-          hint: '${t.number(_n(u, 'partners_inactive'))} ${t('inativos', 'inactive', 'inactivos')}',
+          hint: plural(t, _n(u, 'partners_inactive'), one: 'inativo', many: 'inativos', oneEn: 'inactive', manyEn: 'inactive', oneEs: 'inactivo', manyEs: 'inactivos'),
         ),
-        StatCard(
-          icon: Icons.account_balance_wallet_outlined,
+        HeroStat(
+          icon: LucideIcons.wallet,
           label: t('Receita da Lucksrei', 'Lucksrei revenue', 'Ingresos de Lucksrei'),
           value: t.money(_n(f, 'lucksrei_cents')),
-          hint: t('Período; não é lucro.', 'Period; not profit.', 'Periodo; no es ganancia.'),
+          hint: t('Período; antes das despesas, não é lucro.', 'Period; before expenses, not profit.', 'Periodo; antes de gastos, no es ganancia.'),
         ),
       ]),
-      section(t('Usuários e crescimento', 'Users and growth', 'Usuarios y crecimiento'), [
-        StatCard(icon: Icons.person_add_alt_rounded, label: t('Novos no período', 'New in period', 'Nuevos en el periodo'), value: t.number(_n(u, 'new_in_period'))),
-        StatCard(icon: Icons.bolt_rounded, label: t('Ativos no período', 'Active in period', 'Activos en el periodo'), value: t.number(_n(u, 'active_in_period')), hint: t('Estudo ou uso do app', 'Studying or app use', 'Estudio o uso de la app')),
-        StatCard(icon: Icons.person_outline_rounded, label: t('Alunos com indicação', 'Students with referral', 'Alumnos con referido'), value: t.number(_n(u, 'students_with_referral'))),
-        StatCard(icon: Icons.person_off_outlined, label: t('Sem indicação', 'Without referral', 'Sin referido'), value: t.number(_n(u, 'students_without_referral'))),
-        StatCard(icon: Icons.mark_email_read_outlined, label: t('E-mails verificados', 'Verified e-mails', 'Correos verificados'), value: t.number(_n(u, 'verified_emails')), hint: t('Prova real de posse do e-mail', 'Proven mailbox ownership', 'Prueba real del correo')),
-      ]),
-      section(t('Assinaturas', 'Subscriptions', 'Suscripciones'), [
-        StatCard(label: t('Assinantes pagos', 'Paid subscribers', 'Suscriptores de pago'), value: t.number(_n(u, 'paid_active')), tone: Tone.good),
-        StatCard(label: t('Em período de teste', 'In trial', 'En prueba'), value: t.number(_n(u, 'trial_active'))),
-        StatCard(label: t('Testes expirados', 'Expired trials', 'Pruebas expiradas'), value: t.number(_n(u, 'trials_expired'))),
-        StatCard(label: t('Assinaturas expiradas', 'Expired subscriptions', 'Suscripciones expiradas'), value: t.number(_n(u, 'subscriptions_expired'))),
-        StatCard(label: t('Premium por cortesia', 'Courtesy Premium', 'Premium de cortesía'), value: t.number(_n(u, 'courtesy_active'))),
-        StatCard(label: t('Premium ativo (total)', 'Active Premium (total)', 'Premium activo (total)'), value: t.number(_n(u, 'premium_active')), hint: t('Inclui administradores e professores', 'Includes admins and teachers', 'Incluye administradores y profesores')),
-        StatCard(label: t('Conversão em assinatura', 'Subscription conversion', 'Conversión a suscripción'), value: t.percent(conv), hint: t('Assinantes ÷ quem teve teste', 'Subscribers ÷ trial users', 'Suscriptores ÷ con prueba')),
-      ]),
-      section(t('Engajamento', 'Engagement', 'Participación'), [
-        StatCard(label: t('Questões respondidas', 'Questions answered', 'Preguntas respondidas'), value: t.number(_n(s, 'questions_total')), hint: '${t.number(_n(s, 'questions_in_period'))} $inPeriod'),
-        StatCard(label: t('Média de acertos', 'Average accuracy', 'Promedio de aciertos'), value: t.percent(s['accuracy_total'] as num?), hint: '${t.percent(s['accuracy_in_period'] as num?)} $inPeriod'),
-        StatCard(label: t('Simulados realizados', 'Mock exams taken', 'Simulacros realizados'), value: t.number(_n(s, 'mock_exams_finished_total')), hint: '${t.number(_n(s, 'mock_exams_finished_in_period'))} $inPeriod'),
-        StatCard(label: t('Redações corrigidas', 'Essays graded', 'Redacciones corregidas'), value: t.number(_n(s, 'essays_evaluated_total')), hint: '${t.number(_n(s, 'essays_evaluated_in_period'))} $inPeriod'),
-      ]),
-      section(
-        t('Financeiro', 'Finance', 'Finanzas'),
-        subtitle: t('Valores do período selecionado.', 'Values for the selected period.', 'Valores del periodo seleccionado.'),
-        [
-          StatCard(label: t('Faturamento bruto', 'Gross revenue', 'Facturación bruta'), value: t.money(_n(f, 'gross_cents')), hint: '${t.number(_n(f, 'payments_count'))} ${t('pagamentos', 'payments', 'pagos')}'),
-          StatCard(label: t('Receita líquida', 'Net revenue', 'Ingresos netos'), value: t.money(_n(f, 'net_cents'))),
-          StatCard(label: t('Comissões de professores', 'Teacher commissions', 'Comisiones de profesores'), value: t.money(_n(f, 'commission_cents'))),
-          StatCard(label: t('Receita da Lucksrei', 'Lucksrei revenue', 'Ingresos de Lucksrei'), value: t.money(_n(f, 'lucksrei_cents')), hint: t('Antes de despesas operacionais; não é lucro.', 'Before operating expenses; not profit.', 'Antes de gastos operativos; no es ganancia.')),
-          StatCard(label: t('Taxas', 'Fees', 'Tarifas'), value: t.money(_n(f, 'fee_cents'))),
-          StatCard(label: t('Impostos registrados', 'Recorded taxes', 'Impuestos registrados'), value: t.money(_n(f, 'tax_cents'))),
-          StatCard(label: t('Repasses pendentes', 'Pending payouts', 'Pagos pendientes'), value: t.money(_n(f, 'pending_payouts_cents')), hint: t('Saldo atual de todos os professores', 'Current balance, all teachers', 'Saldo actual de todos los profesores')),
-          StatCard(label: t('Repasses realizados', 'Payouts made', 'Pagos realizados'), value: t.money(_n(f, 'paid_payouts_cents'))),
+      SectionHeader(t('Usuários e crescimento', 'Users and growth', 'Usuarios y crecimiento')),
+      MetricPanel(
+        icon: LucideIcons.userPlus,
+        title: t('Base de usuários', 'User base', 'Base de usuarios'),
+        subtitle: t('Atividade e origem dos cadastros no período.', 'Activity and sign-up origin in the period.', 'Actividad y origen de los registros en el periodo.'),
+        columns: 4,
+        metrics: [
+          Metric(t('Novos no período', 'New in period', 'Nuevos en el periodo'), t.number(_n(u, 'new_in_period'))),
+          Metric(t('Ativos no período', 'Active in period', 'Activos en el periodo'), t.number(_n(u, 'active_in_period')),
+              hint: t('Estudo ou uso do app', 'Studying or app use', 'Estudio o uso de la app')),
+          Metric(t('Alunos com indicação', 'Students with referral', 'Alumnos con referido'), t.number(_n(u, 'students_with_referral')),
+              hint: pctStudents == null ? null : '${t.percent(pctStudents)} ${t('da base', 'of the base', 'de la base')}'),
+          Metric(t('E-mails verificados', 'Verified e-mails', 'Correos verificados'), t.number(_n(u, 'verified_emails')),
+              hint: t('Prova real de posse do e-mail', 'Proven mailbox ownership', 'Prueba real del correo')),
         ],
+        footer: DistributionBar(segments: [
+          (label: t('Com indicação', 'With referral', 'Con referido'), value: _n(u, 'students_with_referral'), tone: Tone.info),
+          (label: t('Sem indicação', 'Without referral', 'Sin referido'), value: _n(u, 'students_without_referral'), tone: Tone.neutral),
+        ]),
+      ),
+      SectionHeader(t('Assinaturas', 'Subscriptions', 'Suscripciones'),
+          subtitle: t('Acesso gratuito nunca entra na receita.', 'Free access never counts as revenue.', 'El acceso gratuito nunca cuenta como ingreso.')),
+      MetricPanel(
+        icon: LucideIcons.creditCard,
+        title: t('Situação dos acessos Premium', 'Premium access status', 'Estado de los accesos Premium'),
+        columns: 6,
+        metrics: [
+          Metric(t('Assinantes pagos', 'Paid subscribers', 'Suscriptores de pago'), t.number(_n(u, 'paid_active')), tone: Tone.good),
+          Metric(t('Em período de teste', 'In trial', 'En prueba'), t.number(_n(u, 'trial_active'))),
+          Metric(t('Premium por cortesia', 'Courtesy Premium', 'Premium de cortesía'), t.number(_n(u, 'courtesy_active'))),
+          Metric(t('Conversão em assinatura', 'Subscription conversion', 'Conversión a suscripción'), t.percent(conv),
+              hint: t('Assinantes ÷ quem teve teste', 'Subscribers ÷ trial users', 'Suscriptores ÷ con prueba')),
+          Metric(t('Testes expirados', 'Expired trials', 'Pruebas expiradas'), t.number(_n(u, 'trials_expired'))),
+          Metric(t('Assinaturas expiradas', 'Expired subscriptions', 'Suscripciones expiradas'), t.number(_n(u, 'subscriptions_expired'))),
+        ],
+        footer: DistributionBar(segments: [
+          (label: t('Pagos', 'Paid', 'De pago'), value: _n(u, 'paid_active'), tone: Tone.good),
+          (label: t('Em teste', 'Trial', 'Prueba'), value: _n(u, 'trial_active'), tone: Tone.warn),
+          (label: t('Cortesia', 'Courtesy', 'Cortesía'), value: _n(u, 'courtesy_active'), tone: Tone.info),
+          (
+            label: t('Professores e administradores', 'Teachers and admins', 'Profesores y administradores'),
+            value: (_n(u, 'premium_active') - _n(u, 'paid_active') - _n(u, 'trial_active') - _n(u, 'courtesy_active')).clamp(0, 1 << 30),
+            tone: Tone.neutral,
+          ),
+        ]),
+      ),
+      SectionHeader(t('Engajamento e finanças', 'Engagement and finance', 'Participación y finanzas')),
+      twoCols(
+        MetricPanel(
+          icon: LucideIcons.chartLine,
+          title: t('Estudo', 'Study', 'Estudio'),
+          columns: 2,
+          metrics: [
+            Metric(t('Questões respondidas', 'Questions answered', 'Preguntas respondidas'), t.number(_n(s, 'questions_total')),
+                hint: '${t.number(_n(s, 'questions_in_period'))} $inPeriod'),
+            Metric(t('Média de acertos', 'Average accuracy', 'Promedio de aciertos'), t.percent(s['accuracy_total'] as num?),
+                hint: '${t.percent(s['accuracy_in_period'] as num?)} $inPeriod'),
+            Metric(t('Simulados realizados', 'Mock exams taken', 'Simulacros realizados'), t.number(_n(s, 'mock_exams_finished_total')),
+                hint: '${t.number(_n(s, 'mock_exams_finished_in_period'))} $inPeriod'),
+            Metric(t('Redações corrigidas', 'Essays graded', 'Redacciones corregidas'), t.number(_n(s, 'essays_evaluated_total')),
+                hint: '${t.number(_n(s, 'essays_evaluated_in_period'))} $inPeriod'),
+          ],
+        ),
+        MetricPanel(
+          icon: LucideIcons.landmark,
+          title: t('Financeiro do período', 'Period finance', 'Finanzas del periodo'),
+          subtitle: t('A receita da Lucksrei está no topo da página.', 'Lucksrei revenue is at the top of the page.', 'Los ingresos de Lucksrei están al inicio de la página.'),
+          columns: 3,
+          metrics: [
+            Metric(t('Faturamento bruto', 'Gross revenue', 'Facturación bruta'), t.money(_n(f, 'gross_cents')),
+                hint: plural(t, _n(f, 'payments_count'), one: 'pagamento', many: 'pagamentos', oneEn: 'payment', manyEn: 'payments', oneEs: 'pago', manyEs: 'pagos')),
+            Metric(t('Receita líquida', 'Net revenue', 'Ingresos netos'), t.money(_n(f, 'net_cents'))),
+            Metric(t('Comissões de professores', 'Teacher commissions', 'Comisiones de profesores'), t.money(_n(f, 'commission_cents'))),
+            Metric(t('Taxas e impostos', 'Fees and taxes', 'Tarifas e impuestos'), t.money(_n(f, 'fee_cents') + _n(f, 'tax_cents')),
+                hint: t('Taxas das plataformas + impostos registrados', 'Platform fees + recorded taxes', 'Tarifas de plataformas + impuestos registrados')),
+            Metric(t('Repasses pendentes', 'Pending payouts', 'Pagos pendientes'), t.money(_n(f, 'pending_payouts_cents')),
+                hint: t('Saldo atual, todos os professores', 'Current balance, all teachers', 'Saldo actual, todos los profesores')),
+            Metric(t('Repasses realizados', 'Payouts made', 'Pagos realizados'), t.money(_n(f, 'paid_payouts_cents'))),
+          ],
+        ),
       ),
       SectionHeader(t('Evolução diária', 'Daily evolution', 'Evolución diaria')),
       Panel(
