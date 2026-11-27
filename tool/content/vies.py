@@ -55,6 +55,26 @@ def merge():
     for e in erros: print("  ERRO:", e)
 
 
+def merge_req():
+    """Reescritas das rejeitadas (state/vies/req/out): revalida deterministicamente e volta a fila cega (ou marca descartada p/ revisao humana)."""
+    RO = os.path.join(D, "state", "vies", "req", "out"); regs = {r["id"]: r for r in lines(REG)}
+    ex_p = os.path.join(D, "state", "vies", "blind", "exported.json"); done = set(json.load(open(ex_p))) if os.path.exists(ex_p) else set()
+    c = collections.Counter()
+    for f in glob.glob(os.path.join(RO, "*.jsonl")):
+        for n in lines(f):
+            r = regs.get(n["id"])
+            if not r or r["status"] not in ("rejeitada_deterministica", "rejeitada_cega"): continue
+            r.setdefault("tentativas_anteriores", []).append({"alternativas": r["alternativas"], "status": r["status"], "erros": r.get("erros_deterministicos")})
+            if n.get("descartar"):
+                r["status"] = "descartada_requer_revisao_humana"; r["nota_descarte"] = n.get("nota", ""); c[r["status"]] += 1; continue
+            e = validar({"correct_index": r["correct_index"]}, n)
+            r.update(alternativas=n["alternativas"], racional=n.get("racional", ""), erros_deterministicos=e, resolucao_cega=None,
+                     status="rejeitada_deterministica" if e else "aguardando_validacao_cega")
+            done.discard(n["id"]); c[r["status"]] += 1
+    open(REG, "w", encoding="utf-8", newline="\n").write("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in sorted(regs.values(), key=lambda r: r["id"])))
+    json.dump(sorted(done), open(ex_p, "w")); print(dict(c))
+
+
 def blind_export():
     os.makedirs(BIN, exist_ok=True); os.makedirs(BOUT, exist_ok=True)
     ex_p = os.path.join(D, "state", "vies", "blind", "exported.json")
@@ -104,4 +124,4 @@ def report():
 
 
 if __name__ == "__main__":
-    {"merge": merge, "blind-export": blind_export, "ingest-blind": ingest_blind, "report": report}[sys.argv[1]]()
+    {"merge": merge, "blind-export": blind_export, "ingest-blind": ingest_blind, "merge-req": merge_req, "report": report}[sys.argv[1]]()

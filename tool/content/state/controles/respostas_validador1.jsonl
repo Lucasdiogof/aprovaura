@@ -1,0 +1,97 @@
+{"id": "c-a8be3ca0c2", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-05452c02e4", "veredito": "defeito", "tipo_defeito": "gabarito_trocado", "confianca": "alta", "nota": "Correta é semiárido (idx 2), gabarito aponta subtropical"}
+{"id": "c-baed1b7624", "veredito": "defeito", "tipo_defeito": "distratores_absurdos", "confianca": "alta", "nota": "3 distratores absurdos"}
+{"id": "c-1386c08dcc", "veredito": "defeito", "tipo_defeito": "duas_corretas", "confianca": "alta", "nota": "Alt 0 e 2 são a mesma resposta"}
+{"id": "c-e62cc6bd6a", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-a34581ba44", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-f96c10dc27", "veredito": "defeito", "tipo_defeito": "explicacao_contraditoria", "confianca": "alta", "nota": "Explicação cita letra B/osmose sem relação"}
+{"id": "c-f39ff65ece", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-797fabc029", "veredito": "defeito", "tipo_defeito": "distratores_absurdos", "confianca": "alta", "nota": "3 distratores absurdos"}
+{"id": "c-feee81b344", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-6725d38a15", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-d4f17ffb8f", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-26029afb1c", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-1246ae5627", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-8f25284af4", "veredito": "defeito", "tipo_defeito": "enunciado_ambiguo", "confianca": "media", "nota": "Enunciado truncado (\"fim da mundial\")"}
+{"id": "c-226e52b85e", "veredito": "defeito", "tipo_defeito": "citacao_alterada", "confianca": "alta", "nota": "Definições estão no art. 8º, não art. 22"}
+{"id": "c-5ca1c5c42b", "veredito": "defeito", "tipo_defeito": "distratores_absurdos", "confianca": "alta", "nota": "3 distratores absurdos"}
+{"id": "c-31b0bc2d19", "veredito": "defeito", "tipo_defeito": "explicacao_contraditoria", "confianca": "alta", "nota": "Explicação diz letra B/Júlio Prestes, gabarito Washington Luís"}
+{"id": "c-c581156354", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-4e0180a8fb", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-63c52e11ef", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-4201e184f0", "veredito": "defeito", "tipo_defeito": "duas_corretas", "confianca": "alta", "nota": "Alt 2 e 3 equivalentes"}
+{"id": "c-3a38f4f6cd", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-8161676149", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-5d3f55fc9f", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-2e94a10da5", "veredito": "defeito", "tipo_defeito": "gabarito_trocado", "confianca": "alta", "nota": "Correta é fluxo unidirecional (idx 3)"}
+{"id": "c-ab752eea42", "veredito": "defeito", "tipo_defeito": "nenhuma_correta", "confianca": "alta", "nota": "Nenhuma alternativa traz F=m·a"}
+{"id": "c-e227428074", "veredito": "defeito", "tipo_defeito": "enunciado_ambiguo", "confianca": "baixa", "nota": "Enunciado com palavras faltando"}
+{"id": "c-e3a4f399dd", "veredito": "defeito", "tipo_defeito": "gabarito_trocado", "confianca": "alta", "nota": "Correta é idx 3, gabarito aponta julgar moralmente"}
+{"id": "c-2711898c90", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-3b6480096c", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-f51dde2ccd", "veredito": "defeito", "tipo_defeito": "citacao_alterada", "confianca": "alta", "nota": "Eliminação está no art. 9º, não art. 26"}
+{"id": "c-beb12f3d06", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-2ebf39815f", "veredito": "defeito", "tipo_defeito": "nenhuma_correta", "confianca": "alta", "nota": "Nenhuma alt. descreve o cenário rural de Torto Arado"}
+{"id": "c-e0e2a885bd", "veredito": "defeito", "tipo_defeito": "gabarito_trocado", "confianca": "alta", "nota": "Correta é multifocais (idx 3)"}
+{"id": "c-62f7cb3ef8", "veredito": "defeito", "tipo_defeito": "distratores_absurdos", "confianca": "alta", "nota": "3 distratores absurdos"}
+{"id": "c-1ddc2c6c5d", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-e4b792415f", "veredito": "defeito", "tipo_defeito": "duas_corretas", "confianca": "alta", "nota": "Alt 2 e 3 equivalentes"}
+{"id": "c-4a7a8170db", "veredito": "defeito", "tipo_defeito": "enunciado_ambiguo", "confianca": "baixa", "nota": "Enunciado truncado, mas resposta inferível"}
+{"id": "c-f5f04b35b4", "veredito": "defeito", "tipo_defeito": "enunciado_ambiguo", "confianca": "media", "nota": "Frase em inglês corrompida/incompleta"}
+{"id": "c-db4cfd8405", "veredito": "defeito", "tipo_defeito": "gabarito_trocado", "confianca": "alta", "nota": "Correta é mecânicas/eletromagnéticas (idx 0)"}
+{"id": "c-b7f7c9c799", "veredito": "defeito", "tipo_defeito": "distratores_absurdos", "confianca": "alta", "nota": "3 distratores absurdos"}
+{"id": "c-8fb3318ec0", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-e6b0898aa2", "veredito": "defeito", "tipo_defeito": "gabarito_trocado", "confianca": "alta", "nota": "Correta é idx 2"}
+{"id": "c-4102ece384", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-e84832ee8e", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-60c9f9069b", "veredito": "defeito", "tipo_defeito": "distratores_absurdos", "confianca": "alta", "nota": "3 distratores absurdos"}
+{"id": "c-339bdf8e92", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-2f247b3acd", "veredito": "defeito", "tipo_defeito": "nenhuma_correta", "confianca": "alta", "nota": "Gabarito \"direito social\" absurdo; falta tempo de voo"}
+{"id": "c-da47704b61", "veredito": "defeito", "tipo_defeito": "duas_corretas", "confianca": "alta", "nota": "Alt 2 e 3 equivalentes; texto não fornecido"}
+{"id": "c-f51acc28f6", "veredito": "defeito", "tipo_defeito": "duas_corretas", "confianca": "alta", "nota": "Alt 1 e 2 equivalentes"}
+{"id": "c-4f4faff58a", "veredito": "defeito", "tipo_defeito": "explicacao_contraditoria", "confianca": "alta", "nota": "Explicação diz letra A/cadeira de rodas"}
+{"id": "c-d2ba549e6d", "veredito": "defeito", "tipo_defeito": "enunciado_ambiguo", "confianca": "media", "nota": "Manchete truncada; dado \"terceiro ano\" ausente"}
+{"id": "c-57506bb6d9", "veredito": "defeito", "tipo_defeito": "enunciado_ambiguo", "confianca": "baixa", "nota": "Enunciado truncado, resposta inferível"}
+{"id": "c-264cac1bcb", "veredito": "defeito", "tipo_defeito": "gabarito_trocado", "confianca": "alta", "nota": "Correta é idx 2"}
+{"id": "c-c4a2354b38", "veredito": "defeito", "tipo_defeito": "gabarito_trocado", "confianca": "alta", "nota": "200x50=10000 cal (idx 2)"}
+{"id": "c-4628301bdb", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-4029bb4216", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-9b2dcbbf59", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-10049c1dc7", "veredito": "defeito", "tipo_defeito": "explicacao_contraditoria", "confianca": "alta", "nota": "Explicação diz letra B/Santa Catarina"}
+{"id": "c-654b3aa55a", "veredito": "defeito", "tipo_defeito": "enunciado_ambiguo", "confianca": "alta", "nota": "Data substituída por \"determinado valor\""}
+{"id": "c-846933772e", "veredito": "defeito", "tipo_defeito": "citacao_alterada", "confianca": "alta", "nota": "Princípio da eficiência está no art. 37, não art. 50"}
+{"id": "c-8583c86169", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-48550b6472", "veredito": "defeito", "tipo_defeito": "enunciado_ambiguo", "confianca": "baixa", "nota": "Enunciado truncado, resposta inferível"}
+{"id": "c-3040f50f97", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-d1fb4363d3", "veredito": "defeito", "tipo_defeito": "citacao_alterada", "confianca": "alta", "nota": "Dado sensível: art. 5º, II (e 11), não art. 21"}
+{"id": "c-3787166bbd", "veredito": "defeito", "tipo_defeito": "gabarito_trocado", "confianca": "alta", "nota": "Lago Vitória = Nilo (idx 2)"}
+{"id": "c-0c5ef04555", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-13b4eff493", "veredito": "defeito", "tipo_defeito": "explicacao_contraditoria", "confianca": "alta", "nota": "Explicação cita letra D/100 J, mas calcula 50 J"}
+{"id": "c-e17d8856b0", "veredito": "defeito", "tipo_defeito": "explicacao_contraditoria", "confianca": "alta", "nota": "Explicação cita letra D/Hobbes desnecessário"}
+{"id": "c-561bf0ae3d", "veredito": "defeito", "tipo_defeito": "duas_corretas", "confianca": "alta", "nota": "Alt 0 e 1 equivalentes"}
+{"id": "c-818c7fe2a5", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-973ac7ddd8", "veredito": "defeito", "tipo_defeito": "duas_corretas", "confianca": "alta", "nota": "Alt 1 e 2 equivalentes"}
+{"id": "c-aa4a1e155d", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-ec80b24106", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-3f158da4ca", "veredito": "defeito", "tipo_defeito": "distratores_absurdos", "confianca": "alta", "nota": "3 distratores absurdos"}
+{"id": "c-6722175d90", "veredito": "defeito", "tipo_defeito": "duas_corretas", "confianca": "alta", "nota": "Alt 1 e 2 equivalentes"}
+{"id": "c-97a8679292", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-8e0d2b44d7", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-24ea1e4701", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-d568f6e7b9", "veredito": "defeito", "tipo_defeito": "nenhuma_correta", "confianca": "alta", "nota": "Gabarito \"Montesquieu\" sem sentido; falta a correta"}
+{"id": "c-68cd034fc1", "veredito": "defeito", "tipo_defeito": "nenhuma_correta", "confianca": "alta", "nota": "Falta \"documento forjado\"; gabarito Potosí absurdo"}
+{"id": "c-3ee6a3b966", "veredito": "defeito", "tipo_defeito": "nenhuma_correta", "confianca": "alta", "nota": "\"should\" ausente; gabarito é frase de outra questão"}
+{"id": "c-59426ea432", "veredito": "defeito", "tipo_defeito": "nenhuma_correta", "confianca": "alta", "nota": "Gabarito \"1992\"; nenhuma alt. correta"}
+{"id": "c-12f966dbc1", "veredito": "defeito", "tipo_defeito": "enunciado_ambiguo", "confianca": "media", "nota": "Data de fundação substituída por \"determinado valor\""}
+{"id": "c-abb5f625df", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-630eee26d0", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-3e8892c91f", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-e859557ac7", "veredito": "defeito", "tipo_defeito": "explicacao_contraditoria", "confianca": "alta", "nota": "Explicação cita letra C/membrana"}
+{"id": "c-4b6fd84172", "veredito": "defeito", "tipo_defeito": "distratores_absurdos", "confianca": "alta", "nota": "3 distratores absurdos"}
+{"id": "c-9abdce5187", "veredito": "defeito", "tipo_defeito": "citacao_alterada", "confianca": "alta", "nota": "Lazer é direito social no art. 6º, não art. 25"}
+{"id": "c-d3a06a52ad", "veredito": "defeito", "tipo_defeito": "nenhuma_correta", "confianca": "alta", "nota": "Resposta é 19, ausente nas alternativas"}
+{"id": "c-01b6cca94e", "veredito": "defeito", "tipo_defeito": "explicacao_contraditoria", "confianca": "alta", "nota": "Explicação cita letra B/diminuir movimento"}
+{"id": "c-3205d603c6", "veredito": "defeito", "tipo_defeito": "nenhuma_correta", "confianca": "alta", "nota": "Gabarito é frase sobre Hobbes; falta a correta"}
+{"id": "c-4697b24d07", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-fc3636a223", "veredito": "ok", "tipo_defeito": null, "confianca": "media", "nota": ""}
+{"id": "c-9affd668b9", "veredito": "defeito", "tipo_defeito": "duas_corretas", "confianca": "alta", "nota": "Alt 1 e 2 equivalentes"}

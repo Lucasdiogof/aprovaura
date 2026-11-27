@@ -46,3 +46,8 @@ Revisor independente grava `revisao/<area>_revisao.jsonl`: `{"id","parecer":"apr
 ## Estados
 `rascunho` → `aguardando_revisao` → `em_revisao` → `aprovada_validacao_automatizada` → (`revisao_especializada_pendente` p/ jurídico/contábil-normativo) → `publicavel`; saídas: `rejeitada` (com `motivo`), `desatualizada`.
 Somente `publicavel` pode ir para o SQL de importação em **staging** (nunca direto no catálogo ativo).
+
+## Validação e controles
+Protocolo completo em `docs/content/PROTOCOLO_VALIDACAO.md`. Concordância alta não prova qualidade: o validador só vale se detectar controles.
+`controles.py gerar --n 60 --seed 1` grava em `state/controles/`: `para_validador.jsonl` (`id` opaco `c-…`, `materia, enunciado, alternativas, gabarito, explicacao, referencias`; controles e íntegras misturados, sem marcador) e `verdade.jsonl` (`id, defeito|null, origem_id, fonte`; **nunca** mostrar ao validador).
+Resposta do validador, uma linha por id: `{"id","veredito":"ok|defeito","tipo_defeito","confianca","nota"}`. `controles.py avaliar <respostas.jsonl>` imprime sensibilidade por tipo, especificidade, F1 e `CALIBRADO` (sens ≥ 0,7 em todos os tipos e espec ≥ 0,85) ou `NÃO CALIBRADO — não usar como prova de qualidade`. Testes: `python test_controles.py`.
