@@ -6,6 +6,20 @@ Cada item: **Estado atual / Falta / Onde / Quem / Bloqueia lançamento? / Como v
 
 Auditoria do cofre (Etapa 10C): para o AprovaAura existem apenas `supabase.aprovaura.*` (secret e publishable) e `postgres.aprovaura.production.db-url`. **Não há** no cofre: PAT do Supabase para este projeto, Apple, Google, Cloudflare/GitHub para o AprovaAura. Resend e Mercado Pago estão `unassigned` (não usados até confirmação de titularidade).
 
+## Ações que realmente dependem do dono (27/11/2026)
+| # | Ação | Onde | Por quê | Custo | Bloqueia? |
+|---|---|---|---|---|---|
+| A | Informar o **endereço** do responsável e decidir **idade mínima**; opcionalmente 1 consulta jurídica sobre menores/IA/Termos | repasse ao agente; advogado | Termos/Política exigem endereço (Decreto 7.962); menores/ECA Digital é análise jurídica | consulta pontual (opcional) | Sim (Termos) |
+| B | **Mercado Pago:** decidir a aplicação de produção (reutilizar "Lucksrei - Payhip" isolando por `external_reference`, ou criar outra), copiar o segredo do webhook de produção para o cofre e **autorizar 1 Pix real de valor mínimo** | https://www.mercadopago.com.br/developers/panel/app | só o dono vê o segredo; Pix real não é testável no sandbox | taxa do MP sobre o valor mínimo | Sim, se a Web for o canal |
+| C | **Apple:** preencher localização/imagem/captura do grupo, nível dos produtos, backup do `.p8`, e enviar uma **nova versão com as assinaturas** à revisão | https://appstoreconnect.apple.com/apps/6817047910 | primeira assinatura só vai com nova versão | R$ 0 | Sim (iOS) |
+| D | **Google Play:** ativar os base plans, decidir **não usar RTDN** (a conciliação periódica cobre) e fazer 1 compra de teste com 2ª conta | https://play.google.com/console | produto está em rascunho | R$ 0 | Sim (Android) |
+| E | **Lojas:** criar senha da conta de revisão, Data Safety, App Privacy, classificação etária, screenshots, e **autorizar o envio** das versões | App Store Connect e Play Console | exigência de publicação | R$ 0 | Sim |
+| F | **Resend:** conferir o e-mail de cadastro na caixa de entrada; decidir plano pago se passar de ~60 cadastros/dia | https://resend.com/domains | cota grátis de 100/dia é da Lucksrei também | grátis; pago se crescer | Só para ligar a confirmação |
+| G | **Cloudflare:** confirmar plano Free e se o `studio-worker` do Beard divide o Workers AI; abrir o painel (Portal → Correção por IA) logado | https://dash.cloudflare.com/?to=/:account/workers/ai | o token do agente não lê o plano | R$ 0 | Só a correção por IA |
+| H | **Autorizar** (na ativação) criar `pg_cron`/`pg_net` e o agendamento da conciliação, e desligar `apple/sandbox` | resposta ao agente | extensões em produção exigem autorização | R$ 0 | Sim (conciliação) |
+| I | Baixar 1 relatório de liberações do Mercado Pago (qualquer período com venda) e entregar ao agente | https://www.mercadopago.com.br/balance/reports | validar o importador sem inventar formato | R$ 0 | Só o 1º repasse |
+| J | **Decisão final de ativação** (`enforcement_enabled`, e-mail obrigatório, `min_version_*`) | resposta ao agente | passos 14–18 do plano | R$ 0 | Sim |
+
 | # | Item | Estado atual | Falta | Onde | Quem | Bloqueia? | Como validar |
 |---|---|---|---|---|---|---|---|
 | 1 | PAT do Supabase | **FEITO (24/11)**: no cofre (`supabase.aprovaura.production.pat`), restrito ao projeto `cesuqfgrtcitatxvokez` | nada | cofre | — | Não | lista só o projeto aura; org retorna 403 |

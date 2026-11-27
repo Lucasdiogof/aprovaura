@@ -62,7 +62,7 @@ Estado em 25/11/2026. Nenhum valor secreto neste documento. **Regra:** só está
 - A conciliação agendada `payments-reconcile` usa o mesmo helper (`appleOfficialEvent`), mas **não foi executada** (exige `CRON_SECRET`); o `refresh` do usuário exerce a mesma rotina.
 
 ### Ainda não exercido / limitações da Apple
-- Expiração (anual de teste vence 17:45:32 UTC de 25/11) e restauração depois de expirar: **pendentes** até o vencimento.
+- Expiração: **OK (verificado em 27/11)**: a Apple entregou o evento `expired` em 25/11 17:45 UTC e o banco ficou `expired`. Restauração depois de expirar: ainda não exercida.
 - **Reembolso e revogação:** o Sandbox oficial não tem como gerar; ficam só SIMULADOS. Em produção dependem de `REFUND`/`REVOKE` reais.
 - **Carência e falha de pagamento (billing retry):** o Sandbox não força falha de cobrança; além disso o período de tolerância não está configurado no ASC (decisão comercial). Só simulado.
 - **Compra cancelada / interrompida / pendente (Ask to Buy):** não executadas no iPhone.

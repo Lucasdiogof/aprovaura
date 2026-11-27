@@ -13,7 +13,8 @@ psqlx <<'SQL'
 create role anon nologin; create role authenticated nologin; create role service_role nologin bypassrls; create role authenticator noinherit login;
 create schema auth; create schema extensions; create extension if not exists pgcrypto with schema extensions;
 create table auth.users (id uuid primary key default gen_random_uuid(), email text, email_confirmed_at timestamptz,
-  raw_user_meta_data jsonb default '{}', created_at timestamptz default now(), last_sign_in_at timestamptz, banned_until timestamptz);
+  raw_user_meta_data jsonb default '{}', created_at timestamptz default now(), last_sign_in_at timestamptz, banned_until timestamptz,
+  instance_id uuid, aud text, role text, updated_at timestamptz default now(), encrypted_password text, confirmation_sent_at timestamptz);
 create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('request.jwt.claim.sub', true), '')::uuid $$;
 create function auth.jwt() returns jsonb language sql stable as $$ select '{}'::jsonb $$;
 create function auth.role() returns text language sql stable as $$ select current_setting('role', true) $$;
@@ -21,6 +22,6 @@ grant usage on schema public, auth to anon, authenticated, service_role;
 SQL
 FILES="${BASE_FILES:-supabase/profiles_schema.sql supabase/catalog_schema.sql supabase/questions_schema.sql supabase/difficulty_schema.sql supabase/progress_schema.sql supabase/essays.sql supabase/xp_schema.sql supabase/quiz_xp_ledger.sql supabase/streaks_schema.sql supabase/favorites_schema.sql supabase/error_review_schema.sql supabase/mock_exams.sql}"
 for f in $FILES supabase/migrations/*.sql; do
-  if psqlx -f - < "$f" >/tmp/empty_db_out.txt 2>&1; then echo "OK   $f"; else echo "FAIL $f"; head -5 /tmp/empty_db_out.txt; break; fi
+  if psqlx -f - < "$f" >${TMPDIR:-/tmp}/empty_db_out.txt 2>&1; then echo "OK   $f"; else echo "FAIL $f"; head -5 ${TMPDIR:-/tmp}/empty_db_out.txt; break; fi
 done
 [ "${KEEP:-0}" = 1 ] || docker rm -f $NAME >/dev/null 2>&1

@@ -5,6 +5,8 @@ All notable changes to this project are documented in this file.
 ## [Unreleased]
 
 ### Docs
+- `docs/release/HOMOLOGACAO_FINAL_2026-11-27.md` and `docs/legal/EXIGENCIAS_E_DECISOES.md`: final homologation results and organised legal requirements.
+- New local-only test suites: `tool/db/partner_program_tests.py`, `google_reconcile_tests.py`, `email_activation_tests.py`; `empty_db_check.sh` stub fixed.
 - `docs/release/AUDITORIA_LANCAMENTO_COMERCIAL.md`: consolidated launch audit with per-area classification and the exact list of owner-side blockers.
 
 ### Changed

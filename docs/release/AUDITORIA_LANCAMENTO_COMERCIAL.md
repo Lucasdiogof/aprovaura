@@ -104,3 +104,17 @@ Legenda: **C** Concluída e homologada · **I** Implementada, não homologada ·
 **Não bloqueiam:** correção de redação por IA, PITR, HIBP, Small Business Program (recomendado), auditoria completa de acessibilidade (recomendada).
 
 **Nada nesta auditoria foi alterado em produção.**
+
+## Atualização 27/11/2026 (sprint final de homologação)
+Detalhe em `HOMOLOGACAO_FINAL_2026-11-27.md` e `docs/legal/EXIGENCIAS_E_DECISOES.md`. Mudanças de classe:
+| Item | Antes | Agora |
+|---|---|---|
+| Programa de professores (cadastro, ativação, Premium gratuito, indicação, vínculo, comissões 50%/personalizada, privacidade, isolamento, repasses, estornos, encerramento, reativação) | I | **C** no banco (93/93, banco descartável); UI do portal só por widget tests, nunca logada em produção |
+| Portal admin (professores, usuários, pagamentos, comissões, despesas, repasses) | I | **C** nas funções (admin e negação a não-admin); UI logada **D** |
+| Confirmação obrigatória de e-mail | I + B | **Preparada e reversível** (13/13); ligar continua **D + B**; cota Resend grátis compartilhada é decisão de custo |
+| Google Play sem RTDN | P | Lógica de conciliação **C** (23/23); agendamento viável e gratuito, **não instalado** (precisa autorização para criar `pg_cron`/`pg_net` na ativação) |
+| Apple: expiração | pendente | **C** (evento oficial `expired` processado em 25/11) |
+| Financeiro completo (bruto, taxa, imposto, líquido, comissão, Lucksrei, despesas, repasse dia 1 sem mínimo) | C | **C** (reconfirmado 83/83 + 93/93) |
+| Relatórios reais de Apple/Google/MP | D + B | **D**: bloqueia o primeiro repasse, não a abertura das vendas |
+| Exigências legais | P + D + B | Organizadas; **DPO externo não é obrigatório** (pequeno porte, com canal); endereço é o único dado cadastral faltante; análise jurídica restrita a menores/IA/revisão |
+Estado de produção inalterado: nada ativado, nada publicado. `apple/sandbox` segue ligado só para 3 usuários de teste.

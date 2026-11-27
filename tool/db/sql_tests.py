@@ -10,7 +10,7 @@ import psycopg
 
 u = urllib.parse.urlparse(os.environ["DBURL"].replace("[", "").replace("]", ""))
 conn = psycopg.connect(user=u.username, password=urllib.parse.unquote(u.password), host=u.hostname,
-                       port=u.port or 5432, dbname=u.path[1:], sslmode="require", autocommit=False)
+                       port=u.port or 5432, dbname=u.path[1:], sslmode=os.environ.get("DBSSL", "require"), autocommit=False)
 cur = conn.cursor()
 passed, failed = 0, []
 
