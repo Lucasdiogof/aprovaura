@@ -1,3 +1,3 @@
-tool/content/state/existing_questions.jsonl
-tool/content/state/db_check_output.txt
+state/existing_questions.jsonl
+state/db_check_output.txt
 __pycache__/
